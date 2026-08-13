@@ -1,0 +1,175 @@
+scene_id: "001"
+status: DRAFT
+screenplay_revision: "Approved Latest Indian English screenplay baseline; editable"
+
+source:
+  heading_ext: "EXT. BHAIGAARA BUFFER FOREST – ANAADHI’S RAISED CABIN – PRE-DAWN"
+  heading_int: "INT. ANAADHI’S RAISED CABIN – SAME TIME"
+  action_summary: >-
+    Black rain in a future-evolved Karnataka Western Ghats forest. Kendhalaa Police,
+    Paraane medical transports, Sarjanya and unofficial Allied Gangsters surround
+    Anaadhi's raised cabin. A thermal wrist display confirms one body inside. After
+    the command dialogue and a violent THUD, the scene moves inside: Anaadhi lies
+    face-down, sedated but conscious enough to drag his fingers toward a split
+    floorboard. His vision fractures into five Parallel Earth flashes before returning
+    to the present and his V.O. about different uniforms shaped by the same fear.
+  dialogue_source: creator_recorded
+
+continuity:
+  characters:
+    - POLICE_COMMANDER
+    - SARJANYA_OFFICER
+    - MEDICAL_SPECIALIST
+    - ANAADHI
+  locations:
+    - BHAIGAARA_BUFFER_FOREST
+    - ANAADHI_RAISED_CABIN_EXT
+    - ANAADHI_RAISED_CABIN_INT
+  props:
+    - POLICE_COMMANDER_WRIST_DISPLAY
+    - EMPTY_INJECTOR
+    - SPLIT_FLOORBOARD
+  costume_hair_notes:
+    - "Anaadhi: age 27, 6'4 / 193 cm, heavy-athletic forest-labour build, topless"
+    - "Anaadhi scalp completely shaved with several days rough regrowth; no long hair"
+
+shots:
+  - shot_id: "SC001_SH001"
+    status: DRAFT
+    duration_seconds: 6.0
+    purpose: "Establish Bhaigaara forest, black rain and raised cabin under covert encirclement"
+    framing: "very wide anamorphic establishing"
+    camera_motion: "slow controlled push through wet foreground roots"
+    visual_prompt: "Pre-dawn Karnataka Western Ghats evolved a century into the future, black rain, enormous roots, hidden sensors, raised timber cabin, black-kite-shaped propellerless police drones, medical transports camouflaged beneath areca leaves, cinematic realism"
+    negative_prompt: "text, subtitles, letterbox bars, daylight, generic western forest"
+    reference_assets: []
+    visible_speaker: null
+    lip_sync_required: false
+    dialogue_clip: null
+    bgm_cue: "low psychological opening pulse"
+    sfx_cues: ["black rain", "distant drone pressure", "forest insects", "sub-bass perimeter tension"]
+    regenerate: true
+
+  - shot_id: "SC001_SH002"
+    status: DRAFT
+    duration_seconds: 6.0
+    purpose: "Reveal the four-force perimeter and shared Paraane visual language"
+    framing: "wide lateral operation tableau"
+    camera_motion: "slow lateral drift"
+    visual_prompt: "Kendhalaa Police around a raised cabin, Sarjanya at rear perimeter, Allied Gangsters waiting behind official forces, Paraane medical vehicles under foliage camouflage, rain, restrained tactical realism, variations of the same Paraane emblem visible across forces"
+    negative_prompt: "battlefield firefight, muzzle flashes, daylight, text overlays"
+    reference_assets: []
+    visible_speaker: null
+    lip_sync_required: false
+    dialogue_clip: null
+    bgm_cue: "continue opening pulse"
+    sfx_cues: ["rain on leaves", "equipment handling", "distant boots in mud"]
+    regenerate: true
+
+  - shot_id: "SC001_SH003"
+    status: DRAFT
+    duration_seconds: 5.0
+    purpose: "Thermal confirmation: one body inside"
+    framing: "medium close insert on Police Commander's wrist and reflected cabin"
+    camera_motion: "minimal handheld micro-movement"
+    visual_prompt: "wet tactical wrist display in pre-dawn rain showing thermal silhouette of one human body inside raised wooden cabin, Police Commander partially visible, cinematic photorealism"
+    negative_prompt: "readable exposition text, sci-fi hologram clutter, letterbox bars"
+    reference_assets: []
+    visible_speaker: POLICE_COMMANDER
+    lip_sync_required: false
+    dialogue_clip: null
+    bgm_cue: "thin tension layer"
+    sfx_cues: ["wrist interface pulse", "radio static", "rain"]
+    regenerate: true
+
+  - shot_id: "SC001_SH004"
+    status: DRAFT
+    duration_seconds: 7.0
+    purpose: "Command exchange without requiring visible lip-sync"
+    framing: "intercut tactical profiles, helmets, hands, radios and medical case details"
+    camera_motion: "measured cuts"
+    visual_prompt: "police commander, Sarjanya officer and medical specialist communicating under black rain around cabin perimeter, faces often profile or partly obscured by rain and tactical framing, grounded Karnataka-future design"
+    negative_prompt: "visible mismatched speaking mouths, exaggerated military action, text"
+    reference_assets: []
+    visible_speaker: null
+    lip_sync_required: false
+    dialogue_clip: null
+    bgm_cue: "hold tension under creator dialogue"
+    sfx_cues: ["radio clicks", "rain", "fabric movement"]
+    regenerate: true
+
+  - shot_id: "SC001_SH005"
+    status: DRAFT
+    duration_seconds: 3.0
+    purpose: "Violent THUD shakes cabin and perimeter snaps to aim"
+    framing: "medium-wide cabin exterior"
+    camera_motion: "single impact jolt then hold"
+    visual_prompt: "raised forest cabin shudders violently from an unseen internal impact, surrounding officers instantly aim, black rain scattering from roof edges, no shots fired"
+    negative_prompt: "explosion, fireball, gunfire, daylight"
+    reference_assets: []
+    visible_speaker: null
+    lip_sync_required: false
+    dialogue_clip: null
+    bgm_cue: "brief drop before impact"
+    sfx_cues: ["massive interior THUD", "wood structure groan", "weapons raising", "rain"]
+    regenerate: true
+
+  - shot_id: "SC001_SH006"
+    status: DRAFT
+    duration_seconds: 8.0
+    purpose: "First interior reveal of sedated Anaadhi"
+    framing: "low floor-level wide/medium"
+    camera_motion: "slow push toward Anaadhi's hand"
+    visual_prompt: "inside canonical raised timber cabin, Anaadhi age 27, 6'4, heavy-athletic body built by forest labour, topless, face-down on wooden floor, scalp completely shaved with several days rough regrowth, wrists free, muscles failing from sedation, empty injector near hand, fingers dragging toward split floorboard, dark wet pre-dawn atmosphere"
+    negative_prompt: "long hair, full hairstyle, police inside, medic inside, Aarathi, ADK-7 cartridge, restraints, text, storyboard borders"
+    reference_assets: []
+    visible_speaker: ANAADHI
+    lip_sync_required: false
+    dialogue_clip: null
+    bgm_cue: "Anaadhi low internal motif begins"
+    sfx_cues: ["wood scrape under fingers", "strained breath", "rain through structure", "distant perimeter muffled"]
+    regenerate: true
+
+  - shot_id: "SC001_SH007"
+    status: DRAFT
+    duration_seconds: 10.0
+    purpose: "Five Parallel Earth fracture montage"
+    framing: "subject-anchored reality shards"
+    camera_motion: "controlled fracture transitions around a stable Anaadhi anchor"
+    visual_prompt: "Anaadhi's sedated vision fractures into five distinct realities: empty cabin beneath blue sunlight; same cabin burning while snow falls upward; Anaadhi already dead before operation begins; untouched alternate Anaadhi observing from behind transparent glass; futuristic forest city with luminous temple-gopura-shaped towers; surreal but photoreal cinematic continuity"
+    negative_prompt: "Aarathi variants, police attack, ADK-7 injection, captions, comic panels"
+    reference_assets: []
+    visible_speaker: null
+    lip_sync_required: false
+    dialogue_clip: null
+    bgm_cue: "parallel-earth harmonic fracture"
+    sfx_cues: ["reality shear", "reversed snow texture", "distant glass resonance", "low neural flutter"]
+    regenerate: true
+
+  - shot_id: "SC001_SH008"
+    status: DRAFT
+    duration_seconds: 8.0
+    purpose: "Return to present; fingers reach floor crack; operation closes around him"
+    framing: "extreme close hand-to-floor crack, then subtle widening"
+    camera_motion: "micro track with fingertips"
+    visual_prompt: "Anaadhi's weak fingers finally reach the split in the wooden floor, empty injector nearby, body still face-down beyond shallow focus, canonical cabin interior, pre-dawn black rain ambience, no other characters inside"
+    negative_prompt: "long hair, police inside, medics, Aarathi, injected needle, text"
+    reference_assets: []
+    visible_speaker: ANAADHI
+    lip_sync_required: false
+    dialogue_clip: null
+    bgm_cue: "leave space for Anaadhi V.O."
+    sfx_cues: ["finger on cracked wood", "breathing", "distant boots tightening perimeter", "rain"]
+    regenerate: true
+
+scene_audio:
+  dialogue_generated: false
+  bgm_required: true
+  sfx_required: true
+  ambience_required: true
+  creator_voice_files: []
+
+notes:
+  screenplay_can_change: true
+  revision_notes:
+    - "This is a production baseline only; any later approved Scene 001 rewrite replaces affected beats/shots."
