@@ -1,0 +1,51 @@
+project:
+  title: ANAADHI
+  target_runtime_minutes: 120
+  screenplay_mode: evolving
+  generation_mode: local_first
+
+picture:
+  aspect_ratio: "2.39:1"
+  width: 3840
+  height: 1608
+  fps: 30
+  baked_letterbox: false
+  default_shot_status: DRAFT
+
+voice:
+  generate_dialogue: false
+  creator_recorded_voice_is_master: true
+  lip_sync_mode: selective
+  preserve_dialogue_slots: true
+
+sound:
+  auto_generate_bgm: true
+  auto_generate_sfx: true
+  auto_generate_ambience: true
+  auto_generate_foley: true
+  auto_generate_spoken_voice: false
+  separate_bgm_sfx_stem: true
+
+revision:
+  allow_scene_rewrite_after_generation: true
+  regenerate_only_affected_shots: true
+  scene_override_precedence: true
+
+reels:
+  - id: R01
+    scenes: "001-020"
+  - id: R02
+    scenes: "021-040"
+  - id: R03
+    scenes: "041-060"
+  - id: R04
+    scenes: "061-080"
+  - id: R05
+    scenes: "081-100"
+
+local_pipeline:
+  image_backend: comfyui
+  video_backend: comfyui
+  audio_bed_backend: local
+  paid_api_nodes_allowed: false
+  require_manual_approval_before_large_batch: true
