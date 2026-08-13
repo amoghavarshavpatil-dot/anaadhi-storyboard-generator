@@ -1,0 +1,43 @@
+scene_id: "000"
+status: DRAFT
+screenplay_revision: "working"
+
+source:
+  heading: ""
+  action_summary: ""
+  dialogue_source: creator_recorded
+
+continuity:
+  characters: []
+  locations: []
+  props: []
+  injuries: []
+  costume_hair_notes: []
+
+shots:
+  - shot_id: "SC000_SH001"
+    status: DRAFT
+    duration_seconds: 5.0
+    purpose: ""
+    framing: ""
+    camera_motion: ""
+    visual_prompt: ""
+    negative_prompt: ""
+    reference_assets: []
+    visible_speaker: null
+    lip_sync_required: false
+    dialogue_clip: null
+    bgm_cue: null
+    sfx_cues: []
+    regenerate: true
+
+scene_audio:
+  dialogue_generated: false
+  bgm_required: true
+  sfx_required: true
+  ambience_required: true
+  creator_voice_files: []
+
+notes:
+  screenplay_can_change: true
+  revision_notes: []
