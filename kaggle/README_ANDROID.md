@@ -17,7 +17,7 @@ Generate one approved still for `SC001_SH001` before scaling.
 The notebook uses `stabilityai/stable-diffusion-xl-base-1.0` through Hugging Face Diffusers. The model is open-licensed under OpenRAIL++ and can be replaced later through `MODEL_ID`.
 
 ## Output
-Working generations are created at 1344x576, a 2.333 ratio close to scope for efficient inference, then centre-cropped/resized to a clean 2.39:1 master still. Final movie assembly remains 3840x1608, 30 fps, without baked letterbox bars.
+Working generations use a 1344x640 SDXL canvas, then centre-crop to the exact same ratio as the 3840x1608 ANAADHI master. No black bars are added. Final movie assembly remains 3840x1608, 30 fps.
 
 ## Production rules
 - Do not generate the whole film in one notebook run.
