@@ -1,0 +1,180 @@
+version: 1
+phase: P1_VISUAL_REFERENCE_LOCK
+status: P1_WAITING_FOR_ASSETS
+
+rules:
+  approved_only: true
+  model_defaults_are_noncanonical: true
+  unresolved_assets_block_lock: true
+  adult_anaadhi_height_cm: 193
+  aspect_target: "2.39:1"
+  master_raster: "3840x1608"
+
+# An asset becomes usable only when:
+# status: APPROVED
+# path: points to the exact approved repository asset
+# sha256: optional but recommended after upload
+
+character_identities:
+  CHR-ANAADHI:
+    name: Anaadhi
+    status: MISSING_APPROVED_ASSET
+    path: null
+    notes: "Master identity family only; age/body/hair/costume substates below must also be selected."
+  CHR-AARATHI: {name: Aarathi, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-PARVARAN: {name: Parvaran, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-ANARVAA: {name: Anarvaa, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-MANIRE: {name: Manire, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-SEMMAA: {name: Semmaa, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-MARSYAA: {name: Marsyaa, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-ASANA: {name: Asana, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-JANNE: {name: Janne, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-UNNATH: {name: Unnath, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-SHANTHALE: {name: Shanthale, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-SARVARAAJ: {name: Sarvaraaj, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-JAYASHA: {name: Jayasha, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-SADHRUNA: {name: Sadhruna, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-ELDERLY-GATHERER: {name: Elderly Gatherer, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-POLICE-COMMANDER: {name: Police Commander, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-MEDICAL-SPECIALIST: {name: Medical Specialist, status: MISSING_APPROVED_ASSET, path: null}
+
+anaadhi_age_body_states:
+  AGE-ANAADHI-NEWBORN:
+    age: newborn
+    status: MISSING_APPROVED_ASSET
+    path: null
+  AGE-ANAADHI-05: {age: 5, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-07: {age: 7, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-08: {age: 8, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-09: {age: 9, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-10: {age: 10, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-11: {age: 11, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-12-INSTITUTIONAL: {age: 12, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-12-FOREST: {age: 12, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-13: {age: 13, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-14: {age: 14, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-15: {age: 15, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-16: {age: 16, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-17: {age: 17, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-18: {age: 18, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-19:
+    age: 19
+    height_cm: 193
+    status: MISSING_APPROVED_ASSET
+    path: null
+  AGE-ANAADHI-20: {age: 20, height_cm: 193, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-21: {age: 21, height_cm: 193, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-22: {age: 22, height_cm: 193, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-23: {age: 23, height_cm: 193, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-24: {age: 24, height_cm: 193, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-25: {age: 25, height_cm: 193, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-26: {age: 26, height_cm: 193, status: MISSING_APPROVED_ASSET, path: null}
+  AGE-ANAADHI-27-FOREST:
+    age: 27
+    height_cm: 193
+    status: MISSING_APPROVED_ASSET
+    path: null
+  AGE-ANAADHI-27-CAPTURE:
+    age: 27
+    height_cm: 193
+    body: heavy-athletic forest-built
+    status: MISSING_APPROVED_ASSET
+    path: null
+  AGE-ANAADHI-27-RECOVERY:
+    age: 27
+    height_cm: 193
+    status: MISSING_APPROVED_ASSET
+    path: null
+  AGE-ANAADHI-27-FINAL:
+    age: 27
+    height_cm: 193
+    body: lean-defined post-recovery
+    scars: healed long surgical scars
+    status: MISSING_APPROVED_ASSET
+    path: null
+
+anaadhi_hair_states:
+  HR-ANAADHI-05: {description: "short uneven crop after shaved head", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-07: {description: "short uneven institutional haircut", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-12-CLOSE: {description: "institutional close cut", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-12-FOREST: {description: "same close-cut base, progressively weathered during escape", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-16: {description: "hair reaches neck", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-18: {description: "long loosely tied hair; faint moustache", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-19: {description: "shoulder-length hair tied with fibre; thin uneven moustache; light beard", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-26-POST-BARBER: {description: "self-cut/unfinished barber-transition state; exact approved reference required", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-27-CAPTURE: {description: "shaved scalp with several days rough regrowth", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-27-FINAL: {description: "final Scene-100 approved hair state", status: MISSING_APPROVED_ASSET, path: null}
+
+anaadhi_costume_states:
+  CST-ANAADHI-CHILD-INSTITUTIONAL: {description: "clean institutional child clothing", status: MISSING_APPROVED_ASSET, path: null}
+  CST-ANAADHI-12-ESCAPE: {description: "institutional clothes -> soaked/torn/muddy -> grass-fibre repairs", status: MISSING_APPROVED_ASSET, path: null}
+  CST-ANAADHI-FOREST-TEEN: {description: "forest-made/repaired adolescent clothing", status: MISSING_APPROVED_ASSET, path: null}
+  CST-ANAADHI-19: {description: "rough-spun dark tunic; repaired trousers; weathered sandals", status: MISSING_APPROVED_ASSET, path: null}
+  CST-ANAADHI-20-26: {description: "forest labour/trader clothing; scene wear/damage applied only by continuity", status: MISSING_APPROVED_ASSET, path: null}
+  CST-ANAADHI-27-CAPTURE: {description: "topless capture state", status: MISSING_APPROVED_ASSET, path: null}
+  CST-ANAADHI-27-RECOVERY: {description: "hospital/recovery state with chest/abdominal dressings and dark shawl when specified", status: MISSING_APPROVED_ASSET, path: null}
+  CST-ANAADHI-27-FINAL: {description: "Scene-100 final approved costume", status: MISSING_APPROVED_ASSET, path: null}
+
+injury_states:
+  INJ-ANAADHI-12-ESCAPE: {description: "minor arm/foot injuries, torn clothing, forest cuts", status: MISSING_APPROVED_ASSET, path: null}
+  INJ-ANAADHI-27-ADK7: {description: "drugged motor-control/capture state; no invented wounds", status: MISSING_APPROVED_ASSET, path: null}
+  INJ-ANAADHI-27-SURGERY: {description: "chest + abdominal surgical injury and dressings", status: MISSING_APPROVED_ASSET, path: null}
+  INJ-ANAADHI-27-FINAL: {description: "fully healed long scars, Scene-100 state", status: MISSING_APPROVED_ASSET, path: null}
+
+locations:
+  LOC-BHAIGAARA-RAISED-CABIN: {name: "Anaadhi raised/primary cabin + immediate buffer forest", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-ADRAKA-SYSTEMS-LAB: {name: "Adraka Medical University systems lab", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARAANE-CAMPUS-EARLY: {name: "Early Paraane founding campus", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARAANE-CAMPUS-MATURE: {name: "Mature integrated Paraane campus", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARAANE-CHILD-WING: {name: "Paraane child wing family", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARAANE-HIGH-OBSERVATION: {name: "Paraane high-observation / audit / service anatomy", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARAANE-ARCHIVE: {name: "Paraane archive core / old observation corridor", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARAANE-CENTRAL-COMMAND: {name: "Paraane central command operations hall", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARAANE-PHARMACY-VAULT: {name: "Paraane pharmaceutical transfer vault", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARLIPATNA-HOSPITAL: {name: "Parlipatna Multi-Speciality Maternity Hospital family", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-FOUR-ROAD-JUNCTION: {name: "Parlipatna four-road junction", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARVARAN-JANNE-HOUSE: {name: "Parvaran and Janne home / tulsi courtyard", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-BHAIGAARA-FOREST-SURVIVAL: {name: "Bhaigaara forest survival family", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-FOREST-EDGE-BARTER: {name: "forest-edge barter hamlet/market family", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-VILLAGE-HAND-PUMP: {name: "forest-edge village hand-pump family", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-ANAADHI-HIDDEN-CABINS: {name: "Anaadhi cabin evolution / hidden cabins", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-INDEPENDENT-SURGERY: {name: "Kendhalaa Independent Ayurvedic Surgical Centre", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-BORDER-CHECKPOINT: {name: "border checkpoint / border road family", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-TRIBUNAL-COURT: {name: "tribunal / judicial court family", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-IJMC: {name: "Independent Judicial Medical Centre / Scene-100 interview room", status: MISSING_APPROVED_ASSET, path: null}
+
+hero_props:
+  PRP-ADK7-CARTRIDGE: {name: "ADK-7 restricted transfer cartridge", status: MISSING_APPROVED_ASSET, path: null}
+  PRP-PARAANE-EMBLEM: {name: "Paraane emblem", status: MISSING_APPROVED_ASSET, path: null}
+  PRP-PARAANE-WRIST-DEVICE: {name: "Paraane wrist display/device", status: MISSING_APPROVED_ASSET, path: null}
+  PRP-FOUNDERS-CREDENTIAL: {name: "Paraane founder credential", status: MISSING_APPROVED_ASSET, path: null}
+  PRP-SEVENTEEN-NAME-LIST: {name: "seventeen-name wooden tablets / display family", status: MISSING_APPROVED_ASSET, path: null}
+  PRP-SEVENTEEN-LAMPS: {name: "seventeen small lamps", status: MISSING_APPROVED_ASSET, path: null}
+  PRP-FOUR-ROAD-SHRINE: {name: "four-road shrine stone / weak solar streetlight family", status: MISSING_APPROVED_ASSET, path: null}
+  PRP-MEDICINE-CUP: {name: "Paraane/Manire medicine cup family", status: MISSING_APPROVED_ASSET, path: null}
+  PRP-SPLIT-FLOORBOARD: {name: "raised-cabin split floorboard / concealed escape release", status: MISSING_APPROVED_ASSET, path: null}
+
+vehicles:
+  VEH-SARJANYA-JEEP: {name: "Sarjanya open patrol jeep", status: MISSING_APPROVED_ASSET, path: null}
+  VEH-PARAANE-MEDICAL-TRANSPORT: {name: "Paraane medical transport", status: MISSING_APPROVED_ASSET, path: null}
+  VEH-ANAADHI-CART: {name: "Anaadhi timber barter cart with salvaged magnetic bearings", status: MISSING_APPROVED_ASSET, path: null}
+  VEH-ANAADHI-MOTORCYCLE: {name: "Anaadhi black motorcycle / restored two-wheeler family", status: MISSING_APPROVED_ASSET, path: null}
+  VEH-INDEPENDENT-EMERGENCY: {name: "independent emergency transfer vehicle", status: MISSING_APPROVED_ASSET, path: null}
+
+technology:
+  TEC-BLACK-KITE-DRONE: {name: "black-kite police drone", status: MISSING_APPROVED_ASSET, path: null}
+  TEC-PARAANE-SENSOR-STAKE: {name: "hidden Paraane/police forest sensor stake", status: MISSING_APPROVED_ASSET, path: null}
+  TEC-MEDICINE-RAIL: {name: "automated copper medicine rail", status: MISSING_APPROVED_ASSET, path: null}
+  TEC-HOLOGRAPHIC-NEURAL-MAP: {name: "Adraka/Paraane holographic neural-system language", status: MISSING_APPROVED_ASSET, path: null}
+
+environments:
+  ENV-BLACK-RAIN: {name: "black monsoon rain / opening-capture condition", status: MISSING_APPROVED_ASSET, path: null}
+  ENV-WESTERN-GHATS-FUTURE: {name: "Karnataka Western-Ghats future-production grammar", status: MISSING_APPROVED_ASSET, path: null}
+  ENV-PARAANE-EARLY: {name: "Paraane early hopeful visual condition", status: MISSING_APPROVED_ASSET, path: null}
+  ENV-PARAANE-LATE: {name: "Paraane mature/integrated authority visual condition", status: MISSING_APPROVED_ASSET, path: null}
+
+parallel_earth_grammar:
+  GF-BASE:
+    status: MISSING_APPROVED_ASSET
+    path: null
+    notes: "Base approved Parallel-Earth grammar family. Physical anchors inherit unless screenplay explicitly changes world/age/role/injury/costume."
