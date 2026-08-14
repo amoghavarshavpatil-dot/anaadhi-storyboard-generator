@@ -1,0 +1,274 @@
+version: 1
+phase: P1_DRIVE_LOCATION_AUDIT_CONTINUATION
+canonical_authority: "ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json + ENV-6J_Master_Environment_Generation_Manifest_v001.json"
+source_folder: "https://drive.google.com/drive/folders/1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+audit_range: "LOC-010..LOC-059"
+rules:
+  - "Visual match is required; upload order alone is never canonical evidence."
+  - "PASS means reuse the Drive image as the operational root/ST00 reference; formal ENV-6L visual lock still requires an accepted file and SHA256."
+  - "PARTIAL_REJECT means do not reuse as the canonical root master; generate a corrected master."
+  - "Root PASS never silently satisfies nested subspaces, later states, Retained-U, costume, character, prop, vehicle, technology or audio work."
+  - "Preserve all ENV-6J HA collision groups; similar locations may share kit components but not topology identity."
+
+summary:
+  drive_candidates_in_range: 50
+  pass_including_previously_audited_LOC036: 48
+  partial_reject: 2
+  partial_reject_ids: [LOC-016, LOC-040]
+  unique_verified_root_masters_project_total_after_this_pass: 57
+  env6l_master_total: 87
+  verified_root_coverage: "57/87 = 65.5%"
+  root_masters_needing_generation_or_correction: 30
+  note: "28 root IDs LOC-060..LOC-087 have no image in this Drive folder; LOC-016 and LOC-040 require corrected masters."
+
+assets:
+  LOC-010:
+    name: "Forest Ravine — Child Escape"
+    drive_file_id: "1SIyFt8t977viGzq-NCt5jDS7rFVYQ927"
+    status: PASS
+    note: "root ST00"
+  LOC-011:
+    name: "Parvaran and Janne's House"
+    drive_file_id: "1fvisjiZTciVLMrgJgWuTOn6FqbkPxJXD"
+    status: PASS
+    note: "root ST00; interior continuity still separate"
+  LOC-012:
+    name: "Bhaigaara Root Shelter"
+    drive_file_id: "1QPvEtfKYtIAWxkA-nUIZcup3DahMnG88"
+    status: PASS
+    note: "root ST00"
+  LOC-013:
+    name: "Abandoned Forest Shrine"
+    drive_file_id: "1e9UcfjoyK0zFeunAdtA5QZeTu6deM2-L"
+    status: PASS
+    note: "root ST00"
+  LOC-014:
+    name: "Bhaigaara Stream and Rock Shelf"
+    drive_file_id: "1dC1uvYLHkTP8JqWMjockIsEf_NabnkSl"
+    status: PASS
+    note: "root ST00"
+  LOC-015:
+    name: "Forest Gathering Slope"
+    drive_file_id: "1Sg36wqdDcXiIGPHobsuDJpsK1pxeKTVw"
+    status: PASS
+    note: "root ST00"
+  LOC-016:
+    name: "Forest-Edge Barter Hamlet"
+    drive_file_id: "1juTOElCeXcqRt7zEy5N3jywTDwyzGanu"
+    status: PARTIAL_REJECT
+    note: "site family plausible but locked market/hamlet signature insufficient; corrected master required"
+  LOC-017:
+    name: "Forest Path — SC033"
+    drive_file_id: "1mqTEnxb3elZ9SoW0mX2jkK0RErsXrBqD"
+    status: PASS
+    note: "root ST00; keep HA-10 distinct"
+  LOC-018:
+    name: "Anaadhi Early Forest Shelter"
+    drive_file_id: "1xpzle1RUs1fd0nZdDl_y08yc2e_frHcQ"
+    status: PASS
+    note: "ST00 root only; ST01 expansion still required"
+  LOC-019:
+    name: "Forest Hamlet"
+    drive_file_id: "1BJoHSfIe20hN-DD2-NvyKPlfFyMnCS4o"
+    status: PASS
+    note: "root ST00"
+  LOC-020:
+    name: "Anaadhi’s First Permanent Cabin"
+    drive_file_id: "1tnzeBuHUWS9VHUvLqzB0Ozgr89nbubQ7"
+    status: PASS
+    note: "root ST00; interior/loft/concealed-passage plates still required"
+  LOC-021:
+    name: "Bhaigaara Forest Path — SC038"
+    drive_file_id: "1V0Uev-hZ_mjf9V_m-2_BtMMrnC6Z7mQ6"
+    status: PASS
+    note: "root ST00; keep HA-10 distinct"
+  LOC-022:
+    name: "Forest-Edge Barter Market"
+    drive_file_id: "106FOg6zXuP2WE_ziM5LbyaYSXVkKbMd0"
+    status: PASS
+    note: "root ST00"
+  LOC-023:
+    name: "Forest-Edge Village"
+    drive_file_id: "12LE_jDk2Qy5pzYfx-bziCzQKY04QRy8E"
+    status: PASS
+    note: "root ST00; chipped-green pump/monitor identity retained"
+  LOC-024:
+    name: "Forest Stream"
+    drive_file_id: "1syDViVa3GKhQUWIPGsQh0BYTL0iLJ_Hv"
+    status: PASS
+    note: "root ST00"
+  LOC-025:
+    name: "Narrow Cloth-Stall Lane"
+    drive_file_id: "1il9b4yKKOuz7MDHLp3zuzMd0qyHIUCDH"
+    status: PASS
+    note: "root ST00"
+  LOC-026:
+    name: "Village Feast — Hand-Pump Square"
+    drive_file_id: "11N-bGrxqiYuFo8LquLdeFtQE_eM5CrMI"
+    status: PASS
+    note: "root ST00; distinct from LOC-023/030"
+  LOC-027:
+    name: "Anaadhi Mark Cabin"
+    drive_file_id: "1Os8QBISk583JcBUcuRl6sMEMQbWKo5hO"
+    status: PASS
+    note: "root exterior ST00 only; stable marked surface and ST01-ST03 continuity still required"
+  LOC-028:
+    name: "Forest Trail — SC044"
+    drive_file_id: "1H7lALGEEd31xzEnEvBTvSKwA-nm9MX5X"
+    status: PASS
+    note: "root ST00; HA-10"
+  LOC-029:
+    name: "Jungle Trail — SC044"
+    drive_file_id: "1su5rCrUvJTusYz7mcAiHTWTgyH8z2IGY"
+    status: PASS
+    note: "root ST00; HA-10; distinct from LOC-028"
+  LOC-030:
+    name: "Barn-Side Pump"
+    drive_file_id: "1kt7iOLkuCr7FZ2upBoFztaXMwP1P3KdJ"
+    status: PASS
+    note: "root ST00; HA-03; distinct from LOC-023/026"
+  LOC-031:
+    name: "Market Fish Lane"
+    drive_file_id: "1_N-_uPypHtUTceFP97Di0cxGPb67iJ6Z"
+    status: PASS
+    note: "root ST00"
+  LOC-032:
+    name: "Forest Clearing — SC046"
+    drive_file_id: "1ajZaoS65bf5V88OOgCMoLtmpR4IlOnJv"
+    status: PASS
+    note: "root ST00; HA-02; distinct from LOC-054"
+  LOC-033:
+    name: "Night Market Alley"
+    drive_file_id: "1XVUrsMjSmtuWNhDnVD2QuJCm2HX8qGTl"
+    status: PASS
+    note: "root ST00"
+  LOC-034:
+    name: "Roadside Tea Stall"
+    drive_file_id: "1wiXLvy7Q0nLAGNR9hunP2-n2D8Oa3XSI"
+    status: PASS
+    note: "root ST00"
+  LOC-035:
+    name: "Forest Hut — SC047"
+    drive_file_id: "1eT0hs0wxxii4ORJhZnbbfDO8ar7xiDnh"
+    status: PASS
+    note: "root ST00; cabin hold distinct from Anaadhi cabins"
+  LOC-036:
+    name: "Forest Road — SC047"
+    drive_file_id: "1apfobFkw2NiXKgQK84f56UOKClaiH_6-"
+    status: PASS_EXISTING
+    note: "already audited/locked in prior Drive audit"
+  LOC-037:
+    name: "Grain Shop"
+    drive_file_id: "1286UPIunL66I78oHWDnYv5JCLZb4KSBP"
+    status: PASS
+    note: "root ST00"
+  LOC-038:
+    name: "Basavaraj's Mud House"
+    drive_file_id: "1G3tgG1HqUyUfehixxQnK9oxmzdwpRCLR"
+    status: PASS
+    note: "root ST00"
+  LOC-039:
+    name: "Cabin — SC048"
+    drive_file_id: "1Ml3XMGC89lOtJE2fdw3VAHXKgYZfj6Zo"
+    status: PASS
+    note: "root ST00; HA-01 distinct cabin"
+  LOC-040:
+    name: "Leaking Village Shelter"
+    drive_file_id: "1dreqTM-LdZRTgnxfumMOcHUrAwUpaqkB"
+    status: PARTIAL_REJECT
+    note: "shelter identity plausible but canonical active roof leak is not verified; corrected master required"
+  LOC-041:
+    name: "Rain-Soaked Path"
+    drive_file_id: "1Cs61N6evAbcK8ar9CPkd7LVlrf5wAEu1"
+    status: PASS
+    note: "root ST00; HA-10"
+  LOC-042:
+    name: "Burnt Eucalyptus Cabin"
+    drive_file_id: "1HjRtoSSHzSJnVLk2XGKS7Pd1MpntCiSb"
+    status: PASS
+    note: "canonical ST00 is already burnt/damaged; never pristine-reset"
+  LOC-043:
+    name: "Butcher Corner"
+    drive_file_id: "1Q1MHgjrcrFPo_C3Q-80ObrE37dXDGXcd"
+    status: PASS
+    note: "root ST00"
+  LOC-044:
+    name: "Riverside Washing Place"
+    drive_file_id: "13Yp-IpCcya5RXeWmEs8R3ylN8H-EoOOK"
+    status: PASS
+    note: "root ST00"
+  LOC-045:
+    name: "Half-Abandoned Grain Road"
+    drive_file_id: "1YdhizYOVnIYNg-tWdHuvaS_70daamiDi"
+    status: PASS
+    note: "root ST00"
+  LOC-046:
+    name: "Dust Road"
+    drive_file_id: "14HZZRi74J0BDgnKe4oQ17AJtTurCVwVV"
+    status: PASS
+    note: "root ST00; HA-10"
+  LOC-047:
+    name: "Palm-Liquor Roadside Site"
+    drive_file_id: "1m_-cqCvKGZvKceeDw9fD99mN8Q0fAVAk"
+    status: PASS
+    note: "root ST00"
+  LOC-048:
+    name: "Abandoned Hillside Temple"
+    drive_file_id: "1QSrZtq4ffZ2Opc33-g1o_ePWXP3PTtEq"
+    status: PASS
+    note: "root ST00; weathered not fantasy ruin"
+  LOC-049:
+    name: "Flooded Bullock-Cart Rest Road"
+    drive_file_id: "1_NxNtYQlkOojuDvm_se90LXZSCfQ5KEA"
+    status: PASS
+    note: "root ST00"
+  LOC-050:
+    name: "Anaadhi Hidden Cabin — SC055"
+    drive_file_id: "1OkmOYDqRIFqwAHAneV3ez0-Rf8wtF2na"
+    status: PASS
+    note: "canonical ST00 already opened/dismantled/partly burned; HA-01"
+  LOC-051:
+    name: "Logging Path — SC055"
+    drive_file_id: "1zT6L-PWj1tm3fd0v0yJZ4_tp8nbQvrmS"
+    status: PASS
+    note: "root ST00; HA-10"
+  LOC-052:
+    name: "Kendhalaa Market Road"
+    drive_file_id: "1i3viVxtkASpnO9lD9TNSTjucmbTlXuZf"
+    status: PASS
+    note: "root ST00; HA-10"
+  LOC-053:
+    name: "Raghavendra Herb-Buyer Storehouse"
+    drive_file_id: "1LWe8EgD1HFilSsvmbUa5LmAza-GbE-BB"
+    status: PASS
+    note: "root ST00; modern scale + brass weights continuity"
+  LOC-054:
+    name: "Forest Clearing — SC057"
+    drive_file_id: "1_QxCJSX4dBlnxHnDHIs8ks6HuacWVf1k"
+    status: PASS
+    note: "root ST00; HA-02 distinct from LOC-032"
+  LOC-055:
+    name: "Roadside Barber Shelter"
+    drive_file_id: "1lm63RFcKCudHCUsv3Dbesca8eS06a9Ul"
+    status: PASS
+    note: "root ST00; mirror-height scale constraint remains"
+  LOC-056:
+    name: "Forest Rest Path"
+    drive_file_id: "19alZCyDN3D-FPKg68Wxt24InSlWjqVzM"
+    status: PASS
+    note: "root ST00; RU Madhava repaired bag continuity preserved"
+  LOC-057:
+    name: "Kendhalaa Police Independent Evidence Room"
+    drive_file_id: "1eHU2o1tA8syeGtO3GLe16lLsecU3ALz2"
+    status: PASS
+    note: "root ST00; RU seventeen-name display origin; HA-05"
+  LOC-058:
+    name: "Bhaigaara Abandoned-Cabins Cluster"
+    drive_file_id: "1ebFDOdNr1dRYnOMSqYeKAwYg5-1PCl1J"
+    status: PASS
+    note: "root ST00; never merge into single Anaadhi cabin; HA-01"
+  LOC-059:
+    name: "Bhaigaara Buffer Forest Approach"
+    drive_file_id: "1l_HhQGGE599G-SWE9-EGmglXuEytqxO7"
+    status: PASS
+    note: "root ST00; HA-10"
