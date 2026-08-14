@@ -1,0 +1,175 @@
+version: 1
+phase: P1_LOCATION_FACTORY
+status: ACTIVE
+source_batches: "production/batches/ANAADHI_BATCH_FOUNDATION.py"
+canonical_environment_authority:
+  registry: "ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json"
+  prompt_manifest: "ENV-6J_Master_Environment_Generation_Manifest_v001.json"
+  master_locations: 87
+  subspaces: 67
+  physical_states: 99
+  later_state_variants: 12
+
+rules:
+  - "This queue does not create new canon. Canonical ENV-6L IDs/names override convenience labels."
+  - "Existing Drive masters are reused; never regenerate an approved master merely for visual variety."
+  - "Generic Drive PNGs are not auto-mapped."
+  - "Generate location identity plates without actors first."
+  - "Characters, costumes, hair, injuries, props and vehicles are separate P1 passes unless the location identity absolutely requires a fixed architectural object."
+  - "Master site first, then required interior/subspace plates, then weather/state variants."
+  - "No camera/storyboard grammar in location identity masters."
+  - "Anaadhi adult scale reference is 1.93 m when scale is physically relevant, but no character should appear in final clean location plate."
+  - "No generic cyberpunk/neon, generic Western architecture, decorative Kannada, or unrelated temple motifs."
+  - "All location candidates require review before APPROVED_REFERENCE."
+
+verified_existing_masters:
+  LOC-004:
+    name: "Kendhalaa Workers' District"
+    scenes: [9]
+    batches: [B03]
+    drive_file_id: "1kyOsLRiYu_VdE1KbKz9KwXgmpCSRPOP0"
+    status: APPROVED_REFERENCE
+  LOC-005:
+    name: "Parlipatna Multi-Speciality Maternity Hospital"
+    scenes: [11,12,13]
+    batches: [B04]
+    drive_file_id: "1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN"
+    status: APPROVED_REFERENCE
+  LOC-006:
+    name: "Parlipatna Four-Road Junction"
+    scenes: [14,15]
+    batches: [B05]
+    drive_file_id: "1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr"
+    status: APPROVED_REFERENCE
+  LOC-009:
+    name: "Kendhalaa–Bhaigaara Forest Boundary"
+    scenes: [28]
+    batches: [B12]
+    drive_file_id: "1fPxA4G1UpuJOJB_5xD6mFj988psN_kbk"
+    status: APPROVED_REFERENCE
+  LOC-036:
+    name: "Forest Road — SC047"
+    scenes: [47]
+    batches: [B17]
+    drive_file_id: "1apfobFkw2NiXKgQK84f56UOKClaiH_6-"
+    status: APPROVED_REFERENCE
+
+# Production order is designed for continuity leverage, not screenplay order alone.
+# HERO/RECURRING environments are generated before single-use connectors.
+generation_waves:
+  W01_HERO_FOUNDATIONS:
+    priority: 1
+    purpose: "Lock the environments that recur across the largest number of scenes/batches."
+    items:
+      - key: "LOC-001"
+        name: "Anaadhi Primary / Final / Raised Cabin"
+        batches: [B01, B23, B25]
+        scenes: [1,2,3,4,5,61,62,63,66,67,68]
+        deliverables: [MASTER_ST00, "capture/breach later-state variant", "interior identity plate", "lower passage identity plate"]
+        status: NEEDS_GENERATION
+      - key: "LOC-002"
+        name: "Adraka Medical University"
+        batches: [B02]
+        scenes: [6]
+        deliverables: [MASTER_ST00, "systems-lab interior"]
+        status: NEEDS_GENERATION
+      - key: "LOC-003"
+        name: "Paraane Campus / Central Complex"
+        batches: [B03,B05,B06,B07,B08,B09,B10,B11,B12,B24,B25,B26,B29,B33]
+        scenes: "multiple across 7-10,16-29,64-75,83-92,99"
+        deliverables: [MASTER_ST00, ST01, ST02, ST03, ST04, "required nested Paraane interiors"]
+        status: NEEDS_GENERATION
+      - key: "CANON_MAP_PENDING"
+        name: "Parvaran and Janne's House / Janne's Home"
+        batches: [B12,B33]
+        scenes: [29,91,99]
+        deliverables: [MASTER_ST00, "tulsi courtyard", "interior family state"]
+        status: NEEDS_CANON_ID_THEN_GENERATION
+      - key: "CANON_MAP_PENDING"
+        name: "Anaadhi Early Forest Shelter / Permanent Cabin evolution"
+        batches: [B13,B14]
+        scenes: [35,36,37]
+        deliverables: ["early shelter", "expanded second-room state", "permanent three-door cabin"]
+        status: NEEDS_CANON_ID_THEN_GENERATION
+      - key: "CANON_MAP_PENDING"
+        name: "Anaadhi Mark / Hidden Cabin family"
+        batches: [B16,B18,B19,B20,B21,B22]
+        scenes: [43,44,45,46,48,49,50,52,53,55,57,58]
+        deliverables: [MASTER_ST00, "mark progression states", "covered-bike-bay state", "damaged/burned state where canonical"]
+        status: NEEDS_CANON_ID_THEN_GENERATION
+      - key: "CANON_MAP_PENDING"
+        name: "Forest-edge Barter Market / Hamlet family"
+        batches: [B12,B15,B16,B17,B18,B20,B21]
+        scenes: [33,34,38,39,41,43,47,48,52,53]
+        deliverables: ["market master", "stall/lane families", "night/rain states"]
+        status: NEEDS_CANON_ID_THEN_GENERATION
+      - key: "CANON_MAP_PENDING"
+        name: "Village Hand-Pump Water Network"
+        batches: [B15,B16]
+        scenes: [39,42,45]
+        deliverables: ["central hand pump", "festival state", "barn-side secondary pump"]
+        status: NEEDS_CANON_ID_THEN_GENERATION
+
+  W02_CHILD_ESCAPE_FOREST:
+    priority: 2
+    purpose: "Complete age-12 escape geography around already-approved LOC-009 boundary."
+    items:
+      - {key: "LOC-010", name: "Forest Ravine — Child Escape", batches: [B12], scenes: [28], status: NEEDS_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Bhaigaara Root Shelter", batches: [B12], scenes: [29,30], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Abandoned Forest Shrine", batches: [B12], scenes: [30], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Bhaigaara Stream and Rock Shelf / Private Collapse Zone", batches: [B12,B15,B16], scenes: [31,40,42,45], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Forest Gathering Slope", batches: [B12], scenes: [32], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Forest Path / Barter Approach Route", batches: [B12,B15], scenes: [33,38], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Seasonal Shrinking Stream / Rain-Catch Basin", batches: [B13], scenes: [35], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Distant Village-Festival View Through Trees", batches: [B13], scenes: [35], status: NEEDS_CANON_ID_THEN_GENERATION}
+
+  W03_ADULT_FOREST_ROUTES_AND_SOCIAL_SITES:
+    priority: 3
+    purpose: "Adult Anaadhi route, barter, labour and murder-cycle locations; reuse LOC-036 for SC047 only."
+    items:
+      - {key: "CANON_MAP_PENDING", name: "Forest Clearing", batches: [B16,B22], scenes: [46,57], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Forest Trail — SC044", batches: [B16], scenes: [44], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Jungle Trail — SC044", batches: [B16], scenes: [44], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Dry Forest Path — SC045", batches: [B16], scenes: [45], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "LOC-036", name: "Forest Road — SC047", batches: [B17], scenes: [47], status: APPROVED_REFERENCE}
+      - {key: "CANON_MAP_PENDING", name: "Rain-Soaked Path — SC049", batches: [B18], scenes: [49], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Riverside Washing Place", batches: [B18], scenes: [50], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Multiple Forest Roads Network / Dust Road", batches: [B19], scenes: [51], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Logging Path and Clear-Cut Zone", batches: [B21], scenes: [55], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Forest Rest Path", batches: [B22,B23], scenes: [59,61], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Flooded Bullock-Cart Rest Road", batches: [B20], scenes: [54], status: NEEDS_CANON_ID_THEN_GENERATION}
+
+  W04_INSTITUTIONAL_AND_CIVIC_LATE_FILM:
+    priority: 4
+    purpose: "Late-film medical, police, media, governance and judicial geography."
+    items:
+      - {key: "CANON_MAP_PENDING", name: "Kendhalaa Police Headquarters — Independent Evidence Room", batches: [B23], scenes: [60], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Kendhalaa Independent Ayurvedic Surgical Centre", batches: [B27], scenes: [75,76,77,78,79,80], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Forest Transfer Road / Fallen-Tree Blockade", batches: [B28], scenes: [81], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Kendhalaa Convention Centre — Council Hall", batches: [B29], scenes: [85], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Paraane-Certified Pharmaceutical Store — Inventory Vault", batches: [B29,B30], scenes: [86,87], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Kadraayini Media Network — News Command Floor", batches: [B30], scenes: [88,89,90,91,92], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Border Checkpoint / Border Medical Corridor", batches: [B31], scenes: [93,94,95,96], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Independent Judicial Complex — Family Contact Corridor", batches: [B32], scenes: [97], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Independent Court / Tribunal family", batches: [B31,B32], scenes: [96,98], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Kendhalaa Memorial Courtyard", batches: [B33], scenes: [99], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "CANON_MAP_PENDING", name: "Independent Judicial Medical Centre — Interview Room", batches: [B34], scenes: [100], status: NEEDS_CANON_ID_THEN_GENERATION}
+
+  W05_SINGLE_USE_AND_NESTED_INTERIORS:
+    priority: 5
+    purpose: "Fill remaining single-use screenplay locations and all required nested rooms after master-site look is approved."
+    status: MANIFEST_EXPANSION_PENDING
+    rule: "Populate from ENV-6L 87 master + 67 subspace registry; never invent missing entries from screenplay prose alone."
+
+review_gate:
+  candidate_count_per_identity: 4
+  approve_one_master_before_variants: true
+  reject_if:
+    - "wrong Karnataka / Western-Ghats ecological identity"
+    - "wrong site topology or parent institution"
+    - "generic glossy sci-fi or cyberpunk"
+    - "incorrect wealth/condition upgrade"
+    - "cross-location architectural borrowing"
+    - "wrong damage/weather chronology"
+    - "text/signage hallucination that changes story meaning"
+  output_status_after_generation: REVIEW_REQUIRED
