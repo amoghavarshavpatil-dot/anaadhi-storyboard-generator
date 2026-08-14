@@ -1,0 +1,48 @@
+name: Kaggle Connection Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kaggle-connection-test.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test-kaggle-auth:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify secret is present
+        shell: bash
+        run: |
+          if [ -z "$KAGGLE_API_TOKEN" ]; then
+            echo "KAGGLE_API_TOKEN is missing."
+            exit 1
+          fi
+          echo "KAGGLE_API_TOKEN is configured."
+
+      - name: Install official Kaggle CLI
+        run: python -m pip install --upgrade kaggle
+
+      - name: Show Kaggle CLI version
+        run: kaggle --version
+
+      - name: Authenticate and list my Kaggle notebooks
+        run: kaggle kernels list --mine --page-size 5
+
+      - name: Connection success
+        run: echo "GitHub Actions can authenticate to Kaggle successfully."
