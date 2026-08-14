@@ -1,4 +1,4 @@
-version: 1
+version: 2
 phase: P1_VISUAL_REFERENCE_LOCK
 source_type: PARTIAL_LOCATION_REFERENCE_SOURCE
 source_folder: "https://drive.google.com/drive/folders/1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
@@ -22,42 +22,91 @@ truth_lock:
   lip_sync_assets_created: false
   bgm_sfx_assets_created: false
 
+canonical_environment_authority:
+  metadata_source: "ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json"
+  prompt_source: "ENV-6J_Master_Environment_Generation_Manifest_v001.json"
+  master_location_count: 87
+  subspace_reference_count: 67
+  later_state_variant_count: 12
+  physical_state_count: 99
+  rule: "ENV-6L/ENV-6J canonical IDs and names control mapping; Drive filenames do not create new canon."
+
 rules:
   - "Do not infer that an asset exists merely because it is listed in REFERENCE_REGISTRY.yaml."
   - "Registry IDs are requirements/placeholders until an exact approved asset is attached."
   - "Do not use a generic Drive filename as canonical identity without visual audit and explicit mapping."
-  - "Only files explicitly audited and mapped to a registry ID may become APPROVED."
+  - "Only files explicitly audited and mapped to a canonical location may become usable as a reference."
   - "Unmapped Drive PNG files remain LOCATION_CANDIDATE_UNMAPPED, not canonical."
   - "No character, costume, hair, prop, vehicle, technology or injury asset may be marked APPROVED from this Drive folder unless later explicitly supplied."
 
-explicitly_named_location_files_seen:
-  - filename: "ANAADHI_ENV6L_LOC004_ST00_CanonicalMaster_v002_APPROVED.png"
+verified_existing_location_sources:
+  - canonical_id: "LOC-004"
+    canonical_name: "Kendhalaa Workers' District"
+    screenplay_environment: "Kendhalaa Workers' District / Public Square"
+    scenes: [9]
+    production_batches: ["B03"]
+    filename: "ANAADHI_ENV6L_LOC004_ST00_CanonicalMaster_v002_APPROVED.png"
     drive_file_id: "1kyOsLRiYu_VdE1KbKz9KwXgmpCSRPOP0"
-    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
-  - filename: "ANAADHI_ENV6L_LOC005_ST00_CanonicalMaster_v004_APPROVED.png"
+    drive_url: "https://drive.google.com/file/d/1kyOsLRiYu_VdE1KbKz9KwXgmpCSRPOP0/view"
+    visual_audit: "PASS — working wet laterite civic/worker district; usable as canonical ST00 location master."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+
+  - canonical_id: "LOC-005"
+    canonical_name: "Parlipatna Multi-Speciality Maternity Hospital"
+    screenplay_environment: "Parlipatna maternity-hospital family"
+    scenes: [11, 12, 13]
+    production_batches: ["B04"]
+    filename: "ANAADHI_ENV6L_LOC005_ST00_CanonicalMaster_v004_APPROVED.png"
     drive_file_id: "1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN"
-    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
-  - filename: "ANAADHI_ENV6L_LOC006_ST00_CanonicalMaster_v001_APPROVED.png"
+    drive_url: "https://drive.google.com/file/d/1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN/view"
+    visual_audit: "PASS — black-stone hospital identity, copper rain systems, solar roof language and monsoon context read correctly."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+
+  - canonical_id: "LOC-006"
+    canonical_name: "Parlipatna Four-Road Junction"
+    screenplay_environment: "Parlipatna four-road junction"
+    scenes: [14, 15]
+    production_batches: ["B05"]
+    filename: "ANAADHI_ENV6L_LOC006_ST00_CanonicalMaster_v001_APPROVED.png"
     drive_file_id: "1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr"
-    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
-  - filename: "ANAADHI_ENV6L_LOC009_ST00_CanonicalMaster_v001_APPROVED.png"
+    drive_url: "https://drive.google.com/file/d/1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr/view"
+    visual_audit: "PASS — rural monsoon four-way road topology is clear; later scene dressing may add shrine/light/vehicles without replacing site identity."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+
+  - canonical_id: "LOC-009"
+    canonical_name: "Kendhalaa–Bhaigaara Forest Boundary"
+    screenplay_environment: "Kendhalaa–Bhaigaara Forest Boundary / Final Motorable Road"
+    scenes: [28]
+    production_batches: ["B12"]
+    filename: "ANAADHI_ENV6L_LOC009_ST00_CanonicalMaster_v001_APPROVED.png"
     drive_file_id: "1fPxA4G1UpuJOJB_5xD6mFj988psN_kbk"
-    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
-  - filename: "ANAADHI_ENV6L_LOC036_ST00_CanonicalMaster_v001_APPROVED.png"
+    drive_url: "https://drive.google.com/file/d/1fPxA4G1UpuJOJB_5xD6mFj988psN_kbk/view"
+    visual_audit: "PASS — readable ecological/access threshold from worked edge into dense Bhaigaara forest; no fortified gate invented."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+
+  - canonical_id: "LOC-036"
+    canonical_name: "Forest Road — SC047"
+    screenplay_environment: "Distinct SC047 forest road"
+    scenes: [47]
+    production_batches: ["B17"]
+    filename: "ANAADHI_ENV6L_LOC036_ST00_CanonicalMaster_v001_APPROVED.png"
     drive_file_id: "1apfobFkw2NiXKgQK84f56UOKClaiH_6-"
-    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
+    drive_url: "https://drive.google.com/file/d/1apfobFkw2NiXKgQK84f56UOKClaiH_6-/view"
+    visual_audit: "PASS — wet forest road with distinct curvature, drainage/rut pattern and dense roadside vegetation."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
 
 unmapped_drive_images:
   status: "LOCATION_CANDIDATE_UNMAPPED"
   instruction: "Visually audit before assigning to screenplay locations. Do not guess from generic file names."
 
 p1_generation_order:
-  - "1. Audit/map the existing Drive location candidates."
-  - "2. Generate the approximately 85% missing location masters, grouped by the 34 production batches."
-  - "3. Generate/lock character identity families and Anaadhi age-specific body states."
-  - "4. Generate/lock costume and hair states for each batch/age epoch."
-  - "5. Generate/lock hero props, vehicles and recurring technology assets."
-  - "6. Generate/lock injury/recovery states and special environment conditions."
-  - "7. Run P1 validator. No batch moves to P2 until its required P1 assets are actually approved."
+  - "1. Continue auditing/mapping any useful generic Drive location candidates."
+  - "2. Generate the approximately 85% missing location masters, grouped by production usefulness and the 34 movie batches."
+  - "3. Generate required nested interiors/subspaces for batches whose master site alone is insufficient."
+  - "4. Generate/lock character identity families and Anaadhi age-specific body states."
+  - "5. Generate/lock costume and hair states for each batch/age epoch."
+  - "6. Generate/lock hero props, vehicles and recurring technology assets."
+  - "7. Generate/lock injury/recovery states and special environment conditions."
+  - "8. Run P1 validator. No batch moves to P2 until its required P1 assets are actually approved."
 
-status: "CORRECTED_SOURCE_AUDIT_LOCKED"
+status: "FIVE_EXISTING_LOCATION_MASTERS_VERIFIED__P1_LOCATION_GENERATION_REQUIRED"
