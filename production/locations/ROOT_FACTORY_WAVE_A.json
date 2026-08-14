@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "phase": "P1_LOCATION_FACTORY_ROOT_CORRECTION_WAVE_A",
   "canonical_authority": {
     "registry": "ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json",
@@ -8,7 +8,7 @@
   },
   "rules": [
     "Environment identity master only; no storyboard camera grammar.",
-    "No characters or extras in root identity masters.",
+    "No characters, animals or extras in root identity masters unless canon explicitly requires them.",
     "Adult Anaadhi reference scale remains 1.93 m where physically relevant; do not resize architecture around him.",
     "Do not create new canon, new state, silent repair, or topology borrowed from another LOC.",
     "Generate four candidates; no candidate becomes approved until visually reviewed."
@@ -17,12 +17,12 @@
     {
       "loc_id": "LOC-016",
       "canonical_name": "Forest-Edge Barter Hamlet",
-      "task": "CORRECT_EXISTING_DRIVE_CANDIDATE",
-      "canonical_identity": "Forest-edge barter hamlet with timber stalls, brass scales, mechanical weighing arms and solar-cloth awnings.",
-      "correction_reason": "Existing Drive candidate preserves useful hamlet/site geometry but does not clearly establish the barter-specific brass scales, mechanical weighing arms and solar-cloth awnings.",
-      "sdxl_prompt": "photorealistic Karnataka forest-edge barter hamlet, timber market stalls, brass weighing scales, mechanical weighing arms, solar-cloth awnings, wet laterite ground, Western Ghats vegetation, restrained practical future technology, lived-in rural materials, environment identity master, no people",
-      "negative_prompt": "people, characters, portrait, empty generic village, missing scales, missing weighing arms, missing awnings, glossy sci-fi, cyberpunk, neon, luxury resort, temple fantasy, concept art, diagram, text, watermark, subtitles, black bars, blurry",
-      "seeds": [1601, 1602, 1603, 1604]
+      "task": "CORRECT_EXISTING_DRIVE_CANDIDATE_PASS_2",
+      "canonical_identity": "Small forest-edge barter hamlet composed of multiple timber market stalls, visible brass balance scales, mechanical weighing arms and patchwork solar-cloth awnings.",
+      "correction_reason": "Pass 1 failed: seed1601 invented an elephant; seed1602 became an isolated empty canopy/table; seed1603 was closest but still only a sparse single stall; seed1604 became a hut. None established a recognizable multi-stall barter hamlet with repeated weighing infrastructure.",
+      "sdxl_prompt": "photorealistic Karnataka forest-edge barter hamlet, wide overview of six timber market stalls along muddy laterite clearing, hanging brass balance scales clearly visible, mechanical weighing arms on stall counters, overlapping patchwork solar-cloth awnings, dense Western Ghats forest behind, practical rural materials, restrained future technology, no people",
+      "negative_prompt": "people, animals, elephant, isolated hut, lone stall, single shelter, empty canopy, empty field, missing scales, missing weighing arms, missing awnings, resort, cyberpunk, fantasy, concept art, diagram, text, watermark, black bars, blurry",
+      "seeds": [1611, 1612, 1613, 1614]
     },
     {
       "loc_id": "LOC-040",
