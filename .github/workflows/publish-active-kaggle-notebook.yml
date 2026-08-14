@@ -1,0 +1,120 @@
+name: Publish Active ANAADHI Notebook to Kaggle
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'kaggle/*.ipynb'
+      - 'kaggle/ACTIVE_KAGGLE_SOURCE.txt'
+      - '.github/workflows/publish-active-kaggle-notebook.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: anaadhi-kaggle-publisher
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      KAGGLE_REF: amoghavarshavpatil/anaadhi-location-root-factory
+      KAGGLE_URL: https://www.kaggle.com/code/amoghavarshavpatil/anaadhi-location-root-factory
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify Kaggle secret
+        shell: bash
+        run: |
+          test -n "$KAGGLE_API_TOKEN" || { echo 'KAGGLE_API_TOKEN is missing.'; exit 1; }
+          echo 'Kaggle secret is configured.'
+
+      - name: Install official Kaggle CLI
+        run: python -m pip install --upgrade kaggle
+
+      - name: Resolve active notebook
+        id: source
+        shell: bash
+        run: |
+          SOURCE="$(tr -d '\r\n' < kaggle/ACTIVE_KAGGLE_SOURCE.txt)"
+          case "$SOURCE" in
+            kaggle/*.ipynb) ;;
+            *) echo "Invalid active source path: $SOURCE"; exit 1 ;;
+          esac
+          test -f "$SOURCE" || { echo "Active notebook not found: $SOURCE"; exit 1; }
+          echo "source=$SOURCE" >> "$GITHUB_OUTPUT"
+          echo "Publishing source: $SOURCE"
+
+      - name: Validate notebook JSON
+        env:
+          SOURCE: ${{ steps.source.outputs.source }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          p = pathlib.Path(os.environ['SOURCE'])
+          with p.open('r', encoding='utf-8') as f:
+              nb = json.load(f)
+          assert nb.get('nbformat') == 4, f"Unexpected nbformat: {nb.get('nbformat')}"
+          assert isinstance(nb.get('cells'), list) and nb['cells'], 'Notebook has no cells.'
+          print(f"Notebook valid: {p} | cells={len(nb['cells'])}")
+          PY
+
+      - name: Build Kaggle staging package
+        env:
+          SOURCE: ${{ steps.source.outputs.source }}
+        shell: bash
+        run: |
+          STAGE="$RUNNER_TEMP/anaadhi-kaggle-publish"
+          rm -rf "$STAGE"
+          mkdir -p "$STAGE"
+          cp "$SOURCE" "$STAGE/anaadhi-location-root-factory.ipynb"
+          cat > "$STAGE/kernel-metadata.json" <<'JSON'
+          {
+            "id": "amoghavarshavpatil/anaadhi-location-root-factory",
+            "title": "ANAADHI Location Root Factory",
+            "code_file": "anaadhi-location-root-factory.ipynb",
+            "language": "python",
+            "kernel_type": "notebook",
+            "is_private": true,
+            "enable_gpu": true,
+            "enable_tpu": false,
+            "enable_internet": true,
+            "keywords": ["anaadhi", "film", "production"],
+            "dataset_sources": [],
+            "kernel_sources": [],
+            "competition_sources": [],
+            "model_sources": []
+          }
+          JSON
+          python -m json.tool "$STAGE/kernel-metadata.json" >/dev/null
+          echo "STAGE=$STAGE" >> "$GITHUB_ENV"
+          echo 'Kaggle package built.'
+
+      - name: Publish/update private Kaggle notebook on Tesla T4
+        shell: bash
+        run: |
+          kaggle kernels push -p "$STAGE" --accelerator NvidiaTeslaT4 --timeout 1800
+
+      - name: Show Kaggle status
+        if: always()
+        shell: bash
+        run: |
+          echo "Kaggle notebook: $KAGGLE_URL"
+          kaggle kernels status "$KAGGLE_REF" || true
+
+      - name: Publisher success
+        run: |
+          echo 'ANAADHI GitHub → Kaggle publishing completed.'
+          echo "$KAGGLE_URL"
