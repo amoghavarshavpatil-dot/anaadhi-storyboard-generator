@@ -1,0 +1,66 @@
+name: Lock LOC-040 Reference Registry
+
+on:
+  push:
+    paths:
+      - '.github/workflows/lock-loc040-reference-registry.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Lock LOC-040 canonical reference entry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          registry = Path('production/references/REFERENCE_REGISTRY.yaml')
+          asset = Path('production/references/locations/LOC-040/LOC-040_MASTER-01_Leaking-Village-Shelter_3840x1600_FINAL.jpg')
+          assert asset.exists(), asset
+          sha256 = hashlib.sha256(asset.read_bytes()).hexdigest()
+
+          anchor = '  LOC-VILLAGE-HAND-PUMP: {name: "forest-edge village hand-pump family", status: MISSING_APPROVED_ASSET, path: null}'
+          new = f'''  LOC-LEAKING-VILLAGE-SHELTER:\n    name: "Leaking Village Shelter"\n    env6l_id: "LOC-040"\n    master_id: "LOC-040_MASTER-01"\n    canonical_state: "ST00"\n    status: APPROVED\n    path: "production/references/locations/LOC-040/LOC-040_MASTER-01_Leaking-Village-Shelter_3840x1600_FINAL.jpg"\n    sha256: "{sha256}"\n    raster: "3840x1600"\n    aspect_ratio: "2.40:1"\n    source_drive_file_id: "1e6igVC71QiZoGW3CkeHQT898ZY6jpdMB"\n    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"\n    continuity: "Modest Karnataka village shelter; unresolved roof defect; active monsoon water entering through the roof into the occupied shelter area; multiple leak streams; wet floor and catching vessels; weathered practical rural construction; no people or animals in the environment master."\n    non_negotiable_state_rule: "The unresolved roof defect and active rain leakage are baseline ST00 identity. Never pristine-reset, silently repair, or depict this canonical state as dry/perfect."\n    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."'''
+
+          text = registry.read_text(encoding='utf-8')
+          if '  LOC-LEAKING-VILLAGE-SHELTER:\n' in text:
+              print('LOC-040 registry entry already exists; leaving it unchanged.')
+          elif anchor in text:
+              text = text.replace(anchor, anchor + '\n' + new, 1)
+          else:
+              raise SystemExit('Expected LOC-VILLAGE-HAND-PUMP anchor not found.')
+          registry.write_text(text, encoding='utf-8')
+          print('LOC-040 sha256:', sha256)
+          PY
+
+      - name: Validate registry asset reference
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -A17 '^  LOC-LEAKING-VILLAGE-SHELTER:' production/references/REFERENCE_REGISTRY.yaml
+          test -f production/references/locations/LOC-040/LOC-040_MASTER-01_Leaking-Village-Shelter_3840x1600_FINAL.jpg
+
+      - name: Commit registry lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/REFERENCE_REGISTRY.yaml
+          if git diff --cached --quiet; then
+            echo 'Registry already current.'
+          else
+            git commit -m 'Lock LOC-040 MASTER-01 in P1 reference registry'
+            git push
+          fi
