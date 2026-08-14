@@ -1,4 +1,4 @@
-version: 2
+version: 3
 phase: P1_VISUAL_REFERENCE_LOCK
 source_type: PARTIAL_LOCATION_REFERENCE_SOURCE
 source_folder: "https://drive.google.com/drive/folders/1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
@@ -37,9 +37,40 @@ rules:
   - "Do not use a generic Drive filename as canonical identity without visual audit and explicit mapping."
   - "Only files explicitly audited and mapped to a canonical location may become usable as a reference."
   - "Unmapped Drive PNG files remain LOCATION_CANDIDATE_UNMAPPED, not canonical."
-  - "No character, costume, hair, prop, vehicle, technology or injury asset may be marked APPROVED from this Drive folder unless later explicitly supplied."
+  - "No character, costume, hair, hero-prop, technology or injury asset may be marked APPROVED from this Drive folder unless later explicitly supplied/audited."
+  - "LOC-008 is an ENV-6L MOBILE-ASSET reference. Its existence does NOT mean the project's separate vehicle-design pass is complete."
 
 verified_existing_location_sources:
+  - canonical_id: "LOC-001"
+    canonical_name: "Anaadhi Primary / Final / Raised Cabin"
+    screenplay_environment: "Anaadhi raised/final cabin family"
+    production_batches: ["B01", "B23", "B25"]
+    filename: "file_0000000052008208a83b3737112f8d59.png"
+    drive_file_id: "1gRMFCkNrs777LCk83A03QusP6OynjBXD"
+    drive_url: "https://drive.google.com/file/d/1gRMFCkNrs777LCk83A03QusP6OynjBXD/view"
+    visual_audit: "PASS — raised rough timber cabin on stilts in dense wet Bhaigaara forest; matches LOC-001 master identity. Interior, split floor, lower escape passage and later capture/breach states remain separate required plates/variants."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+
+  - canonical_id: "LOC-002"
+    canonical_name: "Adraka Medical University"
+    screenplay_environment: "Adraka Medical University / systems-lab family"
+    production_batches: ["B02"]
+    filename: "file_000000009a6882088527a09b70924d84.png"
+    drive_file_id: "1N1veQrahSWuwxU4MLWk2zOCmqjnGnhGn"
+    drive_url: "https://drive.google.com/file/d/1N1veQrahSWuwxU4MLWk2zOCmqjnGnhGn/view"
+    visual_audit: "PASS — historic red-stone/timber academic identity integrated with restrained advanced research architecture; matches LOC-002. Systems-lab interior still requires its own nested reference."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+
+  - canonical_id: "LOC-003"
+    canonical_name: "Paraane Campus / Central Complex"
+    screenplay_environment: "Paraane campus master site"
+    production_batches: ["B03","B05","B06","B07","B08","B09","B10","B11","B12","B24","B25","B26","B29","B33"]
+    filename: "file_00000000fa9c82119821a54bf73554bb.png"
+    drive_file_id: "1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW"
+    drive_url: "https://drive.google.com/file/d/1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW/view"
+    visual_audit: "PASS — black-stone/laterite/timber institutional campus integrated into Western-Ghats terrain; matches LOC-003 master site. ST01-ST04 evolution and required nested interiors remain to generate/audit."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+
   - canonical_id: "LOC-004"
     canonical_name: "Kendhalaa Workers' District"
     screenplay_environment: "Kendhalaa Workers' District / Public Square"
@@ -54,23 +85,43 @@ verified_existing_location_sources:
   - canonical_id: "LOC-005"
     canonical_name: "Parlipatna Multi-Speciality Maternity Hospital"
     screenplay_environment: "Parlipatna maternity-hospital family"
-    scenes: [11, 12, 13]
+    scenes: [11,12,13]
     production_batches: ["B04"]
     filename: "ANAADHI_ENV6L_LOC005_ST00_CanonicalMaster_v004_APPROVED.png"
     drive_file_id: "1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN"
     drive_url: "https://drive.google.com/file/d/1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN/view"
-    visual_audit: "PASS — black-stone hospital identity, copper rain systems, solar roof language and monsoon context read correctly."
+    visual_audit: "PASS — black-stone hospital identity, copper rain systems, solar roof language and monsoon context read correctly. Nested maternity rooms still require separate references."
     state: "VERIFIED_EXISTING_APPROVED_SOURCE"
 
   - canonical_id: "LOC-006"
     canonical_name: "Parlipatna Four-Road Junction"
     screenplay_environment: "Parlipatna four-road junction"
-    scenes: [14, 15]
+    scenes: [14,15]
     production_batches: ["B05"]
     filename: "ANAADHI_ENV6L_LOC006_ST00_CanonicalMaster_v001_APPROVED.png"
     drive_file_id: "1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr"
     drive_url: "https://drive.google.com/file/d/1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr/view"
-    visual_audit: "PASS — rural monsoon four-way road topology is clear; later scene dressing may add shrine/light/vehicles without replacing site identity."
+    visual_audit: "PASS — rural monsoon four-way road topology is clear; scene dressing may add the locked shrine/light/vehicle elements without replacing site identity."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+
+  - canonical_id: "LOC-007"
+    canonical_name: "Parlipatna Outer Patrol Road"
+    screenplay_environment: "Parlipatna outer patrol road"
+    production_batches: ["B05"]
+    filename: "file_00000000c9688208843aece2e1d41cf8.png"
+    drive_file_id: "1O4mQy2hrAGrVAuYi5WdE3KjsICr6Izfh"
+    drive_url: "https://drive.google.com/file/d/1O4mQy2hrAGrVAuYi5WdE3KjsICr6Izfh/view"
+    visual_audit: "PASS — wet motorable hill road through dense vegetation with independent curvature/drainage identity; matches LOC-007."
+    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+
+  - canonical_id: "LOC-008"
+    canonical_name: "Sarjanya Jeep"
+    screenplay_environment: "Sarjanya open patrol jeep / mobile spatial capsule"
+    production_batches: ["B05"]
+    filename: "file_00000000a8c48208a504d669325f77fb.png"
+    drive_file_id: "1fmM6pXIoa0B3hpOQ17t2MSahpw1tulmm"
+    drive_url: "https://drive.google.com/file/d/1fmM6pXIoa0B3hpOQ17t2MSahpw1tulmm/view"
+    visual_audit: "PASS AS ENV-6L MOBILE-ASSET — functional open patrol jeep, grounded and non-military-fantasy. This is only the canonical mobile-environment reference; it does not complete the separate P1 vehicle asset family."
     state: "VERIFIED_EXISTING_APPROVED_SOURCE"
 
   - canonical_id: "LOC-009"
@@ -95,18 +146,21 @@ verified_existing_location_sources:
     visual_audit: "PASS — wet forest road with distinct curvature, drainage/rut pattern and dense roadside vegetation."
     state: "VERIFIED_EXISTING_APPROVED_SOURCE"
 
+verified_count: 10
+verified_ids: ["LOC-001","LOC-002","LOC-003","LOC-004","LOC-005","LOC-006","LOC-007","LOC-008","LOC-009","LOC-036"]
+
 unmapped_drive_images:
   status: "LOCATION_CANDIDATE_UNMAPPED"
-  instruction: "Visually audit before assigning to screenplay locations. Do not guess from generic file names."
+  instruction: "Continue visual audit before assignment. Never infer mapping from upload order alone."
 
 p1_generation_order:
-  - "1. Continue auditing/mapping any useful generic Drive location candidates."
-  - "2. Generate the approximately 85% missing location masters, grouped by production usefulness and the 34 movie batches."
-  - "3. Generate required nested interiors/subspaces for batches whose master site alone is insufficient."
+  - "1. Continue auditing/mapping useful generic Drive location candidates."
+  - "2. Reuse verified master locations and generate only missing masters."
+  - "3. Generate required nested interiors/subspaces and physical-state variants even when a root master already exists."
   - "4. Generate/lock character identity families and Anaadhi age-specific body states."
   - "5. Generate/lock costume and hair states for each batch/age epoch."
   - "6. Generate/lock hero props, vehicles and recurring technology assets."
   - "7. Generate/lock injury/recovery states and special environment conditions."
   - "8. Run P1 validator. No batch moves to P2 until its required P1 assets are actually approved."
 
-status: "FIVE_EXISTING_LOCATION_MASTERS_VERIFIED__P1_LOCATION_GENERATION_REQUIRED"
+status: "TEN_ENV6L_ASSETS_VERIFIED__DRIVE_AUDIT_CONTINUES__P1_GENERATION_REQUIRED"
