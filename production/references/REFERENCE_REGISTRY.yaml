@@ -170,6 +170,22 @@ locations:
   LOC-TRIBUNAL-COURT: {name: "tribunal / judicial court family", status: MISSING_APPROVED_ASSET, path: null}
   LOC-IJMC: {name: "Independent Judicial Medical Centre / Scene-100 interview room", status: MISSING_APPROVED_ASSET, path: null}
 
+  LOC-060:
+    name: "Forest Ravine — Adult Escape"
+    env6l_id: "LOC-060"
+    master_id: "LOC-060_MASTER-01"
+    status: APPROVED
+    path: "production/references/locations/LOC-060/LOC-060_MASTER-01_Forest-Ravine-Adult-Escape_3840x1600_FINAL.jpg"
+    sha256: "0b923f87faee6d5aaed1ef2e8c730222e90c067f7335ef26072ff8cac0aafbc3"
+    raster: "3840x1600"
+    aspect_ratio: "2.40:1"
+    source_drive_file_id: "1YqfENxZUITlTa5jM_F_gDcLfL3eUzQEG"
+    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+    continuity: "Adult-escape forest ravine; shallow wet drainage flow; slick rock cover; exposed wet roots; small corroded drainage grate partly concealed beneath roots; natural ravine remains dominant."
+    collision_lock: "HOLD-separated from LOC-010 child ravine and LOC-061 flood channel; never convert into a torrent, large culvert portal, cave, institutional facade, or generic tunnel mouth."
+    clean_master: "No people, animals, vehicles, signage, labels, or storyboard action."
+    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
+
 hero_props:
   PRP-ADK7-CARTRIDGE: {name: "ADK-7 restricted transfer cartridge", status: MISSING_APPROVED_ASSET, path: null}
   PRP-PARAANE-EMBLEM: {name: "Paraane emblem", status: MISSING_APPROVED_ASSET, path: null}
