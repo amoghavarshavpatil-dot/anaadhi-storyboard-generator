@@ -1,0 +1,46 @@
+version: 2
+phase: P1_LOCATION_FACTORY
+supersedes_status_fields_in: "production/locations/LOCATION_GENERATION_QUEUE.yaml"
+reuse_override: "production/locations/EXISTING_LOCATION_OVERRIDES.yaml"
+
+reason: >-
+  Visual audit of the supplied Google Drive folder verified ten canonical ENV-6L assets.
+  Root/master ST00 generation for these IDs is therefore removed from the generation workload.
+  Nested subspaces, later states and scene dressing are NOT automatically satisfied.
+
+effective_existing_assets:
+  LOC-001: {master_st00: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: [interior, lower_passage, split_floor_continuity, capture_breach_state]}
+  LOC-002: {master_st00: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: [systems_lab_subspace]}
+  LOC-003: {master_st00: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: [ST01, ST02, ST03, ST04, required_nested_subspaces]}
+  LOC-004: {master_st00: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: [required_nested_public_square_if_needed]}
+  LOC-005: {master_st00: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: [neonatal_suite, records_control_room, maternity_recovery_room, other_required_subspaces]}
+  LOC-006: {master_st00: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: [scene_dressing_continuity]}
+  LOC-007: {master_st00: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: []}
+  LOC-008: {env6l_mobile_reference: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: [separate_vehicle_detail_pass_if_required]}
+  LOC-009: {master_st00: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: [scene_028_weather_search_dressing]}
+  LOC-036: {master_st00: APPROVED_REFERENCE, root_regeneration: SKIP, remaining: [canonical_scene_state_if_required]}
+
+wave_status_updates:
+  W01_HERO_FOUNDATIONS:
+    LOC-001: ROOT_MASTER_DONE__CONTINUE_NESTED_AND_STATE
+    LOC-002: ROOT_MASTER_DONE__CONTINUE_SYSTEMS_LAB
+    LOC-003: ROOT_MASTER_DONE__CONTINUE_EVOLUTION_AND_SUBSPACES
+  W03_ADULT_FOREST_ROUTES_AND_SOCIAL_SITES:
+    LOC-036: ROOT_MASTER_DONE
+
+hard_truth:
+  characters_created: false
+  anaadhi_age_body_states_created: false
+  costumes_created: false
+  hair_created: false
+  injury_references_created: false
+  hero_props_created: false
+  separate_vehicle_asset_family_complete: false
+  technology_assets_created: false
+  dialogue_or_lipsync_created: false
+  bgm_sfx_mix_created: false
+
+next_action:
+  - "Continue generic Drive PNG visual audit against frozen ENV-6L identities."
+  - "Then generate only the genuinely missing root masters."
+  - "After root-master coverage, generate required subspaces and later physical states."
