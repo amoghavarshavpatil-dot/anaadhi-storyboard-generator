@@ -1,0 +1,92 @@
+version: 3
+phase: P1_LOCATION_FACTORY
+status: DRIVE_ROOT_AUDIT_COMPLETE
+supersedes_effective_status_of: ["production/locations/LOCATION_QUEUE_PATCH_V2.yaml"]
+source_audits:
+  - "production/references/DRIVE_LOCATION_SOURCE_AUDIT.yaml"
+  - "production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml"
+reuse_overrides:
+  - "production/locations/EXISTING_LOCATION_OVERRIDES.yaml"
+  - "production/locations/EXISTING_LOCATION_OVERRIDES_LOC010_059.yaml"
+canonical_authority:
+  registry: "ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json"
+  generation_manifest: "ENV-6J_Master_Environment_Generation_Manifest_v001.json"
+
+arithmetic:
+  env6l_root_master_slots: 87
+  verified_drive_root_references: 57
+  verified_root_coverage_percent: 65.5
+  drive_candidates_requiring_correction: 2
+  drive_candidates_requiring_correction_ids: [LOC-016, LOC-040]
+  roots_with_no_drive_image: 28
+  roots_needing_generation_or_correction_total: 30
+  env6l_subspace_reference_slots: 67
+  env6l_later_state_variant_slots: 12
+  env6l_total_asset_slots: 166
+  warning: "Root coverage is not total environment completion. Subspaces and later-state variants remain separate work."
+
+# Correct first because these already have useful composition/site-family candidates.
+correction_wave:
+  - LOC-016
+  - LOC-040
+
+# Drive folder ends at the LOC-059 candidate sequence. These canonical root masters have no supplied Drive image.
+missing_root_generation_wave:
+  - LOC-060
+  - LOC-061
+  - LOC-062
+  - LOC-063
+  - LOC-064
+  - LOC-065
+  - LOC-066
+  - LOC-067
+  - LOC-068
+  - LOC-069
+  - LOC-070
+  - LOC-071
+  - LOC-072
+  - LOC-073
+  - LOC-074
+  - LOC-075
+  - LOC-076
+  - LOC-077
+  - LOC-078
+  - LOC-079
+  - LOC-080
+  - LOC-081
+  - LOC-082
+  - LOC-083
+  - LOC-084
+  - LOC-085
+  - LOC-086
+  - LOC-087
+
+root_generation_rules:
+  - "Resolve every ID from the frozen ENV-6J prompt record. Never invent a canonical name or identity from screenplay shorthand."
+  - "Generate four candidates per missing/corrected root identity, review, then approve one."
+  - "No people in clean environment identity masters unless the frozen manifest explicitly requires a human scale proxy; any proxy must not become a character identity."
+  - "No storyboard camera grammar; environment identity only."
+  - "Anaadhi adult scale remains 1.93 m wherever relevant; architecture is not resized around him."
+  - "Preserve HA-01 through HA-10 collision groups and RU proxy chains exactly."
+  - "Do not pristine-reset canonical pre-damaged environments."
+  - "Do not create a second copy of a verified Drive root merely for style variation."
+
+post_root_sequence:
+  - "Generate the 67 required subspace references under their locked parent LOCs."
+  - "Generate only the missing 12 later-state variants, inheriting all unmodified parent/state fields."
+  - "Attach accepted files + SHA256 to formal ENV-6L visual lock records."
+  - "Only then advance from location P1 to character/age/body P1."
+
+non_location_truth_lock:
+  characters_created: false
+  anaadhi_age_body_states_created: false
+  costumes_created: false
+  hair_created: false
+  injuries_created: false
+  hero_props_created: false
+  standalone_vehicle_family_complete: false
+  technology_assets_created: false
+  dialogue_lipsync_created: false
+  inner_voice_vo_monologue_created: false
+  bgm_sfx_created: false
+  mix_master_created: false
