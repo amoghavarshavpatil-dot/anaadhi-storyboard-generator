@@ -1,0 +1,63 @@
+version: 1
+phase: P1_VISUAL_REFERENCE_LOCK
+source_type: PARTIAL_LOCATION_REFERENCE_SOURCE
+source_folder: "https://drive.google.com/drive/folders/1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+audit_date: "2026-08-14"
+
+truth_lock:
+  drive_contains_complete_asset_library: false
+  drive_contains_some_location_images: true
+  estimated_location_coverage_from_creator: "about 15%"
+  estimated_locations_still_to_generate: "about 85%"
+  characters_created: false
+  anaadhi_age_body_states_created: false
+  costume_states_created: false
+  hair_states_created: false
+  injury_reference_states_created: false
+  hero_props_created: false
+  vehicles_created: false
+  technology_assets_created: false
+  environment_condition_assets_created: false
+  dialogue_assets_created: false
+  lip_sync_assets_created: false
+  bgm_sfx_assets_created: false
+
+rules:
+  - "Do not infer that an asset exists merely because it is listed in REFERENCE_REGISTRY.yaml."
+  - "Registry IDs are requirements/placeholders until an exact approved asset is attached."
+  - "Do not use a generic Drive filename as canonical identity without visual audit and explicit mapping."
+  - "Only files explicitly audited and mapped to a registry ID may become APPROVED."
+  - "Unmapped Drive PNG files remain LOCATION_CANDIDATE_UNMAPPED, not canonical."
+  - "No character, costume, hair, prop, vehicle, technology or injury asset may be marked APPROVED from this Drive folder unless later explicitly supplied."
+
+explicitly_named_location_files_seen:
+  - filename: "ANAADHI_ENV6L_LOC004_ST00_CanonicalMaster_v002_APPROVED.png"
+    drive_file_id: "1kyOsLRiYu_VdE1KbKz9KwXgmpCSRPOP0"
+    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
+  - filename: "ANAADHI_ENV6L_LOC005_ST00_CanonicalMaster_v004_APPROVED.png"
+    drive_file_id: "1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN"
+    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
+  - filename: "ANAADHI_ENV6L_LOC006_ST00_CanonicalMaster_v001_APPROVED.png"
+    drive_file_id: "1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr"
+    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
+  - filename: "ANAADHI_ENV6L_LOC009_ST00_CanonicalMaster_v001_APPROVED.png"
+    drive_file_id: "1fPxA4G1UpuJOJB_5xD6mFj988psN_kbk"
+    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
+  - filename: "ANAADHI_ENV6L_LOC036_ST00_CanonicalMaster_v001_APPROVED.png"
+    drive_file_id: "1apfobFkw2NiXKgQK84f56UOKClaiH_6-"
+    state: "LOCATION_CANDIDATE_REQUIRES_CANON_MAPPING"
+
+unmapped_drive_images:
+  status: "LOCATION_CANDIDATE_UNMAPPED"
+  instruction: "Visually audit before assigning to screenplay locations. Do not guess from generic file names."
+
+p1_generation_order:
+  - "1. Audit/map the existing Drive location candidates."
+  - "2. Generate the approximately 85% missing location masters, grouped by the 34 production batches."
+  - "3. Generate/lock character identity families and Anaadhi age-specific body states."
+  - "4. Generate/lock costume and hair states for each batch/age epoch."
+  - "5. Generate/lock hero props, vehicles and recurring technology assets."
+  - "6. Generate/lock injury/recovery states and special environment conditions."
+  - "7. Run P1 validator. No batch moves to P2 until its required P1 assets are actually approved."
+
+status: "CORRECTED_SOURCE_AUDIT_LOCKED"
