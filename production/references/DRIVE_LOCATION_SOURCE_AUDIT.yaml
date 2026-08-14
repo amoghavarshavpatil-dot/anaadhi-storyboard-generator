@@ -1,4 +1,4 @@
-version: 3
+version: 4
 phase: P1_VISUAL_REFERENCE_LOCK
 source_type: PARTIAL_LOCATION_REFERENCE_SOURCE
 source_folder: "https://drive.google.com/drive/folders/1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
@@ -6,18 +6,15 @@ audit_date: "2026-08-14"
 
 truth_lock:
   drive_contains_complete_asset_library: false
-  drive_contains_some_location_images: true
-  estimated_location_coverage_from_creator: "about 15%"
-  estimated_locations_still_to_generate: "about 85%"
+  drive_contains_location_root_masters: true
   characters_created: false
   anaadhi_age_body_states_created: false
   costume_states_created: false
   hair_states_created: false
   injury_reference_states_created: false
   hero_props_created: false
-  vehicles_created: false
+  separate_vehicle_asset_family_complete: false
   technology_assets_created: false
-  environment_condition_assets_created: false
   dialogue_assets_created: false
   lip_sync_assets_created: false
   bgm_sfx_assets_created: false
@@ -28,139 +25,189 @@ canonical_environment_authority:
   master_location_count: 87
   subspace_reference_count: 67
   later_state_variant_count: 12
+  total_environment_asset_slots: 166
   physical_state_count: 99
-  rule: "ENV-6L/ENV-6J canonical IDs and names control mapping; Drive filenames do not create new canon."
+  rule: "ENV-6L/ENV-6J canonical IDs and names control mapping. Drive filenames never create new canon."
 
 rules:
-  - "Do not infer that an asset exists merely because it is listed in REFERENCE_REGISTRY.yaml."
-  - "Registry IDs are requirements/placeholders until an exact approved asset is attached."
-  - "Do not use a generic Drive filename as canonical identity without visual audit and explicit mapping."
-  - "Only files explicitly audited and mapped to a canonical location may become usable as a reference."
-  - "Unmapped Drive PNG files remain LOCATION_CANDIDATE_UNMAPPED, not canonical."
-  - "No character, costume, hair, hero-prop, technology or injury asset may be marked APPROVED from this Drive folder unless later explicitly supplied/audited."
-  - "LOC-008 is an ENV-6L MOBILE-ASSET reference. Its existence does NOT mean the project's separate vehicle-design pass is complete."
+  - "A root/master ST00 image does not satisfy its nested interiors, subspaces, later physical states or scene dressing requirements."
+  - "Do not infer completion of characters, costumes, hair, props, technology, injuries or audio from this Drive folder."
+  - "Distinct ENV-6L HOLD/collision identities may share kits only at component level; never collapse their topology."
+  - "Only visually audited files may enter the reuse override."
+  - "LOC-008 remains an ENV-6L mobile-environment reference only, not a completed vehicle-design family."
 
-verified_existing_location_sources:
-  - canonical_id: "LOC-001"
-    canonical_name: "Anaadhi Primary / Final / Raised Cabin"
-    screenplay_environment: "Anaadhi raised/final cabin family"
-    production_batches: ["B01", "B23", "B25"]
-    filename: "file_0000000052008208a83b3737112f8d59.png"
-    drive_file_id: "1gRMFCkNrs777LCk83A03QusP6OynjBXD"
-    drive_url: "https://drive.google.com/file/d/1gRMFCkNrs777LCk83A03QusP6OynjBXD/view"
-    visual_audit: "PASS — raised rough timber cabin on stilts in dense wet Bhaigaara forest; matches LOC-001 master identity. Interior, split floor, lower escape passage and later capture/breach states remain separate required plates/variants."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+root_master_audit_summary:
+  total_env6l_root_masters: 87
+  drive_sequence_reaches: "LOC-059"
+  reusable_verified_root_masters: 58
+  partial_reference_not_root_locked: 1
+  root_masters_still_to_generate_or_refine: 29
+  reusable_percentage_of_root_masters: 66.67
+  warning: "66.67% refers ONLY to the 87 ST00 root masters. P1 is not 66.67% complete because subspaces, states, characters, costumes, hair, props, vehicles, technology and injuries remain separate work."
 
-  - canonical_id: "LOC-002"
-    canonical_name: "Adraka Medical University"
-    screenplay_environment: "Adraka Medical University / systems-lab family"
-    production_batches: ["B02"]
-    filename: "file_000000009a6882088527a09b70924d84.png"
-    drive_file_id: "1N1veQrahSWuwxU4MLWk2zOCmqjnGnhGn"
-    drive_url: "https://drive.google.com/file/d/1N1veQrahSWuwxU4MLWk2zOCmqjnGnhGn/view"
-    visual_audit: "PASS — historic red-stone/timber academic identity integrated with restrained advanced research architecture; matches LOC-002. Systems-lab interior still requires its own nested reference."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+verified_root_master_ids:
+  - LOC-001
+  - LOC-002
+  - LOC-003
+  - LOC-004
+  - LOC-005
+  - LOC-006
+  - LOC-007
+  - LOC-008
+  - LOC-009
+  - LOC-010
+  - LOC-011
+  - LOC-012
+  - LOC-013
+  - LOC-014
+  - LOC-015
+  - LOC-017
+  - LOC-018
+  - LOC-019
+  - LOC-020
+  - LOC-021
+  - LOC-022
+  - LOC-023
+  - LOC-024
+  - LOC-025
+  - LOC-026
+  - LOC-027
+  - LOC-028
+  - LOC-029
+  - LOC-030
+  - LOC-031
+  - LOC-032
+  - LOC-033
+  - LOC-034
+  - LOC-035
+  - LOC-036
+  - LOC-037
+  - LOC-038
+  - LOC-039
+  - LOC-040
+  - LOC-041
+  - LOC-042
+  - LOC-043
+  - LOC-044
+  - LOC-045
+  - LOC-046
+  - LOC-047
+  - LOC-048
+  - LOC-049
+  - LOC-050
+  - LOC-051
+  - LOC-052
+  - LOC-053
+  - LOC-054
+  - LOC-055
+  - LOC-056
+  - LOC-057
+  - LOC-058
+  - LOC-059
 
-  - canonical_id: "LOC-003"
-    canonical_name: "Paraane Campus / Central Complex"
-    screenplay_environment: "Paraane campus master site"
-    production_batches: ["B03","B05","B06","B07","B08","B09","B10","B11","B12","B24","B25","B26","B29","B33"]
-    filename: "file_00000000fa9c82119821a54bf73554bb.png"
-    drive_file_id: "1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW"
-    drive_url: "https://drive.google.com/file/d/1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW/view"
-    visual_audit: "PASS — black-stone/laterite/timber institutional campus integrated into Western-Ghats terrain; matches LOC-003 master site. ST01-ST04 evolution and required nested interiors remain to generate/audit."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+partial_or_rejected_root_references:
+  LOC-016:
+    canonical_name: "Forest-Edge Barter Hamlet"
+    drive_file_id: "1juTOElCeXcqRt7zEy5N3jywTDwyzGanu"
+    filename: "file_0000000078fc820787fd10c1900c6c3e.png"
+    state: PARTIAL_REFERENCE_REGENERATE_OR_REFINE
+    reason: >-
+      The file reads as a forest-edge hamlet, but the locked ENV-6J identity requires the
+      barter-specific physical language to read clearly: timber stalls, brass scales,
+      mechanical weighing arms and solar-cloth awnings. Do not root-lock this image yet.
 
-  - canonical_id: "LOC-004"
-    canonical_name: "Kendhalaa Workers' District"
-    screenplay_environment: "Kendhalaa Workers' District / Public Square"
-    scenes: [9]
-    production_batches: ["B03"]
-    filename: "ANAADHI_ENV6L_LOC004_ST00_CanonicalMaster_v002_APPROVED.png"
-    drive_file_id: "1kyOsLRiYu_VdE1KbKz9KwXgmpCSRPOP0"
-    drive_url: "https://drive.google.com/file/d/1kyOsLRiYu_VdE1KbKz9KwXgmpCSRPOP0/view"
-    visual_audit: "PASS — working wet laterite civic/worker district; usable as canonical ST00 location master."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+root_master_missing_or_refine_ids:
+  - LOC-016
+  - LOC-060
+  - LOC-061
+  - LOC-062
+  - LOC-063
+  - LOC-064
+  - LOC-065
+  - LOC-066
+  - LOC-067
+  - LOC-068
+  - LOC-069
+  - LOC-070
+  - LOC-071
+  - LOC-072
+  - LOC-073
+  - LOC-074
+  - LOC-075
+  - LOC-076
+  - LOC-077
+  - LOC-078
+  - LOC-079
+  - LOC-080
+  - LOC-081
+  - LOC-082
+  - LOC-083
+  - LOC-084
+  - LOC-085
+  - LOC-086
+  - LOC-087
 
-  - canonical_id: "LOC-005"
-    canonical_name: "Parlipatna Multi-Speciality Maternity Hospital"
-    screenplay_environment: "Parlipatna maternity-hospital family"
-    scenes: [11,12,13]
-    production_batches: ["B04"]
-    filename: "ANAADHI_ENV6L_LOC005_ST00_CanonicalMaster_v004_APPROVED.png"
-    drive_file_id: "1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN"
-    drive_url: "https://drive.google.com/file/d/1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN/view"
-    visual_audit: "PASS — black-stone hospital identity, copper rain systems, solar roof language and monsoon context read correctly. Nested maternity rooms still require separate references."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+newly_verified_drive_mapping:
+  LOC-010: {drive_file_id: "1SIyFt8t977viGzq-NCt5jDS7rFVYQ927", filename: "file_00000000067c82088ca2d0577f03d91a.png"}
+  LOC-011: {drive_file_id: "1fvisjiZTciVLMrgJgWuTOn6FqbkPxJXD", filename: "file_00000000859882078b9b8ce0b39e5a21.png"}
+  LOC-012: {drive_file_id: "1QPvEtfKYtIAWxkA-nUIZcup3DahMnG88", filename: "file_0000000095908207af7e57e85a0b9403.png"}
+  LOC-013: {drive_file_id: "1e9UcfjoyK0zFeunAdtA5QZeTu6deM2-L", filename: "file_000000009d0882118993325b1f383ebe.png"}
+  LOC-014: {drive_file_id: "1dC1uvYLHkTP8JqWMjockIsEf_NabnkSl", filename: "file_000000007ae08207ba38c4f8b845a756.png"}
+  LOC-015: {drive_file_id: "1Sg36wqdDcXiIGPHobsuDJpsK1pxeKTVw", filename: "file_00000000134c82078fb6daf808e28cd1.png"}
+  LOC-017: {drive_file_id: "1mqTEnxb3elZ9SoW0mX2jkK0RErsXrBqD", filename: "file_0000000057a881fa95870433ae498d02.png"}
+  LOC-018: {drive_file_id: "1xpzle1RUs1fd0nZdDl_y08yc2e_frHcQ", filename: "file_000000002ef881f887a17f970c8f9e73.png"}
+  LOC-019: {drive_file_id: "1BJoHSfIe20hN-DD2-NvyKPlfFyMnCS4o", filename: "file_000000009a68820bade2495cec8e1775.png"}
+  LOC-020: {drive_file_id: "1tnzeBuHUWS9VHUvLqzB0Ozgr89nbubQ7", filename: "file_000000007dd0822f9bf37ce2da475ff8.png"}
+  LOC-021: {drive_file_id: "1V0Uev-hZ_mjf9V_m-2_BtMMrnC6Z7mQ6", filename: "file_000000001cc8820d920140e77dfb003d.png"}
+  LOC-022: {drive_file_id: "106FOg6zXuP2WE_ziM5LbyaYSXVkKbMd0", filename: "file_0000000047ec8208aeab4dfa1e976470.png"}
+  LOC-023: {drive_file_id: "12LE_jDk2Qy5pzYfx-bziCzQKY04QRy8E", filename: "file_0000000071a8824682bffe8deba16384.png"}
+  LOC-024: {drive_file_id: "1syDViVa3GKhQUWIPGsQh0BYTL0iLJ_Hv", filename: "file_00000000a7808211a4db34be1a25549d.png"}
+  LOC-025: {drive_file_id: "1il9b4yKKOuz7MDHLp3zuzMd0qyHIUCDH", filename: "file_0000000095e881faa3c0baa7efd29ea2.png"}
+  LOC-026: {drive_file_id: "11N-bGrxqiYuFo8LquLdeFtQE_eM5CrMI", filename: "file_00000000d618820b8262a9e6b3099fa8.png"}
+  LOC-027: {drive_file_id: "1Os8QBISk583JcBUcuRl6sMEMQbWKo5hO", filename: "file_00000000fba482089e2e65b3346243b7.png"}
+  LOC-028: {drive_file_id: "1H7lALGEEd31xzEnEvBTvSKwA-nm9MX5X", filename: "file_00000000556481fa83a47be49bf16ca3.png"}
+  LOC-029: {drive_file_id: "1su5rCrUvJTusYz7mcAiHTWTgyH8z2IGY", filename: "file_0000000008048211a30345efea8ebe36.png"}
+  LOC-030: {drive_file_id: "1kt7iOLkuCr7FZ2upBoFztaXMwP1P3KdJ", filename: "file_00000000828c82119ff8af8bbe10466f.png"}
+  LOC-031: {drive_file_id: "1_N-_uPypHtUTceFP97Di0cxGPb67iJ6Z", filename: "file_000000001d3c82078fc9eaf97da62011.png"}
+  LOC-032: {drive_file_id: "1ajZaoS65bf5V88OOgCMoLtmpR4IlOnJv", filename: "file_000000004f488211a90fb4d95ba11db7.png"}
+  LOC-033: {drive_file_id: "1XVUrsMjSmtuWNhDnVD2QuJCm2HX8qGTl", filename: "file_00000000b8ac820781b2f385b0ea00a5.png"}
+  LOC-034: {drive_file_id: "1wiXLvy7Q0nLAGNR9hunP2-n2D8Oa3XSI", filename: "file_0000000094188211a27561333d8d9981.png"}
+  LOC-035: {drive_file_id: "1eT0hs0wxxii4ORJhZnbbfDO8ar7xiDnh", filename: "file_00000000d95c821190d466fcf599ec15.png"}
+  LOC-037: {drive_file_id: "1286UPIunL66I78oHWDnYv5JCLZb4KSBP", filename: "file_000000001ac882119b9d74a2ead651b4.png"}
+  LOC-038: {drive_file_id: "1G3tgG1HqUyUfehixxQnK9oxmzdwpRCLR", filename: "file_0000000060c88211abfddb76a2db5139.png"}
+  LOC-039: {drive_file_id: "1Ml3XMGC89lOtJE2fdw3VAHXKgYZfj6Zo", filename: "file_00000000dfb481fa9c305375a8ac230f.png"}
+  LOC-040: {drive_file_id: "1dreqTM-LdZRTgnxfumMOcHUrAwUpaqkB", filename: "file_00000000fb6482078e024147c1bb299a.png"}
+  LOC-041: {drive_file_id: "1Cs61N6evAbcK8ar9CPkd7LVlrf5wAEu1", filename: "file_00000000ee3882118b25f8e539712b46.png"}
+  LOC-042: {drive_file_id: "1HjRtoSSHzSJnVLk2XGKS7Pd1MpntCiSb", filename: "file_00000000e1808211bfdc9a3f48eda2da.png"}
+  LOC-043: {drive_file_id: "1Q1MHgjrcrFPo_C3Q-80ObrE37dXDGXcd", filename: "file_0000000081748211a2a54c05f2113009.png"}
+  LOC-044: {drive_file_id: "13Yp-IpCcya5RXeWmEs8R3ylN8H-EoOOK", filename: "file_0000000029fc81fa9394c5ddacc803bd.png"}
+  LOC-045: {drive_file_id: "1YdhizYOVnIYNg-tWdHuvaS_70daamiDi", filename: "file_0000000078f08209ba1d41596af9f3b5.png"}
+  LOC-046: {drive_file_id: "14HZZRi74J0BDgnKe4oQ17AJtTurCVwVV", filename: "file_00000000d7b481fa8b6411d11766b9d0.png"}
+  LOC-047: {drive_file_id: "1m_-cqCvKGZvKceeDw9fD99mN8Q0fAVAk", filename: "file_00000000ddc88211ba14907d847f9033.png"}
+  LOC-048: {drive_file_id: "1QSrZtq4ffZ2Opc33-g1o_ePWXP3PTtEq", filename: "file_0000000073f8820b95d3972fc661875b.png"}
+  LOC-049: {drive_file_id: "1_NxNtYQlkOojuDvm_se90LXZSCfQ5KEA", filename: "file_000000000e2c81fa8be6345a33b1aeac.png"}
+  LOC-050: {drive_file_id: "1OkmOYDqRIFqwAHAneV3ez0-Rf8wtF2na", filename: "file_0000000090e882308412f02e7d14a83a.png"}
+  LOC-051: {drive_file_id: "1zT6L-PWj1tm3fd0v0yJZ4_tp8nbQvrmS", filename: "file_00000000c3bc82309d804242561ee99a.png"}
+  LOC-052: {drive_file_id: "1i3viVxtkASpnO9lD9TNSTjucmbTlXuZf", filename: "file_000000002e6481fa87ff054ef9d4bb68.png"}
+  LOC-053: {drive_file_id: "1LWe8EgD1HFilSsvmbUa5LmAza-GbE-BB", filename: "file_0000000027a881faa0bf752893d12bc2.png"}
+  LOC-054: {drive_file_id: "1_QxCJSX4dBlnxHnDHIs8ks6HuacWVf1k", filename: "file_000000002a2881fab5d6fdbd5ca94474.png"}
+  LOC-055: {drive_file_id: "1lm63RFcKCudHCUsv3Dbesca8eS06a9Ul", filename: "file_00000000a4c081fa9f04922dc1e2f6b5.png"}
+  LOC-056: {drive_file_id: "19alZCyDN3D-FPKg68Wxt24InSlWjqVzM", filename: "file_000000002eac81f7a7dc75eb8f7fbe03.png"}
+  LOC-057: {drive_file_id: "1eHU2o1tA8syeGtO3GLe16lLsecU3ALz2", filename: "file_00000000f4c48211b9bb38c5f6a10814.png"}
+  LOC-058: {drive_file_id: "1ebFDOdNr1dRYnOMSqYeKAwYg5-1PCl1J", filename: "file_000000006a8882119ded4b7b5eaa7c88.png"}
+  LOC-059: {drive_file_id: "1l_HhQGGE599G-SWE9-EGmglXuEytqxO7", filename: "file_00000000315482089a035c5b6064a748.png"}
 
-  - canonical_id: "LOC-006"
-    canonical_name: "Parlipatna Four-Road Junction"
-    screenplay_environment: "Parlipatna four-road junction"
-    scenes: [14,15]
-    production_batches: ["B05"]
-    filename: "ANAADHI_ENV6L_LOC006_ST00_CanonicalMaster_v001_APPROVED.png"
-    drive_file_id: "1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr"
-    drive_url: "https://drive.google.com/file/d/1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr/view"
-    visual_audit: "PASS — rural monsoon four-way road topology is clear; scene dressing may add the locked shrine/light/vehicle elements without replacing site identity."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+continuity_hard_holds:
+  cabin_shelter_topology_distinct: [LOC-001, LOC-018, LOC-020, LOC-027, LOC-035, LOC-039, LOC-050, LOC-058]
+  forest_clearings_distinct: [LOC-032, LOC-054]
+  hand_pump_sites_distinct: [LOC-023, LOC-026, LOC-030]
+  domestic_homes_distinct: [LOC-011, LOC-072]
+  police_evidence_and_hq_distinct: [LOC-057, LOC-080]
+  child_and_adult_ravines_distinct: [LOC-010, LOC-060]
 
-  - canonical_id: "LOC-007"
-    canonical_name: "Parlipatna Outer Patrol Road"
-    screenplay_environment: "Parlipatna outer patrol road"
-    production_batches: ["B05"]
-    filename: "file_00000000c9688208843aece2e1d41cf8.png"
-    drive_file_id: "1O4mQy2hrAGrVAuYi5WdE3KjsICr6Izfh"
-    drive_url: "https://drive.google.com/file/d/1O4mQy2hrAGrVAuYi5WdE3KjsICr6Izfh/view"
-    visual_audit: "PASS — wet motorable hill road through dense vegetation with independent curvature/drainage identity; matches LOC-007."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
+next_action:
+  - "Root refinement/generation: LOC-016, then LOC-060 through LOC-087."
+  - "After root-master coverage, generate/audit required ENV-6L subspaces and later physical-state variants."
+  - "Do not advance batches to scene-action generation until required P1 visual families are genuinely locked."
 
-  - canonical_id: "LOC-008"
-    canonical_name: "Sarjanya Jeep"
-    screenplay_environment: "Sarjanya open patrol jeep / mobile spatial capsule"
-    production_batches: ["B05"]
-    filename: "file_00000000a8c48208a504d669325f77fb.png"
-    drive_file_id: "1fmM6pXIoa0B3hpOQ17t2MSahpw1tulmm"
-    drive_url: "https://drive.google.com/file/d/1fmM6pXIoa0B3hpOQ17t2MSahpw1tulmm/view"
-    visual_audit: "PASS AS ENV-6L MOBILE-ASSET — functional open patrol jeep, grounded and non-military-fantasy. This is only the canonical mobile-environment reference; it does not complete the separate P1 vehicle asset family."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
-
-  - canonical_id: "LOC-009"
-    canonical_name: "Kendhalaa–Bhaigaara Forest Boundary"
-    screenplay_environment: "Kendhalaa–Bhaigaara Forest Boundary / Final Motorable Road"
-    scenes: [28]
-    production_batches: ["B12"]
-    filename: "ANAADHI_ENV6L_LOC009_ST00_CanonicalMaster_v001_APPROVED.png"
-    drive_file_id: "1fPxA4G1UpuJOJB_5xD6mFj988psN_kbk"
-    drive_url: "https://drive.google.com/file/d/1fPxA4G1UpuJOJB_5xD6mFj988psN_kbk/view"
-    visual_audit: "PASS — readable ecological/access threshold from worked edge into dense Bhaigaara forest; no fortified gate invented."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
-
-  - canonical_id: "LOC-036"
-    canonical_name: "Forest Road — SC047"
-    screenplay_environment: "Distinct SC047 forest road"
-    scenes: [47]
-    production_batches: ["B17"]
-    filename: "ANAADHI_ENV6L_LOC036_ST00_CanonicalMaster_v001_APPROVED.png"
-    drive_file_id: "1apfobFkw2NiXKgQK84f56UOKClaiH_6-"
-    drive_url: "https://drive.google.com/file/d/1apfobFkw2NiXKgQK84f56UOKClaiH_6-/view"
-    visual_audit: "PASS — wet forest road with distinct curvature, drainage/rut pattern and dense roadside vegetation."
-    state: "VERIFIED_EXISTING_APPROVED_SOURCE"
-
-verified_count: 10
-verified_ids: ["LOC-001","LOC-002","LOC-003","LOC-004","LOC-005","LOC-006","LOC-007","LOC-008","LOC-009","LOC-036"]
-
-unmapped_drive_images:
-  status: "LOCATION_CANDIDATE_UNMAPPED"
-  instruction: "Continue visual audit before assignment. Never infer mapping from upload order alone."
-
-p1_generation_order:
-  - "1. Continue auditing/mapping useful generic Drive location candidates."
-  - "2. Reuse verified master locations and generate only missing masters."
-  - "3. Generate required nested interiors/subspaces and physical-state variants even when a root master already exists."
-  - "4. Generate/lock character identity families and Anaadhi age-specific body states."
-  - "5. Generate/lock costume and hair states for each batch/age epoch."
-  - "6. Generate/lock hero props, vehicles and recurring technology assets."
-  - "7. Generate/lock injury/recovery states and special environment conditions."
-  - "8. Run P1 validator. No batch moves to P2 until its required P1 assets are actually approved."
-
-status: "TEN_ENV6L_ASSETS_VERIFIED__DRIVE_AUDIT_CONTINUES__P1_GENERATION_REQUIRED"
+status: "58_OF_87_ROOT_MASTERS_REUSABLE__LOC016_REFINE__LOC060_087_MISSING__P1_CONTINUES"
