@@ -1,0 +1,65 @@
+version: 1
+phase: P1_LOCATION_FACTORY
+purpose: "Hard reuse/skip-generation override for visually verified Google Drive ENV-6L assets."
+source_audit: "production/references/DRIVE_LOCATION_SOURCE_AUDIT.yaml"
+
+rules:
+  - "If a canonical ID is listed here, do not generate a replacement master ST00."
+  - "A verified root/master does not satisfy missing nested interiors, later physical states or scene dressing variants."
+  - "LOC-008 is a canonical ENV-6L MOBILE-ASSET reference only; do not interpret it as completion of the separate vehicle-design family."
+  - "All character, age/body, costume, hair, injury, prop, technology and audio requirements remain uncreated until separately approved."
+
+reuse_master_st00:
+  LOC-001:
+    name: "Anaadhi Primary / Final / Raised Cabin"
+    drive_file_id: "1gRMFCkNrs777LCk83A03QusP6OynjBXD"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["interior identity", "split-floor continuity", "lower escape passage", "capture/breach later-state"]
+  LOC-002:
+    name: "Adraka Medical University"
+    drive_file_id: "1N1veQrahSWuwxU4MLWk2zOCmqjnGnhGn"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["systems-lab nested interior"]
+  LOC-003:
+    name: "Paraane Campus / Central Complex"
+    drive_file_id: "1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["ST01", "ST02", "ST03", "ST04", "required nested Paraane subspaces"]
+  LOC-004:
+    name: "Kendhalaa Workers' District"
+    drive_file_id: "1kyOsLRiYu_VdE1KbKz9KwXgmpCSRPOP0"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["Workers Public Square nested/subspace plate if required"]
+  LOC-005:
+    name: "Parlipatna Multi-Speciality Maternity Hospital"
+    drive_file_id: "1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["Neonatal Diagnostic Suite", "Records Control Room", "Maternity Recovery Room", "other required hospital subspaces"]
+  LOC-006:
+    name: "Parlipatna Four-Road Junction"
+    drive_file_id: "1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["locked shrine/light scene dressing as separate continuity elements"]
+  LOC-007:
+    name: "Parlipatna Outer Patrol Road"
+    drive_file_id: "1O4mQy2hrAGrVAuYi5WdE3KjsICr6Izfh"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: []
+  LOC-008:
+    name: "Sarjanya Jeep"
+    class: MOBILE_ASSET
+    drive_file_id: "1fmM6pXIoa0B3hpOQ17t2MSahpw1tulmm"
+    action: REUSE_ENV6L_MOBILE_REFERENCE_SKIP_REGENERATION
+    still_required: ["separate P1 vehicle turnarounds/details only if later production requires them"]
+  LOC-009:
+    name: "Kendhalaa–Bhaigaara Forest Boundary"
+    drive_file_id: "1fPxA4G1UpuJOJB_5xD6mFj988psN_kbk"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["scene-028 weather/search dressing only"]
+  LOC-036:
+    name: "Forest Road — SC047"
+    drive_file_id: "1apfobFkw2NiXKgQK84f56UOKClaiH_6-"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["scene-specific state/dressing only if canonical manifest requires it"]
+
+verified_master_count: 10
