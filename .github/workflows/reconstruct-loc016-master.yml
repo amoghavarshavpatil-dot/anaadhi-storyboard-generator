@@ -1,0 +1,46 @@
+name: Reconstruct LOC-016 Master Binary
+
+on:
+  push:
+    paths:
+      - 'transfer/LOC016/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reconstruct JPEG
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p production/references/locations/LOC-016
+          cat transfer/LOC016/part-*.b64 | base64 -d > production/references/locations/LOC-016/LOC-016_MASTER-01_Forest-Edge_Barter-Hamlet_3840x1600_FINAL.jpg
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          p = Path('production/references/locations/LOC-016/LOC-016_MASTER-01_Forest-Edge_Barter-Hamlet_3840x1600_FINAL.jpg')
+          img = Image.open(p)
+          assert img.size == (3840,1600), img.size
+          assert img.format == 'JPEG', img.format
+          print('Verified', p, img.size, img.format, p.stat().st_size)
+          PY
+
+      - name: Commit canonical binary and remove transfer staging
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/locations/LOC-016/LOC-016_MASTER-01_Forest-Edge_Barter-Hamlet_3840x1600_FINAL.jpg
+          git rm -r transfer/LOC016
+          git commit -m 'Lock LOC-016 MASTER-01 canonical 4K environment asset'
+          git push
