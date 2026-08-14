@@ -1,0 +1,66 @@
+name: Lock LOC-016 Reference Registry
+
+on:
+  push:
+    paths:
+      - '.github/workflows/lock-loc016-reference-registry.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Lock LOC-016 canonical reference entry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          registry = Path('production/references/REFERENCE_REGISTRY.yaml')
+          asset = Path('production/references/locations/LOC-016/LOC-016_MASTER-01_Forest-Edge_Barter-Hamlet_3840x1600_FINAL.jpg')
+          assert asset.exists(), asset
+          sha256 = hashlib.sha256(asset.read_bytes()).hexdigest()
+
+          old = '  LOC-FOREST-EDGE-BARTER: {name: "forest-edge barter hamlet/market family", status: MISSING_APPROVED_ASSET, path: null}'
+          new = f'''  LOC-FOREST-EDGE-BARTER:\n    name: "Forest-Edge Barter Hamlet / market family"\n    env6l_id: "LOC-016"\n    master_id: "LOC-016_MASTER-01"\n    status: APPROVED\n    path: "production/references/locations/LOC-016/LOC-016_MASTER-01_Forest-Edge_Barter-Hamlet_3840x1600_FINAL.jpg"\n    sha256: "{sha256}"\n    raster: "3840x1600"\n    aspect_ratio: "2.40:1"\n    source_drive_file_id: "1sDG17VFC6Tnc4H5VFHo3J1ZFL4-oXFJH"\n    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"\n    continuity: "Forest-edge barter hamlet; timber stalls; visible brass weighing systems; solar-cloth market awnings; wet laterite ground; Western Ghats forest edge; empty environment master."\n    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."'''
+
+          text = registry.read_text(encoding='utf-8')
+          if old in text:
+              text = text.replace(old, new, 1)
+          elif '  LOC-FOREST-EDGE-BARTER:\n' in text and '    status: APPROVED\n' in text:
+              print('LOC-016 registry entry already appears locked; leaving it unchanged.')
+          else:
+              raise SystemExit('Expected LOC-FOREST-EDGE-BARTER registry entry not found.')
+          registry.write_text(text, encoding='utf-8')
+          print('LOC-016 sha256:', sha256)
+          PY
+
+      - name: Validate registry asset reference
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -A14 '^  LOC-FOREST-EDGE-BARTER:' production/references/REFERENCE_REGISTRY.yaml
+          test -f production/references/locations/LOC-016/LOC-016_MASTER-01_Forest-Edge_Barter-Hamlet_3840x1600_FINAL.jpg
+
+      - name: Commit registry lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/REFERENCE_REGISTRY.yaml
+          if git diff --cached --quiet; then
+            echo 'Registry already current.'
+          else
+            git commit -m 'Lock LOC-016 MASTER-01 in P1 reference registry'
+            git push
+          fi
