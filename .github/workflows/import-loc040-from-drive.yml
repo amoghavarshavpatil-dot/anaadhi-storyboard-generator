@@ -1,0 +1,57 @@
+name: Import LOC-040 Master from Drive
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-loc040-from-drive.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download canonical LOC-040 master from Drive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p production/references/locations/LOC-040
+          curl -fL --retry 3 --retry-delay 2 \
+            'https://drive.usercontent.google.com/download?id=1e6igVC71QiZoGW3CkeHQT898ZY6jpdMB&export=download&confirm=t' \
+            -o production/references/locations/LOC-040/LOC-040_MASTER-01_Leaking-Village-Shelter_3840x1600_FINAL.jpg
+
+      - name: Verify JPEG and dimensions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          p = Path('production/references/locations/LOC-040/LOC-040_MASTER-01_Leaking-Village-Shelter_3840x1600_FINAL.jpg')
+          img = Image.open(p)
+          assert img.format == 'JPEG', img.format
+          assert img.size == (3840, 1600), img.size
+          print('Verified canonical LOC-040 master:', img.size, img.format, p.stat().st_size)
+          PY
+
+      - name: Commit binary master
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/locations/LOC-040/LOC-040_MASTER-01_Leaking-Village-Shelter_3840x1600_FINAL.jpg
+          if git diff --cached --quiet; then
+            echo 'Binary already current.'
+          else
+            git commit -m 'Lock LOC-040 MASTER-01 canonical 4K environment asset'
+            git push
+          fi
