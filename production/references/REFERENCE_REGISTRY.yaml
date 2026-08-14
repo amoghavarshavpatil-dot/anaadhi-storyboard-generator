@@ -149,6 +149,21 @@ locations:
     continuity: "Forest-edge barter hamlet; timber stalls; visible brass weighing systems; solar-cloth market awnings; wet laterite ground; Western Ghats forest edge; empty environment master."
     scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
   LOC-VILLAGE-HAND-PUMP: {name: "forest-edge village hand-pump family", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-LEAKING-VILLAGE-SHELTER:
+    name: "Leaking Village Shelter"
+    env6l_id: "LOC-040"
+    master_id: "LOC-040_MASTER-01"
+    canonical_state: "ST00"
+    status: APPROVED
+    path: "production/references/locations/LOC-040/LOC-040_MASTER-01_Leaking-Village-Shelter_3840x1600_FINAL.jpg"
+    sha256: "0885211eab39f5ed8c1cb17af697edb72801eddc1f9b35202f7be4313af4c6fd"
+    raster: "3840x1600"
+    aspect_ratio: "2.40:1"
+    source_drive_file_id: "1e6igVC71QiZoGW3CkeHQT898ZY6jpdMB"
+    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+    continuity: "Modest Karnataka village shelter; unresolved roof defect; active monsoon water entering through the roof into the occupied shelter area; multiple leak streams; wet floor and catching vessels; weathered practical rural construction; no people or animals in the environment master."
+    non_negotiable_state_rule: "The unresolved roof defect and active rain leakage are baseline ST00 identity. Never pristine-reset, silently repair, or depict this canonical state as dry/perfect."
+    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
   LOC-ANAADHI-HIDDEN-CABINS: {name: "Anaadhi cabin evolution / hidden cabins", status: MISSING_APPROVED_ASSET, path: null}
   LOC-INDEPENDENT-SURGERY: {name: "Kendhalaa Independent Ayurvedic Surgical Centre", status: MISSING_APPROVED_ASSET, path: null}
   LOC-BORDER-CHECKPOINT: {name: "border checkpoint / border road family", status: MISSING_APPROVED_ASSET, path: null}
