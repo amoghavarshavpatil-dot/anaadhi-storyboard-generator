@@ -1,83 +1,79 @@
-version: 2
+version: 3
 phase: P1_LOCATION_FACTORY
-purpose: "Hard reuse/skip-generation override for visually verified Google Drive ENV-6L root assets."
+purpose: "Primary hard reuse/skip-generation overrides for verified Google Drive ENV-6L assets."
 source_audit: "production/references/DRIVE_LOCATION_SOURCE_AUDIT.yaml"
-canonical_authority: "ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json"
+continuation_audit: "production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml"
+continuation_override: "production/locations/EXISTING_LOCATION_OVERRIDES_LOC010_059.yaml"
 
 rules:
-  - "If a canonical ID is listed under reuse_master_st00, never generate a replacement ST00 root master."
-  - "A reused ST00 root does not satisfy missing nested interiors, later physical states, transformation states or scene dressing."
-  - "All nested/state work must inherit the accepted root identity and ENV-6J constraints."
-  - "LOC-008 is an ENV-6L mobile reference only; the separate vehicle-design family is still incomplete."
-  - "Characters, age/body states, costumes, hair, injuries, props, technology and audio remain outside this root-master override."
-  - "HOLD/collision-separated locations remain independent even when their component kits overlap."
+  - "Never regenerate a root/ST00 canonical ID listed here or in the continuation override."
+  - "LOC-016 and LOC-040 are specifically excluded from reuse and must receive corrected masters."
+  - "A verified root/master does not satisfy missing nested interiors, later physical states or scene dressing variants."
+  - "LOC-008 is an ENV-6L MOBILE-ASSET reference only; do not interpret it as completion of the separate vehicle-design family."
+  - "All character, age/body, costume, hair, injury, prop, technology and audio requirements remain uncreated until separately approved."
 
-reuse_master_st00:
-  LOC-001: {drive_file_id: "1gRMFCkNrs777LCk83A03QusP6OynjBXD", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-002: {drive_file_id: "1N1veQrahSWuwxU4MLWk2zOCmqjnGnhGn", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "systems-lab and ENV-6J nested/state requirements"}
-  LOC-003: {drive_file_id: "1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ST01-ST04 plus required Paraane subspaces"}
-  LOC-004: {drive_file_id: "1kyOsLRiYu_VdE1KbKz9KwXgmpCSRPOP0", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-005: {drive_file_id: "1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "hospital subspaces including neonatal, records and recovery"}
-  LOC-006: {drive_file_id: "1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "locked shrine/light scene dressing"}
-  LOC-007: {drive_file_id: "1O4mQy2hrAGrVAuYi5WdE3KjsICr6Izfh", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements if any"}
-  LOC-008: {drive_file_id: "1fmM6pXIoa0B3hpOQ17t2MSahpw1tulmm", action: REUSE_ENV6L_MOBILE_REFERENCE_SKIP_REGENERATION, still_required: "separate vehicle-design pass"}
-  LOC-009: {drive_file_id: "1fPxA4G1UpuJOJB_5xD6mFj988psN_kbk", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "scene-028 weather/search dressing"}
-  LOC-010: {drive_file_id: "1SIyFt8t977viGzq-NCt5jDS7rFVYQ927", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-011: {drive_file_id: "1fvisjiZTciVLMrgJgWuTOn6FqbkPxJXD", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "domestic interior/spatial continuity per ENV-6J"}
-  LOC-012: {drive_file_id: "1QPvEtfKYtIAWxkA-nUIZcup3DahMnG88", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-013: {drive_file_id: "1e9UcfjoyK0zFeunAdtA5QZeTu6deM2-L", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-014: {drive_file_id: "1dC1uvYLHkTP8JqWMjockIsEf_NabnkSl", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-015: {drive_file_id: "1Sg36wqdDcXiIGPHobsuDJpsK1pxeKTVw", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-017: {drive_file_id: "1mqTEnxb3elZ9SoW0mX2jkK0RErsXrBqD", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "retain unique SC033 path topology"}
-  LOC-018: {drive_file_id: "1xpzle1RUs1fd0nZdDl_y08yc2e_frHcQ", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "later shelter state(s) per ENV-6J"}
-  LOC-019: {drive_file_id: "1BJoHSfIe20hN-DD2-NvyKPlfFyMnCS4o", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-020: {drive_file_id: "1tnzeBuHUWS9VHUvLqzB0Ozgr89nbubQ7", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "three-door interior, loft, concealed passage and other canonical subspaces/states"}
-  LOC-021: {drive_file_id: "1V0Uev-hZ_mjf9V_m-2_BtMMrnC6Z7mQ6", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "retain unique SC038 path topology"}
-  LOC-022: {drive_file_id: "106FOg6zXuP2WE_ziM5LbyaYSXVkKbMd0", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "market canonical subspaces"}
-  LOC-023: {drive_file_id: "12LE_jDk2Qy5pzYfx-bziCzQKY04QRy8E", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "retain chipped-green/monitor identity and state requirements"}
-  LOC-024: {drive_file_id: "1syDViVa3GKhQUWIPGsQh0BYTL0iLJ_Hv", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-025: {drive_file_id: "1il9b4yKKOuz7MDHLp3zuzMd0qyHIUCDH", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-026: {drive_file_id: "11N-bGrxqiYuFo8LquLdeFtQE_eM5CrMI", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "keep pump topology separate from LOC-023 and LOC-030"}
-  LOC-027: {drive_file_id: "1Os8QBISk583JcBUcuRl6sMEMQbWKo5hO", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "cabin/shelter topology and nested/state requirements"}
-  LOC-028: {drive_file_id: "1H7lALGEEd31xzEnEvBTvSKwA-nm9MX5X", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "retain unique SC044 forest-trail topology"}
-  LOC-029: {drive_file_id: "1su5rCrUvJTusYz7mcAiHTWTgyH8z2IGY", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "retain independent SC044 jungle-trail topology"}
-  LOC-030: {drive_file_id: "1kt7iOLkuCr7FZ2upBoFztaXMwP1P3KdJ", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "retain barn-side groundwater-monitor identity"}
-  LOC-031: {drive_file_id: "1_N-_uPypHtUTceFP97Di0cxGPb67iJ6Z", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-032: {drive_file_id: "1ajZaoS65bf5V88OOgCMoLtmpR4IlOnJv", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "keep clearing topology separate from LOC-054"}
-  LOC-033: {drive_file_id: "1XVUrsMjSmtuWNhDnVD2QuJCm2HX8qGTl", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-034: {drive_file_id: "1wiXLvy7Q0nLAGNR9hunP2-n2D8Oa3XSI", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "Tea Stall Back Hut and ENV-6J subspace requirements"}
-  LOC-035: {drive_file_id: "1eT0hs0wxxii4ORJhZnbbfDO8ar7xiDnh", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "cabin/shelter topology and ENV-6J requirements"}
-  LOC-036: {drive_file_id: "1apfobFkw2NiXKgQK84f56UOKClaiH_6-", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "scene-specific state/dressing if required"}
-  LOC-037: {drive_file_id: "1286UPIunL66I78oHWDnYv5JCLZb4KSBP", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-038: {drive_file_id: "1G3tgG1HqUyUfehixxQnK9oxmzdwpRCLR", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-039: {drive_file_id: "1Ml3XMGC89lOtJE2fdw3VAHXKgYZfj6Zo", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "cabin/shelter topology and ENV-6J requirements"}
-  LOC-040: {drive_file_id: "1dreqTM-LdZRTgnxfumMOcHUrAwUpaqkB", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-041: {drive_file_id: "1Cs61N6evAbcK8ar9CPkd7LVlrf5wAEu1", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-042: {drive_file_id: "1HjRtoSSHzSJnVLk2XGKS7Pd1MpntCiSb", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "preserve canonical pre-damaged burnt/broken-roof ST00"}
-  LOC-043: {drive_file_id: "1Q1MHgjrcrFPo_C3Q-80ObrE37dXDGXcd", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-044: {drive_file_id: "13Yp-IpCcya5RXeWmEs8R3ylN8H-EoOOK", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-045: {drive_file_id: "1YdhizYOVnIYNg-tWdHuvaS_70daamiDi", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-046: {drive_file_id: "14HZZRi74J0BDgnKe4oQ17AJtTurCVwVV", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-047: {drive_file_id: "1m_-cqCvKGZvKceeDw9fD99mN8Q0fAVAk", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-048: {drive_file_id: "1QSrZtq4ffZ2Opc33-g1o_ePWXP3PTtEq", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "temple subspaces/state dressing if required"}
-  LOC-049: {drive_file_id: "1_NxNtYQlkOojuDvm_se90LXZSCfQ5KEA", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-050: {drive_file_id: "1OkmOYDqRIFqwAHAneV3ez0-Rf8wtF2na", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "preserve opened/dismantled/partly-burned canonical ST00 plus required subspaces"}
-  LOC-051: {drive_file_id: "1zT6L-PWj1tm3fd0v0yJZ4_tp8nbQvrmS", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "retain extraction-damage path identity"}
-  LOC-052: {drive_file_id: "1i3viVxtkASpnO9lD9TNSTjucmbTlXuZf", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-053: {drive_file_id: "1LWe8EgD1HFilSsvmbUa5LmAza-GbE-BB", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-054: {drive_file_id: "1_QxCJSX4dBlnxHnDHIs8ks6HuacWVf1k", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "keep clearing topology separate from LOC-032"}
-  LOC-055: {drive_file_id: "1lm63RFcKCudHCUsv3Dbesca8eS06a9Ul", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-056: {drive_file_id: "19alZCyDN3D-FPKg68Wxt24InSlWjqVzM", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
-  LOC-057: {drive_file_id: "1eHU2o1tA8syeGtO3GLe16lLsecU3ALz2", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "keep evidence-room identity separate from LOC-080 police HQ"}
-  LOC-058: {drive_file_id: "1ebFDOdNr1dRYnOMSqYeKAwYg5-1PCl1J", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "cabin/shelter topology and ENV-6J requirements"}
-  LOC-059: {drive_file_id: "1l_HhQGGE599G-SWE9-EGmglXuEytqxO7", action: REUSE_MASTER_SKIP_REGENERATION, still_required: "ENV-6J nested/state requirements"}
+initial_reuse_master_st00:
+  LOC-001:
+    name: "Anaadhi Primary / Final / Raised Cabin"
+    drive_file_id: "1gRMFCkNrs777LCk83A03QusP6OynjBXD"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["interior identity", "split-floor continuity", "lower escape passage", "capture/breach later-state"]
+  LOC-002:
+    name: "Adraka Medical University"
+    drive_file_id: "1N1veQrahSWuwxU4MLWk2zOCmqjnGnhGn"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["systems-lab nested interior"]
+  LOC-003:
+    name: "Paraane Campus / Central Complex"
+    drive_file_id: "1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["ST01", "ST02", "ST03", "ST04", "required nested Paraane subspaces"]
+  LOC-004:
+    name: "Kendhalaa Workers' District"
+    drive_file_id: "1kyOsLRiYu_VdE1KbKz9KwXgmpCSRPOP0"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["Workers Public Square nested/subspace plate if required"]
+  LOC-005:
+    name: "Parlipatna Multi-Speciality Maternity Hospital"
+    drive_file_id: "1x6YCuI_fFvYfXFONmUYOmit9wiShRzbN"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["Neonatal Diagnostic Suite", "Records Control Room", "Maternity Recovery Room", "other required hospital subspaces"]
+  LOC-006:
+    name: "Parlipatna Four-Road Junction"
+    drive_file_id: "1VrHBdMYwfSIkV3uDb1GErEb36ib0Tzzr"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["locked shrine/light scene dressing"]
+  LOC-007:
+    name: "Parlipatna Outer Patrol Road"
+    drive_file_id: "1O4mQy2hrAGrVAuYi5WdE3KjsICr6Izfh"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: []
+  LOC-008:
+    name: "Sarjanya Jeep"
+    class: MOBILE_ASSET
+    drive_file_id: "1fmM6pXIoa0B3hpOQ17t2MSahpw1tulmm"
+    action: REUSE_ENV6L_MOBILE_REFERENCE_SKIP_REGENERATION
+    still_required: ["separate P1 vehicle turnarounds/details if later required"]
+  LOC-009:
+    name: "Kendhalaa–Bhaigaara Forest Boundary"
+    drive_file_id: "1fPxA4G1UpuJOJB_5xD6mFj988psN_kbk"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["scene-028 weather/search dressing"]
+  LOC-036:
+    name: "Forest Road — SC047"
+    drive_file_id: "1apfobFkw2NiXKgQK84f56UOKClaiH_6-"
+    action: REUSE_MASTER_SKIP_REGENERATION
+    still_required: ["scene-specific state/dressing only if canonical manifest requires it"]
 
-partial_references_not_locked:
-  LOC-016:
-    drive_file_id: "1juTOElCeXcqRt7zEy5N3jywTDwyzGanu"
-    action: DO_NOT_SKIP_REGENERATION
-    status: PARTIAL_REFERENCE_REGENERATE_OR_REFINE
-    missing_readability: ["timber barter stalls", "brass scales", "mechanical weighing arms", "solar-cloth awnings"]
+continuation_reuse:
+  include_file: "production/locations/EXISTING_LOCATION_OVERRIDES_LOC010_059.yaml"
+  additional_verified_count_excluding_LOC036_overlap: 47
+  excluded_correction_ids: [LOC-016, LOC-040]
 
-verified_root_master_count: 58
-root_master_generation_remaining_count: 29
+coverage:
+  unique_verified_root_master_count: 57
+  correction_count: 2
+  absent_root_count: 28
+  root_generation_or_correction_remaining: 30
+
+status: "57_ROOTS_HARD_REUSE_LOCKED__LOC016_LOC040_NOT_LOCKED"
