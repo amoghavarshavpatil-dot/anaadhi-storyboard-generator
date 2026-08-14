@@ -54,7 +54,7 @@ jobs:
           sha256 = hashlib.sha256(asset.read_bytes()).hexdigest()
           text = registry.read_text(encoding='utf-8')
           block = f'''  LOC-060:\n    name: "Forest Ravine — Adult Escape"\n    env6l_id: "LOC-060"\n    master_id: "LOC-060_MASTER-01"\n    status: APPROVED\n    path: "production/references/locations/LOC-060/LOC-060_MASTER-01_Forest-Ravine-Adult-Escape_3840x1600_FINAL.jpg"\n    sha256: "{sha256}"\n    raster: "3840x1600"\n    aspect_ratio: "2.40:1"\n    source_drive_file_id: "1Kr_SH7J4gRyRCjLl-8E6Y4oWz4S9Lo5_"\n    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"\n    continuity: "Adult-escape forest ravine; shallow wet drainage flow; slick rock cover; exposed wet roots; corroded drainage grate partly concealed beneath roots with damaged lower section suitable only for difficult crawl-through; natural ravine remains dominant."\n    collision_lock: "HOLD-separated from LOC-010 child ravine and LOC-061 flood channel; never convert into a torrent, large culvert portal, cave, institutional facade, or generic tunnel mouth."\n    clean_master: "No people, animals, vehicles, signage, labels, or storyboard action."\n    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."\n'''
-          pattern = r'  LOC-060:\n(?:    .*\n)+?(?=\n hero_props:)'
+          pattern = r'  LOC-060:\n(?:    .*\n)+?(?=\nhero_props:)'
           if not re.search(pattern, text):
               raise SystemExit('LOC-060 registry block not found')
           text = re.sub(pattern, block.rstrip('\n'), text, count=1)
