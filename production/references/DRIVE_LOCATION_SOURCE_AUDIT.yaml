@@ -1,12 +1,13 @@
-version: 4
+version: 5
 phase: P1_VISUAL_REFERENCE_LOCK
 source_type: PARTIAL_LOCATION_REFERENCE_SOURCE
 source_folder: "https://drive.google.com/drive/folders/1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
 audit_date: "2026-08-14"
+detailed_continuation_audit: "production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml"
 
 truth_lock:
   drive_contains_complete_asset_library: false
-  drive_contains_location_root_masters: true
+  drive_contains_some_location_root_images: true
   characters_created: false
   anaadhi_age_body_states_created: false
   costume_states_created: false
@@ -27,175 +28,42 @@ canonical_environment_authority:
   later_state_variant_count: 12
   total_environment_asset_slots: 166
   physical_state_count: 99
-  rule: "ENV-6L/ENV-6J canonical IDs and names control mapping. Drive filenames never create new canon."
-
-rules:
-  - "A root/master ST00 image does not satisfy its nested interiors, subspaces, later physical states or scene dressing requirements."
-  - "Do not infer completion of characters, costumes, hair, props, technology, injuries or audio from this Drive folder."
-  - "Distinct ENV-6L HOLD/collision identities may share kits only at component level; never collapse their topology."
-  - "Only visually audited files may enter the reuse override."
-  - "LOC-008 remains an ENV-6L mobile-environment reference only, not a completed vehicle-design family."
+  rule: "ENV-6L/ENV-6J controls canonical identity. Drive ordering helps locate candidates but never overrides visual/canonical QA."
 
 root_master_audit_summary:
-  total_env6l_root_masters: 87
-  drive_sequence_reaches: "LOC-059"
-  reusable_verified_root_masters: 58
-  partial_reference_not_root_locked: 1
-  root_masters_still_to_generate_or_refine: 29
-  reusable_percentage_of_root_masters: 66.67
-  warning: "66.67% refers ONLY to the 87 ST00 root masters. P1 is not 66.67% complete because subspaces, states, characters, costumes, hair, props, vehicles, technology and injuries remain separate work."
+  supplied_drive_sequence_reaches: "LOC-059"
+  reusable_verified_root_masters: 57
+  correction_candidates: 2
+  correction_ids: [LOC-016, LOC-040]
+  roots_without_drive_image: 28
+  roots_without_drive_image_range: "LOC-060..LOC-087"
+  roots_needing_generation_or_correction_total: 30
+  reusable_root_coverage_percent: 65.5
+  arithmetic_check: "57 reusable + 2 corrections + 28 absent = 87 root masters"
+  warning: "65.5% is root-ST00 coverage only, not P1 completion. Subspaces, later states, characters, costume/hair, props, vehicles, technology, injuries and audio remain separate."
 
 verified_root_master_ids:
-  - LOC-001
-  - LOC-002
-  - LOC-003
-  - LOC-004
-  - LOC-005
-  - LOC-006
-  - LOC-007
-  - LOC-008
-  - LOC-009
-  - LOC-010
-  - LOC-011
-  - LOC-012
-  - LOC-013
-  - LOC-014
-  - LOC-015
-  - LOC-017
-  - LOC-018
-  - LOC-019
-  - LOC-020
-  - LOC-021
-  - LOC-022
-  - LOC-023
-  - LOC-024
-  - LOC-025
-  - LOC-026
-  - LOC-027
-  - LOC-028
-  - LOC-029
-  - LOC-030
-  - LOC-031
-  - LOC-032
-  - LOC-033
-  - LOC-034
-  - LOC-035
-  - LOC-036
-  - LOC-037
-  - LOC-038
-  - LOC-039
-  - LOC-040
-  - LOC-041
-  - LOC-042
-  - LOC-043
-  - LOC-044
-  - LOC-045
-  - LOC-046
-  - LOC-047
-  - LOC-048
-  - LOC-049
-  - LOC-050
-  - LOC-051
-  - LOC-052
-  - LOC-053
-  - LOC-054
-  - LOC-055
-  - LOC-056
-  - LOC-057
-  - LOC-058
-  - LOC-059
+  ranges:
+    - "LOC-001..LOC-015"
+    - "LOC-017..LOC-039"
+    - "LOC-041..LOC-059"
+  explicit_anchor_already_verified: LOC-036
 
-partial_or_rejected_root_references:
+correction_candidates:
   LOC-016:
     canonical_name: "Forest-Edge Barter Hamlet"
-    drive_file_id: "1juTOElCeXcqRt7zEy5N3jywTDwyzGanu"
-    filename: "file_0000000078fc820787fd10c1900c6c3e.png"
-    state: PARTIAL_REFERENCE_REGENERATE_OR_REFINE
-    reason: >-
-      The file reads as a forest-edge hamlet, but the locked ENV-6J identity requires the
-      barter-specific physical language to read clearly: timber stalls, brass scales,
-      mechanical weighing arms and solar-cloth awnings. Do not root-lock this image yet.
+    candidate_drive_file_id: "1juTOElCeXcqRt7zEy5N3jywTDwyzGanu"
+    state: PARTIAL_REJECT_GENERATE_CORRECTED_MASTER
+    reason: "Existing candidate does not clearly establish the required timber stalls, brass scales, mechanical weighing arms and solar-cloth awnings."
+  LOC-040:
+    canonical_name: "Leaking Village Shelter"
+    candidate_drive_file_id: "1dreqTM-LdZRTgnxfumMOcHUrAwUpaqkB"
+    state: PARTIAL_REJECT_GENERATE_CORRECTED_MASTER
+    reason: "Existing shelter candidate does not clearly verify the canonical unresolved roof defect causing active leakage during rain."
 
-root_master_missing_or_refine_ids:
-  - LOC-016
-  - LOC-060
-  - LOC-061
-  - LOC-062
-  - LOC-063
-  - LOC-064
-  - LOC-065
-  - LOC-066
-  - LOC-067
-  - LOC-068
-  - LOC-069
-  - LOC-070
-  - LOC-071
-  - LOC-072
-  - LOC-073
-  - LOC-074
-  - LOC-075
-  - LOC-076
-  - LOC-077
-  - LOC-078
-  - LOC-079
-  - LOC-080
-  - LOC-081
-  - LOC-082
-  - LOC-083
-  - LOC-084
-  - LOC-085
-  - LOC-086
-  - LOC-087
-
-newly_verified_drive_mapping:
-  LOC-010: {drive_file_id: "1SIyFt8t977viGzq-NCt5jDS7rFVYQ927", filename: "file_00000000067c82088ca2d0577f03d91a.png"}
-  LOC-011: {drive_file_id: "1fvisjiZTciVLMrgJgWuTOn6FqbkPxJXD", filename: "file_00000000859882078b9b8ce0b39e5a21.png"}
-  LOC-012: {drive_file_id: "1QPvEtfKYtIAWxkA-nUIZcup3DahMnG88", filename: "file_0000000095908207af7e57e85a0b9403.png"}
-  LOC-013: {drive_file_id: "1e9UcfjoyK0zFeunAdtA5QZeTu6deM2-L", filename: "file_000000009d0882118993325b1f383ebe.png"}
-  LOC-014: {drive_file_id: "1dC1uvYLHkTP8JqWMjockIsEf_NabnkSl", filename: "file_000000007ae08207ba38c4f8b845a756.png"}
-  LOC-015: {drive_file_id: "1Sg36wqdDcXiIGPHobsuDJpsK1pxeKTVw", filename: "file_00000000134c82078fb6daf808e28cd1.png"}
-  LOC-017: {drive_file_id: "1mqTEnxb3elZ9SoW0mX2jkK0RErsXrBqD", filename: "file_0000000057a881fa95870433ae498d02.png"}
-  LOC-018: {drive_file_id: "1xpzle1RUs1fd0nZdDl_y08yc2e_frHcQ", filename: "file_000000002ef881f887a17f970c8f9e73.png"}
-  LOC-019: {drive_file_id: "1BJoHSfIe20hN-DD2-NvyKPlfFyMnCS4o", filename: "file_000000009a68820bade2495cec8e1775.png"}
-  LOC-020: {drive_file_id: "1tnzeBuHUWS9VHUvLqzB0Ozgr89nbubQ7", filename: "file_000000007dd0822f9bf37ce2da475ff8.png"}
-  LOC-021: {drive_file_id: "1V0Uev-hZ_mjf9V_m-2_BtMMrnC6Z7mQ6", filename: "file_000000001cc8820d920140e77dfb003d.png"}
-  LOC-022: {drive_file_id: "106FOg6zXuP2WE_ziM5LbyaYSXVkKbMd0", filename: "file_0000000047ec8208aeab4dfa1e976470.png"}
-  LOC-023: {drive_file_id: "12LE_jDk2Qy5pzYfx-bziCzQKY04QRy8E", filename: "file_0000000071a8824682bffe8deba16384.png"}
-  LOC-024: {drive_file_id: "1syDViVa3GKhQUWIPGsQh0BYTL0iLJ_Hv", filename: "file_00000000a7808211a4db34be1a25549d.png"}
-  LOC-025: {drive_file_id: "1il9b4yKKOuz7MDHLp3zuzMd0qyHIUCDH", filename: "file_0000000095e881faa3c0baa7efd29ea2.png"}
-  LOC-026: {drive_file_id: "11N-bGrxqiYuFo8LquLdeFtQE_eM5CrMI", filename: "file_00000000d618820b8262a9e6b3099fa8.png"}
-  LOC-027: {drive_file_id: "1Os8QBISk583JcBUcuRl6sMEMQbWKo5hO", filename: "file_00000000fba482089e2e65b3346243b7.png"}
-  LOC-028: {drive_file_id: "1H7lALGEEd31xzEnEvBTvSKwA-nm9MX5X", filename: "file_00000000556481fa83a47be49bf16ca3.png"}
-  LOC-029: {drive_file_id: "1su5rCrUvJTusYz7mcAiHTWTgyH8z2IGY", filename: "file_0000000008048211a30345efea8ebe36.png"}
-  LOC-030: {drive_file_id: "1kt7iOLkuCr7FZ2upBoFztaXMwP1P3KdJ", filename: "file_00000000828c82119ff8af8bbe10466f.png"}
-  LOC-031: {drive_file_id: "1_N-_uPypHtUTceFP97Di0cxGPb67iJ6Z", filename: "file_000000001d3c82078fc9eaf97da62011.png"}
-  LOC-032: {drive_file_id: "1ajZaoS65bf5V88OOgCMoLtmpR4IlOnJv", filename: "file_000000004f488211a90fb4d95ba11db7.png"}
-  LOC-033: {drive_file_id: "1XVUrsMjSmtuWNhDnVD2QuJCm2HX8qGTl", filename: "file_00000000b8ac820781b2f385b0ea00a5.png"}
-  LOC-034: {drive_file_id: "1wiXLvy7Q0nLAGNR9hunP2-n2D8Oa3XSI", filename: "file_0000000094188211a27561333d8d9981.png"}
-  LOC-035: {drive_file_id: "1eT0hs0wxxii4ORJhZnbbfDO8ar7xiDnh", filename: "file_00000000d95c821190d466fcf599ec15.png"}
-  LOC-037: {drive_file_id: "1286UPIunL66I78oHWDnYv5JCLZb4KSBP", filename: "file_000000001ac882119b9d74a2ead651b4.png"}
-  LOC-038: {drive_file_id: "1G3tgG1HqUyUfehixxQnK9oxmzdwpRCLR", filename: "file_0000000060c88211abfddb76a2db5139.png"}
-  LOC-039: {drive_file_id: "1Ml3XMGC89lOtJE2fdw3VAHXKgYZfj6Zo", filename: "file_00000000dfb481fa9c305375a8ac230f.png"}
-  LOC-040: {drive_file_id: "1dreqTM-LdZRTgnxfumMOcHUrAwUpaqkB", filename: "file_00000000fb6482078e024147c1bb299a.png"}
-  LOC-041: {drive_file_id: "1Cs61N6evAbcK8ar9CPkd7LVlrf5wAEu1", filename: "file_00000000ee3882118b25f8e539712b46.png"}
-  LOC-042: {drive_file_id: "1HjRtoSSHzSJnVLk2XGKS7Pd1MpntCiSb", filename: "file_00000000e1808211bfdc9a3f48eda2da.png"}
-  LOC-043: {drive_file_id: "1Q1MHgjrcrFPo_C3Q-80ObrE37dXDGXcd", filename: "file_0000000081748211a2a54c05f2113009.png"}
-  LOC-044: {drive_file_id: "13Yp-IpCcya5RXeWmEs8R3ylN8H-EoOOK", filename: "file_0000000029fc81fa9394c5ddacc803bd.png"}
-  LOC-045: {drive_file_id: "1YdhizYOVnIYNg-tWdHuvaS_70daamiDi", filename: "file_0000000078f08209ba1d41596af9f3b5.png"}
-  LOC-046: {drive_file_id: "14HZZRi74J0BDgnKe4oQ17AJtTurCVwVV", filename: "file_00000000d7b481fa8b6411d11766b9d0.png"}
-  LOC-047: {drive_file_id: "1m_-cqCvKGZvKceeDw9fD99mN8Q0fAVAk", filename: "file_00000000ddc88211ba14907d847f9033.png"}
-  LOC-048: {drive_file_id: "1QSrZtq4ffZ2Opc33-g1o_ePWXP3PTtEq", filename: "file_0000000073f8820b95d3972fc661875b.png"}
-  LOC-049: {drive_file_id: "1_NxNtYQlkOojuDvm_se90LXZSCfQ5KEA", filename: "file_000000000e2c81fa8be6345a33b1aeac.png"}
-  LOC-050: {drive_file_id: "1OkmOYDqRIFqwAHAneV3ez0-Rf8wtF2na", filename: "file_0000000090e882308412f02e7d14a83a.png"}
-  LOC-051: {drive_file_id: "1zT6L-PWj1tm3fd0v0yJZ4_tp8nbQvrmS", filename: "file_00000000c3bc82309d804242561ee99a.png"}
-  LOC-052: {drive_file_id: "1i3viVxtkASpnO9lD9TNSTjucmbTlXuZf", filename: "file_000000002e6481fa87ff054ef9d4bb68.png"}
-  LOC-053: {drive_file_id: "1LWe8EgD1HFilSsvmbUa5LmAza-GbE-BB", filename: "file_0000000027a881faa0bf752893d12bc2.png"}
-  LOC-054: {drive_file_id: "1_QxCJSX4dBlnxHnDHIs8ks6HuacWVf1k", filename: "file_000000002a2881fab5d6fdbd5ca94474.png"}
-  LOC-055: {drive_file_id: "1lm63RFcKCudHCUsv3Dbesca8eS06a9Ul", filename: "file_00000000a4c081fa9f04922dc1e2f6b5.png"}
-  LOC-056: {drive_file_id: "19alZCyDN3D-FPKg68Wxt24InSlWjqVzM", filename: "file_000000002eac81f7a7dc75eb8f7fbe03.png"}
-  LOC-057: {drive_file_id: "1eHU2o1tA8syeGtO3GLe16lLsecU3ALz2", filename: "file_00000000f4c48211b9bb38c5f6a10814.png"}
-  LOC-058: {drive_file_id: "1ebFDOdNr1dRYnOMSqYeKAwYg5-1PCl1J", filename: "file_000000006a8882119ded4b7b5eaa7c88.png"}
-  LOC-059: {drive_file_id: "1l_HhQGGE599G-SWE9-EGmglXuEytqxO7", filename: "file_00000000315482089a035c5b6064a748.png"}
+missing_root_ids:
+  range: "LOC-060..LOC-087"
+  count: 28
 
 continuity_hard_holds:
   cabin_shelter_topology_distinct: [LOC-001, LOC-018, LOC-020, LOC-027, LOC-035, LOC-039, LOC-050, LOC-058]
@@ -205,9 +73,12 @@ continuity_hard_holds:
   police_evidence_and_hq_distinct: [LOC-057, LOC-080]
   child_and_adult_ravines_distinct: [LOC-010, LOC-060]
 
-next_action:
-  - "Root refinement/generation: LOC-016, then LOC-060 through LOC-087."
-  - "After root-master coverage, generate/audit required ENV-6L subspaces and later physical-state variants."
-  - "Do not advance batches to scene-action generation until required P1 visual families are genuinely locked."
+p1_generation_order:
+  - "1. Correct LOC-016 and LOC-040 from their partial Drive candidates while preserving useful site identity."
+  - "2. Generate missing root masters LOC-060 through LOC-087 from exact ENV-6J records."
+  - "3. Generate/audit the 67 ENV-6L subspace references required by parent location."
+  - "4. Generate/audit the 12 later-state variants and other required physical-state deltas."
+  - "5. Attach accepted files and hashes to formal visual-lock records."
+  - "6. Then proceed to character identities, Anaadhi age/body states, costume/hair, props/vehicles/technology and injuries."
 
-status: "58_OF_87_ROOT_MASTERS_REUSABLE__LOC016_REFINE__LOC060_087_MISSING__P1_CONTINUES"
+status: "57_OF_87_ROOT_MASTERS_REUSABLE__LOC016_LOC040_CORRECT__LOC060_087_MISSING__P1_CONTINUES"
