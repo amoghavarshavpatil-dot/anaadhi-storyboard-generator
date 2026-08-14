@@ -1,0 +1,92 @@
+version: 1
+phase: P1_LOCATION_FACTORY
+source_audit: "production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml"
+purpose: "Additive root-master reuse override after direct Drive visual audit."
+
+rules:
+  - "PASS IDs below: reuse Drive ST00/root reference and skip root regeneration."
+  - "LOC-016 and LOC-040 are excluded because they require corrected masters."
+  - "LOC-036 is already controlled by the earlier EXISTING_LOCATION_OVERRIDES.yaml."
+  - "Reuse does not satisfy missing later states, subspaces or scene dressing."
+
+reuse_master_st00_ids:
+  - LOC-010
+  - LOC-011
+  - LOC-012
+  - LOC-013
+  - LOC-014
+  - LOC-015
+  - LOC-017
+  - LOC-018
+  - LOC-019
+  - LOC-020
+  - LOC-021
+  - LOC-022
+  - LOC-023
+  - LOC-024
+  - LOC-025
+  - LOC-026
+  - LOC-027
+  - LOC-028
+  - LOC-029
+  - LOC-030
+  - LOC-031
+  - LOC-032
+  - LOC-033
+  - LOC-034
+  - LOC-035
+  - LOC-037
+  - LOC-038
+  - LOC-039
+  - LOC-041
+  - LOC-042
+  - LOC-043
+  - LOC-044
+  - LOC-045
+  - LOC-046
+  - LOC-047
+  - LOC-048
+  - LOC-049
+  - LOC-050
+  - LOC-051
+  - LOC-052
+  - LOC-053
+  - LOC-054
+  - LOC-055
+  - LOC-056
+  - LOC-057
+  - LOC-058
+  - LOC-059
+
+special_remaining_work:
+  LOC-018:
+    remaining: [ST01_expansion]
+  LOC-020:
+    remaining: [interior_plate, loft_plate, concealed_lower_passage]
+  LOC-027:
+    remaining: [stable_marked_surface_reference, ST01, ST02, ST03]
+    continuity_rule: "one stable marked surface; do not move marks between states"
+  LOC-042:
+    continuity_rule: "ST00 is already burnt/damaged; never generate a pristine predecessor"
+  LOC-050:
+    continuity_rule: "ST00 is already opened/dismantled/partly burned; never pristine-reset"
+  LOC-055:
+    continuity_rule: "barber mirror remains physically too low for 1.93 m Anaadhi"
+  LOC-056:
+    remaining: [RUKEY_madhava_repaired_bag_state_continuity]
+  LOC-057:
+    remaining: [RUKEY_seventeen_name_display_custody_continuity]
+
+correction_queue:
+  LOC-016:
+    name: "Forest-Edge Barter Hamlet"
+    candidate_drive_file_id: "1juTOElCeXcqRt7zEy5N3jywTDwyzGanu"
+    action: GENERATE_CORRECTED_MASTER
+    reason: "Existing candidate is too sparse/ambiguous to verify the locked barter-hamlet identity."
+  LOC-040:
+    name: "Leaking Village Shelter"
+    candidate_drive_file_id: "1dreqTM-LdZRTgnxfumMOcHUrAwUpaqkB"
+    action: GENERATE_CORRECTED_MASTER
+    reason: "Existing candidate shows shelter identity but does not verify the canonical active unresolved roof leak."
+
+unique_verified_root_total_after_overlay: 57
