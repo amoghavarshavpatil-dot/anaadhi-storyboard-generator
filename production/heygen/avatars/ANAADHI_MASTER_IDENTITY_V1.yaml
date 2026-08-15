@@ -1,0 +1,47 @@
+version: 1
+phase: P1_HEYGEN_IDENTITY_BRIDGE
+status: TRAINED_AWAITING_CONSENT
+
+character: ANAADHI
+canonical_identity_ref: CHR-ANAADHI_MASTER-IDENTITY-01
+source_face_path: production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg
+source_face_public_url: https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg
+
+heygen:
+  billing_route: DIRECT_API_PAYG
+  secret_name: HEYGEN_API_KEY
+  api_version: v3
+  avatar_type: photo
+  avatar_name: ANAADHI_MASTER_IDENTITY_V1
+  avatar_id: 308d203046784405a986d6dd199d5345
+  avatar_group_id: c26d836745e64d4c92663eae3fb02e06
+  group_status: completed
+  looks_count: 1
+  consent_status: PENDING
+  creation_workflow_run_id: 31889125056
+  creation_job_id: 95022655312
+  creation_commit: 0ec01e67b6653046031fba823a17c973bfb417a0
+  idempotency_key: anaadhi-master-identity-v1-20260815
+
+security:
+  - Never commit the HEYGEN_API_KEY or any secret value.
+  - All paid HeyGen Direct API mutations must use GitHub Actions secrets.
+  - Use idempotency keys for paid creation mutations where supported.
+
+scope:
+  authority: BASE_FACE_IDENTITY_BRIDGE_ONLY
+  does_not_lock:
+    - age_body_state
+    - hair
+    - facial_hair
+    - costume
+    - injury
+    - props
+    - scene_action
+    - dialogue
+    - lip_sync
+    - camera
+
+next_gate:
+  name: HEYGEN_PRIVATE_AVATAR_CONSENT
+  after_pass: READY_FOR_CONTROLLED_VIDEO_TESTS
