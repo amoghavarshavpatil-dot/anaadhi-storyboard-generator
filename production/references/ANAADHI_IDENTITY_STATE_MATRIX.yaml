@@ -1,0 +1,416 @@
+version: 1
+phase: P1_CHARACTER_IDENTITY_CONTROL
+character: ANAADHI
+master_identity_ref: CHR-ANAADHI
+master_identity_status: MISSING_APPROVED_ASSET
+adult_height_cm: 193
+adult_height_display: "6'4"
+source: "production/batches/ANAADHI_BATCH_FOUNDATION.py"
+
+absolute_rules:
+  - "One underlying Anaadhi identity family across life stages; never randomise face identity between batches."
+  - "Child/teen states are age-appropriate reconstructions, not a shrunken Scene-100 adult body."
+  - "Adult Anaadhi remains 193 cm wherever adult scale applies."
+  - "Do not blend neighbouring age, hair, costume or injury substates."
+  - "Do not beautify forest exhaustion, illness, scars, sun exposure or hunger away."
+  - "The SC058 self-cut hair state to shaved capture state transition is unresolved in P1; P2 must explicitly resolve it and may not silently invent an event."
+  - "Parallel-Earth variants inherit the same base identity unless an explicit world/age/role/costume/injury override exists."
+  - "All states below are visual-control requirements only; no dialogue/lip-sync/audio is created here."
+
+states:
+  NEWBORN:
+    batches: [B04, B05, B06]
+    scenes: [11,12,13,14,15,16,17,18]
+    age: newborn
+    height: newborn scale
+    body: newborn
+    hair: newborn natural state
+    costume: "dark wool blanket; extra shawl only where screenplay adds it"
+    injury: none unless screenplay explicitly states
+    asset_refs: [AGE-ANAADHI-NEWBORN]
+    visual_asset_status: PENDING
+
+  AGE_05:
+    batches: [B07]
+    scenes: [19]
+    age: 5
+    body: "tall for age; child proportions"
+    hair: "shaved head grown into short uneven crop"
+    costume: "Paraane child-wing institutional clothing"
+    injury: none
+    asset_refs: [AGE-ANAADHI-05, HR-ANAADHI-05, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    visual_asset_status: PENDING
+
+  AGE_07:
+    batches: [B08]
+    scenes: [20]
+    age: 7
+    body: "tall child; age-correct shoulders/proportions"
+    hair: "short uneven institutional haircut"
+    costume: "clean identical child clothing"
+    injury: none
+    asset_refs: [AGE-ANAADHI-07, HR-ANAADHI-07, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    visual_asset_status: PENDING
+
+  AGE_08:
+    batches: [B08]
+    scenes: [21]
+    age: 8
+    body: "tall for age but narrow child shoulders"
+    hair: "institutional short state; do not age-jump"
+    costume: "clean institutional child clothing"
+    injury: none
+    asset_refs: [AGE-ANAADHI-08, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    visual_asset_status: PENDING
+
+  AGE_09:
+    batches: [B09]
+    scenes: [22]
+    age: 9
+    body: "age-correct child state"
+    hair: "institutional/short unless later approved reference overrides"
+    costume: "institutional child clothing"
+    injury: "only scene-specific minor treatment if visible"
+    asset_refs: [AGE-ANAADHI-09, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    visual_asset_status: PENDING
+
+  AGE_10:
+    batches: [B09]
+    scenes: [23]
+    age: 10
+    body: "age-correct child state"
+    hair: "institutional/short"
+    costume: "institutional child clothing"
+    injury: none unless scene requires
+    asset_refs: [AGE-ANAADHI-10, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    visual_asset_status: PENDING
+
+  AGE_11:
+    batches: [B10]
+    scenes: [24]
+    age: 11
+    body: "age-correct pre-adolescent state"
+    hair: "institutional short state"
+    costume: "institutional child clothes; no family-gift outfit"
+    injury: none
+    asset_refs: [AGE-ANAADHI-11, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    visual_asset_status: PENDING
+
+  AGE_12_INSTITUTIONAL:
+    batches: [B11]
+    scenes: [25,26,27]
+    age: 12
+    body: "nearly adult-attendant height when standing; still adolescent proportions"
+    hair: "cut close again"
+    costume: "institutional clothes"
+    injury: "tear/blood/dust only as escape progression demands"
+    asset_refs: [AGE-ANAADHI-12-INSTITUTIONAL, HR-ANAADHI-12-CLOSE, CST-ANAADHI-CHILD-INSTITUTIONAL, INJ-ANAADHI-12-ESCAPE]
+    visual_asset_status: PENDING
+
+  AGE_12_FOREST:
+    batches: [B12]
+    scenes: [28,29,30,31,32,33,34]
+    age: 12
+    body: "same adolescent identity after escape; increasingly weathered"
+    hair: "close-cropped at SC030; progressively weathered; unruly crop by SC033"
+    costume: "institutional clothes -> soaked/torn/muddy -> grass-fibre repairs"
+    injury: "minor arm/foot injuries and forest cuts; barefoot from SC028"
+    asset_refs: [AGE-ANAADHI-12-FOREST, HR-ANAADHI-12-FOREST, CST-ANAADHI-12-ESCAPE, INJ-ANAADHI-12-ESCAPE]
+    visual_asset_status: PENDING
+
+  AGE_13:
+    batches: [B13]
+    scenes: [35]
+    age: 13
+    body: "early adolescent forest-raised state"
+    hair: "natural forest regrowth; age-specific"
+    costume: "patched survivor / forest-made repairs"
+    injury: "healed/minor survival marks only"
+    asset_refs: [AGE-ANAADHI-13, CST-ANAADHI-FOREST-TEEN]
+    visual_asset_status: PENDING
+
+  AGE_14:
+    batches: [B13]
+    scenes: [35]
+    age: 14
+    body: "adolescent forest-raised state"
+    hair: "progressive natural growth"
+    costume: "forest-made/repaired adolescent clothing"
+    injury: "survival wear only"
+    asset_refs: [AGE-ANAADHI-14, CST-ANAADHI-FOREST-TEEN]
+    visual_asset_status: PENDING
+
+  AGE_15:
+    batches: [B13]
+    scenes: [35]
+    age: 15
+    body: "adolescent forest-raised state"
+    hair: "progressive natural growth"
+    costume: "forest-made/repaired adolescent clothing"
+    injury: "survival wear only"
+    asset_refs: [AGE-ANAADHI-15, CST-ANAADHI-FOREST-TEEN]
+    visual_asset_status: PENDING
+
+  AGE_16:
+    batches: [B13]
+    scenes: [35]
+    age: 16
+    body: "rapid height growth; lean shoulders"
+    hair: "reaches neck"
+    costume: "forest-made/repaired adolescent clothing"
+    injury: "survival wear only"
+    asset_refs: [AGE-ANAADHI-16, HR-ANAADHI-16, CST-ANAADHI-FOREST-TEEN]
+    visual_asset_status: PENDING
+
+  AGE_17:
+    batches: [B14]
+    scenes: [36]
+    age: 17
+    body: "exceptionally tall, long-limbed adolescent"
+    hair: "long forest-growth state; do not import age-18 moustache density early"
+    costume: "forest-labour clothing"
+    injury: none beyond scene-specific work wear
+    asset_refs: [AGE-ANAADHI-17, CST-ANAADHI-FOREST-TEEN]
+    visual_asset_status: PENDING
+
+  AGE_18:
+    batches: [B14]
+    scenes: [37]
+    age: 18
+    body: "very tall young adult; lean forest-built"
+    hair: "long loosely tied hair"
+    facial_hair: "faint moustache"
+    costume: "forest-labour clothing"
+    injury: none beyond work wear
+    asset_refs: [AGE-ANAADHI-18, HR-ANAADHI-18, CST-ANAADHI-FOREST-TEEN]
+    visual_asset_status: PENDING
+
+  AGE_19:
+    batches: [B15]
+    scenes: [38,39,40,41,42]
+    age: 19
+    height_cm: 193
+    body: "lean, long-limbed"
+    hair: "shoulder-length hair tied with fibre"
+    facial_hair: "thin uneven moustache + light beard"
+    costume: "rough-spun dark tunic; repaired trousers; weathered sandals; tunic torn by SC042"
+    injury: "scene wear only"
+    asset_refs: [AGE-ANAADHI-19, HR-ANAADHI-19, CST-ANAADHI-19]
+    visual_asset_status: PENDING
+
+  AGE_20:
+    batches: [B16]
+    scenes: [43,44,45,46]
+    age: 20
+    height_cm: 193
+    body: "tall/lean adult forest-built"
+    hair: "shoulder-length, tied behind him at SC043; inherit only supported progression"
+    facial_hair: "adult forest-growth continuity from age 19; do not beautify"
+    costume: "torn forest tunic continuity / forest-labour clothing"
+    injury: "first murder-cycle wear only; no invented wounds"
+    asset_refs: [AGE-ANAADHI-20, CST-ANAADHI-20-26]
+    visual_asset_status: PENDING
+
+  AGE_21:
+    batches: [B17]
+    scenes: [47,48]
+    age: 21
+    height_cm: 193
+    body: "thinner and trembling from illness/hunger"
+    hair: "untied around fevered face"
+    facial_hair: "forest-grown adult continuity"
+    costume: "wet forest-worn clothes"
+    injury: "illness/exhaustion; hollow eyes; no invented trauma"
+    asset_refs: [AGE-ANAADHI-21, CST-ANAADHI-20-26]
+    visual_asset_status: PENDING
+
+  AGE_22:
+    batches: [B18]
+    scenes: [49,50]
+    age: 22
+    height_cm: 193
+    body: "adult forest-built with accumulated exhaustion"
+    hair: "inherit post-age21 adult hair state unless an approved later reference changes it"
+    facial_hair: "accumulated forest-grown beard/moustache; do not beautify"
+    costume: "forest-worn adult clothing"
+    injury: "accumulated forest scars/exhaustion"
+    asset_refs: [AGE-ANAADHI-22, CST-ANAADHI-20-26]
+    visual_asset_status: PENDING
+
+  AGE_23:
+    batches: [B19]
+    scenes: [51,52]
+    age: 23
+    height_cm: 193
+    body: "forest-labour adult body; increasingly guarded"
+    hair: "forest-worn adult continuity"
+    costume: "forest labour/trader clothing"
+    injury: "continuity wear only"
+    asset_refs: [AGE-ANAADHI-23, CST-ANAADHI-20-26]
+    visual_asset_status: PENDING
+
+  AGE_24:
+    batches: [B20]
+    scenes: [53,54]
+    age: 24
+    height_cm: 193
+    body: "same adult identity; hunger and rain exposure"
+    hair: "forest-worn adult hair/beard continuity"
+    costume: "forest-worn adult clothing"
+    injury: "hunger/rain exposure; no invented wounds"
+    asset_refs: [AGE-ANAADHI-24, CST-ANAADHI-20-26]
+    visual_asset_status: PENDING
+
+  AGE_25:
+    batches: [B21]
+    scenes: [55,56]
+    age: 25
+    height_cm: 193
+    body: "mature forest-worn adult"
+    hair: "mature forest-grown continuity"
+    costume: "forest labour/trader clothing"
+    injury: "injured/bleeding hands during rebuild only as scripted"
+    asset_refs: [AGE-ANAADHI-25, CST-ANAADHI-20-26]
+    visual_asset_status: PENDING
+
+  AGE_26_BEFORE_CUT:
+    batches: [B22]
+    scenes: [57,58]
+    age: 26
+    height_cm: 193
+    body: "forest-built adult; forest-burned skin and scars"
+    hair: "overgrown hair"
+    facial_hair: "uneven beard"
+    costume: "forest labour/trader clothing"
+    injury: "existing scars/wear only"
+    asset_refs: [AGE-ANAADHI-26, CST-ANAADHI-20-26]
+    visual_asset_status: PENDING
+
+  AGE_26_HALF_CUT:
+    batches: [B22]
+    scenes: [58]
+    age: 26
+    height_cm: 193
+    body: "same exact AGE_26 identity"
+    hair: "HALF-CUT barber substate; preserve asymmetry/progress exactly"
+    facial_hair: "same uneven beard unless haircut action changes it explicitly"
+    costume: "same SC058 clothing continuity"
+    injury: "unchanged"
+    asset_refs: [AGE-ANAADHI-26, HR-ANAADHI-26-POST-BARBER, CST-ANAADHI-20-26]
+    visual_asset_status: PENDING
+
+  AGE_26_SELF_CUT:
+    batches: [B22, B23]
+    scenes: [58,59,60,61,62,63]
+    age: "26 transition into 27"
+    height_cm: 193
+    body: "same underlying adult identity"
+    hair: "SELF-CUT / unfinished barber-transition state"
+    costume: "forest adult continuity"
+    injury: "forest scars/wear"
+    continuity_lock: "B23 starts from this hair state. Do not jump silently to shaved capture hair."
+    asset_refs: [HR-ANAADHI-26-POST-BARBER, AGE-ANAADHI-27-FOREST]
+    visual_asset_status: PENDING
+
+  AGE_27_FOREST_PRECAPTURE:
+    batches: [B23]
+    scenes: [59,60,61,62,63]
+    age: 27
+    height_cm: 193
+    body: "forest-built adult; forest-burned skin/scars"
+    hair: "starts from SC058 self-cut state"
+    costume: "forest adult clothing"
+    injury: "existing forest scars/wear"
+    asset_refs: [AGE-ANAADHI-27-FOREST]
+    visual_asset_status: PENDING
+
+  AGE_27_CAPTURE:
+    batches: [B01, B24, B25]
+    scenes: [1,2,3,4,5,64,65,66,67,68]
+    age: 27
+    height_cm: 193
+    body: "heavy-athletic forest-built"
+    hair: "shaved scalp with several days rough regrowth"
+    costume: "topless where opening continuity requires; wet/soiled escape continuity after capture"
+    injury: "ADK-7 chemically impaired motor-control state; no invented wounds"
+    transition_from_precapture: "UNRESOLVED_UNTIL_P2"
+    asset_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
+    visual_asset_status: PENDING
+
+  AGE_27_PARAANE_RETURN:
+    batches: [B26]
+    scenes: [69,70,71,72,73,74]
+    age: 27
+    height_cm: 193
+    body: "wet post-operation/capture body continuity"
+    hair: "preserve capture hair until approved transition"
+    costume: "wet post-operation clothing; becomes torn/bloodied by SC074"
+    injury: "SC074 chest/abdomen wounds begin"
+    asset_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE]
+    visual_asset_status: PENDING
+
+  AGE_27_SURGERY_ACUTE:
+    batches: [B27]
+    scenes: [75,76]
+    age: 27
+    height_cm: 193
+    body: "acute wounded surgical patient"
+    hair: "approved current continuity only"
+    costume: "stretcher/operating state"
+    injury: "acute chest + abdominal wounds; surgery state"
+    asset_refs: [AGE-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    visual_asset_status: PENDING
+
+  AGE_27_RECOVERY_3D:
+    batches: [B27]
+    scenes: [77]
+    age: 27
+    height_cm: 193
+    body: "three days post-surgery"
+    hair: "current recovery continuity"
+    costume: "broad chest + abdomen bandages"
+    injury: "surgical wounds under broad dressings"
+    asset_refs: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    visual_asset_status: PENDING
+
+  AGE_27_HEALING_SHAWL:
+    batches: [B27, B28, B29, B30, B31, B32]
+    scenes: [78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98]
+    age: 27
+    height_cm: 193
+    body: "healing post-surgery; wounds still pull beneath clothing"
+    hair: "approved recovery continuity"
+    costume: "dark shawl open over bandages when specified; judicial/transfer continuity later"
+    injury: "healing chest + abdominal surgical wounds"
+    asset_refs: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    visual_asset_status: PENDING
+
+  AGE_27_SIX_MONTHS:
+    batches: [B33]
+    scenes: [99]
+    age: 27
+    height_cm: 193
+    body: "six-month aftermath secure-medical-unit state"
+    hair: "do not automatically substitute Scene-100 final hair unless shot explicitly transitions"
+    costume: "secure medical/judicial aftermath state as scene specifies"
+    injury: "later healing state; exact scar progression must be scene-controlled"
+    asset_refs: [AGE-ANAADHI-27-RECOVERY]
+    visual_asset_status: PENDING
+
+  AGE_27_FINAL_SC100:
+    batches: [B34]
+    scenes: [100]
+    age: 27
+    height_cm: 193
+    body: "lean-defined post-recovery adult; physically imposing but no longer using size to control the room"
+    hair: "final approved Scene-100 hair state: dense voluminous medium-long hair with natural lift/side taper"
+    facial_hair: "medium-full beard + disciplined moustache"
+    costume: "final Scene-100 approved costume; unrestrained"
+    injury: "fully healed long surgical scars"
+    asset_refs: [AGE-ANAADHI-27-FINAL, HR-ANAADHI-27-FINAL, CST-ANAADHI-27-FINAL, INJ-ANAADHI-27-FINAL]
+    visual_asset_status: PENDING
+
+qa:
+  required_distinct_age_states: [newborn, 5, 7, 8, 9, 10, 11, "12 institutional", "12 forest", 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, "26 before cut", "26 half cut", "26 self cut", "27 forest", "27 capture", "27 Paraane return", "27 surgery acute", "27 recovery 3d", "27 healing shawl", "27 six months", "27 final"]
+  p1_identity_assets_complete: false
+  p2_transition_resolution_required: ["SC058 self-cut -> age-27 shaved capture"]
