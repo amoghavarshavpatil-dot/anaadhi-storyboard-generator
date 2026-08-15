@@ -85,11 +85,20 @@ generation_waves:
         scenes: [29,91,99]
         deliverables: [MASTER_ST00, "tulsi courtyard", "interior family state"]
         status: NEEDS_CANON_ID_THEN_GENERATION
+      - key: "LOC-018"
+        name: "Anaadhi Early Forest Shelter"
+        batches: [B13]
+        scenes: [35]
+        deliverables: [MASTER_ST00, ST01]
+        approved_deliverables: [MASTER_ST00]
+        remaining_deliverables: [ST01]
+        status: PARTIAL_APPROVED_REFERENCE
+        drive_file_id: "1eFOM80kfQotntu14HMEJvyKB1iK0mLer"
       - key: "CANON_MAP_PENDING"
-        name: "Anaadhi Early Forest Shelter / Permanent Cabin evolution"
-        batches: [B13,B14]
-        scenes: [35,36,37]
-        deliverables: ["early shelter", "expanded second-room state", "permanent three-door cabin"]
+        name: "Scene 036 Healing Shelter / Scene 037 First Permanent Cabin (separate from LOC-018)"
+        batches: [B14]
+        scenes: [36,37]
+        deliverables: ["healing shelter", "permanent three-door cabin"]
         status: NEEDS_CANON_ID_THEN_GENERATION
       - key: "CANON_MAP_PENDING"
         name: "Anaadhi Mark / Hidden Cabin family"

@@ -367,6 +367,41 @@ locations:
     state_inheritance: "BASE/ST00"
     scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
 
+
+  LOC-018:
+    name: "Anaadhi Early Forest Shelter"
+    env6l_id: "LOC-018"
+    env6l_asset_lock_id: "ENV6L-LOC-018-ST00-v001"
+    env6j_prompt_id: "ENV6J-LOC-018-ST00-v001"
+    env6j_prompt_hash: "a78e7a53f9ad0f01095ec9adbef257c594451002aa21da48101e6dd884a8ee49"
+    source_manifest_ref: "ENV-6H-B/LOC-018"
+    environment_anchor: "ENV-CAB-001"
+    master_id: "LOC-018_MASTER-01"
+    canonical_state: "ST00"
+    class: "RECURRING-UNIQUE"
+    status: APPROVED
+    visual_lock_status: LOCKED
+    path: "production/references/locations/LOC-018/LOC-018_MASTER-01_Anaadhi-Early-Forest-Shelter_ST00_3840x1600_FINAL.jpg"
+    sha256: "b4db696ccdb052bb2e97de4f7c57d194d67ee973b8ef8a406f2e2c6f7e39b811"
+    raster: "3840x1600"
+    aspect_ratio: "2.40:1"
+    source_drive_file_id: "1eFOM80kfQotntu14HMEJvyKB1iK0mLer"
+    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+    scene_bindings: [35]
+    batch_bindings: ["B13"]
+    authorised_kits: ["KIT-01", "KIT-06"]
+    active_holds: ["HA-01"]
+    signage_owner: "NONE"
+    pending_states: ["ST01"]
+    continuity: "Scene-035 adolescent survival shelter at BASE/ST00: one primitive single-room bamboo/areca shelter before the authorised ST01 second-room/two-door expansion. Three construction attempts remain readable as growth and repair history within one ROOT, never as three simultaneous cabins."
+    architecture_rule: "Within one 70x55 m survival-site envelope, preserve one current shelter up to 7x5 m with a modest raised dry platform, renewable-pole/bamboo frame, steep layered rain cover, one principal opening, one foot approach, screened rear withdrawal and subordinate rain-catch/work ground. Never substitute ENV-CAB-002 or any later cabin."
+    material_rule: "Renewable/deadfall pole and bamboo structure, woven areca sheaths, gathered plant fibre, restrained reused weather fabric, stone/earth work surfaces and smoothed timber contact; raw tan and green-brown progressing to settled umber, with damp laterite and stone grey. No luxury finish, false distress or glossy modern material."
+    weather_state_rule: "Scene-035 is a multi-year, multi-season montage; this ST00 master holds a readable damp forest baseline without imposing one global wetness layer. Leak, shrinking stream, rain-catch work, drying bark, festival night and later occupation remain beat-local and do not create new geography."
+    topology_rule: "Standalone ENV-CAB-001. Forest approach leads to the single shelter and screened rear; rain-catch/work ground remains subordinate. Exactly one current shelter and one principal opening are visible. No NEST, second room, two-door overlay, permanent cabin, loft or additional route."
+    clean_master: "No people, silhouettes, animals, dog, festival, Parallel-Earth figures, tools in use, vehicles, shrine, ritual motif, signage, typography, UI, modern utilities, solar panels, plumbing, cyberpunk, holograms, neon, storyboard action or later-state structures."
+    state_inheritance: "BASE/ST00"
+    scope_note: "Reference plate raster is exact 2.40:1; ST01 remains a separate later-state deliverable and is not visually locked by this asset."
+
 hero_props:
   PRP-ADK7-CARTRIDGE: {name: "ADK-7 restricted transfer cartridge", status: MISSING_APPROVED_ASSET, path: null}
   PRP-PARAANE-EMBLEM: {name: "Paraane emblem", status: MISSING_APPROVED_ASSET, path: null}
