@@ -1,0 +1,66 @@
+name: HeyGen API Auth Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-api-auth-check.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify HEYGEN_API_KEY against HeyGen PAYG API
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${HEYGEN_API_KEY:-}" ]; then
+            echo "HEYGEN_API_KEY is missing from GitHub Actions secrets."
+            exit 2
+          fi
+
+          http_code=$(curl -sS \
+            -o /tmp/heygen_user.json \
+            -w "%{http_code}" \
+            -H "x-api-key: ${HEYGEN_API_KEY}" \
+            https://api.heygen.com/v3/users/me)
+
+          echo "HeyGen HTTP status: ${http_code}"
+          if [ "${http_code}" != "200" ]; then
+            python - <<'PY'
+import json
+from pathlib import Path
+p = Path('/tmp/heygen_user.json')
+try:
+    data = json.loads(p.read_text())
+    safe = {
+        'error': data.get('error'),
+        'message': data.get('message'),
+        'code': data.get('code'),
+    }
+    print(json.dumps(safe, indent=2))
+except Exception:
+    print('HeyGen returned a non-200 response.')
+PY
+            exit 1
+          fi
+
+          python - <<'PY'
+import json
+from pathlib import Path
+obj = json.loads(Path('/tmp/heygen_user.json').read_text())
+# Print only non-secret account/billing fields.
+data = obj.get('data', obj)
+safe = {
+    'authenticated': True,
+    'username': data.get('username'),
+    'email': data.get('email'),
+    'billing_type': data.get('billing_type'),
+    'wallet': data.get('wallet'),
+    'subscription_plan': (data.get('subscription') or {}).get('plan'),
+}
+print(json.dumps(safe, indent=2))
+PY
