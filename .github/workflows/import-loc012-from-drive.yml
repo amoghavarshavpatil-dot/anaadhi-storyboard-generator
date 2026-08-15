@@ -1,0 +1,95 @@
+name: Import and Lock LOC-012 Master
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-loc012-from-drive.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-and-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download LOC-012 master from Drive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p production/references/locations/LOC-012
+          curl -fL --retry 3 --retry-delay 2 \
+            'https://drive.usercontent.google.com/download?id=1mZzPVg_m1rtCJBxh-iQ050DcpTg0i09z&export=download&confirm=t' \
+            -o production/references/locations/LOC-012/LOC-012_MASTER-01_Bhaigaara-Root-Shelter_3840x1600_FINAL.jpg
+
+      - name: Verify canonical binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          import hashlib
+          p = Path('production/references/locations/LOC-012/LOC-012_MASTER-01_Bhaigaara-Root-Shelter_3840x1600_FINAL.jpg')
+          img = Image.open(p)
+          assert img.format == 'JPEG', img.format
+          assert img.size == (3840, 1600), img.size
+          sha = hashlib.sha256(p.read_bytes()).hexdigest()
+          expected = '3ae7c25b5230e23137dc83dff1b526fb87f12ea428d805671564d0edbeff73dd'
+          assert sha == expected, (sha, expected)
+          print('Verified LOC-012:', img.size, img.format, p.stat().st_size, sha)
+          PY
+
+      - name: Lock LOC-012 in reference registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          asset = Path('production/references/locations/LOC-012/LOC-012_MASTER-01_Bhaigaara-Root-Shelter_3840x1600_FINAL.jpg')
+          registry = Path('production/references/REFERENCE_REGISTRY.yaml')
+          sha256 = hashlib.sha256(asset.read_bytes()).hexdigest()
+          text = registry.read_text(encoding='utf-8')
+
+          block = f'''  LOC-012:\n    name: "Bhaigaara Root Shelter"\n    env6l_id: "LOC-012"\n    env6l_asset_lock_id: "ENV6L-LOC-012-ST00-v001"\n    env6j_prompt_id: "ENV6J-LOC-012-ST00-v001"\n    env6j_prompt_hash: "43938a6eb2d5e788612e1167663b76c64f4c986c701ef74718099205bc3c61c7"\n    environment_anchor: "ENV-BHG-004"\n    master_id: "LOC-012_MASTER-01"\n    canonical_state: "ST00"\n    class: "MODULAR-REUSE"\n    status: APPROVED\n    visual_lock_status: LOCKED\n    path: "production/references/locations/LOC-012/LOC-012_MASTER-01_Bhaigaara-Root-Shelter_3840x1600_FINAL.jpg"\n    sha256: "{sha256}"\n    raster: "3840x1600"\n    aspect_ratio: "2.40:1"\n    source_drive_file_id: "1mZzPVg_m1rtCJBxh-iQ050DcpTg0i09z"\n    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"\n    scene_bindings: [29, 30]\n    authorised_kits: ["KIT-01"]\n    signage_owner: "NONE"\n    continuity: "Natural low buttress-root refuge in Bhaigaara forest; living roots and compacted dry-earth pocket above local runoff; screened night arrival and dawn exit; persistent forest moisture and post-storm wetness; environment remains natural and subordinate to terrain."\n    screenplay_dawn_anchors: "Enormous rain-wet leaves, ancient laterite steps under luminous moss, pepper-vine-reclaimed sensor remnants, and broken weather-satellite remnant reclaimed by banyan roots may appear as supported dawn-era environmental evidence without creating a new subspace."\n    collision_lock: "Never treat as a hut, cabin, constructed tunnel, sacred shrine, temple precinct, or LOC-013 shrine extension. ENV-BHG-005 is reached later and remains a separate site; no assumed adjacency or merged shrine geography."\n    material_rule: "Living buttress root, compacted dry earth, existing stone and leaf substrate only; no plaster, hut wall, permanent artificial thatch, sacred coating, luxury finish, or generic ruin spectacle."\n    weather_state_rule: "ST00 spans Scene-029 cold dripping night refuge into Scene-030 wet storm-aftermath dawn; preserve dry refuge pocket above runoff while surrounding foliage, roots and terrain remain wet."\n    clean_master: "No people, animals, signage, typography, labels, UI, storyboard action, Parallel-Earth figures, shrine objects, or invented structures."\n    state_inheritance: "BASE/ST00"\n    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."\n'''
+
+          marker = '\nhero_props:'
+          if marker not in text:
+              raise SystemExit('hero_props marker not found in REFERENCE_REGISTRY.yaml')
+
+          start_token = '\n  LOC-012:\n'
+          start = text.find(start_token)
+          if start != -1:
+              end = text.find(marker, start)
+              if end == -1:
+                  raise SystemExit('Could not locate end of existing LOC-012 block')
+              text = text[:start] + '\n' + block.rstrip('\n') + text[end:]
+          else:
+              idx = text.find(marker)
+              text = text[:idx] + '\n\n' + block.rstrip('\n') + text[idx:]
+
+          registry.write_text(text, encoding='utf-8')
+          print('LOC-012 locked sha256:', sha256)
+          PY
+
+      - name: Commit canonical binary and registry lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/locations/LOC-012/LOC-012_MASTER-01_Bhaigaara-Root-Shelter_3840x1600_FINAL.jpg production/references/REFERENCE_REGISTRY.yaml
+          if git diff --cached --quiet; then
+            echo 'LOC-012 master already current.'
+          else
+            git commit -m 'Lock LOC-012 MASTER-01 Bhaigaara Root Shelter'
+            git push
+          fi
