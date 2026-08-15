@@ -59,3 +59,12 @@ Current operational root/ST00 coverage is **61/87**. Approved/reuse-locked roots
 Before generating any post-LOC-061 missing root, verify the frozen ENV-6L LOC-062–LOC-087 ID/name map. Do not infer canonical location names from numeric order.
 
 P2 begins only after the required P1 visual references for the affected batch are locked. Kannada recorded dialogue/lip-sync begins in P3; inner voice/V.O./monologues in P4; second-by-second sound design in P5; mix/master in P6; final assembly in P7.
+
+## Shot-production engine
+
+The non-destructive movie-shot pipeline is now defined in:
+
+- `production/shots/SHOT_PRODUCTION_ENGINE.yaml` — global shot lifecycle, HeyGen-first generation policy, 2.40:1 picture-mastering rules, QC gates, revision/supersession rules, Drive storage IDs, and future HeyGen upgrade policy.
+- `production/shots/templates/SHOT_MANIFEST_TEMPLATE.yaml` — per-shot schema used later for exact scene action, blocking, camera, duration, approved P1 references, HeyGen generation IDs, Kannada audio bindings, QC, Drive outputs, and downstream P4–P7 status.
+
+The shot engine does **not** populate screenplay action/dialogue by itself. Each batch enters P2 only when its required P1 visual controls are approved. Every shot is versioned rather than destructively overwritten, allowing future HeyGen model improvements to replace individual weak shots without rebuilding the feature.
