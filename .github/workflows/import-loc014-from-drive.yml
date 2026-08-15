@@ -1,0 +1,95 @@
+name: Import and Lock LOC-014 Master
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-loc014-from-drive.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-and-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download LOC-014 master from Drive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p production/references/locations/LOC-014
+          curl -fL --retry 3 --retry-delay 2 \
+            'https://drive.usercontent.google.com/download?id=1n4KKVXPr5jnGwNLa2BIX0xjlBk0uDNK6&export=download&confirm=t' \
+            -o production/references/locations/LOC-014/LOC-014_MASTER-01_Bhaigaara-Stream-and-Rock-Shelf_3840x1600_FINAL.jpg
+
+      - name: Verify canonical binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          import hashlib
+          p = Path('production/references/locations/LOC-014/LOC-014_MASTER-01_Bhaigaara-Stream-and-Rock-Shelf_3840x1600_FINAL.jpg')
+          img = Image.open(p)
+          assert img.format == 'JPEG', img.format
+          assert img.size == (3840, 1600), img.size
+          sha = hashlib.sha256(p.read_bytes()).hexdigest()
+          expected = 'e32b1fbbf84dbefe136ee891660951910baec4e73699b4a84bdff77ad0714e9d'
+          assert sha == expected, (sha, expected)
+          print('Verified LOC-014:', img.size, img.format, p.stat().st_size, sha)
+          PY
+
+      - name: Lock LOC-014 in reference registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          asset = Path('production/references/locations/LOC-014/LOC-014_MASTER-01_Bhaigaara-Stream-and-Rock-Shelf_3840x1600_FINAL.jpg')
+          registry = Path('production/references/REFERENCE_REGISTRY.yaml')
+          sha256 = hashlib.sha256(asset.read_bytes()).hexdigest()
+          text = registry.read_text(encoding='utf-8')
+
+          block = f'''  LOC-014:\n    name: "Bhaigaara Stream and Rock Shelf"\n    env6l_id: "LOC-014"\n    env6l_asset_lock_id: "ENV6L-LOC-014-ST00-v001"\n    env6j_prompt_id: "ENV6J-LOC-014-ST00-v001"\n    env6j_prompt_hash: "ccf12becb8947c6ef26edfba53971054b766841896df63ac6e02ba2eb8c2f35b"\n    environment_anchor: "ENV-BHG-006"\n    hero_family: "HF-13"\n    master_id: "LOC-014_MASTER-01"\n    canonical_state: "ST00"\n    class: "MODULAR-REUSE"\n    priority: "H"\n    status: APPROVED\n    visual_lock_status: LOCKED\n    path: "production/references/locations/LOC-014/LOC-014_MASTER-01_Bhaigaara-Stream-and-Rock-Shelf_3840x1600_FINAL.jpg"\n    sha256: "{sha256}"\n    raster: "3840x1600"\n    aspect_ratio: "2.40:1"\n    source_drive_file_id: "1n4KKVXPr5jnGwNLa2BIX0xjlBk0uDNK6"\n    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"\n    scene_bindings: [31, 40, 42, 45]\n    authorised_kits: ["KIT-01", "KIT-02"]\n    signage_owner: "NONE"\n    continuity: "Recurring Bhaigaara stream/private-collapse watercourse with a stable river-cut horizontal rock shelf, shallow working reach, wet hard-rock surfaces and screened forest-bank retreat. Same watercourse identity persists across adolescent, afternoon, night and later returns without redesign."\n    topology_rule: "Local upstream north to downstream south; controlled watercourse envelope 180x90 m; rock shelf approximately 18x8 m; west-bank entry, private rock-shelf seat, shallow-water working reach and screened withdrawal bank with two bank exits. Preserve bank vegetation occlusion between private shelf and working reach."\n    hydrology_rule: "Realistic shallow stream flow only; no plunge-pool spectacle, impossible cascades, flood-channel behaviour, dry reset, ornamental watercourse, artificial channelisation or invented connection to other water systems."\n    material_rule: "Existing dark hard-rock shelf, fine mineral sediment and organic forest-bank surfaces; built finish N/A; geological ageing only. No applied stain, scenic fake moss, resort stone, built ghat finish or decorative paving."\n    collision_lock: "Never merge with Riverside Washing Place, Seasonal Shrinking Stream/Rain-Catch Basin, Bhaigaara Flood Channel, Forest Ravine, shrine, market, bridge or cabin geography. No hydrologic relation to BHG-009 may be asserted."\n    clean_master: "No people, animals, carts, signage, typography, UI, storyboard action, Parallel-Earth figures, bridge, shrine, tourist infrastructure, resort landscaping, built ghat, holograms or neon."\n    state_inheritance: "BASE/ST00"\n    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."\n'''
+
+          marker = '\nhero_props:'
+          if marker not in text:
+              raise SystemExit('hero_props marker not found in REFERENCE_REGISTRY.yaml')
+
+          start_token = '\n  LOC-014:\n'
+          start = text.find(start_token)
+          if start != -1:
+              end = text.find(marker, start)
+              if end == -1:
+                  raise SystemExit('Could not locate end of existing LOC-014 block')
+              text = text[:start] + '\n' + block.rstrip('\n') + text[end:]
+          else:
+              idx = text.find(marker)
+              text = text[:idx] + '\n\n' + block.rstrip('\n') + text[idx:]
+
+          registry.write_text(text, encoding='utf-8')
+          print('LOC-014 locked sha256:', sha256)
+          PY
+
+      - name: Commit canonical binary and registry lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/locations/LOC-014/LOC-014_MASTER-01_Bhaigaara-Stream-and-Rock-Shelf_3840x1600_FINAL.jpg production/references/REFERENCE_REGISTRY.yaml
+          if git diff --cached --quiet; then
+            echo 'LOC-014 master already current.'
+          else
+            git commit -m 'Lock LOC-014 MASTER-01 Bhaigaara Stream and Rock Shelf'
+            git push
+          fi
