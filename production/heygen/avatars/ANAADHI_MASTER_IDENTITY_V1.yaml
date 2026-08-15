@@ -16,12 +16,18 @@ heygen:
   avatar_id: 308d203046784405a986d6dd199d5345
   avatar_group_id: c26d836745e64d4c92663eae3fb02e06
   group_status: completed
-  looks_count: 1
+  looks_count: 5
   consent_status: PENDING
   creation_workflow_run_id: 31889125056
   creation_job_id: 95022655312
   creation_commit: 0ec01e67b6653046031fba823a17c973bfb417a0
   idempotency_key: anaadhi-master-identity-v1-20260815
+  b01_capture_look:
+    status: completed
+    avatar_id: b790b09e412049bcbd4395827ba34eb2
+    source_path: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: f0288e16c5b6690f810a6ca8b9d202c8d1e5221fe7f94629fe3f3809eb23077b
+    creation_authority: CHATGPT_IMAGEGEN
 
 security:
   - Never commit the HEYGEN_API_KEY or any secret value.
