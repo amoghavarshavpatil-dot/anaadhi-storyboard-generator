@@ -25,11 +25,23 @@ character_identities:
     body_proportion_reference_path: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg"
     adult_height_cm: 193
     body_metric_override: "Body blueprint source prints 188 cm / 6'2; that printed ruler is non-canonical. Use relative anatomy only and scale adult Anaadhi to 193 cm / 6'4."
-  CHR-AARATHI: {name: Aarathi, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-AARATHI:
+    name: Aarathi
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "c66b31ba4c9b157985aacdd6236abd73cebc081afdef206753834dde72fd5da3"
+    identity_scope: BASE_BIOLOGICAL_IDENTITY
+    parallel_medical_look_path: "production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    parallel_medical_look_sha256: "366c610176f2597ca2935211e98ddcc26c0a6b8fceb84cff45a3b83d83c71d56"
   CHR-PARVARAN: {name: Parvaran, status: MISSING_APPROVED_ASSET, path: null}
   CHR-ANARVAA: {name: Anarvaa, status: MISSING_APPROVED_ASSET, path: null}
   CHR-MANIRE: {name: Manire, status: MISSING_APPROVED_ASSET, path: null}
-  CHR-SEMMAA: {name: Semmaa, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-SEMMAA:
+    name: Semmaa
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "0e49f15e91bac706bb994f78a6256cf53dfc4348453496712764b88a8f94816c"
+    identity_scope: PRESENT_DAY_BASE_BIOLOGICAL_IDENTITY
   CHR-MARSYAA: {name: Marsyaa, status: MISSING_APPROVED_ASSET, path: null}
   CHR-ASANA: {name: Asana, status: MISSING_APPROVED_ASSET, path: null}
   CHR-JANNE: {name: Janne, status: MISSING_APPROVED_ASSET, path: null}
@@ -39,8 +51,30 @@ character_identities:
   CHR-JAYASHA: {name: Jayasha, status: MISSING_APPROVED_ASSET, path: null}
   CHR-SADHRUNA: {name: Sadhruna, status: MISSING_APPROVED_ASSET, path: null}
   CHR-ELDERLY-GATHERER: {name: Elderly Gatherer, status: MISSING_APPROVED_ASSET, path: null}
-  CHR-POLICE-COMMANDER: {name: Police Commander, status: MISSING_APPROVED_ASSET, path: null}
-  CHR-MEDICAL-SPECIALIST: {name: Medical Specialist, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-POLICE-COMMANDER:
+    name: Police Commander
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "36db4770132d36f8d61226c315fe5637c02322236c15db57cb1dd8e51b62a1f2"
+    identity_scope: BASE_BIOLOGICAL_IDENTITY
+  CHR-SARJANYA-OFFICER:
+    name: Sarjanya Officer
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "8d09859e662f397e334aa819b671e8139048be1d30982fa4a20c925a991a341b"
+    identity_scope: BASE_BIOLOGICAL_IDENTITY
+  CHR-MEDICAL-SPECIALIST:
+    name: Medical Specialist
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "752adc618869df26802c51028fad17a501640e3a4217e1b10d67f7a7f027bdda"
+    identity_scope: BASE_BIOLOGICAL_IDENTITY
+  CHR-ALLIED-GANGSTER:
+    name: Allied Gangster
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec"
+    identity_scope: BASE_BIOLOGICAL_IDENTITY
 
 anaadhi_age_body_states:
   AGE-ANAADHI-NEWBORN:
@@ -50,6 +84,8 @@ anaadhi_age_body_states:
     sha256: "35daf506bc9a64eb4119758adb4a8fd967da797c3e69406e4068fb8404788c07"
     scope: AGE_BODY_GEOMETRY_ONLY
     non_authoritative_pixels: [hair, costume, injury]
+    heygen_upload_master_path: "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    heygen_upload_master_sha256: "6a322f4aaeb32adcfa38da0e375681d1bee4dea13c35b55a002774fc2e40661d"
   AGE-ANAADHI-05:
     age: 5
     status: APPROVED
@@ -133,8 +169,9 @@ anaadhi_age_body_states:
     age: 27
     height_cm: 193
     body: heavy-athletic forest-built
-    status: MISSING_APPROVED_ASSET
-    path: null
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "f0288e16c5b6690f810a6ca8b9d202c8d1e5221fe7f94629fe3f3809eb23077b"
   AGE-ANAADHI-27-RECOVERY:
     age: 27
     height_cm: 193
@@ -157,7 +194,12 @@ anaadhi_hair_states:
   HR-ANAADHI-18: {description: "long loosely tied hair; faint moustache", status: MISSING_APPROVED_ASSET, path: null}
   HR-ANAADHI-19: {description: "shoulder-length hair tied with fibre; thin uneven moustache; light beard", status: MISSING_APPROVED_ASSET, path: null}
   HR-ANAADHI-26-POST-BARBER: {description: "self-cut/unfinished barber-transition state; exact approved reference required", status: MISSING_APPROVED_ASSET, path: null}
-  HR-ANAADHI-27-CAPTURE: {description: "shaved scalp with several days rough regrowth", status: MISSING_APPROVED_ASSET, path: null}
+  HR-ANAADHI-27-CAPTURE:
+    description: "shaved scalp with several days rough regrowth"
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "f0288e16c5b6690f810a6ca8b9d202c8d1e5221fe7f94629fe3f3809eb23077b"
+    facial_hair_production_choice: "short rough unstyled beard"
   HR-ANAADHI-27-FINAL: {description: "final Scene-100 approved hair state", status: MISSING_APPROVED_ASSET, path: null}
 
 anaadhi_costume_states:
@@ -166,13 +208,21 @@ anaadhi_costume_states:
   CST-ANAADHI-FOREST-TEEN: {description: "forest-made/repaired adolescent clothing", status: MISSING_APPROVED_ASSET, path: null}
   CST-ANAADHI-19: {description: "rough-spun dark tunic; repaired trousers; weathered sandals", status: MISSING_APPROVED_ASSET, path: null}
   CST-ANAADHI-20-26: {description: "forest labour/trader clothing; scene wear/damage applied only by continuity", status: MISSING_APPROVED_ASSET, path: null}
-  CST-ANAADHI-27-CAPTURE: {description: "topless capture state", status: MISSING_APPROVED_ASSET, path: null}
+  CST-ANAADHI-27-CAPTURE:
+    description: "topless capture state"
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "f0288e16c5b6690f810a6ca8b9d202c8d1e5221fe7f94629fe3f3809eb23077b"
   CST-ANAADHI-27-RECOVERY: {description: "hospital/recovery state with chest/abdominal dressings and dark shawl when specified", status: MISSING_APPROVED_ASSET, path: null}
   CST-ANAADHI-27-FINAL: {description: "Scene-100 final approved costume", status: MISSING_APPROVED_ASSET, path: null}
 
 injury_states:
   INJ-ANAADHI-12-ESCAPE: {description: "minor arm/foot injuries, torn clothing, forest cuts", status: MISSING_APPROVED_ASSET, path: null}
-  INJ-ANAADHI-27-ADK7: {description: "drugged motor-control/capture state; no invented wounds", status: MISSING_APPROVED_ASSET, path: null}
+  INJ-ANAADHI-27-ADK7:
+    description: "drugged motor-control/capture state; no invented wounds"
+    status: APPROVED
+    path: "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "f0288e16c5b6690f810a6ca8b9d202c8d1e5221fe7f94629fe3f3809eb23077b"
   INJ-ANAADHI-27-SURGERY: {description: "chest + abdominal surgical injury and dressings", status: MISSING_APPROVED_ASSET, path: null}
   INJ-ANAADHI-27-FINAL: {description: "fully healed long scars, Scene-100 state", status: MISSING_APPROVED_ASSET, path: null}
 
