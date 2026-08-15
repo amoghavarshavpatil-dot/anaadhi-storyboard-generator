@@ -1,0 +1,18 @@
+{
+  "phase": "P1-B01-A",
+  "status": "CANDIDATE_VISUAL_QA_REQUIRED",
+  "authority_scope": "AGE_BODY_GEOMETRY_ONLY",
+  "canonical_identity_ref": "CHR-ANAADHI_MASTER-IDENTITY-01",
+  "heygen_group_id": "c26d836745e64d4c92663eae3fb02e06",
+  "heygen_look_id": "a47e39b73401499d810031747d9c9623",
+  "heygen_name": "The 6'4" Studio-Barefoot Forest-Built",
+  "image_path": "production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01.webp",
+  "image_width": 1600,
+  "image_height": 2656,
+  "sha256": "8ff7db7668a674081a35cbdea55de4c54b44be939ddb6288177dd3ffc88f6fda",
+  "bytes": 574006,
+  "adult_height_cm": 193,
+  "body_source_188cm_ruler_is_noncanonical": true,
+  "non_authoritative_pixels": ["hair", "facial_hair", "costume", "injury", "props", "environment"],
+  "approval_required_before_registry_lock": true
+}
