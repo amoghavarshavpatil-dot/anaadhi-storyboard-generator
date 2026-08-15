@@ -19,6 +19,7 @@ jobs:
           HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
         shell: bash
         run: |
+          # Balance recheck after R3 training failure; this endpoint does not generate media.
           set -euo pipefail
           code=$(curl -sS -o /tmp/user.json -w "%{http_code}" \
             -H "x-api-key: ${HEYGEN_API_KEY}" \
