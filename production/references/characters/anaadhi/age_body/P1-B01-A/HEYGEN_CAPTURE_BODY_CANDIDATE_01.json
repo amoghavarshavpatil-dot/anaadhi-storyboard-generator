@@ -1,11 +1,11 @@
 {
   "phase": "P1-B01-A",
-  "status": "CANDIDATE_VISUAL_QA_REQUIRED",
+  "status": "REJECTED_VISUAL_QA",
   "authority_scope": "AGE_BODY_GEOMETRY_ONLY",
   "canonical_identity_ref": "CHR-ANAADHI_MASTER-IDENTITY-01",
   "heygen_group_id": "c26d836745e64d4c92663eae3fb02e06",
   "heygen_look_id": "a47e39b73401499d810031747d9c9623",
-  "heygen_name": "The 6'4" Studio-Barefoot Forest-Built",
+  "heygen_name": "The 6'4\" Studio-Barefoot Forest-Built",
   "image_path": "production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01.webp",
   "qa_thumbnail_path": "production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01_QA-THUMB.jpg",
   "image_width": 1600,
@@ -16,5 +16,19 @@
   "adult_height_cm": 193,
   "body_source_188cm_ruler_is_noncanonical": true,
   "non_authoritative_pixels": ["hair", "facial_hair", "costume", "injury", "props", "environment"],
-  "approval_required_before_registry_lock": true
+  "visual_qa": {
+    "pass": false,
+    "passed": [
+      "neutral full-body presentation",
+      "neutral studio background",
+      "no obvious invented wounds or scars",
+      "natural non-bodybuilder anatomy"
+    ],
+    "failed": [
+      "face fidelity is insufficient against CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE",
+      "body mass reads lean-athletic rather than heavy-athletic forest-built capture state"
+    ],
+    "decision": "DO_NOT_REGISTER_AS_AGE-ANAADHI-27-CAPTURE"
+  },
+  "superseded_by": "P1-B01-A-R2"
 }
