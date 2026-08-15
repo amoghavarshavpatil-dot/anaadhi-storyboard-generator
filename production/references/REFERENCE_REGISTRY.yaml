@@ -185,6 +185,33 @@ locations:
     collision_lock: "HOLD-separated from LOC-010 child ravine and LOC-061 flood channel; never convert into a torrent, large culvert portal, cave, institutional facade, or generic tunnel mouth."
     clean_master: "No people, animals, vehicles, signage, labels, or storyboard action."
     scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
+
+  LOC-061:
+    name: "Bhaigaara Forest Flood Channel"
+    env6l_id: "LOC-061"
+    env6l_asset_lock_id: "ENV6L-LOC-061-ST00-v001"
+    env6j_prompt_id: "ENV6J-LOC-061-ST00-v001"
+    env6j_prompt_hash: "aff4b2e5293cb1c141272581851cdf38f08602ace7f84dd3caba59e58420774c"
+    environment_anchor: "ENV-BHG-022"
+    master_id: "LOC-061_MASTER-01"
+    canonical_state: "ST00"
+    class: "MODULAR-REUSE"
+    status: APPROVED
+    visual_lock_status: LOCKED
+    path: "production/references/locations/LOC-061/LOC-061_MASTER-01_Bhaigaara-Forest-Flood-Channel_3840x1600_FINAL.jpg"
+    sha256: "ebd1dbcb5a50a9c770d4cdad0bd1434d274dafaf6bb19353c9451cadb06b9747"
+    raster: "3840x1600"
+    aspect_ratio: "2.40:1"
+    source_drive_file_id: "1ZaLHBrJYi3yNjmznOdDngAJTUYh088gr"
+    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+    scene_bindings: [68]
+    authorised_kits: ["KIT-01", "KIT-02"]
+    continuity: "Bhaigaara flood/drainage channel under dense canopy with knee-deep scene water and physically coherent gravity-driven flow; broad, natural monsoon watercourse distinct from the adult-escape ravine."
+    collision_lock: "Distinct topology from LOC-060 adult escape ravine and LOC-010 child escape ravine; never inherit LOC-060 grate/narrow-ravine geometry, never full-topology reuse across distinct LOCs, and never drift into a deep river, waterfall gorge, culvert portal, institutional facade, or generic tunnel."
+    water_state_rule: "ST00 carries the Scene-068 knee-deep wading condition; preserve physically coherent downhill drainage and visible shallow-channel structure rather than impossible or oversized flood depth."
+    clean_master: "No people, animals, drones, vehicles, structures, signage, labels, UI, typography, maps, storyboard action, or Parallel-Earth overlays."
+    state_inheritance: "BASE/ST00"
+    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
 hero_props:
   PRP-ADK7-CARTRIDGE: {name: "ADK-7 restricted transfer cartridge", status: MISSING_APPROVED_ASSET, path: null}
   PRP-PARAANE-EMBLEM: {name: "Paraane emblem", status: MISSING_APPROVED_ASSET, path: null}
