@@ -334,6 +334,39 @@ locations:
     clean_master: "No people, animals, baskets, tools, cut logs, shelters, vehicles, signage, typography, UI, storyboard action, Parallel-Earth figures, decorative script, holograms, neon, new subspaces or staged herbal-garden treatment."
     state_inheritance: "BASE/ST00"
     scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
+
+  LOC-017:
+    name: "Forest Path — SC033"
+    env6l_id: "LOC-017"
+    env6l_asset_lock_id: "ENV6L-LOC-017-ST00-v001"
+    env6j_prompt_id: "ENV6J-LOC-017-ST00-v001"
+    env6j_prompt_hash: "7138edb9b3ca610966e7eefc05b417298b4725d347dba8a572e4b6ac24b63b00"
+    source_manifest_ref: "ENV-6H-B/LOC-017"
+    master_id: "LOC-017_MASTER-01"
+    canonical_state: "ST00"
+    class: "MODULAR-REUSE"
+    status: APPROVED
+    visual_lock_status: LOCKED
+    path: "production/references/locations/LOC-017/LOC-017_MASTER-01_Forest-Path-SC033_3840x1600_FINAL.jpg"
+    sha256: "1a3d8237dbd1fa999d1b9eee3d30133d746affd65e03d28e6f079d567bd3f868"
+    raster: "3840x1600"
+    aspect_ratio: "2.40:1"
+    source_drive_file_id: "1vwxrDUDUwHYz4cohvbp7RO8UXURix8XQ"
+    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+    scene_bindings: [33]
+    batch_bindings: ["B12"]
+    authorised_kits: ["KIT-01", "KIT-03"]
+    active_holds: ["HA-10"]
+    signage_owner: "NONE"
+    continuity: "Distinct Scene-033 Bhaigaara forest return path at sunset; preserve its own bends, exposed-root pattern, grade and drainage. Never substitute another forest path or merge it with the Scene-038 barter-approach route."
+    architecture_rule: "Natural foot path only: no constructed platform, shelter, bridge, wall, lane, steps, railings, stalls, vehicles or settlement architecture. Scale remains normal human scale with Anaadhi adult reference at 1.93 m."
+    material_rule: "Red-brown compacted earth, laterite and dark embedded stone, exposed roots, leaf litter, moss and damp Western Ghats forest growth. Preserve grounded natural wear; no paving, decorative landscaping or staged wilderness clutter."
+    weather_state_rule: "Scene-033 sunset: warm upper-canopy light against cooler deep-forest greens; damp ground without active rain, flood or invented weather event. Geography remains BASE/ST00."
+    topology_rule: "Standalone LOC-017. Preserve the approved master's asymmetrical multi-bend route, slope and grade changes, embedded-root and stone rhythm, and plausible downhill drainage. Do not merge with LOC-015, LOC-016 or any pending Scene-038 location."
+    clean_master: "No people, animals, human shadows, buildings, stalls, vehicles, carried props, signage, typography, UI, storyboard figures, temple, shrine, sci-fi elements, holograms, neon or new subspaces."
+    state_inheritance: "BASE/ST00"
+    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
+
 hero_props:
   PRP-ADK7-CARTRIDGE: {name: "ADK-7 restricted transfer cartridge", status: MISSING_APPROVED_ASSET, path: null}
   PRP-PARAANE-EMBLEM: {name: "Paraane emblem", status: MISSING_APPROVED_ASSET, path: null}

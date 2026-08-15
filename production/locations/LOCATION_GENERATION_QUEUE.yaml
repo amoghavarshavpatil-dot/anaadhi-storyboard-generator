@@ -119,7 +119,8 @@ generation_waves:
       - {key: "CANON_MAP_PENDING", name: "Abandoned Forest Shrine", batches: [B12], scenes: [30], status: NEEDS_CANON_ID_THEN_GENERATION}
       - {key: "CANON_MAP_PENDING", name: "Bhaigaara Stream and Rock Shelf / Private Collapse Zone", batches: [B12,B15,B16], scenes: [31,40,42,45], status: NEEDS_CANON_ID_THEN_GENERATION}
       - {key: "CANON_MAP_PENDING", name: "Forest Gathering Slope", batches: [B12], scenes: [32], status: NEEDS_CANON_ID_THEN_GENERATION}
-      - {key: "CANON_MAP_PENDING", name: "Forest Path / Barter Approach Route", batches: [B12,B15], scenes: [33,38], status: NEEDS_CANON_ID_THEN_GENERATION}
+      - {key: "LOC-017", name: "Forest Path — SC033", batches: [B12], scenes: [33], status: APPROVED_REFERENCE, drive_file_id: "1vwxrDUDUwHYz4cohvbp7RO8UXURix8XQ"}
+      - {key: "CANON_MAP_PENDING", name: "SC038 Barter Approach Route (separate from LOC-017)", batches: [B15], scenes: [38], status: NEEDS_CANON_ID_THEN_GENERATION}
       - {key: "CANON_MAP_PENDING", name: "Seasonal Shrinking Stream / Rain-Catch Basin", batches: [B13], scenes: [35], status: NEEDS_CANON_ID_THEN_GENERATION}
       - {key: "CANON_MAP_PENDING", name: "Distant Village-Festival View Through Trees", batches: [B13], scenes: [35], status: NEEDS_CANON_ID_THEN_GENERATION}
 
