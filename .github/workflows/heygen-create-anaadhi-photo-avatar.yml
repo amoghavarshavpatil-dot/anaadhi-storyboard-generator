@@ -1,0 +1,53 @@
+name: Create Anaadhi Master Photo Avatar
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-create-anaadhi-photo-avatar.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  create-avatar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Anaadhi photo avatar through HeyGen PAYG API
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "${HEYGEN_API_KEY:-}" ]; then
+            echo "HEYGEN_API_KEY is missing."
+            exit 2
+          fi
+
+          FACE_URL="https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg"
+
+          jq -n \
+            --arg name "ANAADHI_MASTER_IDENTITY_V1" \
+            --arg url "$FACE_URL" \
+            '{type:"photo",name:$name,file:{type:"url",url:$url}}' \
+            > /tmp/heygen_avatar_payload.json
+
+          http_code=$(curl -sS \
+            -o /tmp/heygen_avatar_response.json \
+            -w "%{http_code}" \
+            -X POST "https://api.heygen.com/v3/avatars" \
+            -H "x-api-key: ${HEYGEN_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -H "Idempotency-Key: anaadhi-master-identity-v1-20260815" \
+            --data @/tmp/heygen_avatar_payload.json)
+
+          echo "HeyGen HTTP status: ${http_code}"
+
+          jq '{data:{avatar_item:{id:.data.avatar_item.id,name:.data.avatar_item.name,group_id:.data.avatar_item.group_id,status:.data.avatar_item.status,error:.data.avatar_item.error},avatar_group:{id:.data.avatar_group.id,name:.data.avatar_group.name,consent_status:.data.avatar_group.consent_status,status:.data.avatar_group.status,error:.data.avatar_group.error}},error:.error,message:.message,code:.code}' \
+            /tmp/heygen_avatar_response.json
+
+          if [ "${http_code}" != "200" ]; then
+            exit 1
+          fi
