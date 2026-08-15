@@ -3,7 +3,7 @@ phase: P1_CHARACTER_AVATAR_CONTROL
 batch_id: B01
 batch_title: "Opening Capture — Raised Cabin"
 scenes: [1, 2, 3, 4, 5]
-status: DRIVE_ARCHIVED_PENDING_GITHUB_AND_HEYGEN
+status: PARTIAL_HEYGEN_2_OF_9_COMPLETE_API_CREDITS_BLOCKED
 as_of: "2026-08-16"
 standard: "production/heygen/avatars/CHATGPT_PHOTO_AVATAR_STANDARD.yaml"
 creation_authority: CHATGPT_IMAGEGEN
@@ -37,7 +37,10 @@ assets:
     drive_status: UPLOADED
     drive_file_id: "1hmaPITr6m_c9c2FhLXBRD0uiflVdGAAp"
     drive_url: "https://drive.google.com/file/d/1hmaPITr6m_c9c2FhLXBRD0uiflVdGAAp/view?usp=drivesdk"
-    heygen_status: PENDING
+    heygen_status: COMPLETE
+    heygen_group_id: "c26d836745e64d4c92663eae3fb02e06"
+    heygen_look_id: "b790b09e412049bcbd4395827ba34eb2"
+    heygen_training_status: completed
 
   B01-AV-02:
     character_ref: CHR-AARATHI
@@ -53,7 +56,10 @@ assets:
     drive_status: UPLOADED
     drive_file_id: "16kmx-ZKfbpBiv74-pQXYoTmp1zYtIHyo"
     drive_url: "https://drive.google.com/file/d/16kmx-ZKfbpBiv74-pQXYoTmp1zYtIHyo/view?usp=drivesdk"
-    heygen_status: PENDING
+    heygen_status: COMPLETE
+    heygen_group_id: "cb6af5a4934d406eb071d2debabb3614"
+    heygen_look_id: "cdbc3ecc32564e8e8c7fac18ef4d85f4"
+    heygen_training_status: completed
 
   B01-AV-03:
     character_ref: CHR-AARATHI
@@ -69,7 +75,9 @@ assets:
     drive_status: UPLOADED
     drive_file_id: "1DYjWFvWpkC4urVlv2keuBBaUFO2JR-gI"
     drive_url: "https://drive.google.com/file/d/1DYjWFvWpkC4urVlv2keuBBaUFO2JR-gI/view?usp=drivesdk"
-    heygen_status: PENDING
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
+    heygen_group_id: "cb6af5a4934d406eb071d2debabb3614"
+    retry_rule: "Reuse Aarathi identity; submit this exact look after API credits are available."
 
   B01-AV-04:
     character_ref: CHR-SEMMAA
@@ -85,7 +93,7 @@ assets:
     drive_status: UPLOADED
     drive_file_id: "1LU0dt34MhIcKryVrsQ18UwGeQiBkIWl0"
     drive_url: "https://drive.google.com/file/d/1LU0dt34MhIcKryVrsQ18UwGeQiBkIWl0/view?usp=drivesdk"
-    heygen_status: PENDING
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
 
   B01-AV-05:
     character_ref: CHR-POLICE-COMMANDER
@@ -101,7 +109,7 @@ assets:
     drive_status: UPLOADED
     drive_file_id: "1IWD75I6xxjtSmYG1SRFp2X-qZqGttwO1"
     drive_url: "https://drive.google.com/file/d/1IWD75I6xxjtSmYG1SRFp2X-qZqGttwO1/view?usp=drivesdk"
-    heygen_status: PENDING
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
 
   B01-AV-06:
     character_ref: CHR-SARJANYA-OFFICER
@@ -116,7 +124,7 @@ assets:
     drive_status: UPLOADED
     drive_file_id: "1dX3s7VdosJFMqCn0rCzrnHULyDdAnDTl"
     drive_url: "https://drive.google.com/file/d/1dX3s7VdosJFMqCn0rCzrnHULyDdAnDTl/view?usp=drivesdk"
-    heygen_status: PENDING
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
 
   B01-AV-07:
     character_ref: CHR-MEDICAL-SPECIALIST
@@ -132,7 +140,7 @@ assets:
     drive_status: UPLOADED
     drive_file_id: "1zf4l0C3rKs4a4Dzp6BwKj0p4sdiI9oZl"
     drive_url: "https://drive.google.com/file/d/1zf4l0C3rKs4a4Dzp6BwKj0p4sdiI9oZl/view?usp=drivesdk"
-    heygen_status: PENDING
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
 
   B01-AV-08:
     character_ref: CHR-ALLIED-GANGSTER
@@ -148,7 +156,7 @@ assets:
     drive_status: UPLOADED
     drive_file_id: "1xjXoCSCtBq3Jag_P8UEiNECUwHjlfqQJ"
     drive_url: "https://drive.google.com/file/d/1xjXoCSCtBq3Jag_P8UEiNECUwHjlfqQJ/view?usp=drivesdk"
-    heygen_status: PENDING
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
 
   B01-AV-09:
     character_ref: CHR-ANAADHI
@@ -166,14 +174,20 @@ assets:
     drive_status: UPLOADED
     drive_file_id: "1Hs7aR04zcFdTLKATHuj0E6gakI78CE1T"
     drive_url: "https://drive.google.com/file/d/1Hs7aR04zcFdTLKATHuj0E6gakI78CE1T/view?usp=drivesdk"
-    heygen_status: PENDING
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
 
 publication:
-  github_status: PENDING
+  github_status: COMPLETE
+  github_source_commit: "12d6016711056be2dc806fdd961df3d02c136786"
+  github_results_commit: "67761f9a882207858800b8d79b0def941dd9026e"
   drive_status: COMPLETE
   drive_folder_id: "1XHH5B1xko6EmaIBScd6_-VItz5d5rEWG"
   drive_folder_url: "https://drive.google.com/drive/folders/1XHH5B1xko6EmaIBScd6_-VItz5d5rEWG"
-  heygen_status: PENDING
+  heygen_status: PARTIAL_2_OF_9_COMPLETE
+  heygen_completed_assets: [B01-AV-01, B01-AV-02]
+  heygen_blocked_assets: [B01-AV-03, B01-AV-04, B01-AV-05, B01-AV-06, B01-AV-07, B01-AV-08, B01-AV-09]
+  external_blocker: "HeyGen API returned insufficient_credit after two accepted uploads; the connected free plan also rejected avatar creation as paid-plan-only."
+  resume_action: "Add HeyGen API credits, then rerun the idempotent B01 publication workflow."
   next_batch_gate: >-
-    B02 creation begins only after all nine B01 source images are publicly reachable,
-    archived to Drive, and submitted to HeyGen or recorded with an explicit external blocker.
+    B02 creation remains gated until all nine B01 avatars complete or the user explicitly
+    authorizes creation to continue while HeyGen completion is externally credit-blocked.
