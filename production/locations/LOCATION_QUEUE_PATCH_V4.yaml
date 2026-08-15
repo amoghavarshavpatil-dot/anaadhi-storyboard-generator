@@ -1,0 +1,56 @@
+version: 4
+phase: P1_LOCATION_FACTORY
+status: ACTIVE
+supersedes: "production/locations/LOCATION_QUEUE_PATCH_V3.yaml"
+whole_movie_binding: "production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml"
+
+reason: >-
+  P1 work after V3 established that the V3 next-job label for LOC-062 was not a safe
+  canonical mapping. Bhaigaara Root Shelter is canonical LOC-012 and was refreshed/locked
+  under LOC-012. Therefore no LOC-062..LOC-087 name may be inferred from numeric order.
+
+current_root_truth:
+  canonical_root_total: 87
+  operational_root_approved_or_hard_reuse: 61
+  remaining_root_count: 26
+  coverage: "61/87"
+  covered_range_rule: >-
+    LOC-001..LOC-059 roots are operationally covered by audited hard reuse plus corrected
+    LOC-016 and LOC-040. LOC-060 and LOC-061 are separately generated/locked. Refreshed
+    masters inside the covered set do not increase the count.
+
+recent_locked_or_refreshed:
+  - LOC-012
+  - LOC-013
+  - LOC-014
+  - LOC-015
+  - LOC-016
+  - LOC-017
+  - LOC-018
+  - LOC-019
+  - LOC-040
+  - LOC-060
+  - LOC-061
+
+hard_reuse_rule:
+  - "Do not regenerate LOC-001..LOC-061 root/ST00 masters merely for visual variety."
+  - "Reuse does not satisfy missing interiors, subspaces, later states or scene dressing."
+  - "Special remaining work in EXISTING_LOCATION_OVERRIDES_LOC010_059.yaml remains active."
+
+next_job:
+  job_id: "CANON-LOC062-087-MAP-IMPORT"
+  deliverable: "Verified frozen ENV-6L ID/name/scene/batch mapping for LOC-062..LOC-087"
+  status: REQUIRED_BEFORE_GENERATION
+  rules:
+    - "Use frozen ENV-6L/ENV-6J authority only."
+    - "Do not infer names from screenplay order or numeric adjacency."
+    - "Do not generate any LOC-062..LOC-087 image until its canonical identity is verified."
+    - "Once verified, create only genuinely missing roots, then required subspaces/states."
+
+parallel_p1_work_after_map:
+  - "Complete outstanding nested interiors/subspaces/states for B01-B34."
+  - "Build CHR-ANAADHI master identity and exact age/body substates."
+  - "Build Anaadhi hair/costume/injury references."
+  - "Build principal recurring characters, supporting cast sheets, hero props, vehicles and technology."
+
+status_label: "61_ROOTS_COVERED__26_CANON_IDS_REQUIRE_VERIFIED_MAPPING_AND_BUILD"
