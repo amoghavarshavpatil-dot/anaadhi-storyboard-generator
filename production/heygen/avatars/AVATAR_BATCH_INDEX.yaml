@@ -5,7 +5,7 @@ as_of: "2026-08-16"
 standard: "production/heygen/avatars/CHATGPT_PHOTO_AVATAR_STANDARD.yaml"
 
 batch_order:
-  B01: {scenes: [1, 2, 3, 4, 5], status: DRIVE_ARCHIVED_PENDING_GITHUB_AND_HEYGEN, manifest: "production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml"}
+  B01: {scenes: [1, 2, 3, 4, 5], status: PARTIAL_HEYGEN_2_OF_9_COMPLETE_API_CREDITS_BLOCKED, manifest: "production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml"}
   B02: {scenes: [6], status: QUEUED, manifest: null}
   B03: {scenes: [7, 8, 9, 10], status: QUEUED, manifest: null}
   B04: {scenes: [11, 12, 13], status: QUEUED, manifest: null}
