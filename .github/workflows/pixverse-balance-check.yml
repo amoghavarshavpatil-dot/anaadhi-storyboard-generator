@@ -1,5 +1,9 @@
 name: PixVerse Balance Check
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pixverse-balance-check.yml'
   workflow_dispatch:
 permissions:
   contents: read
