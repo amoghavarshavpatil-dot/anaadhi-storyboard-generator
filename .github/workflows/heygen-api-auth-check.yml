@@ -22,45 +22,14 @@ jobs:
             exit 2
           fi
 
-          http_code=$(curl -sS \
-            -o /tmp/heygen_user.json \
-            -w "%{http_code}" \
-            -H "x-api-key: ${HEYGEN_API_KEY}" \
-            https://api.heygen.com/v3/users/me)
-
+          http_code=$(curl -sS -o /tmp/heygen_user.json -w "%{http_code}" -H "x-api-key: ${HEYGEN_API_KEY}" https://api.heygen.com/v3/users/me)
           echo "HeyGen HTTP status: ${http_code}"
+
           if [ "${http_code}" != "200" ]; then
-            python - <<'PY'
-import json
-from pathlib import Path
-p = Path('/tmp/heygen_user.json')
-try:
-    data = json.loads(p.read_text())
-    safe = {
-        'error': data.get('error'),
-        'message': data.get('message'),
-        'code': data.get('code'),
-    }
-    print(json.dumps(safe, indent=2))
-except Exception:
-    print('HeyGen returned a non-200 response.')
-PY
+            echo "HeyGen authentication failed. Safe response summary:"
+            jq '{error, message, code}' /tmp/heygen_user.json 2>/dev/null || echo "Non-JSON error response."
             exit 1
           fi
 
-          python - <<'PY'
-import json
-from pathlib import Path
-obj = json.loads(Path('/tmp/heygen_user.json').read_text())
-# Print only non-secret account/billing fields.
-data = obj.get('data', obj)
-safe = {
-    'authenticated': True,
-    'username': data.get('username'),
-    'email': data.get('email'),
-    'billing_type': data.get('billing_type'),
-    'wallet': data.get('wallet'),
-    'subscription_plan': (data.get('subscription') or {}).get('plan'),
-}
-print(json.dumps(safe, indent=2))
-PY
+          echo "HeyGen authentication succeeded. Safe account/billing summary:"
+          jq '(.data // .) | {authenticated:true, username, email, billing_type, wallet, subscription_plan:(.subscription.plan // null)}' /tmp/heygen_user.json
