@@ -1,11 +1,12 @@
-version: 1
+version: 2
 phase: P3_VISIBLE_DIALOGUE_LIPSYNC
-status: READY_AFTER_REPOSITORY_PUBLIC
+status: P3_URL_BRIDGE_ACTIVE
 
 repository:
   full_name: amoghavarshavpatil-dot/anaadhi-storyboard-generator
   branch: main
-  required_visibility: public
+  visibility_verified: public
+  visibility_verified_date: 2026-08-15
   public_raw_base: https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/
 
 security:
@@ -109,7 +110,18 @@ job_manifest_schema:
     - drive_output_file_id
     - github_result_registry_status
 
+activation:
+  repository_public_gate: PASSED
+  heygen_url_ingestion: ENABLED
+  raw_url_pattern: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/{path}"
+  current_phase_permission:
+    P1: reference assets may be published to GitHub
+    P2: approved shot video may be published to source_visuals
+    P3: Kannada dialogue WAV may be published to dialogue_audio and submitted to HeyGen
+
 next_gate:
-  name: REPOSITORY_PUBLIC_VERIFICATION
-  condition: repository.visibility == public
-  after_pass: P3_URL_BRIDGE_ACTIVE
+  name: FIRST_P3_SOURCE_PAIR
+  condition:
+    - approved scene video exists under production/heygen/source_visuals
+    - matching final Kannada dialogue WAV exists under production/heygen/dialogue_audio
+  after_pass: HEYGEN_PRECISION_LIPSYNC_SUBMISSION
