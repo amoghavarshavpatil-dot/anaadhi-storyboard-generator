@@ -1,0 +1,115 @@
+version: 1
+phase: P3_VISIBLE_DIALOGUE_LIPSYNC
+status: READY_AFTER_REPOSITORY_PUBLIC
+
+repository:
+  full_name: amoghavarshavpatil-dot/anaadhi-storyboard-generator
+  branch: main
+  required_visibility: public
+  public_raw_base: https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/
+
+security:
+  absolute_rules:
+    - NEVER commit HEYGEN_API_KEY, GitHub tokens, Google credentials, Kaggle credentials, or any secret value.
+    - Keep all API keys in GitHub Actions Secrets / authenticated connectors only.
+    - Public repository assets may contain only production media and non-secret manifests.
+    - Do not place private personal documents or unrelated account data in public production paths.
+
+roles:
+  github:
+    purpose:
+      - canonical machine-readable production control
+      - public source-media bridge for HeyGen URL ingestion
+      - scene/batch job manifests
+      - HeyGen job IDs and completion status
+    canonical_media_roots:
+      visual: production/heygen/source_visuals
+      dialogue_audio: production/heygen/dialogue_audio
+      job_manifests: production/heygen/jobs
+      results_registry: production/heygen/results
+  google_drive:
+    root_folder_id: 13p0_rxXEhwLSRCpfw1EUwePV9XGc5iZg
+    source_visuals_folder_id: 1Fkgb2nLB-invZZU50TFlfrgZ_TXSvhcr
+    kannada_dialogue_folder_id: 1DJPPB9qH8xHlkd4wbXKmR--jpnYkcZ5v
+    heygen_outputs_folder_id: 1-DwONrihX5eJ1VFXGvzhfuotUpyUxX-8
+    purpose:
+      - archival source copy
+      - archival Kannada dialogue copy
+      - final HeyGen output archive
+  heygen:
+    purpose:
+      - visible-mouth dialogue lip-sync only
+      - preserve approved source video identity/composition
+    preferred_mode: precision
+    enable_dynamic_duration: true
+    enable_speech_enhancement: false
+    enable_caption: false
+    enable_watermark: false
+    keep_same_format: true
+
+pipeline_order:
+  - P0_BATCH_FOUNDATION
+  - P1_APPROVED_VISUAL_REFERENCES
+  - P2_SCENE_ACTION_BLOCKING_CAMERA_TIMING
+  - P3_VISIBLE_MOUTH_KANNADA_DIALOGUE_LIPSYNC
+  - P4_NON_LIPSYNC_INNER_VOICE_VO_MONOLOGUE
+  - P5_BGM_AMBIENCE_FOLEY_SFX
+  - P6_THEATRICAL_MIX_MASTER
+  - P7_SCENE_REEL_FEATURE_ASSEMBLY
+
+p3_input_contract:
+  video:
+    source: public_github_raw_url
+    allowed: approved scene video/animation only
+    must_preserve:
+      - character identity
+      - age/body state
+      - hair state
+      - costume state
+      - injury state
+      - blocking
+      - camera
+      - duration unless dynamic-duration correction is explicitly authorised
+  audio:
+    source: public_github_raw_url
+    language: Kannada
+    allowed: creator-recorded final dialogue performance
+    forbidden:
+      - invented replacement dialogue
+      - TTS substitution unless separately approved
+      - BGM baked into dialogue source
+  processing:
+    mode: precision
+    speech_enhancement: false
+    captions: false
+    watermark: false
+
+non_lipsync_audio_rule:
+  inner_voice_vo_monologue:
+    phase: P4
+    do_not_lipsync: true
+  offscreen_dialogue:
+    default_do_not_lipsync: true
+    exception: only if speaker mouth is visible in approved shot
+
+job_manifest_schema:
+  required_fields:
+    - batch_id
+    - scene_id
+    - shot_id
+    - character_id
+    - visual_state_id
+    - github_video_path
+    - github_audio_path
+    - public_video_url
+    - public_audio_url
+    - heygen_mode
+    - heygen_job_id
+    - heygen_status
+    - drive_output_file_id
+    - github_result_registry_status
+
+next_gate:
+  name: REPOSITORY_PUBLIC_VERIFICATION
+  condition: repository.visibility == public
+  after_pass: P3_URL_BRIDGE_ACTIVE
