@@ -1,0 +1,108 @@
+version: 1
+batch_id: B01
+title: Opening Capture — Raised Cabin
+scenes: [1, 2, 3, 4, 5]
+status: BLOCKED_P1
+p2_ready: false
+
+sources:
+  p0_batch_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+  p1_requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  p1_registry: production/references/REFERENCE_REGISTRY.yaml
+  p1_location_bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  shot_engine: production/shots/SHOT_PRODUCTION_ENGINE.yaml
+
+location:
+  env6l_root: LOC-001
+  root_master_status: APPROVED
+  required_spaces:
+    - EXT Bhaigaara buffer forest / raised cabin
+    - INT raised cabin first floor
+  remaining_p1_location_work:
+    - raised-cabin interior identity
+    - split-floor continuity
+    - capture/breach later-state
+
+characters_required_from_p0:
+  - Anaadhi
+  - Aarathi
+  - Semmaa
+  - Police Commander
+  - Sarjanya Officer
+  - Medical Specialist
+  - Allied Gangster
+  - Parallel Aarathi/Child Anaadhi variants
+
+character_identity_gate:
+  CHR-ANAADHI: APPROVED_MASTER_IDENTITY
+  CHR-AARATHI: MISSING_APPROVED_ASSET
+  CHR-SEMMAA: MISSING_APPROVED_ASSET
+  CHR-POLICE-COMMANDER: MISSING_APPROVED_ASSET
+  CHR-MEDICAL-SPECIALIST: MISSING_APPROVED_ASSET
+  other_B01_named_supporting_identities: REQUIRE_P1_RESOLUTION
+  parallel_variants: INHERIT_BASE_IDENTITY_UNLESS_EXPLICIT_OVERRIDE_BUT_STATE_CONTROL_REQUIRED
+
+anaadhi_capture_state:
+  age: 27
+  adult_height_cm: 193
+  body: heavy-athletic forest-built
+  topless: true
+  hair: shaved scalp with several days rough regrowth
+  required_refs:
+    AGE-ANAADHI-27-CAPTURE: MISSING_APPROVED_ASSET
+    HR-ANAADHI-27-CAPTURE: MISSING_APPROVED_ASSET
+    CST-ANAADHI-27-CAPTURE: MISSING_APPROVED_ASSET
+    INJ-ANAADHI-27-ADK7: MISSING_APPROVED_ASSET
+  injury_rule: drugged motor-control/capture state; no invented wounds
+
+p0_prop_anchors:
+  - raised cabin
+  - split floorboard
+  - empty injector
+  - compressed injector
+  - ADK-7 cartridge
+  - Paraane medical case/emblem
+  - police shields
+  - iron hook
+  - wrist thermal display
+  - hidden sensors
+  - black-kite drones
+  - medical transports
+
+p1_required_reference_ids:
+  - PRP-ADK7-CARTRIDGE
+  - PRP-PARAANE-EMBLEM
+  - PRP-PARAANE-WRIST-DEVICE
+  - PRP-SPLIT-FLOORBOARD
+  - VEH-PARAANE-MEDICAL-TRANSPORT
+  - TEC-BLACK-KITE-DRONE
+  - TEC-PARAANE-SENSOR-STAKE
+  - ENV-BLACK-RAIN
+
+blocking_reasons:
+  - Anaadhi AGE-27-CAPTURE age/body reference not approved
+  - Anaadhi capture hair reference not approved
+  - Anaadhi capture costume reference not approved
+  - Anaadhi ADK-7 injury/motor-control reference not approved
+  - required recurring/supporting B01 character identities are not fully locked
+  - raised-cabin interior/split-floor/capture-breach state work remains
+  - B01 prop/vehicle/technology reference set must pass P1 approval before P2
+
+unlock_order:
+  - P1_B01_A: lock AGE-ANAADHI-27-CAPTURE body/scale reference
+  - P1_B01_B: lock HR-ANAADHI-27-CAPTURE
+  - P1_B01_C: lock CST-ANAADHI-27-CAPTURE
+  - P1_B01_D: lock INJ-ANAADHI-27-ADK7
+  - P1_B01_E: lock Aarathi, Semmaa, Police Commander, Medical Specialist and required supporting identities
+  - P1_B01_F: finish raised-cabin interior + split-floor + capture/breach location states
+  - P1_B01_G: lock required prop/vehicle/technology/environment references
+  - P1_B01_QA: validate complete B01 P1 package
+  - P2_B01: create SC001-SC005 exact action/blocking/camera/shot timeline manifests
+
+absolute_rules:
+  - Do not start HeyGen movie-shot generation for B01 while p2_ready is false.
+  - Do not invent scene action/dialogue in this readiness file.
+  - Do not substitute generic sci-fi props for named B01 anchors.
+  - Adult Anaadhi remains exactly 193 cm wherever scale is visible/relevant.
+  - Capture state is chemically impaired but has no invented wounds.
+  - Creator-recorded Kannada dialogue remains P3 and is not generated here.
