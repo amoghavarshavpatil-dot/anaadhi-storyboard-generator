@@ -2,9 +2,13 @@ version: 1
 phase: P1_CHARACTER_IDENTITY_CONTROL
 character: ANAADHI
 master_identity_ref: CHR-ANAADHI
-master_identity_status: MISSING_APPROVED_ASSET
+master_identity_status: APPROVED
 adult_height_cm: 193
 adult_height_display: "6'4"
+identity_lock_manifest: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01.yaml"
+face_identity_reference: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg"
+body_proportion_reference: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg"
+body_reference_height_override: "Source ruler says 188 cm / 6'2; canonical adult height remains 193 cm / 6'4."
 source: "production/batches/ANAADHI_BATCH_FOUNDATION.py"
 
 absolute_rules:

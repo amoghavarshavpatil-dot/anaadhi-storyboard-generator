@@ -18,9 +18,13 @@ rules:
 character_identities:
   CHR-ANAADHI:
     name: Anaadhi
-    status: MISSING_APPROVED_ASSET
-    path: null
-    notes: "Master identity family only; age/body/hair/costume substates below must also be selected."
+    status: APPROVED
+    path: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01.yaml"
+    notes: "Underlying identity family locked. Exact age/body/hair/costume/injury substates remain mandatory and independent."
+    face_reference_path: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg"
+    body_proportion_reference_path: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg"
+    adult_height_cm: 193
+    body_metric_override: "Body blueprint source prints 188 cm / 6'2; that printed ruler is non-canonical. Use relative anatomy only and scale adult Anaadhi to 193 cm / 6'4."
   CHR-AARATHI: {name: Aarathi, status: MISSING_APPROVED_ASSET, path: null}
   CHR-PARVARAN: {name: Parvaran, status: MISSING_APPROVED_ASSET, path: null}
   CHR-ANARVAA: {name: Anarvaa, status: MISSING_APPROVED_ASSET, path: null}
