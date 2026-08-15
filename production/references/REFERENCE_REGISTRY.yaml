@@ -226,7 +226,7 @@ locations:
     status: APPROVED
     visual_lock_status: LOCKED
     path: "production/references/locations/LOC-012/LOC-012_MASTER-01_Bhaigaara-Root-Shelter_3840x1600_FINAL.jpg"
-    sha256: "3ae7c25b5230e23137dc83dff1b526fb87f12ea428d805671564d0edbeff73dd"
+    sha256: "2c4edcbc1ef9f837b6c2baec31d72aff8a5f22546d3751157928ad861c155eb2"
     raster: "3840x1600"
     aspect_ratio: "2.40:1"
     source_drive_file_id: "1mZzPVg_m1rtCJBxh-iQ050DcpTg0i09z"
@@ -235,11 +235,11 @@ locations:
     authorised_kits: ["KIT-01"]
     signage_owner: "NONE"
     continuity: "Natural low buttress-root refuge in Bhaigaara forest; living roots and compacted dry-earth pocket above local runoff; screened night arrival and dawn exit; persistent forest moisture and post-storm wetness; environment remains natural and subordinate to terrain."
-    screenplay_dawn_anchors: "Enormous rain-wet leaves, ancient laterite steps under luminous moss, pepper-vine-reclaimed sensor remnants, and broken weather-satellite remnant reclaimed by banyan roots may appear as supported dawn-era environmental evidence without creating a new subspace."
+    scene_dressing_boundary: "Scene-030 may later add screenplay-supported mossed laterite steps, pepper-vine-reclaimed sensor remnants and broken weather-satellite evidence as controlled scene dressing. Those elements are intentionally not baked into this clean base identity plate."
     collision_lock: "Never treat as a hut, cabin, constructed tunnel, sacred shrine, temple precinct, or LOC-013 shrine extension. ENV-BHG-005 is reached later and remains a separate site; no assumed adjacency or merged shrine geography."
     material_rule: "Living buttress root, compacted dry earth, existing stone and leaf substrate only; no plaster, hut wall, permanent artificial thatch, sacred coating, luxury finish, or generic ruin spectacle."
     weather_state_rule: "ST00 spans Scene-029 cold dripping night refuge into Scene-030 wet storm-aftermath dawn; preserve dry refuge pocket above runoff while surrounding foliage, roots and terrain remain wet."
-    clean_master: "No people, animals, signage, typography, labels, UI, storyboard action, Parallel-Earth figures, shrine objects, or invented structures."
+    clean_master: "No people, animals, signage, typography, labels, UI, storyboard action, Parallel-Earth figures, shrine objects, dish installations, or invented structures."
     state_inheritance: "BASE/ST00"
     scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
 hero_props:
