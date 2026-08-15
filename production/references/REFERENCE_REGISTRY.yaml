@@ -402,6 +402,41 @@ locations:
     state_inheritance: "BASE/ST00"
     scope_note: "Reference plate raster is exact 2.40:1; ST01 remains a separate later-state deliverable and is not visually locked by this asset."
 
+
+  LOC-019:
+    name: "Forest Hamlet"
+    env6l_id: "LOC-019"
+    env6l_asset_lock_id: "ENV6L-LOC-019-ST00-v001"
+    env6j_prompt_id: "ENV6J-LOC-019-ST00-v001"
+    env6j_prompt_hash: "0f1a1c00f71da2d06f27691bca971cbd63323a9c1dd23566f3e397a3eecc215d"
+    source_manifest_ref: "ENV-6H-B/LOC-019"
+    environment_anchor: "ENV-HAM-027"
+    master_id: "LOC-019_MASTER-01"
+    canonical_state: "ST00"
+    class: "DRESSING-VARIANT"
+    status: APPROVED
+    visual_lock_status: LOCKED
+    path: "production/references/locations/LOC-019/LOC-019_MASTER-01_Forest-Hamlet_ST00_3840x1600_FINAL.jpg"
+    sha256: "de296c0ada1ad5745132b2551f4ce5d9b89f034de1c64f3954fc31852d8366ea"
+    raster: "3840x1600"
+    aspect_ratio: "2.40:1"
+    source_drive_file_id: "1GWGR4UUdWen04JOgaJUmjt-rseWhk8W1"
+    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+    scene_bindings: [36]
+    batch_bindings: ["B14"]
+    authorised_kits: ["KIT-03", "KIT-04", "KIT-06"]
+    active_holds: []
+    signage_owner: "NONE"
+    continuity: "Scene-036 BASE/ST00 forest hamlet: one small community-care settlement whose healing shelter, hamlet road, clear transport lane and departure geography remain one integrated ROOT. Daylight and ordinary community care/work are active; no institutional expansion, cure claim or later state is introduced."
+    architecture_rule: "Preserve one broad open community-care canopy beside a modest road, with raised healing platform, family/community edge, distinct ambulance berth, clear departure lane, deep shade, strong cross-air, rain-safe patient transfer and credible road drainage. Care remains collective and practical, never an exotic healer stage."
+    material_rule: "Lawful timber and restrained steel canopy on stone/brick bases, clay and dull-metal roof surfaces, non-slip oxide/stone care platform, washable non-porous care contact surfaces and warm timber family edges; warm lime, leaf-grey, clay brown and mineral floor grey at RF1-2/A2. No hospital mimicry, luxury finish or false distress."
+    technology_rule: "Low-power, reversible, community-maintainable shelter, water, basic-care and communication support only. Daylight leads; modest care/work/threshold practicals remain secondary. No institutional network, diagnostic lab, miracle device, NGO spectacle or hidden authority."
+    weather_state_rule: "Scene-036 day with weather unstated. Healing shelter and hamlet road remain open and naturally lit; clean-water need is legible but water quality is not certified. No active rain, clinic expansion, police geography or route alteration."
+    topology_rule: "Standalone ENV-HAM-027 ROOT. Healing shelter and hamlet road remain one site; the raised platform, community edge, empty berth, clear departure lane and drainage are mutually legible. No new branch, full-topology borrowing, clinic campus, market, temple compound or additional settlement route."
+    clean_master: "No people, silhouettes, patients, villagers, animals, ambulance, bullock cart, motorcycles, vehicles, injury, blood, tools in use, loose medical props, signage, typography, logos, NGO branding, sacred-medical motifs, UI, holograms, neon, cyberpunk or storyboard action."
+    state_inheritance: "BASE/ST00"
+    scope_note: "Reference plate raster is exact 2.40:1. This locks LOC-019 MASTER_ST00 only; child plates SUB-019-01 Healing Shelter and SUB-019-02 Hamlet Road remain separately governed and are not independently locked by this overview."
+
 hero_props:
   PRP-ADK7-CARTRIDGE: {name: "ADK-7 restricted transfer cartridge", status: MISSING_APPROVED_ASSET, path: null}
   PRP-PARAANE-EMBLEM: {name: "Paraane emblem", status: MISSING_APPROVED_ASSET, path: null}

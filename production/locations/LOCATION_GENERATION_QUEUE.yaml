@@ -94,12 +94,20 @@ generation_waves:
         remaining_deliverables: [ST01]
         status: PARTIAL_APPROVED_REFERENCE
         drive_file_id: "1eFOM80kfQotntu14HMEJvyKB1iK0mLer"
-      - key: "CANON_MAP_PENDING"
-        name: "Scene 036 Healing Shelter / Scene 037 First Permanent Cabin (separate from LOC-018)"
+      - key: "LOC-019"
+        name: "Forest Hamlet"
         batches: [B14]
-        scenes: [36,37]
-        deliverables: ["healing shelter", "permanent three-door cabin"]
-        status: NEEDS_CANON_ID_THEN_GENERATION
+        scenes: [36]
+        deliverables: [MASTER_ST00]
+        approved_deliverables: [MASTER_ST00]
+        status: APPROVED_REFERENCE
+        drive_file_id: "1GWGR4UUdWen04JOgaJUmjt-rseWhk8W1"
+      - key: "LOC-020"
+        name: "Anaadhi's First Permanent Cabin"
+        batches: [B14]
+        scenes: [37]
+        deliverables: [MASTER_ST00]
+        status: NEEDS_GENERATION
       - key: "CANON_MAP_PENDING"
         name: "Anaadhi Mark / Hidden Cabin family"
         batches: [B16,B18,B19,B20,B21,B22]
