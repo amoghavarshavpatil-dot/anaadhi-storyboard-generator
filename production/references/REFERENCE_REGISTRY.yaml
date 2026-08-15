@@ -304,6 +304,36 @@ locations:
     clean_master: "No people, animals, carts, signage, typography, UI, storyboard action, Parallel-Earth figures, bridge, shrine, tourist infrastructure, resort landscaping, built ghat, holograms or neon."
     state_inheritance: "BASE/ST00"
     scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
+
+  LOC-015:
+    name: "Forest Gathering Slope"
+    env6l_id: "LOC-015"
+    env6l_asset_lock_id: "ENV6L-LOC-015-ST00-v001"
+    env6j_prompt_id: "ENV6J-LOC-015-ST00-v001"
+    env6j_prompt_hash: "ca0f22b8f20a0ef35cbecf4b19fc8f817327d3c1fa0c8d512c4f14b89cca3d6f"
+    environment_anchor: "ENV-BHG-007"
+    master_id: "LOC-015_MASTER-01"
+    canonical_state: "ST00"
+    class: "MODULAR-REUSE"
+    status: APPROVED
+    visual_lock_status: LOCKED
+    path: "production/references/locations/LOC-015/LOC-015_MASTER-01_Forest-Gathering-Slope_3840x1600_FINAL.jpg"
+    sha256: "9ac39b099a886ac629788eab0e2dd10760dee125befc1bd02d107a6da3d2a31b"
+    raster: "3840x1600"
+    aspect_ratio: "2.40:1"
+    source_drive_file_id: "1lcOViydh3z-5hssGEXvlN-tNok-L72Sg"
+    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+    scene_bindings: [32]
+    authorised_kits: ["KIT-01"]
+    signage_owner: "NONE"
+    continuity: "Medicinal-bark gathering slope in Bhaigaara forest with plausible low-density human-use disturbance; natural inclined gathering terrace with lower path, productive patch and upper elder position separated by grade rather than constructed platforms."
+    architecture_rule: "Preserve 90x65 m natural inclined working slope with 12-18 m relief, lower path arrival, gathering patch and upper elder position; sparse working clearings interrupt vegetation without landscaping. No vehicle lane, terrace masonry, platform, shelter or forced Market/Stream adjacency."
+    material_rule: "Compacted mineral soil and exposed stone with productive-earth patches, roots and sparse organic ground; earth umber, stone grey and vegetation-muted greens. Load-wear may remain; no retaining finish, paving, decorative landscaping or staged wilderness clutter."
+    weather_state_rule: "Scene-032 morning, days later, weather unstated; natural light only. Geography remains unchanged by chronology; prior mud/clothing wear belongs to characters, not a new environment state."
+    topology_rule: "Standalone ENV-BHG-007. Downslope southwest to upslope northeast; lower path arrival, gathering patch, upper position; barterward foot continuation and deeper-forest exit. Gathered-load movement is foot-only and does not create vehicle access or asserted adjacency to Stream or Market."
+    clean_master: "No people, animals, baskets, tools, cut logs, shelters, vehicles, signage, typography, UI, storyboard action, Parallel-Earth figures, decorative script, holograms, neon, new subspaces or staged herbal-garden treatment."
+    state_inheritance: "BASE/ST00"
+    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
 hero_props:
   PRP-ADK7-CARTRIDGE: {name: "ADK-7 restricted transfer cartridge", status: MISSING_APPROVED_ASSET, path: null}
   PRP-PARAANE-EMBLEM: {name: "Paraane emblem", status: MISSING_APPROVED_ASSET, path: null}
