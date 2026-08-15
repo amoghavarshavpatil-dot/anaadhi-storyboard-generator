@@ -242,6 +242,36 @@ locations:
     clean_master: "No people, animals, signage, typography, labels, UI, storyboard action, Parallel-Earth figures, shrine objects, dish installations, or invented structures."
     state_inheritance: "BASE/ST00"
     scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
+
+  LOC-013:
+    name: "Abandoned Forest Shrine"
+    env6l_id: "LOC-013"
+    env6l_asset_lock_id: "ENV6L-LOC-013-ST00-v001"
+    env6j_prompt_id: "ENV6J-LOC-013-ST00-v001"
+    env6j_prompt_hash: "81a7e3b329b44dd0adb72efbe9937c1792fef2176169fa985af8a56ebd60945f"
+    environment_anchor: "ENV-BHG-005"
+    master_id: "LOC-013_MASTER-01"
+    canonical_state: "ST00"
+    class: "DRESSING-VARIANT"
+    status: APPROVED
+    visual_lock_status: LOCKED
+    path: "production/references/locations/LOC-013/LOC-013_MASTER-01_Abandoned-Forest-Shrine_3840x1600_FINAL.jpg"
+    sha256: "db606e80d21172021a70f1588821c8b408d5a1ae9cc5586c6ec73d538177918d"
+    raster: "3840x1600"
+    aspect_ratio: "2.40:1"
+    source_drive_file_id: "1QK9esSdNPtzUoDooJuP9EnHoJvf3-JhL"
+    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"
+    scene_bindings: [30]
+    authorised_kits: ["KIT-01", "KIT-08"]
+    signage_owner: "NONE"
+    continuity: "Small abandoned Bhaigaara forest shrine beneath a leaning jackfruit tree; low remnant shrine-stone precinct with incomplete enclosure, faceless local-stone deity, suspended weathered copper disc in the swing path of a broken electronic sensor, and clay rain bowl containing storm water."
+    architecture_rule: "Remain a restrained remnant sacred precinct with low shrine-stone zone, partial shelter/relic edge, shaded water-bowl side and sitting pocket; abandonment reads through incomplete enclosure rather than decorative ruin spectacle."
+    material_rule: "Long-weathered local stone, failing lime/earth joints, sparse muted clay and non-precious weathered metal; mineral grey, moss-dark green-brown, old lime and muted clay only. No glossy antique salvage, luxury finish, Hillside-Temple palette, or unrelated pan-Indian temple motifs."
+    weather_state_rule: "Scene-030 dawn after storm: cold wet terrain, rainwater on foliage and in clay bowl, natural dawn only; broken sensor remains dead technology except passive mechanical contact with the copper disc."
+    topology_rule: "Standalone ENV-BHG-005. Approach buffer and water-service path remain internal to this site. Never merge with LOC-012 Root Shelter, never assume measured adjacency, and never become the Hillside Temple."
+    clean_master: "No people, animals, signage, typography, UI, storyboard action, Parallel-Earth figures, decorative script, holograms, neon, active institutional technology, or new subspaces."
+    state_inheritance: "BASE/ST00"
+    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."
 hero_props:
   PRP-ADK7-CARTRIDGE: {name: "ADK-7 restricted transfer cartridge", status: MISSING_APPROVED_ASSET, path: null}
   PRP-PARAANE-EMBLEM: {name: "Paraane emblem", status: MISSING_APPROVED_ASSET, path: null}
