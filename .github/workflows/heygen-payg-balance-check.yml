@@ -1,0 +1,28 @@
+name: HeyGen PAYG Balance Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-payg-balance-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read HeyGen PAYG wallet without generation
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          code=$(curl -sS -o /tmp/user.json -w "%{http_code}" \
+            -H "x-api-key: ${HEYGEN_API_KEY}" \
+            https://api.heygen.com/v3/users/me)
+          echo "HTTP ${code}"
+          [ "$code" = "200" ]
+          jq '{billing_type:(.data.billing_type // .billing_type),wallet:(.data.wallet // .wallet),usage_based:(.data.usage_based // .usage_based),subscription_plan:((.data.subscription // .subscription // {}).plan)}' /tmp/user.json
