@@ -1,0 +1,179 @@
+version: 1
+phase: P1_CHARACTER_AVATAR_CONTROL
+batch_id: B01
+batch_title: "Opening Capture — Raised Cabin"
+scenes: [1, 2, 3, 4, 5]
+status: DRIVE_ARCHIVED_PENDING_GITHUB_AND_HEYGEN
+as_of: "2026-08-16"
+standard: "production/heygen/avatars/CHATGPT_PHOTO_AVATAR_STANDARD.yaml"
+creation_authority: CHATGPT_IMAGEGEN
+
+technical_qa:
+  exact_raster: "2160x3840"
+  aspect_ratio: "9:16"
+  colorspace: sRGB
+  format: JPEG
+  file_size_gate: PASSED
+  single_person_gate: PASSED
+  centered_face_gate: PASSED
+  unobstructed_eyes_mouth_gate: PASSED
+  closed_mouth_gate: PASSED
+  no_hands_gate: PASSED
+  batch_visual_review: PASSED
+
+assets:
+  B01-AV-01:
+    character_ref: CHR-ANAADHI
+    display_name: "Anaadhi — capture look"
+    state_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
+    identity_strategy: REUSE_CANONICAL_ADULT_ANAADHI_IDENTITY
+    heygen_strategy: ADD_PHOTO_LOOK_TO_EXISTING_ADULT_IDENTITY
+    path: "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    public_url: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "f0288e16c5b6690f810a6ca8b9d202c8d1e5221fe7f94629fe3f3809eb23077b"
+    screenplay_facts: ["age 27", "193 cm adult scale", "heavy-athletic forest-built body", "topless", "shaved scalp with several days rough regrowth", "ADK-7 motor impairment without invented wounds"]
+    production_choices: ["short rough beard", "neutral closed-mouth upload expression", "charcoal studio-rain background"]
+    reuse_batches: [B24, B25, B26]
+    drive_status: UPLOADED
+    drive_file_id: "1hmaPITr6m_c9c2FhLXBRD0uiflVdGAAp"
+    drive_url: "https://drive.google.com/file/d/1hmaPITr6m_c9c2FhLXBRD0uiflVdGAAp/view?usp=drivesdk"
+    heygen_status: PENDING
+
+  B01-AV-02:
+    character_ref: CHR-AARATHI
+    display_name: "Aarathi — civilian field look"
+    identity_strategy: ESTABLISH_STABLE_RECURRING_IDENTITY
+    heygen_strategy: CREATE_PHOTO_IDENTITY
+    path: "production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    public_url: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "c66b31ba4c9b157985aacdd6236abd73cebc081afdef206753834dde72fd5da3"
+    screenplay_facts: ["civilian field clothes", "wet plait", "no weapon in upload master"]
+    production_choices: ["charcoal kurta", "weathered brown shawl", "neutral closed-mouth upload expression"]
+    reuse_batches: [B23, B24, B25, B26, B27, B28, B30, B31, B32, B33]
+    drive_status: UPLOADED
+    drive_file_id: "16kmx-ZKfbpBiv74-pQXYoTmp1zYtIHyo"
+    drive_url: "https://drive.google.com/file/d/16kmx-ZKfbpBiv74-pQXYoTmp1zYtIHyo/view?usp=drivesdk"
+    heygen_status: PENDING
+
+  B01-AV-03:
+    character_ref: CHR-AARATHI
+    display_name: "Parallel Aarathi — medical look"
+    variant_ref: VAR-AARATHI-PARALLEL-MEDICAL
+    identity_strategy: REUSE_AARATHI_BIOLOGICAL_IDENTITY
+    heygen_strategy: ADD_PHOTO_LOOK_TO_AARATHI_IDENTITY
+    path: "production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    public_url: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "366c610176f2597ca2935211e98ddcc26c0a6b8fceb84cff45a3b83d83c71d56"
+    screenplay_facts: ["parallel medical-coat variant"]
+    production_choices: ["white Paraane medical coat", "graphite high-collar tunic", "dry controlled plait", "small non-text medical emblem"]
+    drive_status: UPLOADED
+    drive_file_id: "1DYjWFvWpkC4urVlv2keuBBaUFO2JR-gI"
+    drive_url: "https://drive.google.com/file/d/1DYjWFvWpkC4urVlv2keuBBaUFO2JR-gI/view?usp=drivesdk"
+    heygen_status: PENDING
+
+  B01-AV-04:
+    character_ref: CHR-SEMMAA
+    display_name: "Semmaa — present-day field command look"
+    identity_strategy: ESTABLISH_STABLE_RECURRING_IDENTITY
+    heygen_strategy: CREATE_PHOTO_IDENTITY
+    path: "production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    public_url: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "0e49f15e91bac706bb994f78a6256cf53dfc4348453496712764b88a8f94816c"
+    screenplay_facts: ["older present-day state", "disciplined", "accustomed to violence but not eager"]
+    production_choices: ["salt-and-pepper crop and moustache", "black command jacket", "muted chest band"]
+    reuse_batches: [B24, B25, B27, B28]
+    drive_status: UPLOADED
+    drive_file_id: "1LU0dt34MhIcKryVrsQ18UwGeQiBkIWl0"
+    drive_url: "https://drive.google.com/file/d/1LU0dt34MhIcKryVrsQ18UwGeQiBkIWl0/view?usp=drivesdk"
+    heygen_status: PENDING
+
+  B01-AV-05:
+    character_ref: CHR-POLICE-COMMANDER
+    display_name: "Police Commander — operation uniform"
+    identity_strategy: ESTABLISH_STABLE_RECURRING_IDENTITY
+    heygen_strategy: CREATE_PHOTO_IDENTITY
+    path: "production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    public_url: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "36db4770132d36f8d61226c315fe5637c02322236c15db57cb1dd8e51b62a1f2"
+    screenplay_facts: ["male commander", "operation command role"]
+    production_choices: ["disciplined moustache", "navy-charcoal uniform", "subdued non-text rank emblems"]
+    reuse_batches: [B03, B24, B25]
+    drive_status: UPLOADED
+    drive_file_id: "1IWD75I6xxjtSmYG1SRFp2X-qZqGttwO1"
+    drive_url: "https://drive.google.com/file/d/1IWD75I6xxjtSmYG1SRFp2X-qZqGttwO1/view?usp=drivesdk"
+    heygen_status: PENDING
+
+  B01-AV-06:
+    character_ref: CHR-SARJANYA-OFFICER
+    display_name: "Sarjanya Officer — field look"
+    identity_strategy: ESTABLISH_STABLE_IDENTITY
+    heygen_strategy: CREATE_PHOTO_IDENTITY
+    path: "production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    public_url: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "8d09859e662f397e334aa819b671e8139048be1d30982fa4a20c925a991a341b"
+    screenplay_facts: ["male Sarjanya officer"]
+    production_choices: ["younger adult", "maroon-umber rain field jacket", "woven chest band"]
+    drive_status: UPLOADED
+    drive_file_id: "1dX3s7VdosJFMqCn0rCzrnHULyDdAnDTl"
+    drive_url: "https://drive.google.com/file/d/1dX3s7VdosJFMqCn0rCzrnHULyDdAnDTl/view?usp=drivesdk"
+    heygen_status: PENDING
+
+  B01-AV-07:
+    character_ref: CHR-MEDICAL-SPECIALIST
+    display_name: "Medical Specialist — field medical look"
+    identity_strategy: ESTABLISH_STABLE_RECURRING_IDENTITY
+    heygen_strategy: CREATE_PHOTO_IDENTITY
+    path: "production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    public_url: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "752adc618869df26802c51028fad17a501640e3a4217e1b10d67f7a7f027bdda"
+    screenplay_facts: ["operation medical specialist"]
+    production_choices: ["older male", "white Paraane field-medical coat", "graphite tunic", "small non-text medical emblem"]
+    reuse_batches: [B24, B25]
+    drive_status: UPLOADED
+    drive_file_id: "1zf4l0C3rKs4a4Dzp6BwKj0p4sdiI9oZl"
+    drive_url: "https://drive.google.com/file/d/1zf4l0C3rKs4a4Dzp6BwKj0p4sdiI9oZl/view?usp=drivesdk"
+    heygen_status: PENDING
+
+  B01-AV-08:
+    character_ref: CHR-ALLIED-GANGSTER
+    display_name: "Allied Gangster — field look"
+    identity_strategy: ESTABLISH_STABLE_IDENTITY
+    heygen_strategy: CREATE_PHOTO_IDENTITY
+    path: "production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    public_url: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec"
+    screenplay_facts: ["male allied gangster", "iron hook belongs to action/prop continuity and is excluded from upload master"]
+    production_choices: ["large rough build", "black weathered work shirt", "no official insignia"]
+    reuse_batches: [B24]
+    drive_status: UPLOADED
+    drive_file_id: "1xjXoCSCtBq3Jag_P8UEiNECUwHjlfqQJ"
+    drive_url: "https://drive.google.com/file/d/1xjXoCSCtBq3Jag_P8UEiNECUwHjlfqQJ/view?usp=drivesdk"
+    heygen_status: PENDING
+
+  B01-AV-09:
+    character_ref: CHR-ANAADHI
+    display_name: "Parallel Child Anaadhi — newborn look"
+    state_refs: [AGE-ANAADHI-NEWBORN]
+    variant_ref: VAR-ANAADHI-PARALLEL-NEWBORN
+    identity_strategy: PRESERVE_ANAADHI_BIOLOGICAL_LINEAGE_WITH_NEWBORN_AGE_GEOMETRY
+    heygen_strategy: CREATE_SEPARATE_NEWBORN_TECHNICAL_IDENTITY
+    path: "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    public_url: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "6a322f4aaeb32adcfa38da0e375681d1bee4dea13c35b55a002774fc2e40661d"
+    screenplay_facts: ["parallel Child Anaadhi variant", "newborn age/body state; never a shrunken adult"]
+    production_choices: ["awake neutral expression", "dark charcoal wool wrap"]
+    reuse_batches: [B04, B05, B06]
+    drive_status: UPLOADED
+    drive_file_id: "1Hs7aR04zcFdTLKATHuj0E6gakI78CE1T"
+    drive_url: "https://drive.google.com/file/d/1Hs7aR04zcFdTLKATHuj0E6gakI78CE1T/view?usp=drivesdk"
+    heygen_status: PENDING
+
+publication:
+  github_status: PENDING
+  drive_status: COMPLETE
+  drive_folder_id: "1XHH5B1xko6EmaIBScd6_-VItz5d5rEWG"
+  drive_folder_url: "https://drive.google.com/drive/folders/1XHH5B1xko6EmaIBScd6_-VItz5d5rEWG"
+  heygen_status: PENDING
+  next_batch_gate: >-
+    B02 creation begins only after all nine B01 source images are publicly reachable,
+    archived to Drive, and submitted to HeyGen or recorded with an explicit external blocker.
