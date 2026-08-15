@@ -16,37 +16,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch completed HeyGen look and preview
+      - name: Fetch R2 HeyGen look and build QA assets
         env:
           HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
         shell: bash
         run: |
           set -euo pipefail
-          LOOK_ID="a47e39b73401499d810031747d9c9623"
+          LOOK_ID="d6896745abf346f3a6ddefa6c8557bc8"
           OUT_DIR="production/references/characters/anaadhi/age_body/P1-B01-A"
+          CHUNK_DIR="$OUT_DIR/.qa_chunks_r2"
           mkdir -p "$OUT_DIR"
+          rm -rf "$CHUNK_DIR"
+          mkdir -p "$CHUNK_DIR"
 
-          curl -sS \
-            -H "x-api-key: ${HEYGEN_API_KEY}" \
-            "https://api.heygen.com/v3/avatars/looks/${LOOK_ID}" \
-            -o /tmp/look.json
+          curl -sS -H "x-api-key: ${HEYGEN_API_KEY}" \
+            "https://api.heygen.com/v3/avatars/looks/${LOOK_ID}" -o /tmp/look.json
 
           STATUS=$(jq -r '.data.status // empty' /tmp/look.json)
-          if [ "$STATUS" != "completed" ]; then
-            echo "HeyGen look is not completed: $STATUS"
-            jq '{data:{id:.data.id,name:.data.name,status:.data.status,error:.data.error}}' /tmp/look.json
-            exit 1
-          fi
-
+          [ "$STATUS" = "completed" ]
           PREVIEW_URL=$(jq -r '.data.preview_image_url // empty' /tmp/look.json)
-          if [ -z "$PREVIEW_URL" ]; then
-            echo "No preview_image_url returned."
-            exit 1
-          fi
+          [ -n "$PREVIEW_URL" ]
 
-          FULL="$OUT_DIR/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01.webp"
-          THUMB="$OUT_DIR/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01_QA-THUMB.jpg"
-
+          FULL="$OUT_DIR/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-02.webp"
+          THUMB="$OUT_DIR/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-02_QA-THUMB.jpg"
           curl -L --fail --silent --show-error "$PREVIEW_URL" -o "$FULL"
 
           python -m pip install --quiet pillow
@@ -55,22 +47,23 @@ jobs:
           from PIL import Image
           src, dst = sys.argv[1], sys.argv[2]
           im = Image.open(src).convert('RGB')
-          target_w = 360
-          target_h = round(im.height * target_w / im.width)
-          im = im.resize((target_w, target_h), Image.Resampling.LANCZOS)
+          w = 360
+          h = round(im.height * w / im.width)
+          im = im.resize((w, h), Image.Resampling.LANCZOS)
           im.save(dst, 'JPEG', quality=76, optimize=True)
           PY
 
           SHA256=$(sha256sum "$FULL" | awk '{print $1}')
-          BYTES=$(stat -c%s "$FULL")
           THUMB_SHA256=$(sha256sum "$THUMB" | awk '{print $1}')
+          BYTES=$(stat -c%s "$FULL")
           WIDTH=$(jq -r '.data.image_width // 0' /tmp/look.json)
           HEIGHT=$(jq -r '.data.image_height // 0' /tmp/look.json)
           NAME=$(jq -r '.data.name // empty' /tmp/look.json)
 
-          cat > "$OUT_DIR/HEYGEN_CAPTURE_BODY_CANDIDATE_01.json" <<EOF
+          cat > "$OUT_DIR/HEYGEN_CAPTURE_BODY_CANDIDATE_02.json" <<EOF
           {
             "phase": "P1-B01-A",
+            "revision": "R2",
             "status": "CANDIDATE_VISUAL_QA_REQUIRED",
             "authority_scope": "AGE_BODY_GEOMETRY_ONLY",
             "canonical_identity_ref": "CHR-ANAADHI_MASTER-IDENTITY-01",
@@ -91,16 +84,17 @@ jobs:
           }
           EOF
 
-      - name: Commit candidate preview and metadata
+          base64 -w0 "$THUMB" > /tmp/thumb-r2.b64
+          split -b 4000 -d -a 2 /tmp/thumb-r2.b64 "$CHUNK_DIR/chunk_"
+          for f in "$CHUNK_DIR"/chunk_*; do mv "$f" "$f.txt"; done
+
+      - name: Commit R2 candidate and temporary QA chunks
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add production/references/characters/anaadhi/age_body/P1-B01-A/
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
-          git commit -m "Refresh HeyGen P1-B01-A candidate with QA thumbnail"
+          git add -f production/references/characters/anaadhi/age_body/P1-B01-A/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Import HeyGen P1-B01-A capture-body candidate 02 for QA"
           git push
