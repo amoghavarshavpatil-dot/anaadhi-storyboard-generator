@@ -1,0 +1,22 @@
+name: PixVerse Balance Check
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PixVerse API
+        env:
+          PIXVERSE_API_KEY: ${{ secrets.PIXVERSE_API_KEY }}
+        run: |
+          set -e
+          TRACE_ID="$(cat /proc/sys/kernel/random/uuid)"
+          curl --fail --silent --show-error \
+            -H "API-KEY: $PIXVERSE_API_KEY" \
+            -H "Ai-trace-id: $TRACE_ID" \
+            "https://app-api.pixverse.ai/openapi/v2/account/balance" \
+            -o balance.json
+          jq '{ErrCode,ErrMsg,Resp:{account_id:.Resp.account_id,credit_monthly:.Resp.credit_monthly,credit_package:.Resp.credit_package}}' balance.json
+          test "$(jq -r '.ErrCode' balance.json)" = "0"
