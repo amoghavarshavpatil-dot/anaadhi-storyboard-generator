@@ -1,0 +1,50 @@
+name: Create Anaadhi Age-27 Capture Body Look R2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-create-anaadhi-capture-body-look-r2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  create-capture-look-r2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create revised age-27 capture body look
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          FACE_URL="https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg"
+          BODY_URL="https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg"
+          GROUP_ID="c26d836745e64d4c92663eae3fb02e06"
+
+          PROMPT="Create a photorealistic full-body neutral reference of ANAADHI, age 27, using the exact existing identity group and matching the FACE reference with very high fidelity. Preserve the same cranial width, brow shape, deep-set brown eyes, eye spacing, strong straight-base nose, balanced lips, masculine jaw and chin, medium-brown Karnataka/South-Indian skin identity. Do not redesign or beautify the face. Canonical adult stature is exactly 193 cm / 6'4. Use the BODY reference only for long-limbed adult proportions; IGNORE its printed 188 cm / 6'2 ruler and IGNORE its lean post-recovery condition. This CAPTURE body must be visibly HEAVIER and DENSER than the Scene-100 final body: broad clavicles and shoulders, thicker neck and traps, deep powerful chest and ribcage, strong back, substantially thicker upper arms and forearms, dense hips/glutes, powerful quads, hamstrings and calves, functional forest-built mass with low-to-moderate body fat. Strong and heavy-athletic, not shredded, not a gym bodybuilder, not superhero anatomy, not obese. Natural human asymmetry. Full body from head to bare feet, straight-on front view, relaxed symmetrical neutral stance, arms naturally beside torso. Plain fitted dark neutral calibration shorts only. Neutral seamless gray studio and flat reference lighting. No scars, no wounds, no bruises, no blood, no dirt, no rain, no props, no text, no labels, no rulers. Hair and facial-hair pixels are NON-AUTHORITATIVE placeholders only and must not influence later hair lock."
+
+          jq -n \
+            --arg name "ANAADHI_AGE27_CAPTURE_BODY_R2" \
+            --arg prompt "$PROMPT" \
+            --arg group "$GROUP_ID" \
+            --arg face "$FACE_URL" \
+            --arg body "$BODY_URL" \
+            '{type:"prompt",name:$name,prompt:$prompt,avatar_group_id:$group,reference_images:[{type:"url",url:$face},{type:"url",url:$body}]}' \
+            > /tmp/payload.json
+
+          http_code=$(curl -sS \
+            -o /tmp/response.json \
+            -w "%{http_code}" \
+            -X POST "https://api.heygen.com/v3/avatars" \
+            -H "x-api-key: ${HEYGEN_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -H "Idempotency-Key: anaadhi-age27-capture-body-r2-20260815" \
+            --data @/tmp/payload.json)
+
+          echo "HeyGen HTTP status: ${http_code}"
+          jq '{data:{avatar_item:{id:.data.avatar_item.id,name:.data.avatar_item.name,group_id:.data.avatar_item.group_id,status:.data.avatar_item.status,error:.data.avatar_item.error},avatar_group:{id:.data.avatar_group.id,status:.data.avatar_group.status,error:.data.avatar_group.error}},error:.error,message:.message,code:.code}' /tmp/response.json
+          [ "$http_code" = "200" ]
