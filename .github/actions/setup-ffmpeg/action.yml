@@ -1,0 +1,21 @@
+name: Setup FFmpeg
+
+description: Install and verify FFmpeg/FFprobe for ANAADHI GitHub Actions media jobs.
+
+runs:
+  using: composite
+  steps:
+    - name: Install FFmpeg
+      shell: bash
+      run: |
+        set -euo pipefail
+        if ! command -v ffmpeg >/dev/null 2>&1 || ! command -v ffprobe >/dev/null 2>&1; then
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg
+        fi
+
+        ffmpeg -version | head -n 1
+        ffprobe -version | head -n 1
+
+        echo "FFMPEG_BIN=$(command -v ffmpeg)" >> "$GITHUB_ENV"
+        echo "FFPROBE_BIN=$(command -v ffprobe)" >> "$GITHUB_ENV"
