@@ -1,0 +1,95 @@
+name: Import and Lock LOC-015 Master
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-loc015-from-drive.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-and-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download LOC-015 master from Drive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p production/references/locations/LOC-015
+          curl -fL --retry 3 --retry-delay 2 \
+            'https://drive.usercontent.google.com/download?id=1lcOViydh3z-5hssGEXvlN-tNok-L72Sg&export=download&confirm=t' \
+            -o production/references/locations/LOC-015/LOC-015_MASTER-01_Forest-Gathering-Slope_3840x1600_FINAL.jpg
+
+      - name: Verify canonical binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          import hashlib
+          p = Path('production/references/locations/LOC-015/LOC-015_MASTER-01_Forest-Gathering-Slope_3840x1600_FINAL.jpg')
+          img = Image.open(p)
+          assert img.format == 'JPEG', img.format
+          assert img.size == (3840, 1600), img.size
+          sha = hashlib.sha256(p.read_bytes()).hexdigest()
+          expected = '9ac39b099a886ac629788eab0e2dd10760dee125befc1bd02d107a6da3d2a31b'
+          assert sha == expected, (sha, expected)
+          print('Verified LOC-015:', img.size, img.format, p.stat().st_size, sha)
+          PY
+
+      - name: Lock LOC-015 in reference registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          asset = Path('production/references/locations/LOC-015/LOC-015_MASTER-01_Forest-Gathering-Slope_3840x1600_FINAL.jpg')
+          registry = Path('production/references/REFERENCE_REGISTRY.yaml')
+          sha256 = hashlib.sha256(asset.read_bytes()).hexdigest()
+          text = registry.read_text(encoding='utf-8')
+
+          block = f'''  LOC-015:\n    name: "Forest Gathering Slope"\n    env6l_id: "LOC-015"\n    env6l_asset_lock_id: "ENV6L-LOC-015-ST00-v001"\n    env6j_prompt_id: "ENV6J-LOC-015-ST00-v001"\n    env6j_prompt_hash: "ca0f22b8f20a0ef35cbecf4b19fc8f817327d3c1fa0c8d512c4f14b89cca3d6f"\n    environment_anchor: "ENV-BHG-007"\n    master_id: "LOC-015_MASTER-01"\n    canonical_state: "ST00"\n    class: "MODULAR-REUSE"\n    status: APPROVED\n    visual_lock_status: LOCKED\n    path: "production/references/locations/LOC-015/LOC-015_MASTER-01_Forest-Gathering-Slope_3840x1600_FINAL.jpg"\n    sha256: "{sha256}"\n    raster: "3840x1600"\n    aspect_ratio: "2.40:1"\n    source_drive_file_id: "1lcOViydh3z-5hssGEXvlN-tNok-L72Sg"\n    source_drive_parent_id: "1VoZ6KqmAFapSmhGA3LcdZp_2XHR_2z3z"\n    scene_bindings: [32]\n    authorised_kits: ["KIT-01"]\n    signage_owner: "NONE"\n    continuity: "Medicinal-bark gathering slope in Bhaigaara forest with plausible low-density human-use disturbance; natural inclined gathering terrace with lower path, productive patch and upper elder position separated by grade rather than constructed platforms."\n    architecture_rule: "Preserve 90x65 m natural inclined working slope with 12-18 m relief, lower path arrival, gathering patch and upper elder position; sparse working clearings interrupt vegetation without landscaping. No vehicle lane, terrace masonry, platform, shelter or forced Market/Stream adjacency."\n    material_rule: "Compacted mineral soil and exposed stone with productive-earth patches, roots and sparse organic ground; earth umber, stone grey and vegetation-muted greens. Load-wear may remain; no retaining finish, paving, decorative landscaping or staged wilderness clutter."\n    weather_state_rule: "Scene-032 morning, days later, weather unstated; natural light only. Geography remains unchanged by chronology; prior mud/clothing wear belongs to characters, not a new environment state."\n    topology_rule: "Standalone ENV-BHG-007. Downslope southwest to upslope northeast; lower path arrival, gathering patch, upper position; barterward foot continuation and deeper-forest exit. Gathered-load movement is foot-only and does not create vehicle access or asserted adjacency to Stream or Market."\n    clean_master: "No people, animals, baskets, tools, cut logs, shelters, vehicles, signage, typography, UI, storyboard action, Parallel-Earth figures, decorative script, holograms, neon, new subspaces or staged herbal-garden treatment."\n    state_inheritance: "BASE/ST00"\n    scope_note: "Reference plate raster is exact 2.40:1; this does not replace the separate project delivery-raster rule."\n'''
+
+          marker = '\nhero_props:'
+          if marker not in text:
+              raise SystemExit('hero_props marker not found in REFERENCE_REGISTRY.yaml')
+
+          start_token = '\n  LOC-015:\n'
+          start = text.find(start_token)
+          if start != -1:
+              end = text.find(marker, start)
+              if end == -1:
+                  raise SystemExit('Could not locate end of existing LOC-015 block')
+              text = text[:start] + '\n' + block.rstrip('\n') + text[end:]
+          else:
+              idx = text.find(marker)
+              text = text[:idx] + '\n\n' + block.rstrip('\n') + text[idx:]
+
+          registry.write_text(text, encoding='utf-8')
+          print('LOC-015 locked sha256:', sha256)
+          PY
+
+      - name: Commit canonical binary and registry lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/locations/LOC-015/LOC-015_MASTER-01_Forest-Gathering-Slope_3840x1600_FINAL.jpg production/references/REFERENCE_REGISTRY.yaml
+          if git diff --cached --quiet; then
+            echo 'LOC-015 master already current.'
+          else
+            git commit -m 'Lock LOC-015 MASTER-01 Forest Gathering Slope'
+            git push
+          fi
