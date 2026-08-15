@@ -1,0 +1,21 @@
+{
+  "phase": "P1-B01-A",
+  "revision": "R2",
+  "status": "CANDIDATE_VISUAL_QA_REQUIRED",
+  "authority_scope": "AGE_BODY_GEOMETRY_ONLY",
+  "canonical_identity_ref": "CHR-ANAADHI_MASTER-IDENTITY-01",
+  "heygen_group_id": "c26d836745e64d4c92663eae3fb02e06",
+  "heygen_look_id": "d6896745abf346f3a6ddefa6c8557bc8",
+  "heygen_name": "Deep-Eyed Karnataka Giant",
+  "image_path": "production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-02.webp",
+  "qa_thumbnail_path": "production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-02_QA-THUMB.jpg",
+  "image_width": 1600,
+  "image_height": 2636,
+  "sha256": "0edfeaf45eb3f3e9d3d5532e9412916ec9a9a0647f75731de9e314a1dbeb2694",
+  "qa_thumbnail_sha256": "f7f5adb107fbd5e22950c92b6c86eff9620c8ef766ac1736cfdcede7c2fe3d43",
+  "bytes": 591720,
+  "adult_height_cm": 193,
+  "body_source_188cm_ruler_is_noncanonical": true,
+  "non_authoritative_pixels": ["hair", "facial_hair", "costume", "injury", "props", "environment"],
+  "approval_required_before_registry_lock": true
+}
