@@ -48,7 +48,18 @@ jobs:
           THUMB="$OUT_DIR/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01_QA-THUMB.jpg"
 
           curl -L --fail --silent --show-error "$PREVIEW_URL" -o "$FULL"
-          ffmpeg -loglevel error -y -i "$FULL" -vf "scale=360:-2" -q:v 5 "$THUMB"
+
+          python -m pip install --quiet pillow
+          python - "$FULL" "$THUMB" <<'PY'
+          import sys
+          from PIL import Image
+          src, dst = sys.argv[1], sys.argv[2]
+          im = Image.open(src).convert('RGB')
+          target_w = 360
+          target_h = round(im.height * target_w / im.width)
+          im = im.resize((target_w, target_h), Image.Resampling.LANCZOS)
+          im.save(dst, 'JPEG', quality=76, optimize=True)
+          PY
 
           SHA256=$(sha256sum "$FULL" | awk '{print $1}')
           BYTES=$(stat -c%s "$FULL")
