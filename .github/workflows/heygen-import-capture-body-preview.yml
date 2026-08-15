@@ -1,0 +1,89 @@
+name: Import HeyGen Capture Body Preview
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-import-capture-body-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch completed HeyGen look and preview
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          LOOK_ID="a47e39b73401499d810031747d9c9623"
+          OUT_DIR="production/references/characters/anaadhi/age_body/P1-B01-A"
+          mkdir -p "$OUT_DIR"
+
+          curl -sS \
+            -H "x-api-key: ${HEYGEN_API_KEY}" \
+            "https://api.heygen.com/v3/avatars/looks/${LOOK_ID}" \
+            -o /tmp/look.json
+
+          STATUS=$(jq -r '.data.status // empty' /tmp/look.json)
+          if [ "$STATUS" != "completed" ]; then
+            echo "HeyGen look is not completed: $STATUS"
+            jq '{data:{id:.data.id,name:.data.name,status:.data.status,error:.data.error}}' /tmp/look.json
+            exit 1
+          fi
+
+          PREVIEW_URL=$(jq -r '.data.preview_image_url // empty' /tmp/look.json)
+          if [ -z "$PREVIEW_URL" ]; then
+            echo "No preview_image_url returned."
+            exit 1
+          fi
+
+          curl -L --fail --silent --show-error "$PREVIEW_URL" \
+            -o "$OUT_DIR/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01.webp"
+
+          SHA256=$(sha256sum "$OUT_DIR/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01.webp" | awk '{print $1}')
+          BYTES=$(stat -c%s "$OUT_DIR/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01.webp")
+          WIDTH=$(jq -r '.data.image_width // 0' /tmp/look.json)
+          HEIGHT=$(jq -r '.data.image_height // 0' /tmp/look.json)
+          NAME=$(jq -r '.data.name // empty' /tmp/look.json)
+
+          cat > "$OUT_DIR/HEYGEN_CAPTURE_BODY_CANDIDATE_01.json" <<EOF
+          {
+            "phase": "P1-B01-A",
+            "status": "CANDIDATE_VISUAL_QA_REQUIRED",
+            "authority_scope": "AGE_BODY_GEOMETRY_ONLY",
+            "canonical_identity_ref": "CHR-ANAADHI_MASTER-IDENTITY-01",
+            "heygen_group_id": "c26d836745e64d4c92663eae3fb02e06",
+            "heygen_look_id": "$LOOK_ID",
+            "heygen_name": "$NAME",
+            "image_path": "$OUT_DIR/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01.webp",
+            "image_width": $WIDTH,
+            "image_height": $HEIGHT,
+            "sha256": "$SHA256",
+            "bytes": $BYTES,
+            "adult_height_cm": 193,
+            "body_source_188cm_ruler_is_noncanonical": true,
+            "non_authoritative_pixels": ["hair", "facial_hair", "costume", "injury", "props", "environment"],
+            "approval_required_before_registry_lock": true
+          }
+          EOF
+
+      - name: Commit candidate preview and metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/references/characters/anaadhi/age_body/P1-B01-A/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Import HeyGen P1-B01-A capture-body candidate for QA"
+          git push
