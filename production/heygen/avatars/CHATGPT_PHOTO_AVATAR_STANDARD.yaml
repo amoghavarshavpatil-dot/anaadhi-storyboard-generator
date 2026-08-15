@@ -1,0 +1,56 @@
+version: 1
+phase: P1_CHARACTER_AVATAR_CONTROL
+status: ACTIVE
+as_of: "2026-08-16"
+
+creation_authority:
+  image_creator: CHATGPT_IMAGEGEN
+  heygen_prompt_avatar_generation: FORBIDDEN
+  rule: >-
+    Every canonical portrait is created and approved in ChatGPT first. HeyGen receives
+    the finalized image file only and may not redesign the face, hair, costume, age,
+    injury state, or scene identity.
+
+upload_contract:
+  file_type: JPEG
+  raster: "2160x3840"
+  aspect_ratio: "9:16"
+  colorspace: sRGB
+  minimum_source_resolution: "1080x1920"
+  maximum_file_size_mb: 32
+  person_count: 1
+  framing: "centered head-and-shoulders or chest-up portrait"
+  camera: "straight-on at eye level"
+  face: "fully visible and unobstructed"
+  eyes: "open with direct camera gaze"
+  mouth: "closed with no visible teeth"
+  hands: "outside frame"
+  lighting: "even frontal light; no hard face shadow"
+  background: "simple, static, low-detail"
+
+continuity_rules:
+  - "A recurring named character keeps one biological face identity across batches."
+  - "Hair, facial hair, costume, injury, wetness, and age/body state are separate batch looks."
+  - "A new look may join an existing HeyGen identity only when it is visibly the same person."
+  - "A newborn, child, adolescent, or materially different age reconstruction uses an age-specific HeyGen technical identity; never shrink the adult portrait."
+  - "Dead, unconscious, action, weapon, hand-prop, and extreme-emotion shot states are not upload-master portraits."
+  - "Every public upload source must match its repository checksum before submission."
+
+guideline_sources:
+  - title: "HeyGen — How to Get Started with Photo Avatars"
+    url: "https://help.heygen.com/en/articles/10034438-how-to-get-started-with-photo-avatars"
+  - title: "HeyGen — Avatar Looks Explained"
+    url: "https://help.heygen.com/en/articles/9964694-avatar-looks-explained"
+  - title: "HeyGen — Custom LiveAvatar Creation Guide"
+    url: "https://help.heygen.com/en/articles/9612935-liveavatar-custom-liveavatar-creation-guide"
+
+downstream_contract:
+  heygen:
+    ingestion: "public GitHub raw URL for the exact finalized JPEG"
+    mode: "photo avatar / photo avatar look"
+  remotion:
+    source_safe: true
+    portrait_raster: "2160x3840"
+    default_fit: contain
+    theatrical_composite_canvas: "3840x1600"
+    rule: "Cropping and placement happen in composition code; never overwrite the canonical portrait."
