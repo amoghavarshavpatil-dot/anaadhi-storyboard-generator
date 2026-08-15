@@ -1,0 +1,262 @@
+version: 1
+phase: P1_BATCH_REFERENCE_BINDING
+status: ACTIVE
+as_of: "2026-08-15"
+
+sources:
+  p0_foundation: "production/batches/ANAADHI_BATCH_FOUNDATION.py"
+  p1_requirements: "production/references/BATCH_REFERENCE_REQUIREMENTS.yaml"
+  p1_registry: "production/references/REFERENCE_REGISTRY.yaml"
+  initial_drive_overrides: "production/locations/EXISTING_LOCATION_OVERRIDES.yaml"
+  continuation_drive_audit: "production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml"
+  continuation_overrides: "production/locations/EXISTING_LOCATION_OVERRIDES_LOC010_059.yaml"
+  location_queue: "production/locations/LOCATION_GENERATION_QUEUE.yaml"
+
+project_truth:
+  batches: 34
+  screenplay_scene_coverage: "SC001-SC100 exactly once"
+  p0_complete: true
+  p2_action_started: false
+  p3_kannada_dialogue_started: false
+  p4_inner_voice_vo_started: false
+  p5_bgm_sfx_started: false
+  p6_mix_master_started: false
+  p7_final_assembly_started: false
+
+p1_truth:
+  operational_root_master_coverage: "61/87"
+  operational_root_master_count: 61
+  canonical_root_master_total: 87
+  root_masters_remaining: 26
+  note: >-
+    57 root/ST00 masters were hard-reuse verified from Drive for LOC-001..LOC-059
+    excluding correction IDs LOC-016 and LOC-040. Corrected LOC-016 and LOC-040
+    plus newly locked LOC-060 and LOC-061 bring current operational root coverage
+    to 61/87. Re-locks or refreshed masters inside that set do not increase the count.
+  characters_complete: false
+  anaadhi_age_body_states_complete: false
+  hair_states_complete: false
+  costume_states_complete: false
+  injury_states_complete: false
+  hero_props_complete: false
+  vehicle_family_complete: false
+  technology_family_complete: false
+
+absolute_rules:
+  - "Do not regenerate any approved/reuse-locked root master merely for variety."
+  - "A root/ST00 master does not satisfy missing interiors, subspaces, later physical states or scene dressing."
+  - "Do not start P2 for a batch until every required P1 visual control for that batch is approved."
+  - "Adult Anaadhi remains 193 cm / 6'4 wherever adult scale is applicable."
+  - "Child/teen Anaadhi uses separate age/body references; never shrink the Scene-100 adult body."
+  - "Character identity, age/body, hair, costume, injury, prop, vehicle and technology references remain independent of location approval."
+  - "Creator-recorded Kannada dialogue is reserved for P3; no final generated replacement dialogue in P1."
+  - "Inner voice/V.O./monologues remain P4 and are never forced into lip sync."
+  - "BGM/ambience/Foley/SFX remain P5; mix/master remains P6."
+  - "The stale LOCATION_QUEUE_PATCH_V3 next_job LOC-062 label must not be used as canonical authority."
+  - "Before any LOC-062..LOC-087 generation, import/verify the frozen ENV-6L ID/name mapping. Never infer a location name from numeric order."
+
+location_bindings:
+  B01:
+    scenes: [1,2,3,4,5]
+    env6l_roots: [LOC-001]
+    approved_root: true
+    remaining_location_work: ["raised-cabin interior identity", "split-floor continuity", "capture/breach later-state"]
+  B02:
+    scenes: [6]
+    env6l_roots: [LOC-002]
+    approved_root: true
+    remaining_location_work: ["systems-lab nested interior"]
+  B03:
+    scenes: [7,8,9,10]
+    env6l_roots: [LOC-003, LOC-004]
+    approved_root: true
+    remaining_location_work: ["Paraane ST01-ST04", "required Paraane nested interiors", "Workers Public Square if required"]
+  B04:
+    scenes: [11,12,13]
+    env6l_roots: [LOC-005]
+    approved_root: true
+    remaining_location_work: ["Neonatal Diagnostic Suite", "Records Control Room", "Maternity Recovery Room", "other required hospital subspaces"]
+  B05:
+    scenes: [14,15,16]
+    env6l_roots: [LOC-006, LOC-007]
+    mobile_refs: [LOC-008]
+    approved_root: true
+    remaining_location_work: ["LOC-006 shrine/light scene dressing", "Paraane gate nested identity under LOC-003 if required"]
+  B06:
+    scenes: [17,18]
+    env6l_roots: [LOC-003]
+    approved_root: true
+    remaining_location_work: ["Paraane emergency intake", "Parvaran office / child-wing overlook"]
+  B07:
+    scenes: [19]
+    env6l_roots: [LOC-003]
+    approved_root: true
+    remaining_location_work: ["child-wing nested identity", "observation gallery"]
+  B08:
+    scenes: [20,21]
+    env6l_roots: [LOC-003]
+    approved_root: true
+    remaining_location_work: ["child-wing consultation room", "developmental assessment chamber"]
+  B09:
+    scenes: [22,23]
+    env6l_roots: [LOC-003]
+    approved_root: true
+    remaining_location_work: ["child-wing courtyard", "medication dispensary"]
+  B10:
+    scenes: [24]
+    env6l_roots: [LOC-003]
+    approved_root: true
+    remaining_location_work: ["family visitation hall", "child-wing community kitchen"]
+  B11:
+    scenes: [25,26,27]
+    env6l_roots: [LOC-003]
+    approved_root: true
+    remaining_location_work: ["high observation", "audit corridor", "service corridors", "security control", "old drainage passage", "outer embankment"]
+  B12:
+    scenes: [28,29,30,31,32,33,34]
+    env6l_roots: [LOC-009, LOC-010, LOC-011, LOC-012, LOC-013, LOC-014, LOC-015, LOC-016, LOC-017]
+    approved_root: true
+    remaining_location_work: ["scene-specific weather/search dressing", "Parvaran-Janne house interior continuity"]
+  B13:
+    scenes: [35]
+    env6l_roots: [LOC-018]
+    approved_root: true
+    remaining_location_work: ["LOC-018 ST01 expansion", "seasonal montage state continuity using already-approved support environments"]
+  B14:
+    scenes: [36,37]
+    env6l_roots: [LOC-019, LOC-020]
+    approved_root: true
+    remaining_location_work: ["LOC-020 interior plate", "LOC-020 loft plate", "LOC-020 concealed lower passage"]
+  B15:
+    scenes: [38,39,40,41,42]
+    env6l_roots: [LOC-021, LOC-022, LOC-023, LOC-024, LOC-025, LOC-026]
+    approved_root: true
+    remaining_location_work: ["scene-specific day/rain/social-use states only where canon requires"]
+  B16:
+    scenes: [43,44,45,46]
+    env6l_roots: [LOC-027, LOC-028, LOC-029, LOC-030, LOC-031, LOC-032, LOC-033]
+    approved_root: true
+    remaining_location_work: ["LOC-027 stable marked surface", "LOC-027 ST01-ST03"]
+  B17:
+    scenes: [47,48]
+    env6l_roots: [LOC-034, LOC-035, LOC-036, LOC-037, LOC-038, LOC-039, LOC-040]
+    approved_root: true
+    remaining_location_work: ["scene-specific state/dressing only"]
+  B18:
+    scenes: [49,50]
+    env6l_roots: [LOC-041, LOC-042, LOC-043, LOC-044]
+    approved_root: true
+    remaining_location_work: ["preserve LOC-042 already-burnt ST00; no pristine reset"]
+  B19:
+    scenes: [51,52]
+    env6l_roots: [LOC-045, LOC-046, LOC-047]
+    approved_root: true
+    remaining_location_work: ["scene-specific state/dressing only"]
+  B20:
+    scenes: [53,54]
+    env6l_roots: [LOC-048, LOC-049]
+    approved_root: true
+    remaining_location_work: ["scene-specific monsoon/flood state only"]
+  B21:
+    scenes: [55,56]
+    env6l_roots: [LOC-050, LOC-051, LOC-052]
+    approved_root: true
+    remaining_location_work: ["preserve LOC-050 opened/dismantled/partly-burned ST00; no pristine reset"]
+  B22:
+    scenes: [57,58]
+    env6l_roots: [LOC-053, LOC-054, LOC-055]
+    approved_root: true
+    remaining_location_work: ["LOC-055 mirror remains physically too low for 1.93 m Anaadhi"]
+  B23:
+    scenes: [59,60,61,62,63]
+    env6l_roots: [LOC-056, LOC-057, LOC-058, LOC-059, LOC-001]
+    approved_root: true
+    remaining_location_work: ["LOC-056 repaired-bag continuity", "LOC-057 seventeen-name display custody continuity", "raised-cabin state continuity"]
+  B24:
+    scenes: [64,65,66]
+    env6l_roots: [LOC-003, LOC-001]
+    approved_root: true
+    remaining_location_work: ["Paraane central-command nested room", "pharmacy/ADK-7 vault canonical binding", "raised-cabin capture state"]
+  B25:
+    scenes: [67,68]
+    env6l_roots: [LOC-001, LOC-060, LOC-061]
+    approved_root: true
+    remaining_location_work: ["LOC-001 lower passage identity", "grate/route continuity between cabin and ravine"]
+  B26:
+    scenes: [69,70,71,72,73,74]
+    approved_root: "PARTIAL"
+    env6l_roots: [LOC-003]
+    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]
+    remaining_location_work: ["mature Paraane states", "archive", "old observation corridor", "required nested rooms"]
+  B27:
+    scenes: [75,76,77,78,79,80]
+    approved_root: false
+    pending_named_location_refs: [LOC-INDEPENDENT-SURGERY]
+    remaining_location_work: ["canonical ENV-6L root ID binding", "surgery and recovery subspaces"]
+  B28:
+    scenes: [81,82]
+    approved_root: "PARTIAL"
+    pending_named_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-PARAANE-CAMPUS-MATURE]
+    remaining_location_work: ["Forest Transfer Road / Fallen-Tree Blockade canonical ENV-6L binding", "communications-tower scene geography"]
+  B29:
+    scenes: [83,84,85,86]
+    approved_root: "PARTIAL"
+    env6l_roots: [LOC-003]
+    pending_named_location_refs: [LOC-PARAANE-CENTRAL-COMMAND, LOC-PARAANE-PHARMACY-VAULT]
+    remaining_location_work: ["late Paraane subspaces", "hospital/council/pharmacy evidence locations"]
+  B30:
+    scenes: [87,88,89,90,91,92]
+    approved_root: "PARTIAL"
+    env6l_roots: [LOC-002, LOC-003, LOC-011]
+    remaining_location_work: ["Kadraayini Media Network root + command floor canonical binding", "irrigation/live-confession locations", "required late states"]
+  B31:
+    scenes: [93,94,95,96]
+    approved_root: false
+    pending_named_location_refs: [LOC-BORDER-CHECKPOINT, LOC-TRIBUNAL-COURT]
+    remaining_location_work: ["canonical ENV-6L root IDs", "border medical corridor", "tribunal/court state"]
+  B32:
+    scenes: [97,98]
+    approved_root: false
+    pending_named_location_refs: [LOC-TRIBUNAL-COURT]
+    remaining_location_work: ["Independent Judicial Complex family-contact corridor", "remand court canonical bindings"]
+  B33:
+    scenes: [99]
+    approved_root: "PARTIAL"
+    env6l_roots: [LOC-003, LOC-011]
+    remaining_location_work: ["Paraane dismantling later-state", "Kendhalaa Memorial Courtyard canonical binding"]
+  B34:
+    scenes: [100]
+    approved_root: false
+    pending_named_location_refs: [LOC-IJMC]
+    remaining_location_work: ["Independent Judicial Medical Centre root", "Scene-100 interview room nested identity"]
+
+non_location_reference_gate:
+  character_identities:
+    status: PENDING
+    source: "production/batches/ANAADHI_BATCH_FOUNDATION.py characters field"
+  anaadhi_age_body:
+    status: PENDING
+    source: "production/references/BATCH_REFERENCE_REQUIREMENTS.yaml anaadhi field"
+  hair: {status: PENDING}
+  costume: {status: PENDING}
+  injury: {status: PENDING}
+  props: {status: PENDING}
+  vehicles: {status: PENDING}
+  technology: {status: PENDING}
+  environments_weather: {status: PARTIAL}
+  parallel_earth_grammar: {status: CANON_DEFINED__ASSET_BINDING_PENDING}
+
+next_work_order:
+  - "P1-L1: Import/verify canonical ENV-6L LOC-062..LOC-087 ID/name mapping before any new late-film root generation."
+  - "P1-L2: Generate only the truly missing root masters; never regenerate LOC-001..LOC-061 roots already covered."
+  - "P1-L3: Complete required nested interiors/subspaces and later physical states for batches B01-B34."
+  - "P1-C1: Build CHR-ANAADHI master identity family, then exact age/body substates newborn through final age-27."
+  - "P1-C2: Build Anaadhi hair/facial-hair, costume and injury-state references."
+  - "P1-C3: Build recurring principal character identities, then batch supporting-cast sheets."
+  - "P1-P1: Build hero/recurring props, vehicles and technology assets."
+  - "P1-GATE: Run P1 validation batch-by-batch; only a fully resolved batch may advance to P2."
+  - "P2: Add scene action, blocking, camera, shot IDs, duration and transitions."
+  - "P3: Attach creator-recorded Kannada dialogue and visible-mouth lip-sync windows."
+  - "P4: Attach creator-recorded inner voice/V.O./monologues without forced lip sync."
+  - "P5: Author second-by-second BGM, ambience, Foley and SFX after picture/voice timing stabilises."
+  - "P6/P7: Mix/master and final feature assembly."
