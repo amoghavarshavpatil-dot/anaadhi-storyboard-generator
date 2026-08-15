@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "batch_id": "B01",
+  "creation_authority": "CHATGPT_IMAGEGEN",
+  "heygen_api": "v3",
+  "generated_at": "2026-08-15T23:29:24Z",
+  "results": [
+    {
+      "asset_key": "B01-AV-01",
+      "avatar_name": "ANAADHI_B01_CAPTURE_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 200,
+      "success": true,
+      "group_id": "c26d836745e64d4c92663eae3fb02e06",
+      "look_id": "b790b09e412049bcbd4395827ba34eb2",
+      "training_status": "processing",
+      "error": null
+    },
+    {
+      "asset_key": "B01-AV-02",
+      "avatar_name": "AARATHI_B01_FIELD_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 200,
+      "success": true,
+      "group_id": "cb6af5a4934d406eb071d2debabb3614",
+      "look_id": "cdbc3ecc32564e8e8c7fac18ef4d85f4",
+      "training_status": "processing",
+      "error": null
+    },
+    {
+      "asset_key": "B01-AV-03",
+      "avatar_name": "AARATHI_B01_PARALLEL_MEDICAL_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 402,
+      "success": false,
+      "group_id": null,
+      "look_id": null,
+      "training_status": null,
+      "error": {
+        "code": "insufficient_credit",
+        "doc_url": "https://developers.heygen.com/docs/error-codes#insufficient-credit",
+        "message": "Insufficient credit. This operation requires 'api' credits."
+      }
+    },
+    {
+      "asset_key": "B01-AV-04",
+      "avatar_name": "SEMMAA_B01_FIELD_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 402,
+      "success": false,
+      "group_id": null,
+      "look_id": null,
+      "training_status": null,
+      "error": {
+        "code": "insufficient_credit",
+        "doc_url": "https://developers.heygen.com/docs/error-codes#insufficient-credit",
+        "message": "Insufficient credit. This operation requires 'api' credits."
+      }
+    },
+    {
+      "asset_key": "B01-AV-05",
+      "avatar_name": "POLICE_COMMANDER_B01_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 402,
+      "success": false,
+      "group_id": null,
+      "look_id": null,
+      "training_status": null,
+      "error": {
+        "code": "insufficient_credit",
+        "doc_url": "https://developers.heygen.com/docs/error-codes#insufficient-credit",
+        "message": "Insufficient credit. This operation requires 'api' credits."
+      }
+    },
+    {
+      "asset_key": "B01-AV-06",
+      "avatar_name": "SARJANYA_OFFICER_B01_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 402,
+      "success": false,
+      "group_id": null,
+      "look_id": null,
+      "training_status": null,
+      "error": {
+        "code": "insufficient_credit",
+        "doc_url": "https://developers.heygen.com/docs/error-codes#insufficient-credit",
+        "message": "Insufficient credit. This operation requires 'api' credits."
+      }
+    },
+    {
+      "asset_key": "B01-AV-07",
+      "avatar_name": "MEDICAL_SPECIALIST_B01_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 402,
+      "success": false,
+      "group_id": null,
+      "look_id": null,
+      "training_status": null,
+      "error": {
+        "code": "insufficient_credit",
+        "doc_url": "https://developers.heygen.com/docs/error-codes#insufficient-credit",
+        "message": "Insufficient credit. This operation requires 'api' credits."
+      }
+    },
+    {
+      "asset_key": "B01-AV-08",
+      "avatar_name": "ALLIED_GANGSTER_B01_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 402,
+      "success": false,
+      "group_id": null,
+      "look_id": null,
+      "training_status": null,
+      "error": {
+        "code": "insufficient_credit",
+        "doc_url": "https://developers.heygen.com/docs/error-codes#insufficient-credit",
+        "message": "Insufficient credit. This operation requires 'api' credits."
+      }
+    },
+    {
+      "asset_key": "B01-AV-09",
+      "avatar_name": "ANAADHI_NEWBORN_B01_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 402,
+      "success": false,
+      "group_id": null,
+      "look_id": null,
+      "training_status": null,
+      "error": {
+        "code": "insufficient_credit",
+        "doc_url": "https://developers.heygen.com/docs/error-codes#insufficient-credit",
+        "message": "Insufficient credit. This operation requires 'api' credits."
+      }
+    }
+  ]
+}
