@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/lock_p1_c1_anaadhi_identity.yml'
+      - 'production/references/lock_p1_c1_anaadhi_identity.py'
 
 permissions:
   contents: write
@@ -17,9 +18,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Prepare tools
-        run: |
-          python -m pip install --quiet pillow
+      - name: Prepare Python
+        run: python -m pip install --quiet pillow
 
       - name: Download exact Drive blueprint sources
         run: |
@@ -28,151 +28,8 @@ jobs:
           curl -fL --retry 4 --retry-delay 2 'https://drive.usercontent.google.com/download?id=1S9ATxjhCp3tQp5jCmaY58v_DeliDgA7f&export=download&confirm=t' -o production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg
           curl -fL --retry 4 --retry-delay 2 'https://drive.usercontent.google.com/download?id=14xjdKBff58tJ8IWXEPkFbQrZb7nPACeK&export=download&confirm=t' -o production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg
 
-      - name: Verify sources and create canonical manifest
-        run: |
-          python - <<'PY'
-          from PIL import Image
-          from pathlib import Path
-          import hashlib
-
-          root = Path('production/references/characters/anaadhi')
-          face = root / 'CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg'
-          body = root / 'CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg'
-
-          for p in (face, body):
-              im = Image.open(p)
-              im.verify()
-              if p.stat().st_size < 100_000:
-                  raise SystemExit(f'Blueprint source unexpectedly small: {p}')
-
-          face_sha = hashlib.sha256(face.read_bytes()).hexdigest()
-          body_sha = hashlib.sha256(body.read_bytes()).hexdigest()
-
-          manifest = f'''version: 1
-phase: P1_CHARACTER_IDENTITY_CONTROL
-lock_id: CHR-ANAADHI_MASTER-IDENTITY-01
-character_ref: CHR-ANAADHI
-status: APPROVED
-adult_height_cm: 193
-adult_height_display: "6'4"
-
-source_authority:
-  face_identity:
-    role: PRIMARY_CANONICAL_FACE_AUTHORITY
-    path: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg"
-    sha256: "{face_sha}"
-    drive_file_id: "1S9ATxjhCp3tQp5jCmaY58v_DeliDgA7f"
-    source_printed_height: "6'4 / 193 cm"
-    height_status: MATCHES_CANON
-  body_proportion:
-    role: APPROVED_RELATIVE_ANATOMY_REFERENCE_NON_METRIC
-    path: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg"
-    sha256: "{body_sha}"
-    drive_file_id: "14xjdKBff58tJ8IWXEPkFbQrZb7nPACeK"
-    source_printed_height: "6'2 / 188 cm"
-    height_status: SOURCE_LABEL_CONFLICT
-    canonical_override: "Ignore the printed 188 cm / 6'2 ruler. Preserve relative anatomy/proportion logic only and scale the adult character to exactly 193 cm / 6'4."
-
-identity_lock:
-  face:
-    - "same cranial width and facial silhouette family"
-    - "thick straight/naturally arched brow structure"
-    - "deep-set brown eye character"
-    - "straight strong-base nose"
-    - "balanced controlled lip structure"
-    - "strong masculine jaw and chin definition"
-    - "medium-brown Karnataka/South-Indian skin identity with natural texture"
-  morphology:
-    - "tall masculine frame"
-    - "long-limbed adult proportions"
-    - "broad-shouldered but not bodybuilder-exaggerated"
-    - "lean-defined Scene-100 morphology is a final-state subcondition, not the universal body condition"
-    - "all adult metric scaling resolves to 193 cm"
-
-non_inheritance_rules:
-  - "Do not freeze Scene-100 hair into earlier ages."
-  - "Do not freeze Scene-100 beard/moustache into childhood, teen or earlier adult states."
-  - "Do not freeze Scene-100 healed scars into pre-surgery states."
-  - "Do not freeze Scene-100 lean post-recovery body condition into forest/capture states."
-  - "Do not use the body source's 188 cm ruler in any generated shot, scale sheet or camera blocking calculation."
-  - "Child and teen states require separate age/body reconstructions; never shrink the adult body."
-
-p1_dependencies_remaining:
-  age_body_states: PENDING
-  hair_facial_hair_states: PENDING
-  costume_states: PENDING
-  injury_scar_states: PENDING
-  scene_specific_parallel_variants: PENDING_WHERE_REQUIRED
-
-approval_scope: >-
-  This lock approves the underlying Anaadhi identity family and adult relative proportion logic only.
-  It does not approve any specific age, hair, costume, injury, scene action, dialogue, lip-sync,
-  BGM, SFX, or camera treatment.
-'''
-          (root / 'CHR-ANAADHI_MASTER-IDENTITY-01.yaml').write_text(manifest, encoding='utf-8')
-          PY
-
-      - name: Patch P1 registries
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-
-          registry = Path('production/references/REFERENCE_REGISTRY.yaml')
-          text = registry.read_text(encoding='utf-8')
-          pattern = re.compile(r'(?ms)^  CHR-ANAADHI:\n.*?(?=^  CHR-[A-Z0-9-]+:|^anaadhi_age_body_states:)')
-          replacement = '''  CHR-ANAADHI:
-    name: Anaadhi
-    status: APPROVED
-    path: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01.yaml"
-    notes: "Underlying identity family locked. Exact age/body/hair/costume/injury substates remain mandatory and independent."
-    face_reference_path: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg"
-    body_proportion_reference_path: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg"
-    adult_height_cm: 193
-    body_metric_override: "Body blueprint source prints 188 cm / 6'2; that printed ruler is non-canonical. Use relative anatomy only and scale adult Anaadhi to 193 cm / 6'4."
-'''
-          new, count = pattern.subn(replacement, text, count=1)
-          if count != 1:
-              raise SystemExit(f'Could not patch CHR-ANAADHI registry block; matches={count}')
-          registry.write_text(new, encoding='utf-8')
-
-          matrix = Path('production/references/ANAADHI_IDENTITY_STATE_MATRIX.yaml')
-          m = matrix.read_text(encoding='utf-8')
-          old = 'master_identity_status: MISSING_APPROVED_ASSET'
-          if old not in m:
-              raise SystemExit('Expected master_identity_status line not found')
-          m = m.replace(old, 'master_identity_status: APPROVED', 1)
-          marker = 'adult_height_display: "6\'4"\n'
-          addition = '''identity_lock_manifest: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01.yaml"
-face_identity_reference: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg"
-body_proportion_reference: "production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg"
-body_reference_height_override: "Source ruler says 188 cm / 6'2; canonical adult height remains 193 cm / 6'4."
-'''
-          if 'identity_lock_manifest:' not in m:
-              m = m.replace(marker, marker + addition, 1)
-          matrix.write_text(m, encoding='utf-8')
-          PY
-
-      - name: Validate lock
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          from PIL import Image
-          root = Path('production/references/characters/anaadhi')
-          required = [
-              root/'CHR-ANAADHI_MASTER-IDENTITY-01.yaml',
-              root/'CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg',
-              root/'CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg',
-          ]
-          for p in required:
-              assert p.exists() and p.stat().st_size > 0, p
-          reg = Path('production/references/REFERENCE_REGISTRY.yaml').read_text()
-          assert 'CHR-ANAADHI:' in reg
-          assert 'status: APPROVED' in reg
-          assert 'adult_height_cm: 193' in reg
-          assert "188 cm / 6'2" in reg
-          print('P1-C1 CHR-ANAADHI master identity lock validated.')
-          PY
+      - name: Build and validate canonical lock
+        run: python production/references/lock_p1_c1_anaadhi_identity.py
 
       - name: Commit canonical assets and remove one-shot workflow
         run: |
