@@ -1,0 +1,58 @@
+name: Create Anaadhi Age-27 Capture Body Look
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-create-anaadhi-capture-body-look.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  create-capture-look:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create age-27 capture look in Anaadhi identity group
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "${HEYGEN_API_KEY:-}" ]; then
+            echo "HEYGEN_API_KEY is missing."
+            exit 2
+          fi
+
+          FACE_URL="https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg"
+          BODY_URL="https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_BODY_PROPORTION_SOURCE.jpg"
+          GROUP_ID="c26d836745e64d4c92663eae3fb02e06"
+
+          PROMPT="Photorealistic full-body neutral reference of the same Anaadhi identity, age 27, canonical adult scale exactly 193 cm / 6'4. Heavy-athletic forest-built functional physique: tall, long-limbed, broad shoulders, deep chest, powerful back, forearms, thighs and calves, low-to-moderate body fat, natural human asymmetry. Not a bodybuilder, superhero or fashion model. Plain fitted dark neutral calibration shorts only, barefoot, relaxed neutral stance, neutral seamless studio. No scars, wounds, bruises, dirt, rain, props, text, labels or rulers. Hair and facial hair are visually neutral and non-authoritative. Preserve the locked face identity exactly. The body reference's printed 188 cm / 6'2 ruler is noncanonical; use relative anatomy only and keep canonical adult scale at 193 cm / 6'4."
+
+          jq -n \
+            --arg name "ANAADHI_AGE27_CAPTURE_BODY_V1" \
+            --arg prompt "$PROMPT" \
+            --arg group "$GROUP_ID" \
+            --arg face "$FACE_URL" \
+            --arg body "$BODY_URL" \
+            '{type:"prompt",name:$name,prompt:$prompt,avatar_group_id:$group,reference_images:[{type:"url",url:$face},{type:"url",url:$body}]}' \
+            > /tmp/heygen_capture_payload.json
+
+          http_code=$(curl -sS \
+            -o /tmp/heygen_capture_response.json \
+            -w "%{http_code}" \
+            -X POST "https://api.heygen.com/v3/avatars" \
+            -H "x-api-key: ${HEYGEN_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -H "Idempotency-Key: anaadhi-age27-capture-body-v1-20260815" \
+            --data @/tmp/heygen_capture_payload.json)
+
+          echo "HeyGen HTTP status: ${http_code}"
+          jq '{data:{avatar_item:{id:.data.avatar_item.id,name:.data.avatar_item.name,group_id:.data.avatar_item.group_id,status:.data.avatar_item.status,error:.data.avatar_item.error},avatar_group:{id:.data.avatar_group.id,name:.data.avatar_group.name,consent_status:.data.avatar_group.consent_status,status:.data.avatar_group.status,error:.data.avatar_group.error}},error:.error,message:.message,code:.code}' /tmp/heygen_capture_response.json
+
+          if [ "${http_code}" != "200" ]; then
+            exit 1
+          fi
