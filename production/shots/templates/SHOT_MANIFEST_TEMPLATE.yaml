@@ -1,0 +1,137 @@
+version: 1
+manifest_type: ANAADHI_SHOT_MANIFEST_TEMPLATE
+status: TEMPLATE_ONLY
+
+identity:
+  batch_id: BXX
+  scene_id: SCXXX
+  shot_id: SHXXX
+  canonical_shot_key: BXX_SCXXX_SHXXX
+  version: V001
+  lifecycle_status: PLANNED
+
+story_scope:
+  screenplay_source: null
+  scene_purpose: null
+  shot_purpose: null
+  start_time_in_scene_seconds: null
+  duration_seconds: null
+  transition_in: null
+  transition_out: null
+
+p1_visual_dependencies:
+  all_required_approved: false
+  location:
+    root_id: null
+    subspace_id: null
+    state_id: null
+    reference_paths: []
+  characters: []
+  # Each character entry later includes:
+  # character_id, age_body_ref, hair_ref, costume_ref, injury_ref,
+  # height/scale rule where relevant, and role in this shot.
+  props: []
+  vehicles: []
+  technology: []
+  weather_condition_refs: []
+  parallel_earth_grammar_refs: []
+
+performance:
+  visible_characters: []
+  blocking: null
+  action: null
+  expression_intent: null
+  eyelines: null
+  hand_prop_interaction: null
+  physical_continuity_from_previous_shot: null
+  physical_continuity_to_next_shot: null
+
+camera:
+  framing: null
+  camera_height: null
+  lens_intent: null
+  camera_position: null
+  camera_motion: null
+  focus_behavior: null
+  protected_2_40_safe_frame: true
+  critical_elements_inside_safe_frame: []
+
+heygen_generation:
+  route: null
+  # Allowed examples: VIDEO_AGENT, IMAGE_TO_VIDEO, AVATAR_VIDEO,
+  # PRECISION_LIPSYNC, or an approved later HeyGen mode.
+  generation_prompt: null
+  negative_constraints: []
+  public_reference_urls: []
+  source_image_url: null
+  source_video_url: null
+  requested_source_aspect_ratio: "16:9 if endpoint requires"
+  requested_resolution: highest_available
+  heygen_session_id: null
+  heygen_video_id: null
+  heygen_lipsync_id: null
+  heygen_status: NOT_SUBMITTED
+
+kannada_audio:
+  dialogue_present: false
+  visible_mouth_requires_sync: false
+  audio_type: NONE
+  # NONE | DIALOGUE | INNER_VOICE | VO | MONOLOGUE | OFFSCREEN_DIALOGUE
+  github_audio_path: null
+  public_audio_url: null
+  supplied_performance_is_wording_authority: true
+  lip_sync_route: NONE
+  speech_enhancement: false
+  captions: false
+  watermark: false
+
+picture_master:
+  source_media_path: null
+  source_resolution: null
+  source_aspect_ratio: null
+  canonical_aspect_ratio: "2.40:1"
+  canonical_working_raster: "3840x1600 when source quality supports it"
+  baked_letterbox_bars: false
+  crop_or_reframe_notes: null
+  canonical_media_path: null
+  drive_source_file_id: null
+  drive_canonical_file_id: null
+
+qc:
+  identity_pass: null
+  age_body_pass: null
+  hair_pass: null
+  costume_pass: null
+  injury_pass: null
+  location_topology_pass: null
+  prop_continuity_pass: null
+  anatomy_pass: null
+  action_blocking_pass: null
+  camera_pass: null
+  protected_2_40_crop_pass: null
+  kannada_lipsync_pass: null
+  overall_result: NOT_REVIEWED
+  rejection_reasons: []
+
+versioning:
+  supersedes_version: null
+  superseded_by_version: null
+  future_upgrade_candidate: false
+  future_upgrade_reason: null
+  retain_generation_prompt: true
+  retain_reference_set: true
+  retain_kannada_audio_binding: true
+
+sound_future_bindings:
+  p4_non_lipsync_voice_status: NOT_STARTED
+  p5_second_by_second_sound_status: NOT_STARTED
+  p6_mix_master_status: NOT_STARTED
+  p7_final_assembly_status: NOT_STARTED
+
+absolute_rules:
+  - "Do not populate screenplay action or dialogue by invention."
+  - "Do not generate until this shot's required P1 references are approved."
+  - "Never overwrite a prior approved generation destructively."
+  - "Do not weaken locked visual canon merely to accept a faulty generation."
+  - "Use creator-supplied Kannada dialogue as the final wording/performance authority."
+  - "Inner voice, VO and non-visible monologue do not receive forced lip-sync."
