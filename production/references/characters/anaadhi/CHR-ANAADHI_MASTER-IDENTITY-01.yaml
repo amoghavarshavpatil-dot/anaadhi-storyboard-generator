@@ -48,7 +48,7 @@ non_inheritance_rules:
   - "Child and teen states require separate age/body reconstructions; never shrink the adult body."
 
 p1_dependencies_remaining:
-  age_body_states: PENDING
+  age_body_states: PARTIAL_APPROVED_P1-C2A_NEWBORN_TO_AGE12
   hair_facial_hair_states: PENDING
   costume_states: PENDING
   injury_scar_states: PENDING

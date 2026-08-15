@@ -45,16 +45,67 @@ character_identities:
 anaadhi_age_body_states:
   AGE-ANAADHI-NEWBORN:
     age: newborn
-    status: MISSING_APPROVED_ASSET
-    path: null
-  AGE-ANAADHI-05: {age: 5, status: MISSING_APPROVED_ASSET, path: null}
-  AGE-ANAADHI-07: {age: 7, status: MISSING_APPROVED_ASSET, path: null}
-  AGE-ANAADHI-08: {age: 8, status: MISSING_APPROVED_ASSET, path: null}
-  AGE-ANAADHI-09: {age: 9, status: MISSING_APPROVED_ASSET, path: null}
-  AGE-ANAADHI-10: {age: 10, status: MISSING_APPROVED_ASSET, path: null}
-  AGE-ANAADHI-11: {age: 11, status: MISSING_APPROVED_ASSET, path: null}
-  AGE-ANAADHI-12-INSTITUTIONAL: {age: 12, status: MISSING_APPROVED_ASSET, path: null}
-  AGE-ANAADHI-12-FOREST: {age: 12, status: MISSING_APPROVED_ASSET, path: null}
+    status: APPROVED
+    path: "production/references/characters/anaadhi/age_body/P1-C2A/CHR-ANAADHI_NEWBORN_AGE-BODY-REF-01.png"
+    sha256: "35daf506bc9a64eb4119758adb4a8fd967da797c3e69406e4068fb8404788c07"
+    scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
+  AGE-ANAADHI-05:
+    age: 5
+    status: APPROVED
+    path: "production/references/characters/anaadhi/age_body/P1-C2A/CHR-ANAADHI_AGE_05_AGE-BODY-REF-01.png"
+    sha256: "f5b70bc79b54855a0007ad7e0de3d480f80de8ed771a8a5a0bc7c2015a28fc1e"
+    scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
+  AGE-ANAADHI-07:
+    age: 7
+    status: APPROVED
+    path: "production/references/characters/anaadhi/age_body/P1-C2A/CHR-ANAADHI_AGE_07_AGE-BODY-REF-01.png"
+    sha256: "b1f621ceb10841b8b149d392f1d0f97e7ff54afb708997b523d9d90512ced4fe"
+    scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
+  AGE-ANAADHI-08:
+    age: 8
+    status: APPROVED
+    path: "production/references/characters/anaadhi/age_body/P1-C2A/CHR-ANAADHI_AGE_08_AGE-BODY-REF-01.png"
+    sha256: "dc43f885e6a2d5eb952a51bd8833e9d6995bca2d339e236c8650b6ec60f9ace0"
+    scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
+  AGE-ANAADHI-09:
+    age: 9
+    status: APPROVED
+    path: "production/references/characters/anaadhi/age_body/P1-C2A/CHR-ANAADHI_AGE_09_AGE-BODY-REF-01.png"
+    sha256: "9b44a897c9480f4d80df091257f805aa6f081fabe114104138b7a0d80d3f9560"
+    scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
+  AGE-ANAADHI-10:
+    age: 10
+    status: APPROVED
+    path: "production/references/characters/anaadhi/age_body/P1-C2A/CHR-ANAADHI_AGE_10_AGE-BODY-REF-01.png"
+    sha256: "7cbbee63f2b20a9c33411672a252f1ecd42e8c19b2a9a19b332d658ea8291a2c"
+    scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
+  AGE-ANAADHI-11:
+    age: 11
+    status: APPROVED
+    path: "production/references/characters/anaadhi/age_body/P1-C2A/CHR-ANAADHI_AGE_11_AGE-BODY-REF-01.png"
+    sha256: "269153a48913e34af8920fb083a2db39b8729ed926cfe706fc11cf51ca84379d"
+    scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
+  AGE-ANAADHI-12-INSTITUTIONAL:
+    age: 12
+    status: APPROVED
+    path: "production/references/characters/anaadhi/age_body/P1-C2A/CHR-ANAADHI_AGE_12_INSTITUTIONAL_AGE-BODY-REF-01.png"
+    sha256: "856081416f6efff073f03ecf59cebf7b60c98dfc957383df9c930d1f72bb536b"
+    scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
+  AGE-ANAADHI-12-FOREST:
+    age: 12
+    status: APPROVED
+    path: "production/references/characters/anaadhi/age_body/P1-C2A/CHR-ANAADHI_AGE_12_FOREST_AGE-BODY-REF-01.png"
+    sha256: "45422809702503095bf142f5c347f8407f09e0c211d2d0f93391f170366c343c"
+    scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
   AGE-ANAADHI-13: {age: 13, status: MISSING_APPROVED_ASSET, path: null}
   AGE-ANAADHI-14: {age: 14, status: MISSING_APPROVED_ASSET, path: null}
   AGE-ANAADHI-15: {age: 15, status: MISSING_APPROVED_ASSET, path: null}
