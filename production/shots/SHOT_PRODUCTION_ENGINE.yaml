@@ -1,0 +1,214 @@
+version: 1
+project: ANAADHI
+phase: P2_SCENE_ACTION_BLOCKING_CAMERA_TIMING
+status: CONTROL_LAYER_ACTIVE
+repository_visibility_required_for_heygen_url_bridge: public
+
+purpose: >-
+  Define the non-destructive shot-by-shot movie production lifecycle for ANAADHI.
+  This file does not invent screenplay action, dialogue, camera coverage, or duration.
+  Those values are populated later per scene/shot after the required P1 visual locks pass.
+
+batch_architecture:
+  source: production/batches/BATCH_INDEX.md
+  total_batches: 34
+  scene_coverage: "SC001-SC100 exactly once at P0 batch level"
+  rule: >-
+    Every generated movie shot belongs to exactly one batch, one scene, and one shot ID.
+    A shot may be regenerated many times, but only one version is CURRENT_CANONICAL at a time.
+
+phase_gates:
+  P1_VISUAL_CANON:
+    required_before_P2_for_affected_shot: true
+    includes:
+      - location/root/subspace/state
+      - character identity
+      - exact age/body state
+      - hair/facial-hair state
+      - costume state
+      - injury/scar state
+      - props
+      - vehicles
+      - embedded technology
+  P2_SHOT_CREATION:
+    creates:
+      - blocking
+      - camera
+      - shot duration
+      - action timing
+      - transitions
+      - HeyGen generation prompt and references
+  P3_VISIBLE_MOUTH_KANNADA_DIALOGUE:
+    only_after_P2_visual_lock: true
+    route: HeyGen precision lip-sync or approved HeyGen audio-driven generation
+  P4_NON_LIPSYNC_VOICE:
+    includes:
+      - inner feeling voice
+      - voice-over
+      - monologue without visible-mouth requirement
+      - offscreen dialogue unless visible speaker mouth requires sync
+  P5_SOUND_DESIGN:
+    timing_basis: second_by_second
+    includes:
+      - BGM
+      - ambience
+      - Foley
+      - SFX
+      - psychological sound design
+      - silence design
+  P6_MIX_MASTER:
+    rule: preserve approved dialogue timing and picture lock
+  P7_FINAL_ASSEMBLY:
+    order: "shot -> scene -> batch/reel -> complete feature"
+
+heygen_strategy:
+  objective: >-
+    Use HeyGen as the primary paid video-generation environment wherever it can satisfy canon,
+    so the production does not depend on purchasing another video-generation subscription.
+  direct_generation:
+    allowed_for:
+      - non-dialogue cinematic shots
+      - dialogue performance shots
+      - reaction shots
+      - walking/turning/seated/standing performance shots
+      - controlled multi-character shots where continuity passes QC
+    engines:
+      - HeyGen Video Agent
+      - HeyGen image-to-video
+      - HeyGen avatar/photo-avatar video
+      - HeyGen precision lip-sync
+  complex_action_rule: >-
+    Complex action is still attempted in HeyGen first. If a generation cannot meet locked identity,
+    geography, anatomy, prop, camera, or continuity requirements, mark the version REJECTED rather
+    than weakening canon. Keep the manifest future-upgradeable for later HeyGen model improvements.
+
+picture_mastering:
+  heygen_source_default:
+    aspect_ratio: "16:9 when the selected HeyGen generation endpoint requires it"
+    preferred_resolution: "highest available without artificial upscale"
+    composition_rule: >-
+      Protect the canonical 2.40:1 extraction area during generation. Critical faces, hands, props,
+      action beats, subtitles/text-free composition, and required environment anchors must remain
+      inside the protected 2.40 safe frame.
+  canonical_movie_shot:
+    aspect_ratio: "2.40:1"
+    working_master_raster: "3840x1600 when source quality supports it"
+    pixel_aspect_ratio: "1:1 square pixels"
+    baked_letterbox_bars: forbidden
+    crop_rule: >-
+      Crop/reframe from the approved source composition into the canonical 2.40 frame; do not add
+      black bars as picture content. Distribution-specific transcodes are separate from the movie master.
+  identity_rule: >-
+    Cropping, resizing, encoding, or lip-sync may never change character identity, age/body state,
+    hair, costume, injury, location topology, prop identity, or approved action timing.
+
+shot_id_standard:
+  format: "B##_SC###_SH###"
+  example: "B01_SC001_SH001"
+  version_format: "V###"
+  examples:
+    draft: "B01_SC001_SH001_V001_DRAFT"
+    rejected: "B01_SC001_SH001_V002_REJECTED"
+    approved: "B01_SC001_SH001_V003_APPROVED"
+    canonical: "B01_SC001_SH001_V004_CURRENT_CANONICAL"
+
+version_lifecycle:
+  allowed_states:
+    - PLANNED
+    - GENERATING
+    - DRAFT
+    - QC_REJECTED
+    - APPROVED
+    - CURRENT_CANONICAL
+    - SUPERSEDED
+    - FUTURE_UPGRADE_CANDIDATE
+  destructive_overwrite: forbidden
+  rules:
+    - "Never delete a prior approved version merely because a later version exists."
+    - "Only one version of a shot may be CURRENT_CANONICAL."
+    - "When a new version becomes CURRENT_CANONICAL, the previous canonical becomes SUPERSEDED."
+    - "A weak but usable shot may be CURRENT_CANONICAL and FUTURE_UPGRADE_CANDIDATE simultaneously in metadata."
+    - "Future HeyGen model improvements may regenerate a shot from the same locked manifest without rewriting the scene."
+
+shot_qc:
+  hard_fail_if:
+    - wrong character identity
+    - wrong age/body state
+    - child/teen rendered as shrunken adult
+    - adult Anaadhi scale contradicts canonical 193 cm where scale is visible/relevant
+    - wrong hair/facial-hair state
+    - wrong costume
+    - wrong injury/scar state
+    - wrong prop or prop disappears when continuity requires it
+    - wrong location or altered canonical topology
+    - added text/signage/UI not authorised by scene
+    - malformed hands/limbs/face that breaks cinematic believability
+    - unintended character duplication
+    - camera/action contradicts approved P2 manifest
+    - canonical 2.40 crop removes required story information
+    - dialogue mouth movement conflicts materially with supplied Kannada performance
+  soft_review:
+    - micro-expression strength
+    - secondary background motion
+    - atmospheric density
+    - minor cloth/hair physics
+    - grain/noise consistency
+
+language_audio_policy:
+  primary_language: Kannada
+  visible_dialogue:
+    source: creator_supplied_recording
+    final_wording_authority: uploaded_audio
+    lip_sync_required_when_mouth_visible: true
+    invented_replacement_dialogue: forbidden
+  non_lipsync_voice:
+    creator_supplied_recording: true
+    lip_sync: false
+  tts_substitution:
+    default: forbidden
+    exception: explicit_separate_approval_only
+
+storage:
+  github:
+    public_raw_base: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/"
+    roles:
+      - shot manifests
+      - prompts and approved reference paths
+      - public source bridge to HeyGen
+      - generation/job IDs
+      - QC results
+      - current-canonical pointers
+      - future-upgrade flags
+  google_drive:
+    root_folder_id: "1WBhu7p4UVZNom_gEzm9pDwxubiN2qLEB"
+    source_generations_folder_id: "1fyZD8WWYCrjmx4HoiwdMqI9Lfv2o8ZO7"
+    canonical_2_40_masters_folder_id: "1m7a-rNAHf_jhMnwTzA77BFXwmrWFsYgc"
+    revisions_superseded_folder_id: "1wuL1frXPVZK49eAsPXD0PsuEwbesEugG"
+    roles:
+      - preserve generated media
+      - preserve canonical movie-shot masters
+      - preserve superseded/revision media
+
+security:
+  public_repository_rules:
+    - "Never commit API keys, access tokens, cookies, private credentials, or service-account files."
+    - "HeyGen API access stays in authenticated connector/GitHub Secrets only."
+    - "Google credentials stay private."
+    - "Do not put unrelated private documents in public production paths."
+
+future_upgrade_policy:
+  principle: >-
+    The screenplay intent, locked references, shot duration, camera intent, action timing, Kannada audio,
+    and sound-design timing are durable. A video renderer is replaceable. If HeyGen later improves
+    resolution, aspect-ratio control, consistency, physics, multi-character action, or cinematic camera
+    control, regenerate only flagged shots and preserve the rest of the feature.
+  regenerate_without_scene_rewrite: true
+  audio_reuse_allowed_when_timing_unchanged: true
+  sound_design_reuse_allowed_when_picture_timing_unchanged: true
+
+next_gate:
+  name: FIRST_BATCH_P2_READY
+  condition: >-
+    Select the earliest batch whose complete required P1 location + character identity + age/body +
+    hair + costume + injury + prop/vehicle/technology controls are all APPROVED.
+  after_pass: create_scene_and_shot_manifests_for_that_batch
