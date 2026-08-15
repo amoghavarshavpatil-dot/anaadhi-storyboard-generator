@@ -1,0 +1,67 @@
+version: 1
+phase: P1-B01-B
+reference_id: HR-ANAADHI-27-CAPTURE
+status: CANDIDATE_GENERATION
+scope: HAIR_GEOMETRY_ONLY
+
+identity_authority:
+  primary_face_reference: production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01_FACE_SOURCE.jpg
+  underlying_identity: CHR-ANAADHI
+
+canonical_state:
+  age: 27
+  description: shaved scalp with several days rough natural regrowth
+  hairline: natural adult male hairline inherited from master identity; do not redesign
+  length: very short rough stubble/regrowth across scalp, not razor-clean
+  texture: natural uneven several-day regrowth; subtle density variation only
+  finish: dry-natural, non-styled, non-barbered
+
+must_preserve:
+  - exact underlying Anaadhi facial identity family
+  - cranial width and head shape
+  - brow/eye/nose/lip/jaw/chin identity
+  - medium-brown Karnataka/South-Indian skin tone and natural texture
+
+must_not_add:
+  - long hair
+  - medium hair
+  - fade haircut
+  - salon edge-up
+  - polished buzz cut
+  - fresh razor-clean shave
+  - styled beard or moustache as authority
+  - scars
+  - wounds
+  - bruises
+  - blood
+  - dirt
+  - rain
+  - props
+  - text
+  - labels
+  - rulers
+  - poster graphics
+
+non_authoritative_pixels:
+  - facial_hair
+  - costume
+  - body_condition
+  - injury_state
+  - ADK7_impairment
+  - environment
+  - lighting_style
+
+candidate_plate:
+  framing: head-and-shoulders calibration portrait
+  views: [front, three-quarter, side]
+  pose: neutral
+  background: seamless neutral gray
+  lighting: soft neutral studio light sufficient to read scalp regrowth
+  output: one clean text-free reference image
+
+approval_gate:
+  - face fidelity must pass against locked master face
+  - scalp must read shaved several days earlier, not freshly shaved and not a haircut
+  - no beautified barber finish
+  - no non-authoritative contamination that could bias later state generation
+  - registry remains unchanged until visual audit passes
