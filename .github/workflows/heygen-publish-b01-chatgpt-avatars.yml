@@ -1,0 +1,308 @@
+name: Publish B01 ChatGPT Avatars to GitHub and HeyGen
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-publish-b01-chatgpt-avatars.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: heygen-publish-b01-chatgpt-avatars
+  cancel-in-progress: false
+
+jobs:
+  publish-and-submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout canonical repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download approved ChatGPT masters from canonical Drive archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          ASSET_DIR='production/heygen/avatars/B01/source_visuals'
+          mkdir -p "$ASSET_DIR"
+
+          fetch_drive_file() {
+            local drive_id="$1"
+            local filename="$2"
+            curl -fL --retry 4 --retry-delay 3 \
+              "https://drive.usercontent.google.com/download?id=$drive_id&export=download&confirm=t" \
+              -o "$ASSET_DIR/$filename"
+          }
+
+          fetch_drive_file '1hmaPITr6m_c9c2FhLXBRD0uiflVdGAAp' 'CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+          fetch_drive_file '16kmx-ZKfbpBiv74-pQXYoTmp1zYtIHyo' 'CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+          fetch_drive_file '1DYjWFvWpkC4urVlv2keuBBaUFO2JR-gI' 'CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+          fetch_drive_file '1LU0dt34MhIcKryVrsQ18UwGeQiBkIWl0' 'CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+          fetch_drive_file '1IWD75I6xxjtSmYG1SRFp2X-qZqGttwO1' 'CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+          fetch_drive_file '1dX3s7VdosJFMqCn0rCzrnHULyDdAnDTl' 'CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+          fetch_drive_file '1zf4l0C3rKs4a4Dzp6BwKj0p4sdiI9oZl' 'CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+          fetch_drive_file '1xjXoCSCtBq3Jag_P8UEiNECUwHjlfqQJ' 'CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+          fetch_drive_file '1Hs7aR04zcFdTLKATHuj0E6gakI78CE1T' 'CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+
+      - name: Verify exact B01 binaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import hashlib
+
+          root = Path('production/heygen/avatars/B01/source_visuals')
+          expected = {
+              'CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg': 'f0288e16c5b6690f810a6ca8b9d202c8d1e5221fe7f94629fe3f3809eb23077b',
+              'CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg': 'c66b31ba4c9b157985aacdd6236abd73cebc081afdef206753834dde72fd5da3',
+              'CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg': '366c610176f2597ca2935211e98ddcc26c0a6b8fceb84cff45a3b83d83c71d56',
+              'CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg': '0e49f15e91bac706bb994f78a6256cf53dfc4348453496712764b88a8f94816c',
+              'CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg': '36db4770132d36f8d61226c315fe5637c02322236c15db57cb1dd8e51b62a1f2',
+              'CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg': '8d09859e662f397e334aa819b671e8139048be1d30982fa4a20c925a991a341b',
+              'CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg': '752adc618869df26802c51028fad17a501640e3a4217e1b10d67f7a7f027bdda',
+              'CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg': '9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec',
+              'CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg': '6a322f4aaeb32adcfa38da0e375681d1bee4dea13c35b55a002774fc2e40661d',
+          }
+          assert len(expected) == 9
+          for filename, wanted_sha in expected.items():
+              path = root / filename
+              assert path.is_file() and path.stat().st_size > 0, path
+              with Image.open(path) as image:
+                  assert image.format == 'JPEG', (filename, image.format)
+                  assert image.size == (2160, 3840), (filename, image.size)
+                  assert image.mode == 'RGB', (filename, image.mode)
+              actual_sha = hashlib.sha256(path.read_bytes()).hexdigest()
+              assert actual_sha == wanted_sha, (filename, actual_sha, wanted_sha)
+              print('VERIFIED', filename, actual_sha)
+          PY
+
+      - name: Publish approved source images to GitHub
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/heygen/avatars/B01/source_visuals
+          if git diff --cached --quiet; then
+            echo 'B01 source images are already published.'
+          else
+            git commit -m 'Publish approved B01 ChatGPT avatar masters'
+            git push origin HEAD:main
+          fi
+
+      - name: Verify public GitHub source URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+          RAW_BASE='https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals'
+          files=(
+            'CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+            'CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+            'CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+            'CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+            'CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+            'CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+            'CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+            'CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+            'CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg'
+          )
+          for filename in "${files[@]}"; do
+            ready=false
+            for attempt in 1 2 3 4 5 6; do
+              if curl -fLsS --retry 2 -o /dev/null "$RAW_BASE/$filename"; then
+                ready=true
+                break
+              fi
+              sleep 5
+            done
+            [ "$ready" = true ]
+            echo "PUBLIC $filename"
+          done
+
+      - name: Submit exact photo avatars to HeyGen v3
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$HEYGEN_API_KEY" ]; then
+            echo 'HEYGEN_API_KEY is missing.'
+            exit 2
+          fi
+
+          RAW_BASE='https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals'
+          RESULT_DIR='/tmp/anaadhi-b01-heygen-results'
+          mkdir -p "$RESULT_DIR"
+
+          create_photo_avatar() {
+            local asset_key="$1"
+            local avatar_name="$2"
+            local photo_url="$3"
+            local group_id="$4"
+            local idempotency_key="$5"
+            local payload="$RESULT_DIR/$asset_key-payload.json"
+            local response="$RESULT_DIR/$asset_key-response.json"
+            local result="$RESULT_DIR/$asset_key.json"
+
+            if [ -n "$group_id" ]; then
+              jq -n \
+                --arg name "$avatar_name" \
+                --arg url "$photo_url" \
+                --arg group "$group_id" \
+                '{type:"photo",name:$name,file:{type:"url",url:$url},avatar_group_id:$group}' \
+                > "$payload"
+            else
+              jq -n \
+                --arg name "$avatar_name" \
+                --arg url "$photo_url" \
+                '{type:"photo",name:$name,file:{type:"url",url:$url}}' \
+                > "$payload"
+            fi
+
+            http_code="$(curl -sS \
+              -o "$response" \
+              -w '%{http_code}' \
+              -X POST 'https://api.heygen.com/v3/avatars' \
+              -H "x-api-key: $HEYGEN_API_KEY" \
+              -H 'Content-Type: application/json' \
+              -H "Idempotency-Key: $idempotency_key" \
+              --data @"$payload")"
+
+            success=false
+            if [[ "$http_code" =~ ^20[012]$ ]]; then
+              success=true
+            fi
+
+            jq \
+              --arg asset_key "$asset_key" \
+              --arg avatar_name "$avatar_name" \
+              --arg photo_url "$photo_url" \
+              --arg http_code "$http_code" \
+              --argjson success "$success" \
+              '{
+                asset_key:$asset_key,
+                avatar_name:$avatar_name,
+                source_url:$photo_url,
+                http_code:($http_code|tonumber),
+                success:$success,
+                group_id:(.data.avatar_item.group_id // .data.avatar_group.id // null),
+                look_id:(.data.avatar_item.id // null),
+                training_status:(.data.avatar_item.status // .data.avatar_group.status // null),
+                error:(.error // .message // .data.avatar_item.error // .data.avatar_group.error // null)
+              }' "$response" > "$result"
+
+            jq '{asset_key,http_code,success,training_status,error}' "$result"
+          }
+
+          create_photo_avatar \
+            'B01-AV-01' \
+            'ANAADHI_B01_CAPTURE_CHATGPT_V1' \
+            "$RAW_BASE/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            'c26d836745e64d4c92663eae3fb02e06' \
+            'anaadhi-b01-av01-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-02' \
+            'AARATHI_B01_FIELD_CHATGPT_V1' \
+            "$RAW_BASE/CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av02-chatgpt-v1-20260816'
+
+          aarathi_group="$(jq -r '.group_id // empty' "$RESULT_DIR/B01-AV-02.json")"
+          if [ -n "$aarathi_group" ]; then
+            create_photo_avatar \
+              'B01-AV-03' \
+              'AARATHI_B01_PARALLEL_MEDICAL_CHATGPT_V1' \
+              "$RAW_BASE/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+              "$aarathi_group" \
+              'anaadhi-b01-av03-chatgpt-v1-20260816'
+          else
+            jq -n \
+              --arg asset_key 'B01-AV-03' \
+              --arg avatar_name 'AARATHI_B01_PARALLEL_MEDICAL_CHATGPT_V1' \
+              --arg photo_url "$RAW_BASE/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+              '{asset_key:$asset_key,avatar_name:$avatar_name,source_url:$photo_url,http_code:0,success:false,group_id:null,look_id:null,training_status:null,error:"Aarathi base identity creation did not return a group ID."}' \
+              > "$RESULT_DIR/B01-AV-03.json"
+          fi
+
+          create_photo_avatar \
+            'B01-AV-04' \
+            'SEMMAA_B01_FIELD_CHATGPT_V1' \
+            "$RAW_BASE/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av04-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-05' \
+            'POLICE_COMMANDER_B01_CHATGPT_V1' \
+            "$RAW_BASE/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av05-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-06' \
+            'SARJANYA_OFFICER_B01_CHATGPT_V1' \
+            "$RAW_BASE/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av06-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-07' \
+            'MEDICAL_SPECIALIST_B01_CHATGPT_V1' \
+            "$RAW_BASE/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av07-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-08' \
+            'ALLIED_GANGSTER_B01_CHATGPT_V1' \
+            "$RAW_BASE/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av08-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-09' \
+            'ANAADHI_NEWBORN_B01_CHATGPT_V1' \
+            "$RAW_BASE/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av09-chatgpt-v1-20260816'
+
+          mkdir -p production/heygen/avatars/B01
+          jq -s \
+            '{
+              version:1,
+              batch_id:"B01",
+              creation_authority:"CHATGPT_IMAGEGEN",
+              heygen_api:"v3",
+              generated_at:(now|todateiso8601),
+              results:.
+            }' \
+            "$RESULT_DIR"/B01-AV-??.json \
+            > production/heygen/avatars/B01/B01_HEYGEN_UPLOAD_RESULTS.json
+
+      - name: Commit HeyGen submission registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --rebase origin main
+          git add production/heygen/avatars/B01/B01_HEYGEN_UPLOAD_RESULTS.json
+          if git diff --cached --quiet; then
+            echo 'HeyGen B01 submission registry is already current.'
+          else
+            git commit -m 'Record B01 HeyGen photo-avatar submissions'
+            git push origin HEAD:main
+          fi
+
+      - name: Enforce complete submission fan-out
+        shell: bash
+        run: |
+          set -euo pipefail
+          jq -e '.results | length == 9' production/heygen/avatars/B01/B01_HEYGEN_UPLOAD_RESULTS.json
+          jq -e 'all(.results[]; .success == true)' production/heygen/avatars/B01/B01_HEYGEN_UPLOAD_RESULTS.json
