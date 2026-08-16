@@ -1,0 +1,87 @@
+name: HEYGEN Batch Media Validator
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - production/heygen/validate_heygen_batch_media.py
+      - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+      - production/heygen/HEYGEN_API_ACCEPTANCE_CONTRACT.yaml
+      - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+      - production/references/REFERENCE_REGISTRY.yaml
+      - production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+      - production/batches/ANAADHI_BATCH_FOUNDATION.py
+      - production/heygen/avatars/**
+      - .github/workflows/heygen-batch-media-validator.yml
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  validate-only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install validator dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+
+      - name: Run B01-B34 validator and capture blocker matrix JSON
+        id: validate
+        shell: bash
+        run: |
+          set +e
+          python production/heygen/validate_heygen_batch_media.py --json > HEYGEN_BATCH_BLOCKERS.json
+          rc=$?
+          echo "$rc" > HEYGEN_BATCH_VALIDATOR_EXIT_CODE.txt
+          echo "exit_code=$rc" >> "$GITHUB_OUTPUT"
+          set -e
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("HEYGEN_BATCH_BLOCKERS.json")
+          if not p.exists() or p.stat().st_size == 0:
+              raise SystemExit("Validator produced no JSON report")
+          report = json.loads(p.read_text(encoding="utf-8"))
+          print(json.dumps(report["summary"], indent=2))
+          PY
+
+      - name: Upload validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: heygen-batch-media-validator-report
+          path: |
+            HEYGEN_BATCH_BLOCKERS.json
+            HEYGEN_BATCH_VALIDATOR_EXIT_CODE.txt
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Enforce hard-block result
+        if: always()
+        shell: bash
+        run: |
+          rc="${{ steps.validate.outputs.exit_code }}"
+          if [ -z "$rc" ]; then
+            echo "Validator did not return an exit code."
+            exit 3
+          fi
+          if [ "$rc" -eq 0 ]; then
+            echo "HEYGEN-BATCH-MEDIA-VALIDATOR PASS"
+            exit 0
+          fi
+          if [ "$rc" -eq 2 ]; then
+            echo "HEYGEN-BATCH-MEDIA-VALIDATOR HARD BLOCKED as designed."
+            exit 2
+          fi
+          echo "HEYGEN-BATCH-MEDIA-VALIDATOR CONFIG/EXECUTION ERROR: $rc"
+          exit "$rc"
