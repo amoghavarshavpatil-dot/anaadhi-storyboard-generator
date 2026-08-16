@@ -1,7 +1,7 @@
 version: 1
 phase: P1_CHARACTER_AVATAR_CONTROL
 status: ACTIVE
-as_of: '2026-08-16'
+as_of: '2026-08-17'
 standard: production/heygen/avatars/CHATGPT_PHOTO_AVATAR_STANDARD.yaml
 batch_order:
   B01:
@@ -11,7 +11,7 @@ batch_order:
     - 3
     - 4
     - 5
-    status: PARTIAL_HEYGEN_8_OF_9_COMPLETE_USD6_CAP_REACHED
+    status: HEYGEN_9_OF_9_COMPLETE
     manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
   B02:
     scenes:

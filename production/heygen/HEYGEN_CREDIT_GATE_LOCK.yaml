@@ -2,7 +2,7 @@ version: 1
 project: ANAADHI
 lock_id: HEYGEN_API_CREDIT_GATE_2026_08_16
 effective_date: 2026-08-16
-status: HARD_PAUSED_B01_8_OF_9_COMPLETE_AWAITING_MINIMUM_USD1
+status: B01_9_OF_9_COMPLETE__RESIDUAL_WALLET_SOURCE_GATED
 
 purpose: >-
   Preserve the verified B01 publication and partial HeyGen state, prevent accidental paid API
@@ -137,3 +137,16 @@ precedence: >-
   This credit-gate lock is the authoritative pause/resume control for HeyGen execution. It
   supersedes any earlier ambiguous instruction that assigned execution to another chat page.
   Existing canonical asset approvals and the HeyGen API acceptance contract remain unchanged.
+
+exact_5_execution_2026_08_17:
+  observed_at: 2026-08-16T23:51:08Z
+  api_key_wallet_start_usd: 5.0
+  b01_av08_operation: CREATED
+  b01_av08_usd_charged: 1.0
+  api_key_wallet_remaining_usd: 4.0
+  b01_completion: 9_OF_9
+  anarvaa: SOURCE_VISUAL_REQUIRED
+  parvaran: SOURCE_VISUAL_REQUIRED
+  unnath: SOURCE_VISUAL_REQUIRED
+  asana: SOURCE_VISUAL_REQUIRED
+  residual_wallet_spend_without_proven_source: forbidden
