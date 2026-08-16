@@ -1,0 +1,380 @@
+version: 1
+project: ANAADHI
+phase: HEYGEN_BATCH_MEDIA_INPUT_CONTROL
+status: ACTIVE__NO_GENERATION_SUBMITTED
+
+purpose: >-
+  Machine-readable B01-B34 media-input contract for the ANAADHI HeyGen pipeline.
+  This file does not generate avatars, locations, props, shots, dialogue, or audio.
+  It binds each production batch to the existing canonical P0/P1 controls and defines
+  only HeyGen-supported submission forms. The OpenAI Work page performs avatar/media
+  generation and HeyGen execution from jobs prepared in GitHub.
+
+canonical_sources:
+  batch_index: production/batches/BATCH_INDEX.md
+  p0_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+  p1_requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  p1_bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  p1_registry: production/references/REFERENCE_REGISTRY.yaml
+  heygen_acceptance_contract: production/heygen/HEYGEN_API_ACCEPTANCE_CONTRACT.yaml
+  public_media_bridge: production/heygen/HEYGEN_PUBLIC_MEDIA_BRIDGE.yaml
+  shot_engine: production/shots/SHOT_PRODUCTION_ENGINE.yaml
+
+execution_ownership:
+  this_chat:
+    allowed:
+      - author_and_update_github_control_code
+      - build_batch_media_manifests
+      - build_shot_api_payloads_after_P1_gate
+      - build_kannada_lipsync_payloads_after_P2_picture_lock
+      - validate_supported_HeyGen_fields
+      - archive_job_ids_status_and_QC_metadata
+    forbidden:
+      - generate_avatar_visuals
+      - generate_location_visuals
+      - generate_prop_visuals
+      - silently_submit_paid_HeyGen_jobs_without_the_work_page_execution_gate
+  openai_work_page:
+    owns:
+      - all_avatar_visual_generation_and_uploads
+      - HeyGen_execution_of_GitHub_prepared_jobs
+      - source_media_uploads_when_required_by_HeyGen
+      - return_HeyGen_job_ids_and_outputs_for_registry_update
+  locations_and_props:
+    rule: EXISTING_APPROVED_ASSETS_ONLY
+    regenerate_in_this_chat: false
+    regenerate_in_work_page: false
+
+heygen_supported_media_forms:
+  avatar_identity:
+    accepted:
+      - avatar_look_id
+    owner: OPENAI_WORK_PAGE
+    rule: private_avatar_consent_must_pass_before_video_generation
+  arbitrary_source_image:
+    endpoint_family: create_video_from_image
+    accepted:
+      - {type: url, field: url}
+      - {type: asset_id, field: asset_id}
+  avatar_background:
+    endpoint_family: create_video_from_avatar_or_image
+    accepted:
+      - {type: image_url, fields: [type, url], type_value: image}
+      - {type: image_asset_id, fields: [type, asset_id], type_value: image}
+    not_supported_as_generic_field:
+      - video_background_in_current_connected_create_video_schema
+      - environment_reference_array
+      - prop_reference_array
+  recorded_dialogue_audio:
+    accepted:
+      - public_https_audio_url
+      - HeyGen_audio_asset_id
+    rule: uploaded_creator_recording_bypasses_TTS_voice_tuning
+  precision_lipsync:
+    video_input: [public_https_video_url, HeyGen_video_asset_id]
+    audio_input: [public_https_audio_url, HeyGen_audio_asset_id]
+    mode: precision
+    enable_dynamic_duration: true
+    enable_speech_enhancement: false
+    enable_caption: false
+    enable_watermark: false
+    keep_same_format: true
+  props:
+    generic_direct_prop_field: false
+    allowed_routes:
+      - prop_already_present_in_approved_source_plate_or_source_video
+      - supported_template_variable_when_a_specific_HeyGen_template_contract_is_later_verified
+    rule: never_invent_unsupported_JSON_fields
+  locations:
+    direct_avatar_background_route: approved_still_image_only
+    cinematic_video_agent_route: >-
+      Do not claim structured environment/prop reference ingestion until the exact
+      session-resource ingestion endpoint and payload are verified. Until then,
+      approved location media remain canonical inputs but are not fabricated into
+      unsupported Video Agent fields.
+
+media_url_policy:
+  preferred_public_bridge: "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/{path}"
+  alternate: HeyGen_asset_id
+  temporary_HeyGen_output_urls:
+    archive_immediately: true
+    destination: Google_Drive_then_GitHub_registry
+
+batch_defaults:
+  avatar_slots: INHERIT_EXACT_NAMED_CHARACTERS_FROM_P0_FOUNDATION
+  avatar_visual_owner: OPENAI_WORK_PAGE
+  additional_location_and_prop_anchors: INHERIT_FROM_P0_FOUNDATION
+  location_generation: FORBIDDEN
+  prop_generation: FORBIDDEN
+  shot_api_status: NOT_CREATED_UNTIL_P1_PASS
+  heygen_submission_status: NOT_SUBMITTED
+  p3_kannada_lipsync_status: WAIT_FOR_P2_PICTURE_LOCK_AND_CREATOR_AUDIO
+  p4_non_lipsync_voice_status: SEPARATE_NON_LIPSYNC_PHASE
+
+batches:
+  B01:
+    scenes: [1,2,3,4,5]
+    env6l_roots: [LOC-001]
+    p1_location_status: APPROVED_ROOT__SUBSPACES_REMAIN
+    required_location_refs: [LOC-BHAIGAARA-RAISED-CABIN]
+    required_anaadhi_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
+    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-PARAANE-WRIST-DEVICE, PRP-SPLIT-FLOORBOARD, VEH-PARAANE-MEDICAL-TRANSPORT, TEC-BLACK-KITE-DRONE, TEC-PARAANE-SENSOR-STAKE, ENV-BLACK-RAIN]
+    remaining_location_work: [raised-cabin interior identity, split-floor continuity, capture/breach later-state]
+  B02:
+    scenes: [6]
+    env6l_roots: [LOC-002]
+    p1_location_status: APPROVED_ROOT__SUBSPACE_REMAINS
+    required_location_refs: [LOC-ADRAKA-SYSTEMS-LAB]
+    required_anaadhi_refs: []
+    required_prop_refs: [TEC-HOLOGRAPHIC-NEURAL-MAP]
+  B03:
+    scenes: [7,8,9,10]
+    env6l_roots: [LOC-003, LOC-004]
+    p1_location_status: APPROVED_ROOTS__STATES_AND_NESTED_REMAIN
+    required_location_refs: [LOC-PARAANE-CAMPUS-EARLY, LOC-PARAANE-CENTRAL-COMMAND]
+    required_anaadhi_refs: []
+    required_prop_refs: [PRP-PARAANE-EMBLEM, PRP-FOUNDERS-CREDENTIAL, PRP-PARAANE-WRIST-DEVICE, ENV-PARAANE-EARLY]
+  B04:
+    scenes: [11,12,13]
+    env6l_roots: [LOC-005]
+    p1_location_status: APPROVED_ROOT__HOSPITAL_SUBSPACES_REMAIN
+    required_location_refs: [LOC-PARLIPATNA-HOSPITAL]
+    required_anaadhi_refs: [AGE-ANAADHI-NEWBORN]
+    required_prop_refs: [PRP-PARAANE-WRIST-DEVICE]
+  B05:
+    scenes: [14,15,16]
+    env6l_roots: [LOC-006, LOC-007]
+    mobile_refs: [LOC-008]
+    p1_location_status: APPROVED_ROOTS__SCENE_DRESSING_REMAINS
+    required_location_refs: [LOC-FOUR-ROAD-JUNCTION, LOC-PARAANE-CAMPUS-EARLY]
+    required_anaadhi_refs: [AGE-ANAADHI-NEWBORN]
+    required_prop_refs: [PRP-FOUR-ROAD-SHRINE, VEH-SARJANYA-JEEP]
+  B06:
+    scenes: [17,18]
+    env6l_roots: [LOC-003]
+    p1_location_status: APPROVED_ROOT__NESTED_REMAINS
+    required_location_refs: [LOC-PARAANE-CHILD-WING]
+    required_anaadhi_refs: [AGE-ANAADHI-NEWBORN]
+    required_prop_refs: [PRP-PARAANE-EMBLEM, PRP-MEDICINE-CUP]
+  B07:
+    scenes: [19]
+    env6l_roots: [LOC-003]
+    p1_location_status: APPROVED_ROOT__NESTED_REMAINS
+    required_location_refs: [LOC-PARAANE-CHILD-WING]
+    required_anaadhi_refs: [AGE-ANAADHI-05, HR-ANAADHI-05, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    required_prop_refs: [PRP-MEDICINE-CUP]
+  B08:
+    scenes: [20,21]
+    env6l_roots: [LOC-003]
+    p1_location_status: APPROVED_ROOT__NESTED_REMAINS
+    required_location_refs: [LOC-PARAANE-CHILD-WING]
+    required_anaadhi_refs: [AGE-ANAADHI-07, AGE-ANAADHI-08, HR-ANAADHI-07, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    required_prop_refs: [PRP-MEDICINE-CUP]
+  B09:
+    scenes: [22,23]
+    env6l_roots: [LOC-003]
+    p1_location_status: APPROVED_ROOT__NESTED_REMAINS
+    required_location_refs: [LOC-PARAANE-CHILD-WING]
+    required_anaadhi_refs: [AGE-ANAADHI-09, AGE-ANAADHI-10, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    required_prop_refs: [PRP-MEDICINE-CUP, TEC-MEDICINE-RAIL]
+  B10:
+    scenes: [24]
+    env6l_roots: [LOC-003]
+    p1_location_status: APPROVED_ROOT__NESTED_REMAINS
+    required_location_refs: [LOC-PARAANE-CHILD-WING]
+    required_anaadhi_refs: [AGE-ANAADHI-11, CST-ANAADHI-CHILD-INSTITUTIONAL]
+    required_prop_refs: []
+  B11:
+    scenes: [25,26,27]
+    env6l_roots: [LOC-003]
+    p1_location_status: APPROVED_ROOT__MULTIPLE_NESTED_SPACES_REMAIN
+    required_location_refs: [LOC-PARAANE-HIGH-OBSERVATION, LOC-PARAANE-CHILD-WING]
+    required_anaadhi_refs: [AGE-ANAADHI-12-INSTITUTIONAL, HR-ANAADHI-12-CLOSE, CST-ANAADHI-CHILD-INSTITUTIONAL, INJ-ANAADHI-12-ESCAPE]
+    required_prop_refs: [PRP-MEDICINE-CUP]
+  B12:
+    scenes: [28,29,30,31,32,33,34]
+    env6l_roots: [LOC-009, LOC-010, LOC-011, LOC-012, LOC-013, LOC-014, LOC-015, LOC-016, LOC-017]
+    p1_location_status: APPROVED_ROOTS__SCENE_STATE_DRESSING_REMAINS
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-FOREST-EDGE-BARTER, LOC-PARVARAN-JANNE-HOUSE]
+    required_anaadhi_refs: [AGE-ANAADHI-12-FOREST, HR-ANAADHI-12-FOREST, CST-ANAADHI-12-ESCAPE, INJ-ANAADHI-12-ESCAPE]
+    required_prop_refs: [PRP-FOUR-ROAD-SHRINE]
+  B13:
+    scenes: [35]
+    env6l_roots: [LOC-018]
+    p1_location_status: APPROVED_ROOT__ST01_AND_SEASONAL_STATES_REMAIN
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS, LOC-FOREST-EDGE-BARTER]
+    required_anaadhi_refs: [AGE-ANAADHI-13, AGE-ANAADHI-14, AGE-ANAADHI-15, AGE-ANAADHI-16, HR-ANAADHI-16, CST-ANAADHI-FOREST-TEEN]
+    required_prop_refs: []
+  B14:
+    scenes: [36,37]
+    env6l_roots: [LOC-019, LOC-020]
+    p1_location_status: APPROVED_ROOTS__CABIN_SUBSPACES_REMAIN
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS]
+    required_anaadhi_refs: [AGE-ANAADHI-17, AGE-ANAADHI-18, HR-ANAADHI-18, CST-ANAADHI-FOREST-TEEN]
+    required_prop_refs: []
+  B15:
+    scenes: [38,39,40,41,42]
+    env6l_roots: [LOC-021, LOC-022, LOC-023, LOC-024, LOC-025, LOC-026]
+    p1_location_status: APPROVED_ROOTS__SCENE_STATES_ONLY
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP, LOC-ANAADHI-HIDDEN-CABINS]
+    required_anaadhi_refs: [AGE-ANAADHI-19, HR-ANAADHI-19, CST-ANAADHI-19]
+    required_prop_refs: [VEH-ANAADHI-CART]
+  B16:
+    scenes: [43,44,45,46]
+    env6l_roots: [LOC-027, LOC-028, LOC-029, LOC-030, LOC-031, LOC-032, LOC-033]
+    p1_location_status: APPROVED_ROOTS__LOC027_STATES_REMAIN
+    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP, LOC-ANAADHI-HIDDEN-CABINS]
+    required_anaadhi_refs: [AGE-ANAADHI-20, CST-ANAADHI-20-26]
+    required_prop_refs: [PRP-SEVENTEEN-NAME-LIST]
+  B17:
+    scenes: [47,48]
+    env6l_roots: [LOC-034, LOC-035, LOC-036, LOC-037, LOC-038, LOC-039, LOC-040]
+    p1_location_status: APPROVED_ROOTS__SCENE_STATES_ONLY
+    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-ANAADHI-HIDDEN-CABINS]
+    required_anaadhi_refs: [AGE-ANAADHI-21, CST-ANAADHI-20-26]
+    required_prop_refs: []
+  B18:
+    scenes: [49,50]
+    env6l_roots: [LOC-041, LOC-042, LOC-043, LOC-044]
+    p1_location_status: APPROVED_ROOTS__PRESERVE_BURNT_STATE
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-FOREST-EDGE-BARTER, LOC-ANAADHI-HIDDEN-CABINS]
+    required_anaadhi_refs: [AGE-ANAADHI-22, CST-ANAADHI-20-26]
+    required_prop_refs: [PRP-SEVENTEEN-NAME-LIST]
+  B19:
+    scenes: [51,52]
+    env6l_roots: [LOC-045, LOC-046, LOC-047]
+    p1_location_status: APPROVED_ROOTS__SCENE_STATES_ONLY
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS]
+    required_anaadhi_refs: [AGE-ANAADHI-23, CST-ANAADHI-20-26]
+    required_prop_refs: [VEH-ANAADHI-MOTORCYCLE, PRP-SEVENTEEN-NAME-LIST]
+  B20:
+    scenes: [53,54]
+    env6l_roots: [LOC-048, LOC-049]
+    p1_location_status: APPROVED_ROOTS__MONSOON_FLOOD_STATE_ONLY
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS]
+    required_anaadhi_refs: [AGE-ANAADHI-24, CST-ANAADHI-20-26]
+    required_prop_refs: [PRP-SEVENTEEN-NAME-LIST]
+  B21:
+    scenes: [55,56]
+    env6l_roots: [LOC-050, LOC-051, LOC-052]
+    p1_location_status: APPROVED_ROOTS__PRESERVE_DAMAGED_STATE
+    required_location_refs: [LOC-ANAADHI-HIDDEN-CABINS, LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-FOREST-EDGE-BARTER]
+    required_anaadhi_refs: [AGE-ANAADHI-25, CST-ANAADHI-20-26]
+    required_prop_refs: [VEH-ANAADHI-MOTORCYCLE, PRP-SEVENTEEN-NAME-LIST]
+  B22:
+    scenes: [57,58]
+    env6l_roots: [LOC-053, LOC-054, LOC-055]
+    p1_location_status: APPROVED_ROOTS__BARBER_MIRROR_SCALE_LOCK
+    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS]
+    required_anaadhi_refs: [AGE-ANAADHI-26, HR-ANAADHI-26-POST-BARBER, CST-ANAADHI-20-26]
+    required_prop_refs: [PRP-SEVENTEEN-NAME-LIST]
+  B23:
+    scenes: [59,60,61,62,63]
+    env6l_roots: [LOC-056, LOC-057, LOC-058, LOC-059, LOC-001]
+    p1_location_status: APPROVED_ROOTS__STATE_CONTINUITY_REMAINS
+    required_location_refs: [LOC-ANAADHI-HIDDEN-CABINS, LOC-BHAIGAARA-RAISED-CABIN, LOC-BHAIGAARA-FOREST-SURVIVAL]
+    required_anaadhi_refs: [AGE-ANAADHI-27-FOREST]
+    required_prop_refs: [PRP-SEVENTEEN-NAME-LIST, PRP-SEVENTEEN-LAMPS, PRP-SPLIT-FLOORBOARD]
+  B24:
+    scenes: [64,65,66]
+    env6l_roots: [LOC-003, LOC-001]
+    p1_location_status: APPROVED_ROOTS__NESTED_AND_CAPTURE_STATE_REMAIN
+    required_location_refs: [LOC-PARAANE-CENTRAL-COMMAND, LOC-PARAANE-PHARMACY-VAULT, LOC-BHAIGAARA-RAISED-CABIN]
+    required_anaadhi_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
+    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-PARAANE-WRIST-DEVICE, PRP-SPLIT-FLOORBOARD, VEH-PARAANE-MEDICAL-TRANSPORT, TEC-BLACK-KITE-DRONE, ENV-BLACK-RAIN]
+  B25:
+    scenes: [67,68]
+    env6l_roots: [LOC-001, LOC-060, LOC-061]
+    p1_location_status: APPROVED_ROOTS__ROUTE_CONTINUITY_REMAINS
+    required_location_refs: [LOC-BHAIGAARA-RAISED-CABIN, LOC-BHAIGAARA-FOREST-SURVIVAL]
+    required_anaadhi_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
+    required_prop_refs: [PRP-SPLIT-FLOORBOARD, TEC-BLACK-KITE-DRONE]
+  B26:
+    scenes: [69,70,71,72,73,74]
+    env6l_roots: [LOC-003]
+    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]
+    p1_location_status: PARTIAL
+    required_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]
+    required_anaadhi_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
+    required_prop_refs: [PRP-MEDICINE-CUP, PRP-SEVENTEEN-NAME-LIST, PRP-PARAANE-EMBLEM]
+  B27:
+    scenes: [75,76,77,78,79,80]
+    env6l_roots: []
+    pending_named_location_refs: [LOC-INDEPENDENT-SURGERY]
+    p1_location_status: MISSING_CANONICAL_ROOT_BINDING
+    required_location_refs: [LOC-INDEPENDENT-SURGERY]
+    required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    required_prop_refs: [VEH-INDEPENDENT-EMERGENCY]
+  B28:
+    scenes: [81,82]
+    env6l_roots: []
+    pending_named_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-PARAANE-CAMPUS-MATURE]
+    p1_location_status: PARTIAL__CANONICAL_BINDINGS_REMAIN
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-PARAANE-CAMPUS-MATURE]
+    required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    required_prop_refs: []
+  B29:
+    scenes: [83,84,85,86]
+    env6l_roots: [LOC-003]
+    pending_named_location_refs: [LOC-PARAANE-CENTRAL-COMMAND, LOC-PARAANE-PHARMACY-VAULT]
+    p1_location_status: PARTIAL
+    required_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CENTRAL-COMMAND, LOC-PARAANE-PHARMACY-VAULT]
+    required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-PARAANE-WRIST-DEVICE]
+  B30:
+    scenes: [87,88,89,90,91,92]
+    env6l_roots: [LOC-002, LOC-003, LOC-011]
+    p1_location_status: PARTIAL__LATE_MEDIA_AND_IRRIGATION_BINDINGS_REMAIN
+    required_location_refs: [LOC-ADRAKA-SYSTEMS-LAB, LOC-PARAANE-CAMPUS-MATURE]
+    required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY]
+    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM]
+  B31:
+    scenes: [93,94,95,96]
+    env6l_roots: []
+    pending_named_location_refs: [LOC-BORDER-CHECKPOINT, LOC-TRIBUNAL-COURT]
+    p1_location_status: MISSING_CANONICAL_ROOT_BINDINGS
+    required_location_refs: [LOC-BORDER-CHECKPOINT, LOC-TRIBUNAL-COURT]
+    required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY]
+    required_prop_refs: []
+  B32:
+    scenes: [97,98]
+    env6l_roots: []
+    pending_named_location_refs: [LOC-TRIBUNAL-COURT]
+    p1_location_status: MISSING_CANONICAL_ROOT_BINDING
+    required_location_refs: [LOC-TRIBUNAL-COURT]
+    required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY]
+    required_prop_refs: []
+  B33:
+    scenes: [99]
+    env6l_roots: [LOC-003, LOC-011]
+    p1_location_status: PARTIAL__DISMANTLING_AND_MEMORIAL_BINDINGS_REMAIN
+    required_location_refs: [LOC-PARAANE-CAMPUS-MATURE]
+    required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY]
+    required_prop_refs: [PRP-PARAANE-EMBLEM]
+  B34:
+    scenes: [100]
+    env6l_roots: []
+    pending_named_location_refs: [LOC-IJMC]
+    p1_location_status: MISSING_CANONICAL_ROOT_BINDING
+    required_location_refs: [LOC-IJMC]
+    required_anaadhi_refs: [AGE-ANAADHI-27-FINAL, HR-ANAADHI-27-FINAL, CST-ANAADHI-27-FINAL, INJ-ANAADHI-27-FINAL]
+    required_prop_refs: []
+
+submission_gate:
+  batch_may_create_shot_payloads_only_if:
+    - every_required_P1_reference_is_APPROVED
+    - every_required_location_or_nested_space_is_bound
+    - avatar_slots_for_that_shot_are_supplied_by_OPENAI_WORK_PAGE
+    - no_unresolved_prop_vehicle_or_technology_reference_is_visible
+  batch_may_submit_to_HeyGen_only_if:
+    - shot_payload_passes_HeyGen_field_validation
+    - required_private_avatar_consent_is_COMPLETE
+    - all_media_URLs_are_public_HTTPS_or_HeyGen_asset_ids
+    - exact_output_route_is_supported_by_the_selected_HeyGen_endpoint
+    - work_page_execution_gate_is_explicitly_open
+
+next_code_unit:
+  id: HEYGEN-BATCH-MEDIA-VALIDATOR
+  objective: >-
+    Validate this schema against BATCH_REFERENCE_REQUIREMENTS, P1_BATCH_REFERENCE_BINDINGS,
+    REFERENCE_REGISTRY and HEYGEN_API_ACCEPTANCE_CONTRACT without generating or submitting media.
