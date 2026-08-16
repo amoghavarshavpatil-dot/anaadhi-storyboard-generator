@@ -1,0 +1,232 @@
+name: B01 HeyGen Resume USD6 Once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-b01-resume-6usd-once.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: heygen-b01-resume-6usd-once
+  cancel-in-progress: false
+
+jobs:
+  resume-six-approved-photo-avatars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout canonical repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Probe API wallet and submit exactly six approved photo avatars
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${HEYGEN_API_KEY:-}" ]; then
+            echo 'HEYGEN_API_KEY is missing.'
+            exit 2
+          fi
+
+          RAW_BASE='https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals'
+          RESULT_DIR='/tmp/anaadhi-b01-heygen-resume-usd6'
+          OUTPUT='production/heygen/avatars/B01/B01_HEYGEN_RESUME_6USD_RESULTS.json'
+          mkdir -p "$RESULT_DIR" "$(dirname "$OUTPUT")"
+
+          user_http="$(curl -sS \
+            -o "$RESULT_DIR/user-before-raw.json" \
+            -w '%{http_code}' \
+            'https://api.heygen.com/v3/users/me' \
+            -H "x-api-key: $HEYGEN_API_KEY")"
+          if [ "$user_http" != '200' ]; then
+            echo "HeyGen API wallet probe failed with HTTP $user_http; no paid calls were made."
+            exit 3
+          fi
+          jq '(.data // .) | {api_key_account:true,wallet_present:(.wallet != null)}' \
+            "$RESULT_DIR/user-before-raw.json" > "$RESULT_DIR/account-before.json"
+          jq -e '.wallet_present == true' "$RESULT_DIR/account-before.json" >/dev/null || {
+            echo 'The API-key account did not expose a prepaid wallet; no paid calls were made.'
+            exit 4
+          }
+
+          call_count=0
+          create_photo_avatar() {
+            local asset_key="$1"
+            local avatar_name="$2"
+            local photo_url="$3"
+            local group_id="$4"
+            local idempotency_key="$5"
+            local payload="$RESULT_DIR/$asset_key-payload.json"
+            local response="$RESULT_DIR/$asset_key-response.json"
+            local result="$RESULT_DIR/$asset_key.json"
+            local http_code
+
+            call_count=$((call_count + 1))
+            if [ "$call_count" -gt 6 ]; then
+              echo 'USD 6 hard cap would be exceeded.'
+              exit 5
+            fi
+
+            if [ -n "$group_id" ]; then
+              jq -n \
+                --arg name "$avatar_name" \
+                --arg url "$photo_url" \
+                --arg group "$group_id" \
+                '{type:"photo",name:$name,file:{type:"url",url:$url},avatar_group_id:$group}' \
+                > "$payload"
+            else
+              jq -n \
+                --arg name "$avatar_name" \
+                --arg url "$photo_url" \
+                '{type:"photo",name:$name,file:{type:"url",url:$url}}' \
+                > "$payload"
+            fi
+
+            http_code="$(curl -sS \
+              -o "$response" \
+              -w '%{http_code}' \
+              -X POST 'https://api.heygen.com/v3/avatars' \
+              -H "x-api-key: $HEYGEN_API_KEY" \
+              -H 'Content-Type: application/json' \
+              -H "Idempotency-Key: $idempotency_key" \
+              --data @"$payload")" || http_code='000'
+            jq empty "$response" 2>/dev/null || printf '{}' > "$response"
+
+            success=false
+            if [[ "$http_code" =~ ^20[012]$ ]]; then
+              success=true
+            fi
+
+            jq \
+              --arg asset_key "$asset_key" \
+              --arg avatar_name "$avatar_name" \
+              --arg photo_url "$photo_url" \
+              --arg http_code "$http_code" \
+              --argjson success "$success" \
+              '{
+                asset_key:$asset_key,
+                avatar_name:$avatar_name,
+                source_url:$photo_url,
+                http_code:($http_code|tonumber),
+                success:$success,
+                group_id:(.data.avatar_item.group_id // .data.avatar_group.id // null),
+                look_id:(.data.avatar_item.id // null),
+                training_status:(.data.avatar_item.status // .data.avatar_group.status // null),
+                error:(.error // .message // .data.avatar_item.error // .data.avatar_group.error // null)
+              }' "$response" > "$result"
+
+            jq '{asset_key,http_code,success,training_status,error}' "$result"
+          }
+
+          create_photo_avatar \
+            'B01-AV-03' \
+            'AARATHI_B01_PARALLEL_MEDICAL_CHATGPT_V1' \
+            "$RAW_BASE/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            'cb6af5a4934d406eb071d2debabb3614' \
+            'anaadhi-b01-av03-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-04' \
+            'SEMMAA_B01_FIELD_CHATGPT_V1' \
+            "$RAW_BASE/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av04-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-05' \
+            'POLICE_COMMANDER_B01_CHATGPT_V1' \
+            "$RAW_BASE/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av05-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-06' \
+            'SARJANYA_OFFICER_B01_CHATGPT_V1' \
+            "$RAW_BASE/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av06-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-07' \
+            'MEDICAL_SPECIALIST_B01_CHATGPT_V1' \
+            "$RAW_BASE/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av07-chatgpt-v1-20260816'
+
+          create_photo_avatar \
+            'B01-AV-09' \
+            'ANAADHI_NEWBORN_B01_CHATGPT_V1' \
+            "$RAW_BASE/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg" \
+            '' \
+            'anaadhi-b01-av09-chatgpt-v1-20260816'
+
+          [ "$call_count" -eq 6 ]
+
+          after_http="$(curl -sS \
+            -o "$RESULT_DIR/user-after-raw.json" \
+            -w '%{http_code}' \
+            'https://api.heygen.com/v3/users/me' \
+            -H "x-api-key: $HEYGEN_API_KEY")" || after_http='000'
+          if [ "$after_http" = '200' ]; then
+            jq '(.data // .) | {api_key_account:true,wallet_present:(.wallet != null)}' \
+              "$RESULT_DIR/user-after-raw.json" > "$RESULT_DIR/account-after.json"
+          else
+            jq -n --arg http_code "$after_http" '{api_key_account:true,wallet_present:null,probe_http_code:($http_code|tonumber)}' \
+              > "$RESULT_DIR/account-after.json"
+          fi
+
+          jq -s \
+            --slurpfile before "$RESULT_DIR/account-before.json" \
+            --slurpfile after "$RESULT_DIR/account-after.json" \
+            '{
+              version:1,
+              project:"ANAADHI",
+              batch_id:"B01",
+              execution_owner:"CURRENT_CHATGPT_WORK_PAGE_ONLY",
+              authorisation:"Credits added",
+              user_budget_usd:6,
+              official_photo_avatar_unit_cost_usd:1,
+              paid_call_hard_cap:6,
+              selected_assets:["B01-AV-03","B01-AV-04","B01-AV-05","B01-AV-06","B01-AV-07","B01-AV-09"],
+              budget_deferred_asset:"B01-AV-08",
+              generated_at:(now|todateiso8601),
+              account_before:$before[0],
+              account_after:$after[0],
+              results:.
+            }' \
+            "$RESULT_DIR"/B01-AV-??.json > "$OUTPUT"
+
+      - name: Commit the capped resume registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/heygen/avatars/B01/B01_HEYGEN_RESUME_6USD_RESULTS.json
+          if git diff --cached --quiet; then
+            echo 'USD 6 resume registry is already current.'
+            exit 0
+          fi
+          git commit -m 'Record capped USD6 B01 HeyGen resume'
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 6
+
+      - name: Enforce the six-call budget and acceptance gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          RESULT='production/heygen/avatars/B01/B01_HEYGEN_RESUME_6USD_RESULTS.json'
+          jq -e '.user_budget_usd == 6 and .paid_call_hard_cap == 6' "$RESULT"
+          jq -e '.results | length == 6' "$RESULT"
+          jq -e 'all(.results[]; .success == true)' "$RESULT"
