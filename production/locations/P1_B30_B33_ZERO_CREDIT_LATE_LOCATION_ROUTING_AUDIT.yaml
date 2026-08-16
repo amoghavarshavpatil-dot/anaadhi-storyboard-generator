@@ -1,0 +1,382 @@
+version: 1
+project: ANAADHI
+control: P1-B30-B33-ZERO-CREDIT-LATE-LOCATION-ROUTING-AUDIT
+status: EXACT_ROUTING_AUDITED__VISUALS_AND_HELD_BEATS_REMAIN_OPEN
+as_of_local: "2026-08-16T21:36:00+05:30"
+mode: ZERO_CREDIT_CONTROL_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+scope:
+  batches: [B30, B33]
+  scenes: [87, 88, 89, 90, 91, 92, 99]
+
+sources:
+  p0_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+  p1_requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  p1_bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  media_schema: production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  registry: production/references/REFERENCE_REGISTRY.yaml
+  frozen_late_mapping: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  late_crosswalk: production/locations/P1_LATE_BATCH_ENV6L_BINDING_CROSSWALK.yaml
+  earlier_drive_audit: production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml
+  earlier_drive_override: production/locations/EXISTING_LOCATION_OVERRIDES_LOC010_059.yaml
+
+invariants:
+  visual_approval_implied_by_metadata: false
+  approved_root_promotion_allowed: false
+  xform_creates_new_root: false
+  hold_pairs_may_merge: false
+  alias_inference_allowed: false
+  media_generation_allowed: false
+  media_replacement_allowed: false
+  heygen_api_execution_allowed: false
+  consent_execution_allowed: false
+  avatar_or_look_creation_allowed: false
+  render_or_lipsync_allowed: false
+  paid_heygen_work_ready: false
+  aq001_aq002_aq003_remain_deferred: true
+  aq003_live_dependency_must_remain: AVATAR_LOOK_SET::B01-AV-08
+
+hold_pairs:
+  domestic:
+    left:
+      loc_id: LOC-011
+      canonical_name: "Parvaran and Janne's House"
+      exact_drive_audit:
+        source: production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml
+        drive_file_id: 1fvisjiZTciVLMrgJgWuTOn6FqbkPxJXD
+        audit_status: PASS
+        audit_scope_note: "root ST00; interior continuity still separate"
+      visual_lock_warning: >-
+        The checked-in Drive audit supports operational root/ST00 reuse, but its own rules say
+        formal ENV-6L visual lock still requires an accepted file plus SHA256. Do not promote
+        the current P1 semantic reference to APPROVED from this routing audit.
+    right:
+      loc_id: LOC-072
+      canonical_name: "Janne's Home"
+      frozen_status: METADATA_LOCKED_VISUAL_PENDING
+    routing_rule: >-
+      Keep LOC-011 and LOC-072 distinct. B30/SC091 retains LOC-011 where the existing locked
+      crosswalk and location queue route the Parvaran-and-Janne household. B33/SC099 routes the
+      explicitly named later Janne-house beat to LOC-072. Never substitute one for the other.
+
+  sarjanya:
+    left:
+      loc_id: LOC-073
+      canonical_name: "Sarjanya Headquarters"
+    right:
+      loc_id: LOC-074
+      canonical_name: "Sarjanya Operations Compound"
+    routing_rule: >-
+      B33/SC099 P0 names a Sarjanya compound and anchors the beat with armoury/weapons and sealed
+      drug-room evidence. That matches LOC-074 Operations Compound. LOC-073 Headquarters remains
+      a distinct HOLD sibling and is not added to B33 without separate scene evidence.
+
+exact_drive_search_observations:
+  search_mode: "Google Drive metadata image search; canonical ID and descriptive-name checks where material"
+  observation_date: "2026-08-16"
+  result_policy: >-
+    Empty search means no exact reusable image was surfaced by the connected Drive search. It is
+    not proof of nonexistence outside accessible search scope and never authorizes generation.
+  no_exact_reusable_image_surfaced:
+    B30:
+      - LOC-068
+      - LOC-069
+      - "Marsyaa House"
+      - LOC-070
+      - "Kadraayini Media Network"
+      - LOC-071
+      - "Abandoned Irrigation Telemetry Shelter"
+      - LOC-080
+      - "Kendhalaa Police Headquarters"
+      - LOC-076
+      - "Marsyaa Pharmaceutical Convoy"
+      - LOC-077
+      - "Anaadhi Protected Judicial-Transfer Vehicle"
+    B33:
+      - LOC-072
+      - "Janne's Home"
+      - LOC-073
+      - "Sarjanya Headquarters"
+      - LOC-074
+      - "Sarjanya Operations Compound"
+      - LOC-081
+      - LOC-082
+      - LOC-083
+      - LOC-084
+      - LOC-085
+      - "Independent Secure Medical Unit"
+      - LOC-086
+      - LOC-087
+  exact_checked_in_drive_evidence_preserved:
+    LOC-011:
+      drive_file_id: 1fvisjiZTciVLMrgJgWuTOn6FqbkPxJXD
+      audit_status: PASS
+      approval_promotion_from_this_audit: false
+
+b30:
+  scenes: [87, 88, 89, 90, 91, 92]
+  p0_location_language: >-
+    INT Marsyaa Adraka study; media executive/news floors; abandoned irrigation telemetry shelter;
+    multi-location truth-war montage.
+  exact_root_routing:
+    LOC-002:
+      canonical_name: Adraka Medical University
+      evidence_state: EXISTING_LOCKED_CROSSWALK_INHERITED_ONLY_WHERE_LINKED
+      action: KEEP_EXISTING_BINDING
+    LOC-003:
+      canonical_name: Paraane Campus / Central Complex
+      evidence_state: EXISTING_LOCKED_CROSSWALK_INHERITED_ONLY_WHERE_LINKED
+      action: KEEP_EXISTING_BINDING
+    LOC-011:
+      canonical_name: "Parvaran and Janne's House"
+      scene_beats: [91]
+      evidence_state: EXISTING_LOCKED_CROSSWALK_PLUS_CHECKED_IN_DRIVE_AUDIT
+      action: KEEP_AND_DO_NOT_ALIAS_TO_LOC-072
+    LOC-068:
+      canonical_name: Paraane-Certified Pharmaceutical Store
+      scene_beats: [87]
+      evidence: "inventory-vault continuation from SC086 into SC087"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+    LOC-069:
+      canonical_name: "Marsyaa's House"
+      scene_beats: [87, 91, 92]
+      evidence: "existing locked late crosswalk routes Marsyaa house/study to these scenes"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+    LOC-070:
+      canonical_name: Kadraayini Media Network
+      scene_beats: [87, 88, 89, 90, 91, 92]
+      evidence: "existing locked late crosswalk routes executive/news-command/live-control use"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+      nested_spaces:
+        SUB-070-01:
+          name: Executive Floor
+          status: METADATA_EVIDENCED__VISUAL_PENDING
+        SUB-070-02:
+          name: News Command Floor
+          status: METADATA_EVIDENCED__VISUAL_PENDING
+    LOC-071:
+      canonical_name: Abandoned Irrigation Telemetry Shelter
+      scene_beats: [89, 91, 92]
+      evidence: "existing locked late crosswalk"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+    LOC-080:
+      canonical_name: Kendhalaa Police Headquarters
+      scene_beats: [91]
+      evidence: "controlled police-HQ broadcast cutaway in locked late crosswalk"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+  exact_mobile_routing:
+    LOC-076:
+      canonical_name: Marsyaa Pharmaceutical Convoy
+      scene_beats: [92]
+      status: METADATA_EVIDENCED__VISUAL_PENDING
+    LOC-077:
+      canonical_name: Anaadhi Protected Judicial-Transfer Vehicle
+      scene_beats: [92]
+      status: METADATA_EVIDENCED__VISUAL_PENDING
+  unresolved_hold_routing:
+    sarjanya_site:
+      candidates: [LOC-073, LOC-074]
+      status: OPEN_UNRESOLVED
+      reason: >-
+        B30's truth-war montage has Sarjanya-linked characters, but the available locked controls in
+        this audit do not prove which HOLD-separated Sarjanya root is physically shown. Do not add
+        either root solely from character presence.
+  requirement_correction:
+    remove_as_stale: []
+    keep_existing_semantic_refs:
+      - LOC-ADRAKA-SYSTEMS-LAB
+      - LOC-PARAANE-CAMPUS-MATURE
+    add_exact_required_root_refs:
+      - LOC-068
+      - LOC-069
+      - LOC-070
+      - LOC-071
+      - LOC-080
+    add_existing_domestic_semantic_ref:
+      - LOC-PARVARAN-JANNE-HOUSE
+    reason: >-
+      Existing LOC-002/LOC-003 inheritance is retained because the locked crosswalk says those roots
+      are linked where actually used. Exact late roots are added so visual gaps are explicit. The
+      domestic beat uses the existing LOC-011 family through its semantic registry reference; LOC-072
+      is not substituted.
+  xform_policy:
+    - >-
+      Any B30 media-network state remains under LOC-070. No transformation state may mint a second
+      Kadraayini Media Network root.
+
+b33:
+  scenes: [99]
+  p0_location_language: >-
+    Paraane Central; Kendhalaa Police HQ; detention review; Sarjanya compound; courts/tribunal;
+    media network; Paraane Hospital rehab; public inquiry; child wing; memorial courtyard; Janne house;
+    independent secure medical unit.
+  exact_root_routing:
+    LOC-003:
+      canonical_name: Paraane Campus / Central Complex
+      evidence: "P0 SC099 montage explicitly includes Paraane Central, Hospital rehab and child wing"
+      action: KEEP_EXISTING_ROOT__P4_STATE_WORK_REMAINS
+      physical_state_rule: "P4 dismantling/reform is a state of LOC-003, not a new root"
+    LOC-070:
+      canonical_name: Kadraayini Media Network
+      evidence: "P0 SC099 montage explicitly includes media network"
+      action: ADD_EXACT_ROOT__XFORM_STATE__VISUAL_PENDING
+      xform_rule: >-
+        SC099 reform/editorial-charter transformation reuses LOC-070 physical identity. XFORM changes
+        state/occupation/governance language only and never creates a new root.
+    LOC-072:
+      canonical_name: "Janne's Home"
+      evidence: "P0 SC099 explicitly names Janne house; frozen ENV-6L defines LOC-072 Janne's Home"
+      action: REPLACE_STALE_LOC-011_BINDING_WITH_LOC-072__VISUAL_PENDING
+      hold_guard: "Never inherit LOC-011 Parvaran-and-Janne ST00 topology by alias."
+    LOC-074:
+      canonical_name: Sarjanya Operations Compound
+      evidence: >-
+        P0 SC099 explicitly names Sarjanya compound and anchors the montage with Sarjanya armoury/weapons
+        and sealed drug-room evidence, matching the Operations Compound identity.
+      action: ADD_EXACT_ROOT__VISUAL_PENDING
+      hold_guard: "LOC-073 Sarjanya Headquarters remains distinct and is not selected by this evidence."
+    LOC-080:
+      canonical_name: Kendhalaa Police Headquarters
+      evidence: "P0 SC099 explicitly names Kendhalaa Police HQ"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+    LOC-081:
+      canonical_name: Detention-Review Hall
+      evidence: "P0 SC099 explicitly names detention review"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+    LOC-082:
+      canonical_name: Joint Kendhalaa–Adraka Tribunal
+      evidence: "P0 SC099 explicitly names courts/tribunal; locked crosswalk selects LOC-082"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+    LOC-083:
+      canonical_name: Manimantharaa Hearing Venue
+      evidence: "locked ENV-6L late crosswalk exact SC099 root"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+    LOC-084:
+      canonical_name: Kendhalaa Memorial Courtyard
+      evidence: "P0 SC099 explicitly names memorial courtyard"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+    LOC-085:
+      canonical_name: Independent Secure Medical Unit
+      evidence: >-
+        P0 B33 location language explicitly includes independent secure medical unit and the character
+        state says Anaadhi later appears in the independent secure medical-unit state six months later.
+      action: ADD_EXACT_ROOT__VISUAL_PENDING
+      separation_rule: "LOC-085 is not LOC-087; do not merge secure medical unit with IJMC."
+    LOC-086:
+      canonical_name: Public Inquiry Venue
+      evidence: "P0 SC099 explicitly names public inquiry"
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+    LOC-087:
+      canonical_name: Independent Judicial Medical Centre
+      evidence: >-
+        Existing locked late crosswalk independently selects LOC-087 for SC099 and records a distinct
+        IJMC case-review nested-control requirement. Preserve that evidence rather than replacing it
+        with LOC-085.
+      action: KEEP_EXACT_ROOT__VISUAL_PENDING
+      nested_guard: >-
+        SUB-087-01 is the Scene-100 Interview Room. Do not reuse that subspace as the SC099 case-review
+        room. The SC099 IJMC nested case-review identity remains OPEN_UNRESOLVED until separately bound.
+  corrected_env6l_roots:
+    - LOC-003
+    - LOC-070
+    - LOC-072
+    - LOC-074
+    - LOC-080
+    - LOC-081
+    - LOC-082
+    - LOC-083
+    - LOC-084
+    - LOC-085
+    - LOC-086
+    - LOC-087
+  remove_stale_root_bindings:
+    - LOC-011
+  explicitly_not_selected:
+    - LOC-073
+  requirement_correction:
+    keep_existing_semantic_refs:
+      - LOC-PARAANE-CAMPUS-MATURE
+    add_exact_required_root_refs:
+      - LOC-070
+      - LOC-072
+      - LOC-074
+      - LOC-080
+      - LOC-081
+      - LOC-082
+      - LOC-083
+      - LOC-084
+      - LOC-085
+      - LOC-086
+      - LOC-087
+  remaining_nested_or_state_work:
+    - "LOC-003 Paraane P4 dismantling/reform physical states and nested Paraane rooms"
+    - "LOC-070 reform/XFORM state; same root, no new root"
+    - "LOC-072 Janne-home later state/interior"
+    - "LOC-074 operations compound armoury/drug-room nested control without invented SUB IDs"
+    - "LOC-087 SC099 case-review nested identity; never substitute SUB-087-01 Interview Room"
+
+registry_bridge_to_add_fail_closed:
+  rule: >-
+    Define exact numeric roots required by B30/B33 so the validator sees canonical metadata but keeps
+    each unverified visual as MISSING_APPROVED_ASSET/path=null.
+  refs:
+    LOC-069: "Marsyaa's House"
+    LOC-070: "Kadraayini Media Network"
+    LOC-071: "Abandoned Irrigation Telemetry Shelter"
+    LOC-072: "Janne's Home"
+    LOC-074: "Sarjanya Operations Compound"
+    LOC-080: "Kendhalaa Police Headquarters"
+    LOC-081: "Detention-Review Hall"
+    LOC-082: "Joint Kendhalaa–Adraka Tribunal"
+    LOC-083: "Manimantharaa Hearing Venue"
+    LOC-084: "Kendhalaa Memorial Courtyard"
+    LOC-085: "Independent Secure Medical Unit"
+    LOC-086: "Public Inquiry Venue"
+  required_record_state:
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+
+atomic_machine_control_changes_authorized:
+  files:
+    - production/references/REFERENCE_REGISTRY.yaml
+    - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+    - production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+    - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  B30:
+    env6l_roots_change: NONE
+    mobile_refs_change: NONE
+    required_location_refs: >-
+      Preserve current semantic LOC-ADRAKA-SYSTEMS-LAB and LOC-PARAANE-CAMPUS-MATURE; add
+      LOC-PARVARAN-JANNE-HOUSE and exact LOC-068/069/070/071/080 refs.
+    approved_root_change: NONE
+  B33:
+    env6l_roots_change: "replace LOC-011 with LOC-070, LOC-072, LOC-074 and LOC-085 while preserving existing exact late roots"
+    required_location_refs: >-
+      Preserve LOC-PARAANE-CAMPUS-MATURE and add exact LOC-070/072/074/080/081/082/083/084/085/086/087.
+    approved_root_change: NONE
+
+held_open_after_audit:
+  - "B30 Sarjanya physical-root selection LOC-073 versus LOC-074"
+  - "B30 any unproven montage cutaway not explicitly supported by existing locked crosswalk"
+  - "B33 LOC-087 SC099 case-review nested-space ID"
+  - "all unverified B30/B33 late-root visual masters"
+  - "all required late physical/XFORM states and unbound nested rooms"
+
+expected_validator_behavior:
+  raw_blocker_count_may_increase: true
+  reason: >-
+    Exact numeric visual-pending refs are being exposed instead of hidden behind broad semantic or
+    incomplete requirement lists. A higher raw count is acceptable if it represents more truthful
+    canonical dependencies.
+  no_batch_should_be_falsely_unlocked: true
+
+safety:
+  media_generated: false
+  media_replaced: false
+  consent_initiated: false
+  avatar_or_look_created: false
+  render_or_lipsync_submitted: false
+  paid_heygen_api_called: false
+  approved_status_changed: false
