@@ -238,7 +238,17 @@ locations:
   LOC-PARAANE-PHARMACY-VAULT: {name: "Paraane pharmaceutical transfer vault", status: MISSING_APPROVED_ASSET, path: null}
   LOC-PARLIPATNA-HOSPITAL: {name: "Parlipatna Multi-Speciality Maternity Hospital family", status: MISSING_APPROVED_ASSET, path: null}
   LOC-FOUR-ROAD-JUNCTION: {name: "Parlipatna four-road junction", status: MISSING_APPROVED_ASSET, path: null}
-  LOC-PARVARAN-JANNE-HOUSE: {name: "Parvaran and Janne home / tulsi courtyard", status: MISSING_APPROVED_ASSET, path: null}
+  LOC-PARVARAN-JANNE-HOUSE:
+    name: "Parvaran and Janne home / tulsi courtyard"
+    env6l_id: LOC-011
+    drive_audit_file_id: "1fvisjiZTciVLMrgJgWuTOn6FqbkPxJXD"
+    drive_audit_status: PASS
+    drive_audit_scope: "root ST00; interior continuity still separate"
+    formal_visual_lock_status: "UNVERIFIED_IN_CURRENT_REFERENCE_REGISTRY"
+    status: MISSING_APPROVED_ASSET
+    path: null
+    hold_separated_from: LOC-072
+    note: "Operational Drive-audit reuse evidence does not promote P1 visual approval without accepted file + SHA256."
   LOC-BHAIGAARA-FOREST-SURVIVAL: {name: "Bhaigaara forest survival family", status: MISSING_APPROVED_ASSET, path: null}
   LOC-FOREST-EDGE-BARTER:
     name: "Forest-Edge Barter Hamlet / market family"
@@ -655,6 +665,114 @@ late_env6l_numeric_root_references:
   LOC-068:
     name: "Paraane-Certified Pharmaceutical Store"
     canonical_env6l_root: LOC-068
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-069:
+    name: "Marsyaa's House"
+    canonical_env6l_root: LOC-069
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-070:
+    name: "Kadraayini Media Network"
+    canonical_env6l_root: LOC-070
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-071:
+    name: "Abandoned Irrigation Telemetry Shelter"
+    canonical_env6l_root: LOC-071
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-072:
+    name: "Janne's Home"
+    canonical_env6l_root: LOC-072
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-074:
+    name: "Sarjanya Operations Compound"
+    canonical_env6l_root: LOC-074
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-080:
+    name: "Kendhalaa Police Headquarters"
+    canonical_env6l_root: LOC-080
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-081:
+    name: "Detention-Review Hall"
+    canonical_env6l_root: LOC-081
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-082:
+    name: "Joint Kendhalaa–Adraka Tribunal"
+    canonical_env6l_root: LOC-082
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-083:
+    name: "Manimantharaa Hearing Venue"
+    canonical_env6l_root: LOC-083
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-084:
+    name: "Kendhalaa Memorial Courtyard"
+    canonical_env6l_root: LOC-084
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-085:
+    name: "Independent Secure Medical Unit"
+    canonical_env6l_root: LOC-085
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-086:
+    name: "Public Inquiry Venue"
+    canonical_env6l_root: LOC-086
     status: MISSING_APPROVED_ASSET
     path: null
     metadata_status: LOCKED

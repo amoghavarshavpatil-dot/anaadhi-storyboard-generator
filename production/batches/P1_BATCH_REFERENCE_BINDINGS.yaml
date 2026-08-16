@@ -220,10 +220,10 @@ location_bindings:
   B30:
     scenes: [87,88,89,90,91,92]
     approved_root: "PARTIAL"
-    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
+    canonical_metadata_binding_status: B30_B33_ZERO_CREDIT_ROUTING_AUDITED__VISUAL_APPROVAL_UNCHANGED
     env6l_roots: [LOC-002, LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]
     mobile_refs: [LOC-076, LOC-077]
-    remaining_location_work: ["Kadraayini Media Network root + command floor canonical binding", "irrigation/live-confession locations", "required late states"]
+    remaining_location_work: ["LOC-068/069/070/071/080 visual masters", "LOC-070 Executive/News floors", "LOC-011 interior continuity", "Sarjanya HOLD root unresolved", "required late/XFORM states"]
   B31:
     scenes: [93,94,95,96]
     env6l_roots: [LOC-075]
@@ -242,9 +242,9 @@ location_bindings:
   B33:
     scenes: [99]
     approved_root: "PARTIAL"
-    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
-    env6l_roots: [LOC-003, LOC-011, LOC-080, LOC-081, LOC-082, LOC-083, LOC-084, LOC-086, LOC-087]
-    remaining_location_work: ["Paraane dismantling later-state", "Kendhalaa Memorial Courtyard canonical binding"]
+    canonical_metadata_binding_status: B30_B33_ZERO_CREDIT_ROUTING_AUDITED__VISUAL_APPROVAL_UNCHANGED
+    env6l_roots: [LOC-003, LOC-070, LOC-072, LOC-074, LOC-080, LOC-081, LOC-082, LOC-083, LOC-084, LOC-085, LOC-086, LOC-087]
+    remaining_location_work: ["LOC-003 P4 dismantling/reform states", "LOC-070 XFORM state", "LOC-072 later-home interior", "LOC-074 armoury/drug-room nested controls", "LOC-080..LOC-087 visual masters", "LOC-087 SC099 case-review nested identity"]
   B34:
     scenes: [100]
     env6l_roots: [LOC-087]
