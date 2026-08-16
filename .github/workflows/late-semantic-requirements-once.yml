@@ -1,0 +1,53 @@
+name: Late Semantic Requirements Once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/late-semantic-requirements-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-control-only:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install control dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Apply fail-closed semantic corrections
+        run: python production/locations/apply_late_semantic_requirement_corrections.py
+      - name: Verify mutation scope and approval safety
+        shell: bash
+        run: |
+          set -euo pipefail
+          changed="$(git diff --name-only)"
+          expected=$'production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml\nproduction/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml\nproduction/references/BATCH_REFERENCE_REQUIREMENTS.yaml\nproduction/references/REFERENCE_REGISTRY.yaml'
+          printf '%s\n' "$changed"
+          test "$changed" = "$expected" || {
+            echo 'Unexpected mutation scope; refusing commit.'
+            exit 1
+          }
+          ! git diff | grep -E '^\+.*(approved_root: true|status: APPROVED)' || {
+            echo 'Forbidden approval promotion detected.'
+            exit 1
+          }
+      - name: Commit corrected late location requirements
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'amoghavarshavpatil-dot'
+          git config user.email 'amoghavarshavpatil@gmail.com'
+          git add production/references/REFERENCE_REGISTRY.yaml \
+                  production/references/BATCH_REFERENCE_REQUIREMENTS.yaml \
+                  production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml \
+                  production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+          git commit -m 'Correct clean late ENV-6L semantic requirements'
+          git push origin HEAD:main
