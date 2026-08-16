@@ -1,29 +1,98 @@
-name: FFmpeg Setup Smoke Test
+name: AQ007 AQ009 Zero-Credit Control Refresh Once
 
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/ffmpeg-smoke-test.yml'
-  workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
 
 jobs:
-  verify-ffmpeg:
-    runs-on: ubuntu-latest
+  refresh-control-only:
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup FFmpeg
-        uses: ./.github/actions/setup-ffmpeg
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
-      - name: Verify media tools
+      - name: Install control dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+
+      - name: Refresh materialized zero-credit controls
+        run: python production/heygen/refresh_zero_credit_controls.py
+
+      - name: Verify exact AQ007 AQ008 AQ009 state and mutation scope
         shell: bash
         run: |
           set -euo pipefail
-          command -v ffmpeg
-          command -v ffprobe
-          ffmpeg -hide_banner -f lavfi -i color=c=black:s=320x180:d=0.25 -c:v libx264 -pix_fmt yuv420p -y /tmp/anaadhi_ffmpeg_test.mp4
-          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 /tmp/anaadhi_ffmpeg_test.mp4
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          matrix = yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml').read_text())
+          plan = yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml').read_text())
+          queue = yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml').read_text())
+
+          assert matrix['report']['summary'] == {
+              'selected_batches': 34,
+              'passed_batches': 0,
+              'blocked_batches': 34,
+              'global_blockers': 0,
+              'total_blockers': 293,
+          }
+          assert matrix['validator_exit_code'] == 2
+          assert plan['deduplication_summary']['canonical_dependencies'] == 182
+          assert queue['summary']['active_action_packets'] == 182
+          assert queue['summary']['new_packet_ids_allocated_this_refresh'] == []
+          assert queue['summary']['zero_credit_execution_state_counts']['ZERO_CREDIT_ACTIONABLE'] == 146
+          assert queue['summary']['zero_credit_execution_state_counts']['DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE'] == 36
+          assert queue['credit_gate']['paid_heygen_work_ready'] is False
+          assert queue['credit_gate']['no_heygen_consent_or_media_execution'] is True
+
+          packets = {p['packet_id']: p for p in queue['packets']}
+          assert packets['HEYGEN-AQ-001']['dependency_id'] == 'CONSENT::ANAADHI_PRIVATE_AVATAR'
+          assert packets['HEYGEN-AQ-002']['dependency_id'] == 'CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml'
+          assert packets['HEYGEN-AQ-003']['dependency_id'] == 'AVATAR_LOOK_SET::B01-AV-08'
+          assert packets['HEYGEN-AQ-007']['dependency_id'] == 'REF::LOC-BHAIGAARA-FOREST-SURVIVAL'
+          assert packets['HEYGEN-AQ-007']['impacted_batches'] == ['B13', 'B19']
+          assert packets['HEYGEN-AQ-008']['dependency_id'] == 'REF::LOC-ANAADHI-HIDDEN-CABINS'
+          assert packets['HEYGEN-AQ-008']['impacted_batches'] == ['B16', 'B17', 'B18']
+          assert packets['HEYGEN-AQ-009']['dependency_id'] == 'REF::PRP-PARAANE-EMBLEM'
+          assert packets['HEYGEN-AQ-009']['impacted_batches'] == ['B01', 'B03', 'B06', 'B24', 'B26', 'B29', 'B30', 'B33']
+          for pid in ('HEYGEN-AQ-001','HEYGEN-AQ-002','HEYGEN-AQ-003'):
+              assert packets[pid]['zero_credit_execution_state'] == 'DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE'
+              assert packets[pid]['heygen_submission_allowed'] is False
+          PY
+
+          changed="$(git diff --name-only)"
+          expected=$'production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml\nproduction/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml\nproduction/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml'
+          printf '%s\n' "$changed"
+          test "$changed" = "$expected" || { echo 'Unexpected mutation scope'; exit 1; }
+
+      - name: Commit materialized controls only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml \
+                  production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml \
+                  production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+          git commit -m 'Refresh AQ007 AQ009 zero-credit dependency controls'
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 6
