@@ -1,0 +1,136 @@
+version: 1
+project: ANAADHI
+control: ENV6L-LOC062-087-CANONICAL-MAPPING
+status: FROZEN_METADATA_MAPPING_IMPORTED__VISUALS_NOT_APPROVED_BY_THIS_FILE
+as_of_local: "2026-08-16T18:48:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+
+purpose: >-
+  Import the exact frozen ENV-6L canonical ID/name mapping for LOC-062 through LOC-087
+  before any late-film root binding or future visual-generation decision. This file is
+  metadata/control only and does not create, approve, replace, or lock a visual asset.
+
+authority:
+  env6l_registry:
+    file_name: ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json
+    registry_id: ENV-6L-ASSET-LOCK-REGISTRY-v001
+    source_manifest_id: ENV-6J-MASTER-v001
+    source_manifest_hash: d308e380895b75fabd0d66e417d63357da8e52456e4d2fa9c2c039d2c60a9961
+    canonical_metadata: FROZEN
+    visual_lock_rule: MUST_HAVE_ACTUAL_ACCEPTED_FILE_AND_SHA256_BEFORE_VISUAL_LOCK
+  env6j_manifest:
+    file_name: ENV-6J_Master_Environment_Generation_Manifest_v001.json
+    manifest_id: ENV-6J-MASTER-v001
+    status: LOCKED
+
+invariants:
+  exact_id_name_mapping_only: true
+  infer_names_from_numeric_order: false
+  alias_inference_allowed: false
+  canonical_id_renaming_allowed: false
+  visual_approval_implied: false
+  approved_root_implied: false
+  media_generation_authorized: false
+  media_replacement_authorized: false
+  storyboard_or_camera_authority: false
+  heygen_submission_or_execution: false
+  adult_anaadhi_height_m: 1.93
+
+source_visual_state:
+  rule: >-
+    The frozen ENV-6L entries for this range are metadata-locked but carry no accepted
+    workspace visual file/SHA in that source registry. A later accepted file plus SHA256
+    is required before any visual APPROVED/locked state may be recorded.
+  imported_as_visual_approval: false
+
+locations:
+  LOC-062:
+    canonical_name: "Independent Emergency Transfer Vehicle"
+  LOC-063:
+    canonical_name: "Independent Ayurvedic Surgery Centre"
+  LOC-064:
+    canonical_name: "Forest Transfer Road"
+  LOC-065:
+    canonical_name: "Police Medical-Transfer Vehicle"
+  LOC-066:
+    canonical_name: "Forest Communications Tower"
+  LOC-067:
+    canonical_name: "Kendhalaa Convention Centre"
+  LOC-068:
+    canonical_name: "Paraane-Certified Pharmaceutical Store"
+  LOC-069:
+    canonical_name: "Marsyaa's House"
+  LOC-070:
+    canonical_name: "Kadraayini Media Network"
+  LOC-071:
+    canonical_name: "Abandoned Irrigation Telemetry Shelter"
+  LOC-072:
+    canonical_name: "Janne's Home"
+  LOC-073:
+    canonical_name: "Sarjanya Headquarters"
+  LOC-074:
+    canonical_name: "Sarjanya Operations Compound"
+  LOC-075:
+    canonical_name: "Joint Kendhalaa–Adraka Border Checkpoint"
+  LOC-076:
+    canonical_name: "Marsyaa Pharmaceutical Convoy"
+  LOC-077:
+    canonical_name: "Anaadhi Protected Judicial-Transfer Vehicle"
+  LOC-078:
+    canonical_name: "Independent Judicial Complex"
+  LOC-079:
+    canonical_name: "Independent District Court"
+  LOC-080:
+    canonical_name: "Kendhalaa Police Headquarters"
+  LOC-081:
+    canonical_name: "Detention-Review Hall"
+  LOC-082:
+    canonical_name: "Joint Kendhalaa–Adraka Tribunal"
+  LOC-083:
+    canonical_name: "Manimantharaa Hearing Venue"
+  LOC-084:
+    canonical_name: "Kendhalaa Memorial Courtyard"
+  LOC-085:
+    canonical_name: "Independent Secure Medical Unit"
+  LOC-086:
+    canonical_name: "Public Inquiry Venue"
+  LOC-087:
+    canonical_name: "Independent Judicial Medical Centre"
+
+known_subspace_evidence_relevant_to_late_bindings:
+  LOC-063:
+    - SUB-063-01: "Operating Theatre"
+    - SUB-063-02: "Forest Courtyard"
+    - SUB-063-03: "Recovery Ward"
+    - SUB-063-04: "Covered Forest Walkway"
+    - SUB-063-05: "Medicinal Garden"
+    - SUB-063-06: "Recovery Veranda"
+  LOC-070:
+    - SUB-070-01: "Executive Floor"
+    - SUB-070-02: "News Command Floor"
+  LOC-075:
+    - SUB-075-01: "Temporary Judicial Evidence Chamber"
+  LOC-079:
+    - SUB-079-01: "Remand and Systemic Review Chamber"
+  LOC-087:
+    - SUB-087-01: "Interview Room"
+
+binding_policy:
+  - >-
+    A pending semantic reference may be replaced/bound to a LOC-062..LOC-087 ID only
+    when screenplay/locked scene-support evidence proves that exact root identity.
+  - >-
+    Importing a canonical ID/name is not proof that a required visual exists and is not
+    permission to set approved_root=true.
+  - >-
+    Mobile identities remain mobile; do not reinterpret LOC-062, LOC-065, LOC-076 or
+    LOC-077 as fixed architecture.
+  - >-
+    Existing Hold/Alias families are continuity warnings, not authority to merge distinct
+    canonical roots.
+
+safety:
+  media_generated: false
+  media_replaced: false
+  approved_status_changed: false
+  heygen_called: false
