@@ -227,7 +227,9 @@ def build_queue() -> dict[str, Any]:
     deps = sorted(deps, key=lambda d: priority_key(d, no_new_media))
     packets: list[dict[str, Any]] = []
     owner_queues: dict[str, list[str]] = defaultdict(list)
+    conditional_owner_queues: dict[str, list[str]] = defaultdict(list)
     lane_counts: Counter[str] = Counter()
+    conditional_lane_counts: Counter[str] = Counter()
     priority_counts: Counter[str] = Counter()
 
     for idx, dep in enumerate(deps, start=1):
@@ -277,6 +279,11 @@ def build_queue() -> dict[str, Any]:
         packets.append(packet)
         owner_queues[owner].append(packet_id)
         lane_counts[owner] += 1
+        for handoff in packet["conditional_handoffs"]:
+            target = handoff.get("to_owner_lane")
+            if target in OWNER_LANES:
+                conditional_owner_queues[target].append(packet_id)
+                conditional_lane_counts[target] += 1
         priority_counts[priority_class] += 1
 
     packet_ids = [p["packet_id"] for p in packets]
@@ -311,12 +318,21 @@ def build_queue() -> dict[str, Any]:
         "summary": {
             "action_packets": len(packets),
             "proven_no_new_media_packets": len(no_new_media),
-            "owner_lane_counts": dict(sorted(lane_counts.items())),
+            "owner_lane_counts": {lane: lane_counts.get(lane, 0) for lane in OWNER_LANES},
+            "conditional_handoff_lane_counts": {lane: conditional_lane_counts.get(lane, 0) for lane in OWNER_LANES},
             "priority_class_counts": dict(sorted(priority_counts.items())),
             "first_six_packet_ids": packet_ids[:6],
             "first_six_dependency_ids": dep_ids[:6],
         },
         "owner_queues": {lane: owner_queues.get(lane, []) for lane in OWNER_LANES},
+        "owner_action_views": {
+            lane: {
+                "primary_packet_ids": owner_queues.get(lane, []),
+                "conditional_handoff_packet_ids": sorted(set(conditional_owner_queues.get(lane, []))),
+                "all_relevant_packet_ids": sorted(set(owner_queues.get(lane, [])) | set(conditional_owner_queues.get(lane, []))),
+            }
+            for lane in OWNER_LANES
+        },
         "priority_policy": [
             "P0: the six source-plan dependencies proven to require no new media",
             "P1: shared dependencies ordered by descending batch impact, then earliest impacted batch/source step",
@@ -343,6 +359,7 @@ def main() -> int:
             "action_packets": queue["summary"]["action_packets"],
             "proven_no_new_media_packets": queue["summary"]["proven_no_new_media_packets"],
             "owner_lane_counts": queue["summary"]["owner_lane_counts"],
+            "conditional_handoff_lane_counts": queue["summary"]["conditional_handoff_lane_counts"],
             "priority_class_counts": queue["summary"]["priority_class_counts"],
             "first_six_dependency_ids": queue["summary"]["first_six_dependency_ids"],
             "output": out.as_posix(),
