@@ -301,18 +301,18 @@ batches:
     scenes: [75,76,77,78,79,80]
     env6l_roots: [LOC-063]
     mobile_refs: [LOC-062]
-    pending_named_location_refs: [LOC-INDEPENDENT-SURGERY]
+    pending_named_location_refs: [LOC-063]
     p1_location_status: CANONICAL_ROOT_METADATA_BOUND__VISUAL_AND_SEMANTIC_GAPS_REMAIN
-    required_location_refs: [LOC-INDEPENDENT-SURGERY]
+    required_location_refs: [LOC-063]
     required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
     required_prop_refs: [VEH-INDEPENDENT-EMERGENCY]
   B28:
     scenes: [81,82]
     env6l_roots: [LOC-064, LOC-066]
     mobile_refs: [LOC-065]
-    pending_named_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-PARAANE-CAMPUS-MATURE]
+    pending_named_location_refs: [LOC-064, LOC-066]
     p1_location_status: PARTIAL__LATE_ROOT_METADATA_BOUND__VISUAL_AND_SEMANTIC_GAPS_REMAIN
-    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-PARAANE-CAMPUS-MATURE]
+    required_location_refs: [LOC-064, LOC-066]
     required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
     required_prop_refs: []
   B29:
@@ -335,17 +335,17 @@ batches:
     scenes: [93,94,95,96]
     env6l_roots: [LOC-075]
     mobile_refs: [LOC-076, LOC-077]
-    pending_named_location_refs: [LOC-BORDER-CHECKPOINT, LOC-TRIBUNAL-COURT]
+    pending_named_location_refs: [LOC-075]
     p1_location_status: CANONICAL_ROOT_METADATA_BOUND__VISUAL_AND_STALE_SEMANTIC_GAPS_REMAIN
-    required_location_refs: [LOC-BORDER-CHECKPOINT, LOC-TRIBUNAL-COURT]
+    required_location_refs: [LOC-075]
     required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY]
     required_prop_refs: []
   B32:
     scenes: [97,98]
     env6l_roots: [LOC-078, LOC-079]
-    pending_named_location_refs: [LOC-TRIBUNAL-COURT]
+    pending_named_location_refs: [LOC-078, LOC-079]
     p1_location_status: CANONICAL_ROOT_METADATA_BOUND__VISUAL_AND_STALE_SEMANTIC_GAPS_REMAIN
-    required_location_refs: [LOC-TRIBUNAL-COURT]
+    required_location_refs: [LOC-078, LOC-079]
     required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY]
     required_prop_refs: []
   B33:
@@ -358,9 +358,9 @@ batches:
   B34:
     scenes: [100]
     env6l_roots: [LOC-087]
-    pending_named_location_refs: [LOC-IJMC]
+    pending_named_location_refs: [LOC-087]
     p1_location_status: CANONICAL_ROOT_METADATA_BOUND__VISUAL_AND_NESTED_GAPS_REMAIN
-    required_location_refs: [LOC-IJMC]
+    required_location_refs: [LOC-087]
     required_anaadhi_refs: [AGE-ANAADHI-27-FINAL, HR-ANAADHI-27-FINAL, CST-ANAADHI-27-FINAL, INJ-ANAADHI-27-FINAL]
     required_prop_refs: []
 

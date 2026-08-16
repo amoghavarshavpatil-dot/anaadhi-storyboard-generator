@@ -577,3 +577,69 @@ parallel_earth_grammar:
     status: MISSING_APPROVED_ASSET
     path: null
     notes: "Base approved Parallel-Earth grammar family. Physical anchors inherit unless screenplay explicitly changes world/age/role/injury/costume."
+
+# P1-LATE-ENV6L-NUMERIC-ROOT-REGISTRY-BRIDGE
+late_env6l_numeric_root_references:
+  LOC-063:
+    name: "Independent Ayurvedic Surgery Centre"
+    canonical_env6l_root: LOC-063
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-064:
+    name: "Forest Transfer Road"
+    canonical_env6l_root: LOC-064
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-066:
+    name: "Forest Communications Tower"
+    canonical_env6l_root: LOC-066
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-075:
+    name: "Joint Kendhalaa–Adraka Border Checkpoint"
+    canonical_env6l_root: LOC-075
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-078:
+    name: "Independent Judicial Complex"
+    canonical_env6l_root: LOC-078
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-079:
+    name: "Independent District Court"
+    canonical_env6l_root: LOC-079
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-087:
+    name: "Independent Judicial Medical Centre"
+    canonical_env6l_root: LOC-087
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml

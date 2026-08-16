@@ -200,7 +200,7 @@ location_bindings:
     mobile_refs: [LOC-062]
     approved_root: false
     canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
-    pending_named_location_refs: [LOC-INDEPENDENT-SURGERY]
+    pending_named_location_refs: [LOC-063]
     remaining_location_work: ["canonical ENV-6L root ID binding", "surgery and recovery subspaces"]
   B28:
     scenes: [81,82]
@@ -208,7 +208,7 @@ location_bindings:
     mobile_refs: [LOC-065]
     approved_root: "PARTIAL"
     canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
-    pending_named_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-PARAANE-CAMPUS-MATURE]
+    pending_named_location_refs: [LOC-064, LOC-066]
     remaining_location_work: ["Forest Transfer Road / Fallen-Tree Blockade canonical ENV-6L binding", "communications-tower scene geography"]
   B29:
     scenes: [83,84,85,86]
@@ -230,14 +230,14 @@ location_bindings:
     mobile_refs: [LOC-076, LOC-077]
     approved_root: false
     canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
-    pending_named_location_refs: [LOC-BORDER-CHECKPOINT, LOC-TRIBUNAL-COURT]
+    pending_named_location_refs: [LOC-075]
     remaining_location_work: ["canonical ENV-6L root IDs", "border medical corridor", "tribunal/court state"]
   B32:
     scenes: [97,98]
     env6l_roots: [LOC-078, LOC-079]
     approved_root: false
     canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
-    pending_named_location_refs: [LOC-TRIBUNAL-COURT]
+    pending_named_location_refs: [LOC-078, LOC-079]
     remaining_location_work: ["Independent Judicial Complex family-contact corridor", "remand court canonical bindings"]
   B33:
     scenes: [99]
@@ -250,7 +250,7 @@ location_bindings:
     env6l_roots: [LOC-087]
     approved_root: false
     canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
-    pending_named_location_refs: [LOC-IJMC]
+    pending_named_location_refs: [LOC-087]
     remaining_location_work: ["Independent Judicial Medical Centre root", "Scene-100 interview room nested identity"]
 
 non_location_reference_gate:

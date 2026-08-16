@@ -147,12 +147,12 @@ batches:
   B27:
     scenes: [75,76,77,78,79,80]
     anaadhi: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
-    locations: [LOC-INDEPENDENT-SURGERY]
+    locations: [LOC-063]
     props: [VEH-INDEPENDENT-EMERGENCY]
   B28:
     scenes: [81,82]
     anaadhi: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
-    locations: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-PARAANE-CAMPUS-MATURE]
+    locations: [LOC-064, LOC-066]
     props: []
   B29:
     scenes: [83,84,85,86]
@@ -167,12 +167,12 @@ batches:
   B31:
     scenes: [93,94,95,96]
     anaadhi: [AGE-ANAADHI-27-RECOVERY]
-    locations: [LOC-BORDER-CHECKPOINT, LOC-TRIBUNAL-COURT]
+    locations: [LOC-075]
     props: []
   B32:
     scenes: [97,98]
     anaadhi: [AGE-ANAADHI-27-RECOVERY]
-    locations: [LOC-TRIBUNAL-COURT]
+    locations: [LOC-078, LOC-079]
     props: []
   B33:
     scenes: [99]
@@ -182,7 +182,7 @@ batches:
   B34:
     scenes: [100]
     anaadhi: [AGE-ANAADHI-27-FINAL, HR-ANAADHI-27-FINAL, CST-ANAADHI-27-FINAL, INJ-ANAADHI-27-FINAL]
-    locations: [LOC-IJMC]
+    locations: [LOC-087]
     props: []
 
 # Every batch additionally inherits its exact named character list, costume/hair notes,
