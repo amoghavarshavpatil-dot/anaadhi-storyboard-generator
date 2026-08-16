@@ -1,0 +1,222 @@
+version: 1
+project: ANAADHI
+control: P1-AQ007-009-SHARED-CANONICAL-REUSE-CROSSWALK
+status: PARTIAL_EXACT_REUSE_BOUND__UNPROVEN_SUBFAMILIES_OPEN
+as_of_local: "2026-08-17T04:23:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+scope:
+  packets: [HEYGEN-AQ-007, HEYGEN-AQ-008, HEYGEN-AQ-009]
+  aliases:
+    - LOC-BHAIGAARA-FOREST-SURVIVAL
+    - LOC-ANAADHI-HIDDEN-CABINS
+    - PRP-PARAANE-EMBLEM
+
+sources:
+  requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  schema: production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  registry: production/references/REFERENCE_REGISTRY.yaml
+  drive_audit: production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml
+  recurrence_audit: ANAADHI_ENV-2C_Full_Recurrence_Scene-Use_Chronology_Audit.md
+  canonical_ledger: ANAADHI_ENV-2B_Canonical_Environment_Asset_Ledger.md
+  root_spatial_audit: ANAADHI_ENV-4A_68-Root_Site-Envelope_Compound-Zone_Local-Orientation_Audit.md
+  env6j_manifest: ENV-6J_Master_Environment_Generation_Manifest_v001.json
+  env6l_registry: ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json
+
+invariants:
+  aggregate_alias_is_not_a_single_visual_asset: true
+  one_root_plate_may_not_satisfy_an_aggregate_family: true
+  approved_ST00_does_not_satisfy_missing_later_state_or_nested_space: true
+  recurrence_identity_outweighs_scene_local_plate_convenience: true
+  operational_scene_local_LOC_plate_does_not_split_locked_ENV_recurrence: true
+  hold_and_collision_groups_remain_enforced: true
+  approved_status_change_authorized: false
+  media_generation_authorized: false
+  heygen_execution_authorized: false
+
+AQ007_forest_survival:
+  dependency_id: REF::LOC-BHAIGAARA-FOREST-SURVIVAL
+  prior_impacted_batches: [B12, B13, B14, B15, B18, B19, B20, B21, B22, B23, B25]
+  exact_reuse_bindings:
+    B12:
+      scenes: [28,29,30,31,32,33]
+      exact_operational_refs: [LOC-009, LOC-010, LOC-012, LOC-013, LOC-014, LOC-015, LOC-017]
+      canonical_ENV_families: [ENV-BHG-002, ENV-BHG-003, ENV-BHG-004, ENV-BHG-005, ENV-BHG-006, ENV-BHG-007, ENV-BHG-008]
+      note: "LOC-010 child-ravine plate and LOC-014 stream plate remain their own locked operational identities; recurrence metadata governs later returns."
+    B14:
+      scenes: [36,37]
+      exact_operational_refs: []
+      stale_aggregate_remove: true
+      reason: "Scene 036 is ENV-HAM-027; Scene 037 is ENV-CAB-002. No BHG forest-survival root is physically used."
+    B15:
+      scenes: [38,39,40,41,42]
+      exact_operational_refs: [LOC-021, LOC-024]
+      canonical_ENV_families: [ENV-BHG-008, ENV-BHG-006]
+      recurrence_guards:
+        - "ENV-BHG-008 is one route across Scenes 033/038; LOC-021 is a scene-local operational plate, not authority to split it from the earlier route."
+        - "ENV-BHG-006 is one stream/rock-shelf watercourse across Scenes 031/040/042/045; LOC-024 is a scene-local operational plate, not authority to invent a second watercourse."
+    B18:
+      scenes: [49,50]
+      exact_operational_refs: [LOC-041, LOC-044]
+      canonical_ENV_families: [ENV-BHG-016, ENV-BHG-017]
+      exclusion: "LOC-042 is CAB-005 Burnt Eucalyptus Cabin, not forest-survival family."
+    B20:
+      scenes: [53,54]
+      exact_operational_refs: []
+      stale_aggregate_remove: true
+      reason: "Scene 053 is ENV-HAM-021; Scene 054 is ENV-HAM-022. No BHG forest-survival row is used."
+    B21:
+      scenes: [55,56]
+      exact_operational_refs: [LOC-051]
+      canonical_ENV_families: [ENV-BHG-020]
+    B22:
+      scenes: [57,58]
+      exact_operational_refs: [LOC-054]
+      canonical_ENV_families: [ENV-BHG-011]
+      recurrence_guard: "ENV-BHG-011 is one clearing across Scenes 046/057. LOC-054 is scene-local operational evidence and may not split the canonical clearing identity from the earlier occurrence."
+    B23:
+      scenes: [59,60,61,62,63]
+      exact_operational_refs: [LOC-056, LOC-059]
+      canonical_ENV_families: [ENV-BHG-021, ENV-BHG-001]
+      note: "LOC-056 covers the recurring rest-path operational plate; LOC-059 covers the buffer-forest approach plate."
+    B25:
+      scenes: [67,68]
+      exact_operational_refs: [LOC-060, LOC-061]
+      canonical_ENV_families: [ENV-BHG-003, ENV-BHG-022]
+      hold_guard: "ENV-BHG-003 is the same ravine system across child/adult chronology, while LOC-010 and LOC-060 remain COLL-07/HOLD-separated operational plates; do not full-topology substitute either for the other."
+  unresolved_after_crosswalk:
+    B13:
+      scenes: [35]
+      canonical_ENV_families: [ENV-BHG-009, ENV-BHG-010]
+      reason: "Seasonal Shrinking Stream/Rain-Catch Basin plus observation-only distant festival view have no exact approved LOC-010..061 operational plate proven by the checked-in Drive audit. Never substitute LOC-014/024 or a village plate."
+    B19:
+      scenes: [51,52]
+      canonical_ENV_families: [ENV-BHG-018, ENV-BHG-019]
+      proven_partial_operational_ref: LOC-046
+      remaining_gap: ENV-BHG-018
+      reason: "LOC-046 proves the Dust Road dramatic segment only. ENV-BHG-018 is a four-branch avoidance network and may not be collapsed to one dust-road angle or to LOC-045 Half-Abandoned Grain Road."
+  post_crosswalk_live_batches_for_AQ007: [B13, B19]
+
+AQ008_hidden_cabins:
+  dependency_id: REF::LOC-ANAADHI-HIDDEN-CABINS
+  prior_impacted_batches: [B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B23]
+  exact_reuse_bindings:
+    B13:
+      canonical_ENV_family: ENV-CAB-001
+      exact_operational_refs: [LOC-018]
+      remaining_state_gap: LOC-018_ST01
+      note: "Approved root/ST00 remains valid; ST01 adolescent expansion stays OPEN_UNRESOLVED."
+    B14:
+      canonical_ENV_family: ENV-CAB-002
+      exact_operational_refs: [LOC-020]
+      remaining_subspaces: [interior_plate, loft_plate, concealed_lower_passage]
+    B15:
+      canonical_ENV_family: ENV-CAB-002
+      exact_operational_refs: [LOC-020]
+      recurrence_guard: "Scene 041 returns to the same first permanent cabin as Scene 037; do not invent a later hidden cabin."
+    B19:
+      scenes: [51,52]
+      exact_operational_refs: []
+      stale_aggregate_remove: true
+      reason: "Locked scene inversion contains ENV-BHG-018/019 and HAM road sites only; no CAB identity."
+    B20:
+      scenes: [53,54]
+      exact_operational_refs: []
+      stale_aggregate_remove: true
+      reason: "Locked scene inversion contains ENV-HAM-021/022 only; no CAB identity."
+    B21:
+      scenes: [55,56]
+      canonical_ENV_families: [ENV-CAB-006, ENV-CAB-007, ENV-CAB-008]
+      exact_operational_refs: [LOC-050, LOC-058, LOC-001]
+      hold_guards:
+        - "LOC-050 is the already-damaged SC055 hidden-cabin ruin; never pristine-reset."
+        - "LOC-058 is a cluster/network reference and never becomes one Anaadhi cabin."
+        - "LOC-001 remains the distinct Final/Primary/Raised Cabin and does not inherit CAB-006/CAB-007 damage."
+    B22:
+      scenes: [57,58]
+      canonical_ENV_families: [ENV-CAB-008]
+      exact_operational_refs: [LOC-001]
+      note: "Final-cabin fifteenth/sixteenth-name returns; broad hidden-cabin alias is stale here."
+    B23:
+      scenes: [59,60,61,62,63]
+      canonical_ENV_families: [ENV-CAB-007, ENV-CAB-008]
+      exact_operational_refs_for_AQ008: [LOC-058]
+      separate_existing_requirement: LOC-BHAIGAARA-RAISED-CABIN
+      note: "AQ008 resolves only the decoy/abandoned network; the final/raised cabin remains independently gated by its existing semantic requirement."
+  unresolved_after_crosswalk:
+    B16:
+      canonical_ENV_families: [ENV-CAB-003, ENV-CAB-004]
+      current_operational_plate: LOC-027
+      reason: "LOC-027 is an Anaadhi Mark Cabin with four locked mark states, but available evidence does not prove that it is a lossless substitute for both CAB-003 and CAB-004 story-distinct cabin identities. Keep aggregate open and LOC-027 ST01-ST03 open."
+    B17:
+      canonical_ENV_families: [ENV-CAB-004]
+      excluded_operational_plate: LOC-039
+      reason: "ENV6J explicitly HOLD-separates LOC-039 generic SC048 cabin from all named Anaadhi cabins; never use it to close CAB-004."
+    B18:
+      canonical_ENV_families: [ENV-CAB-005, ENV-CAB-004]
+      excluded_operational_plate: LOC-042
+      reason: "LOC-042/CAB-005 is separate murder geography and never Anaadhi's home; it cannot close the Scene-050 CAB-004 requirement."
+  post_crosswalk_live_batches_for_AQ008: [B16, B17, B18]
+
+AQ009_paraane_emblem:
+  dependency_id: REF::PRP-PARAANE-EMBLEM
+  prior_impacted_batches: [B01, B03, B06, B24, B26, B29, B30, B33]
+  github_registry_state:
+    status: MISSING_APPROVED_ASSET
+    path: null
+  connected_drive_exact_searches:
+    - query: "Paraane emblem"
+      exact_result: false
+    - query: "PARAANE"
+      exact_result: false
+    - query: "emblem"
+      exact_result: false
+  github_tree_exact_asset_path_found: false
+  conclusion: OPEN_UNRESOLVED
+  rule: >-
+    An emblem incidentally visible inside another Paraane environment/credential/wrist-device image is not
+    a standalone prop reference. Do not crop, infer, approve or bind incidental pixels as PRP-PARAANE-EMBLEM.
+    Future creation remains Work-page-only and requires a separate explicit media-creation gate.
+
+machine_binding_plan:
+  requirements_and_schema:
+    B12_replace_forest_alias_with: [LOC-009, LOC-010, LOC-012, LOC-013, LOC-014, LOC-015, LOC-017]
+    B13_replace_hidden_alias_with: [LOC-018]
+    B14_remove_forest_alias_and_replace_hidden_alias_with: [LOC-019, LOC-020]
+    B15_replace_forest_and_hidden_aliases_with: [LOC-021, LOC-024, LOC-020]
+    B18_replace_forest_alias_with: [LOC-041, LOC-044]
+    B19_remove_hidden_alias: true
+    B20_remove_forest_and_hidden_aliases: true
+    B21_replace_forest_and_hidden_aliases_with: [LOC-051, LOC-050, LOC-058, LOC-001]
+    B22_replace_forest_and_hidden_aliases_with: [LOC-054, LOC-001]
+    B23_replace_forest_and_hidden_aliases_with: [LOC-056, LOC-059, LOC-058]
+    B25_replace_forest_alias_with: [LOC-060, LOC-061]
+    keep_AQ007_alias_only_in: [B13, B19]
+    keep_AQ008_alias_only_in: [B16, B17, B18]
+    keep_AQ009_unchanged: true
+  binding_root_additions:
+    B15: [LOC-020]
+    B21: [LOC-001, LOC-058]
+    B22: [LOC-001]
+  approved_root_changes: 0
+
+expected_validator_delta_if_all_numeric_reuse_refs_are_currently_APPROVED:
+  AQ007_raw_reference_blockers: "11 -> 2"
+  AQ008_raw_reference_blockers: "11 -> 3"
+  AQ009_raw_reference_blockers: "8 -> 8"
+  expected_raw_blocker_delta: -17
+  prior_raw_blockers: 310
+  expected_raw_blockers_after_crosswalk: 293
+  note: "This is a pre-write expectation only; the permanent read-only validator remains authoritative."
+
+safety:
+  media_generated: false
+  media_replaced: false
+  consent_initiated: false
+  avatar_created: false
+  look_created: false
+  render_submitted: false
+  lipsync_submitted: false
+  paid_heygen_api_executed: false
+  approved_status_promoted: false
+  approved_root_promoted: false
