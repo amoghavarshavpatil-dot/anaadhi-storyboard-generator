@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: a17158143458929219502e8a798bb2b4f881e3d7
+validated_repository_head: 3fb5abec9c023f428d587086d666cc9efec250bd
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -24,7 +24,7 @@ report:
     passed_batches: 0
     blocked_batches: 34
     global_blockers: 0
-    total_blockers: 310
+    total_blockers: 293
   passed_batches: []
   blocked_batches:
   - B01
@@ -394,10 +394,6 @@ report:
     - batch_id: B12
       category: location
       code: REFERENCE_NOT_APPROVED
-      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B12
-      category: location
-      code: REFERENCE_NOT_APPROVED
       message: 'LOC-PARVARAN-JANNE-HOUSE: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B12
       category: character-state
@@ -432,10 +428,6 @@ report:
       category: location
       code: REFERENCE_NOT_APPROVED
       message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B13
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B13
       category: character-state
       code: REFERENCE_NOT_APPROVED
@@ -474,14 +466,6 @@ report:
       code: REMAINING_LOCATION_WORK
       message: 'Unresolved location/nested-space/state work: LOC-020 interior plate | LOC-020 loft plate | LOC-020 concealed lower passage'
     - batch_id: B14
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B14
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B14
       category: character-state
       code: REFERENCE_NOT_APPROVED
       message: 'AGE-ANAADHI-17: status=''MISSING_APPROVED_ASSET'', path=None'
@@ -513,15 +497,7 @@ report:
     - batch_id: B15
       category: location
       code: REFERENCE_NOT_APPROVED
-      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B15
-      category: location
-      code: REFERENCE_NOT_APPROVED
       message: 'LOC-VILLAGE-HAND-PUMP: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B15
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B15
       category: character-state
       code: REFERENCE_NOT_APPROVED
@@ -612,10 +588,6 @@ report:
     - batch_id: B18
       category: location
       code: REFERENCE_NOT_APPROVED
-      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B18
-      category: location
-      code: REFERENCE_NOT_APPROVED
       message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B18
       category: character-state
@@ -647,10 +619,6 @@ report:
       code: REFERENCE_NOT_APPROVED
       message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B19
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B19
       category: character-state
       code: REFERENCE_NOT_APPROVED
       message: 'AGE-ANAADHI-23: status=''MISSING_APPROVED_ASSET'', path=None'
@@ -680,14 +648,6 @@ report:
       code: REMAINING_LOCATION_WORK
       message: 'Unresolved location/nested-space/state work: scene-specific monsoon/flood state only'
     - batch_id: B20
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B20
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B20
       category: character-state
       code: REFERENCE_NOT_APPROVED
       message: 'AGE-ANAADHI-24: status=''MISSING_APPROVED_ASSET'', path=None'
@@ -712,14 +672,6 @@ report:
       category: nested-space
       code: REMAINING_LOCATION_WORK
       message: 'Unresolved location/nested-space/state work: preserve LOC-050 opened/dismantled/partly-burned ST00; no pristine reset'
-    - batch_id: B21
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B21
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B21
       category: character-state
       code: REFERENCE_NOT_APPROVED
@@ -749,14 +701,6 @@ report:
       category: nested-space
       code: REMAINING_LOCATION_WORK
       message: 'Unresolved location/nested-space/state work: LOC-055 mirror remains physically too low for 1.93 m Anaadhi'
-    - batch_id: B22
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B22
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B22
       category: character-state
       code: REFERENCE_NOT_APPROVED
@@ -789,15 +733,7 @@ report:
     - batch_id: B23
       category: location
       code: REFERENCE_NOT_APPROVED
-      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B23
-      category: location
-      code: REFERENCE_NOT_APPROVED
       message: 'LOC-BHAIGAARA-RAISED-CABIN: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B23
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B23
       category: character-state
       code: REFERENCE_NOT_APPROVED
@@ -888,10 +824,6 @@ report:
       category: location
       code: REFERENCE_NOT_APPROVED
       message: 'LOC-BHAIGAARA-RAISED-CABIN: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B25
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B25
       category: prop
       code: REFERENCE_NOT_APPROVED

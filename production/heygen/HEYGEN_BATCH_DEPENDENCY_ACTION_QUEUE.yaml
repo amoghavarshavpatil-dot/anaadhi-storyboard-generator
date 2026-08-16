@@ -9,21 +9,7 @@ summary:
   resolved_history_packets: 3
   superseded_history_packets: 12
   packet_namespace_high_watermark: HEYGEN-AQ-197
-  new_packet_ids_allocated_this_refresh:
-  - HEYGEN-AQ-184
-  - HEYGEN-AQ-185
-  - HEYGEN-AQ-186
-  - HEYGEN-AQ-187
-  - HEYGEN-AQ-188
-  - HEYGEN-AQ-189
-  - HEYGEN-AQ-190
-  - HEYGEN-AQ-191
-  - HEYGEN-AQ-192
-  - HEYGEN-AQ-193
-  - HEYGEN-AQ-194
-  - HEYGEN-AQ-195
-  - HEYGEN-AQ-196
-  - HEYGEN-AQ-197
+  new_packet_ids_allocated_this_refresh: []
   priority_class_counts:
     P0_OPEN: 3
     P1_SHARED_HIGH_IMPACT: 33
@@ -180,8 +166,6 @@ action_views:
   - HEYGEN-AQ-152
   - HEYGEN-AQ-156
   ZERO_CREDIT_ACTIONABLE:
-  - HEYGEN-AQ-007
-  - HEYGEN-AQ-008
   - HEYGEN-AQ-009
   - HEYGEN-AQ-010
   - HEYGEN-AQ-011
@@ -194,6 +178,7 @@ action_views:
   - HEYGEN-AQ-019
   - HEYGEN-AQ-020
   - HEYGEN-AQ-021
+  - HEYGEN-AQ-008
   - HEYGEN-AQ-017
   - HEYGEN-AQ-023
   - HEYGEN-AQ-024
@@ -207,6 +192,7 @@ action_views:
   - HEYGEN-AQ-031
   - HEYGEN-AQ-073
   - HEYGEN-AQ-032
+  - HEYGEN-AQ-007
   - HEYGEN-AQ-033
   - HEYGEN-AQ-034
   - HEYGEN-AQ-182
@@ -423,78 +409,6 @@ packets:
   media_generation_allowed: false
   heygen_submission_allowed: false
   queue_position: 3
-- packet_id: HEYGEN-AQ-007
-  dependency_id: REF::LOC-BHAIGAARA-FOREST-SURVIVAL
-  active: true
-  status: OPEN_UNRESOLVED
-  priority_class: P1_SHARED_HIGH_IMPACT
-  owner_lane: DRIVE-VERIFY
-  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
-  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  scope: SHARED
-  batch_impact: 11
-  impacted_batches:
-  - B12
-  - B13
-  - B14
-  - B15
-  - B18
-  - B19
-  - B20
-  - B21
-  - B22
-  - B23
-  - B25
-  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-  conditional_handoffs:
-  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
-    to_owner_lane: GITHUB-ONLY
-    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
-  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
-    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
-    action: Defer creation until a later explicit media-creation approval and credit-ready state.
-  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
-  approved_status_change_allowed: false
-  media_generation_allowed: false
-  heygen_submission_allowed: false
-  queue_position: 4
-- packet_id: HEYGEN-AQ-008
-  dependency_id: REF::LOC-ANAADHI-HIDDEN-CABINS
-  active: true
-  status: OPEN_UNRESOLVED
-  priority_class: P1_SHARED_HIGH_IMPACT
-  owner_lane: DRIVE-VERIFY
-  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
-  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  scope: SHARED
-  batch_impact: 11
-  impacted_batches:
-  - B13
-  - B14
-  - B15
-  - B16
-  - B17
-  - B18
-  - B19
-  - B20
-  - B21
-  - B22
-  - B23
-  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-  conditional_handoffs:
-  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
-    to_owner_lane: GITHUB-ONLY
-    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
-  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
-    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
-    action: Defer creation until a later explicit media-creation approval and credit-ready state.
-  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
-  approved_status_change_allowed: false
-  media_generation_allowed: false
-  heygen_submission_allowed: false
-  queue_position: 5
 - packet_id: HEYGEN-AQ-009
   dependency_id: REF::PRP-PARAANE-EMBLEM
   active: true
@@ -527,7 +441,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 6
+  queue_position: 4
 - packet_id: HEYGEN-AQ-010
   dependency_id: REF::PRP-SEVENTEEN-NAME-LIST
   active: true
@@ -560,7 +474,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 7
+  queue_position: 5
 - packet_id: HEYGEN-AQ-011
   dependency_id: REF::LOC-PARAANE-CHILD-WING
   active: true
@@ -592,7 +506,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 8
+  queue_position: 6
 - packet_id: HEYGEN-AQ-012
   dependency_id: REF::CST-ANAADHI-20-26
   active: true
@@ -624,7 +538,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 9
+  queue_position: 7
 - packet_id: HEYGEN-AQ-013
   dependency_id: REF::AGE-ANAADHI-27-RECOVERY
   active: true
@@ -656,7 +570,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 10
+  queue_position: 8
 - packet_id: HEYGEN-AQ-014
   dependency_id: REF::PRP-MEDICINE-CUP
   active: true
@@ -687,7 +601,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 11
+  queue_position: 9
 - packet_id: HEYGEN-AQ-015
   dependency_id: REF::PRP-PARAANE-WRIST-DEVICE
   active: true
@@ -717,7 +631,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 12
+  queue_position: 10
 - packet_id: HEYGEN-AQ-016
   dependency_id: REF::CST-ANAADHI-CHILD-INSTITUTIONAL
   active: true
@@ -747,7 +661,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 13
+  queue_position: 11
 - packet_id: HEYGEN-AQ-018
   dependency_id: REF::LOC-BHAIGAARA-RAISED-CABIN
   active: true
@@ -776,7 +690,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 14
+  queue_position: 12
 - packet_id: HEYGEN-AQ-019
   dependency_id: REF::PRP-ADK7-CARTRIDGE
   active: true
@@ -805,7 +719,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 15
+  queue_position: 13
 - packet_id: HEYGEN-AQ-020
   dependency_id: REF::PRP-SPLIT-FLOORBOARD
   active: true
@@ -834,7 +748,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 16
+  queue_position: 14
 - packet_id: HEYGEN-AQ-021
   dependency_id: REF::TEC-BLACK-KITE-DRONE
   active: true
@@ -862,7 +776,35 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 17
+  queue_position: 15
+- packet_id: HEYGEN-AQ-008
+  dependency_id: REF::LOC-ANAADHI-HIDDEN-CABINS
+  active: true
+  status: OPEN_UNRESOLVED
+  priority_class: P1_SHARED_HIGH_IMPACT
+  owner_lane: DRIVE-VERIFY
+  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
+  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  scope: SHARED
+  batch_impact: 3
+  impacted_batches:
+  - B16
+  - B17
+  - B18
+  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+  conditional_handoffs:
+  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
+    to_owner_lane: GITHUB-ONLY
+    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
+  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
+    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
+    action: Defer creation until a later explicit media-creation approval and credit-ready state.
+  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
+  approved_status_change_allowed: false
+  media_generation_allowed: false
+  heygen_submission_allowed: false
+  queue_position: 16
 - packet_id: HEYGEN-AQ-017
   dependency_id: REF::LOC-PARAANE-CAMPUS-MATURE
   active: true
@@ -890,7 +832,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 18
+  queue_position: 17
 - packet_id: HEYGEN-AQ-023
   dependency_id: REF::CST-ANAADHI-27-RECOVERY
   active: true
@@ -918,7 +860,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 19
+  queue_position: 18
 - packet_id: HEYGEN-AQ-024
   dependency_id: REF::INJ-ANAADHI-27-SURGERY
   active: true
@@ -946,7 +888,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 20
+  queue_position: 19
 - packet_id: HEYGEN-AQ-025
   dependency_id: REF::ENV-BLACK-RAIN
   active: true
@@ -973,7 +915,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 21
+  queue_position: 20
 - packet_id: HEYGEN-AQ-026
   dependency_id: REF::VEH-PARAANE-MEDICAL-TRANSPORT
   active: true
@@ -1000,7 +942,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 22
+  queue_position: 21
 - packet_id: HEYGEN-AQ-027
   dependency_id: REF::LOC-ADRAKA-SYSTEMS-LAB
   active: true
@@ -1027,7 +969,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 23
+  queue_position: 22
 - packet_id: HEYGEN-AQ-028
   dependency_id: REF::LOC-PARAANE-CAMPUS-EARLY
   active: true
@@ -1054,7 +996,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 24
+  queue_position: 23
 - packet_id: HEYGEN-AQ-022
   dependency_id: REF::LOC-PARAANE-CENTRAL-COMMAND
   active: true
@@ -1081,7 +1023,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 25
+  queue_position: 24
 - packet_id: HEYGEN-AQ-029
   dependency_id: REF::PRP-FOUR-ROAD-SHRINE
   active: true
@@ -1108,7 +1050,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 26
+  queue_position: 25
 - packet_id: HEYGEN-AQ-030
   dependency_id: REF::INJ-ANAADHI-12-ESCAPE
   active: true
@@ -1135,7 +1077,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 27
+  queue_position: 26
 - packet_id: HEYGEN-AQ-031
   dependency_id: REF::LOC-PARAANE-HIGH-OBSERVATION
   active: true
@@ -1162,7 +1104,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 28
+  queue_position: 27
 - packet_id: HEYGEN-AQ-073
   dependency_id: REF::LOC-PARVARAN-JANNE-HOUSE
   active: true
@@ -1189,7 +1131,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 29
+  queue_position: 28
 - packet_id: HEYGEN-AQ-032
   dependency_id: REF::CST-ANAADHI-FOREST-TEEN
   active: true
@@ -1203,6 +1145,33 @@ packets:
   impacted_batches:
   - B13
   - B14
+  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+  conditional_handoffs:
+  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
+    to_owner_lane: GITHUB-ONLY
+    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
+  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
+    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
+    action: Defer creation until a later explicit media-creation approval and credit-ready state.
+  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
+  approved_status_change_allowed: false
+  media_generation_allowed: false
+  heygen_submission_allowed: false
+  queue_position: 29
+- packet_id: HEYGEN-AQ-007
+  dependency_id: REF::LOC-BHAIGAARA-FOREST-SURVIVAL
+  active: true
+  status: OPEN_UNRESOLVED
+  priority_class: P1_SHARED_HIGH_IMPACT
+  owner_lane: DRIVE-VERIFY
+  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
+  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  scope: SHARED
+  batch_impact: 2
+  impacted_batches:
+  - B13
+  - B19
   current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
   conditional_handoffs:
