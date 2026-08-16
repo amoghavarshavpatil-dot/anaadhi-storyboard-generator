@@ -2,7 +2,7 @@ version: 1
 project: ANAADHI
 lock_id: HEYGEN_API_CREDIT_GATE_2026_08_16
 effective_date: 2026-08-16
-status: RESUME_AUTHORISED_USD_6_CONTROLLED_RUN_IN_PROGRESS
+status: HARD_PAUSED_B01_8_OF_9_COMPLETE_AWAITING_MINIMUM_USD1
 
 purpose: >-
   Preserve the verified B01 publication and partial HeyGen state, prevent accidental paid API
@@ -31,7 +31,7 @@ resume_contract:
     - verify the existing HEYGEN_API_KEY secret without revealing or replacing it
     - confirm API credit availability using a non-generation account check when available
     - manually dispatch the existing idempotent B01 workflow with both required gate inputs
-    - preserve the two completed HeyGen avatars and submit only the seven incomplete records
+    - preserve the eight completed HeyGen avatars and submit only B01-AV-08
     - archive results and update GitHub manifests before advancing any later batch
   github_dispatch_gate:
     workflow: .github/workflows/heygen-publish-b01-chatgpt-avatars.yml
@@ -59,6 +59,21 @@ credit_top_up_2026_08_16:
     Preserve the newborn Anaadhi identity required from B04 and defer the Allied Gangster identity,
     whose next recorded reuse is B24.
   execution_route: ONE_TIME_GITHUB_ACTIONS_WORKFLOW_OWNED_BY_CURRENT_WORK_PAGE
+  outcome:
+    api_wallet_probe: passed
+    accepted_paid_calls: 6
+    completed_training_jobs: 6
+    failed_calls: 0
+    duplicate_completed_submissions: 0
+    spend_cap_exceeded: false
+    budget_deferred_asset: B01-AV-08
+    workflow_run: 31950534329
+
+next_resume_requirement:
+  minimum_additional_api_wallet_usd: 1
+  exact_user_message: "Credits added"
+  only_authorised_paid_call: B01-AV-08
+  later_batch_execution_before_b01_completion: forbidden
 
 verified_checkpoint:
   checkpoint_date: 2026-08-16
@@ -69,11 +84,11 @@ verified_checkpoint:
     google_drive_archived: 9
     checksum_verification: passed
   heygen_photo_avatars:
-    completed: 2
-    incomplete_credit_blocked: 7
+    completed: 8
+    incomplete_budget_deferred: 1
     authentication_state: VALID_EXISTING_KEY
-    blocker: insufficient_credit
-  batch_status: PARTIAL_HEYGEN_2_OF_9_COMPLETE_API_CREDITS_BLOCKED
+    blocker: USER_AUTHORISED_USD6_CAP_FULLY_ALLOCATED
+  batch_status: PARTIAL_HEYGEN_8_OF_9_COMPLETE_USD6_CAP_REACHED
   later_batches: PAUSED_NOT_AUTHORISED_TO_ADVANCE
 
 security_lock:
