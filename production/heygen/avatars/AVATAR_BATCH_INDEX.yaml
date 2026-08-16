@@ -11,7 +11,7 @@ batch_order:
     - 3
     - 4
     - 5
-    status: PARTIAL_HEYGEN_2_OF_9_COMPLETE_API_CREDITS_BLOCKED
+    status: PARTIAL_HEYGEN_8_OF_9_COMPLETE_USD6_CAP_REACHED
     manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
   B02:
     scenes:
