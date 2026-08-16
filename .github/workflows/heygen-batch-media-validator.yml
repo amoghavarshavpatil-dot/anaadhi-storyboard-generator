@@ -5,9 +5,11 @@ on:
   push:
     paths:
       - production/heygen/validate_heygen_batch_media.py
+      - production/heygen/refresh_zero_credit_controls.py
       - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
       - production/heygen/HEYGEN_API_ACCEPTANCE_CONTRACT.yaml
       - production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
+      - production/heygen/HEYGEN_CREDIT_GATE_LOCK.yaml
       - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
       - production/references/REFERENCE_REGISTRY.yaml
       - production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
