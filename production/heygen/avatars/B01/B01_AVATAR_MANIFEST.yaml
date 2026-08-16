@@ -202,7 +202,8 @@ publication:
   drive_folder_url: "https://drive.google.com/drive/folders/1XHH5B1xko6EmaIBScd6_-VItz5d5rEWG"
   heygen_status: PARTIAL_8_OF_9_COMPLETE_USD6_CAP_REACHED
   heygen_completed_assets: [B01-AV-01, B01-AV-02, B01-AV-03, B01-AV-04, B01-AV-05, B01-AV-06, B01-AV-07, B01-AV-09]
-  heygen_blocked_assets: [B01-AV-08]\n  heygen_budget_deferred_assets: [B01-AV-08]
+  heygen_blocked_assets: [B01-AV-08]
+  heygen_budget_deferred_assets: [B01-AV-08]
   external_blocker: "The user-authorised USD6 cap was fully allocated to six successful Photo Avatar calls; B01-AV-08 was deliberately not submitted."
   resume_action: "Add at least USD1 in HeyGen API wallet credit, say Credits added on the current Work page, then submit only B01-AV-08."
   next_batch_gate: >-
