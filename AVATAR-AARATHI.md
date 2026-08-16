@@ -18,8 +18,8 @@
 - Voice ID: PENDING
 - Voice Name: PENDING
 - Voice Designed: false
-- Looks: portrait=cdbc3ecc32564e8e8c7fac18ef4d85f4
-- Pending Look: B01 Parallel medical coat; source finalized, API credits blocked
-- Last Synced: 2026-08-16T04:59:00+05:30
+- Looks: portrait-field=cdbc3ecc32564e8e8c7fac18ef4d85f4; portrait-parallel-medical=251b973f5ce64ae7a60da605192b6524
+- Parallel Medical Look: COMPLETE — same stable Aarathi identity
+- Last Synced: 2026-08-16T19:13:00+05:30
 
-The group is the stable identity anchor. The medical coat must be added to this same identity after API credits are available.
+The group is the stable identity anchor. Both B01 field and Parallel-Earth medical looks are trained under this same identity. Resolve look IDs fresh at video-render time.
