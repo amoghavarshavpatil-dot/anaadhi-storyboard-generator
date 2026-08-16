@@ -195,28 +195,28 @@ batches:
     scenes: [28,29,30,31,32,33,34]
     env6l_roots: [LOC-009, LOC-010, LOC-011, LOC-012, LOC-013, LOC-014, LOC-015, LOC-016, LOC-017]
     p1_location_status: APPROVED_ROOTS__SCENE_STATE_DRESSING_REMAINS
-    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-FOREST-EDGE-BARTER, LOC-PARVARAN-JANNE-HOUSE]
+    required_location_refs: [LOC-009, LOC-010, LOC-012, LOC-013, LOC-014, LOC-015, LOC-017, LOC-FOREST-EDGE-BARTER, LOC-PARVARAN-JANNE-HOUSE]
     required_anaadhi_refs: [AGE-ANAADHI-12-FOREST, HR-ANAADHI-12-FOREST, CST-ANAADHI-12-ESCAPE, INJ-ANAADHI-12-ESCAPE]
     required_prop_refs: [PRP-FOUR-ROAD-SHRINE]
   B13:
     scenes: [35]
     env6l_roots: [LOC-018]
     p1_location_status: APPROVED_ROOT__ST01_AND_SEASONAL_STATES_REMAIN
-    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS, LOC-FOREST-EDGE-BARTER]
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-018, LOC-FOREST-EDGE-BARTER]
     required_anaadhi_refs: [AGE-ANAADHI-13, AGE-ANAADHI-14, AGE-ANAADHI-15, AGE-ANAADHI-16, HR-ANAADHI-16, CST-ANAADHI-FOREST-TEEN]
     required_prop_refs: []
   B14:
     scenes: [36,37]
     env6l_roots: [LOC-019, LOC-020]
     p1_location_status: APPROVED_ROOTS__CABIN_SUBSPACES_REMAIN
-    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS]
+    required_location_refs: [LOC-019, LOC-020]
     required_anaadhi_refs: [AGE-ANAADHI-17, AGE-ANAADHI-18, HR-ANAADHI-18, CST-ANAADHI-FOREST-TEEN]
     required_prop_refs: []
   B15:
     scenes: [38,39,40,41,42]
-    env6l_roots: [LOC-021, LOC-022, LOC-023, LOC-024, LOC-025, LOC-026]
+    env6l_roots: [LOC-020, LOC-021, LOC-022, LOC-023, LOC-024, LOC-025, LOC-026]
     p1_location_status: APPROVED_ROOTS__SCENE_STATES_ONLY
-    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP, LOC-ANAADHI-HIDDEN-CABINS]
+    required_location_refs: [LOC-021, LOC-024, LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP, LOC-020]
     required_anaadhi_refs: [AGE-ANAADHI-19, HR-ANAADHI-19, CST-ANAADHI-19]
     required_prop_refs: [VEH-ANAADHI-CART]
   B16:
@@ -237,42 +237,42 @@ batches:
     scenes: [49,50]
     env6l_roots: [LOC-041, LOC-042, LOC-043, LOC-044]
     p1_location_status: APPROVED_ROOTS__PRESERVE_BURNT_STATE
-    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-FOREST-EDGE-BARTER, LOC-ANAADHI-HIDDEN-CABINS]
+    required_location_refs: [LOC-041, LOC-044, LOC-FOREST-EDGE-BARTER, LOC-ANAADHI-HIDDEN-CABINS]
     required_anaadhi_refs: [AGE-ANAADHI-22, CST-ANAADHI-20-26]
     required_prop_refs: [PRP-SEVENTEEN-NAME-LIST]
   B19:
     scenes: [51,52]
     env6l_roots: [LOC-045, LOC-046, LOC-047]
     p1_location_status: APPROVED_ROOTS__SCENE_STATES_ONLY
-    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS]
+    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL]
     required_anaadhi_refs: [AGE-ANAADHI-23, CST-ANAADHI-20-26]
     required_prop_refs: [VEH-ANAADHI-MOTORCYCLE, PRP-SEVENTEEN-NAME-LIST]
   B20:
     scenes: [53,54]
     env6l_roots: [LOC-048, LOC-049]
     p1_location_status: APPROVED_ROOTS__MONSOON_FLOOD_STATE_ONLY
-    required_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS]
+    required_location_refs: []
     required_anaadhi_refs: [AGE-ANAADHI-24, CST-ANAADHI-20-26]
     required_prop_refs: [PRP-SEVENTEEN-NAME-LIST]
   B21:
     scenes: [55,56]
-    env6l_roots: [LOC-050, LOC-051, LOC-052]
+    env6l_roots: [LOC-001, LOC-050, LOC-051, LOC-052, LOC-058]
     p1_location_status: APPROVED_ROOTS__PRESERVE_DAMAGED_STATE
-    required_location_refs: [LOC-ANAADHI-HIDDEN-CABINS, LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-FOREST-EDGE-BARTER]
+    required_location_refs: [LOC-050, LOC-058, LOC-001, LOC-051, LOC-FOREST-EDGE-BARTER]
     required_anaadhi_refs: [AGE-ANAADHI-25, CST-ANAADHI-20-26]
     required_prop_refs: [VEH-ANAADHI-MOTORCYCLE, PRP-SEVENTEEN-NAME-LIST]
   B22:
     scenes: [57,58]
-    env6l_roots: [LOC-053, LOC-054, LOC-055]
+    env6l_roots: [LOC-001, LOC-053, LOC-054, LOC-055]
     p1_location_status: APPROVED_ROOTS__BARBER_MIRROR_SCALE_LOCK
-    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-ANAADHI-HIDDEN-CABINS]
+    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-054, LOC-001]
     required_anaadhi_refs: [AGE-ANAADHI-26, HR-ANAADHI-26-POST-BARBER, CST-ANAADHI-20-26]
     required_prop_refs: [PRP-SEVENTEEN-NAME-LIST]
   B23:
     scenes: [59,60,61,62,63]
     env6l_roots: [LOC-056, LOC-057, LOC-058, LOC-059, LOC-001]
     p1_location_status: APPROVED_ROOTS__STATE_CONTINUITY_REMAINS
-    required_location_refs: [LOC-ANAADHI-HIDDEN-CABINS, LOC-BHAIGAARA-RAISED-CABIN, LOC-BHAIGAARA-FOREST-SURVIVAL]
+    required_location_refs: [LOC-058, LOC-BHAIGAARA-RAISED-CABIN, LOC-056, LOC-059]
     required_anaadhi_refs: [AGE-ANAADHI-27-FOREST]
     required_prop_refs: [PRP-SEVENTEEN-NAME-LIST, PRP-SEVENTEEN-LAMPS, PRP-SPLIT-FLOORBOARD]
   B24:
@@ -286,7 +286,7 @@ batches:
     scenes: [67,68]
     env6l_roots: [LOC-001, LOC-060, LOC-061]
     p1_location_status: APPROVED_ROOTS__ROUTE_CONTINUITY_REMAINS
-    required_location_refs: [LOC-BHAIGAARA-RAISED-CABIN, LOC-BHAIGAARA-FOREST-SURVIVAL]
+    required_location_refs: [LOC-BHAIGAARA-RAISED-CABIN, LOC-060, LOC-061]
     required_anaadhi_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
     required_prop_refs: [PRP-SPLIT-FLOORBOARD, TEC-BLACK-KITE-DRONE]
   B26:
