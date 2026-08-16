@@ -1,11 +1,19 @@
 name: Publish B01 ChatGPT Avatars to GitHub and HeyGen
 
+# Credit-gated. Resume only after the user confirms "Credits added" on the
+# current ChatGPT Work page, then manually dispatch with both gate inputs.
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/heygen-publish-b01-chatgpt-avatars.yml'
   workflow_dispatch:
+    inputs:
+      credits_confirmed:
+        description: 'Confirm HeyGen API credits are available'
+        required: true
+        type: boolean
+        default: false
+      resume_token:
+        description: 'Enter the exact phrase: Credits added'
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -16,6 +24,7 @@ concurrency:
 
 jobs:
   publish-and-submit:
+    if: ${{ inputs.credits_confirmed == true && inputs.resume_token == 'Credits added' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout canonical repository
