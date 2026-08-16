@@ -1,0 +1,123 @@
+version: 1
+project: ANAADHI
+control: HEYGEN-ZERO-CREDIT-RECONCILIATION-2026-08-16
+status: FACTUAL_RECONCILIATION__ZERO_CREDIT_GATE_RESTORED
+observed_date: "2026-08-16"
+mode: CONTROL_EVIDENCE_ONLY__NO_MEDIA_GENERATION__NO_HEYGEN_SUBMISSION
+
+purpose: >-
+  Preserve factual evidence after a concurrent one-time B01 HeyGen avatar workflow executed
+  while the current chat operating rule was zero-credit/control-only. This record prevents the
+  six accepted/completed looks from ever being treated as pending or resubmitted by future queues.
+
+current_operating_rule:
+  paid_heygen_work_ready: false
+  continue_zero_credit_repository_and_drive_work_only: true
+  heygen_consent_execution_allowed: false
+  heygen_avatar_or_look_creation_allowed: false
+  heygen_render_or_lipsync_execution_allowed: false
+  media_generation_or_replacement_allowed: false
+  reopen_paid_gate_only_after_explicit_user_credit_ready_instruction: true
+
+concurrent_execution_observation:
+  workflow_run_id: 31950534329
+  source_result_file: production/heygen/avatars/B01/B01_HEYGEN_RESUME_6USD_RESULTS.json
+  result_file_git_blob_sha: be3c30a631133b80f2757b8db1cd969fda689fea
+  result_commit: 4fe1fd4c97aeec759a089caf7029d771c6ab5d6b
+  observed_paid_endpoint_calls: 6
+  observed_http_200_successes: 6
+  failed_calls: 0
+  duplicate_completed_submissions_recorded_by_run: 0
+  workflow_declared_budget_cap_usd: 6
+  workflow_declared_photo_avatar_unit_cost_usd: 1
+  wallet_balance_delta_independently_observed: false
+  exact_wallet_spend_independently_proven: false
+  note: >-
+    The result file records wallet presence before/after and a USD6 cap, but does not expose an
+    authoritative before/after wallet balance. Therefore this reconciliation does not claim an
+    independently measured dollar debit.
+
+completed_existing_results_do_not_resubmit:
+  B01-AV-03:
+    character: Parallel Aarathi medical look
+    group_id: cb6af5a4934d406eb071d2debabb3614
+    look_id: 251b973f5ce64ae7a60da605192b6524
+    authoritative_read_only_status_after_run: completed
+  B01-AV-04:
+    character: Semmaa
+    group_id: 136f8d9ab78d47579027af28b28cd0da
+    look_id: 298aa73e7a4b40e087abb3a20af8c80d
+    authoritative_read_only_status_after_run: completed
+  B01-AV-05:
+    character: Police Commander
+    group_id: 6fdde17bcbc04608aef07985e9260005
+    look_id: 0dbc4f49302c494e8dbcfecbecb05d6d
+    authoritative_read_only_status_after_run: completed
+  B01-AV-06:
+    character: Sarjanya Officer
+    group_id: fff559cd0cd746558a54126e87aee07c
+    look_id: 03596646d7814b638169793e851ee320
+    authoritative_read_only_status_after_run: completed
+  B01-AV-07:
+    character: Medical Specialist
+    group_id: 57d6bfa8b2704f8681cd1c929ff195e0
+    look_id: 527e05fd2d444226a1269b043023dbf8
+    authoritative_read_only_status_after_run: completed
+  B01-AV-09:
+    character: Parallel newborn Anaadhi
+    group_id: 42ac892e121e4050a9e49b03d7dd02e3
+    look_id: ae88da2b4b3b482b9c3b8e046f43caa2
+    authoritative_read_only_status_after_run: completed
+
+remaining_b01_paid_look_gate:
+  logical_packet_id: HEYGEN-AQ-003
+  current_dependency_id: AVATAR_LOOK_SET::B01-AV-08
+  asset_id: B01-AV-08
+  character: Allied Gangster
+  current_manifest_status: DEFERRED_USD6_BUDGET_CAP
+  submitted_in_concurrent_run: false
+  paid_execution_authorized_now: false
+  source_visual_recreation_required: false
+  rule: >-
+    Do not submit B01-AV-08 until the user explicitly reopens the credit-ready gate. When reopened,
+    preserve the existing canonical source visual and submit only the unresolved look; never duplicate
+    B01-AV-03/04/05/06/07/09.
+
+consent_state_after_new_private_groups:
+  note: >-
+    New private groups created by the concurrent run currently expose null consent in read-only account
+    queries. Consent execution remains deferred under the zero-credit gate. Never infer consent from group
+    or look completion.
+
+repository_reconciliation:
+  b01_manifest_status: PARTIAL_HEYGEN_8_OF_9_COMPLETE_USD6_CAP_REACHED
+  avatar_batch_index_b01_status: PARTIAL_HEYGEN_8_OF_9_COMPLETE_USD6_CAP_REACHED
+  credit_gate_status: HARD_PAUSED_B01_8_OF_9_COMPLETE_AWAITING_MINIMUM_USD1
+  aq003_current_dependency: AVATAR_LOOK_SET::B01-AV-08
+  queue_credit_gate_paid_heygen_work_ready: false
+  queue_zero_credit_actionable_packets: 131
+  queue_deferred_packets: 36
+  latest_healthy_validator_summary:
+    selected_batches: 34
+    passed_batches: 0
+    blocked_batches: 34
+    global_blockers: 0
+    total_blockers: 293
+    expected_exit_code: 2
+
+workflow_cleanup:
+  paid_one_off_workflow_removed: true
+  paid_one_off_workflow_path: .github/workflows/heygen-b01-resume-6usd-once.yml
+  paid_workflow_removal_commit: 988942a7f42ed58310df8cb3a89fa31d8d003d7f
+  aq003_patch_one_off_workflow_removed: true
+  aq003_patch_workflow_removal_commit: abedd107de869fbccedba461d1103d9d700858e7
+  permanent_validator_permissions: contents_read_only
+
+safety:
+  this_reconciliation_called_heygen_create: false
+  this_reconciliation_called_heygen_consent: false
+  this_reconciliation_called_heygen_render: false
+  media_generated: false
+  media_replaced: false
+  approved_status_changed: false
+  secrets_committed: false
