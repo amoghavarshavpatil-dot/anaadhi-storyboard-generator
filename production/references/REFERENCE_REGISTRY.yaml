@@ -643,3 +643,21 @@ late_env6l_numeric_root_references:
     visual_status: METADATA_LOCKED_VISUAL_PENDING
     visual_approval_implied: false
     authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-067:
+    name: "Kendhalaa Convention Centre"
+    canonical_env6l_root: LOC-067
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  LOC-068:
+    name: "Paraane-Certified Pharmaceutical Store"
+    canonical_env6l_root: LOC-068
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+    authority: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml

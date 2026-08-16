@@ -215,7 +215,7 @@ location_bindings:
     approved_root: "PARTIAL"
     canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
     env6l_roots: [LOC-003, LOC-067, LOC-068]
-    pending_named_location_refs: [LOC-PARAANE-CENTRAL-COMMAND, LOC-PARAANE-PHARMACY-VAULT]
+    pending_named_location_refs: [LOC-067, LOC-068]
     remaining_location_work: ["late Paraane subspaces", "hospital/council/pharmacy evidence locations"]
   B30:
     scenes: [87,88,89,90,91,92]
