@@ -1,0 +1,105 @@
+version: 1
+project: ANAADHI
+lock_id: HEYGEN_API_CREDIT_GATE_2026_08_16
+effective_date: 2026-08-16
+status: HARD_PAUSED_AWAITING_HEYGEN_API_CREDIT_TOP_UP
+
+purpose: >-
+  Preserve the verified B01 publication and partial HeyGen state, prevent accidental paid API
+  execution, and establish the current ChatGPT Work page as the only page authorised to resume
+  this production workflow after the user explicitly confirms that HeyGen API credits were added.
+
+execution_ownership:
+  sole_execution_page: CURRENT_CHATGPT_WORK_PAGE_ONLY
+  other_chatgpt_pages: NOT_AUTHORISED_TO_EXECUTE_OR_CONTINUE
+  during_pause:
+    api_payload_authoring: paused
+    github_workflow_dispatch: blocked
+    heygen_generation: blocked
+    heygen_upload: blocked
+    avatar_generation: blocked
+    shot_video_generation: blocked
+    kannada_lipsync_generation: blocked
+    batch_advancement: blocked
+
+resume_contract:
+  user_confirmation_required: true
+  exact_user_message: "Credits added"
+  accepted_variants: none
+  resume_page: CURRENT_CHATGPT_WORK_PAGE_ONLY
+  resume_sequence:
+    - verify the existing HEYGEN_API_KEY secret without revealing or replacing it
+    - confirm API credit availability using a non-generation account check when available
+    - manually dispatch the existing idempotent B01 workflow with both required gate inputs
+    - preserve the two completed HeyGen avatars and submit only the seven incomplete records
+    - archive results and update GitHub manifests before advancing any later batch
+  github_dispatch_gate:
+    workflow: .github/workflows/heygen-publish-b01-chatgpt-avatars.yml
+    event: workflow_dispatch
+    required_inputs:
+      credits_confirmed: true
+      resume_token: "Credits added"
+    push_trigger_allowed: false
+
+verified_checkpoint:
+  checkpoint_date: 2026-08-16
+  batch: B01
+  canonical_avatar_masters:
+    expected: 9
+    github_published: 9
+    google_drive_archived: 9
+    checksum_verification: passed
+  heygen_photo_avatars:
+    completed: 2
+    incomplete_credit_blocked: 7
+    authentication_state: VALID_EXISTING_KEY
+    blocker: insufficient_credit
+  batch_status: PARTIAL_HEYGEN_2_OF_9_COMPLETE_API_CREDITS_BLOCKED
+  later_batches: PAUSED_NOT_AUTHORISED_TO_ADVANCE
+
+security_lock:
+  github_secret_name: HEYGEN_API_KEY
+  recreate_key: forbidden
+  replace_secret: forbidden
+  reveal_or_log_secret: forbidden
+  instruction: "Reuse the already configured valid secret after the credit gate is released."
+
+idempotency_lock:
+  preserve_completed_avatar_records: true
+  duplicate_completed_submissions: forbidden
+  retry_scope: SEVEN_INCOMPLETE_B01_AVATARS_ONLY
+  use_existing_idempotency_keys: true
+
+canonical_asset_policy:
+  approved_locations_environments_props_vehicles_technology:
+    regenerate: forbidden
+    routing: REUSE_CANONICAL_GITHUB_AND_GOOGLE_DRIVE_ASSETS
+  review_only_candidates:
+    promotion_without_explicit_approval: forbidden
+  heygen_payloads:
+    unsupported_fields: forbidden
+    acceptance_contract: production/heygen/HEYGEN_API_ACCEPTANCE_CONTRACT.yaml
+
+non_generation_attestation:
+  this_lock_action_created_media: false
+  this_lock_action_called_heygen_generation_api: false
+  this_lock_action_spent_heygen_credits: false
+  this_lock_action_changed_google_drive_assets: false
+
+authoritative_references:
+  repository: amoghavarshavpatil-dot/anaadhi-storyboard-generator
+  branch: main
+  acceptance_contract_commit: f289b3536fb2442902ac87910c8950b5825905eb
+  avatar_batch_index: production/heygen/avatars/AVATAR_BATCH_INDEX.yaml
+  b01_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+  b01_workflow: .github/workflows/heygen-publish-b01-chatgpt-avatars.yml
+  previous_workflow_run: 31914829238
+  canonical_b01_drive_folder: https://drive.google.com/drive/folders/1XHH5B1xko6EmaIBScd6_-VItz5d5rEWG
+  shared_handoff_threads:
+    - https://chatgpt.com/s/t_6a80f95973e881918f1470de208eeef7
+    - https://chatgpt.com/share/6a803119-508c-83ee-bb90-724465211b0b?ogimg=plain
+
+precedence: >-
+  This credit-gate lock is the authoritative pause/resume control for HeyGen execution. It
+  supersedes any earlier ambiguous instruction that assigned execution to another chat page.
+  Existing canonical asset approvals and the HeyGen API acceptance contract remain unchanged.
