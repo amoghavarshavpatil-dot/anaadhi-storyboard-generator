@@ -1,0 +1,110 @@
+version: 1
+project: ANAADHI
+control: HEYGEN-AQ001-AQ002-CONSENT-VERIFY-RESULT
+scope: HEYGEN-AQ-001_AND_HEYGEN-AQ-002_ONLY
+mode: READ_ONLY_HEYGEN_CONSENT_VERIFY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
+observed_at_local: "2026-08-16T18:37:00+05:30"
+source_repository_head: "6cf6e5e57377f6150f926852206e54dc1e92357b"
+source_files:
+  b01_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+  prior_p0_precheck: production/heygen/HEYGEN_P0_NO_NEW_MEDIA_PRECHECK_RESULT.yaml
+  blocker_matrix: production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
+
+verification_method:
+  private_avatar_catalog_query: true
+  direct_group_queries: true
+  ownership_filter: private
+  write_or_consent_flow_called: false
+  accepted_affirmative_states:
+    - COMPLETE
+    - APPROVED
+    - VERIFIED
+    - NOT_REQUIRED
+
+private_avatar_catalog:
+  private_groups_returned: 2
+  has_more: false
+  b01_relevant_existing_private_identities: 2
+  unmatched_private_groups: 0
+  identities:
+    anaadhi:
+      group_id: c26d836745e64d4c92663eae3fb02e06
+      group_name: ANAADHI_MASTER_IDENTITY_V1
+      referenced_by_b01_assets:
+        - B01-AV-01
+      catalog_looks_count: 5
+      catalog_consent_status: null
+    aarathi:
+      group_id: cb6af5a4934d406eb071d2debabb3614
+      group_name: AARATHI_B01_FIELD_CHATGPT_V1
+      referenced_by_b01_assets:
+        - B01-AV-02
+        - B01-AV-03
+      catalog_looks_count: 1
+      catalog_consent_status: null
+
+b01_assets_without_existing_private_identity:
+  - B01-AV-04
+  - B01-AV-05
+  - B01-AV-06
+  - B01-AV-07
+  - B01-AV-08
+  - B01-AV-09
+note_on_nonexistent_private_identities: >-
+  These B01 assets do not currently resolve to an existing private HeyGen avatar group in the authoritative private-group catalog.
+  No consent state can be queried or inferred for a private identity that does not yet exist.
+
+packet_results:
+  HEYGEN-AQ-001:
+    dependency_id: CONSENT::ANAADHI_PRIVATE_AVATAR
+    result: OPEN_UNRESOLVED
+    closure: false
+    direct_group_observation:
+      group_id: c26d836745e64d4c92663eae3fb02e06
+      group_name: ANAADHI_MASTER_IDENTITY_V1
+      group_status: completed
+      looks_count: 5
+      consent_status: null
+      affirmative_state_observed: false
+    reason_open: >-
+      Direct authoritative group query still returns consent_status null. No COMPLETE, APPROVED, VERIFIED, or NOT_REQUIRED state was returned.
+    consent_value_written: false
+    approved_status_changed: false
+
+  HEYGEN-AQ-002:
+    dependency_id: CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    result: OPEN_UNRESOLVED
+    closure: false
+    direct_group_observations:
+      anaadhi:
+        group_id: c26d836745e64d4c92663eae3fb02e06
+        group_status: completed
+        consent_status: null
+        affirmative_state_observed: false
+      aarathi:
+        group_id: cb6af5a4934d406eb071d2debabb3614
+        group_status: completed
+        consent_status: null
+        affirmative_state_observed: false
+    affirmative_b01_private_identity_count: 0
+    reason_open: >-
+      Every existing B01-referenced private identity was checked directly. Anaadhi and Aarathi both return consent_status null, so no affirmative consent evidence exists to close the B01 manifest consent dependency.
+    consent_value_written: false
+    approved_status_changed: false
+
+safety:
+  media_generated: false
+  media_replaced: false
+  avatar_created: false
+  avatar_look_created: false
+  consent_flow_initiated: false
+  heygen_render_submission: false
+  heygen_render_execution: false
+  approved_status_fabricated_or_changed: false
+  only_read_only_heygen_state_queries_used: true
+
+conclusion:
+  aq001_open: true
+  aq002_open: true
+  affirmative_consent_states_recorded: 0
+  validator_rerun_required_after_evidence_commit: true
