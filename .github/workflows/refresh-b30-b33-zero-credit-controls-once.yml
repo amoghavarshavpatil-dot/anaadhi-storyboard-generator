@@ -1,0 +1,71 @@
+name: Refresh B30 B33 Zero-Credit Controls Once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/refresh-b30-b33-zero-credit-controls-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-control-only:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Refresh live zero-credit controls
+        run: python production/heygen/refresh_zero_credit_controls.py
+      - name: Verify P0 credit gate and B30/B33 canonicalization
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          q = yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml').read_text())
+          assert q['credit_gate']['paid_heygen_work_ready'] is False
+          assert q['credit_gate']['no_heygen_consent_or_media_execution'] is True
+          p0 = q['p0_identity_lock']['open']
+          assert p0['CONSENT::ANAADHI_PRIVATE_AVATAR'] == 'HEYGEN-AQ-001'
+          assert p0['CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml'] == 'HEYGEN-AQ-002'
+          assert p0['AVATAR_LOOK_SET::B01-AV-08'] == 'HEYGEN-AQ-003'
+          aq3 = [p for p in q['packets'] if p['packet_id'] == 'HEYGEN-AQ-003']
+          assert len(aq3) == 1
+          assert aq3[0]['dependency_id'] == 'AVATAR_LOOK_SET::B01-AV-08'
+          assert aq3[0]['zero_credit_execution_state'] == 'DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE'
+          assert aq3[0]['heygen_submission_allowed'] is False
+          deps = [p['dependency_id'] for p in q['packets']]
+          assert not any('B33' in d and 'LOC-011' in d for d in deps)
+          assert not any('B33' in d and 'LOC-073' in d for d in deps)
+          assert not any('B30' in d and 'LOC-072' in d for d in deps)
+          PY
+          changed="$(git diff --name-only)"
+          expected=$'production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml\nproduction/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml\nproduction/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml'
+          printf '%s\n' "$changed"
+          test "$changed" = "$expected" || { echo 'Unexpected refresh mutation scope'; exit 1; }
+          ! git diff | grep -E '^\+.*(approved_root: true|status: APPROVED)' || { echo 'Forbidden approval promotion'; exit 1; }
+      - name: Commit refreshed controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml \
+                  production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml \
+                  production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+          git commit -m 'Refresh zero-credit controls after B30 B33 routing'
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 6
