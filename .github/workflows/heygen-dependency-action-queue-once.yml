@@ -26,6 +26,46 @@ jobs:
       - name: Install dependency
         run: python -m pip install --disable-pip-version-check PyYAML
 
+      - name: Refine owner action views
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('production/heygen/build_heygen_dependency_action_queue.py')
+          text = p.read_text(encoding='utf-8')
+
+          old = '''    owner_queues: dict[str, list[str]] = defaultdict(list)\n    lane_counts: Counter[str] = Counter()\n    priority_counts: Counter[str] = Counter()\n'''
+          new = '''    owner_queues: dict[str, list[str]] = defaultdict(list)\n    conditional_owner_queues: dict[str, list[str]] = defaultdict(list)\n    lane_counts: Counter[str] = Counter()\n    conditional_lane_counts: Counter[str] = Counter()\n    priority_counts: Counter[str] = Counter()\n'''
+          if old not in text:
+              raise SystemExit('owner queue anchor not found')
+          text = text.replace(old, new, 1)
+
+          old = '''        owner_queues[owner].append(packet_id)\n        lane_counts[owner] += 1\n        priority_counts[priority_class] += 1\n'''
+          new = '''        owner_queues[owner].append(packet_id)\n        lane_counts[owner] += 1\n        for handoff in packet["conditional_handoffs"]:\n            target = handoff.get("to_owner_lane")\n            if target in OWNER_LANES:\n                conditional_owner_queues[target].append(packet_id)\n                conditional_lane_counts[target] += 1\n        priority_counts[priority_class] += 1\n'''
+          if old not in text:
+              raise SystemExit('packet owner anchor not found')
+          text = text.replace(old, new, 1)
+
+          old = '''            "owner_lane_counts": dict(sorted(lane_counts.items())),\n            "priority_class_counts": dict(sorted(priority_counts.items())),\n'''
+          new = '''            "owner_lane_counts": {lane: lane_counts.get(lane, 0) for lane in OWNER_LANES},\n            "conditional_handoff_lane_counts": {lane: conditional_lane_counts.get(lane, 0) for lane in OWNER_LANES},\n            "priority_class_counts": dict(sorted(priority_counts.items())),\n'''
+          if old not in text:
+              raise SystemExit('summary anchor not found')
+          text = text.replace(old, new, 1)
+
+          old = '''        "owner_queues": {lane: owner_queues.get(lane, []) for lane in OWNER_LANES},\n        "priority_policy": [\n'''
+          new = '''        "owner_queues": {lane: owner_queues.get(lane, []) for lane in OWNER_LANES},\n        "owner_action_views": {\n            lane: {\n                "primary_packet_ids": owner_queues.get(lane, []),\n                "conditional_handoff_packet_ids": sorted(set(conditional_owner_queues.get(lane, []))),\n                "all_relevant_packet_ids": sorted(set(owner_queues.get(lane, [])) | set(conditional_owner_queues.get(lane, []))),\n            }\n            for lane in OWNER_LANES\n        },\n        "priority_policy": [\n'''
+          if old not in text:
+              raise SystemExit('owner action view anchor not found')
+          text = text.replace(old, new, 1)
+
+          old = '''            "owner_lane_counts": queue["summary"]["owner_lane_counts"],\n            "priority_class_counts": queue["summary"]["priority_class_counts"],\n'''
+          new = '''            "owner_lane_counts": queue["summary"]["owner_lane_counts"],\n            "conditional_handoff_lane_counts": queue["summary"]["conditional_handoff_lane_counts"],\n            "priority_class_counts": queue["summary"]["priority_class_counts"],\n'''
+          if old not in text:
+              raise SystemExit('json summary anchor not found')
+          text = text.replace(old, new, 1)
+
+          p.write_text(text, encoding='utf-8')
+          PY
+
       - name: Build owner-separated dependency action queue
         run: |
           python -m py_compile production/heygen/build_heygen_dependency_action_queue.py
@@ -47,14 +87,16 @@ jobs:
           assert all(x['heygen_submission_allowed_by_this_packet'] is False for x in q['packets'])
           assert all(x['media_generation_allowed_by_queue_builder'] is False for x in q['packets'])
           assert all(x['proven_no_new_media'] for x in q['packets'][:6])
+          assert len(q['owner_action_views']['WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING']['conditional_handoff_packet_ids']) > 0
           print(q['summary'])
           PY
 
-      - name: Commit action queue
+      - name: Commit refined builder and action queue
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+          git add production/heygen/build_heygen_dependency_action_queue.py \
+                  production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
           git diff --cached --check
-          git commit -m "Build HeyGen dependency action queue"
+          git commit -m "Expose HeyGen action queue conditional owner lanes"
           git push origin HEAD:main
