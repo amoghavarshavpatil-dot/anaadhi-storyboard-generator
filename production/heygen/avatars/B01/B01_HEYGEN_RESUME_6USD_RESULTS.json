@@ -34,7 +34,7 @@
       "success": true,
       "group_id": "cb6af5a4934d406eb071d2debabb3614",
       "look_id": "251b973f5ce64ae7a60da605192b6524",
-      "training_status": "processing",
+      "training_status": "completed",
       "error": null
     },
     {
@@ -45,7 +45,7 @@
       "success": true,
       "group_id": "136f8d9ab78d47579027af28b28cd0da",
       "look_id": "298aa73e7a4b40e087abb3a20af8c80d",
-      "training_status": "processing",
+      "training_status": "completed",
       "error": null
     },
     {
@@ -56,7 +56,7 @@
       "success": true,
       "group_id": "6fdde17bcbc04608aef07985e9260005",
       "look_id": "0dbc4f49302c494e8dbcfecbecb05d6d",
-      "training_status": "processing",
+      "training_status": "completed",
       "error": null
     },
     {
@@ -67,7 +67,7 @@
       "success": true,
       "group_id": "fff559cd0cd746558a54126e87aee07c",
       "look_id": "03596646d7814b638169793e851ee320",
-      "training_status": "processing",
+      "training_status": "completed",
       "error": null
     },
     {
@@ -78,7 +78,7 @@
       "success": true,
       "group_id": "57d6bfa8b2704f8681cd1c929ff195e0",
       "look_id": "527e05fd2d444226a1269b043023dbf8",
-      "training_status": "processing",
+      "training_status": "completed",
       "error": null
     },
     {
@@ -89,8 +89,11 @@
       "success": true,
       "group_id": "42ac892e121e4050a9e49b03d7dd02e3",
       "look_id": "ae88da2b4b3b482b9c3b8e046f43caa2",
-      "training_status": "processing",
+      "training_status": "completed",
       "error": null
     }
-  ]
+  ],
+  "training_verified_at": "2026-08-16T13:43:00Z",
+  "completed_count": 6,
+  "final_status": "SIX_OF_SIX_ACCEPTED_AND_TRAINED"
 }
