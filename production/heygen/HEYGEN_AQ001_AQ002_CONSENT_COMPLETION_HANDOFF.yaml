@@ -1,0 +1,238 @@
+version: 1
+project: ANAADHI
+control: HEYGEN-AQ001-AQ002-CONSENT-COMPLETION-HANDOFF
+status: PREPARED_NOT_INITIATED
+prepared_at_local: "2026-08-16T18:43:00+05:30"
+scope: HEYGEN-AQ-001_AND_HEYGEN-AQ-002__EXISTING_B01_PRIVATE_IDENTITIES_ONLY
+mode: WORK_PAGE_HANDOFF_ONLY__NO_CONSENT_INITIATED_HERE__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_RENDER
+
+sources:
+  latest_consent_verify:
+    path: production/heygen/HEYGEN_AQ001_AQ002_CONSENT_VERIFY_RESULT.yaml
+    git_blob_sha: a9798eae1a422a2ffa6ceb5782eccb7090e84cd3
+  action_queue:
+    path: production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+    git_blob_sha: 5140204f18947c8761477b58ce3be61bcc3d28c2
+  acceptance_contract:
+    path: production/heygen/HEYGEN_API_ACCEPTANCE_CONTRACT.yaml
+    git_blob_sha: 636d6a595817fd7b86e288226a9603e77c962564
+  validator:
+    path: production/heygen/validate_heygen_batch_media.py
+    git_blob_sha: 04aca840435c9ad0f34ba15577d7bd2897dd4d2b
+  b01_manifest:
+    path: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    git_blob_sha: fad9e90f13156bcd8057b5a26fd8f09c35ffaa19
+
+safety_invariants:
+  consent_flow_initiated_by_this_handoff: false
+  heygen_create_avatar_consent_called_here: false
+  media_generated: false
+  media_replaced: false
+  avatar_created: false
+  avatar_look_created: false
+  heygen_render_submission: false
+  heygen_render_execution: false
+  approved_status_change_allowed: false
+  inferred_consent_allowed: false
+  identity_substitution_allowed: false
+  use_only_existing_authoritative_group_ids: true
+
+validator_consent_acceptance:
+  source: production/heygen/validate_heygen_batch_media.py
+  accepted_states_exact_uppercase:
+    - APPROVED
+    - COMPLETE
+    - COMPLETED
+    - VERIFIED
+    - NOT_REQUIRED
+  rule: >-
+    A null, empty, unknown, pending, initiated, URL-created, browser-opened, or otherwise non-affirmative state is not closure evidence.
+
+locked_existing_private_identities:
+  anaadhi:
+    character_ref: CHR-ANAADHI
+    b01_assets:
+      - B01-AV-01
+    group_id: c26d836745e64d4c92663eae3fb02e06
+    group_name: ANAADHI_MASTER_IDENTITY_V1
+    latest_group_status: completed
+    latest_consent_status: null
+    packet_relevance:
+      - HEYGEN-AQ-001
+      - HEYGEN-AQ-002
+    identity_rule: >-
+      Use this exact existing group. Do not create a replacement identity, duplicate group, or replacement source visual for consent completion.
+  aarathi:
+    character_ref: CHR-AARATHI
+    b01_assets:
+      - B01-AV-02
+      - B01-AV-03
+    group_id: cb6af5a4934d406eb071d2debabb3614
+    group_name: AARATHI_B01_FIELD_CHATGPT_V1
+    latest_group_status: completed
+    latest_consent_status: null
+    packet_relevance:
+      - HEYGEN-AQ-002
+    identity_rule: >-
+      Use this exact existing group. B01-AV-03 is a look on the same biological identity path; do not create a duplicate Aarathi identity for consent.
+
+b01_assets_without_existing_private_group_at_handoff_time:
+  - B01-AV-04
+  - B01-AV-05
+  - B01-AV-06
+  - B01-AV-07
+  - B01-AV-08
+  - B01-AV-09
+rule_for_nonexistent_groups: >-
+  This handoff does not create groups, initiate consent for nonexistent identities, or infer consent for them. If any of these assets later receives a private group,
+  that new group must obtain its own affirmative consent evidence before B01 is treated as consent-complete for production execution.
+
+work_page_execution_packets:
+  - handoff_id: CONSENT-WP-ANAADHI-001
+    packet_id: HEYGEN-AQ-001
+    subject: anaadhi
+    group_id_source: locked_existing_private_identities.anaadhi.group_id
+    prerequisite_checks:
+      - Re-query the exact existing private group by group_id immediately before any consent action.
+      - Confirm the returned group identity/name corresponds to the locked Anaadhi identity; fail closed on mismatch or not-found.
+      - Read the current consent_status returned by HeyGen.
+    decision:
+      if_current_consent_is_affirmative:
+        action: DO_NOT_INITIATE_A_NEW_CONSENT_FLOW
+        next: Record the exact returned affirmative state and observation evidence, then proceed to closure validation.
+      if_current_consent_is_null_or_non_affirmative:
+        action: >-
+          On the Work page only, invoke HeyGen create-avatar-consent for this exact existing group_id. Omit rerouteUrl unless the Work page has an explicitly approved safe callback;
+          when omitted, use HeyGen's default consent completion destination.
+        expected_return: consent_completion_url
+        return_is_not_closure: true
+        user_action_required: Complete the HeyGen consent flow in the returned browser page for this exact identity.
+        post_user_completion_action: Re-query the same exact group_id and read the authoritative consent_status.
+    prohibited:
+      - create a new Anaadhi group
+      - create or replace Anaadhi source media
+      - create a new look merely to obtain consent
+      - submit or render any video
+      - write APPROVED manually
+      - treat consent URL creation or browser opening as approval
+
+  - handoff_id: CONSENT-WP-AARATHI-001
+    packet_id: HEYGEN-AQ-002
+    subject: aarathi
+    group_id_source: locked_existing_private_identities.aarathi.group_id
+    prerequisite_checks:
+      - Re-query the exact existing private group by group_id immediately before any consent action.
+      - Confirm the returned group identity/name corresponds to the locked Aarathi identity; fail closed on mismatch or not-found.
+      - Read the current consent_status returned by HeyGen.
+    decision:
+      if_current_consent_is_affirmative:
+        action: DO_NOT_INITIATE_A_NEW_CONSENT_FLOW
+        next: Record the exact returned affirmative state and observation evidence, then proceed to B01 manifest evidence recording.
+      if_current_consent_is_null_or_non_affirmative:
+        action: >-
+          On the Work page only, invoke HeyGen create-avatar-consent for this exact existing group_id. Omit rerouteUrl unless the Work page has an explicitly approved safe callback;
+          when omitted, use HeyGen's default consent completion destination.
+        expected_return: consent_completion_url
+        return_is_not_closure: true
+        user_action_required: Complete the HeyGen consent flow in the returned browser page for this exact identity.
+        post_user_completion_action: Re-query the same exact group_id and read the authoritative consent_status.
+    prohibited:
+      - create a duplicate Aarathi identity for B01-AV-03
+      - create or replace Aarathi source media
+      - submit or render any video
+      - write APPROVED manually
+      - treat consent URL creation or browser opening as approval
+
+work_page_return_evidence_schema:
+  required_per_existing_identity:
+    - character_ref
+    - exact_group_id
+    - exact_group_name
+    - observation_time
+    - group_status
+    - exact_consent_status_returned_by_heygen
+    - authoritative_query_method
+  consent_flow_metadata_if_flow_was_needed:
+    - consent_flow_initiated: true
+    - consent_flow_group_id
+    - consent_flow_created_at
+    - consent_url_returned: true
+    - user_reported_browser_completion
+    - post_completion_group_requery_performed: true
+  forbidden_to_commit:
+    - consent_completion_url
+    - session cookies
+    - API keys
+    - access tokens
+    - browser credentials
+  note: >-
+    The consent URL itself is transient execution data and is not approval evidence. Commit only the post-completion authoritative state and non-secret identifiers/timestamps.
+
+github_recording_after_affirmative_state:
+  allowed_only_after_authoritative_affirmative_return: true
+  aq001:
+    required_updates:
+      - Record Anaadhi's exact returned consent state and observation time in a factual consent evidence control.
+      - Update HEYGEN_API_ACCEPTANCE_CONTRACT.yaml current_anaadhi_group.consent_status_observed only to the exact returned affirmative value.
+      - Do not change any APPROVED media/reference status.
+    validator_effect_expected:
+      - ANAADHI_CONSENT_UNVERIFIED disappears wherever the contract-level Anaadhi consent gate applies.
+  aq002_existing_identity_evidence:
+    required_updates:
+      - Add factual consent_status fields for Anaadhi and Aarathi to B01 consent evidence using the exact states returned by HeyGen.
+      - Preserve all existing B01 avatar source/look/status fields unless separately evidenced by another approved action.
+    stronger_fail_closed_rule: >-
+      Do not declare B01 permanently consent-complete merely because only Anaadhi and Aarathi exist today. If B01-AV-04 through B01-AV-09 later acquire private groups,
+      each such selected private group must have an affirmative consent state before production execution. This stronger rule overrides any temporary appearance of completeness caused by manifest-level validator semantics.
+
+closure_rules:
+  HEYGEN-AQ-001:
+    close_only_if_all:
+      - The exact locked Anaadhi group is re-queried after any needed browser consent completion.
+      - HeyGen returns one of APPROVED/COMPLETE/COMPLETED/VERIFIED/NOT_REQUIRED for that exact group.
+      - The returned state and observation metadata are recorded factually in GitHub.
+      - HEYGEN_API_ACCEPTANCE_CONTRACT.yaml records the same exact affirmative state for current_anaadhi_group.consent_status_observed.
+      - A fresh HEYGEN-BATCH-MEDIA-VALIDATOR no longer emits ANAADHI_CONSENT_UNVERIFIED or another Anaadhi contract-consent blocker caused by this dependency.
+    never_close_on:
+      - consent URL returned
+      - browser opened
+      - user says completed without authoritative post-completion query
+      - null/pending/unknown state
+
+  HEYGEN-AQ-002:
+    current_existing_identity_handoff_complete_only_if_all:
+      - The exact locked Anaadhi and Aarathi groups each return an affirmative accepted consent state.
+      - Both states and observation metadata are recorded factually in B01 consent evidence.
+      - A fresh validator no longer emits B01 CONSENT_UNRESOLVED from the recorded existing-identity consent fields.
+    packet_closure_guard: >-
+      AQ-002 may be marked closed only when every private avatar group selected by B01 at closure time has explicit affirmative consent evidence and a fresh validator emits no B01 CONSENT_UNRESOLVED.
+      If additional B01 private groups are created later, reopen/revalidate the B01 consent gate before any production execution.
+    never_close_on:
+      - only one of Anaadhi/Aarathi affirmative
+      - consent URL returned
+      - manual manifest status change
+      - future B01 private group without consent evidence
+
+post_handoff_validator_command:
+  command: python production/heygen/validate_heygen_batch_media.py --json
+  run_only_after: factual affirmative consent evidence is written
+  expected_until_other_blockers_clear: exit_code_2_hard_blocked
+  interpretation: >-
+    Exit code 2 remains expected while unrelated P1/media/look/location/reference blockers exist. Closure of AQ-001/AQ-002 is determined by disappearance of their specific consent blockers, not by requiring the whole project to pass.
+
+work_page_copy_packet:
+  instruction: >-
+    Use only the existing Anaadhi and Aarathi private avatar groups locked in this handoff. Re-query each group first. If consent is already affirmative, do not start a new flow.
+    If it is null/non-affirmative, initiate HeyGen avatar consent on the Work page for that exact group only, have the user complete the returned browser consent page,
+    then re-query the same group. Return the exact post-completion consent status, group identity metadata, and observation time. Do not create avatars/looks/media, do not render video,
+    do not change GitHub APPROVED status, and do not treat the consent URL itself as approval.
+
+handoff_result:
+  prepared: true
+  initiated: false
+  aq001_status: OPEN_UNRESOLVED
+  aq002_status: OPEN_UNRESOLVED
+  media_created: false
+  media_replaced: false
+  consent_flow_called: false
+  heygen_render_called: false
