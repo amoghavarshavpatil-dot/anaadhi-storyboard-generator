@@ -17,6 +17,7 @@ on:
       - production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
       - production/locations/P1_LATE_BATCH_ENV6L_BINDING_CROSSWALK.yaml
       - production/locations/P1_LATE_SEMANTIC_REQUIREMENT_AUDIT.yaml
+      - production/locations/P1_B29_EXACT_LOCATION_CORRECTION_AUDIT.yaml
       - production/heygen/avatars/**
       - .github/workflows/heygen-batch-media-validator.yml
 
