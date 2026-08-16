@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: b189fd4eec67ccfdc5126d128ced2b2b1c2d939c
+validated_repository_head: 0bb9b5fdc3c294137035eab2811039e4f124f98f
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -1055,23 +1055,23 @@ report:
     - batch_id: B29
       category: location
       code: PENDING_NAMED_LOCATION
-      message: 'Unresolved named location binding(s): LOC-PARAANE-CENTRAL-COMMAND, LOC-PARAANE-PHARMACY-VAULT'
+      message: 'Unresolved named location binding(s): LOC-067, LOC-068'
     - batch_id: B29
       category: nested-space
       code: REMAINING_LOCATION_WORK
       message: 'Unresolved location/nested-space/state work: late Paraane subspaces | hospital/council/pharmacy evidence locations'
     - batch_id: B29
       category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-PARAANE-CAMPUS-MATURE: status=''MISSING_APPROVED_ASSET'', path=None'
+      code: REFERENCE_UNDEFINED
+      message: Required reference LOC-003 is not defined in REFERENCE_REGISTRY.yaml
     - batch_id: B29
       category: location
       code: REFERENCE_NOT_APPROVED
-      message: 'LOC-PARAANE-CENTRAL-COMMAND: status=''MISSING_APPROVED_ASSET'', path=None'
+      message: 'LOC-067: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B29
       category: location
       code: REFERENCE_NOT_APPROVED
-      message: 'LOC-PARAANE-PHARMACY-VAULT: status=''MISSING_APPROVED_ASSET'', path=None'
+      message: 'LOC-068: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B29
       category: character-state
       code: REFERENCE_NOT_APPROVED
