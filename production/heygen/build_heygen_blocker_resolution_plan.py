@@ -138,8 +138,8 @@ def canonical_key(blocker: dict[str, Any]) -> str:
             return "AVATAR_LOOK_SET::" + ",".join(assets)
         return f"AVATAR_SLOT::{batch}::{code}"
     if category in {"nested-space", "location"} and code in {
-        "REMAINING_LOCATION_WORK", "PENDING_NAMED_LOCATION_REFS", "APPROVED_ROOT_FALSE",
-        "ROOT_NOT_APPROVED", "NESTED_SPACE_UNRESOLVED",
+        "REMAINING_LOCATION_WORK", "PENDING_NAMED_LOCATION_REFS", "PENDING_NAMED_LOCATION", "APPROVED_ROOT_FALSE",
+        "ROOT_NOT_APPROVED", "ROOT_LOCATION_UNRESOLVED", "NESTED_SPACE_UNRESOLVED",
     }:
         return f"SPATIAL::{batch}::{code}::{message}"
     return f"{category.upper()}::{code}::{message}"
@@ -147,16 +147,22 @@ def canonical_key(blocker: dict[str, Any]) -> str:
 
 def avatar_index_map(index: Any) -> dict[str, dict[str, Any]]:
     out: dict[str, dict[str, Any]] = {}
-    for node in iter_nodes(index):
-        if not isinstance(node, dict):
-            continue
-        bid = node.get("batch_id") or node.get("batch") or node.get("id")
-        if isinstance(bid, str) and re.fullmatch(r"B\d{2}", bid):
-            out.setdefault(bid, node)
-    if isinstance(index, dict):
-        for key, value in index.items():
-            if re.fullmatch(r"B\d{2}", str(key)) and isinstance(value, dict):
-                out.setdefault(str(key), value)
+
+    def walk(obj: Any) -> None:
+        if isinstance(obj, dict):
+            for key, value in obj.items():
+                if re.fullmatch(r"B\d{2}", str(key)) and isinstance(value, dict):
+                    out.setdefault(str(key), value)
+                if isinstance(value, dict):
+                    bid = value.get("batch_id") or value.get("batch") or value.get("id")
+                    if isinstance(bid, str) and re.fullmatch(r"B\d{2}", bid):
+                        out.setdefault(bid, value)
+                walk(value)
+        elif isinstance(obj, list):
+            for value in obj:
+                walk(value)
+
+    walk(index)
     return out
 
 
@@ -177,10 +183,21 @@ def manifest_assets(manifest_path: str | None) -> list[dict[str, Any]]:
         value = doc.get(key) if isinstance(doc, dict) else None
         if isinstance(value, list):
             return [x for x in value if isinstance(x, dict)]
+        if isinstance(value, dict):
+            found = []
+            for aid, payload in value.items():
+                if not isinstance(payload, dict):
+                    continue
+                item = dict(payload)
+                item.setdefault("_manifest_asset_id", str(aid))
+                if AVATAR_ASSET_RE.fullmatch(str(aid)):
+                    item.setdefault("asset_id", str(aid))
+                found.append(item)
+            return found
     found: list[dict[str, Any]] = []
     for node in iter_nodes(doc):
         if isinstance(node, dict):
-            aid = node.get("asset_id") or node.get("id")
+            aid = node.get("asset_id") or node.get("id") or node.get("_manifest_asset_id")
             if isinstance(aid, str) and AVATAR_ASSET_RE.fullmatch(aid):
                 found.append(node)
     return found
@@ -269,12 +286,14 @@ def classify_dependency(dep: dict[str, Any], registry_map: dict[str, dict[str, A
 
     if category == "avatar-slot":
         batch = batches[0] if len(batches) == 1 else None
+        index_record = avatar_index.get(batch, {}) if batch else {}
+        index_status = str(index_record.get("status", "")) if isinstance(index_record, dict) else ""
         manifest_path = find_manifest_path(batch, avatar_index) if batch else None
         assets = manifest_assets(manifest_path)
         unresolved_ids = set(AVATAR_ASSET_RE.findall(message))
         targeted = []
         for asset in assets:
-            aid = asset.get("asset_id") or asset.get("id")
+            aid = asset.get("asset_id") or asset.get("id") or asset.get("_manifest_asset_id")
             if unresolved_ids and aid not in unresolved_ids:
                 continue
             src = asset_source_path(asset)
@@ -282,19 +301,52 @@ def classify_dependency(dep: dict[str, Any], registry_map: dict[str, dict[str, A
                 "asset_id": aid,
                 "source_path": src,
                 "source_exists": bool(src and (ROOT / src).exists()),
+                "drive_status": asset.get("drive_status"),
+                "drive_file_id_present": bool(asset.get("drive_file_id")),
                 "heygen_status": asset.get("heygen_status") or asset.get("status"),
                 "heygen_look_id_present": bool(asset.get("heygen_look_id") or asset.get("look_id")),
             })
         all_source_existing = bool(targeted) and all(x["source_exists"] for x in targeted)
+
+        b01_manifest = "production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml"
+        b01_reusable = []
+        if batch and batch != "B01":
+            for asset in manifest_assets(b01_manifest):
+                reuse = asset.get("reuse_batches") or []
+                if batch in reuse:
+                    src = asset_source_path(asset)
+                    b01_reusable.append({
+                        "asset_id": asset.get("asset_id") or asset.get("_manifest_asset_id"),
+                        "character_ref": asset.get("character_ref"),
+                        "source_path": src,
+                        "source_exists": bool(src and (ROOT / src).exists()),
+                        "drive_status": asset.get("drive_status"),
+                        "heygen_look_id_present": bool(asset.get("heygen_look_id") or asset.get("look_id")),
+                    })
+
         result["evidence"] = {
+            "avatar_index_status": index_status or None,
             "manifest": manifest_path,
             "targeted_avatar_assets": targeted,
+            "b01_reuse_evidence": b01_reusable,
         }
         if all_source_existing:
             result.update({
-                "resolution_lane": "WORK_PAGE_AVATAR_LOOK_COMPLETION_FROM_EXISTING_SOURCE",
+                "resolution_lane": "WORK_PAGE_AVATAR_LOOK_COMPLETION_FROM_EXISTING_GITHUB_DRIVE_SOURCE",
                 "new_work_page_media_required": False,
-                "safe_first_action": "Use the already-existing source visual on the Work page to complete the required avatar look and record the returned look ID; no new source visual should be generated.",
+                "safe_first_action": "Use the exact existing GitHub source visual already archived to Drive to complete the HeyGen look on the Work page; do not regenerate the source visual.",
+            })
+        elif "REUSE_B01_CAPTURE_IDENTITIES" in index_status:
+            result.update({
+                "resolution_lane": "WORK_PAGE_AVATAR_MANIFEST_BINDING_TO_EXISTING_B01_IDENTITIES",
+                "new_work_page_media_required": False,
+                "safe_first_action": "Author the batch avatar manifest by binding the explicitly designated B01 capture identities/looks; do not create replacement identity media.",
+            })
+        elif b01_reusable:
+            result.update({
+                "resolution_lane": "WORK_PAGE_AVATAR_PARTIAL_REUSE_THEN_GAP_REVIEW",
+                "new_work_page_media_required": "CONDITIONAL_ON_UNCOVERED_AVATAR_SLOTS",
+                "safe_first_action": "Bind every documented B01 reusable identity/source first. Only uncovered named-character slots may proceed to new Work-page avatar-source creation.",
             })
         else:
             result.update({
@@ -305,7 +357,7 @@ def classify_dependency(dep: dict[str, Any], registry_map: dict[str, dict[str, A
         return result
 
     if category in {"nested-space", "location"} and code in {
-        "REMAINING_LOCATION_WORK", "PENDING_NAMED_LOCATION_REFS", "APPROVED_ROOT_FALSE", "ROOT_NOT_APPROVED", "NESTED_SPACE_UNRESOLVED"
+        "REMAINING_LOCATION_WORK", "PENDING_NAMED_LOCATION_REFS", "PENDING_NAMED_LOCATION", "APPROVED_ROOT_FALSE", "ROOT_NOT_APPROVED", "ROOT_LOCATION_UNRESOLVED", "NESTED_SPACE_UNRESOLVED"
     }:
         result.update({
             "resolution_lane": "SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK",
@@ -324,7 +376,9 @@ def lane_priority(lane: str) -> int:
         "CONSENT_STATE_UPDATE": 20,
         "EXISTING_GITHUB_ASSET_REVIEW_THEN_REGISTRY_OR_BINDING_CORRECTION": 30,
         "SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK": 40,
-        "WORK_PAGE_AVATAR_LOOK_COMPLETION_FROM_EXISTING_SOURCE": 50,
+        "WORK_PAGE_AVATAR_LOOK_COMPLETION_FROM_EXISTING_GITHUB_DRIVE_SOURCE": 50,
+        "WORK_PAGE_AVATAR_MANIFEST_BINDING_TO_EXISTING_B01_IDENTITIES": 52,
+        "WORK_PAGE_AVATAR_PARTIAL_REUSE_THEN_GAP_REVIEW": 55,
         "WORK_PAGE_AVATAR_REUSE_OR_SOURCE_GAP_REVIEW": 60,
         "DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT": 70,
         "REGISTRY_OR_BINDING_REVIEW": 80,
