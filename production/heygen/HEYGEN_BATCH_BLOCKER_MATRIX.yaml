@@ -1,159 +1,1314 @@
-version: 2
+version: 3
 project: ANAADHI
 control: HEYGEN-BATCH-BLOCKER-MATRIX
-status: REFRESHED_FROM_P0_POST_PRECHECK__HARD_BLOCKS_REMAIN
-as_of_local: "2026-08-16T18:37:00+05:30"
+status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-
-fresh_sources:
-  post_validator:
-    path: production/heygen/P0_NO_NEW_MEDIA_POST_VALIDATOR.yaml
-    git_blob_sha: 95695e8cf00e0b0d2f446f14347b9379a93c6dde
-    authoritative_for_live_blockers: true
-  p0_precheck_result:
-    path: production/heygen/HEYGEN_P0_NO_NEW_MEDIA_PRECHECK_RESULT.yaml
-    git_blob_sha: 243621c92976e66da9b353495a88876569ce81a3
-    authoritative_for_aq001_through_aq006_resolution_evidence: true
-  aq001_aq002_consent_verify_result:
-    path: production/heygen/HEYGEN_AQ001_AQ002_CONSENT_VERIFY_RESULT.yaml
-    git_blob_sha: a9798eae1a422a2ffa6ceb5782eccb7090e84cd3
-    authoritative_for_latest_aq001_aq002_consent_observation: true
-
-prior_snapshot:
-  repository_head: 2133c63581b423aec58d6fe288d0a9acad30b3df
-  prior_matrix_git_blob_sha: d0008173923127ae9f913559ecd3d23ddb16cadf
-  prior_total_blockers: 290
-  prior_canonical_dependencies: 161
-
-validation_result:
-  validator_exit_code: 2
-  gate_result: HARD_BLOCKED
-  selected_batches: 34
-  passed_batches: 0
-  blocked_batches: 34
-  global_blockers: 0
-  total_blockers: 293
-  passed_batch_ids: []
-  blocked_batch_range: B01-B34
-
+validated_repository_head: 925f7524d2281a9d452df29c486377000437ca62
+validator_exit_code: 2
+gate_result: HARD_BLOCKED
+report:
+  validator: HEYGEN-BATCH-MEDIA-VALIDATOR
+  mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_SUBMISSION
+  scope: B01-B34 / SC001-SC100
+  source_files:
+  - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  - production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  - production/references/REFERENCE_REGISTRY.yaml
+  - production/heygen/HEYGEN_API_ACCEPTANCE_CONTRACT.yaml
+  - production/batches/ANAADHI_BATCH_FOUNDATION.py
+  - production/heygen/avatars/AVATAR_BATCH_INDEX.yaml
+  summary:
+    selected_batches: 34
+    passed_batches: 0
+    blocked_batches: 34
+    global_blockers: 0
+    total_blockers: 293
+  passed_batches: []
+  blocked_batches:
+  - B01
+  - B02
+  - B03
+  - B04
+  - B05
+  - B06
+  - B07
+  - B08
+  - B09
+  - B10
+  - B11
+  - B12
+  - B13
+  - B14
+  - B15
+  - B16
+  - B17
+  - B18
+  - B19
+  - B20
+  - B21
+  - B22
+  - B23
+  - B24
+  - B25
+  - B26
+  - B27
+  - B28
+  - B29
+  - B30
+  - B31
+  - B32
+  - B33
+  - B34
+  global: []
+  batches:
+    B01:
+    - batch_id: B01
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
+    - batch_id: B01
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-RAISED-CABIN: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B01
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-ADK7-CARTRIDGE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B01
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B01
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B01
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SPLIT-FLOORBOARD: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B01
+      category: vehicle
+      code: REFERENCE_NOT_APPROVED
+      message: 'VEH-PARAANE-MEDICAL-TRANSPORT: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B01
+      category: technology
+      code: REFERENCE_NOT_APPROVED
+      message: 'TEC-BLACK-KITE-DRONE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B01
+      category: technology
+      code: REFERENCE_NOT_APPROVED
+      message: 'TEC-PARAANE-SENSOR-STAKE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B01
+      category: environment
+      code: REFERENCE_NOT_APPROVED
+      message: 'ENV-BLACK-RAIN: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B01
+      category: avatar-slot
+      code: AVATAR_LOOKS_UNRESOLVED
+      message: 'Avatar asset(s) not COMPLETE with look IDs: B01-AV-03, B01-AV-04, B01-AV-05, B01-AV-06, B01-AV-07, B01-AV-08, B01-AV-09'
+    - batch_id: B01
+      category: consent
+      code: CONSENT_UNRESOLVED
+      message: Private-avatar consent is not explicitly COMPLETE/APPROVED/VERIFIED/NOT_REQUIRED in production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    - batch_id: B01
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B02:
+    - batch_id: B02
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: systems-lab nested interior'
+    - batch_id: B02
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ADRAKA-SYSTEMS-LAB: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B02
+      category: technology
+      code: REFERENCE_NOT_APPROVED
+      message: 'TEC-HOLOGRAPHIC-NEURAL-MAP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B02
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    B03:
+    - batch_id: B03
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if required'
+    - batch_id: B03
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CAMPUS-EARLY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B03
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CENTRAL-COMMAND: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B03
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B03
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-FOUNDERS-CREDENTIAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B03
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B03
+      category: environment
+      code: REFERENCE_NOT_APPROVED
+      message: 'ENV-PARAANE-EARLY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B03
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    B04:
+    - batch_id: B04
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: Neonatal Diagnostic Suite | Records Control Room | Maternity Recovery Room | other required hospital subspaces'
+    - batch_id: B04
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARLIPATNA-HOSPITAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B04
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B04
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B04
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B05:
+    - batch_id: B05
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: LOC-006 shrine/light scene dressing | Paraane gate nested identity under LOC-003 if required'
+    - batch_id: B05
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-FOUR-ROAD-JUNCTION: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B05
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CAMPUS-EARLY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B05
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-FOUR-ROAD-SHRINE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B05
+      category: vehicle
+      code: REFERENCE_NOT_APPROVED
+      message: 'VEH-SARJANYA-JEEP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B05
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B05
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B06:
+    - batch_id: B06
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: Paraane emergency intake | Parvaran office / child-wing overlook'
+    - batch_id: B06
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CHILD-WING: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B06
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B06
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B06
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B06
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B07:
+    - batch_id: B07
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: child-wing nested identity | observation gallery'
+    - batch_id: B07
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CHILD-WING: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B07
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'HR-ANAADHI-05: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B07
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-CHILD-INSTITUTIONAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B07
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B07
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B07
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B08:
+    - batch_id: B08
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: child-wing consultation room | developmental assessment chamber'
+    - batch_id: B08
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CHILD-WING: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B08
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'HR-ANAADHI-07: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B08
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-CHILD-INSTITUTIONAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B08
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B08
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B08
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B09:
+    - batch_id: B09
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: child-wing courtyard | medication dispensary'
+    - batch_id: B09
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CHILD-WING: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B09
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-CHILD-INSTITUTIONAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B09
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B09
+      category: technology
+      code: REFERENCE_NOT_APPROVED
+      message: 'TEC-MEDICINE-RAIL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B09
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B09
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B10:
+    - batch_id: B10
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: family visitation hall | child-wing community kitchen'
+    - batch_id: B10
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CHILD-WING: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B10
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-CHILD-INSTITUTIONAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B10
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B10
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B11:
+    - batch_id: B11
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: high observation | audit corridor | service corridors | security control | old drainage passage | outer embankment'
+    - batch_id: B11
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-HIGH-OBSERVATION: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B11
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CHILD-WING: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B11
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'HR-ANAADHI-12-CLOSE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B11
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-CHILD-INSTITUTIONAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B11
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'INJ-ANAADHI-12-ESCAPE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B11
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B11
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B11
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B12:
+    - batch_id: B12
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: scene-specific weather/search dressing | Parvaran-Janne house interior continuity'
+    - batch_id: B12
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B12
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARVARAN-JANNE-HOUSE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B12
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'HR-ANAADHI-12-FOREST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B12
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-12-ESCAPE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B12
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'INJ-ANAADHI-12-ESCAPE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B12
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-FOUR-ROAD-SHRINE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B12
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B12
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B13:
+    - batch_id: B13
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: LOC-018 ST01 expansion | seasonal montage state continuity using already-approved support environments'
+    - batch_id: B13
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B13
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B13
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-13: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B13
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-14: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B13
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-15: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B13
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-16: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B13
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'HR-ANAADHI-16: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B13
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-FOREST-TEEN: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B13
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B13
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B14:
+    - batch_id: B14
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: LOC-020 interior plate | LOC-020 loft plate | LOC-020 concealed lower passage'
+    - batch_id: B14
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B14
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B14
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-17: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B14
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-18: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B14
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'HR-ANAADHI-18: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B14
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-FOREST-TEEN: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B14
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B14
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B15:
+    - batch_id: B15
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: scene-specific day/rain/social-use states only where canon requires'
+    - batch_id: B15
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B15
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-VILLAGE-HAND-PUMP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B15
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B15
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-19: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B15
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'HR-ANAADHI-19: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B15
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-19: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B15
+      category: vehicle
+      code: REFERENCE_NOT_APPROVED
+      message: 'VEH-ANAADHI-CART: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B15
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B15
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B16:
+    - batch_id: B16
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: LOC-027 stable marked surface | LOC-027 ST01-ST03'
+    - batch_id: B16
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-VILLAGE-HAND-PUMP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B16
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B16
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-20: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B16
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-20-26: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B16
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SEVENTEEN-NAME-LIST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B16
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B16
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B17:
+    - batch_id: B17
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: scene-specific state/dressing only'
+    - batch_id: B17
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B17
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-21: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B17
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-20-26: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B17
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B17
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B18:
+    - batch_id: B18
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: preserve LOC-042 already-burnt ST00; no pristine reset'
+    - batch_id: B18
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B18
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B18
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-22: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B18
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-20-26: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B18
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SEVENTEEN-NAME-LIST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B18
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B18
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B19:
+    - batch_id: B19
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: scene-specific state/dressing only'
+    - batch_id: B19
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B19
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B19
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-23: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B19
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-20-26: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B19
+      category: vehicle
+      code: REFERENCE_NOT_APPROVED
+      message: 'VEH-ANAADHI-MOTORCYCLE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B19
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SEVENTEEN-NAME-LIST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B19
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B19
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B20:
+    - batch_id: B20
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: scene-specific monsoon/flood state only'
+    - batch_id: B20
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B20
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B20
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-24: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B20
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-20-26: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B20
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SEVENTEEN-NAME-LIST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B20
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B20
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B21:
+    - batch_id: B21
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: preserve LOC-050 opened/dismantled/partly-burned ST00; no pristine reset'
+    - batch_id: B21
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B21
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B21
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-25: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B21
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-20-26: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B21
+      category: vehicle
+      code: REFERENCE_NOT_APPROVED
+      message: 'VEH-ANAADHI-MOTORCYCLE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B21
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SEVENTEEN-NAME-LIST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B21
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B21
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B22:
+    - batch_id: B22
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: LOC-055 mirror remains physically too low for 1.93 m Anaadhi'
+    - batch_id: B22
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B22
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B22
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-26: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B22
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'HR-ANAADHI-26-POST-BARBER: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B22
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-20-26: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B22
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SEVENTEEN-NAME-LIST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B22
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B22
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B23:
+    - batch_id: B23
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: LOC-056 repaired-bag continuity | LOC-057 seventeen-name display custody continuity | raised-cabin state continuity'
+    - batch_id: B23
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ANAADHI-HIDDEN-CABINS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B23
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-RAISED-CABIN: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B23
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B23
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-27-FOREST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B23
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SEVENTEEN-NAME-LIST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B23
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SEVENTEEN-LAMPS: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B23
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SPLIT-FLOORBOARD: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B23
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B23
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B24:
+    - batch_id: B24
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin capture state'
+    - batch_id: B24
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CENTRAL-COMMAND: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-PHARMACY-VAULT: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-RAISED-CABIN: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-ADK7-CARTRIDGE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SPLIT-FLOORBOARD: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: vehicle
+      code: REFERENCE_NOT_APPROVED
+      message: 'VEH-PARAANE-MEDICAL-TRANSPORT: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: technology
+      code: REFERENCE_NOT_APPROVED
+      message: 'TEC-BLACK-KITE-DRONE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: environment
+      code: REFERENCE_NOT_APPROVED
+      message: 'ENV-BLACK-RAIN: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B24
+      category: avatar-slot
+      code: AVATAR_LOOKS_UNRESOLVED
+      message: 'Avatar asset(s) not COMPLETE with look IDs: B24-AV-01, B24-AV-02, B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12'
+    - batch_id: B24
+      category: consent
+      code: CONSENT_UNRESOLVED
+      message: Private-avatar consent is not explicitly COMPLETE/APPROVED/VERIFIED/NOT_REQUIRED in production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
+    - batch_id: B24
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B25:
+    - batch_id: B25
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: LOC-001 lower passage identity | grate/route continuity between cabin and ravine'
+    - batch_id: B25
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-RAISED-CABIN: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B25
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-BHAIGAARA-FOREST-SURVIVAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B25
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SPLIT-FLOORBOARD: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B25
+      category: technology
+      code: REFERENCE_NOT_APPROVED
+      message: 'TEC-BLACK-KITE-DRONE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B25
+      category: avatar-slot
+      code: AVATAR_LOOKS_UNRESOLVED
+      message: 'Avatar asset(s) not COMPLETE with look IDs: B25-AV-03, B25-AV-04, B25-AV-05, B25-AV-06, B25-AV-07, B25-AV-08'
+    - batch_id: B25
+      category: consent
+      code: CONSENT_UNRESOLVED
+      message: Private-avatar consent is not explicitly COMPLETE/APPROVED/VERIFIED/NOT_REQUIRED in production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
+    - batch_id: B25
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B26:
+    - batch_id: B26
+      category: location
+      code: ROOT_LOCATION_UNRESOLVED
+      message: approved_root must be boolean true; found 'PARTIAL'
+    - batch_id: B26
+      category: location
+      code: PENDING_NAMED_LOCATION
+      message: 'Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION'
+    - batch_id: B26
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: mature Paraane states | archive | old observation corridor | required nested rooms'
+    - batch_id: B26
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CAMPUS-MATURE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B26
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CHILD-WING: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B26
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-ARCHIVE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B26
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-HIGH-OBSERVATION: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B26
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B26
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-SEVENTEEN-NAME-LIST: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B26
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B26
+      category: avatar-slot
+      code: AVATAR_LOOKS_UNRESOLVED
+      message: 'Avatar asset(s) not COMPLETE with look IDs: B26-AV-03, B26-AV-04, B26-AV-05, B26-AV-06, B26-AV-07, B26-AV-08, B26-AV-09, B26-AV-10'
+    - batch_id: B26
+      category: consent
+      code: CONSENT_UNRESOLVED
+      message: Private-avatar consent is not explicitly COMPLETE/APPROVED/VERIFIED/NOT_REQUIRED in production/heygen/avatars/B26/B26_AVATAR_MANIFEST.yaml
+    - batch_id: B26
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B27:
+    - batch_id: B27
+      category: location
+      code: ROOT_LOCATION_UNRESOLVED
+      message: approved_root must be boolean true; found False
+    - batch_id: B27
+      category: location
+      code: PENDING_NAMED_LOCATION
+      message: 'Unresolved named location binding(s): LOC-063'
+    - batch_id: B27
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: canonical ENV-6L root ID binding | surgery and recovery subspaces'
+    - batch_id: B27
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-063: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B27
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B27
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B27
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'INJ-ANAADHI-27-SURGERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B27
+      category: vehicle
+      code: REFERENCE_NOT_APPROVED
+      message: 'VEH-INDEPENDENT-EMERGENCY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B27
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B27
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B28:
+    - batch_id: B28
+      category: location
+      code: ROOT_LOCATION_UNRESOLVED
+      message: approved_root must be boolean true; found 'PARTIAL'
+    - batch_id: B28
+      category: location
+      code: PENDING_NAMED_LOCATION
+      message: 'Unresolved named location binding(s): LOC-064, LOC-066'
+    - batch_id: B28
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: Forest Transfer Road / Fallen-Tree Blockade canonical ENV-6L binding | communications-tower scene geography'
+    - batch_id: B28
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-064: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B28
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-066: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B28
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B28
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B28
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'INJ-ANAADHI-27-SURGERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B28
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B28
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B29:
+    - batch_id: B29
+      category: location
+      code: ROOT_LOCATION_UNRESOLVED
+      message: approved_root must be boolean true; found 'PARTIAL'
+    - batch_id: B29
+      category: location
+      code: PENDING_NAMED_LOCATION
+      message: 'Unresolved named location binding(s): LOC-PARAANE-CENTRAL-COMMAND, LOC-PARAANE-PHARMACY-VAULT'
+    - batch_id: B29
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: late Paraane subspaces | hospital/council/pharmacy evidence locations'
+    - batch_id: B29
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CAMPUS-MATURE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B29
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CENTRAL-COMMAND: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B29
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-PHARMACY-VAULT: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B29
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B29
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B29
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'INJ-ANAADHI-27-SURGERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B29
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-ADK7-CARTRIDGE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B29
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B29
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B29
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    B30:
+    - batch_id: B30
+      category: location
+      code: ROOT_LOCATION_UNRESOLVED
+      message: approved_root must be boolean true; found 'PARTIAL'
+    - batch_id: B30
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: Kadraayini Media Network root + command floor canonical binding | irrigation/live-confession locations | required late states'
+    - batch_id: B30
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-ADRAKA-SYSTEMS-LAB: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CAMPUS-MATURE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-ADK7-CARTRIDGE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B30
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B31:
+    - batch_id: B31
+      category: location
+      code: ROOT_LOCATION_UNRESOLVED
+      message: approved_root must be boolean true; found False
+    - batch_id: B31
+      category: location
+      code: PENDING_NAMED_LOCATION
+      message: 'Unresolved named location binding(s): LOC-075'
+    - batch_id: B31
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: canonical ENV-6L root IDs | border medical corridor | tribunal/court state'
+    - batch_id: B31
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-075: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B31
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B31
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B31
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B32:
+    - batch_id: B32
+      category: location
+      code: ROOT_LOCATION_UNRESOLVED
+      message: approved_root must be boolean true; found False
+    - batch_id: B32
+      category: location
+      code: PENDING_NAMED_LOCATION
+      message: 'Unresolved named location binding(s): LOC-078, LOC-079'
+    - batch_id: B32
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: Independent Judicial Complex family-contact corridor | remand court canonical bindings'
+    - batch_id: B32
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-078: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B32
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-079: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B32
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B32
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B32
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B33:
+    - batch_id: B33
+      category: location
+      code: ROOT_LOCATION_UNRESOLVED
+      message: approved_root must be boolean true; found 'PARTIAL'
+    - batch_id: B33
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: Paraane dismantling later-state | Kendhalaa Memorial Courtyard canonical binding'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARAANE-CAMPUS-MATURE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: prop
+      code: REFERENCE_NOT_APPROVED
+      message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B33
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
+    B34:
+    - batch_id: B34
+      category: location
+      code: ROOT_LOCATION_UNRESOLVED
+      message: approved_root must be boolean true; found False
+    - batch_id: B34
+      category: location
+      code: PENDING_NAMED_LOCATION
+      message: 'Unresolved named location binding(s): LOC-087'
+    - batch_id: B34
+      category: nested-space
+      code: REMAINING_LOCATION_WORK
+      message: 'Unresolved location/nested-space/state work: Independent Judicial Medical Centre root | Scene-100 interview room nested identity'
+    - batch_id: B34
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-087: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B34
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'AGE-ANAADHI-27-FINAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B34
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'HR-ANAADHI-27-FINAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B34
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'CST-ANAADHI-27-FINAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B34
+      category: character-state
+      code: REFERENCE_NOT_APPROVED
+      message: 'INJ-ANAADHI-27-FINAL: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B34
+      category: avatar-slot
+      code: AVATAR_MANIFEST_UNASSIGNED
+      message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
+    - batch_id: B34
+      category: consent
+      code: ANAADHI_CONSENT_UNVERIFIED
+      message: Acceptance contract records Anaadhi private-avatar consent_status_observed=null
 p0_packet_overlay:
   highest_priority_open:
-    - packet_id: HEYGEN-AQ-001
-      dependency_id: CONSENT::ANAADHI_PRIVATE_AVATAR
-      status: OPEN_UNRESOLVED
-      evidence: "Rechecked directly at 2026-08-16T18:37:00+05:30: authoritative Anaadhi private-avatar group is completed and consent_status remains null; no affirmative state was written."
-    - packet_id: HEYGEN-AQ-002
-      dependency_id: CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
-      status: OPEN_UNRESOLVED
-      evidence: "Rechecked every existing B01-referenced private identity: Anaadhi and Aarathi groups are completed and both consent_status values remain null; no affirmative state was written."
-    - packet_id: HEYGEN-AQ-003
-      dependency_id: AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
-      status: OPEN_UNRESOLVED
-      evidence: "GitHub SHA-256 integrity passed 7/7 and exact recorded Drive IDs/filenames resolved 7/7; required HeyGen look completion remains unresolved."
-  resolved_history:
-    - packet_id: HEYGEN-AQ-004
-      dependency_id: AVATAR_SLOT::B24::AVATAR_MANIFEST_UNASSIGNED
-      status: DEPENDENCY_RESOLVED_EVIDENCED
-      live_blocker_absent: true
-      batch_unlocked: false
-    - packet_id: HEYGEN-AQ-005
-      dependency_id: AVATAR_SLOT::B25::AVATAR_MANIFEST_UNASSIGNED
-      status: DEPENDENCY_RESOLVED_EVIDENCED
-      live_blocker_absent: true
-      batch_unlocked: false
-    - packet_id: HEYGEN-AQ-006
-      dependency_id: AVATAR_SLOT::B26::AVATAR_MANIFEST_UNASSIGNED
-      status: DEPENDENCY_RESOLVED_EVIDENCED
-      live_blocker_absent: true
-      batch_unlocked: false
-
-canonical_dependency_delta:
-  removed_from_live_set:
-    - AVATAR_SLOT::B24::AVATAR_MANIFEST_UNASSIGNED
-    - AVATAR_SLOT::B25::AVATAR_MANIFEST_UNASSIGNED
-    - AVATAR_SLOT::B26::AVATAR_MANIFEST_UNASSIGNED
-  newly_exposed_live_set:
-    - dependency_id: AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
-      batch: B24
-      category: avatar-slot
-      code: AVATAR_LOOKS_UNRESOLVED
-      owner_lane: WORK-PAGE-AVATAR-COMPLETION
-      status: OPEN_UNRESOLVED
-    - dependency_id: CONSENT::production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
-      batch: B24
-      category: consent
-      code: CONSENT_UNRESOLVED
-      owner_lane: CONSENT-VERIFY
-      status: OPEN_UNRESOLVED
-    - dependency_id: AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07,B25-AV-08
-      batch: B25
-      category: avatar-slot
-      code: AVATAR_LOOKS_UNRESOLVED
-      owner_lane: WORK-PAGE-AVATAR-COMPLETION
-      status: OPEN_UNRESOLVED
-    - dependency_id: CONSENT::production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
-      batch: B25
-      category: consent
-      code: CONSENT_UNRESOLVED
-      owner_lane: CONSENT-VERIFY
-      status: OPEN_UNRESOLVED
-    - dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
-      batch: B26
-      category: avatar-slot
-      code: AVATAR_LOOKS_UNRESOLVED
-      owner_lane: WORK-PAGE-AVATAR-COMPLETION
-      status: OPEN_UNRESOLVED
-    - dependency_id: CONSENT::production/heygen/avatars/B26/B26_AVATAR_MANIFEST.yaml
-      batch: B26
-      category: consent
-      code: CONSENT_UNRESOLVED
-      owner_lane: CONSENT-VERIFY
-      status: OPEN_UNRESOLVED
-
-canonicalization_summary:
-  prior_canonical_dependencies: 161
-  resolved_dependencies_removed_from_live_set: 3
-  new_dependencies_added_to_live_set: 6
-  active_canonical_dependencies: 164
-  shared_dependencies: 31
-  batch_specific_dependencies: 133
-  raw_blockers: 293
-  raw_blockers_collapsed_by_canonicalization: 129
-
-b24_b25_b26_binding_truth:
-  B24:
-    p0_character_slots: 13
-    exact_b01_reuse_bindings: 6
-    unresolved_character_slots: 7
-    manifest_unassigned: false
-    live_avatar_looks_unresolved: true
-    live_consent_unresolved: true
-  B25:
-    p0_character_slots: 8
-    exact_b01_reuse_bindings: 5
-    unresolved_character_slots: 3
-    manifest_unassigned: false
-    live_avatar_looks_unresolved: true
-    live_consent_unresolved: true
-  B26:
-    p0_character_slots: 10
-    exact_b01_reuse_bindings: 2
-    unresolved_character_slots: 8
-    manifest_unassigned: false
-    live_avatar_looks_unresolved: true
-    live_consent_unresolved: true
-
-full_live_blocker_payload:
-  source_of_truth: production/heygen/P0_NO_NEW_MEDIA_POST_VALIDATOR.yaml
-  embedding_policy: REFERENCE_CANONICAL_SOURCE__DO_NOT_DUPLICATE_293_BLOCKERS
-  note: "This refreshed matrix overlays canonical dependency state on the complete fresh validator payload instead of duplicating it."
-
+  - packet_id: HEYGEN-AQ-001
+    dependency_id: CONSENT::ANAADHI_PRIVATE_AVATAR
+    status: OPEN_UNRESOLVED
+    evidence: 'Rechecked directly at 2026-08-16T18:37:00+05:30: authoritative Anaadhi private-avatar group is completed and consent_status remains null; no affirmative state was written.'
+  - packet_id: HEYGEN-AQ-002
+    dependency_id: CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    status: OPEN_UNRESOLVED
+    evidence: 'Rechecked every existing B01-referenced private identity: Anaadhi and Aarathi groups are completed and both consent_status values remain null; no affirmative state was
+      written.'
+  - packet_id: HEYGEN-AQ-003
+    dependency_id: AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
+    status: OPEN_UNRESOLVED
+    evidence: GitHub SHA-256 integrity passed 7/7 and exact recorded Drive IDs/filenames resolved 7/7; required HeyGen look completion remains unresolved.
+  resolved_history: &id001
+  - packet_id: HEYGEN-AQ-004
+    dependency_id: AVATAR_SLOT::B24::AVATAR_MANIFEST_UNASSIGNED
+    status: DEPENDENCY_RESOLVED_EVIDENCED
+    live_blocker_absent: true
+    batch_unlocked: false
+  - packet_id: HEYGEN-AQ-005
+    dependency_id: AVATAR_SLOT::B25::AVATAR_MANIFEST_UNASSIGNED
+    status: DEPENDENCY_RESOLVED_EVIDENCED
+    live_blocker_absent: true
+    batch_unlocked: false
+  - packet_id: HEYGEN-AQ-006
+    dependency_id: AVATAR_SLOT::B26::AVATAR_MANIFEST_UNASSIGNED
+    status: DEPENDENCY_RESOLVED_EVIDENCED
+    live_blocker_absent: true
+    batch_unlocked: false
+resolved_history: *id001
+zero_credit_control_sources:
+  frozen_mapping: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  late_batch_crosswalk: production/locations/P1_LATE_BATCH_ENV6L_BINDING_CROSSWALK.yaml
+  late_semantic_audit: production/locations/P1_LATE_SEMANTIC_REQUIREMENT_AUDIT.yaml
 safety:
   media_generated: false
   media_replaced: false
   approved_status_changed: false
   heygen_submission: false
   heygen_execution: false
-  resolved_packet_history_does_not_imply_batch_pass: true
-  all_batches_remain_hard_blocked: true
+  paid_heygen_work_deferred: true
