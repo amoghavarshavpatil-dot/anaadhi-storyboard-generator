@@ -11,6 +11,8 @@ sources:
   continuation_drive_audit: "production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml"
   continuation_overrides: "production/locations/EXISTING_LOCATION_OVERRIDES_LOC010_059.yaml"
   location_queue: "production/locations/LOCATION_GENERATION_QUEUE.yaml"
+  late_env6l_mapping: "production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml"
+  late_batch_crosswalk: "production/locations/P1_LATE_BATCH_ENV6L_BINDING_CROSSWALK.yaml"
 
 project_truth:
   batches: 34
@@ -28,6 +30,10 @@ p1_truth:
   operational_root_master_count: 61
   canonical_root_master_total: 87
   root_masters_remaining: 26
+  late_env6l_id_name_mapping_imported: true
+  late_env6l_mapping_scope: "LOC-062..LOC-087"
+  late_env6l_visual_coverage_increment_from_metadata_binding: 0
+  p1_l1_metadata_mapping_status: COMPLETE__VISUALS_STILL_PENDING
   note: >-
     57 root/ST00 masters were hard-reuse verified from Drive for LOC-001..LOC-059
     excluding correction IDs LOC-016 and LOC-040. Corrected LOC-016 and LOC-040
@@ -190,43 +196,60 @@ location_bindings:
     remaining_location_work: ["mature Paraane states", "archive", "old observation corridor", "required nested rooms"]
   B27:
     scenes: [75,76,77,78,79,80]
+    env6l_roots: [LOC-063]
+    mobile_refs: [LOC-062]
     approved_root: false
+    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
     pending_named_location_refs: [LOC-INDEPENDENT-SURGERY]
     remaining_location_work: ["canonical ENV-6L root ID binding", "surgery and recovery subspaces"]
   B28:
     scenes: [81,82]
+    env6l_roots: [LOC-064, LOC-066]
+    mobile_refs: [LOC-065]
     approved_root: "PARTIAL"
+    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
     pending_named_location_refs: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-PARAANE-CAMPUS-MATURE]
     remaining_location_work: ["Forest Transfer Road / Fallen-Tree Blockade canonical ENV-6L binding", "communications-tower scene geography"]
   B29:
     scenes: [83,84,85,86]
     approved_root: "PARTIAL"
-    env6l_roots: [LOC-003]
+    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
+    env6l_roots: [LOC-003, LOC-067, LOC-068]
     pending_named_location_refs: [LOC-PARAANE-CENTRAL-COMMAND, LOC-PARAANE-PHARMACY-VAULT]
     remaining_location_work: ["late Paraane subspaces", "hospital/council/pharmacy evidence locations"]
   B30:
     scenes: [87,88,89,90,91,92]
     approved_root: "PARTIAL"
-    env6l_roots: [LOC-002, LOC-003, LOC-011]
+    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
+    env6l_roots: [LOC-002, LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]
+    mobile_refs: [LOC-076, LOC-077]
     remaining_location_work: ["Kadraayini Media Network root + command floor canonical binding", "irrigation/live-confession locations", "required late states"]
   B31:
     scenes: [93,94,95,96]
+    env6l_roots: [LOC-075]
+    mobile_refs: [LOC-076, LOC-077]
     approved_root: false
+    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
     pending_named_location_refs: [LOC-BORDER-CHECKPOINT, LOC-TRIBUNAL-COURT]
     remaining_location_work: ["canonical ENV-6L root IDs", "border medical corridor", "tribunal/court state"]
   B32:
     scenes: [97,98]
+    env6l_roots: [LOC-078, LOC-079]
     approved_root: false
+    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
     pending_named_location_refs: [LOC-TRIBUNAL-COURT]
     remaining_location_work: ["Independent Judicial Complex family-contact corridor", "remand court canonical bindings"]
   B33:
     scenes: [99]
     approved_root: "PARTIAL"
-    env6l_roots: [LOC-003, LOC-011]
+    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
+    env6l_roots: [LOC-003, LOC-011, LOC-080, LOC-081, LOC-082, LOC-083, LOC-084, LOC-086, LOC-087]
     remaining_location_work: ["Paraane dismantling later-state", "Kendhalaa Memorial Courtyard canonical binding"]
   B34:
     scenes: [100]
+    env6l_roots: [LOC-087]
     approved_root: false
+    canonical_metadata_binding_status: ENV6L_LOC062_087_CROSSWALK_APPLIED__VISUAL_APPROVAL_UNCHANGED
     pending_named_location_refs: [LOC-IJMC]
     remaining_location_work: ["Independent Judicial Medical Centre root", "Scene-100 interview room nested identity"]
 
