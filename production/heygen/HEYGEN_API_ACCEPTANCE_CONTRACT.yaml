@@ -1,0 +1,265 @@
+version: 1
+project: ANAADHI
+created_date: 2026-08-16
+status: LOCKED_FOR_API_PAYLOAD_AUTHORING
+
+purpose: >-
+  Freeze the HeyGen API input forms, text limits, media-routing rules, execution ownership,
+  and batch-safe constraints that all ANAADHI GitHub job manifests must follow before any
+  HeyGen generation is submitted. This contract does not generate media.
+
+source_of_truth:
+  - HeyGen authenticated ChatGPT connector schemas checked 2026-08-16
+  - HeyGen official API documentation checked 2026-08-16
+  - project-proven HeyGen Photo Avatar acceptance already completed in this repository
+
+execution_ownership:
+  this_chat:
+    allowed:
+      - author and update GitHub API payloads
+      - author batch manifests for B01-B34
+      - bind approved existing locations, environments, props, vehicles and technology to shots
+      - author shot-video generation requests without submitting them
+      - author Kannada lip-sync requests without submitting them
+      - author validators, status registries, archive rules and QC gates
+      - maintain Google Drive/GitHub IDs and public URL bridges
+    forbidden:
+      - generate new character images
+      - generate new location/environment images
+      - generate new prop images
+      - submit paid HeyGen render jobs unless user explicitly changes this ownership rule
+  work_page:
+    allowed:
+      - create and manage all character/avatar visual generations for all batches
+      - upload/attach approved avatar looks to HeyGen
+      - execute HeyGen shot-video jobs prepared in GitHub
+      - execute HeyGen Kannada lip-sync jobs prepared in GitHub
+      - return HeyGen job IDs and outputs for archival/QC
+    forbidden:
+      - recreate approved locations/environments/props that already exist as canonical assets
+      - rewrite GitHub canonical batch/shot payload intent without updating the canonical repository
+
+movie_scope:
+  batches: 34
+  scenes: "SC001-SC100"
+  batch_rule: "Every API job belongs to exactly one B##, one SC### and one SH###."
+  destructive_overwrite: forbidden
+
+security:
+  api_key_secret_name: HEYGEN_API_KEY
+  rules:
+    - Never commit API keys, tokens, cookies or credentials.
+    - GitHub Actions reads HEYGEN_API_KEY only from repository secrets.
+    - Public media URLs may contain production assets only.
+    - Never print the API key in workflow logs.
+
+heygen_account_namespace_note:
+  connector_observation_2026_08_16: >-
+    The authenticated ChatGPT HeyGen connector currently reports a Free subscription namespace.
+    The production GitHub direct-API secret has previously been independently authenticated for
+    the project. Generation workflows must authenticate the GitHub secret at execution time and
+    must not infer direct-API billing from the ChatGPT connector plan label.
+
+accepted_asset_reference_forms:
+  public_https_url:
+    accepted: true
+    schema_shape: '{type: "url", url: "https://..."}'
+  heygen_asset_id:
+    accepted: true
+    schema_shape: '{type: "asset_id", asset_id: "..."}'
+  local_filesystem_path_direct_to_heygen:
+    accepted: false
+    rule: "Publish/upload first, then pass URL or HeyGen asset_id."
+
+avatar_input_contract:
+  ownership: WORK_PAGE_ONLY
+  photo_avatar:
+    endpoint_family: "HeyGen v3 avatars"
+    file_forms:
+      - public_https_url
+      - heygen_asset_id
+    project_proven_profile:
+      note: "Project-proven acceptance profile, not claimed as HeyGen's universal image limit."
+      format: JPEG
+      width: 2160
+      height: 3840
+      orientation: portrait
+      result: accepted_and_trained
+    current_anaadhi_group:
+      group_id: c26d836745e64d4c92663eae3fb02e06
+      group_name: ANAADHI_MASTER_IDENTITY_V1
+      status: completed
+      consent_status_observed: null
+      rule: >-
+        Private-avatar video execution must verify/complete HeyGen consent if the selected endpoint
+        requires consent before rendering.
+    current_b01_capture_look:
+      look_id: b790b09e412049bcbd4395827ba34eb2
+      name: ANAADHI_B01_CAPTURE_CHATGPT_V1
+      source_dimensions: 2160x3840
+      preferred_orientation: portrait
+      supported_api_engines:
+        - avatar_v
+        - avatar_iv
+        - avatar_iii
+  prompt_avatar:
+    reference_image_max_count: 3
+    rule: "Never send more than three referenceImages in one prompt-avatar request."
+
+text_and_character_limits:
+  avatar_video_text_input:
+    heygen_documented_rule: "text input must be less than 5000 characters"
+    github_validator_max_characters: 4999
+    unit: Unicode_characters
+    rule: >-
+      Never split final Kannada performance merely to satisfy text limits. Final film dialogue uses
+      creator-recorded audio whenever available, so the text-character limit normally does not apply.
+  speech_endpoint:
+    accepted_character_range: "1-5000"
+    use_for_final_kannada_dialogue: false
+  long_text_policy:
+    split_boundary: "approved shot/dialogue beat boundary only"
+    arbitrary_mid_sentence_split: forbidden
+
+avatar_video_request_contract:
+  avatar_id:
+    required_when_using_saved_avatar: true
+  speaking_input:
+    exactly_one_of:
+      - script
+      - audioUrl
+      - audioAssetId
+    final_kannada_preference:
+      first: audioAssetId
+      second: audioUrl
+      script_tts: forbidden_unless_explicitly_approved
+  output_format_allowed:
+    - mp4
+    - webm
+  aspect_ratio_exposed_by_current_v3_interface:
+    - "16:9"
+    - "9:16"
+  resolution_exposed_by_current_v3_interface:
+    - 4k
+    - 1080p
+    - 720p
+  motion_prompt:
+    use: "photo-avatar body motion only when the approved shot manifest supplies the motion intent"
+    must_not_invent_action: true
+  captions:
+    burned_in_default: false
+  watermark_default: false
+
+location_environment_contract:
+  generation_here: forbidden
+  generation_on_work_page: forbidden
+  source: "existing approved canonical Drive/GitHub assets only"
+  still_environment_for_avatar_video:
+    heygen_form:
+      type: image
+      exactly_one_of:
+        - url
+        - asset_id
+  video_environment_where_template_or_v2_background_is_used:
+    heygen_form:
+      type: video
+      exactly_one_of:
+        - url
+        - video_asset_id
+      supported_play_styles_documented:
+        - fit_to_scene
+        - freeze
+        - loop
+        - full_video
+  canonical_source_rule: >-
+    Never regenerate or redesign an approved location merely to satisfy HeyGen. Build a deterministic
+    carrier/conform file with FFmpeg/Remotion when an endpoint requires a different raster/aspect ratio.
+  aspect_reconciliation_rule: >-
+    Do not silently resolve the repository's existing 2.39/3840x1608 versus 2.40/3840x1600 master
+    discrepancy inside a HeyGen payload. Preserve the approved source pixels and mark final mastering
+    conform as a separate explicit gate.
+
+prop_vehicle_technology_contract:
+  generation_here: forbidden
+  generation_on_work_page: forbidden
+  direct_avatar_video_prop_slot_available: false
+  routing_order:
+    - "If a prop is physically part of the shot, bake/bind the approved prop into the approved shot plate before HeyGen render."
+    - "If using a HeyGen template, bind an approved prop image/video through a template image/video API variable."
+    - "Never invent a JSON field named prop for endpoints that do not define one."
+  continuity_required: true
+
+kannada_lipsync_contract:
+  final_dialogue_authority: creator_recorded_kannada_audio
+  source_video_forms:
+    - public_https_url
+    - heygen_asset_id
+  source_audio_forms:
+    - public_https_url
+    - heygen_asset_id
+  endpoint_family: HeyGen_lipsync
+  mode: precision
+  enable_caption: false
+  enable_watermark: false
+  enable_speech_enhancement: false
+  disable_music_track: false
+  fps_mode: passthrough
+  keep_the_same_format: true
+  dynamic_duration_default: false
+  dynamic_duration_exception: "Only when the approved shot manifest explicitly authorises picture-duration adaptation."
+  existing_bridge_reconciliation: >-
+    HEYGEN_PUBLIC_MEDIA_BRIDGE.yaml currently records enable_dynamic_duration=true. Future lip-sync
+    workflow authoring must reconcile that field to this picture-lock-safe default before submission.
+  visible_mouth_required: true
+  inner_voice_vo_monologue_lipsync: false
+  offscreen_dialogue_lipsync_default: false
+
+output_retention_contract:
+  heygen_video_url_expiry_documented: "approximately 7 days"
+  archive_rule: >-
+    On completion, download/archive every accepted HeyGen output immediately to the canonical Drive
+    output folder and record the immutable job/result metadata in GitHub. Do not treat an expiring
+    HeyGen result URL as permanent storage.
+
+job_payload_authoring_rule:
+  no_execution_by_default: true
+  required_execution_flag: EXECUTE_ON_WORK_PAGE
+  required_fields:
+    - batch_id
+    - scene_id
+    - shot_id
+    - version_id
+    - p1_reference_gate
+    - approved_avatar_look_ids
+    - approved_location_asset_ids_or_urls
+    - approved_prop_bindings
+    - heygen_endpoint_family
+    - heygen_payload
+    - execute_owner
+    - execution_status
+    - heygen_job_id
+    - output_archive_status
+    - qc_status
+  default_execution_status: NOT_SUBMITTED
+  default_qc_status: NOT_GENERATED
+
+hard_fail_before_submission:
+  - missing approved P1 reference required by the shot
+  - unapproved avatar look
+  - location regenerated instead of bound to an approved canonical asset
+  - invented/unapproved prop
+  - text input length greater than 4999 characters
+  - more than 3 prompt-avatar reference images
+  - both URL and asset_id supplied for the same mutually-exclusive asset input
+  - visible Kannada dialogue routed to TTS when creator-recorded final audio exists
+  - inner voice/VO incorrectly routed to lip-sync
+  - API secret embedded in repository content
+  - shot payload attempts to resolve the 2.39 versus 2.40 master discrepancy silently
+
+next_code_unit:
+  id: HEYGEN-BATCH-MEDIA-INPUT-SCHEMA
+  purpose: >-
+    Create the B01-B34 machine-readable schema that binds every approved location/environment,
+    prop/vehicle/technology asset and work-page-owned avatar slot to the correct batch without
+    submitting any generation.
+  execution: WAITING_FOR_NEXT_STEP
