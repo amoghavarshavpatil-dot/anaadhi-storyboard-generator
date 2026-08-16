@@ -1,0 +1,130 @@
+version: 1
+project: ANAADHI
+control: P1-LATE-SEMANTIC-REQUIREMENT-AUDIT
+status: CLEAN_SUBSET_READY_FOR_CORRECTION__COMPLEX_BATCHES_HELD
+as_of_local: "2026-08-16T18:48:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+
+sources:
+  frozen_mapping: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+  late_crosswalk: production/locations/P1_LATE_BATCH_ENV6L_BINDING_CROSSWALK.yaml
+  p1_requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  p1_bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  batch_media_schema: production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  locked_scene_inversion: ANAADHI_ENV-2C_Full_Recurrence_Scene-Use_Chronology_Audit.md
+  locked_design_inversion: ANAADHI_ENV-5G_Full_Design-System_Inversion_155-Row_260-Link_Final-ENV-5_QA.md
+  approved_screenplay: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+
+rules:
+  correct_only_exact_scene_supported_semantics: true
+  visual_approval_implied: false
+  approved_root_change_authorized: false
+  remove_requirement_without_scene_evidence: false
+  alias_inference_allowed: false
+  complex_multisite_batches_fail_closed: true
+
+clean_corrections:
+  B27:
+    scenes: [75, 76, 77, 78, 79, 80]
+    old_locations: [LOC-INDEPENDENT-SURGERY]
+    corrected_locations: [LOC-063]
+    corrected_pending_named_location_refs: [LOC-063]
+    reason: >-
+      The full sequence is the Independent Ayurvedic Surgery Centre family; frozen LOC-063 is the
+      exact parent root and carries the locked surgery/recovery subspaces.
+    visual_state_after_correction: METADATA_LOCKED_VISUAL_PENDING
+
+  B28:
+    scenes: [81, 82]
+    old_locations: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-PARAANE-CAMPUS-MATURE]
+    corrected_locations: [LOC-064, LOC-066]
+    corrected_pending_named_location_refs: [LOC-064, LOC-066]
+    reason: >-
+      Scene 081 is Forest Transfer Road/Fallen-Tree Blockade and Scene 082 is Forest Communications
+      Tower. The Paraane mature-campus semantic requirement has no physical scene support in 081-082.
+      The broad Bhaigaara aggregate is superseded here by exact frozen roots, not aliased to one plate.
+    visual_state_after_correction: METADATA_LOCKED_VISUAL_PENDING
+
+  B31:
+    scenes: [93, 94, 95, 96]
+    old_locations: [LOC-BORDER-CHECKPOINT, LOC-TRIBUNAL-COURT]
+    corrected_locations: [LOC-075]
+    corrected_pending_named_location_refs: [LOC-075]
+    reason: >-
+      Scenes 093-095 are one continuous Joint Kendhalaa-Adraka Border Checkpoint operation and
+      Scene 096 is its nested Temporary Judicial Evidence Chamber. LOC-082 Tribunal is Scene 099,
+      not B31, and must not be bound into the border sequence.
+    visual_state_after_correction: METADATA_LOCKED_VISUAL_PENDING
+
+  B32:
+    scenes: [97, 98]
+    old_locations: [LOC-TRIBUNAL-COURT]
+    corrected_locations: [LOC-078, LOC-079]
+    corrected_pending_named_location_refs: [LOC-078, LOC-079]
+    reason: >-
+      Scene 097 is the Independent Judicial Complex and Scene 098 is the distinct Independent District
+      Court. Locked geography keeps these roots separate. LOC-082 Tribunal belongs to Scene 099.
+    visual_state_after_correction: METADATA_LOCKED_VISUAL_PENDING
+
+  B34:
+    scenes: [100]
+    old_locations: [LOC-IJMC]
+    corrected_locations: [LOC-087]
+    corrected_pending_named_location_refs: [LOC-087]
+    reason: >-
+      Scene 100 is the Independent Judicial Medical Centre parent/campus with Interview Room and
+      final grounds modules. Frozen LOC-087 is the exact root.
+    visual_state_after_correction: METADATA_LOCKED_VISUAL_PENDING
+
+held_for_deeper_routing:
+  B29:
+    reason: >-
+      Mixes existing Paraane nested states with LOC-067 Convention Centre and LOC-068 certified
+      pharmaceutical store. Paraane central-command and transfer-vault semantics must be separated
+      from Scene-083 Anarvaa office and Scene-086 independent inventory vault before removal.
+  B30:
+    reason: >-
+      Multi-site intercuts/cutaways include LOC-068/069/070/071/080 plus household, surgery, market,
+      Paraane and Sarjanya families. LOC-011 vs LOC-072 and LOC-073 vs LOC-074 are HOLD-separated.
+  B33:
+    reason: >-
+      Scene 099 is a 21-association dismantling montage. Exact P4 Paraane states, Kadraayini XFORM,
+      Sarjanya split roots, judicial roots and IJMC nesting need beat-level routing before requirements
+      are rewritten.
+
+registry_bridge_required:
+  numeric_loc_refs_to_define_before_correction:
+    - LOC-063
+    - LOC-064
+    - LOC-066
+    - LOC-075
+    - LOC-078
+    - LOC-079
+    - LOC-087
+  required_status: MISSING_APPROVED_ASSET
+  required_path: null
+  metadata_status: LOCKED
+  visual_status: METADATA_LOCKED_VISUAL_PENDING
+  purpose: >-
+    Ensure the validator sees the exact canonical numeric roots as defined-but-visually-unapproved,
+    rather than reporting REFERENCE_UNDEFINED or allowing a semantic alias to stand in for them.
+
+atomic_correction_scope:
+  files:
+    - production/references/REFERENCE_REGISTRY.yaml
+    - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+    - production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+    - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  batches: [B27, B28, B31, B32, B34]
+  must_preserve:
+    - every approved_root value
+    - every existing approved media/reference status
+    - all B29/B30/B33 semantic requirements
+    - zero media generation/replacement
+    - zero HeyGen execution
+
+safety:
+  media_generated: false
+  media_replaced: false
+  approved_status_changed: false
+  heygen_called: false
