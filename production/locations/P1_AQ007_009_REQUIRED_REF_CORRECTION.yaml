@@ -1,0 +1,79 @@
+version: 1
+project: ANAADHI
+control: P1-AQ007-009-REQUIRED-REF-CORRECTION
+status: LOCKED_FAIL_CLOSED_CORRECTION
+as_of_local: "2026-08-17T04:23:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+
+source_crosswalk: production/locations/P1_AQ007_009_SHARED_CANONICAL_REUSE_CROSSWALK.yaml
+validator_evidence:
+  run_id: 31978414323
+  artifact_id: 9271683414
+  observed_raw_blockers: 310
+  observed_issue: >-
+    Proven numeric LOC-001..LOC-061 operational masters are represented by approved_root/env6l_roots
+    in P1_BATCH_REFERENCE_BINDINGS, but many numeric IDs are not standalone reference records in
+    REFERENCE_REGISTRY.yaml. Making them required_location_refs therefore changes a resolved aggregate
+    blocker into REFERENCE_UNDEFINED without adding legitimate approval evidence.
+
+correction_rule:
+  exact_operational_root_reuse_authority: P1_BATCH_REFERENCE_BINDINGS.env6l_roots
+  semantic_required_location_refs: >-
+    Keep only unresolved semantic visual dependencies that still require independent reference closure.
+  numeric_root_required_ref_insertion: FORBIDDEN_UNLESS_REFERENCE_REGISTRY_ALREADY_DEFINES_IT
+  registry_approved_promotion: FORBIDDEN
+  remaining_state_and_subspace_work: PRESERVE_IN_P1_BATCH_REFERENCE_BINDINGS.remaining_location_work
+  aggregate_root_plate_substitution: FORBIDDEN
+
+corrected_required_location_refs:
+  B12: [LOC-FOREST-EDGE-BARTER, LOC-PARVARAN-JANNE-HOUSE]
+  B13: [LOC-BHAIGAARA-FOREST-SURVIVAL, LOC-FOREST-EDGE-BARTER]
+  B14: []
+  B15: [LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP]
+  B16: [LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP, LOC-ANAADHI-HIDDEN-CABINS]
+  B17: [LOC-FOREST-EDGE-BARTER, LOC-ANAADHI-HIDDEN-CABINS]
+  B18: [LOC-FOREST-EDGE-BARTER, LOC-ANAADHI-HIDDEN-CABINS]
+  B19: [LOC-BHAIGAARA-FOREST-SURVIVAL]
+  B20: []
+  B21: [LOC-FOREST-EDGE-BARTER]
+  B22: [LOC-FOREST-EDGE-BARTER]
+  B23: [LOC-BHAIGAARA-RAISED-CABIN]
+  B25: [LOC-BHAIGAARA-RAISED-CABIN]
+
+aggregate_dependency_result_expected:
+  AQ007:
+    dependency_id: REF::LOC-BHAIGAARA-FOREST-SURVIVAL
+    live_batches: [B13, B19]
+  AQ008:
+    dependency_id: REF::LOC-ANAADHI-HIDDEN-CABINS
+    live_batches: [B16, B17, B18]
+  AQ009:
+    dependency_id: REF::PRP-PARAANE-EMBLEM
+    live_batches: [B01, B03, B06, B24, B26, B29, B30, B33]
+    state: OPEN_UNRESOLVED
+
+root_binding_evidence_preserved:
+  B15_addition: [LOC-020]
+  B21_addition: [LOC-001, LOC-058]
+  B22_addition: [LOC-001]
+  note: >-
+    All other exact numeric reuse roots were already present in each batch's env6l_roots. None of these
+    bindings satisfies missing nested spaces or later state work.
+
+expected_validator_effect:
+  stale_AQ007_raw_blockers_removed: 9
+  stale_AQ008_raw_blockers_removed: 8
+  new_numeric_REFERENCE_UNDEFINED_blockers: 0
+  prior_pre_crosswalk_raw_blockers: 310
+  expected_raw_blockers: 293
+  canonical_dependency_count_expected_to_return_to: 182
+  note: "Expectation only; permanent read-only validator remains authoritative."
+
+safety:
+  approved_status_promoted: false
+  approved_root_promoted: false
+  media_generated: false
+  media_replaced: false
+  consent_or_avatar_or_look_execution: false
+  render_or_lipsync_submission: false
+  paid_heygen_api_executed: false
