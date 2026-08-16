@@ -32,10 +32,12 @@ VALIDATOR = ROOT / "production/heygen/validate_heygen_batch_media.py"
 PLAN_BUILDER = ROOT / "production/heygen/build_heygen_blocker_resolution_plan.py"
 
 OLD_V1_QUEUE_BLOB = "6ece360ace926b94d022b6eaa66ac4591db89b6d"
+P0_AQ003_PREVIOUS_DEP = "AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09"
+P0_AQ003_CURRENT_DEP = "AVATAR_LOOK_SET::B01-AV-08"
 P0_OPEN_IDS = {
     "CONSENT::ANAADHI_PRIVATE_AVATAR": "HEYGEN-AQ-001",
     "CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml": "HEYGEN-AQ-002",
-    "AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09": "HEYGEN-AQ-003",
+    P0_AQ003_CURRENT_DEP: "HEYGEN-AQ-003",
 }
 RESOLVED_HISTORY_IDS = {"HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"}
 OWNER_MAP = {
@@ -182,6 +184,13 @@ def main() -> None:
     if report.get("summary", {}).get("selected_batches") != 34:
         raise SystemExit("Unexpected validator scope")
 
+    p0_overlay = old_matrix.get("p0_packet_overlay", {})
+    if isinstance(p0_overlay, dict):
+        for item in p0_overlay.get("highest_priority_open", []) or []:
+            if isinstance(item, dict) and item.get("packet_id") == "HEYGEN-AQ-003":
+                item["dependency_id"] = P0_AQ003_CURRENT_DEP
+                item["evidence"] = "B01 is factually 8/9 complete; only B01-AV-08 remains without a completed HeyGen look. Paid execution remains deferred."
+
     matrix = {
         "version": 3,
         "project": "ANAADHI",
@@ -193,7 +202,7 @@ def main() -> None:
         "validator_exit_code": validator_exit,
         "gate_result": "PASS" if validator_exit == 0 else "HARD_BLOCKED",
         "report": report,
-        "p0_packet_overlay": old_matrix.get("p0_packet_overlay", {}),
+        "p0_packet_overlay": p0_overlay,
         "resolved_history": old_matrix.get("p0_packet_overlay", {}).get("resolved_history", []),
         "zero_credit_control_sources": {
             "frozen_mapping": "production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml",
@@ -225,6 +234,10 @@ def main() -> None:
         "open_packet_ids": ["HEYGEN-AQ-001", "HEYGEN-AQ-002", "HEYGEN-AQ-003"],
         "resolved_history_packet_ids": ["HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],
         "consent_handoff_status": "PREPARED_NOT_INITIATED",
+        "aq003_logical_packet_id": "HEYGEN-AQ-003",
+        "aq003_previous_dependency_id": P0_AQ003_PREVIOUS_DEP,
+        "aq003_current_dependency_id": P0_AQ003_CURRENT_DEP,
+        "aq003_narrowing_reason": "B01-AV-03/04/05/06/07/09 are completed; only B01-AV-08 remains deferred behind the credit gate.",
     }
     dump_yaml(PLAN, plan)
 
@@ -240,7 +253,18 @@ def main() -> None:
         if existing is None or packet_num(pid) > packet_num(str(existing["packet_id"])):
             prior_by_dep[dep_id] = packet
 
-    # Hard lock historical P0 identities.
+    aq003_evolution_history = [{
+        "logical_packet_id": "HEYGEN-AQ-003",
+        "previous_dependency_id": P0_AQ003_PREVIOUS_DEP,
+        "current_dependency_id": P0_AQ003_CURRENT_DEP,
+        "status": "DEPENDENCY_NARROWED_BY_FACTUAL_B01_COMPLETION",
+        "reason": "Six previously unresolved looks completed and were reconciled; B01-AV-08 is the sole remaining look dependency.",
+        "paid_execution_authorized_by_history": False,
+    }]
+    # Remove the old seven-look key so AQ-003 cannot appear twice as active/history.
+    prior_by_dep.pop(P0_AQ003_PREVIOUS_DEP, None)
+
+    # Hard lock historical P0 logical packet identities to their current live dependencies.
     for dep_id, pid in P0_OPEN_IDS.items():
         if dep_id not in current_dep_ids:
             raise SystemExit(f"P0 dependency disappeared unexpectedly: {dep_id}")
@@ -350,6 +374,7 @@ def main() -> None:
         "p0_identity_lock": {
             "open": P0_OPEN_IDS,
             "resolved_history_packet_ids": ["HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],
+            "aq003_evolution_history": aq003_evolution_history,
         },
         "resolved_history": resolved_history,
         "superseded_history": superseded,

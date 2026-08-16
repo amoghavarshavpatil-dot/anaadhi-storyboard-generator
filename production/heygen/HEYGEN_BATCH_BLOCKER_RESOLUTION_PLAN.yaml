@@ -3,7 +3,7 @@ project: ANAADHI
 control: HEYGEN-BATCH-BLOCKER-RESOLUTION-PLAN
 mode: PLANNING_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_SUBMISSION
 source_matrix: production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
-source_matrix_sha256: 64eca6ce9bdb5547851e2ce369be92f03288924b19a2cb966e48f295de631e67
+source_matrix_sha256: 84244657ba72c1776e71b213289e4434d78237883c6d882bca42919954877cbe
 validated_scope: B01-B34 / SC001-SC100
 invariants:
   fabricate_approved_status: false
@@ -50,7 +50,7 @@ hard_separation:
   - CONSENT::production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
   - CONSENT::production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
   - CONSENT::production/heygen/avatars/B26/B26_AVATAR_MANIFEST.yaml
-  - AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
+  - AVATAR_LOOK_SET::B01-AV-08
   - AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   - AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07,B25-AV-08
   - AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
@@ -760,7 +760,7 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
 - step: 56
-  dependency_id: AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
+  dependency_id: AVATAR_LOOK_SET::B01-AV-08
   scope: BATCH_SPECIFIC
   batch_impact: 1
   batches: &id056
@@ -2397,7 +2397,7 @@ batch_unlock_order:
   - CONSENT::ANAADHI_PRIVATE_AVATAR
   - CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
   - 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
-  - AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
+  - AVATAR_LOOK_SET::B01-AV-08
   - REF::PRP-PARAANE-EMBLEM
   - REF::PRP-PARAANE-WRIST-DEVICE
   - REF::LOC-BHAIGAARA-RAISED-CABIN
@@ -3386,7 +3386,7 @@ canonical_dependencies:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
   evidence: {}
-- dependency_id: AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
+- dependency_id: AVATAR_LOOK_SET::B01-AV-08
   batches: *id056
   raw_blocker_count: 1
   raw_blocker_numbers:
@@ -3395,64 +3395,22 @@ canonical_dependencies:
     batch_id: B01
     category: avatar-slot
     code: AVATAR_LOOKS_UNRESOLVED
-    message: 'Avatar asset(s) not COMPLETE with look IDs: B01-AV-03, B01-AV-04, B01-AV-05, B01-AV-06, B01-AV-07, B01-AV-08, B01-AV-09'
+    message: 'Avatar asset(s) not COMPLETE with look IDs: B01-AV-08'
   batch_impact: 1
   scope: BATCH_SPECIFIC
   resolution_lane: WORK_PAGE_AVATAR_LOOK_COMPLETION_FROM_EXISTING_GITHUB_DRIVE_SOURCE
   new_work_page_media_required: false
   safe_first_action: Use the exact existing GitHub source visual already archived to Drive to complete the HeyGen look on the Work page; do not regenerate the source visual.
   evidence:
-    avatar_index_status: PARTIAL_HEYGEN_2_OF_9_COMPLETE_API_CREDITS_BLOCKED
+    avatar_index_status: PARTIAL_HEYGEN_8_OF_9_COMPLETE_USD6_CAP_REACHED
     manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
     targeted_avatar_assets:
-    - asset_id: B01-AV-03
-      source_path: production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
-      source_exists: true
-      drive_status: UPLOADED
-      drive_file_id_present: true
-      heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
-      heygen_look_id_present: false
-    - asset_id: B01-AV-04
-      source_path: production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
-      source_exists: true
-      drive_status: UPLOADED
-      drive_file_id_present: true
-      heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
-      heygen_look_id_present: false
-    - asset_id: B01-AV-05
-      source_path: production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
-      source_exists: true
-      drive_status: UPLOADED
-      drive_file_id_present: true
-      heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
-      heygen_look_id_present: false
-    - asset_id: B01-AV-06
-      source_path: production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
-      source_exists: true
-      drive_status: UPLOADED
-      drive_file_id_present: true
-      heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
-      heygen_look_id_present: false
-    - asset_id: B01-AV-07
-      source_path: production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
-      source_exists: true
-      drive_status: UPLOADED
-      drive_file_id_present: true
-      heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
-      heygen_look_id_present: false
     - asset_id: B01-AV-08
       source_path: production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
       drive_file_id_present: true
-      heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
-      heygen_look_id_present: false
-    - asset_id: B01-AV-09
-      source_path: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
-      source_exists: true
-      drive_status: UPLOADED
-      drive_file_id_present: true
-      heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
+      heygen_status: DEFERRED_USD6_BUDGET_CAP
       heygen_look_id_present: false
     b01_reuse_evidence: []
 - dependency_id: AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
@@ -3569,19 +3527,19 @@ canonical_dependencies:
       source_path: production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
     - asset_id: B01-AV-05
       character_ref: CHR-POLICE-COMMANDER
       source_path: production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
     - asset_id: B01-AV-07
       character_ref: CHR-MEDICAL-SPECIALIST
       source_path: production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
     - asset_id: B01-AV-08
       character_ref: CHR-ALLIED-GANGSTER
       source_path: production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
@@ -3667,19 +3625,19 @@ canonical_dependencies:
       source_path: production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
     - asset_id: B01-AV-05
       character_ref: CHR-POLICE-COMMANDER
       source_path: production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
     - asset_id: B01-AV-07
       character_ref: CHR-MEDICAL-SPECIALIST
       source_path: production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
 - dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
   batches: *id059
   raw_blocker_count: 1
@@ -3793,7 +3751,7 @@ canonical_dependencies:
       source_path: production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
 - dependency_id: AVATAR_SLOT::B04::AVATAR_MANIFEST_UNASSIGNED
   batches: *id061
   raw_blocker_count: 1
@@ -3819,7 +3777,7 @@ canonical_dependencies:
       source_path: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
 - dependency_id: AVATAR_SLOT::B05::AVATAR_MANIFEST_UNASSIGNED
   batches: *id062
   raw_blocker_count: 1
@@ -3845,7 +3803,7 @@ canonical_dependencies:
       source_path: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
 - dependency_id: AVATAR_SLOT::B06::AVATAR_MANIFEST_UNASSIGNED
   batches: *id063
   raw_blocker_count: 1
@@ -3871,7 +3829,7 @@ canonical_dependencies:
       source_path: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
 - dependency_id: AVATAR_SLOT::B23::AVATAR_MANIFEST_UNASSIGNED
   batches: *id064
   raw_blocker_count: 1
@@ -3929,7 +3887,7 @@ canonical_dependencies:
       source_path: production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
 - dependency_id: AVATAR_SLOT::B28::AVATAR_MANIFEST_UNASSIGNED
   batches: *id066
   raw_blocker_count: 1
@@ -3961,7 +3919,7 @@ canonical_dependencies:
       source_path: production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
       source_exists: true
       drive_status: UPLOADED
-      heygen_look_id_present: false
+      heygen_look_id_present: true
 - dependency_id: AVATAR_SLOT::B30::AVATAR_MANIFEST_UNASSIGNED
   batches: *id067
   raw_blocker_count: 1
@@ -6279,3 +6237,7 @@ p0_state:
   - HEYGEN-AQ-005
   - HEYGEN-AQ-006
   consent_handoff_status: PREPARED_NOT_INITIATED
+  aq003_logical_packet_id: HEYGEN-AQ-003
+  aq003_previous_dependency_id: AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
+  aq003_current_dependency_id: AVATAR_LOOK_SET::B01-AV-08
+  aq003_narrowing_reason: B01-AV-03/04/05/06/07/09 are completed; only B01-AV-08 remains deferred behind the credit gate.

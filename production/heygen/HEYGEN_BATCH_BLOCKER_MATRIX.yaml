@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: 925f7524d2281a9d452df29c486377000437ca62
+validated_repository_head: b189fd4eec67ccfdc5126d128ced2b2b1c2d939c
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -107,7 +107,7 @@ report:
     - batch_id: B01
       category: avatar-slot
       code: AVATAR_LOOKS_UNRESOLVED
-      message: 'Avatar asset(s) not COMPLETE with look IDs: B01-AV-03, B01-AV-04, B01-AV-05, B01-AV-06, B01-AV-07, B01-AV-08, B01-AV-09'
+      message: 'Avatar asset(s) not COMPLETE with look IDs: B01-AV-08'
     - batch_id: B01
       category: consent
       code: CONSENT_UNRESOLVED
@@ -1281,9 +1281,9 @@ p0_packet_overlay:
     evidence: 'Rechecked every existing B01-referenced private identity: Anaadhi and Aarathi groups are completed and both consent_status values remain null; no affirmative state was
       written.'
   - packet_id: HEYGEN-AQ-003
-    dependency_id: AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
+    dependency_id: AVATAR_LOOK_SET::B01-AV-08
     status: OPEN_UNRESOLVED
-    evidence: GitHub SHA-256 integrity passed 7/7 and exact recorded Drive IDs/filenames resolved 7/7; required HeyGen look completion remains unresolved.
+    evidence: B01 is factually 8/9 complete; only B01-AV-08 remains without a completed HeyGen look. Paid execution remains deferred.
   resolved_history: &id001
   - packet_id: HEYGEN-AQ-004
     dependency_id: AVATAR_SLOT::B24::AVATAR_MANIFEST_UNASSIGNED
