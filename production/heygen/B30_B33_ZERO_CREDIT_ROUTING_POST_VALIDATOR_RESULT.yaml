@@ -1,0 +1,180 @@
+version: 1
+project: ANAADHI
+control: B30-B33-ZERO-CREDIT-ROUTING-POST-VALIDATOR-RESULT
+status: COMPLETE__HARD_BLOCKS_TRUTHFULLY_EXPOSED__ZERO_CREDIT_GATE_CLOSED
+as_of_local: "2026-08-16T21:46:00+05:30"
+mode: CONTROL_EVIDENCE_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_EXECUTION
+
+scope:
+  batches: [B30, B33]
+  scenes: [87, 88, 89, 90, 91, 92, 99]
+
+source_audit:
+  path: production/locations/P1_B30_B33_ZERO_CREDIT_LATE_LOCATION_ROUTING_AUDIT.yaml
+  creation_commit: 5ab54f800f8bf9ac71fc1fd7ebc7d017d6742fde
+source_applier:
+  path: production/locations/apply_b30_b33_zero_credit_late_location_routing.py
+  creation_commit: 99d83aae610fbcb0b86f53e4c88f135c7859556a
+routing_application_commit: f034d0eddddffe3496fa939abb731614a6f2bc12
+control_refresh_commit: 76381844bea4e9cfb2d0e43462056aa022aa449f
+validator_trigger_commit: c9691e7803d76d1d844fb0c29ea624d5bdbad27b
+
+routing_result:
+  B30:
+    env6l_roots:
+      - LOC-002
+      - LOC-003
+      - LOC-011
+      - LOC-068
+      - LOC-069
+      - LOC-070
+      - LOC-071
+      - LOC-080
+    mobile_refs: [LOC-076, LOC-077]
+    hold_result:
+      LOC-011_vs_LOC-072: "LOC-011 retained; LOC-072 not aliased into B30"
+      LOC-073_vs_LOC-074: "OPEN_UNRESOLVED for any unproven B30 Sarjanya physical cutaway"
+    known_nested:
+      LOC-070:
+        - SUB-070-01 Executive Floor
+        - SUB-070-02 News Command Floor
+    exact_visual_state: OPEN_UNRESOLVED
+
+  B33:
+    env6l_roots:
+      - LOC-003
+      - LOC-070
+      - LOC-072
+      - LOC-074
+      - LOC-080
+      - LOC-081
+      - LOC-082
+      - LOC-083
+      - LOC-084
+      - LOC-085
+      - LOC-086
+      - LOC-087
+    removed_stale_binding: LOC-011
+    explicitly_not_selected: LOC-073
+    hold_result:
+      LOC-011_vs_LOC-072: "B33 uses LOC-072 Janne's Home; LOC-011 remains distinct"
+      LOC-073_vs_LOC-074: "B33 uses LOC-074 Operations Compound; LOC-073 remains distinct"
+    xform_result:
+      LOC-070: "same physical root; SC099 reform/editorial state does not create a new root"
+      LOC-003: "P4 dismantling/reform is a state of the Paraane root, not a new root"
+    secure_medical_separation:
+      LOC-085: "Independent Secure Medical Unit explicitly supported by P0 SC099"
+      LOC-087: "Independent Judicial Medical Centre preserved from locked late crosswalk"
+      rule: "LOC-085 and LOC-087 remain distinct"
+    nested_hold:
+      LOC-087_SC099_case_review: OPEN_UNRESOLVED
+      forbidden_substitution: "Do not use SUB-087-01 Scene-100 Interview Room for the SC099 case-review identity"
+    exact_visual_state: OPEN_UNRESOLVED
+
+registry_result:
+  new_numeric_refs_added_fail_closed:
+    - LOC-069
+    - LOC-070
+    - LOC-071
+    - LOC-072
+    - LOC-074
+    - LOC-080
+    - LOC-081
+    - LOC-082
+    - LOC-083
+    - LOC-084
+    - LOC-085
+    - LOC-086
+  required_state_for_each:
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    visual_approval_implied: false
+  LOC-011_semantic_bridge:
+    env6l_id: LOC-011
+    drive_file_id: 1fvisjiZTciVLMrgJgWuTOn6FqbkPxJXD
+    checked_in_drive_audit_status: PASS
+    formal_p1_visual_status_after_this_work: MISSING_APPROVED_ASSET
+    reason: "Drive-audit operational root/ST00 evidence does not itself supply current accepted file + SHA256 visual-lock evidence."
+
+connected_drive_search_result:
+  exact_new_late_root_visual_approval_found: false
+  note: >-
+    Connected Drive image searches by canonical IDs and material descriptive names did not surface an
+    exact reusable approved image for the audited B30/B33 late roots. Empty search was not treated as
+    proof of global nonexistence and did not authorize generation.
+
+post_refresh_controls:
+  blocker_matrix:
+    raw_blockers: 310
+    selected_batches: 34
+    passed_batches: 0
+    blocked_batches: 34
+    global_blockers: 0
+  resolution_plan:
+    canonical_dependencies: 182
+    shared_dependencies: 34
+    batch_specific_dependencies: 148
+    raw_blockers_collapsed: 128
+  action_queue:
+    active_action_packets: 182
+    resolved_history_packets: 3
+    superseded_history_packets: 12
+    packet_namespace_high_watermark: HEYGEN-AQ-197
+    zero_credit_actionable_packets: 146
+    deferred_packets: 36
+
+p0_credit_gate:
+  HEYGEN-AQ-001:
+    state: DEFERRED
+  HEYGEN-AQ-002:
+    state: DEFERRED
+  HEYGEN-AQ-003:
+    state: DEFERRED
+    live_dependency: AVATAR_LOOK_SET::B01-AV-08
+    duplicate_completed_B01_looks_forbidden: true
+  paid_heygen_work_ready: false
+  consent_or_media_execution_allowed: false
+
+final_read_only_validator:
+  workflow: .github/workflows/heygen-batch-media-validator.yml
+  run_id: 31958099512
+  artifact_id: 9266493653
+  artifact_sha256: 3bc42df48ab1ae97a539214321eafe262ad622a5701f80264a1e971399e7f4b9
+  github_token_permissions:
+    contents: read
+    metadata: read
+  validator_step: SUCCESS
+  enforcement_step: EXPECTED_FAILURE_EXIT_2
+  summary:
+    selected_batches: 34
+    passed_batches: 0
+    blocked_batches: 34
+    global_blockers: 0
+    total_blockers: 310
+  interpretation: >-
+    Exit 2 is the designed hard-block result. The increase from the earlier 293 raw blockers exposes
+    exact visual-pending B30/B33 canonical references rather than hiding them behind incomplete/broad
+    requirements. No batch was unlocked by the routing correction.
+
+workflow_cleanup:
+  one_off_apply_workflow_removed: true
+  one_off_apply_workflow_path: .github/workflows/apply-b30-b33-zero-credit-routing-once.yml
+  one_off_apply_workflow_removal_commit: 2742cdf6d7cd3423bcc2b3fd344fe45d3c9da4ca
+  one_off_refresh_workflow_removed: true
+  one_off_refresh_workflow_path: .github/workflows/refresh-b30-b33-zero-credit-controls-once.yml
+  one_off_refresh_workflow_removal_commit: 8aa0e46bfe4dec25bd58757dee39865ac22a8991
+  permanent_validator_write_permission: false
+
+safety:
+  media_generated: false
+  media_replaced: false
+  consent_initiated: false
+  avatar_created: false
+  look_created: false
+  render_submitted: false
+  lipsync_submitted: false
+  paid_heygen_api_executed: false
+  approved_status_promoted: false
+  approved_root_promoted: false
