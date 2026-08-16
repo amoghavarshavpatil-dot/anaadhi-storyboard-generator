@@ -2,7 +2,7 @@ version: 1
 project: ANAADHI
 lock_id: HEYGEN_API_CREDIT_GATE_2026_08_16
 effective_date: 2026-08-16
-status: HARD_PAUSED_AWAITING_HEYGEN_API_CREDIT_TOP_UP
+status: RESUME_AUTHORISED_USD_6_CONTROLLED_RUN_IN_PROGRESS
 
 purpose: >-
   Preserve the verified B01 publication and partial HeyGen state, prevent accidental paid API
@@ -40,6 +40,25 @@ resume_contract:
       credits_confirmed: true
       resume_token: "Credits added"
     push_trigger_allowed: false
+
+credit_top_up_2026_08_16:
+  user_confirmed_exact_resume_message: true
+  amount_usd: 6
+  official_photo_avatar_unit_cost_usd: 1
+  maximum_paid_calls_authorised: 6
+  spend_above_usd_6: forbidden
+  selected_incomplete_assets:
+    - B01-AV-03
+    - B01-AV-04
+    - B01-AV-05
+    - B01-AV-06
+    - B01-AV-07
+    - B01-AV-09
+  budget_deferred_asset: B01-AV-08
+  prioritisation_reason: >-
+    Preserve the newborn Anaadhi identity required from B04 and defer the Allied Gangster identity,
+    whose next recorded reuse is B24.
+  execution_route: ONE_TIME_GITHUB_ACTIONS_WORKFLOW_OWNED_BY_CURRENT_WORK_PAGE
 
 verified_checkpoint:
   checkpoint_date: 2026-08-16
