@@ -1,46 +1,244 @@
 version: 1
 phase: P1_CHARACTER_AVATAR_CONTROL
 status: ACTIVE
-as_of: "2026-08-16"
-standard: "production/heygen/avatars/CHATGPT_PHOTO_AVATAR_STANDARD.yaml"
-
+as_of: '2026-08-16'
+standard: production/heygen/avatars/CHATGPT_PHOTO_AVATAR_STANDARD.yaml
 batch_order:
-  B01: {scenes: [1, 2, 3, 4, 5], status: PARTIAL_HEYGEN_2_OF_9_COMPLETE_API_CREDITS_BLOCKED, manifest: "production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml"}
-  B02: {scenes: [6], status: QUEUED, manifest: null}
-  B03: {scenes: [7, 8, 9, 10], status: QUEUED, manifest: null}
-  B04: {scenes: [11, 12, 13], status: QUEUED, manifest: null}
-  B05: {scenes: [14, 15, 16], status: QUEUED, manifest: null}
-  B06: {scenes: [17, 18], status: QUEUED, manifest: null}
-  B07: {scenes: [19], status: QUEUED, manifest: null}
-  B08: {scenes: [20, 21], status: QUEUED, manifest: null}
-  B09: {scenes: [22, 23], status: QUEUED, manifest: null}
-  B10: {scenes: [24], status: QUEUED, manifest: null}
-  B11: {scenes: [25, 26, 27], status: QUEUED, manifest: null}
-  B12: {scenes: [28, 29, 30, 31, 32, 33, 34], status: QUEUED, manifest: null}
-  B13: {scenes: [35], status: QUEUED, manifest: null}
-  B14: {scenes: [36, 37], status: QUEUED, manifest: null}
-  B15: {scenes: [38, 39, 40, 41, 42], status: QUEUED, manifest: null}
-  B16: {scenes: [43, 44, 45, 46], status: QUEUED, manifest: null}
-  B17: {scenes: [47, 48], status: QUEUED, manifest: null}
-  B18: {scenes: [49, 50], status: QUEUED, manifest: null}
-  B19: {scenes: [51, 52], status: QUEUED, manifest: null}
-  B20: {scenes: [53, 54], status: QUEUED, manifest: null}
-  B21: {scenes: [55, 56], status: QUEUED, manifest: null}
-  B22: {scenes: [57, 58], status: QUEUED, manifest: null}
-  B23: {scenes: [59, 60, 61, 62, 63], status: QUEUED, manifest: null}
-  B24: {scenes: [64, 65, 66], status: QUEUED_REUSE_B01_CAPTURE_IDENTITIES, manifest: null}
-  B25: {scenes: [67, 68], status: QUEUED_REUSE_B01_CAPTURE_IDENTITIES, manifest: null}
-  B26: {scenes: [69, 70, 71, 72, 73, 74], status: QUEUED_REUSE_B01_CAPTURE_IDENTITIES, manifest: null}
-  B27: {scenes: [75, 76, 77, 78, 79, 80], status: QUEUED, manifest: null}
-  B28: {scenes: [81, 82], status: QUEUED, manifest: null}
-  B29: {scenes: [83, 84, 85, 86], status: QUEUED, manifest: null}
-  B30: {scenes: [87, 88, 89, 90, 91, 92], status: QUEUED, manifest: null}
-  B31: {scenes: [93, 94, 95, 96], status: QUEUED, manifest: null}
-  B32: {scenes: [97, 98], status: QUEUED, manifest: null}
-  B33: {scenes: [99], status: QUEUED, manifest: null}
-  B34: {scenes: [100], status: QUEUED, manifest: null}
-
-sequence_rule: >-
-  Finish technical QA, GitHub publication, Drive archive, and HeyGen image-file upload
-  for the current batch before creating the next batch. Reuse an approved recurring
+  B01:
+    scenes:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    status: PARTIAL_HEYGEN_2_OF_9_COMPLETE_API_CREDITS_BLOCKED
+    manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+  B02:
+    scenes:
+    - 6
+    status: QUEUED
+    manifest: null
+  B03:
+    scenes:
+    - 7
+    - 8
+    - 9
+    - 10
+    status: QUEUED
+    manifest: null
+  B04:
+    scenes:
+    - 11
+    - 12
+    - 13
+    status: QUEUED
+    manifest: null
+  B05:
+    scenes:
+    - 14
+    - 15
+    - 16
+    status: QUEUED
+    manifest: null
+  B06:
+    scenes:
+    - 17
+    - 18
+    status: QUEUED
+    manifest: null
+  B07:
+    scenes:
+    - 19
+    status: QUEUED
+    manifest: null
+  B08:
+    scenes:
+    - 20
+    - 21
+    status: QUEUED
+    manifest: null
+  B09:
+    scenes:
+    - 22
+    - 23
+    status: QUEUED
+    manifest: null
+  B10:
+    scenes:
+    - 24
+    status: QUEUED
+    manifest: null
+  B11:
+    scenes:
+    - 25
+    - 26
+    - 27
+    status: QUEUED
+    manifest: null
+  B12:
+    scenes:
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+    - 34
+    status: QUEUED
+    manifest: null
+  B13:
+    scenes:
+    - 35
+    status: QUEUED
+    manifest: null
+  B14:
+    scenes:
+    - 36
+    - 37
+    status: QUEUED
+    manifest: null
+  B15:
+    scenes:
+    - 38
+    - 39
+    - 40
+    - 41
+    - 42
+    status: QUEUED
+    manifest: null
+  B16:
+    scenes:
+    - 43
+    - 44
+    - 45
+    - 46
+    status: QUEUED
+    manifest: null
+  B17:
+    scenes:
+    - 47
+    - 48
+    status: QUEUED
+    manifest: null
+  B18:
+    scenes:
+    - 49
+    - 50
+    status: QUEUED
+    manifest: null
+  B19:
+    scenes:
+    - 51
+    - 52
+    status: QUEUED
+    manifest: null
+  B20:
+    scenes:
+    - 53
+    - 54
+    status: QUEUED
+    manifest: null
+  B21:
+    scenes:
+    - 55
+    - 56
+    status: QUEUED
+    manifest: null
+  B22:
+    scenes:
+    - 57
+    - 58
+    status: QUEUED
+    manifest: null
+  B23:
+    scenes:
+    - 59
+    - 60
+    - 61
+    - 62
+    - 63
+    status: QUEUED
+    manifest: null
+  B24:
+    scenes:
+    - 64
+    - 65
+    - 66
+    status: PARTIAL_REUSE_B01_CAPTURE_IDENTITIES__UNRESOLVED_SLOTS_REMAIN
+    manifest: production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
+  B25:
+    scenes:
+    - 67
+    - 68
+    status: PARTIAL_REUSE_B01_CAPTURE_IDENTITIES__UNRESOLVED_SLOTS_REMAIN
+    manifest: production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
+  B26:
+    scenes:
+    - 69
+    - 70
+    - 71
+    - 72
+    - 73
+    - 74
+    status: PARTIAL_REUSE_B01_CAPTURE_IDENTITIES__UNRESOLVED_SLOTS_REMAIN
+    manifest: production/heygen/avatars/B26/B26_AVATAR_MANIFEST.yaml
+  B27:
+    scenes:
+    - 75
+    - 76
+    - 77
+    - 78
+    - 79
+    - 80
+    status: QUEUED
+    manifest: null
+  B28:
+    scenes:
+    - 81
+    - 82
+    status: QUEUED
+    manifest: null
+  B29:
+    scenes:
+    - 83
+    - 84
+    - 85
+    - 86
+    status: QUEUED
+    manifest: null
+  B30:
+    scenes:
+    - 87
+    - 88
+    - 89
+    - 90
+    - 91
+    - 92
+    status: QUEUED
+    manifest: null
+  B31:
+    scenes:
+    - 93
+    - 94
+    - 95
+    - 96
+    status: QUEUED
+    manifest: null
+  B32:
+    scenes:
+    - 97
+    - 98
+    status: QUEUED
+    manifest: null
+  B33:
+    scenes:
+    - 99
+    status: QUEUED
+    manifest: null
+  B34:
+    scenes:
+    - 100
+    status: QUEUED
+    manifest: null
+sequence_rule: Finish technical QA, GitHub publication, Drive archive, and HeyGen image-file upload for the current batch before creating the next batch. Reuse an approved recurring
   identity or look when canon is unchanged; never regenerate it merely for variety.

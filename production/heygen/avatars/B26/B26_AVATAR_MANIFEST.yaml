@@ -1,0 +1,163 @@
+version: 1
+phase: P1_CHARACTER_AVATAR_CONTROL
+batch_id: B26
+batch_title: Present-Day Paraane Return, Archive, Hall and Self-Harm Crisis
+scenes:
+- 69
+- 70
+- 71
+- 72
+- 73
+- 74
+status: PARTIAL_REUSE_B01_CAPTURE_IDENTITIES__UNRESOLVED_SLOTS_REMAIN
+control_mode: P0_NO_NEW_MEDIA_PRECHECK__BINDINGS_ONLY
+creation_authority: WORK_PAGE_ONLY_FOR_ANY_FUTURE_UNCOVERED_SLOT
+media_generated_by_this_manifest_update: false
+heygen_submission_by_this_manifest_update: false
+approved_status_changed_by_this_manifest_update: false
+consent_status_observed: null
+source_index_status_before_binding: QUEUED_REUSE_B01_CAPTURE_IDENTITIES
+p0_character_slots:
+- Anaadhi
+- Aarathi
+- Manire
+- Asana
+- Attendant
+- Residents
+- Anarvaa
+- Woman Resident
+- Child Anaadhi variants
+- victim variants
+assets:
+  B26-AV-01:
+    character_slot: Anaadhi
+    character_ref: CHR-ANAADHI
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: B01-AV-01
+    reuse_source_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: f0288e16c5b6690f810a6ca8b9d202c8d1e5221fe7f94629fe3f3809eb23077b
+    drive_status: UPLOADED
+    drive_file_id: 1hmaPITr6m_c9c2FhLXBRD0uiflVdGAAp
+    heygen_group_id: c26d836745e64d4c92663eae3fb02e06
+    heygen_look_id: b790b09e412049bcbd4395827ba34eb2
+    heygen_status: COMPLETE
+    reuse_evidence: B01 B01-AV-01.reuse_batches explicitly contains B26
+  B26-AV-02:
+    character_slot: Aarathi
+    character_ref: CHR-AARATHI
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: B01-AV-02
+    reuse_source_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: c66b31ba4c9b157985aacdd6236abd73cebc081afdef206753834dde72fd5da3
+    drive_status: UPLOADED
+    drive_file_id: 16kmx-ZKfbpBiv74-pQXYoTmp1zYtIHyo
+    heygen_group_id: cb6af5a4934d406eb071d2debabb3614
+    heygen_look_id: cdbc3ecc32564e8e8c7fac18ef4d85f4
+    heygen_status: COMPLETE
+    reuse_evidence: B01 B01-AV-02.reuse_batches explicitly contains B26
+  B26-AV-03:
+    character_slot: Manire
+    character_ref: CHR-MANIRE
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+  B26-AV-04:
+    character_slot: Asana
+    character_ref: CHR-ASANA
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+  B26-AV-05:
+    character_slot: Attendant
+    character_ref: CHR-ATTENDANT
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+  B26-AV-06:
+    character_slot: Residents
+    character_ref: CHR-RESIDENTS
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+  B26-AV-07:
+    character_slot: Anarvaa
+    character_ref: CHR-ANARVAA
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+  B26-AV-08:
+    character_slot: Woman Resident
+    character_ref: CHR-WOMAN-RESIDENT
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+  B26-AV-09:
+    character_slot: Child Anaadhi variants
+    character_ref: CHR-CHILD-ANAADHI-VARIANTS
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+  B26-AV-10:
+    character_slot: victim variants
+    character_ref: CHR-VICTIM-VARIANTS
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+reuse_summary:
+  p0_slot_count: 10
+  b01_reuse_bound_count: 2
+  unresolved_slot_count: 8
+  bound:
+  - slot: Anaadhi
+    asset: B26-AV-01
+    source: B01-AV-01
+  - slot: Aarathi
+    asset: B26-AV-02
+    source: B01-AV-02
+  unresolved:
+  - slot: Manire
+    asset: B26-AV-03
+  - slot: Asana
+    asset: B26-AV-04
+  - slot: Attendant
+    asset: B26-AV-05
+  - slot: Residents
+    asset: B26-AV-06
+  - slot: Anarvaa
+    asset: B26-AV-07
+  - slot: Woman Resident
+    asset: B26-AV-08
+  - slot: Child Anaadhi variants
+    asset: B26-AV-09
+  - slot: victim variants
+    asset: B26-AV-10

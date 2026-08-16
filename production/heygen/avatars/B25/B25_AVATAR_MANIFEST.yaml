@@ -1,0 +1,159 @@
+version: 1
+phase: P1_CHARACTER_AVATAR_CONTROL
+batch_id: B25
+batch_title: Lower Passage Escape and Flood Channel
+scenes:
+- 67
+- 68
+status: PARTIAL_REUSE_B01_CAPTURE_IDENTITIES__UNRESOLVED_SLOTS_REMAIN
+control_mode: P0_NO_NEW_MEDIA_PRECHECK__BINDINGS_ONLY
+creation_authority: WORK_PAGE_ONLY_FOR_ANY_FUTURE_UNCOVERED_SLOT
+media_generated_by_this_manifest_update: false
+heygen_submission_by_this_manifest_update: false
+approved_status_changed_by_this_manifest_update: false
+consent_status_observed: null
+source_index_status_before_binding: QUEUED_REUSE_B01_CAPTURE_IDENTITIES
+p0_character_slots:
+- Anaadhi
+- Aarathi
+- Medical Specialist
+- Police Commander
+- Police Technician
+- Semmaa
+- Unnath
+- Anarvaa
+assets:
+  B25-AV-01:
+    character_slot: Anaadhi
+    character_ref: CHR-ANAADHI
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: B01-AV-01
+    reuse_source_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: f0288e16c5b6690f810a6ca8b9d202c8d1e5221fe7f94629fe3f3809eb23077b
+    drive_status: UPLOADED
+    drive_file_id: 1hmaPITr6m_c9c2FhLXBRD0uiflVdGAAp
+    heygen_group_id: c26d836745e64d4c92663eae3fb02e06
+    heygen_look_id: b790b09e412049bcbd4395827ba34eb2
+    heygen_status: COMPLETE
+    reuse_evidence: B01 B01-AV-01.reuse_batches explicitly contains B25
+  B25-AV-02:
+    character_slot: Aarathi
+    character_ref: CHR-AARATHI
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: B01-AV-02
+    reuse_source_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: c66b31ba4c9b157985aacdd6236abd73cebc081afdef206753834dde72fd5da3
+    drive_status: UPLOADED
+    drive_file_id: 16kmx-ZKfbpBiv74-pQXYoTmp1zYtIHyo
+    heygen_group_id: cb6af5a4934d406eb071d2debabb3614
+    heygen_look_id: cdbc3ecc32564e8e8c7fac18ef4d85f4
+    heygen_status: COMPLETE
+    reuse_evidence: B01 B01-AV-02.reuse_batches explicitly contains B25
+  B25-AV-03:
+    character_slot: Medical Specialist
+    character_ref: CHR-MEDICAL-SPECIALIST
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: B01-AV-07
+    reuse_source_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: 752adc618869df26802c51028fad17a501640e3a4217e1b10d67f7a7f027bdda
+    drive_status: UPLOADED
+    drive_file_id: 1zf4l0C3rKs4a4Dzp6BwKj0p4sdiI9oZl
+    heygen_group_id: null
+    heygen_look_id: null
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
+    reuse_evidence: B01 B01-AV-07.reuse_batches explicitly contains B25
+  B25-AV-04:
+    character_slot: Police Commander
+    character_ref: CHR-POLICE-COMMANDER
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: B01-AV-05
+    reuse_source_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: 36db4770132d36f8d61226c315fe5637c02322236c15db57cb1dd8e51b62a1f2
+    drive_status: UPLOADED
+    drive_file_id: 1IWD75I6xxjtSmYG1SRFp2X-qZqGttwO1
+    heygen_group_id: null
+    heygen_look_id: null
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
+    reuse_evidence: B01 B01-AV-05.reuse_batches explicitly contains B25
+  B25-AV-05:
+    character_slot: Police Technician
+    character_ref: CHR-POLICE-TECHNICIAN
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+  B25-AV-06:
+    character_slot: Semmaa
+    character_ref: CHR-SEMMAA
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: B01-AV-04
+    reuse_source_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: 0e49f15e91bac706bb994f78a6256cf53dfc4348453496712764b88a8f94816c
+    drive_status: UPLOADED
+    drive_file_id: 1LU0dt34MhIcKryVrsQ18UwGeQiBkIWl0
+    heygen_group_id: null
+    heygen_look_id: null
+    heygen_status: BLOCKED_INSUFFICIENT_API_CREDITS
+    reuse_evidence: B01 B01-AV-04.reuse_batches explicitly contains B25
+  B25-AV-07:
+    character_slot: Unnath
+    character_ref: CHR-UNNATH
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+  B25-AV-08:
+    character_slot: Anarvaa
+    character_ref: CHR-ANARVAA
+    binding_mode: P0_SLOT_REUSE_PRECHECK
+    approved_status: null
+    consent_status_observed: null
+    reuse_source_asset: null
+    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+reuse_summary:
+  p0_slot_count: 8
+  b01_reuse_bound_count: 5
+  unresolved_slot_count: 3
+  bound:
+  - slot: Anaadhi
+    asset: B25-AV-01
+    source: B01-AV-01
+  - slot: Aarathi
+    asset: B25-AV-02
+    source: B01-AV-02
+  - slot: Medical Specialist
+    asset: B25-AV-03
+    source: B01-AV-07
+  - slot: Police Commander
+    asset: B25-AV-04
+    source: B01-AV-05
+  - slot: Semmaa
+    asset: B25-AV-06
+    source: B01-AV-04
+  unresolved:
+  - slot: Police Technician
+    asset: B25-AV-05
+  - slot: Unnath
+    asset: B25-AV-07
+  - slot: Anarvaa
+    asset: B25-AV-08

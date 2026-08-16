@@ -1,0 +1,168 @@
+version: 1
+project: ANAADHI
+control: P0-NO-NEW-MEDIA-GITHUB-PRECHECK
+scope:
+- HEYGEN-AQ-003
+- HEYGEN-AQ-004
+- HEYGEN-AQ-005
+- HEYGEN-AQ-006
+safety:
+  media_generated: false
+  media_replaced: false
+  heygen_called: false
+  heygen_submission: false
+  approved_status_changed: false
+b01_source_integrity:
+  B01-AV-03:
+    path: production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    expected_sha256: 366c610176f2597ca2935211e98ddcc26c0a6b8fceb84cff45a3b83d83c71d56
+    actual_sha256: 366c610176f2597ca2935211e98ddcc26c0a6b8fceb84cff45a3b83d83c71d56
+    sha256_match: true
+    drive_file_id: 1DYjWFvWpkC4urVlv2keuBBaUFO2JR-gI
+    drive_status_recorded: UPLOADED
+  B01-AV-04:
+    path: production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    expected_sha256: 0e49f15e91bac706bb994f78a6256cf53dfc4348453496712764b88a8f94816c
+    actual_sha256: 0e49f15e91bac706bb994f78a6256cf53dfc4348453496712764b88a8f94816c
+    sha256_match: true
+    drive_file_id: 1LU0dt34MhIcKryVrsQ18UwGeQiBkIWl0
+    drive_status_recorded: UPLOADED
+  B01-AV-05:
+    path: production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    expected_sha256: 36db4770132d36f8d61226c315fe5637c02322236c15db57cb1dd8e51b62a1f2
+    actual_sha256: 36db4770132d36f8d61226c315fe5637c02322236c15db57cb1dd8e51b62a1f2
+    sha256_match: true
+    drive_file_id: 1IWD75I6xxjtSmYG1SRFp2X-qZqGttwO1
+    drive_status_recorded: UPLOADED
+  B01-AV-06:
+    path: production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    expected_sha256: 8d09859e662f397e334aa819b671e8139048be1d30982fa4a20c925a991a341b
+    actual_sha256: 8d09859e662f397e334aa819b671e8139048be1d30982fa4a20c925a991a341b
+    sha256_match: true
+    drive_file_id: 1dX3s7VdosJFMqCn0rCzrnHULyDdAnDTl
+    drive_status_recorded: UPLOADED
+  B01-AV-07:
+    path: production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    expected_sha256: 752adc618869df26802c51028fad17a501640e3a4217e1b10d67f7a7f027bdda
+    actual_sha256: 752adc618869df26802c51028fad17a501640e3a4217e1b10d67f7a7f027bdda
+    sha256_match: true
+    drive_file_id: 1zf4l0C3rKs4a4Dzp6BwKj0p4sdiI9oZl
+    drive_status_recorded: UPLOADED
+  B01-AV-08:
+    path: production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    expected_sha256: 9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec
+    actual_sha256: 9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec
+    sha256_match: true
+    drive_file_id: 1xjXoCSCtBq3Jag_P8UEiNECUwHjlfqQJ
+    drive_status_recorded: UPLOADED
+  B01-AV-09:
+    path: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    expected_sha256: 6a322f4aaeb32adcfa38da0e375681d1bee4dea13c35b55a002774fc2e40661d
+    actual_sha256: 6a322f4aaeb32adcfa38da0e375681d1bee4dea13c35b55a002774fc2e40661d
+    sha256_match: true
+    drive_file_id: 1Hs7aR04zcFdTLKATHuj0E6gakI78CE1T
+    drive_status_recorded: UPLOADED
+reuse_manifest_bindings:
+  B24:
+    manifest: production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
+    original_index_status: QUEUED_REUSE_B01_CAPTURE_IDENTITIES
+    p0_slot_count: 13
+    b01_reuse_bound_count: 6
+    unresolved_slot_count: 7
+    bound:
+    - slot: Aarathi
+      asset: B24-AV-04
+      source: B01-AV-02
+    - slot: Semmaa
+      asset: B24-AV-05
+      source: B01-AV-04
+    - slot: Medical Specialist
+      asset: B24-AV-07
+      source: B01-AV-07
+    - slot: Police Commander
+      asset: B24-AV-11
+      source: B01-AV-05
+    - slot: Allied Gangster
+      asset: B24-AV-12
+      source: B01-AV-08
+    - slot: Anaadhi
+      asset: B24-AV-13
+      source: B01-AV-01
+    unresolved:
+    - slot: Anarvaa
+      asset: B24-AV-01
+    - slot: Parvaran
+      asset: B24-AV-02
+    - slot: Unnath
+      asset: B24-AV-03
+    - slot: Asana
+      asset: B24-AV-06
+    - slot: Administrative Officer
+      asset: B24-AV-08
+    - slot: Pharmacy Technician
+      asset: B24-AV-09
+    - slot: Inventory Assistant
+      asset: B24-AV-10
+  B25:
+    manifest: production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
+    original_index_status: QUEUED_REUSE_B01_CAPTURE_IDENTITIES
+    p0_slot_count: 8
+    b01_reuse_bound_count: 5
+    unresolved_slot_count: 3
+    bound:
+    - slot: Anaadhi
+      asset: B25-AV-01
+      source: B01-AV-01
+    - slot: Aarathi
+      asset: B25-AV-02
+      source: B01-AV-02
+    - slot: Medical Specialist
+      asset: B25-AV-03
+      source: B01-AV-07
+    - slot: Police Commander
+      asset: B25-AV-04
+      source: B01-AV-05
+    - slot: Semmaa
+      asset: B25-AV-06
+      source: B01-AV-04
+    unresolved:
+    - slot: Police Technician
+      asset: B25-AV-05
+    - slot: Unnath
+      asset: B25-AV-07
+    - slot: Anarvaa
+      asset: B25-AV-08
+  B26:
+    manifest: production/heygen/avatars/B26/B26_AVATAR_MANIFEST.yaml
+    original_index_status: QUEUED_REUSE_B01_CAPTURE_IDENTITIES
+    p0_slot_count: 10
+    b01_reuse_bound_count: 2
+    unresolved_slot_count: 8
+    bound:
+    - slot: Anaadhi
+      asset: B26-AV-01
+      source: B01-AV-01
+    - slot: Aarathi
+      asset: B26-AV-02
+      source: B01-AV-02
+    unresolved:
+    - slot: Manire
+      asset: B26-AV-03
+    - slot: Asana
+      asset: B26-AV-04
+    - slot: Attendant
+      asset: B26-AV-05
+    - slot: Residents
+      asset: B26-AV-06
+    - slot: Anarvaa
+      asset: B26-AV-07
+    - slot: Woman Resident
+      asset: B26-AV-08
+    - slot: Child Anaadhi variants
+      asset: B26-AV-09
+    - slot: victim variants
+      asset: B26-AV-10
+notes:
+- B24-B26 manifests bind only reuse facts explicitly evidenced by B01 reuse_batches.
+- Every P0 character slot without an evidenced B01 reuse mapping remains explicitly unresolved.
+- Manifest assignment resolves only AVATAR_MANIFEST_UNASSIGNED; it does not imply that avatar looks or consent are complete.
