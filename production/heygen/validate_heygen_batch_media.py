@@ -418,7 +418,7 @@ def validate_global_safety(schema: dict[str, Any], contract: dict[str, Any]) -> 
 
     # No literal secret may be embedded in either control file.
     for source_name, source in (("schema", schema), ("contract", contract)):
-        text = json.dumps(source, ensure_ascii=False)
+        text = json.dumps(source, ensure_ascii=False, default=str)
         if re.search(r"(?i)sk-[A-Za-z0-9_-]{12,}", text):
             blockers.append(Blocker(global_id, "security", "SECRET_EMBEDDED", f"Possible API secret embedded in {source_name}"))
 

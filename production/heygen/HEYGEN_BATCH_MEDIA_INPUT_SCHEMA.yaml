@@ -74,7 +74,7 @@ heygen_supported_media_forms:
     video_input: [public_https_video_url, HeyGen_video_asset_id]
     audio_input: [public_https_audio_url, HeyGen_audio_asset_id]
     mode: precision
-    enable_dynamic_duration: true
+    enable_dynamic_duration: false
     enable_speech_enhancement: false
     enable_caption: false
     enable_watermark: false
