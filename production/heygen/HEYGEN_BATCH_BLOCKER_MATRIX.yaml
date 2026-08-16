@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: 0bb9b5fdc3c294137035eab2811039e4f124f98f
+validated_repository_head: a17158143458929219502e8a798bb2b4f881e3d7
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -24,7 +24,7 @@ report:
     passed_batches: 0
     blocked_batches: 34
     global_blockers: 0
-    total_blockers: 293
+    total_blockers: 310
   passed_batches: []
   blocked_batches:
   - B01
@@ -1108,7 +1108,8 @@ report:
     - batch_id: B30
       category: nested-space
       code: REMAINING_LOCATION_WORK
-      message: 'Unresolved location/nested-space/state work: Kadraayini Media Network root + command floor canonical binding | irrigation/live-confession locations | required late states'
+      message: 'Unresolved location/nested-space/state work: LOC-068/069/070/071/080 visual masters | LOC-070 Executive/News floors | LOC-011 interior continuity | Sarjanya HOLD root
+        unresolved | required late/XFORM states'
     - batch_id: B30
       category: location
       code: REFERENCE_NOT_APPROVED
@@ -1117,6 +1118,30 @@ report:
       category: location
       code: REFERENCE_NOT_APPROVED
       message: 'LOC-PARAANE-CAMPUS-MATURE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-PARVARAN-JANNE-HOUSE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-068: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-069: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-070: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-071: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B30
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-080: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B30
       category: character-state
       code: REFERENCE_NOT_APPROVED
@@ -1207,11 +1232,56 @@ report:
     - batch_id: B33
       category: nested-space
       code: REMAINING_LOCATION_WORK
-      message: 'Unresolved location/nested-space/state work: Paraane dismantling later-state | Kendhalaa Memorial Courtyard canonical binding'
+      message: 'Unresolved location/nested-space/state work: LOC-003 P4 dismantling/reform states | LOC-070 XFORM state | LOC-072 later-home interior | LOC-074 armoury/drug-room nested
+        controls | LOC-080..LOC-087 visual masters | LOC-087 SC099 case-review nested identity'
     - batch_id: B33
       category: location
       code: REFERENCE_NOT_APPROVED
       message: 'LOC-PARAANE-CAMPUS-MATURE: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-070: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-072: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-074: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-080: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-081: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-082: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-083: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-084: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-085: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-086: status=''MISSING_APPROVED_ASSET'', path=None'
+    - batch_id: B33
+      category: location
+      code: REFERENCE_NOT_APPROVED
+      message: 'LOC-087: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B33
       category: character-state
       code: REFERENCE_NOT_APPROVED
