@@ -7,6 +7,7 @@ on:
       - production/heygen/validate_heygen_batch_media.py
       - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
       - production/heygen/HEYGEN_API_ACCEPTANCE_CONTRACT.yaml
+      - production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
       - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
       - production/references/REFERENCE_REGISTRY.yaml
       - production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
