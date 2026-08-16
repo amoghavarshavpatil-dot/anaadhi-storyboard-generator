@@ -1,0 +1,263 @@
+version: 1
+project: ANAADHI
+control: HEYGEN-P0-NO-NEW-MEDIA-PRECHECK-RESULT
+scope: HEYGEN-AQ-001_THROUGH_HEYGEN-AQ-006
+mode: PRECHECK_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
+observed_at_local: "2026-08-16T18:18:00+05:30"
+source_execution_commit: "743a74e1c213c3834a8beae9aee91778ddb76419"
+source_files:
+  action_queue: production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+  b01_manifest: production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+  avatar_index: production/heygen/avatars/AVATAR_BATCH_INDEX.yaml
+  github_precheck: production/heygen/P0_NO_NEW_MEDIA_GITHUB_PRECHECK.yaml
+  post_validator: production/heygen/P0_NO_NEW_MEDIA_POST_VALIDATOR.yaml
+  p0_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+safety:
+  media_generated: false
+  media_replaced: false
+  heygen_avatar_creation_called: false
+  heygen_render_submission: false
+  heygen_render_execution: false
+  approved_status_fabricated_or_changed: false
+  only_read_only_heygen_state_queries_used: true
+  only_existing_drive_file_metadata_queries_used: true
+
+packet_results:
+  HEYGEN-AQ-001:
+    dependency_id: CONSENT::ANAADHI_PRIVATE_AVATAR
+    result: OPEN_UNRESOLVED
+    closure: false
+    authoritative_heygen_observation:
+      group_id: c26d836745e64d4c92663eae3fb02e06
+      group_name: ANAADHI_MASTER_IDENTITY_V1
+      group_status: completed
+      looks_count: 5
+      consent_status: null
+      observation: NO_AFFIRMATIVE_CONSENT_STATE_RETURNED
+    reason_open: >-
+      The authoritative private-avatar group is completed, but consent_status is null.
+      No COMPLETE/APPROVED/VERIFIED/NOT_REQUIRED consent evidence exists to close the dependency.
+    github_write_performed: false
+    approved_status_changed: false
+
+  HEYGEN-AQ-002:
+    dependency_id: CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
+    result: OPEN_UNRESOLVED
+    closure: false
+    b01_manifest_affirmative_consent_present: false
+    authoritative_heygen_observations:
+      anaadhi:
+        group_id: c26d836745e64d4c92663eae3fb02e06
+        consent_status: null
+        group_status: completed
+      aarathi:
+        group_id: cb6af5a4934d406eb071d2debabb3614
+        consent_status: null
+        group_status: completed
+    reason_open: >-
+      The B01 manifest does not contain an affirmative consent state, and the two existing B01 private groups checked directly
+      both return consent_status null. No consent value was inferred or written.
+    github_write_performed: false
+    approved_status_changed: false
+
+  HEYGEN-AQ-003:
+    dependency_id: AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
+    result: OPEN_UNRESOLVED
+    closure: false
+    source_integrity_precheck: PASSED_FOR_EXISTING_SOURCE_IDENTITY
+    github_byte_integrity:
+      checked_assets: 7
+      sha256_matches: 7
+      all_match: true
+    drive_record_identity_integrity:
+      checked_assets: 7
+      exact_recorded_file_id_resolved: 7
+      exact_expected_filename_match: 7
+      mime_type_image_jpeg: 7
+      all_record_identity_checks_passed: true
+      byte_checksum_exposed_by_connector: false
+      note: >-
+        Drive verification establishes exact recorded file identity and metadata, not a Drive-side byte checksum.
+        Repository source bytes were independently SHA-256 verified against the locked B01 manifest.
+    assets:
+      B01-AV-03:
+        github_path: production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        sha256: 366c610176f2597ca2935211e98ddcc26c0a6b8fceb84cff45a3b83d83c71d56
+        drive_file_id: 1DYjWFvWpkC4urVlv2keuBBaUFO2JR-gI
+        drive_title: CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        drive_mime_type: image/jpeg
+        drive_size_bytes: 1537091
+        heygen_group_id: cb6af5a4934d406eb071d2debabb3614
+        heygen_group_current_looks:
+          - cdbc3ecc32564e8e8c7fac18ef4d85f4
+        required_parallel_medical_look_present: false
+      B01-AV-04:
+        github_path: production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        sha256: 0e49f15e91bac706bb994f78a6256cf53dfc4348453496712764b88a8f94816c
+        drive_file_id: 1LU0dt34MhIcKryVrsQ18UwGeQiBkIWl0
+        drive_title: CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        drive_mime_type: image/jpeg
+        drive_size_bytes: 2044667
+        heygen_look_id: null
+      B01-AV-05:
+        github_path: production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        sha256: 36db4770132d36f8d61226c315fe5637c02322236c15db57cb1dd8e51b62a1f2
+        drive_file_id: 1IWD75I6xxjtSmYG1SRFp2X-qZqGttwO1
+        drive_title: CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        drive_mime_type: image/jpeg
+        drive_size_bytes: 1835148
+        heygen_look_id: null
+      B01-AV-06:
+        github_path: production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        sha256: 8d09859e662f397e334aa819b671e8139048be1d30982fa4a20c925a991a341b
+        drive_file_id: 1dX3s7VdosJFMqCn0rCzrnHULyDdAnDTl
+        drive_title: CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        drive_mime_type: image/jpeg
+        drive_size_bytes: 1765174
+        heygen_look_id: null
+      B01-AV-07:
+        github_path: production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        sha256: 752adc618869df26802c51028fad17a501640e3a4217e1b10d67f7a7f027bdda
+        drive_file_id: 1zf4l0C3rKs4a4Dzp6BwKj0p4sdiI9oZl
+        drive_title: CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        drive_mime_type: image/jpeg
+        drive_size_bytes: 1768755
+        heygen_look_id: null
+      B01-AV-08:
+        github_path: production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        sha256: 9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec
+        drive_file_id: 1xjXoCSCtBq3Jag_P8UEiNECUwHjlfqQJ
+        drive_title: CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        drive_mime_type: image/jpeg
+        drive_size_bytes: 1925542
+        heygen_look_id: null
+      B01-AV-09:
+        github_path: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        sha256: 6a322f4aaeb32adcfa38da0e375681d1bee4dea13c35b55a002774fc2e40661d
+        drive_file_id: 1Hs7aR04zcFdTLKATHuj0E6gakI78CE1T
+        drive_title: CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+        drive_mime_type: image/jpeg
+        drive_size_bytes: 1452837
+        heygen_look_id: null
+    reason_open: >-
+      Existing source integrity is verified, but AV-03 through AV-09 are still not COMPLETE with required HeyGen look IDs.
+      This precheck was expressly zero-submission/zero-execution, so no look-completion job was sent.
+    approved_status_changed: false
+
+  HEYGEN-AQ-004:
+    dependency_id: AVATAR_SLOT::B24::AVATAR_MANIFEST_UNASSIGNED
+    result: DEPENDENCY_RESOLVED_EVIDENCED
+    closure: true
+    batch_passed: false
+    manifest: production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
+    p0_character_slots: 13
+    exact_b01_reuse_bindings_written: 6
+    unresolved_character_slots: 7
+    exact_reuse_bindings:
+      Aarathi: B01-AV-02
+      Semmaa: B01-AV-04
+      Medical Specialist: B01-AV-07
+      Police Commander: B01-AV-05
+      Allied Gangster: B01-AV-08
+      Anaadhi: B01-AV-01
+    unresolved_slots:
+      - Anarvaa
+      - Parvaran
+      - Unnath
+      - Asana
+      - Administrative Officer
+      - Pharmacy Technician
+      - Inventory Assistant
+    post_validator_avatar_manifest_unassigned_present: false
+    post_validator_remaining_avatar_blocker: AVATAR_LOOKS_UNRESOLVED
+    post_validator_remaining_consent_blocker: CONSENT_UNRESOLVED
+    note: >-
+      Only the canonical dependency "manifest unassigned" is closed. B24 remains hard-blocked and no uncovered slot was generated or fabricated.
+
+  HEYGEN-AQ-005:
+    dependency_id: AVATAR_SLOT::B25::AVATAR_MANIFEST_UNASSIGNED
+    result: DEPENDENCY_RESOLVED_EVIDENCED
+    closure: true
+    batch_passed: false
+    manifest: production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
+    p0_character_slots: 8
+    exact_b01_reuse_bindings_written: 5
+    unresolved_character_slots: 3
+    exact_reuse_bindings:
+      Anaadhi: B01-AV-01
+      Aarathi: B01-AV-02
+      Medical Specialist: B01-AV-07
+      Police Commander: B01-AV-05
+      Semmaa: B01-AV-04
+    unresolved_slots:
+      - Police Technician
+      - Unnath
+      - Anarvaa
+    post_validator_avatar_manifest_unassigned_present: false
+    post_validator_remaining_avatar_blocker: AVATAR_LOOKS_UNRESOLVED
+    post_validator_remaining_consent_blocker: CONSENT_UNRESOLVED
+    note: >-
+      Only the canonical dependency "manifest unassigned" is closed. B25 remains hard-blocked and no uncovered slot was generated or fabricated.
+
+  HEYGEN-AQ-006:
+    dependency_id: AVATAR_SLOT::B26::AVATAR_MANIFEST_UNASSIGNED
+    result: DEPENDENCY_RESOLVED_EVIDENCED
+    closure: true
+    batch_passed: false
+    manifest: production/heygen/avatars/B26/B26_AVATAR_MANIFEST.yaml
+    p0_character_slots: 10
+    exact_b01_reuse_bindings_written: 2
+    unresolved_character_slots: 8
+    exact_reuse_bindings:
+      Anaadhi: B01-AV-01
+      Aarathi: B01-AV-02
+    unresolved_slots:
+      - Manire
+      - Asana
+      - Attendant
+      - Residents
+      - Anarvaa
+      - Woman Resident
+      - Child Anaadhi variants
+      - victim variants
+    post_validator_avatar_manifest_unassigned_present: false
+    post_validator_remaining_avatar_blocker: AVATAR_LOOKS_UNRESOLVED
+    post_validator_remaining_consent_blocker: CONSENT_UNRESOLVED
+    note: >-
+      Only the canonical dependency "manifest unassigned" is closed. B26 remains hard-blocked and no uncovered slot was generated or fabricated.
+
+post_precheck_validator:
+  validator: HEYGEN-BATCH-MEDIA-VALIDATOR
+  scope: B01-B34 / SC001-SC100
+  exit_code: 2
+  outcome: HARD_BLOCK_EXPECTED
+  selected_batches: 34
+  passed_batches: 0
+  blocked_batches: 34
+  global_blockers: 0
+  total_blockers: 293
+  prior_total_blockers: 290
+  blocker_count_delta: 3
+  delta_explanation: >-
+    B24, B25 and B26 each previously emitted one AVATAR_MANIFEST_UNASSIGNED blocker. After factual partial manifests were assigned,
+    each now emits explicit AVATAR_LOOKS_UNRESOLVED plus CONSENT_UNRESOLVED blockers instead. This exposes the real remaining state
+    and increases the total by one blocker per batch; it is not a regression in source integrity or a new media action.
+
+p0_summary:
+  packets_checked: 6
+  dependencies_closed: 3
+  dependencies_open_unresolved: 3
+  closed_packets:
+    - HEYGEN-AQ-004
+    - HEYGEN-AQ-005
+    - HEYGEN-AQ-006
+  open_packets:
+    - HEYGEN-AQ-001
+    - HEYGEN-AQ-002
+    - HEYGEN-AQ-003
+  batches_unlocked: 0
+  all_batches_remain_hard_blocked: true
+  next_gate: >-
+    Do not proceed to media generation or HeyGen submission. Consent must become affirmatively evidenced before AQ-001/AQ-002 can close;
+    B01-AV-03 through B01-AV-09 require Work-page look completion using the already-verified source visuals; B24-B26 uncovered slots remain
+    unresolved and must follow reuse-first gap review.
