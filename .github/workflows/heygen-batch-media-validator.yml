@@ -18,6 +18,8 @@ on:
       - production/locations/P1_LATE_BATCH_ENV6L_BINDING_CROSSWALK.yaml
       - production/locations/P1_LATE_SEMANTIC_REQUIREMENT_AUDIT.yaml
       - production/locations/P1_B29_EXACT_LOCATION_CORRECTION_AUDIT.yaml
+      - production/locations/P1_B30_B33_ZERO_CREDIT_LATE_LOCATION_ROUTING_AUDIT.yaml
+      - production/locations/apply_b30_b33_zero_credit_late_location_routing.py
       - production/heygen/avatars/**
       - .github/workflows/heygen-batch-media-validator.yml
 
