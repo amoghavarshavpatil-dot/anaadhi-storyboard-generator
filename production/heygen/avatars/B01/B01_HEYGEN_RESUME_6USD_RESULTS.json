@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "project": "ANAADHI",
+  "batch_id": "B01",
+  "execution_owner": "CURRENT_CHATGPT_WORK_PAGE_ONLY",
+  "authorisation": "Credits added",
+  "user_budget_usd": 6,
+  "official_photo_avatar_unit_cost_usd": 1,
+  "paid_call_hard_cap": 6,
+  "selected_assets": [
+    "B01-AV-03",
+    "B01-AV-04",
+    "B01-AV-05",
+    "B01-AV-06",
+    "B01-AV-07",
+    "B01-AV-09"
+  ],
+  "budget_deferred_asset": "B01-AV-08",
+  "generated_at": "2026-08-16T13:41:46Z",
+  "account_before": {
+    "api_key_account": true,
+    "wallet_present": true
+  },
+  "account_after": {
+    "api_key_account": true,
+    "wallet_present": true
+  },
+  "results": [
+    {
+      "asset_key": "B01-AV-03",
+      "avatar_name": "AARATHI_B01_PARALLEL_MEDICAL_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 200,
+      "success": true,
+      "group_id": "cb6af5a4934d406eb071d2debabb3614",
+      "look_id": "251b973f5ce64ae7a60da605192b6524",
+      "training_status": "processing",
+      "error": null
+    },
+    {
+      "asset_key": "B01-AV-04",
+      "avatar_name": "SEMMAA_B01_FIELD_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 200,
+      "success": true,
+      "group_id": "136f8d9ab78d47579027af28b28cd0da",
+      "look_id": "298aa73e7a4b40e087abb3a20af8c80d",
+      "training_status": "processing",
+      "error": null
+    },
+    {
+      "asset_key": "B01-AV-05",
+      "avatar_name": "POLICE_COMMANDER_B01_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 200,
+      "success": true,
+      "group_id": "6fdde17bcbc04608aef07985e9260005",
+      "look_id": "0dbc4f49302c494e8dbcfecbecb05d6d",
+      "training_status": "processing",
+      "error": null
+    },
+    {
+      "asset_key": "B01-AV-06",
+      "avatar_name": "SARJANYA_OFFICER_B01_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 200,
+      "success": true,
+      "group_id": "fff559cd0cd746558a54126e87aee07c",
+      "look_id": "03596646d7814b638169793e851ee320",
+      "training_status": "processing",
+      "error": null
+    },
+    {
+      "asset_key": "B01-AV-07",
+      "avatar_name": "MEDICAL_SPECIALIST_B01_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 200,
+      "success": true,
+      "group_id": "57d6bfa8b2704f8681cd1c929ff195e0",
+      "look_id": "527e05fd2d444226a1269b043023dbf8",
+      "training_status": "processing",
+      "error": null
+    },
+    {
+      "asset_key": "B01-AV-09",
+      "avatar_name": "ANAADHI_NEWBORN_B01_CHATGPT_V1",
+      "source_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "http_code": 200,
+      "success": true,
+      "group_id": "42ac892e121e4050a9e49b03d7dd02e3",
+      "look_id": "ae88da2b4b3b482b9c3b8e046f43caa2",
+      "training_status": "processing",
+      "error": null
+    }
+  ]
+}
