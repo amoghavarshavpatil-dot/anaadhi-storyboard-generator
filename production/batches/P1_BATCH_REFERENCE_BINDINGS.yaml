@@ -13,6 +13,7 @@ sources:
   location_queue: "production/locations/LOCATION_GENERATION_QUEUE.yaml"
   late_env6l_mapping: "production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml"
   late_batch_crosswalk: "production/locations/P1_LATE_BATCH_ENV6L_BINDING_CROSSWALK.yaml"
+  shared_reuse_crosswalk: "production/locations/P1_AQ007_009_SHARED_CANONICAL_REUSE_CROSSWALK.yaml"
 
 project_truth:
   batches: 34
@@ -135,7 +136,7 @@ location_bindings:
     remaining_location_work: ["LOC-020 interior plate", "LOC-020 loft plate", "LOC-020 concealed lower passage"]
   B15:
     scenes: [38,39,40,41,42]
-    env6l_roots: [LOC-021, LOC-022, LOC-023, LOC-024, LOC-025, LOC-026]
+    env6l_roots: [LOC-020, LOC-021, LOC-022, LOC-023, LOC-024, LOC-025, LOC-026]
     approved_root: true
     remaining_location_work: ["scene-specific day/rain/social-use states only where canon requires"]
   B16:
@@ -165,12 +166,12 @@ location_bindings:
     remaining_location_work: ["scene-specific monsoon/flood state only"]
   B21:
     scenes: [55,56]
-    env6l_roots: [LOC-050, LOC-051, LOC-052]
+    env6l_roots: [LOC-001, LOC-050, LOC-051, LOC-052, LOC-058]
     approved_root: true
     remaining_location_work: ["preserve LOC-050 opened/dismantled/partly-burned ST00; no pristine reset"]
   B22:
     scenes: [57,58]
-    env6l_roots: [LOC-053, LOC-054, LOC-055]
+    env6l_roots: [LOC-001, LOC-053, LOC-054, LOC-055]
     approved_root: true
     remaining_location_work: ["LOC-055 mirror remains physically too low for 1.93 m Anaadhi"]
   B23:
@@ -282,4 +283,4 @@ next_work_order:
   - "P3: Attach creator-recorded Kannada dialogue and visible-mouth lip-sync windows."
   - "P4: Attach creator-recorded inner voice/V.O./monologues without forced lip sync."
   - "P5: Author second-by-second BGM, ambience, Foley and SFX after picture/voice timing stabilises."
-  - "P6/P7: Mix/master and final feature assembly."
+  - "P6/P7: Mix/master and final feature assembly."}
