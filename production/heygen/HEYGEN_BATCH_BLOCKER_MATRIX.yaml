@@ -2,7 +2,7 @@ version: 2
 project: ANAADHI
 control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: REFRESHED_FROM_P0_POST_PRECHECK__HARD_BLOCKS_REMAIN
-as_of_local: "2026-08-16T18:26:00+05:30"
+as_of_local: "2026-08-16T18:37:00+05:30"
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
 
@@ -15,6 +15,10 @@ fresh_sources:
     path: production/heygen/HEYGEN_P0_NO_NEW_MEDIA_PRECHECK_RESULT.yaml
     git_blob_sha: 243621c92976e66da9b353495a88876569ce81a3
     authoritative_for_aq001_through_aq006_resolution_evidence: true
+  aq001_aq002_consent_verify_result:
+    path: production/heygen/HEYGEN_AQ001_AQ002_CONSENT_VERIFY_RESULT.yaml
+    git_blob_sha: a9798eae1a422a2ffa6ceb5782eccb7090e84cd3
+    authoritative_for_latest_aq001_aq002_consent_observation: true
 
 prior_snapshot:
   repository_head: 2133c63581b423aec58d6fe288d0a9acad30b3df
@@ -38,11 +42,11 @@ p0_packet_overlay:
     - packet_id: HEYGEN-AQ-001
       dependency_id: CONSENT::ANAADHI_PRIVATE_AVATAR
       status: OPEN_UNRESOLVED
-      evidence: "Authoritative Anaadhi private-avatar group is completed but consent_status is null."
+      evidence: "Rechecked directly at 2026-08-16T18:37:00+05:30: authoritative Anaadhi private-avatar group is completed and consent_status remains null; no affirmative state was written."
     - packet_id: HEYGEN-AQ-002
       dependency_id: CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
       status: OPEN_UNRESOLVED
-      evidence: "B01 manifest has no affirmative consent; checked Anaadhi and Aarathi private groups both report consent_status null."
+      evidence: "Rechecked every existing B01-referenced private identity: Anaadhi and Aarathi groups are completed and both consent_status values remain null; no affirmative state was written."
     - packet_id: HEYGEN-AQ-003
       dependency_id: AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
       status: OPEN_UNRESOLVED
