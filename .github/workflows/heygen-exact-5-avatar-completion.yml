@@ -1,0 +1,505 @@
+name: HeyGen Exact $5 Avatar Completion
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-exact-5-avatar-completion.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: heygen-exact-5-avatar-completion
+  cancel-in-progress: false
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout canonical repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Execute capped API-key avatar allocation
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${HEYGEN_API_KEY:-}"
+          python -m pip install --quiet pyyaml
+          python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import json
+          import os
+          import subprocess
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+          from decimal import Decimal
+          from pathlib import Path
+
+          API = "https://api.heygen.com"
+          API_KEY = os.environ["HEYGEN_API_KEY"]
+          REPO = "amoghavarshavpatil-dot/anaadhi-storyboard-generator"
+          LEDGER_PATH = Path("production/heygen/avatars/EXACT_5_HEYGEN_AVATAR_COMPLETION_LEDGER.json")
+          B01_MANIFEST = Path("production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml")
+          BATCH_INDEX = Path("production/heygen/avatars/AVATAR_BATCH_INDEX.yaml")
+          CREDIT_GATE = Path("production/heygen/HEYGEN_CREDIT_GATE_LOCK.yaml")
+          SOURCE_PATH = Path("production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg")
+          SOURCE_URL = "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+          DRIVE_ID = "1xjXoCSCtBq3Jag_P8UEiNECUwHjlfqQJ"
+          EXPECTED_SHA256 = "9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec"
+
+          def observed_at() -> str:
+              return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+
+          def api_json(method: str, path: str, payload=None, extra_headers=None):
+              body = None if payload is None else json.dumps(payload, separators=(",", ":")).encode()
+              headers = {"x-api-key": API_KEY, "Accept": "application/json"}
+              if payload is not None:
+                  headers["Content-Type"] = "application/json"
+              if extra_headers:
+                  headers.update(extra_headers)
+              request = urllib.request.Request(API + path, data=body, headers=headers, method=method)
+              try:
+                  with urllib.request.urlopen(request, timeout=120) as response:
+                      raw = response.read()
+                      return response.status, json.loads(raw or b"{}")
+              except urllib.error.HTTPError as error:
+                  raw = error.read()
+                  try:
+                      decoded = json.loads(raw or b"{}")
+                  except Exception:
+                      decoded = {"error": "non_json_http_error", "http_status": error.code}
+                  return error.code, decoded
+
+          def data_of(payload):
+              if isinstance(payload, dict) and "data" in payload:
+                  return payload["data"]
+              return payload
+
+          def wallet_balance() -> Decimal:
+              code, payload = api_json("GET", "/v3/users/me")
+              assert code == 200, ("users_me_http", code, payload)
+              data = data_of(payload)
+              assert isinstance(data, dict), data
+              wallet = data.get("wallet")
+              assert data.get("billing_type") == "wallet", data.get("billing_type")
+              assert isinstance(wallet, dict) and str(wallet.get("currency", "")).lower() == "usd", wallet
+              return Decimal(str(wallet["remaining_balance"])).quantize(Decimal("0.01"))
+
+          def paged(path: str):
+              items = []
+              token = None
+              while True:
+                  separator = "&" if "?" in path else "?"
+                  page_path = path
+                  if token:
+                      page_path += separator + urllib.parse.urlencode({"token": token})
+                  code, payload = api_json("GET", page_path)
+                  assert code == 200, (page_path, code, payload)
+                  raw_data = data_of(payload)
+                  if isinstance(raw_data, list):
+                      page_items = raw_data
+                  elif isinstance(raw_data, dict):
+                      page_items = raw_data.get("items") or raw_data.get("avatars") or raw_data.get("looks") or []
+                  else:
+                      page_items = []
+                  items.extend(page_items)
+                  has_more = bool(payload.get("has_more")) if isinstance(payload, dict) else False
+                  token = payload.get("next_token") if isinstance(payload, dict) else None
+                  if not has_more or not token:
+                      return items
+
+          def list_private_groups():
+              return paged("/v3/avatars?ownership=private&limit=50")
+
+          def exact_group(name: str):
+              matches = [group for group in list_private_groups() if group.get("name") == name]
+              assert len(matches) <= 1, ("duplicate_exact_group_name", name, len(matches))
+              return matches[0] if matches else None
+
+          def get_group(group_id: str):
+              code, payload = api_json("GET", f"/v3/avatars/{urllib.parse.quote(group_id)}")
+              assert code == 200, ("get_group", group_id, code, payload)
+              return data_of(payload)
+
+          def list_group_looks(group_id: str):
+              query = urllib.parse.urlencode({
+                  "group_id": group_id,
+                  "ownership": "private",
+                  "limit": 50,
+              })
+              return paged("/v3/avatars/looks?" + query)
+
+          def get_look(look_id: str):
+              code, payload = api_json("GET", f"/v3/avatars/looks/{urllib.parse.quote(look_id)}")
+              assert code == 200, ("get_look", look_id, code, payload)
+              return data_of(payload)
+
+          def wait_for_completed(group_id: str, look_id: str):
+              last_group = None
+              last_look = None
+              for _ in range(80):
+                  last_group = get_group(group_id)
+                  last_look = get_look(look_id)
+                  group_status = str(last_group.get("status") or "").lower()
+                  look_status = str(last_look.get("status") or "").lower()
+                  if group_status == "failed" or look_status == "failed":
+                      raise RuntimeError(("avatar_training_failed", group_status, look_status))
+                  if group_status == "completed" and look_status == "completed":
+                      return last_group, last_look
+                  time.sleep(15)
+              raise TimeoutError(("avatar_training_timeout", last_group, last_look))
+
+          def sha256_bytes(blob: bytes) -> str:
+              return hashlib.sha256(blob).hexdigest()
+
+          def read_url(url: str) -> bytes:
+              request = urllib.request.Request(url, headers={"User-Agent": "ANAADHI-GitHub-Actions"})
+              with urllib.request.urlopen(request, timeout=120) as response:
+                  return response.read()
+
+          def verify_allied_source():
+              local_blob = SOURCE_PATH.read_bytes()
+              raw_blob = read_url(SOURCE_URL)
+              drive_url = f"https://drive.usercontent.google.com/download?id={DRIVE_ID}&export=download&confirm=t"
+              drive_blob = read_url(drive_url)
+              hashes = {
+                  "github_checkout_sha256": sha256_bytes(local_blob),
+                  "github_public_url_sha256": sha256_bytes(raw_blob),
+                  "google_drive_sha256": sha256_bytes(drive_blob),
+              }
+              assert set(hashes.values()) == {EXPECTED_SHA256}, hashes
+              assert local_blob[:2] == b"\xff\xd8" and local_blob[-2:] == b"\xff\xd9"
+              return {
+                  "canonical": True,
+                  "github_path": str(SOURCE_PATH),
+                  "github_public_url": SOURCE_URL,
+                  "drive_file_id": DRIVE_ID,
+                  "expected_sha256": EXPECTED_SHA256,
+                  **hashes,
+              }
+
+          def pick_look(group_id: str, preferred_id=None, preferred_name=None):
+              looks = list_group_looks(group_id)
+              if preferred_id:
+                  exact = [look for look in looks if look.get("id") == preferred_id]
+                  if exact:
+                      return exact[0], looks
+              if preferred_name:
+                  exact = [look for look in looks if look.get("name") == preferred_name]
+                  assert len(exact) <= 1, ("duplicate_exact_look_name", preferred_name, len(exact))
+                  if exact:
+                      return exact[0], looks
+              assert len(looks) == 1, ("ambiguous_look_selection", group_id, len(looks))
+              return looks[0], looks
+
+          def wallet_after_expected(expected: Decimal) -> Decimal:
+              current = wallet_balance()
+              for _ in range(12):
+                  if current == expected:
+                      return current
+                  time.sleep(10)
+                  current = wallet_balance()
+              return current
+
+          start_wallet = wallet_balance()
+          assert start_wallet == Decimal("5.00"), ("authoritative_start_wallet_not_exactly_5", str(start_wallet))
+
+          ledger = {
+              "version": 1,
+              "project": "ANAADHI",
+              "control": "EXACT-$5_HEYGEN_API_AVATAR-COMPLETION_ALLOCATION",
+              "api_authentication": "x-api-key via GitHub Actions secret HEYGEN_API_KEY",
+              "billing_type": "wallet",
+              "currency": "usd",
+              "hard_spend_cap_usd": 5.00,
+              "authoritative_start_wallet_usd": float(start_wallet),
+              "github_actions_run_id": os.environ.get("GITHUB_RUN_ID"),
+              "github_trigger_sha": os.environ.get("GITHUB_SHA"),
+              "started_at": observed_at(),
+              "paid_creation_calls": 0,
+              "operations": [],
+              "prohibitions_observed": {
+                  "digital_twin": True,
+                  "extra_looks": True,
+                  "video_or_lipsync_or_tts": True,
+                  "photo_avatar_consent_flow": True,
+                  "unproven_source_substitution": True,
+              },
+          }
+
+          allied_name = "ALLIED_GANGSTER_B01_CHATGPT_V1"
+          allied_source = verify_allied_source()
+          allied_before = start_wallet
+          allied_group = exact_group(allied_name)
+          created = False
+          response_look_id = None
+          if allied_group is None:
+              code, response = api_json(
+                  "POST",
+                  "/v3/avatars",
+                  payload={
+                      "type": "photo",
+                      "name": allied_name,
+                      "file": {"type": "url", "url": SOURCE_URL},
+                  },
+                  extra_headers={"Idempotency-Key": "anaadhi-b01-av08-exact5-v1-20260817"},
+              )
+              assert code in (200, 201, 202), ("allied_create_http", code, response)
+              response_data = data_of(response)
+              avatar_item = response_data.get("avatar_item", response_data) if isinstance(response_data, dict) else {}
+              group_id = avatar_item.get("group_id")
+              response_look_id = avatar_item.get("id")
+              assert group_id and response_look_id, response
+              ledger["paid_creation_calls"] += 1
+              created = True
+              allied_group, allied_look = wait_for_completed(group_id, response_look_id)
+              _, allied_looks = pick_look(group_id, preferred_id=response_look_id)
+          else:
+              group_id = allied_group["id"]
+              allied_look, allied_looks = pick_look(group_id, preferred_name=allied_name)
+              response_look_id = allied_look["id"]
+              allied_group, allied_look = wait_for_completed(group_id, response_look_id)
+
+          expected_after_allied = allied_before - (Decimal("1.00") if created else Decimal("0.00"))
+          allied_wallet_after = wallet_after_expected(expected_after_allied)
+          assert allied_wallet_after == expected_after_allied, (
+              "unexpected_wallet_after_allied",
+              str(expected_after_allied),
+              str(allied_wallet_after),
+          )
+          allied_type = allied_look.get("avatar_type") or allied_look.get("type")
+          assert allied_type == "photo_avatar", allied_type
+          ledger["operations"].append({
+              "operation": "CREATE_PHOTO_AVATAR" if created else "REUSE_EXISTING_EXACT_IDENTITY",
+              "character": "CHR-ALLIED-GANGSTER",
+              "source_evidence": allied_source,
+              "group_id": group_id,
+              "group_name": allied_group.get("name"),
+              "look_avatar_id": response_look_id,
+              "avatar_type": allied_type,
+              "authoritative_status": allied_look.get("status") or allied_group.get("status"),
+              "looks_count": allied_group.get("looks_count", len(allied_looks)),
+              "usd_charged": float(allied_before - allied_wallet_after),
+              "wallet_after_operation": float(allied_wallet_after),
+              "observation_time": observed_at(),
+          })
+
+          later = [
+              ("CHR-ANARVAA", "ANARVAA_MASTER_IDENTITY_V1"),
+              ("CHR-PARVARAN", "PARVARAN_MASTER_IDENTITY_V1"),
+              ("CHR-UNNATH", "UNNATH_MASTER_IDENTITY_V1"),
+              ("CHR-ASANA", "ASANA_MASTER_IDENTITY_V1"),
+          ]
+          current_wallet = allied_wallet_after
+          for character_ref, canonical_name in later:
+              existing = exact_group(canonical_name)
+              if existing is not None:
+                  exact_group_data = get_group(existing["id"])
+                  looks = list_group_looks(existing["id"])
+                  photo_looks = [look for look in looks if (look.get("avatar_type") or look.get("type")) == "photo_avatar"]
+                  authoritative_status = exact_group_data.get("status")
+                  look_id = photo_looks[0].get("id") if len(photo_looks) == 1 else None
+                  avatar_type = "photo_avatar" if len(photo_looks) == 1 else None
+                  operation = "REUSE_EXISTING_EXACT_IDENTITY"
+                  source_evidence = {
+                      "canonical_source_call_required": False,
+                      "reason": "Exact existing identity found; duplicate creation prohibited.",
+                  }
+              else:
+                  exact_group_data = None
+                  look_id = None
+                  avatar_type = None
+                  authoritative_status = "SOURCE_VISUAL_REQUIRED"
+                  operation = "SKIPPED_SOURCE_VISUAL_REQUIRED"
+                  image_name_matches = [
+                      str(path) for path in Path(".").rglob("*")
+                      if path.is_file()
+                      and path.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}
+                      and character_ref.removeprefix("CHR-").replace("-", "_").lower() in path.name.replace("-", "_").lower()
+                  ]
+                  assert not image_name_matches, (character_ref, image_name_matches)
+                  source_evidence = {
+                      "canonical": False,
+                      "github_canonical_image_path_matches": image_name_matches,
+                      "google_drive_exact_character_search_results": 0,
+                      "work_page_registry_state": "MISSING_APPROVED_SOURCE_ASSET",
+                      "required_next_state": "SOURCE_VISUAL_REQUIRED",
+                      "source_substitution_permitted": False,
+                  }
+              unchanged_wallet = wallet_balance()
+              assert unchanged_wallet == current_wallet, (canonical_name, str(current_wallet), str(unchanged_wallet))
+              ledger["operations"].append({
+                  "operation": operation,
+                  "character": character_ref,
+                  "source_evidence": source_evidence,
+                  "group_id": existing.get("id") if existing else None,
+                  "group_name": exact_group_data.get("name") if exact_group_data else canonical_name,
+                  "look_avatar_id": look_id,
+                  "look_avatar_ids": [look.get("id") for look in looks] if existing else [],
+                  "avatar_type": avatar_type,
+                  "authoritative_status": authoritative_status,
+                  "looks_count": exact_group_data.get("looks_count", len(looks)) if exact_group_data else 0,
+                  "usd_charged": 0.00,
+                  "wallet_after_operation": float(unchanged_wallet),
+                  "observation_time": observed_at(),
+              })
+
+          final_wallet = wallet_balance()
+          total_spend = start_wallet - final_wallet
+          assert ledger["paid_creation_calls"] <= 5
+          assert Decimal("0.00") <= total_spend <= Decimal("5.00")
+          ledger["authoritative_final_wallet_usd"] = float(final_wallet)
+          ledger["total_usd_charged"] = float(total_spend)
+          ledger["unused_authorised_wallet_usd"] = float(final_wallet)
+          ledger["completed_at"] = observed_at()
+
+          # Update only the factual B01 records proven by the authoritative API re-query.
+          manifest = B01_MANIFEST.read_text()
+          manifest = manifest.replace(
+              "status: PARTIAL_HEYGEN_8_OF_9_COMPLETE_USD6_CAP_REACHED",
+              "status: HEYGEN_9_OF_9_COMPLETE",
+              1,
+          )
+          start = manifest.index("  B01-AV-08:")
+          end = manifest.index("\n  B01-AV-09:", start)
+          section = manifest[start:end]
+          section = section.replace(
+              "    heygen_status: DEFERRED_USD6_BUDGET_CAP\n"
+              "    deferred_reason: \"Not submitted in the six-call run; next recorded reuse is B24.\"",
+              "    heygen_status: COMPLETE\n"
+              f"    heygen_group_id: \"{group_id}\"\n"
+              f"    heygen_look_id: \"{response_look_id}\"\n"
+              "    heygen_avatar_type: photo_avatar\n"
+              "    heygen_training_status: completed",
+          )
+          assert "DEFERRED_USD6_BUDGET_CAP" not in section
+          manifest = manifest[:start] + section + manifest[end:]
+          manifest = manifest.replace(
+              "  heygen_status: PARTIAL_8_OF_9_COMPLETE_USD6_CAP_REACHED",
+              "  heygen_status: COMPLETE_9_OF_9",
+              1,
+          )
+          manifest = manifest.replace(
+              "  heygen_completed_assets: [B01-AV-01, B01-AV-02, B01-AV-03, B01-AV-04, B01-AV-05, B01-AV-06, B01-AV-07, B01-AV-09]",
+              "  heygen_completed_assets: [B01-AV-01, B01-AV-02, B01-AV-03, B01-AV-04, B01-AV-05, B01-AV-06, B01-AV-07, B01-AV-08, B01-AV-09]",
+              1,
+          )
+          manifest = manifest.replace("  heygen_blocked_assets: [B01-AV-08]", "  heygen_blocked_assets: []", 1)
+          manifest = manifest.replace("  heygen_budget_deferred_assets: [B01-AV-08]", "  heygen_budget_deferred_assets: []", 1)
+          manifest = manifest.replace(
+              "  external_blocker: \"The user-authorised USD6 cap was fully allocated to six successful Photo Avatar calls; B01-AV-08 was deliberately not submitted.\"",
+              "  external_blocker: null",
+              1,
+          )
+          manifest = manifest.replace(
+              "  resume_action: \"Add at least USD1 in HeyGen API wallet credit, say Credits added on the current Work page, then submit only B01-AV-08.\"",
+              "  resume_action: null",
+              1,
+          )
+          manifest = manifest.replace(
+              "    B02 creation remains gated until all nine B01 avatars complete or the user explicitly\n"
+              "    authorizes creation to continue while HeyGen completion is externally credit-blocked.",
+              "    B01's nine-of-nine avatar-completion prerequisite is satisfied. Every later batch remains\n"
+              "    subject to its own approved-source, reference, consent-applicability, and validator gates.",
+              1,
+          )
+          B01_MANIFEST.write_text(manifest)
+
+          index = BATCH_INDEX.read_text()
+          index = index.replace("as_of: '2026-08-16'", "as_of: '2026-08-17'", 1)
+          index = index.replace(
+              "    status: PARTIAL_HEYGEN_8_OF_9_COMPLETE_USD6_CAP_REACHED",
+              "    status: HEYGEN_9_OF_9_COMPLETE",
+              1,
+          )
+          BATCH_INDEX.write_text(index)
+
+          gate = CREDIT_GATE.read_text()
+          gate = gate.replace(
+              "status: HARD_PAUSED_B01_8_OF_9_COMPLETE_AWAITING_MINIMUM_USD1",
+              "status: B01_9_OF_9_COMPLETE__RESIDUAL_WALLET_SOURCE_GATED",
+              1,
+          )
+          if "exact_5_execution_2026_08_17:" not in gate:
+              state_by_character = {
+                  op["character"]: op["authoritative_status"]
+                  for op in ledger["operations"][1:]
+              }
+              gate += (
+                  "\nexact_5_execution_2026_08_17:\n"
+                  f"  observed_at: {observed_at()}\n"
+                  "  api_key_wallet_start_usd: 5.0\n"
+                  f"  b01_av08_operation: {'CREATED' if created else 'EXISTING_REUSED'}\n"
+                  f"  b01_av08_usd_charged: {float(allied_before - allied_wallet_after)}\n"
+                  f"  api_key_wallet_remaining_usd: {float(final_wallet)}\n"
+                  "  b01_completion: 9_OF_9\n"
+                  f"  anarvaa: {state_by_character['CHR-ANARVAA']}\n"
+                  f"  parvaran: {state_by_character['CHR-PARVARAN']}\n"
+                  f"  unnath: {state_by_character['CHR-UNNATH']}\n"
+                  f"  asana: {state_by_character['CHR-ASANA']}\n"
+                  "  residual_wallet_spend_without_proven_source: forbidden\n"
+              )
+          CREDIT_GATE.write_text(gate)
+
+          # Permanent validator is read-only. Exit code 2 is retained as factual blocker evidence.
+          validator = subprocess.run(
+              ["python", "production/heygen/validate_heygen_batch_media.py", "--json"],
+              text=True,
+              capture_output=True,
+          )
+          try:
+              validator_payload = json.loads(validator.stdout) if validator.stdout.strip() else None
+          except json.JSONDecodeError:
+              validator_payload = None
+          ledger["permanent_validator"] = {
+              "command": "python production/heygen/validate_heygen_batch_media.py --json",
+              "exit_code": validator.returncode,
+              "json_output_parsed": validator_payload is not None,
+              "summary": validator_payload,
+              "stderr": validator.stderr[-4000:] if validator.stderr else "",
+              "observation_time": observed_at(),
+          }
+          LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
+          LEDGER_PATH.write_text(json.dumps(ledger, indent=2, sort_keys=False) + "\n")
+
+          print(json.dumps({
+              "result": "completed",
+              "b01": "9_of_9",
+              "paid_calls": ledger["paid_creation_calls"],
+              "total_usd_charged": ledger["total_usd_charged"],
+              "wallet_remaining_usd": ledger["authoritative_final_wallet_usd"],
+              "later_identity_states": [op["authoritative_status"] for op in ledger["operations"][1:]],
+              "validator_exit_code": validator.returncode,
+          }, indent=2))
+          PY
+
+      - name: Commit factual completion records
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase --autostash origin main
+          git add \
+            production/heygen/avatars/EXACT_5_HEYGEN_AVATAR_COMPLETION_LEDGER.json \
+            production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml \
+            production/heygen/avatars/AVATAR_BATCH_INDEX.yaml \
+            production/heygen/HEYGEN_CREDIT_GATE_LOCK.yaml
+          if git diff --cached --quiet; then
+            echo 'No factual metadata changes required.'
+          else
+            git commit -m 'Complete B01 Allied Gangster HeyGen avatar allocation'
+            git push origin HEAD:main
+          fi
