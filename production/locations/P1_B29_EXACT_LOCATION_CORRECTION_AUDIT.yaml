@@ -1,0 +1,92 @@
+version: 1
+project: ANAADHI
+control: P1-B29-EXACT-LOCATION-CORRECTION-AUDIT
+status: EXACT_METADATA_CORRECTION_READY__VISUALS_PENDING
+as_of_local: "2026-08-16T18:48:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+
+batch:
+  id: B29
+  scenes: [83, 84, 85, 86]
+  title: Anarvaa Collapse, Emergency Ward, Interim Council and Pharmacy Evidence
+
+source_evidence:
+  p0_foundation:
+    path: production/batches/ANAADHI_BATCH_FOUNDATION.py
+    physical_locations:
+      - Anarvaa Paraane office
+      - Paraane hospital emergency ward
+      - Kendhalaa convention council hall
+      - certified pharmaceutical inventory vault
+  late_crosswalk:
+    path: production/locations/P1_LATE_BATCH_ENV6L_BINDING_CROSSWALK.yaml
+    exact_roots: [LOC-003, LOC-067, LOC-068]
+  frozen_mapping:
+    path: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
+    LOC-067: Kendhalaa Convention Centre
+    LOC-068: Paraane-Certified Pharmaceutical Store
+
+correction:
+  current_requirement_locations:
+    - LOC-PARAANE-CAMPUS-MATURE
+    - LOC-PARAANE-CENTRAL-COMMAND
+    - LOC-PARAANE-PHARMACY-VAULT
+  corrected_required_location_refs:
+    - LOC-003
+    - LOC-067
+    - LOC-068
+  corrected_env6l_roots:
+    - LOC-003
+    - LOC-067
+    - LOC-068
+  corrected_pending_named_location_refs:
+    - LOC-067
+    - LOC-068
+  reason: >-
+    LOC-003 is the existing Paraane parent/root for the Anarvaa office and hospital emergency-ward
+    portions. LOC-067 and LOC-068 are the frozen exact late roots for the convention council hall
+    and certified pharmaceutical inventory-vault sequence. The old central-command and Paraane
+    transfer-vault semantic aliases do not describe B29's actual Scene 083-086 physical locations.
+
+anti_alias_guards:
+  - >-
+    LOC-068 certified pharmaceutical inventory vault must not be merged with Paraane's internal
+    pharmaceutical transfer vault / SUB-003-25 used by other batches.
+  - >-
+    Anarvaa office and hospital emergency ward remain nested under the established Paraane root;
+    this audit does not invent a new Paraane root.
+
+registry_bridge_required:
+  LOC-067:
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+  LOC-068:
+    status: MISSING_APPROVED_ASSET
+    path: null
+    metadata_status: LOCKED
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+
+closure_effect:
+  closes_only_stale_semantic_identity: true
+  visual_location_blockers_closed: false
+  approved_root_change: false
+  expected_new_exact_visual_blockers:
+    - REF::LOC-067
+    - REF::LOC-068
+  remaining_nested_work:
+    - Paraane Anarvaa office / emergency ward state
+    - LOC-067 council hall visual/nested control
+    - LOC-068 inventory vault visual/nested control
+
+held_batches_unchanged:
+  - B30
+  - B33
+
+safety:
+  media_generated: false
+  media_replaced: false
+  approved_status_changed: false
+  approved_root_changed: false
+  heygen_called: false
