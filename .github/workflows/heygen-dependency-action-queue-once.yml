@@ -1,0 +1,60 @@
+name: HEYGEN Dependency Action Queue Once
+
+on:
+  push:
+    paths:
+      - .github/workflows/heygen-dependency-action-queue-once.yml
+
+permissions:
+  contents: write
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  build-action-queue-only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+
+      - name: Build owner-separated dependency action queue
+        run: |
+          python -m py_compile production/heygen/build_heygen_dependency_action_queue.py
+          python production/heygen/build_heygen_dependency_action_queue.py --json
+          test -s production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+
+      - name: Verify queue safety invariants
+        run: |
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+          p = Path('production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml')
+          q = yaml.safe_load(p.read_text())
+          assert q['summary']['action_packets'] == 161
+          assert q['summary']['proven_no_new_media_packets'] == 6
+          assert len(q['packets']) == 161
+          assert all(x['status'] == 'OPEN_UNRESOLVED' for x in q['packets'])
+          assert all(x['approved_status_change_allowed'] is False for x in q['packets'])
+          assert all(x['heygen_submission_allowed_by_this_packet'] is False for x in q['packets'])
+          assert all(x['media_generation_allowed_by_queue_builder'] is False for x in q['packets'])
+          assert all(x['proven_no_new_media'] for x in q['packets'][:6])
+          print(q['summary'])
+          PY
+
+      - name: Commit action queue
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+          git diff --cached --check
+          git commit -m "Build HeyGen dependency action queue"
+          git push origin HEAD:main
