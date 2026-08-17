@@ -1,0 +1,143 @@
+version: 1
+scene_id: SC003
+status: SPEC_READY
+revision_id: R001
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: "INT. ANAADHI’S RAISED CABIN – CONTINUOUS"
+
+editorial:
+  source_scene_id: SC003
+  final_render_segment_id: SC003
+  follows_materialized: SC002
+  next_materialization: SC004
+  final_editorial_order_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
+  after_SC005_locked_jump: SC099B
+
+continuation_in:
+  from_scene: SC002
+  physical_state:
+    - "SC002 single real door breach already occurred; no pristine reset"
+    - "breached doorway remains open/damaged with wet debris"
+    - "Police, Paraane medical personnel, Sarjanya and remaining official operation line are already inside/at the breach"
+    - "Anaadhi remains sedated and floor-level"
+    - "metal medical case/cartridge continuity persists, but SC004 ADK-7 handling has not started"
+
+screenplay_beats:
+  - "Aarathi pushes through the operation line in civilian field clothes, wet plait, no weapon"
+  - "Anaadhi’s blurred attention isolates the real Aarathi"
+  - "Aarathi sees the injector on the floor and challenges the Medical Specialist"
+  - "Police Commander blocks Aarathi from moving closer"
+  - "Aarathi states that she reported Anaadhi for controlled surrender, not chemical assault"
+  - "Anaadhi tries to speak; only air escapes"
+  - "Aarathi lowers herself into his eyeline and says she did not inject him"
+  - "SB003/GF02 fracture: five Parallel Aarathis occupy the same position"
+  - "one wears a Paraane medical coat"
+  - "one lies dead beside him"
+  - "one opens the cabin door and lets him escape"
+  - "one never entered the forest"
+  - "one aims a weapon directly at his head"
+  - "a Parallel Aarathi asks: Which version will you believe?"
+  - "RST01 collapses all variants back into the real Aarathi inside the armed circle"
+  - "Anaadhi barely says You..."
+  - "Aarathi admits giving them his location and says Not this"
+  - "Anaadhi closes his eyes; SC003 ends before SC004 ADK-7 cartridge handling"
+
+continuity:
+  batch: B01
+  location_root_ids: [LOC-001, ENV-CAB-008]
+  nested_space_ids: [SUB-001-02]
+  location_state_ids: [WC001/C, LOC-001_ST01_CAPTURE_BREACH]
+  weather_time_bindings: [PRE_DAWN, BLACK_RAIN_OUTSIDE, INTERIOR_WETNESS_BY_INGRESS_ONLY]
+  damage_rules:
+    - "single SC002 breach persists"
+    - "no second explosion"
+    - "no pristine doorway reset"
+    - "Parallel-Earth variants create no physical environmental residue"
+  anaadhi:
+    identity_source: production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    required_state_ids: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
+    height_cm: 193
+    state_notes: "topless; shaved scalp with several days rough regrowth; sedated; floor-level; motor control weak; no long hair"
+  real_aarathi:
+    identity_source: production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_state: "civilian field clothes; wet plait; no weapon"
+    physical_truth_rule: "only the real Aarathi persists after RST01"
+  parallel_aarathi_medical:
+    identity_source: production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_state: "same identity in Paraane medical coat; subjective variant only"
+  police_commander:
+    identity_source: production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+  medical_specialist:
+    identity_source: production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+  props:
+    EMPTY_INJECTOR: "screenplay-required floor continuity; Aarathi notices it"
+    PARAANE_MEDICAL_CASE: "inherits SC002; no new handling beat"
+    PRP-ADK7-CARTRIDGE: "present in operation-case continuity but no SC004 removal/loading action may appear in SC003"
+    FIREARMS: "armed-circle continuity only; real Aarathi has none"
+  technology_bindings: []
+
+parallel_earth:
+  beat_id: SB003
+  grammar: GF02
+  recurrence_position: "1/11 establish"
+  band: "A Capture aperture"
+  exact_boundary_start: "Anaadhi’s vision fractures again. PARALLEL AARATHIS occupy the same position:"
+  exact_boundary_end: "The images collapse into the real Aarathi."
+  ep: [EP0, EP1, EP3, EP4, EP-U]
+  observation: OBS01
+  anchor: ANCH02
+  inverse: INV6-02
+  environment_anchor: ENV-CAB-008
+  weather_condition: WC001/C
+  reset: RST01
+  variant_controls: [VAR6-01, VAR6-03, VAR6-04]
+  anti_drift:
+    - "five variants occupy the same subjective position; do not create five physical Aarathis"
+    - "real Aarathi identity and relationship remain canonical"
+    - "alternate medical coat, death, escape assistance, absence and weapon states never become event fact"
+    - "alternate weapon never transfers to real Aarathi"
+    - "RST01 restores only the locked SC003 physical cabin/operation state"
+
+shot_plan:
+  duration_seconds: 60
+  shot_count: 20
+  stills_per_minute: 20
+  target_raster: 3840x1600
+  aspect_ratio: "2.40:1"
+  fps: 30
+  shot_ids:
+    - SC003_SH001
+    - SC003_SH002
+    - SC003_SH003
+    - SC003_SH004
+    - SC003_SH005
+    - SC003_SH006
+    - SC003_SH007
+    - SC003_SH008
+    - SC003_SH009
+    - SC003_SH010
+    - SC003_SH011
+    - SC003_SH012
+    - SC003_SH013
+    - SC003_SH014
+    - SC003_SH015
+    - SC003_SH016
+    - SC003_SH017
+    - SC003_SH018
+    - SC003_SH019
+    - SC003_SH020
+
+image_generation:
+  started: false
+  backend_when_authorized: CHATGPT_CHAT_PAGE
+  gate: HOLD
+  note: "This file materializes storyboard specifications only; no still is generated or rendered by this commit."
+
+audio:
+  dialogue_source: CREATOR_RECORDING_ONLY
+  mastered_prefix_locked: true
+  mastered_prefix_end_seconds: 134.293333
+  retime_locked_audio: false
+  scene_relative_visual_timing_is_provisional: true
+  exact_master_timecode_alignment: PENDING_EXTRACTION
+  rule: "Do not stretch, regenerate or replace the locked opening master; conform picture timing to extracted master timecodes when mapped."

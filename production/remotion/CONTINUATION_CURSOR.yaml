@@ -1,7 +1,7 @@
-version: 3
+version: 4
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: "2026-08-17T12:14:00+05:30"
+as_of_local: "2026-08-17T12:31:00+05:30"
 
 backend:
   github_canonical_control: true
@@ -20,18 +20,17 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_scene_materialized: SC002
-  next_scene_to_materialize: SC003
+  latest_new_schema_scene_materialized: SC003
+  next_scene_to_materialize: SC004
   before_first_editorial_jump:
-    - SC003
     - SC004
     - SC005
   after_SC005: SC099B
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   note: >-
-    Continue SC003-SC005 next. Immediately after SC005 is complete, materialization and final
-    assembly follow the user-locked non-linear editorial sequence. Source screenplay numbering
-    remains unchanged and is used only as authority/reference.
+    SC003 is now SPEC_READY. Continue SC004 then SC005. Immediately after SC005 is complete,
+    materialization and final assembly jump to SC099B under the user-locked non-linear editorial
+    sequence. Source screenplay numbering remains unchanged and is used only as authority/reference.
 
 audio:
   mastered_prefix_locked: true
@@ -40,6 +39,12 @@ audio:
   resume_mix_after_seconds: 134.293333
   reopen_locked_prefix_only_on_explicit_user_redraft: true
   editorial_audio_order_follows_picture_manifest: true
+  SC003:
+    dialogue_policy: CREATOR_RECORDING_ONLY
+    picture_planning_duration_seconds: 60
+    exact_master_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    note: "SC003 relative shot windows are provisional picture-planning windows only; locked mastered audio must not be stretched or rebuilt."
 
 picture_master:
   width: 3840
@@ -54,6 +59,22 @@ shot_density:
     duration_seconds: 54
     shot_count: 18
     stills_per_minute: 20
+  SC003:
+    duration_seconds: 60
+    shot_count: 20
+    stills_per_minute: 20
+
+parallel_earth_cursor:
+  latest_materialized_beat: SB003
+  scene: SC003
+  grammar: GF02
+  recurrence: "1/11 establish"
+  anchor: ANCH02
+  inverse: INV6-02
+  environment_anchor: ENV-CAB-008
+  weather_condition: WC001/C
+  reset: RST01
+  physical_multiplication_allowed: false
 
 editorial_lock:
   enabled: true

@@ -1,0 +1,313 @@
+{
+  "scene_id": "SC003",
+  "revision_id": "R001",
+  "status": "SPEC_READY",
+  "source_authority": "ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx",
+  "screenplay_source": {
+    "scene_number": 3,
+    "heading": "INT. ANAADHI’S RAISED CABIN – CONTINUOUS",
+    "beat_summary": "Aarathi enters the already-breached cabin, challenges the unexplained sedative and tries to re-establish direct trust with sedated Anaadhi. His perception fractures into five mutually exclusive Parallel Aarathi variants before RST01 restores the real, unarmed Aarathi. She admits giving the operation his location but rejects the chemical assault; Anaadhi closes his eyes.",
+    "source_authority": "approved screenplay",
+    "continuation_from": "SC002",
+    "end_boundary": "Anaadhi closes his eyes; SC004 begins only after this package ends."
+  },
+  "continuity": {
+    "location_root_ids": ["LOC-001", "ENV-CAB-008"],
+    "nested_space_ids": ["SUB-001-02"],
+    "location_state_ids": ["WC001/C", "LOC-001_ST01_CAPTURE_BREACH"],
+    "weather_time_bindings": ["PRE_DAWN", "BLACK_RAIN_OUTSIDE", "INTERIOR_WETNESS_BY_INGRESS_ONLY"],
+    "character_bindings": {
+      "ANAADHI": {
+        "identity_source": "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+        "age_body_state": "AGE-ANAADHI-27-CAPTURE",
+        "hair_state": "HR-ANAADHI-27-CAPTURE",
+        "costume_state": "CST-ANAADHI-27-CAPTURE",
+        "injury_state": "INJ-ANAADHI-27-ADK7",
+        "height_cm": 193,
+        "pose_expression_constraints": "topless; shaved scalp with several days rough regrowth; sedated; floor-level; weak motor control; no long hair"
+      },
+      "AARATHI_REAL": {
+        "identity_source": "production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+        "source_state": "civilian field clothes; wet plait; no weapon",
+        "truth_status": "PHYSICAL_PRESENT"
+      },
+      "AARATHI_PARALLEL_MEDICAL": {
+        "identity_source": "production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+        "source_state": "Paraane medical coat",
+        "truth_status": "SUBJECTIVE_VARIANT_ONLY"
+      },
+      "POLICE_COMMANDER": {
+        "identity_source": "production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+      },
+      "MEDICAL_SPECIALIST": {
+        "identity_source": "production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+      }
+    },
+    "prop_bindings": {
+      "EMPTY_INJECTOR": "screenplay-required on floor; visible to Aarathi",
+      "PARAANE_MEDICAL_CASE": "inherits SC002 placement/state",
+      "PRP-ADK7-CARTRIDGE": "case continuity only; SC004 removal/loading is forbidden in SC003",
+      "FIREARMS": "armed-circle continuity only; AARATHI_REAL carries none"
+    },
+    "vehicle_bindings": [],
+    "technology_bindings": [],
+    "damage_rules": [
+      "SC002 contains the one real door breach",
+      "breached/open doorway and wet debris persist through SC003",
+      "no second explosion and no pristine reset",
+      "Parallel Aarathi states leave no physical residue"
+    ]
+  },
+  "parallel_earth": {
+    "beat_id": "SB003",
+    "grammar": "GF02",
+    "recurrence": "1/11 establish",
+    "band": "A Capture aperture",
+    "ep": ["EP0", "EP1", "EP3", "EP4", "EP-U"],
+    "observation": "OBS01",
+    "anchor": "ANCH02",
+    "inverse": "INV6-02",
+    "environment_anchor": "ENV-CAB-008",
+    "weather_condition": "WC001/C",
+    "reset": "RST01",
+    "variant_controls": ["VAR6-01", "VAR6-03", "VAR6-04"],
+    "boundary": "Anaadhi’s vision fractures again / Parallel Aarathis occupy the same position -> images collapse into the real Aarathi",
+    "variant_states": [
+      "Paraane medical coat",
+      "dead beside Anaadhi",
+      "opens cabin route and lets Anaadhi escape",
+      "never entered the forest",
+      "aims a weapon directly at Anaadhi’s head"
+    ],
+    "anti_drift": "Five variants are mutually exclusive subjective possibilities at one anchor; never render them as five physical Aarathis. RST01 restores only AARATHI_REAL in civilian field clothes, wet plait, no weapon, inside the actual armed circle."
+  },
+  "generation_defaults": {
+    "backend": "CHATGPT_CHAT_PAGE",
+    "master_raster": "3840x1600",
+    "aspect": "2.40:1",
+    "style": "photoreal cinematic storyboard still; grounded future Karnataka; scope composition; no borders; no text",
+    "continuity_anchor_summary": "ENV-CAB-008 / SUB-001-02 / WC001-C; one SC002 door breach persists; real Aarathi unarmed; Anaadhi floor-level capture state; SB003 GF02 subjective variants only",
+    "negative_global": [
+      "pristine cabin door",
+      "second door explosion",
+      "daylight",
+      "long-haired Anaadhi",
+      "standing heroic Anaadhi",
+      "weapon carried by real Aarathi",
+      "SC004 ADK-7 injection",
+      "five physical Aarathis",
+      "parallel-state residue after RST01",
+      "storyboard borders",
+      "subtitles",
+      "text overlays"
+    ]
+  },
+  "remotion_defaults": {
+    "fps": 30,
+    "transition_in": "CUT",
+    "transition_out": "CUT",
+    "crop_policy": "NO_UNAPPROVED_AUTO_REFRAME",
+    "scene_duration_seconds": 60,
+    "shot_count": 20,
+    "stills_per_minute": 20
+  },
+  "audio_contract": {
+    "dialogue_policy": "CREATOR_RECORDING_ONLY",
+    "mastered_prefix_locked": true,
+    "mastered_prefix_end_seconds": 134.293333,
+    "retime_locked_master": false,
+    "relative_windows_are_picture_planning_only": true,
+    "exact_master_timecode_alignment": "PENDING_EXTRACTION",
+    "bgm_policy": "inherit locked opening master; do not rebuild manufactured elements",
+    "sfx_policy": "preserve locked opening design; scene package supplies alignment cues only"
+  },
+  "shots": [
+    {
+      "shot_id": "SC003_SH001",
+      "purpose": "Aarathi forces through the already-entered operation line",
+      "composition": {"shot_size":"wide depth","camera_height":"eye-level","camera_side":"left three-quarter","screen_direction":"LEFT_TO_RIGHT","lens_intent":"32mm environmental pressure","subject_placement":"Aarathi advancing through layered bodies; breached doorway frame-left","depth_plan":"foreground wet debris / midground Aarathi / background operation line","orientation_notes":"scope landscape; preserve SC002 breach"},
+      "bindings": {"characters":["AARATHI_REAL","POLICE_COMMANDER","MEDICAL_SPECIALIST"],"location":["LOC-001","ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C","LOC-001_ST01_CAPTURE_BREACH"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"Real Aarathi pushes through the already-breached raised-cabin operation line, civilian field clothes, wet plait, empty hands; wet debris and packed official personnel remain from SC002.","negative_constraints":"no pristine door; no second breach; no weapon on Aarathi; no daylight","continuity_anchor_summary":"physical present / pre-GF02"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"SLOW_PUSH_IN","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[0,3],"dialogue":[],"bgm_cues":["locked opening tension continues"],"sfx_cues":["boots through debris","wet cloth","room equipment"],"ambience_cues":["black rain outside","muffled armed-room pressure"]}
+    },
+    {
+      "shot_id": "SC003_SH002",
+      "purpose": "Lock real Aarathi identity before subjective fracture",
+      "composition": {"shot_size":"medium full-to-knee","camera_height":"eye-level","camera_side":"front-right three-quarter","screen_direction":"LEFT_TO_RIGHT","lens_intent":"50mm identity lock","subject_placement":"Aarathi dominant center-right, operation line soft behind","depth_plan":"Aarathi sharp / armed line soft","orientation_notes":"plain physical reality; no variant styling"},
+      "bindings": {"characters":["AARATHI_REAL"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"Canonical real Aarathi: civilian field clothes, wet plait, no weapon, rain-wet but grounded, inside the armed cabin operation.","negative_constraints":"no Paraane medical coat; no firearm; no duplicate Aarathi; no glamour portrait","continuity_anchor_summary":"AARATHI_REAL physical truth anchor"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[3,6],"dialogue":[],"bgm_cues":["hold tension"],"sfx_cues":["rain drip","equipment fabric"],"ambience_cues":["breached cabin room tone"]}
+    },
+    {
+      "shot_id": "SC003_SH003",
+      "purpose": "Anaadhi’s blurred attention isolates the real Aarathi",
+      "composition": {"shot_size":"floor-level subjective medium","camera_height":"Anaadhi floor POV","camera_side":"frontal subjective","screen_direction":"NEUTRAL","lens_intent":"65mm shallow-focus perception","subject_placement":"Aarathi centered; armed circle perceptually suppressed","depth_plan":"Aarathi sharp island / operation bokeh","orientation_notes":"people remain physically present even if perception drops them"},
+      "bindings": {"characters":["ANAADHI","AARATHI_REAL"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"From sedated Anaadhi’s floor-level blurred vision, real Aarathi becomes the only sharply perceived person while the actual armed circle falls into haze.","negative_constraints":"do not physically erase the operation team; no parallel variant yet; no standing Anaadhi","continuity_anchor_summary":"drug-blurred perception before SB003"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"SLOW_PUSH_IN","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[6,9],"dialogue":[],"bgm_cues":["thin psychological focus"],"sfx_cues":["strained breathing","muffled room"],"ambience_cues":["rain filtered through cabin"]}
+    },
+    {
+      "shot_id": "SC003_SH004",
+      "purpose": "Aarathi notices the injector and demands an explanation",
+      "composition": {"shot_size":"low over-shoulder","camera_height":"waist-to-floor","camera_side":"Aarathi right shoulder toward Medical Specialist","screen_direction":"RIGHT_TO_LEFT","lens_intent":"40mm prop-to-character relation","subject_placement":"empty injector foreground; Aarathi turns toward Specialist","depth_plan":"injector / Aarathi / Specialist","orientation_notes":"Anaadhi stays low/peripheral"},
+      "bindings": {"characters":["AARATHI_REAL","MEDICAL_SPECIALIST","ANAADHI"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":["EMPTY_INJECTOR"],"technology":[]},
+      "generation": {"visual_prompt":"Empty injector on wet wooden floor in foreground as unarmed Aarathi turns sharply toward the Medical Specialist and demands an explanation; sedated Anaadhi remains floor-level nearby.","negative_constraints":"no needle in skin; no SC004 ADK-7 handling; no standing Anaadhi","continuity_anchor_summary":"screenplay injector-floor beat"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[9,12],"dialogue":["AARATHI: What have you given him?"],"bgm_cues":["duck under dialogue"],"sfx_cues":["small equipment clink","rain"],"ambience_cues":["armed-room tension"]}
+    },
+    {
+      "shot_id": "SC003_SH005",
+      "purpose": "Medical Specialist gives the authorised-sedative answer",
+      "composition": {"shot_size":"restrained two-shot","camera_height":"eye-level","camera_side":"profile axis","screen_direction":"LEFT_TO_RIGHT","lens_intent":"55mm procedural distance","subject_placement":"Aarathi foreground edge; Specialist sharp","depth_plan":"two planes with operation behind","orientation_notes":"avoid lip-centric close-up"},
+      "bindings": {"characters":["AARATHI_REAL","MEDICAL_SPECIALIST"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":["PARAANE_MEDICAL_CASE"],"technology":[]},
+      "generation": {"visual_prompt":"Medical Specialist answers clinically while Aarathi holds him in a hard profile confrontation; already-open medical case remains continuity background.","negative_constraints":"no cartridge removal; no injection; no new prop reveal","continuity_anchor_summary":"SC003 dialogue coverage"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[12,15],"dialogue":["MEDICAL SPECIALIST: An authorised sedative."],"bgm_cues":["low clinical tension"],"sfx_cues":["room equipment"],"ambience_cues":["rain outside"]}
+    },
+    {
+      "shot_id": "SC003_SH006",
+      "purpose": "Aarathi rejects the non-answer and Specialist closes the exchange",
+      "composition": {"shot_size":"tight opposing profiles","camera_height":"eye-level","camera_side":"axis-locked","screen_direction":"AXIS_LOCKED","lens_intent":"65mm moral confrontation","subject_placement":"Aarathi and Specialist on opposite thirds","depth_plan":"faces sharp / armed circle behind","orientation_notes":"maintain dialogue axis"},
+      "bindings": {"characters":["AARATHI_REAL","MEDICAL_SPECIALIST"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"Opposing profile still: Aarathi rejects the answer; Medical Specialist remains procedural and withholding.","negative_constraints":"no shouting spectacle; no cartridge handling; no extra Aarathi","continuity_anchor_summary":"real-world dialogue axis"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"SLOW_PUSH_IN","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[15,18],"dialogue":["AARATHI: That is not an answer.","MEDICAL SPECIALIST: That is the answer you need."],"bgm_cues":["restrained pressure"],"sfx_cues":["fabric shift"],"ambience_cues":["cabin room tone"]}
+    },
+    {
+      "shot_id": "SC003_SH007",
+      "purpose": "Aarathi advances and the Police Commander physically blocks the route",
+      "composition": {"shot_size":"medium three-person block","camera_height":"eye-level","camera_side":"lateral","screen_direction":"LEFT_TO_RIGHT","lens_intent":"35mm spatial obstruction","subject_placement":"Commander crosses Aarathi’s path; Anaadhi low background","depth_plan":"Commander foreground / Aarathi mid / Anaadhi low","orientation_notes":"block without striking or restraining Aarathi"},
+      "bindings": {"characters":["AARATHI_REAL","POLICE_COMMANDER","ANAADHI"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":["FIREARMS"],"technology":[]},
+      "generation": {"visual_prompt":"Aarathi moves toward Anaadhi; Police Commander steps laterally into her path as a procedural barrier while Anaadhi remains sedated on the floor.","negative_constraints":"no assault on Aarathi; no restraints added; no gunfire","continuity_anchor_summary":"physical blocking beat"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"PAN_RIGHT","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[18,21],"dialogue":[],"bgm_cues":["pressure rise"],"sfx_cues":["boot stop","gear movement"],"ambience_cues":["armed operation"]}
+    },
+    {
+      "shot_id": "SC003_SH008",
+      "purpose": "Voice-versus-unconsciousness conflict",
+      "composition": {"shot_size":"wide three-layer dialogue tableau","camera_height":"eye-level","camera_side":"axis-locked","screen_direction":"AXIS_LOCKED","lens_intent":"40mm relationship geometry","subject_placement":"Aarathi and Commander above; Anaadhi visible below eyeline","depth_plan":"Anaadhi floor foreground / speakers mid / operation rear","orientation_notes":"do not visually empower weapons over dialogue"},
+      "bindings": {"characters":["AARATHI_REAL","POLICE_COMMANDER","ANAADHI"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":["FIREARMS"],"technology":[]},
+      "generation": {"visual_prompt":"Aarathi insists Anaadhi must hear her voice while the Police Commander insists he remain unconscious; Anaadhi remains physically low between institutional forces.","negative_constraints":"no muzzle flash; no visible restraint; no weapon on Aarathi","continuity_anchor_summary":"dialogue triangle"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[21,24],"dialogue":["AARATHI: He needs to hear my voice.","POLICE COMMANDER: He needs to remain unconscious."],"bgm_cues":["hold under speech"],"sfx_cues":["radio hush"],"ambience_cues":["rain and enclosed operation pressure"]}
+    },
+    {
+      "shot_id": "SC003_SH009",
+      "purpose": "Aarathi names the controlled-surrender betrayal",
+      "composition": {"shot_size":"medium close three-quarter","camera_height":"eye-level","camera_side":"front-left","screen_direction":"RIGHT_TO_LEFT","lens_intent":"75mm emotional compression","subject_placement":"Aarathi sharp with Commander shoulder edge","depth_plan":"Aarathi / Commander shoulder / Anaadhi soft low","orientation_notes":"civilian field state must remain unmistakable"},
+      "bindings": {"characters":["AARATHI_REAL","POLICE_COMMANDER","ANAADHI"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"Real Aarathi, wet plait and civilian field clothes, speaks with controlled anger: she reported Anaadhi for controlled surrender, not chemical assault.","negative_constraints":"no police uniform on Aarathi; no weapon; no melodramatic scream","continuity_anchor_summary":"AARATHI_REAL trust break"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"SLOW_PUSH_IN","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[24,27],"dialogue":["AARATHI: I reported him for a controlled surrender, not for a chemical assault."],"bgm_cues":["dialogue-forward drop"],"sfx_cues":["rain on damaged door"],"ambience_cues":["quietened room pressure"]}
+    },
+    {
+      "shot_id": "SC003_SH010",
+      "purpose": "Anaadhi tries to speak but only air escapes",
+      "composition": {"shot_size":"floor-level close","camera_height":"floor-level","camera_side":"side profile","screen_direction":"NEUTRAL","lens_intent":"85mm breath detail","subject_placement":"Anaadhi face/shoulder/hand fill lower scope band","depth_plan":"Anaadhi sharp / distant figures blurred","orientation_notes":"body length and scale imply 193 cm without standing him up"},
+      "bindings": {"characters":["ANAADHI"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"Sedated Anaadhi age 27, topless, shaved scalp with rough regrowth, tries to form speech from floor level but only breath escapes; muscles remain weak.","negative_constraints":"no long hair; no standing pose; no heroic flex; no gore","continuity_anchor_summary":"B01 capture state exact"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[27,30],"dialogue":["ANAADHI: failed breath only"],"bgm_cues":["near-silence"],"sfx_cues":["strained breath","finger scrape"],"ambience_cues":["distant armed room"]}
+    },
+    {
+      "shot_id": "SC003_SH011",
+      "purpose": "Aarathi lowers herself into Anaadhi’s eyeline",
+      "composition": {"shot_size":"floor-level two-shot","camera_height":"floor-level","camera_side":"matched eyeline","screen_direction":"RIGHT_TO_LEFT","lens_intent":"50mm trust distance","subject_placement":"Anaadhi foreground profile; Aarathi crouched several feet away","depth_plan":"Anaadhi / Aarathi / armed line","orientation_notes":"no touch; no weapon; preserve safe distance"},
+      "bindings": {"characters":["ANAADHI","AARATHI_REAL"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"Unarmed Aarathi lowers herself so sedated Anaadhi can see her at floor level, keeping a small respectful distance inside the armed circle.","negative_constraints":"no embrace; no touch; no weapon; no parallel variant","continuity_anchor_summary":"real Aarathi eye-line restoration attempt"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"SLOW_PUSH_IN","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[30,33],"dialogue":["AARATHI: Anaadhi... look at me."],"bgm_cues":["hold breath-space"],"sfx_cues":["cloth settling","Anaadhi breathing"],"ambience_cues":["rain outside"]}
+    },
+    {
+      "shot_id": "SC003_SH012",
+      "purpose": "Aarathi denies administering the injection as Anaadhi’s fingers curl",
+      "composition": {"shot_size":"tight eyeline plus hand insert","camera_height":"floor-level","camera_side":"neutral","screen_direction":"NEUTRAL","lens_intent":"70mm emotional detail","subject_placement":"Anaadhi curling fingers foreground; Aarathi face midground","depth_plan":"hand / Aarathi / operation blur","orientation_notes":"empty injector may remain background continuity only"},
+      "bindings": {"characters":["ANAADHI","AARATHI_REAL"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C"],"props":["EMPTY_INJECTOR"],"technology":[]},
+      "generation": {"visual_prompt":"Anaadhi’s weak fingers curl against wet wood while real Aarathi, still unarmed and crouched in his eyeline, tells him she did not inject him.","negative_constraints":"no SC004 injection; no weapon on Aarathi; no parallel coat","continuity_anchor_summary":"last physical beat before SB003"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[33,36],"dialogue":["AARATHI: I did not inject you."],"bgm_cues":["fracture pre-tone begins"],"sfx_cues":["fingers on wood","low neural flutter"],"ambience_cues":["room tone thinning"]}
+    },
+    {
+      "shot_id": "SC003_SH013",
+      "purpose": "GF02 variant one: Aarathi in Paraane medical coat",
+      "composition": {"shot_size":"subject-locked parallel medium","camera_height":"Anaadhi POV","camera_side":"same-position lock","screen_direction":"NEUTRAL","lens_intent":"55mm identity-state substitution","subject_placement":"Aarathi occupies exact real-Aarathi anchor","depth_plan":"variant Aarathi sharp / cabin geometry held","orientation_notes":"same position as real anchor"},
+      "bindings": {"characters":["AARATHI_PARALLEL_MEDICAL"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C","SB003/GF02"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"GF02 subjective variant: same Aarathi identity occupies the exact anchor but now wears a Paraane medical coat; cabin geometry remains fixed.","negative_constraints":"no second physical Aarathi; no persistence after RST01; no medical-coat transfer to real Aarathi","continuity_anchor_summary":"SB003 variant 1 / GF02"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[36,39],"dialogue":[],"bgm_cues":["GF02 fracture layer"],"sfx_cues":["reality shear"],"ambience_cues":["physical room suppressed"]}
+    },
+    {
+      "shot_id": "SC003_SH014",
+      "purpose": "GF02 variant two: Aarathi lies dead beside Anaadhi",
+      "composition": {"shot_size":"subject-locked parallel low tableau","camera_height":"floor-level","camera_side":"same-position lock","screen_direction":"NEUTRAL","lens_intent":"55mm non-graphic possibility","subject_placement":"parallel Aarathi low beside Anaadhi","depth_plan":"Aarathi low / Anaadhi edge / cabin anchor stable","orientation_notes":"non-graphic and clearly subjective"},
+      "bindings": {"characters":["AARATHI_REAL","ANAADHI"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C","SB003/GF02_VARIANT_DEAD"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"GF02 possibility only: same Aarathi identity appears lifeless beside sedated Anaadhi, non-graphic, while cabin anchor remains unchanged.","negative_constraints":"no gore; no confirmed death; no physical corpse after RST01","continuity_anchor_summary":"SB003 variant 2 / subjective only"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[39,42],"dialogue":[],"bgm_cues":["heartbeat dip"],"sfx_cues":["low reality pulse"],"ambience_cues":["near-silence"]}
+    },
+    {
+      "shot_id": "SC003_SH015",
+      "purpose": "GF02 variant three: Aarathi opens the cabin route and lets Anaadhi escape",
+      "composition": {"shot_size":"subject-locked parallel medium-wide","camera_height":"eye-level subjective","camera_side":"anchor-to-door relationship","screen_direction":"LEFT_TO_RIGHT","lens_intent":"42mm escape-route possibility","subject_placement":"parallel Aarathi at route while Anaadhi remains low","depth_plan":"Aarathi foreground / breached route background","orientation_notes":"door remains breached; do not invent a new opening event"},
+      "bindings": {"characters":["AARATHI_REAL","ANAADHI"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C","SB003/GF02_VARIANT_ESCAPE"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"GF02 possibility: same Aarathi identity signals an escape through the already-breached cabin route, an alternate choice rather than a physical event.","negative_constraints":"no repaired door; no actual escape continuity; no second breach; no variant residue","continuity_anchor_summary":"SB003 variant 3"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"PAN_RIGHT","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[42,45],"dialogue":[],"bgm_cues":["brief release harmonic"],"sfx_cues":["air shift"],"ambience_cues":["subjective cabin"]}
+    },
+    {
+      "shot_id": "SC003_SH016",
+      "purpose": "GF02 variant four: Aarathi never entered the forest",
+      "composition": {"shot_size":"subject-locked absence composition","camera_height":"Anaadhi POV","camera_side":"same anchor","screen_direction":"NEUTRAL","lens_intent":"50mm negative-space variant","subject_placement":"Aarathi’s physical anchor is empty; operation remains","depth_plan":"empty subject-space / armed circle background","orientation_notes":"absence is the variant; present continuity is not erased"},
+      "bindings": {"characters":["ANAADHI"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C","SB003/GF02_VARIANT_ABSENCE"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"GF02 possibility: the exact place occupied by Aarathi is empty as if she never entered the forest, while the cabin operation remains around Anaadhi.","negative_constraints":"do not remove Aarathi from real timeline; no new character in anchor; no environmental reset","continuity_anchor_summary":"SB003 variant 4"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"SLOW_PULL_OUT","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[45,48],"dialogue":[],"bgm_cues":["hollow absence tone"],"sfx_cues":["room pressure recedes"],"ambience_cues":["distant rain only"]}
+    },
+    {
+      "shot_id": "SC003_SH017",
+      "purpose": "GF02 variant five: Aarathi aims a weapon directly at Anaadhi",
+      "composition": {"shot_size":"subject-locked parallel medium","camera_height":"Anaadhi POV","camera_side":"same-position lock","screen_direction":"RIGHT_TO_LEFT","lens_intent":"65mm threat line","subject_placement":"parallel Aarathi at exact anchor with weapon line toward POV","depth_plan":"weapon line / Aarathi sharp / cabin stable","orientation_notes":"weapon belongs only to alternate variant"},
+      "bindings": {"characters":["AARATHI_REAL","ANAADHI"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C","SB003/GF02_VARIANT_ARMED"],"props":["PARALLEL_ONLY_FIREARM"],"technology":[]},
+      "generation": {"visual_prompt":"GF02 possibility only: same Aarathi identity aims a weapon directly toward sedated Anaadhi from the same subjective anchor.","negative_constraints":"real Aarathi must remain unarmed; no firing; no weapon residue after RST01; no duplicate Aarathi","continuity_anchor_summary":"SB003 variant 5"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[48,51],"dialogue":[],"bgm_cues":["threat sting"],"sfx_cues":["low metallic tension"],"ambience_cues":["subjective silence"]}
+    },
+    {
+      "shot_id": "SC003_SH018",
+      "purpose": "Parallel Aarathi directly challenges Anaadhi",
+      "composition": {"shot_size":"subjective direct-gaze close","camera_height":"Anaadhi POV","camera_side":"frontal","screen_direction":"NEUTRAL","lens_intent":"85mm direct psychological address","subject_placement":"one Parallel Aarathi fills center frame","depth_plan":"face sharp / cabin held behind","orientation_notes":"variant layers implied, not physically multiplied"},
+      "bindings": {"characters":["AARATHI_REAL"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C","SB003/GF02"],"props":[],"technology":[]},
+      "generation": {"visual_prompt":"A Parallel Aarathi looks directly into Anaadhi’s subjective POV and asks which version he will believe; same identity, impossible certainty, cabin still anchored.","negative_constraints":"no five-person clone lineup; no physical contact; no event-fact promotion","continuity_anchor_summary":"SB003 GF02 direct-address beat"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"SLOW_PUSH_IN","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[51,54],"dialogue":["PARALLEL AARATHI: Which version will you believe?"],"bgm_cues":["fracture reaches peak"],"sfx_cues":["layered identity resonance"],"ambience_cues":["physical room nearly absent"]}
+    },
+    {
+      "shot_id": "SC003_SH019",
+      "purpose": "RST01 collapses all variants into the real Aarathi inside the armed circle",
+      "composition": {"shot_size":"floor-level real-world medium-wide","camera_height":"floor-level","camera_side":"frontal to Aarathi","screen_direction":"NEUTRAL","lens_intent":"45mm reality restoration","subject_placement":"Anaadhi foreground; real Aarathi center; armed circle surrounding","depth_plan":"Anaadhi / Aarathi / operation ring","orientation_notes":"restore exact physical reality only"},
+      "bindings": {"characters":["ANAADHI","AARATHI_REAL","POLICE_COMMANDER","MEDICAL_SPECIALIST"],"location":["LOC-001","ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C","RST01","LOC-001_ST01_CAPTURE_BREACH"],"props":["FIREARMS"],"technology":[]},
+      "generation": {"visual_prompt":"All parallel layers have collapsed. Only the real Aarathi remains, civilian field clothes, wet plait, no weapon, standing/crouched within the actual armed circle as floor-level Anaadhi stares at her.","negative_constraints":"no medical coat; no corpse; no escape variant; no Aarathi firearm; no duplicate Aarathi","continuity_anchor_summary":"RST01 physical restore"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"SLOW_PULL_OUT","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[54,57],"dialogue":["ANAADHI: You... (barely audible; voice fails)"],"bgm_cues":["fracture collapses to low pulse"],"sfx_cues":["room tone snaps back","breath"],"ambience_cues":["rain plus armed cabin"]}
+    },
+    {
+      "shot_id": "SC003_SH020",
+      "purpose": "Aarathi admits giving the location, rejects the chemical assault, and Anaadhi closes his eyes",
+      "composition": {"shot_size":"intimate floor-level two-shot","camera_height":"floor-level","camera_side":"matched eyeline","screen_direction":"NEUTRAL","lens_intent":"70mm consequence close","subject_placement":"Anaadhi foreground; real Aarathi midground; armed circle soft","depth_plan":"Anaadhi / Aarathi / institutional pressure","orientation_notes":"end before any SC004 cartridge removal/loading"},
+      "bindings": {"characters":["ANAADHI","AARATHI_REAL"],"location":["ENV-CAB-008"],"nested_space":["SUB-001-02"],"state":["WC001/C","RST01"],"props":["EMPTY_INJECTOR"],"technology":[]},
+      "generation": {"visual_prompt":"Real Aarathi, unarmed and visibly pained, admits she gave them Anaadhi’s location and says Not this; Anaadhi receives it from the floor and closes his eyes.","negative_constraints":"no SC004 ADK-7 cartridge removal; no injection; no parallel residue; no weapon on Aarathi","continuity_anchor_summary":"SC003 final physical truth beat"},
+      "remotion": {"duration_seconds":3,"transition_in":"CUT","transition_out":"CUT","motion_mode":"STATIC","crop_policy":"NO_UNAPPROVED_AUTO_REFRAME"},
+      "audio": {"window_relative_seconds":[57,60],"dialogue":["AARATHI: I gave them your location.","PAINFUL BEAT","AARATHI: Not this."],"bgm_cues":["leave emotional space into SC004"],"sfx_cues":["Anaadhi breath","rain through damaged structure"],"ambience_cues":["armed cabin held under silence"]}
+    }
+  ],
+  "approval_gate": {
+    "image_generation_started": false,
+    "render_started": false,
+    "next_scene_after_materialization": "SC004",
+    "after_SC005": "SC099B",
+    "redraftable": true
+  }
+}
