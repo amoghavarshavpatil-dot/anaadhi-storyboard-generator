@@ -1,0 +1,247 @@
+version: 1
+project: ANAADHI
+control: P1-AQ016-018-SHARED-ASSET-REUSE-AUDIT
+status: AUDITED__EXACT_ROOT_REUSE_CONFIRMED__SEMANTIC_STATE_GAPS_REMAIN_OPEN
+as_of_local: "2026-08-17T07:43:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+scope:
+  packets: [HEYGEN-AQ-016, HEYGEN-AQ-017, HEYGEN-AQ-018]
+  dependencies:
+    - CST-ANAADHI-CHILD-INSTITUTIONAL
+    - LOC-PARAANE-CAMPUS-MATURE
+    - LOC-BHAIGAARA-RAISED-CABIN
+
+source_snapshot:
+  observed_repository_head: 6af8434cbc4a85881613eff5ed49d47edf802469
+  blocker_matrix_blob: bf042cfbc8be676a5c93add2b79ab0b054493225
+  action_queue_blob: af1c0a1ad581aa29925b1e6b4fd5e019341b14c4
+  reference_registry_blob: c1004d8b122bd97f7201afe4262a9fd469bc8911
+  p0_foundation_blob: 944904a5be1fd8254928f36f63e14a557add0ff0
+  p1_requirements_blob: e1a4bd83b3161091a2018cb19d01e55e821257de
+  p1_bindings_blob: 8a81980d79070a6af52dd5ffe06396be0aeecd6b
+  identity_state_matrix_blob: 11798df224dcbfcc4faf9496756dada6a698e050
+  drive_location_source_audit_blob: acec1d41631c9090d8043a22b5f58d7d8167be27
+  existing_location_overrides_blob: aba67123f4bb72e9bb8fe4fa22ec5a8a30cef0dd
+  prior_required_ref_correction_blob: 6827f151240dc9b5d72eb05fa2c26c14d258baca
+
+absolute_rules:
+  no_approved_status_promotion: true
+  no_root_approval_promotion: true
+  no_media_generation_or_replacement: true
+  no_consent_avatar_look_render_or_lipsync_submission: true
+  no_paid_heygen_api_execution: true
+  age_body_pixels_are_not_costume_authority: true
+  root_ST00_does_not_satisfy_nested_spaces_or_later_states: true
+  numeric_operational_root_reuse_authority: P1_BATCH_REFERENCE_BINDINGS.env6l_roots
+  numeric_required_ref_insertion_without_registry_record: forbidden
+  semantic_dependency_may_remain_open_after_exact_root_reuse: true
+
+AQ016_CST_ANAADHI_CHILD_INSTITUTIONAL:
+  dependency_id: REF::CST-ANAADHI-CHILD-INSTITUTIONAL
+  registry_state:
+    description: clean institutional child clothing
+    status: MISSING_APPROVED_ASSET
+    path: null
+  authoritative_scope_guard:
+    age_body_family_status: APPROVED_WITH_SCOPE_LOCK
+    age_body_scope: AGE_BODY_GEOMETRY_ONLY
+    non_authoritative_pixels: [hair, costume, injury]
+    rule: >-
+      Any clothing visible in approved child age/body plates is explicitly non-canonical and cannot
+      close, define, crop or promote CST-ANAADHI-CHILD-INSTITUTIONAL.
+  connected_drive_evidence:
+    exact_named_searches:
+      institutional_child_Anaadhi: NO_EXACT_MATCH
+      CST_ANAADHI_CHILD_INSTITUTIONAL: NO_EXACT_MATCH
+      Anaadhi_child_clothing: NO_EXACT_MATCH
+    P1_C2A_folder_id: 1ICn1lfVq2fJtURedX13rrso7Yhx1w8fb
+    folder_contents:
+      - id: 1Qut8H40ZZr8ukQ7-SmuL_xe2h6Ct2nnm
+        name: CHR-ANAADHI_P1-C2A_AGE-BODY-FAMILY_CONTACT-SHEET.png
+        authority: AGE_BODY_REVIEW_ONLY
+      - id: 1ybzUSnLGjB33ZxZo_Hp6tM8u_gnKF_1o
+        name: P1-C2A_ANAADHI_AGE_BODY_FAMILY.zip
+        authority: AGE_BODY_ONLY
+    standalone_costume_master_found: false
+  github_tree_evidence:
+    dedicated_costume_directory_found: false
+    exact_CST_child_institutional_asset_found: false
+    registry_only_definition_is_not_asset: true
+  canonical_scene_state_bindings:
+    B07:
+      scenes: [19]
+      p0_state: "age 5; child-wing clothing"
+      state_matrix_costume: Paraane child-wing institutional clothing
+      keep_dependency: true
+    B08:
+      scenes: [20, 21]
+      p0_state: "age 7 clean identical child clothing; age 8 continues institutional child state"
+      state_matrix_costumes: [clean identical child clothing, clean institutional child clothing]
+      keep_dependency: true
+    B09:
+      scenes: [22, 23]
+      p0_state: child continuity across Paraane courtyard and medication dispensary
+      state_matrix_costumes: [institutional child clothing, institutional child clothing]
+      keep_dependency: true
+    B10:
+      scenes: [24]
+      p0_state: "institutional child clothes; no family gift outfit"
+      keep_dependency: true
+    B11:
+      scenes: [25, 26, 27]
+      p0_state: "institutional clothes; tear/blood/dust only as scene progression demands"
+      keep_dependency: true
+      separation_rule: "Damage progression belongs to costume/injury continuity and is not approved by age/body pixels."
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_reusable_costume_master_found: false
+    stale_batch_bindings_removed: []
+    dependency_remains_open_batches: [B07, B08, B09, B10, B11]
+    batch_impact_after_refresh: 5
+    new_media_authorized: false
+
+AQ017_LOC_PARAANE_CAMPUS_MATURE:
+  dependency_id: REF::LOC-PARAANE-CAMPUS-MATURE
+  semantic_registry_state:
+    name: Mature integrated Paraane campus
+    status: MISSING_APPROVED_ASSET
+    path: null
+  exact_root_reuse_evidence:
+    env6l_root: LOC-003
+    canonical_name: Paraane Campus / Central Complex
+    drive_file_id: 1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW
+    drive_fetch_verified: true
+    drive_mime_type: image/png
+    drive_source_audit_range: LOC-001..LOC-015
+    drive_source_audit_result: REUSABLE_VERIFIED_ROOT_MASTER
+    existing_override_action: REUSE_MASTER_SKIP_REGENERATION
+    existing_binding_authority: P1_BATCH_REFERENCE_BINDINGS.env6l_roots
+    root_reuse_is_already_bound: true
+    root_regeneration_allowed: false
+  missing_scope_not_satisfied_by_root:
+    canonical_deliverables: [ST01, ST02, ST03, ST04, required_nested_Paraane_interiors]
+    B26:
+      scenes: [69, 70, 71, 72, 73, 74]
+      exact_root_bound: LOC-003
+      unresolved: [mature_Paraane_states, archive, old_observation_corridor, required_nested_rooms]
+      semantic_dependency_stale: false
+    B30:
+      scenes: [87, 88, 89, 90, 91, 92]
+      exact_root_bound: LOC-003
+      prior_routing_authority: P1_B30_B33_ZERO_CREDIT_LATE_LOCATION_ROUTING_AUDIT
+      unresolved: [late_Paraane_state_or_nested_use_where_scene_requires]
+      semantic_dependency_stale: false
+    B33:
+      scenes: [99]
+      exact_root_bound: LOC-003
+      unresolved: [P4_dismantling_reform_states, hospital_rehab_state, child_wing_state]
+      xform_rule: "Dismantling/reform changes physical/occupation state under LOC-003 and does not mint a new root."
+      semantic_dependency_stale: false
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_root_reuse_confirmed: true
+    exact_root_reuse_binding_changed: false
+    reason_no_binding_change: "LOC-003 was already correctly bound in all three impacted batches."
+    semantic_state_family_closed: false
+    stale_batch_bindings_removed: []
+    dependency_remains_open_batches: [B26, B30, B33]
+    batch_impact_after_refresh: 3
+    new_media_authorized: false
+
+AQ018_LOC_BHAIGAARA_RAISED_CABIN:
+  dependency_id: REF::LOC-BHAIGAARA-RAISED-CABIN
+  semantic_registry_state:
+    name: Anaadhi raised/primary cabin + immediate buffer forest
+    status: MISSING_APPROVED_ASSET
+    path: null
+  exact_root_reuse_evidence:
+    env6l_root: LOC-001
+    canonical_name: Anaadhi Primary / Final / Raised Cabin
+    drive_file_id: 1gRMFCkNrs777LCk83A03QusP6OynjBXD
+    drive_fetch_verified: true
+    drive_mime_type: image/png
+    drive_source_audit_range: LOC-001..LOC-015
+    drive_source_audit_result: REUSABLE_VERIFIED_ROOT_MASTER
+    existing_override_action: REUSE_MASTER_SKIP_REGENERATION
+    existing_binding_authority: P1_BATCH_REFERENCE_BINDINGS.env6l_roots
+    root_reuse_is_already_bound: true
+    root_regeneration_allowed: false
+  missing_scope_not_satisfied_by_root:
+    canonical_deliverables: [interior_identity, split_floor_continuity, lower_escape_passage, capture_breach_later_state]
+    B01:
+      scenes: [1, 2, 3, 4, 5]
+      exact_root_bound: LOC-001
+      p0_use: "EXT Bhaigaara buffer forest / raised cabin; INT raised cabin first floor"
+      unresolved: [raised_cabin_interior_identity, split_floor_continuity, capture_breach_later_state]
+      semantic_dependency_stale: false
+    B23:
+      scenes: [59, 60, 61, 62, 63]
+      exact_root_bound: LOC-001
+      p0_use: "INT final/primary cabin plus forest approach/decoy-cabin context"
+      unresolved: [raised_cabin_state_continuity]
+      semantic_dependency_stale: false
+    B24:
+      scenes: [64, 65, 66]
+      exact_root_bound: LOC-001
+      p0_use: "EXT Bhaigaara buffer forest; INT/EXT Anaadhi raised cabin"
+      unresolved: [raised_cabin_capture_state]
+      semantic_dependency_stale: false
+    B25:
+      scenes: [67, 68]
+      exact_root_bound: LOC-001
+      p0_use: "INT primary cabin/lower passage"
+      unresolved: [lower_passage_identity, cabin_to_ravine_grate_route_continuity]
+      semantic_dependency_stale: false
+  collision_and_scope_guards:
+    distinct_from: [LOC-018, LOC-020, LOC-027, LOC-035, LOC-039, LOC-050, LOC-058]
+    root_exterior_not_interior_authority: true
+    lower_passage_not_inferred_from_exterior_pixels: true
+    split_floor_not_inferred_from_exterior_pixels: true
+    capture_damage_not_inferred_from_ST00_pixels: true
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_root_reuse_confirmed: true
+    exact_root_reuse_binding_changed: false
+    reason_no_binding_change: "LOC-001 was already correctly bound in all four impacted batches."
+    semantic_location_family_closed: false
+    stale_batch_bindings_removed: []
+    dependency_remains_open_batches: [B01, B23, B24, B25]
+    batch_impact_after_refresh: 4
+    new_media_authorized: false
+
+machine_control_decision:
+  reference_requirement_changes: NONE
+  heygen_schema_requirement_changes: NONE
+  p1_root_binding_changes: NONE
+  reference_registry_changes: NONE
+  rationale: >-
+    AQ-016 has no exact costume master, while AQ-017 and AQ-018 already have exact numeric root reuse
+    correctly bound through env6l_roots. Their semantic dependencies still gate missing later states,
+    nested spaces and cabin internals. Removing them would falsely convert partial root reuse into full
+    visual closure; adding LOC-001/LOC-003 as required_location_refs is forbidden because they are not
+    standalone approved records in REFERENCE_REGISTRY.yaml.
+  refresh_only_files:
+    - production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
+    - production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml
+    - production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+
+p0_identity_guard:
+  keep_open_unless_separately_authoritatively_resolved: [HEYGEN-AQ-001, HEYGEN-AQ-002]
+  preserve_resolved_evidenced: HEYGEN-AQ-003
+
+expected_refresh:
+  raw_blocker_delta_from_AQ016_018: 0
+  AQ016_expected_batch_impact: 5
+  AQ017_expected_batch_impact: 3
+  AQ018_expected_batch_impact: 4
+  note: "Fresh permanent read-only validator remains authoritative."
+
+safety:
+  media_generated: false
+  media_replaced: false
+  consent_or_avatar_called: false
+  heygen_look_created: false
+  heygen_render_or_lipsync_submitted: false
+  paid_heygen_api_execution: false
+  approved_status_changed: false
+  approved_root_status_changed: false
