@@ -1,4 +1,4 @@
-version: 7
+version: 8
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -74,13 +74,29 @@ coverage:
     image_generation_started: false
     render_started: false
     final_editorial_next: SC094B
+  SC094B:
+    state: SPEC_READY
+    source_scene_id: SC094
+    editorial_segment_id: SC094B
+    source: scenes/094/segments/SC094B/scene.yaml
+    shot_package: production/remotion/shot_specs/SC094B/SC094B_SHOT_PACKAGE.json
+    shot_count: 12
+    duration_seconds: 36
+    stills_per_minute: 20
+    env6_disposition: "WC089 / NO SB / EP0 physical checkpoint chronology only"
+    location: "LOC-075 / ENV-BOR-001 + ENV-BOR-002; mobile ENV-MOB-004/005/006/007; LOC-077 and LOC-076 exact where mapped"
+    source_end: "ANAADHI: Because of evidence."
+    boundary_note: "Vehicle-door/open-hand beat belongs to SC095 and is not imported into SC094B."
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC095
   SC006-SC099:
     state: NOT_YET_MATERIALIZED_EXCEPT_LISTED_SEGMENTS
-    exceptions: [SC099B]
+    exceptions: [SC094B, SC099B]
     note: >-
       Source scene numbers remain screenplay authority, but final render order follows
-      EDITORIAL_SEQUENCE_LOCK.yaml. SC099B and SC100 are independently materialized;
-      SC099A remains pending at the terminal editorial position.
+      EDITORIAL_SEQUENCE_LOCK.yaml. SC094B and SC099B are independently materialized;
+      SC094A and SC099A remain pending at their locked later editorial positions.
 
 editorial:
   locked: true
@@ -95,9 +111,9 @@ editorial:
     - SC099A
     - SC099B
   split_packages_materialized:
+    - SC094B
     - SC099B
   remaining_materialization_order:
-    - SC094B
     - SC095
     - SC060-SC073
     - SC074A
@@ -110,11 +126,11 @@ editorial:
     - END
 
 cursor:
-  last_materialized_source_scene: SC100
-  last_materialized_editorial_segment: SC100
-  next_scene: SC094B
-  next_editorial_segment: SC094B
-  after_SC100: SC094B
+  last_materialized_source_scene: SC094
+  last_materialized_editorial_segment: SC094B
+  next_scene: SC095
+  next_editorial_segment: SC095
+  after_SC094B: SC095
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 
