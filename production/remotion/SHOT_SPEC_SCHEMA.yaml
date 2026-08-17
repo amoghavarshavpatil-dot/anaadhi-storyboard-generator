@@ -1,4 +1,4 @@
-version: 1
+version: 2
 project: ANAADHI
 control: STORYBOARD_SHOT_SPEC_SCHEMA
 required_top_level_fields:
@@ -15,8 +15,9 @@ required_top_level_fields:
   - exclusions
 
 field_contract:
-  scene_id: "SC001-SC100"
-  shot_id: "SC###_SH###"
+  scene_id: "Source screenplay scene ID SC001-SC100; never renumber source scenes to match editorial order."
+  editorial_segment_id: "Optional for full scenes; mandatory for split source scenes SC074, SC094 and SC099."
+  shot_id: "SC###_SH### for full scenes; SC###A_SH### or SC###B_SH### for split editorial segments."
   revision_id: "R001+"
   status: [SPEC_DRAFT, SPEC_READY, GENERATED, REVIEW, APPROVED_SHOT, LOCKED_PICTURE, FINAL]
   screenplay_source:
@@ -93,6 +94,24 @@ field_contract:
       - forbidden_prop_substitutions
       - continuity_collision_notes
 
+editorial_split_contract:
+  manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
+  split_source_scenes: [SC074, SC094, SC099]
+  required_editorial_segment_ids: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
+  mapping:
+    SC074A: SC074
+    SC074B: SC074
+    SC094A: SC094
+    SC094B: SC094
+    SC099A: SC099
+    SC099B: SC099
+  rules:
+    - "scene_id remains the source screenplay scene ID"
+    - "editorial_segment_id carries the final-render segment identity"
+    - "split packages must use the exact inclusive boundary anchors in EDITORIAL_SEQUENCE_LOCK.yaml"
+    - "dialogue/action may not be duplicated across A/B segments"
+    - "final Remotion feature order is driven by editorial segment ID, not numeric source scene order"
+
 redraft_contract:
   replace_still_without_new_shot_id: true
   update_revision_id_on_material_change: true
@@ -100,9 +119,11 @@ redraft_contract:
   allow_screen_direction_change: true
   allow_shot_order_change_at_scene_manifest_level: true
   allow_audio_timing_change: true
+  allow_editorial_segment_change_only_on_explicit_user_redraft: true
   regenerate_unrelated_shots: false
 
 approval_gate:
   generated_shot_requires_exact_git_spec: true
   approval_must_reference_scene_and_shot_id: true
+  split_shot_requires_editorial_segment_id: true
   image_path_or_hash_must_not_be_fabricated: true
