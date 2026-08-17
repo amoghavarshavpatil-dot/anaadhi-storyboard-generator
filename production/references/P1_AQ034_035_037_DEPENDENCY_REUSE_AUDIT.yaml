@@ -1,0 +1,240 @@
+version: 1
+project: ANAADHI
+control: P1_AQ034_035_037_DEPENDENCY_REUSE_AUDIT
+mode: ZERO_CREDIT_EVIDENCE_ONLY
+status: COMPLETE__EXACT_METADATA_BINDINGS_RECONCILED__VISUAL_GAPS_REMAIN_FAIL_CLOSED
+scope:
+  packets: [HEYGEN-AQ-034, HEYGEN-AQ-035, HEYGEN-AQ-037]
+  explicitly_skipped_superseded_packets: [HEYGEN-AQ-036]
+  dependencies:
+    - REF::VEH-ANAADHI-MOTORCYCLE
+    - REF::LOC-PARAANE-PHARMACY-VAULT
+    - SPATIAL::B01::REMAINING_LOCATION_WORK
+  media_generation: false
+  media_replacement: false
+  consent_execution: false
+  avatar_or_look_submission: false
+  video_render_or_lipsync_submission: false
+  paid_heygen_api_execution: false
+  approved_status_promotion: false
+  root_status_promotion: false
+
+sources:
+  p0_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+  p1_requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  p1_bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  p1_registry: production/references/REFERENCE_REGISTRY.yaml
+  heygen_schema: production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  prior_aq016_018: production/references/P1_AQ016_018_SHARED_ASSET_REUSE_AUDIT.yaml
+  prior_aq019_021: production/references/P1_AQ019_021_SHARED_ASSET_REUSE_AUDIT.yaml
+  env6l_file_library: ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json
+  env6j_file_library: ENV-6J_Master_Environment_Generation_Manifest_v001.json
+  env2b_file_library: ANAADHI_ENV-2B_Canonical_Environment_Asset_Ledger.md
+  env5e_file_library: ANAADHI_ENV-5E_100-Scene_Weather-Time_Exposure-Occupation_Damage-Operability_Audit.md
+  approved_screenplay_file_library: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+
+absolute_rules:
+  - Vehicle identity is independent from road/location plates and incidental vehicle pixels.
+  - Anaadhi's black motorcycle is not interchangeable with carts, Paraane medical transports, emergency vehicles, police carriers or convoy vehicles.
+  - LOC-003 parent/root reuse never satisfies SUB-003-25 Pharmaceutical Transfer Vault visual identity.
+  - SUB-003-25 metadata lock proves canonical parentage and function only; it does not prove a visual master.
+  - LOC-001 parent/root reuse never satisfies SUB-001-02 Primary Cabin Main Interior, SUB-001-03 Lower Cabin Passage or LOC-001 ST01 capture-breach visual state.
+  - PRP-SPLIT-FLOORBOARD remains a standalone prop/mechanism dependency under AQ-020 and must not be duplicated inside AQ-037 spatial wording.
+  - Existing metadata-locked visual-pending ENV-6L entries remain OPEN_UNRESOLVED until an exact approved visual reference exists.
+  - Empty Drive keyword searches are nonexistence-negative evidence only and never authorise media generation.
+
+connected_drive_searches:
+  motorcycle:
+    queries: ["Anaadhi motorcycle", "motorcycle", "black motorcycle", "two wheeler"]
+    exact_standalone_approved_master_found: false
+  pharmacy_vault:
+    queries: ["ADK-7", "pharmaceutical transfer vault"]
+    exact_standalone_approved_master_found: false
+  raised_cabin_nested_visuals:
+    queries: ["raised cabin interior", "LOC-001"]
+    exact_SUB_001_02_visual_master_found: false
+    exact_SUB_001_03_visual_master_found: false
+    exact_LOC_001_ST01_visual_master_found: false
+  policy: >-
+    Connected Drive search returned no exact matching standalone asset for the queried dependency names.
+    This does not prove global nonexistence; prior explicit Drive verification of LOC-001 root remains authoritative
+    for root reuse only and cannot be extended to nested interiors, mechanisms or later-state visuals.
+
+findings:
+  HEYGEN-AQ-034:
+    dependency: REF::VEH-ANAADHI-MOTORCYCLE
+    pre_audit_batches: [B19, B21]
+    registry_status: MISSING_APPROVED_ASSET
+    registry_identity: Anaadhi black motorcycle / restored two-wheeler family
+    screenplay_and_p0_evidence:
+      B19:
+        scenes: [51, 52]
+        exact_use: >-
+          SC052 explicitly places Anaadhi's black motorcycle on the Kendhalaa night road; he rides it
+          three kilometres, stops, and later returns. P0 separately names a black motorcycle in SC052.
+        decision: KEEP_OPEN
+      B21:
+        scenes: [55, 56]
+        exact_use: >-
+          SC056 explicitly has Anaadhi pushing the motorcycle with a broken chain, repairing the chain
+          at the roadside shrine, starting the motorcycle and riding away. ENV-5E locks the broken->repaired
+          mobility transition and says no fleet identity is created.
+        decision: KEEP_OPEN
+    recurrence_rule: >-
+      Treat SC052 and SC056 as one recurring Anaadhi motorcycle family unless later authoritative vehicle
+      continuity evidence explicitly proves replacement. Preserve scene-state changes such as rain-wet use,
+      broken chain and repaired chain without minting another vehicle identity.
+    collision_exclusions:
+      - VEH-ANAADHI-CART
+      - VEH-PARAANE-MEDICAL-TRANSPORT
+      - VEH-INDEPENDENT-EMERGENCY
+      - police_or_judicial_transfer_vehicles
+      - convoy_or_patrol_vehicles
+    exact_reusable_vehicle_master_found: false
+    post_audit_batches: [B19, B21]
+    closure_state: OPEN_UNRESOLVED
+    machine_requirement_change: NONE
+
+  HEYGEN-AQ-035:
+    dependency: REF::LOC-PARAANE-PHARMACY-VAULT
+    pre_audit_batches: [B24]
+    registry_status: MISSING_APPROVED_ASSET
+    screenplay_and_p0_evidence:
+      scene: 65
+      p0_location: Paraane pharmaceutical transfer vault
+      screenplay_identity: >-
+        Sterile vault beneath Paraane with copper-coded medicine cases on magnetic rails; operation crate
+        contains twelve PNX-4 cartridges before Unit 07 is mechanically replaced with restricted ADK-7.
+    canonical_env_identity:
+      legacy_env_id: ENV-PAR-030
+      env6l_parent_root: LOC-003
+      env6l_subspace: SUB-003-25
+      env6l_canonical_name: Pharmaceutical Transfer Vault
+      env6j_class: HERO-UNIQUE
+      retained_u_binding: RUKEY_adk7_operation_crate
+      canonical_metadata_status: LOCKED
+      visual_reference_status: NOT_PRESENT_IN_WORKSPACE
+      final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+    collision_exclusions:
+      - LOC-003 generic Paraane root plate
+      - ENV-PAR-018 Paraane Medication Dispensary
+      - ENV-KND-006 Paraane-Certified Pharmaceutical Inventory Vault
+      - incidental ADK-7 cartridge or operation-crate pixels
+    decision:
+      status: OPEN_UNRESOLVED
+      canonical_nested_binding_proven: true
+      exact_visual_master_found: false
+      semantic_dependency_stale: false
+      machine_binding_wording_correction: >-
+        B24 remaining-location work may be narrowed from "pharmacy/ADK-7 vault canonical binding" to
+        "SUB-003-25 pharmaceutical transfer vault visual reference" because canonical parentage is proven
+        while the visual remains pending.
+      dependency_remains_open_batches: [B24]
+      new_media_authorized: false
+
+  HEYGEN-AQ-037:
+    dependency: SPATIAL::B01::REMAINING_LOCATION_WORK
+    pre_audit_wording:
+      - raised-cabin interior identity
+      - split-floor continuity
+      - capture/breach later-state
+    authoritative_root_reuse:
+      env6l_root: LOC-001
+      canonical_name: Anaadhi Primary / Final / Raised Cabin
+      prior_drive_file_id: 1gRMFCkNrs777LCk83A03QusP6OynjBXD
+      prior_drive_verification: REUSABLE_VERIFIED_ROOT_MASTER
+      root_scope_only: true
+    exact_nested_and_state_authority:
+      SUB-001-02:
+        canonical_name: Primary Cabin Main Interior
+        canonical_metadata_status: LOCKED
+        visual_reference_status: NOT_PRESENT_IN_WORKSPACE
+        final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+      SUB-001-03:
+        canonical_name: Lower Cabin Passage
+        canonical_metadata_status: LOCKED
+        visual_reference_status: NOT_PRESENT_IN_WORKSPACE
+        final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+      LOC-001-ST01:
+        canonical_name: Anaadhi Primary / Final / Raised Cabin
+        overlay: OV-001
+        state_rule: apply only the authoritative capture breach; no reset or unrelated change
+        visual_status: VISUAL_PENDING
+    screenplay_and_p0_evidence:
+      scenes: [1, 2, 3, 4, 5]
+      exact_scope: >-
+        SC001 establishes the interior floor and split floorboard; SC002 is explicitly first-floor interior;
+        SC004 returns to the split floorboard during capture. Capture/breach continuity later converges with
+        SC066/SC067 and the concealed lower-passage release.
+    prop_separation:
+      governing_packet: HEYGEN-AQ-020
+      dependency: REF::PRP-SPLIT-FLOORBOARD
+      rule: >-
+        Closed/open floorboard mechanism, release groove, lower-panel opening and prop continuity remain AQ-020.
+        AQ-037 must not duplicate this prop dependency merely because the mechanism is embedded in cabin geometry.
+    decision:
+      status: OPEN_UNRESOLVED
+      exact_root_reuse_confirmed: true
+      exact_nested_visuals_found: false
+      exact_capture_breach_visual_found: false
+      stale_spatial_phrase_to_remove: split-floor continuity
+      post_audit_spatial_work:
+        - SUB-001-02 main interior visual reference
+        - LOC-001 ST01 capture/breach visual state
+      lower_passage_note: >-
+        SUB-001-03 remains an independently visual-pending nested space and is still gated in the later B25
+        spatial dependency; this B01 audit does not duplicate B25 lower-passage scope.
+      dependency_remains_open: true
+      new_media_authorized: false
+
+machine_control_corrections_authorized:
+  P1_BATCH_REFERENCE_BINDINGS:
+    B01:
+      replace_remaining_location_work:
+        from: ["raised-cabin interior identity", "split-floor continuity", "capture/breach later-state"]
+        to: ["SUB-001-02 main interior visual reference", "LOC-001 ST01 capture/breach visual state"]
+    B24:
+      replace_remaining_location_work_item:
+        from: "pharmacy/ADK-7 vault canonical binding"
+        to: "SUB-003-25 pharmaceutical transfer vault visual reference"
+  reference_requirement_changes: NONE
+  heygen_schema_requirement_changes: NONE
+  reference_registry_changes: NONE
+  preserve_semantic_requirements:
+    - VEH-ANAADHI-MOTORCYCLE in B19 and B21
+    - LOC-PARAANE-PHARMACY-VAULT in B24
+    - PRP-SPLIT-FLOORBOARD in B01/B23/B24/B25 under AQ-020
+  packet_identity_locks_required:
+    - {prefix: "SPATIAL::B01::REMAINING_LOCATION_WORK::", packet_id: HEYGEN-AQ-037}
+    - {prefix: "SPATIAL::B24::REMAINING_LOCATION_WORK::", packet_id: HEYGEN-AQ-118}
+    - {prefix: "SPATIAL::B26::PENDING_NAMED_LOCATION::", packet_id: HEYGEN-AQ-120}
+  no_new_packet_ids_due_to_dependency_string_narrowing: true
+
+expected_refresh:
+  previous_total_blockers: 275
+  expected_raw_blocker_delta: 0
+  expected_total_blockers: 275
+  expected_canonical_dependencies: 180
+  expected_active_packets: 180
+  expected_AQ034_batches: [B19, B21]
+  expected_AQ035_batches: [B24]
+  expected_AQ037_status: OPEN_UNRESOLVED
+  expected_AQ037_packet_id: HEYGEN-AQ-037
+  expected_B24_spatial_packet_id: HEYGEN-AQ-118
+  expected_B26_spatial_packet_id: HEYGEN-AQ-120
+  expected_new_packet_ids: []
+  preserve_aq001_aq002_open: true
+  preserve_aq003_resolved_evidenced: true
+  preserve_aq033_superseded: true
+  preserve_aq036_superseded: true
+
+safety:
+  bind_only_exact_evidenced_reuse: true
+  incidental_pixels_never_promoted: true
+  vehicle_collision_separation_preserved: true
+  nested_space_collision_separation_preserved: true
+  split_floor_prop_not_duplicated_into_spatial_dependency: true
+  zero_media_generation_or_replacement: true
+  zero_consent_avatar_look_render_lipsync_submission: true
+  zero_paid_heygen_api_execution: true
+  zero_approved_or_root_status_promotion: true
