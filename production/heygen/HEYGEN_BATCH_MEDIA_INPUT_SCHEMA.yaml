@@ -197,7 +197,7 @@ batches:
     p1_location_status: APPROVED_ROOTS__SCENE_STATE_DRESSING_REMAINS
     required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-PARVARAN-JANNE-HOUSE]
     required_anaadhi_refs: [AGE-ANAADHI-12-FOREST, HR-ANAADHI-12-FOREST, CST-ANAADHI-12-ESCAPE, INJ-ANAADHI-12-ESCAPE]
-    required_prop_refs: [PRP-FOUR-ROAD-SHRINE]
+    required_prop_refs: []
   B13:
     scenes: [35]
     env6l_roots: [LOC-018]
