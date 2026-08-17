@@ -1,125 +1,37 @@
-name: AQ042-044-045 Zero Credit Refresh
+name: Export Capture QA Thumbnail Base64
 
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/export-capture-qa-thumb-base64.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  refresh:
+  export:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - run: python -m pip install --quiet pyyaml
-      - name: Apply exact B03 spatial wording and logical packet lock
+      - name: Split QA thumbnail into temporary text chunks
         shell: bash
         run: |
           set -euo pipefail
-          python - <<'PY'
-          from pathlib import Path
-          b = Path('production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml')
-          r = Path('production/heygen/refresh_zero_credit_controls.py')
-
-          text = b.read_text()
-          old = '    remaining_location_work: ["Paraane ST01-ST04", "required Paraane nested interiors", "Workers Public Square if required"]\n'
-          new = '    remaining_location_work: ["LOC-003 ST01-ST04 visual states", "SUB-003-01 Registration Hall visual reference", "SUB-003-02 Paraane Courtyard / inauguration courtyard visual reference", "SUB-003-03 Emergency Coordination Chamber visual reference", "SUB-003-04 Central Assessment Hub visual reference", "SUB-003-05 Founders\' Council Chamber visual reference", "SUB-004-01 Workers\' Public Square visual reference"]\n'
-          assert text.count(old) == 1, text.count(old)
-          b.write_text(text.replace(old, new, 1))
-
-          text = r.read_text()
-          old_lock = '''LOGICAL_DEPENDENCY_PREFIX_LOCKS = {\n    "SPATIAL::B01::REMAINING_LOCATION_WORK::": "HEYGEN-AQ-037",\n    "SPATIAL::B02::REMAINING_LOCATION_WORK::": "HEYGEN-AQ-039",\n    "SPATIAL::B24::REMAINING_LOCATION_WORK::": "HEYGEN-AQ-118",\n    "SPATIAL::B26::PENDING_NAMED_LOCATION::": "HEYGEN-AQ-120",\n    "AVATAR_LOOK_SET::B24": "HEYGEN-AQ-198",\n}\n'''
-          new_lock = '''LOGICAL_DEPENDENCY_PREFIX_LOCKS = {\n    "SPATIAL::B01::REMAINING_LOCATION_WORK::": "HEYGEN-AQ-037",\n    "SPATIAL::B02::REMAINING_LOCATION_WORK::": "HEYGEN-AQ-039",\n    "SPATIAL::B03::REMAINING_LOCATION_WORK::": "HEYGEN-AQ-042",\n    "SPATIAL::B24::REMAINING_LOCATION_WORK::": "HEYGEN-AQ-118",\n    "SPATIAL::B26::PENDING_NAMED_LOCATION::": "HEYGEN-AQ-120",\n    "AVATAR_LOOK_SET::B24": "HEYGEN-AQ-198",\n}\n'''
-          assert text.count(old_lock) == 1, text.count(old_lock)
-          r.write_text(text.replace(old_lock, new_lock, 1))
-          PY
-      - name: Refresh matrix plan and queue
-        run: python production/heygen/refresh_zero_credit_controls.py
-      - name: Assert exact scope packet identity and safety
+          SRC="production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01_QA-THUMB.jpg"
+          OUT="production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks"
+          rm -rf "$OUT"
+          mkdir -p "$OUT"
+          base64 -w0 "$SRC" > /tmp/thumb.b64
+          split -b 4000 -d -a 2 /tmp/thumb.b64 "$OUT/chunk_"
+          for f in "$OUT"/chunk_*; do mv "$f" "$f.txt"; done
+      - name: Commit temporary QA chunks
         shell: bash
         run: |
           set -euo pipefail
-          python - <<'PY'
-          import yaml
-          from pathlib import Path
-          q=yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml').read_text())
-          m=yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml').read_text())
-          b=yaml.safe_load(Path('production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml').read_text())
-          p={x['packet_id']:x for x in q['packets']}
-          s={x['packet_id']:x for x in q.get('superseded_history',[])}
-
-          exact=[
-            'LOC-003 ST01-ST04 visual states',
-            'SUB-003-01 Registration Hall visual reference',
-            'SUB-003-02 Paraane Courtyard / inauguration courtyard visual reference',
-            'SUB-003-03 Emergency Coordination Chamber visual reference',
-            'SUB-003-04 Central Assessment Hub visual reference',
-            "SUB-003-05 Founders' Council Chamber visual reference",
-            "SUB-004-01 Workers' Public Square visual reference",
-          ]
-          assert b['location_bindings']['B03']['remaining_location_work']==exact
-
-          assert p['HEYGEN-AQ-042']['dependency_id'].startswith('SPATIAL::B03::REMAINING_LOCATION_WORK::')
-          for item in exact:
-              assert item in p['HEYGEN-AQ-042']['dependency_id'], item
-          assert p['HEYGEN-AQ-042']['impacted_batches']==['B03'] and p['HEYGEN-AQ-042']['status']=='OPEN_UNRESOLVED'
-
-          assert p['HEYGEN-AQ-044']['dependency_id']=='REF::ENV-PARAANE-EARLY'
-          assert p['HEYGEN-AQ-044']['impacted_batches']==['B03'] and p['HEYGEN-AQ-044']['status']=='OPEN_UNRESOLVED'
-          assert p['HEYGEN-AQ-045']['dependency_id']=='REF::PRP-FOUNDERS-CREDENTIAL'
-          assert p['HEYGEN-AQ-045']['impacted_batches']==['B03'] and p['HEYGEN-AQ-045']['status']=='OPEN_UNRESOLVED'
-
-          assert p['HEYGEN-AQ-043']['dependency_id']=='AVATAR_SLOT::B03::AVATAR_MANIFEST_UNASSIGNED'
-          assert p['HEYGEN-AQ-043']['zero_credit_execution_state']=='DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE'
-
-          assert p['HEYGEN-AQ-037']['dependency_id'].startswith('SPATIAL::B01::REMAINING_LOCATION_WORK::')
-          assert p['HEYGEN-AQ-039']['dependency_id'].startswith('SPATIAL::B02::REMAINING_LOCATION_WORK::')
-          assert p['HEYGEN-AQ-118']['dependency_id'].startswith('SPATIAL::B24::REMAINING_LOCATION_WORK::')
-          assert p['HEYGEN-AQ-120']['dependency_id'].startswith('SPATIAL::B26::PENDING_NAMED_LOCATION::')
-          assert p['HEYGEN-AQ-198']['dependency_id'].startswith('AVATAR_LOOK_SET::B24')
-
-          assert q['summary']['new_packet_ids_allocated_this_refresh']==[]
-          assert q['summary']['packet_namespace_high_watermark']=='HEYGEN-AQ-200'
-          assert q['summary']['active_action_packets']==180
-          assert q['summary']['resolved_history_packets']==4
-          assert q['summary']['superseded_history_packets']==13
-          assert q['summary']['zero_credit_execution_state_counts']['DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE']==35
-          assert q['summary']['zero_credit_execution_state_counts']['ZERO_CREDIT_ACTIONABLE']==145
-
-          assert s['HEYGEN-AQ-033']['active'] is False and s['HEYGEN-AQ-036']['active'] is False
-          assert q['p0_identity_lock']['open']['CONSENT::ANAADHI_PRIVATE_AVATAR']=='HEYGEN-AQ-001'
-          assert q['p0_identity_lock']['open']['CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml']=='HEYGEN-AQ-002'
-          assert 'HEYGEN-AQ-003' in q['p0_identity_lock']['resolved_history_packet_ids']
-
-          assert m['report']['summary']=={'selected_batches':34,'passed_batches':0,'blocked_batches':34,'global_blockers':0,'total_blockers':275}
-          for key in ('media_generated','media_replaced','approved_status_changed','heygen_submission','heygen_execution'):
-              assert m['safety'][key] is False
-          print(q['summary'])
-          print(m['report']['summary'])
-          PY
-
-          mapfile -t changed < <(git diff --name-only | sort)
-          expected=(
-            production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
-            production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
-            production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml
-            production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
-            production/heygen/refresh_zero_credit_controls.py
-          )
-          printf '%s\n' "${expected[@]}" | sort > /tmp/expected
-          printf '%s\n' "${changed[@]}" > /tmp/changed
-          diff -u /tmp/expected /tmp/changed
-      - name: Commit scoped zero-credit reconciliation
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml production/heygen/refresh_zero_credit_controls.py production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
-          git commit -m 'Reconcile AQ-042 AQ-044 AQ-045 zero-credit reuse audit'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks/
+          git commit -m "Temporary QA export for capture-body visual inspection"
           git push
