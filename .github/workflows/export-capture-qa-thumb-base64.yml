@@ -1,4 +1,4 @@
-name: Export Capture QA Thumbnail Base64
+name: AQ031-033 Zero Credit Refresh
 
 on:
   push:
@@ -11,27 +11,130 @@ permissions:
   contents: write
 
 jobs:
-  export:
+  refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Split QA thumbnail into temporary text chunks
+        with:
+          fetch-depth: 0
+      - name: Install YAML support
+        run: python -m pip install --quiet pyyaml
+      - name: Apply evidenced AQ-031 and AQ-033 corrections
         shell: bash
         run: |
           set -euo pipefail
-          SRC="production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01_QA-THUMB.jpg"
-          OUT="production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks"
-          rm -rf "$OUT"
-          mkdir -p "$OUT"
-          base64 -w0 "$SRC" > /tmp/thumb.b64
-          split -b 4000 -d -a 2 /tmp/thumb.b64 "$OUT/chunk_"
-          for f in "$OUT"/chunk_*; do mv "$f" "$f.txt"; done
-      - name: Commit temporary QA chunks
+          python - <<'PY'
+          from pathlib import Path
+
+          req = Path('production/references/BATCH_REFERENCE_REQUIREMENTS.yaml')
+          sch = Path('production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml')
+
+          a = req.read_text()
+          replacements = [
+              (
+                  '    locations: [LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP]\n',
+                  '    locations: [LOC-FOREST-EDGE-BARTER]\n',
+                  1,
+              ),
+              (
+                  '    locations: [LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP, LOC-ANAADHI-HIDDEN-CABINS]\n',
+                  '    locations: [LOC-FOREST-EDGE-BARTER, LOC-ANAADHI-HIDDEN-CABINS]\n',
+                  1,
+              ),
+              (
+                  '    locations: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]\n',
+                  '    locations: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE]\n',
+                  1,
+              ),
+          ]
+          for old, new, expected in replacements:
+              assert a.count(old) == expected, (old, a.count(old))
+              a = a.replace(old, new, expected)
+          req.write_text(a)
+
+          b = sch.read_text()
+          schema_replacements = [
+              (
+                  '    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP]\n',
+                  '    required_location_refs: [LOC-FOREST-EDGE-BARTER]\n',
+                  1,
+              ),
+              (
+                  '    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP, LOC-ANAADHI-HIDDEN-CABINS]\n',
+                  '    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-ANAADHI-HIDDEN-CABINS]\n',
+                  1,
+              ),
+              (
+                  '    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]\n',
+                  '    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE]\n',
+                  1,
+              ),
+              (
+                  '    required_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]\n',
+                  '    required_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE]\n',
+                  1,
+              ),
+          ]
+          for old, new, expected in schema_replacements:
+              assert b.count(old) == expected, (old, b.count(old))
+              b = b.replace(old, new, expected)
+          sch.write_text(b)
+          PY
+      - name: Refresh matrix plan and queue locally
+        run: python production/heygen/refresh_zero_credit_controls.py
+      - name: Assert scoped results and safety
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks/
-          git commit -m "Temporary QA export for capture-body visual inspection"
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+          q=yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml').read_text())
+          m=yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml').read_text())
+          s=yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml').read_text())
+          r=yaml.safe_load(Path('production/references/BATCH_REFERENCE_REQUIREMENTS.yaml').read_text())
+          packets={p['packet_id']:p for p in q['packets']}
+          assert packets['HEYGEN-AQ-031']['impacted_batches']==['B11']
+          assert packets['HEYGEN-AQ-031']['status']=='OPEN_UNRESOLVED'
+          assert packets['HEYGEN-AQ-032']['impacted_batches']==['B13','B14']
+          assert packets['HEYGEN-AQ-032']['status']=='OPEN_UNRESOLVED'
+          assert 'HEYGEN-AQ-033' not in packets
+          assert 'LOC-PARAANE-HIGH-OBSERVATION' not in r['batches']['B26']['locations']
+          assert 'LOC-PARAANE-HIGH-OBSERVATION' not in s['batches']['B26']['required_location_refs']
+          assert 'LOC-PARAANE-HIGH-OBSERVATION' not in s['batches']['B26']['pending_named_location_refs']
+          assert 'LOC-VILLAGE-HAND-PUMP' not in r['batches']['B15']['locations']
+          assert 'LOC-VILLAGE-HAND-PUMP' not in r['batches']['B16']['locations']
+          assert 'LOC-VILLAGE-HAND-PUMP' not in s['batches']['B15']['required_location_refs']
+          assert 'LOC-VILLAGE-HAND-PUMP' not in s['batches']['B16']['required_location_refs']
+          assert s['batches']['B15']['env6l_roots']==['LOC-020','LOC-021','LOC-022','LOC-023','LOC-024','LOC-025','LOC-026']
+          assert s['batches']['B16']['env6l_roots']==['LOC-027','LOC-028','LOC-029','LOC-030','LOC-031','LOC-032','LOC-033']
+          assert q['p0_identity_lock']['open']['CONSENT::ANAADHI_PRIVATE_AVATAR']=='HEYGEN-AQ-001'
+          assert 'HEYGEN-AQ-003' in q['p0_identity_lock']['resolved_history_packet_ids']
+          assert m['report']['summary']['total_blockers']==275
+          assert m['report']['summary']['global_blockers']==0
+          assert m['safety']['media_generated'] is False
+          assert m['safety']['media_replaced'] is False
+          assert m['safety']['approved_status_changed'] is False
+          assert m['safety']['heygen_submission'] is False
+          assert m['safety']['heygen_execution'] is False
+          PY
+          mapfile -t changed < <(git diff --name-only | sort)
+          expected=(
+            production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
+            production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml
+            production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+            production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+            production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+          )
+          printf '%s\n' "${expected[@]}" | sort > /tmp/expected
+          printf '%s\n' "${changed[@]}" > /tmp/changed
+          diff -u /tmp/expected /tmp/changed
+      - name: Commit scoped zero-credit refresh
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/BATCH_REFERENCE_REQUIREMENTS.yaml production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+          git commit -m 'Reconcile AQ-031 AQ-033 zero-credit reuse audit'
           git push
