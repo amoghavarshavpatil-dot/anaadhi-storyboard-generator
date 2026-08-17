@@ -1,37 +1,162 @@
-name: Export Capture QA Thumbnail Base64
+name: AQ025 AQ027 Zero-Credit Shared Asset Audit Refresh
 
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/export-capture-qa-thumb-base64.yml'
-  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  export:
-    runs-on: ubuntu-latest
+  refresh-control-only:
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - name: Split QA thumbnail into temporary text chunks
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install control dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Apply exact B30 stale Adraka systems-lab correction
         shell: bash
         run: |
           set -euo pipefail
-          SRC="production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01_QA-THUMB.jpg"
-          OUT="production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks"
-          rm -rf "$OUT"
-          mkdir -p "$OUT"
-          base64 -w0 "$SRC" > /tmp/thumb.b64
-          split -b 4000 -d -a 2 /tmp/thumb.b64 "$OUT/chunk_"
-          for f in "$OUT"/chunk_*; do mv "$f" "$f.txt"; done
-      - name: Commit temporary QA chunks
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          req = Path('production/references/BATCH_REFERENCE_REQUIREMENTS.yaml')
+          schema = Path('production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml')
+          bindings = Path('production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml')
+
+          def replace_exact(path, old, new, count=1):
+              text = path.read_text(encoding='utf-8')
+              found = text.count(old)
+              if found != count:
+                  raise SystemExit(f'{path}: expected {count} exact match(es), found {found}: {old!r}')
+              path.write_text(text.replace(old, new, count), encoding='utf-8')
+
+          # B30 approved screenplay uses Marsyaa's House special study / media network, not the university systems lab.
+          replace_exact(
+              req,
+              '    locations: [LOC-ADRAKA-SYSTEMS-LAB, LOC-PARAANE-CAMPUS-MATURE, LOC-PARVARAN-JANNE-HOUSE, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]\n',
+              '    locations: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARVARAN-JANNE-HOUSE, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]\n'
+          )
+          replace_exact(
+              schema,
+              '    env6l_roots: [LOC-002, LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]\n',
+              '    env6l_roots: [LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]\n'
+          )
+          replace_exact(
+              schema,
+              '    required_location_refs: [LOC-ADRAKA-SYSTEMS-LAB, LOC-PARAANE-CAMPUS-MATURE, LOC-PARVARAN-JANNE-HOUSE, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]\n',
+              '    required_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARVARAN-JANNE-HOUSE, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]\n'
+          )
+          replace_exact(
+              bindings,
+              '    env6l_roots: [LOC-002, LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]\n',
+              '    env6l_roots: [LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]\n'
+          )
+
+          r = yaml.safe_load(req.read_text(encoding='utf-8'))['batches']
+          s = yaml.safe_load(schema.read_text(encoding='utf-8'))['batches']
+          b = yaml.safe_load(bindings.read_text(encoding='utf-8'))['location_bindings']
+
+          # AQ025/AQ026 must remain real in B01/B24.
+          for batch in ('B01','B24'):
+              assert 'ENV-BLACK-RAIN' in r[batch]['props']
+              assert 'ENV-BLACK-RAIN' in s[batch]['required_prop_refs']
+              assert 'VEH-PARAANE-MEDICAL-TRANSPORT' in r[batch]['props']
+              assert 'VEH-PARAANE-MEDICAL-TRANSPORT' in s[batch]['required_prop_refs']
+
+          # AQ027 stays genuine only in B02; LOC-002 remains its root there.
+          assert r['B02']['locations'] == ['LOC-ADRAKA-SYSTEMS-LAB']
+          assert s['B02']['env6l_roots'] == ['LOC-002']
+          assert s['B02']['required_location_refs'] == ['LOC-ADRAKA-SYSTEMS-LAB']
+          assert b['B02']['env6l_roots'] == ['LOC-002']
+          assert b['B02']['approved_root'] is True
+          assert 'systems-lab nested interior' in b['B02']['remaining_location_work']
+
+          assert 'LOC-ADRAKA-SYSTEMS-LAB' not in r['B30']['locations']
+          assert 'LOC-ADRAKA-SYSTEMS-LAB' not in s['B30']['required_location_refs']
+          assert 'LOC-002' not in s['B30']['env6l_roots']
+          assert 'LOC-002' not in b['B30']['env6l_roots']
+          assert s['B30']['env6l_roots'] == ['LOC-003','LOC-011','LOC-068','LOC-069','LOC-070','LOC-071','LOC-080']
+          assert b['B30']['env6l_roots'] == ['LOC-003','LOC-011','LOC-068','LOC-069','LOC-070','LOC-071','LOC-080']
+          PY
+      - name: Refresh matrix plan and action queue from live validator
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks/
-          git commit -m "Temporary QA export for capture-body visual inspection"
-          git push
+          python production/heygen/refresh_zero_credit_controls.py | tee /tmp/aq025_027_refresh.txt
+      - name: Verify AQ025 AQ026 AQ027 and zero-credit safety
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          q = yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml').read_text(encoding='utf-8'))
+          matrix = yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml').read_text(encoding='utf-8'))
+          packets = {p['packet_id']: p for p in q['packets']}
+          hist = {x['packet_id']: x for x in q['resolved_history']}
+
+          assert q['p0_identity_lock']['open']['CONSENT::ANAADHI_PRIVATE_AVATAR'] == 'HEYGEN-AQ-001'
+          assert q['p0_identity_lock']['open']['CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml'] == 'HEYGEN-AQ-002'
+          assert 'HEYGEN-AQ-003' not in packets
+          assert hist['HEYGEN-AQ-003']['status'] == 'DEPENDENCY_RESOLVED_EVIDENCED'
+
+          expected = {
+              'HEYGEN-AQ-025': ('REF::ENV-BLACK-RAIN', ['B01','B24']),
+              'HEYGEN-AQ-026': ('REF::VEH-PARAANE-MEDICAL-TRANSPORT', ['B01','B24']),
+              'HEYGEN-AQ-027': ('REF::LOC-ADRAKA-SYSTEMS-LAB', ['B02']),
+          }
+          for pid, (dep, batches) in expected.items():
+              p = packets[pid]
+              assert p['dependency_id'] == dep
+              assert p['impacted_batches'] == batches
+              assert p['batch_impact'] == len(batches)
+              assert p['status'] == 'OPEN_UNRESOLVED'
+              assert p['media_generation_allowed'] is False
+              assert p['heygen_submission_allowed'] is False
+
+          assert q['credit_gate']['paid_heygen_work_ready'] is False
+          assert q['credit_gate']['no_heygen_consent_or_media_execution'] is True
+          assert matrix['report']['summary']['global_blockers'] == 0
+          # The sole semantic blocker removed by this audit is B30::LOC-ADRAKA-SYSTEMS-LAB.
+          assert matrix['report']['summary']['total_blockers'] == 279
+          assert q['summary']['new_packet_ids_allocated_this_refresh'] == []
+          PY
+
+          changed="$(git diff --name-only)"
+          expected=$'production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml\nproduction/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml\nproduction/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml\nproduction/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml\nproduction/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml\nproduction/references/BATCH_REFERENCE_REQUIREMENTS.yaml'
+          printf '%s\n' "$changed"
+          test "$changed" = "$expected" || { echo 'Unexpected mutation scope'; exit 1; }
+          ! git diff | grep -E '^\+.*status: APPROVED' || { echo 'Forbidden approval promotion'; exit 1; }
+          ! git diff | grep -E '^\+.*approved_root: true' || { echo 'Forbidden root promotion'; exit 1; }
+      - name: Commit control-only changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/BATCH_REFERENCE_REQUIREMENTS.yaml \
+                  production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml \
+                  production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml \
+                  production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml \
+                  production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml \
+                  production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+          git commit -m 'Audit AQ025 AQ027 and remove stale B30 systems lab binding'
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 6
