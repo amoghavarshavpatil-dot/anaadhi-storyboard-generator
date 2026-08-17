@@ -55,7 +55,6 @@ assets:
     consent_status_observed: null
     reuse_source_asset: PARVARAN_MASTER_IDENTITY_V1
     heygen_status: COMPLETE
-    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
     reuse_source_manifest: production/heygen/avatars/master_identities/CHR-PARVARAN/CHR-PARVARAN_MASTER_IDENTITY_MANIFEST.yaml
     source_visual_path: production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
     source_sha256: 1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f
@@ -247,4 +246,4 @@ reuse_summary:
     asset: B24-AV-09
   - slot: Inventory Assistant
     asset: B24-AV-10
-  canonical_master_bound_count: 8
+  canonical_master_bound_count: 2
