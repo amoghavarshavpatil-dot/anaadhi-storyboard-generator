@@ -1,4 +1,4 @@
-version: 4
+version: 5
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -36,16 +36,30 @@ coverage:
     stills_per_minute: 24
     parallel_earth: "SB004 / TP004 / GF03 / ANCH02 / INV6-02 / WC001-D / RST01"
     image_generation_started: false
-  SC005-SC100:
+  SC005:
+    state: SPEC_READY
+    source: scenes/005/scene.yaml
+    shot_package: production/remotion/shot_specs/SC005/SC005_SHOT_PACKAGE.json
+    shot_count: 24
+    duration_seconds: 72
+    stills_per_minute: 20
+    parallel_earth: "SB005 / TP005 / GF06 / OBS03 / ANCH02 / INV6-02 / WC001-E / RST03"
+    image_generation_started: false
+    source_screenplay_next: SC006
+    final_editorial_next: SC099B
+  SC006-SC100:
     state: NOT_YET_MATERIALIZED
     note: >-
       Source scene numbers remain screenplay authority, but final render order follows
       EDITORIAL_SEQUENCE_LOCK.yaml and split packages are required for SC074, SC094 and SC099.
+      The first editorial jump has now been reached: after SC005 the next materialization is SC099B,
+      not SC006.
 
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   source_numeric_order_is_not_final_render_order: true
+  first_editorial_jump_reached: true
   split_packages_required:
     - SC074A
     - SC074B
@@ -53,7 +67,7 @@ editorial:
     - SC094B
     - SC099A
     - SC099B
-  materialization_blocks_after_SC005:
+  remaining_materialization_order:
     - SC099B
     - SC100
     - SC094B
@@ -69,10 +83,10 @@ editorial:
     - END
 
 cursor:
-  last_materialized_scene: SC004
-  next_scene: SC005
-  before_first_editorial_jump:
-    - SC005
+  last_materialized_scene: SC005
+  next_scene: SC099B
+  next_source_scene_numeric: SC006
+  source_numeric_next_is_not_materialization_next: true
   after_SC005: SC099B
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
