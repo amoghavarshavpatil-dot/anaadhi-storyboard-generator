@@ -1400,8 +1400,9 @@ packets:
   heygen_submission_allowed: false
   queue_position: 38
 - packet_id: HEYGEN-AQ-042
-  dependency_id: 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if
-    required'
+  dependency_id: 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-003 ST01-ST04 visual states | SUB-003-01 Registration Hall visual reference
+    | SUB-003-02 Paraane Courtyard / inauguration courtyard visual reference | SUB-003-03 Emergency Coordination Chamber visual reference | SUB-003-04 Central Assessment Hub visual reference
+    | SUB-003-05 Founders'' Council Chamber visual reference | SUB-004-01 Workers'' Public Square visual reference'
   active: true
   status: OPEN_UNRESOLVED
   priority_class: P2_BATCH_SPECIFIC

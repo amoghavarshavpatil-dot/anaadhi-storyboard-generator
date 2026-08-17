@@ -77,7 +77,7 @@ location_bindings:
     scenes: [7,8,9,10]
     env6l_roots: [LOC-003, LOC-004]
     approved_root: true
-    remaining_location_work: ["Paraane ST01-ST04", "required Paraane nested interiors", "Workers Public Square if required"]
+    remaining_location_work: ["LOC-003 ST01-ST04 visual states", "SUB-003-01 Registration Hall visual reference", "SUB-003-02 Paraane Courtyard / inauguration courtyard visual reference", "SUB-003-03 Emergency Coordination Chamber visual reference", "SUB-003-04 Central Assessment Hub visual reference", "SUB-003-05 Founders' Council Chamber visual reference", "SUB-004-01 Workers' Public Square visual reference"]
   B04:
     scenes: [11,12,13]
     env6l_roots: [LOC-005]

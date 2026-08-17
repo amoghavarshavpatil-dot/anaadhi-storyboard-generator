@@ -3,7 +3,7 @@ project: ANAADHI
 control: HEYGEN-BATCH-BLOCKER-RESOLUTION-PLAN
 mode: PLANNING_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_SUBMISSION
 source_matrix: production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
-source_matrix_sha256: 7b204ca43c90c474e3a3c3d54b6281979da2d4135b71556aea4abb5d4aa46b85
+source_matrix_sha256: ca8b68cda8304b0626ba7b6f31a97ffde38d2262255b0903e1f429d7e4b38600
 validated_scope: B01-B34 / SC001-SC100
 invariants:
   fabricate_approved_status: false
@@ -57,7 +57,9 @@ hard_separation:
   conditional_work_page_media_only_after_existing_asset_checks_fail:
   - 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state'
   - 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-002-01 systems lab visual reference'
-  - 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if required'
+  - 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-003 ST01-ST04 visual states | SUB-003-01 Registration Hall visual reference | SUB-003-02
+    Paraane Courtyard / inauguration courtyard visual reference | SUB-003-03 Emergency Coordination Chamber visual reference | SUB-003-04 Central Assessment Hub visual reference | SUB-003-05
+    Founders'' Council Chamber visual reference | SUB-004-01 Workers'' Public Square visual reference'
   - 'SPATIAL::B04::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Neonatal Diagnostic Suite | Records Control Room | Maternity Recovery Room | other required hospital
     subspaces'
   - 'SPATIAL::B05::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-006 shrine/light scene dressing | Paraane gate nested identity under LOC-003 if required'
@@ -333,8 +335,9 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
 - step: 8
-  dependency_id: 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if
-    required'
+  dependency_id: 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-003 ST01-ST04 visual states | SUB-003-01 Registration Hall visual reference
+    | SUB-003-02 Paraane Courtyard / inauguration courtyard visual reference | SUB-003-03 Emergency Coordination Chamber visual reference | SUB-003-04 Central Assessment Hub visual reference
+    | SUB-003-05 Founders'' Council Chamber visual reference | SUB-004-01 Workers'' Public Square visual reference'
   scope: BATCH_SPECIFIC
   batch_impact: 1
   batches: &id008
@@ -2405,7 +2408,9 @@ batch_unlock_order:
   canonical_dependency_count: 7
   unlock_after_dependency_step: 171
   dependencies_in_safe_order:
-  - 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if required'
+  - 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-003 ST01-ST04 visual states | SUB-003-01 Registration Hall visual reference | SUB-003-02
+    Paraane Courtyard / inauguration courtyard visual reference | SUB-003-03 Emergency Coordination Chamber visual reference | SUB-003-04 Central Assessment Hub visual reference | SUB-003-05
+    Founders'' Council Chamber visual reference | SUB-004-01 Workers'' Public Square visual reference'
   - AVATAR_SLOT::B03::AVATAR_MANIFEST_UNASSIGNED
   - REF::PRP-PARAANE-EMBLEM
   - REF::LOC-PARAANE-CAMPUS-EARLY
@@ -2693,8 +2698,9 @@ canonical_dependencies:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
   evidence: {}
-- dependency_id: 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if
-    required'
+- dependency_id: 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-003 ST01-ST04 visual states | SUB-003-01 Registration Hall visual reference
+    | SUB-003-02 Paraane Courtyard / inauguration courtyard visual reference | SUB-003-03 Emergency Coordination Chamber visual reference | SUB-003-04 Central Assessment Hub visual reference
+    | SUB-003-05 Founders'' Council Chamber visual reference | SUB-004-01 Workers'' Public Square visual reference'
   batches: *id008
   raw_blocker_count: 1
   raw_blocker_numbers:
@@ -2703,7 +2709,9 @@ canonical_dependencies:
     batch_id: B03
     category: nested-space
     code: REMAINING_LOCATION_WORK
-    message: 'Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if required'
+    message: 'Unresolved location/nested-space/state work: LOC-003 ST01-ST04 visual states | SUB-003-01 Registration Hall visual reference | SUB-003-02 Paraane Courtyard / inauguration
+      courtyard visual reference | SUB-003-03 Emergency Coordination Chamber visual reference | SUB-003-04 Central Assessment Hub visual reference | SUB-003-05 Founders'' Council Chamber
+      visual reference | SUB-004-01 Workers'' Public Square visual reference'
   batch_impact: 1
   scope: BATCH_SPECIFIC
   resolution_lane: SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK
