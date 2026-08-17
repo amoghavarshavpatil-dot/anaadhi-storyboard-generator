@@ -1,7 +1,7 @@
-version: 8
+version: 9
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: "2026-08-18T02:40:00+05:30"
+as_of_local: "2026-08-18T03:56:00+05:30"
 
 backend:
   github_canonical_control: true
@@ -20,16 +20,16 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC100
-  latest_source_scene_materialized: SC100
-  next_scene_to_materialize: SC094B
-  next_editorial_segment: SC094B
+  latest_new_schema_materialized: SC094B
+  latest_source_scene_materialized: SC094
+  next_scene_to_materialize: SC095
+  next_editorial_segment: SC095
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   note: >-
-    SC100 is now SPEC_READY as a real physical dawn interview with no ENV-6 special beat.
-    The final feature does not end here under the user-locked non-linear order; continue directly
-    to SC094B. Source numeric order remains non-authoritative for final render order.
+    SC094B is now SPEC_READY as the exact second segment of source Scene 094. The approved
+    screenplay ends SC094 on ANAADHI: Because of evidence. The later vehicle-door/open-hand beat
+    belongs to SC095 and was deliberately not imported. Continue directly to SC095.
 
 audio:
   mastered_prefix_locked: true
@@ -72,7 +72,15 @@ audio:
     transition_in: "CUT FROM SC099B handwritten MALLAYYA end anchor"
     transition_out: "FADE OUT inside SC100 source scene, then editorial continuation CUT/assembly to SC094B under locked non-linear feature order"
     final_sound_rule: "No mandatory heroic resolution cue; preserve humane restraint, quiet room tone and ordinary distant traffic unless creator later approves a different mix."
-    note: "Relative windows are picture-planning only; do not fabricate, regenerate or time-stretch creator audio."
+  SC094B:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 36
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    transition_in: "CUT/assembly from SC100 after its source-scene FADE OUT under nonlinear editorial lock"
+    transition_out: "CUT TO SC095 after ANAADHI: Because of evidence."
+    boundary_rule: "Do not import SC095 vehicle-door/open-hand beat into SC094B."
+    sound_rule: "Real checkpoint/evidence containment only; no Parallel-Earth or ADK-7 represented layer in WC089."
 
 picture_master:
   width: 3840
@@ -107,44 +115,52 @@ shot_density:
     duration_seconds: 108
     shot_count: 36
     stills_per_minute: 20
+  SC094B:
+    duration_seconds: 36
+    shot_count: 12
+    stills_per_minute: 20
 
 env6_cursor:
-  latest_materialized_segment: SC100
-  source_scene: SC100
-  scene_condition: WC095
+  latest_materialized_segment: SC094B
+  source_scene: SC094
+  scene_condition: WC089
   special_beat_intersects_scene: false
   source_ruling: NO_SB
   disposition: EP0_PHYSICAL_CHRONOLOGY_ONLY
-  physical_location_root: LOC-087
-  subspace: SUB-087-01
+  physical_location_root: LOC-075
   physical_anchors:
-    - ENV-IJM-001
-    - ENV-IJM-003
-    - ENV-IJM-004
-  four_roads:
-    physical: true
-    exact_count: 4
-    ordinary_vehicle_movement: true
-    gf04_forbidden: true
-    destiny_or_salvation_label_forbidden: true
-    fifth_road_forbidden: true
+    - ENV-BOR-001
+    - ENV-BOR-002
+    - ENV-MOB-004
+    - ENV-MOB-005
+    - ENV-MOB-006
+    - ENV-MOB-007
+  mobile_crosswalk:
+    ENV-MOB-004: LOC-077
+    ENV-MOB-005: LOC-076
+    ENV-MOB-006: NO_LOC_ALIAS_ASSERTED
+    ENV-MOB-007: NO_LOC_ALIAS_ASSERTED
+  signal_containment_field:
+    exact_source_action: true
+    canonical_standalone_id: UNPROVEN
+    invented_id_forbidden: true
+  prohibited:
+    - PARALLEL_EARTH_VISUALIZATION
+    - GF_LAYER
+    - ADK7_VISION
+    - SPOKEN_REFERENCE_BECOMES_IMAGE
 
 character_cursor:
   anaadhi:
-    source_scene: SC100
-    required_state_ids:
-      - AGE-ANAADHI-27-FINAL
-      - HR-ANAADHI-27-FINAL
-      - CST-ANAADHI-27-FINAL
-      - INJ-ANAADHI-27-FINAL
+    source_scene: SC094
+    required_state: AGE-ANAADHI-27-RECOVERY
     height_cm: 193
-    body: LEAN_DEFINED_MASCULINE_POST_RECOVERY
-    healed_long_surgical_scars: true
-    hair: DENSE_VOLUMINOUS_MEDIUM_LONG_NATURAL_LIFT_SIDE_TAPER
-    facial_hair: MEDIUM_FULL_BEARD_DISCIPLINED_MOUSTACHE
-    final_garment: CONTROLLED_UNRESOLVED
-    unrestrained: true
-    do_not_reuse_SC099B_recovery_visual_state: true
+    custody: UNRESTRAINED_INSIDE_LOC-077
+    injury: HEALING_POST_SURGERY
+    costume_continuity: DARK_SHAWL_OVER_HEALING_WOUNDS
+    eighteen_name_list: INNER_POCKET
+    exact_visual_state: CONTROLLED_UNRESOLVED_B31_RECOVERY_LOOK
+    must_not_import_SC100_final_state: true
 
 editorial_lock:
   enabled: true
@@ -153,15 +169,15 @@ editorial_lock:
     - SC094
     - SC099
   split_segment_completed:
+    - SC094B
     - SC099B
   final_end_after: SC099A
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
   first_jump_completed_at: SC005
-  current_completed_segment: SC100
-  next_editorial_segment: SC094B
+  current_completed_segment: SC094B
+  next_editorial_segment: SC095
   remaining_materialization_order:
-    - SC094B
     - SC095
     - SC060-SC073
     - SC074A
