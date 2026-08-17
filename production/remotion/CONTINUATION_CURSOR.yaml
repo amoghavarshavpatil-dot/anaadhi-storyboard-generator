@@ -1,7 +1,7 @@
-version: 6
+version: 7
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: "2026-08-18T02:18:00+05:30"
+as_of_local: "2026-08-18T02:28:00+05:30"
 
 backend:
   github_canonical_control: true
@@ -20,18 +20,17 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_scene_materialized: SC005
-  next_scene_to_materialize: SC099B
-  source_numeric_next_scene: SC006
-  source_numeric_next_is_not_materialization_next: true
+  latest_new_schema_materialized: SC099B
+  latest_source_scene_materialized: SC099
+  next_scene_to_materialize: SC100
+  next_editorial_segment: SC100
   first_editorial_jump_reached: true
-  after_SC005: SC099B
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   note: >-
-    SC005 is now SPEC_READY. The first user-locked non-linear editorial jump is active.
-    Continue materialization at SC099B, not SC006. SC006 remains the source-screenplay chronology
-    destination of SC005's university-laboratory bridge and will be materialized later at its locked
-    editorial position after SC074A.
+    SC099B is now SPEC_READY as an independent split package from source Scene 099.
+    It contains only the Independent Secure Medical Unit case-writing segment and excludes
+    SC099A. Continue directly to SC100. Source numeric order remains non-authoritative
+    for final render order.
 
 audio:
   mastered_prefix_locked: true
@@ -58,7 +57,15 @@ audio:
     retime_locked_master: false
     source_transition: "Bright university-laboratory bridge / source screenplay SMASH CUT TO SC006"
     final_editorial_transition: "CUT TO SC099B under EDITORIAL_SEQUENCE_LOCK.yaml"
-    note: "SC005 relative shot windows are provisional picture-planning windows only; locked mastered audio must not be stretched or rebuilt."
+  SC099B:
+    voice_policy: CREATOR_RECORDED_VO_ONLY
+    lip_sync_required: false
+    picture_planning_duration_seconds: 48
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    transition_in: "CUT FROM SC005 under final editorial lock"
+    transition_out: "CUT TO SC100 at MALLAYYA end anchor"
+    note: "Relative windows are picture-planning only; do not fabricate or time-stretch creator audio."
 
 picture_master:
   width: 3840
@@ -85,28 +92,29 @@ shot_density:
     duration_seconds: 72
     shot_count: 24
     stills_per_minute: 20
+  SC099B:
+    duration_seconds: 48
+    shot_count: 16
+    stills_per_minute: 20
 
-parallel_earth_cursor:
-  latest_materialized_beat: SB005
-  packet: TP005
-  scene: SC005
-  grammar: GF06
-  grammar_name: "Object / Emblem / Record Morph"
-  recurrence: "1/13 establish"
-  band: "A Capture aperture"
-  ep: [EP0, EP2, EP3, EP5, EP-U]
-  observation: OBS03
-  anchor: ANCH02
-  inverse: INV6-02
-  environment_anchor: ENV-CAB-008
-  weather_condition: WC001/E
-  reset: RST03
-  variant_controls: [VAR6-02, VAR6-03, VAR6-05]
-  physical_multiplication_allowed: false
-  new_physical_route_or_portal_allowed: false
-  represented_residue_allowed: false
-  source_chronology_destination: "SC006 / ENV-ADK-001 / WC002"
-  final_editorial_next: SC099B
+env6_cursor:
+  latest_materialized_segment: SC099B
+  source_scene: SC099
+  special_beat_intersects_segment: false
+  disposition: EP0_PHYSICAL_CHRONOLOGY_ONLY
+  excluded_scene099_special_beat: "SB103 / GF11 / EP7 / ENV-KMN-003 belongs to earlier SC099A Kadraayini reform passage"
+  physical_location_root: LOC-085
+  condition: WC094
+  nested_semantic_authority: ENV-IJM-002
+  frozen_subspace_id: UNPROVEN_NO_SUB-085-ID_IN_CURRENT_ENV6L_CROSSWALK
+
+character_cursor:
+  anaadhi:
+    source_scene: SC099
+    required_age_body_state: AGE-ANAADHI-27-RECOVERY
+    height_cm: 193
+    exact_visual_state: CONTROLLED_UNRESOLVED
+    do_not_substitute_SC100_final_state: true
 
 editorial_lock:
   enabled: true
@@ -114,11 +122,14 @@ editorial_lock:
     - SC074
     - SC094
     - SC099
+  split_segment_completed:
+    - SC099B
   final_end_after: SC099A
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
   first_jump_completed_at: SC005
-  next_editorial_segment: SC099B
+  current_completed_segment: SC099B
+  next_editorial_segment: SC100
   final_reel_boundaries_deferred_until_duration_lock: true
 
 revision_policy:
