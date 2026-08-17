@@ -1,7 +1,7 @@
-version: 4
+version: 5
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: "2026-08-17T12:31:00+05:30"
+as_of_local: "2026-08-17T12:57:00+05:30"
 
 backend:
   github_canonical_control: true
@@ -20,15 +20,14 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_scene_materialized: SC003
-  next_scene_to_materialize: SC004
+  latest_new_schema_scene_materialized: SC004
+  next_scene_to_materialize: SC005
   before_first_editorial_jump:
-    - SC004
     - SC005
   after_SC005: SC099B
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   note: >-
-    SC003 is now SPEC_READY. Continue SC004 then SC005. Immediately after SC005 is complete,
+    SC004 is now SPEC_READY. Continue SC005 next. Immediately after SC005 is complete,
     materialization and final assembly jump to SC099B under the user-locked non-linear editorial
     sequence. Source screenplay numbering remains unchanged and is used only as authority/reference.
 
@@ -45,6 +44,13 @@ audio:
     exact_master_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
     note: "SC003 relative shot windows are provisional picture-planning windows only; locked mastered audio must not be stretched or rebuilt."
+  SC004:
+    dialogue_policy: CREATOR_RECORDING_ONLY
+    picture_planning_duration_seconds: 90
+    exact_master_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    subjective_sound_rule: "At SB004 onset external sound disappears; heartbeat remains until RST01 returns the physical cabin."
+    note: "SC004 relative shot windows are provisional picture-planning windows only; locked mastered audio must not be stretched or rebuilt."
 
 picture_master:
   width: 3840
@@ -63,18 +69,28 @@ shot_density:
     duration_seconds: 60
     shot_count: 20
     stills_per_minute: 20
+  SC004:
+    duration_seconds: 90
+    shot_count: 36
+    stills_per_minute: 24
 
 parallel_earth_cursor:
-  latest_materialized_beat: SB003
-  scene: SC003
-  grammar: GF02
-  recurrence: "1/11 establish"
+  latest_materialized_beat: SB004
+  packet: TP004
+  scene: SC004
+  grammar: GF03
+  recurrence: "1/6 establish"
+  band: "A Capture aperture"
+  ep: [EP0, EP2, EP3, EP4, EP5, EP-U]
+  observation: OBS01
   anchor: ANCH02
   inverse: INV6-02
   environment_anchor: ENV-CAB-008
-  weather_condition: WC001/C
+  weather_condition: WC001/D
   reset: RST01
   physical_multiplication_allowed: false
+  new_physical_route_or_portal_allowed: false
+  represented_residue_allowed: false
 
 editorial_lock:
   enabled: true
