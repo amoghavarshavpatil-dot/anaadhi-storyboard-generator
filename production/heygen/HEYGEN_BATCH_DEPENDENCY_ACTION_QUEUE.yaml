@@ -5,22 +5,22 @@ status: LIVE_ZERO_CREDIT_QUEUE__PAID_HEYGEN_EXECUTION_DEFERRED
 mode: PLANNING_AND_ZERO_CREDIT_CONTROL_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_SUBMISSION
 source_plan: production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml
 summary:
-  active_action_packets: 182
-  resolved_history_packets: 3
+  active_action_packets: 181
+  resolved_history_packets: 4
   superseded_history_packets: 12
   packet_namespace_high_watermark: HEYGEN-AQ-197
   new_packet_ids_allocated_this_refresh: []
   priority_class_counts:
-    P0_OPEN: 3
+    P0_OPEN: 2
     P1_SHARED_HIGH_IMPACT: 33
     P2_BATCH_SPECIFIC: 146
   owner_lane_counts:
     CONSENT-VERIFY: 5
     DRIVE-VERIFY: 92
     GITHUB-ONLY: 54
-    WORK-PAGE-AVATAR-COMPLETION: 31
+    WORK-PAGE-AVATAR-COMPLETION: 30
   zero_credit_execution_state_counts:
-    DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE: 36
+    DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE: 35
     ZERO_CREDIT_ACTIONABLE: 146
 credit_gate:
   paid_heygen_work_ready: false
@@ -37,17 +37,17 @@ p0_identity_lock:
   open:
     CONSENT::ANAADHI_PRIVATE_AVATAR: HEYGEN-AQ-001
     CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml: HEYGEN-AQ-002
-    AVATAR_LOOK_SET::B01-AV-08: HEYGEN-AQ-003
   resolved_history_packet_ids:
+  - HEYGEN-AQ-003
   - HEYGEN-AQ-004
   - HEYGEN-AQ-005
   - HEYGEN-AQ-006
   aq003_evolution_history:
   - logical_packet_id: HEYGEN-AQ-003
     previous_dependency_id: AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09
-    current_dependency_id: AVATAR_LOOK_SET::B01-AV-08
-    status: DEPENDENCY_NARROWED_BY_FACTUAL_B01_COMPLETION
-    reason: Six previously unresolved looks completed and were reconciled; B01-AV-08 is the sole remaining look dependency.
+    final_dependency_id: AVATAR_LOOK_SET::B01-AV-08
+    status: DEPENDENCY_RESOLVED_EVIDENCED
+    reason: B01-AV-08 Allied Gangster completed; B01 is now 9/9 complete.
     paid_execution_authorized_by_history: false
 resolved_history:
 - packet_id: HEYGEN-AQ-004
@@ -65,6 +65,12 @@ resolved_history:
   status: DEPENDENCY_RESOLVED_EVIDENCED
   active: false
   batch_unlocked: false
+- packet_id: HEYGEN-AQ-003
+  dependency_id: AVATAR_LOOK_SET::B01-AV-08
+  status: DEPENDENCY_RESOLVED_EVIDENCED
+  active: false
+  batch_unlocked: false
+  evidence: B01 manifest HEYGEN_9_OF_9_COMPLETE; B01-AV-08 COMPLETE.
 superseded_history:
 - packet_id: HEYGEN-AQ-036
   dependency_id: REF::LOC-TRIBUNAL-COURT
@@ -131,7 +137,6 @@ action_views:
   DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE:
   - HEYGEN-AQ-001
   - HEYGEN-AQ-002
-  - HEYGEN-AQ-003
   - HEYGEN-AQ-040
   - HEYGEN-AQ-043
   - HEYGEN-AQ-047
@@ -168,9 +173,9 @@ action_views:
   ZERO_CREDIT_ACTIONABLE:
   - HEYGEN-AQ-009
   - HEYGEN-AQ-010
-  - HEYGEN-AQ-011
   - HEYGEN-AQ-012
   - HEYGEN-AQ-013
+  - HEYGEN-AQ-011
   - HEYGEN-AQ-014
   - HEYGEN-AQ-015
   - HEYGEN-AQ-016
@@ -389,26 +394,6 @@ packets:
   media_generation_allowed: false
   heygen_submission_allowed: false
   queue_position: 2
-- packet_id: HEYGEN-AQ-003
-  dependency_id: AVATAR_LOOK_SET::B01-AV-08
-  active: true
-  status: OPEN_UNRESOLVED
-  priority_class: P0_OPEN
-  owner_lane: WORK-PAGE-AVATAR-COMPLETION
-  zero_credit_execution_state: DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE
-  source_resolution_lane: WORK_PAGE_AVATAR_LOOK_COMPLETION_FROM_EXISTING_GITHUB_DRIVE_SOURCE
-  scope: BATCH_SPECIFIC
-  batch_impact: 1
-  impacted_batches:
-  - B01
-  current_new_media_requirement: false
-  safe_first_action: Use the exact existing GitHub source visual already archived to Drive to complete the HeyGen look on the Work page; do not regenerate the source visual.
-  conditional_handoffs: []
-  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
-  approved_status_change_allowed: false
-  media_generation_allowed: false
-  heygen_submission_allowed: false
-  queue_position: 3
 - packet_id: HEYGEN-AQ-009
   dependency_id: REF::PRP-PARAANE-EMBLEM
   active: true
@@ -441,7 +426,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 4
+  queue_position: 3
 - packet_id: HEYGEN-AQ-010
   dependency_id: REF::PRP-SEVENTEEN-NAME-LIST
   active: true
@@ -474,39 +459,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 5
-- packet_id: HEYGEN-AQ-011
-  dependency_id: REF::LOC-PARAANE-CHILD-WING
-  active: true
-  status: OPEN_UNRESOLVED
-  priority_class: P1_SHARED_HIGH_IMPACT
-  owner_lane: DRIVE-VERIFY
-  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
-  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  scope: SHARED
-  batch_impact: 7
-  impacted_batches:
-  - B06
-  - B07
-  - B08
-  - B09
-  - B10
-  - B11
-  - B26
-  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-  conditional_handoffs:
-  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
-    to_owner_lane: GITHUB-ONLY
-    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
-  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
-    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
-    action: Defer creation until a later explicit media-creation approval and credit-ready state.
-  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
-  approved_status_change_allowed: false
-  media_generation_allowed: false
-  heygen_submission_allowed: false
-  queue_position: 6
+  queue_position: 4
 - packet_id: HEYGEN-AQ-012
   dependency_id: REF::CST-ANAADHI-20-26
   active: true
@@ -538,7 +491,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 7
+  queue_position: 5
 - packet_id: HEYGEN-AQ-013
   dependency_id: REF::AGE-ANAADHI-27-RECOVERY
   active: true
@@ -570,7 +523,38 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 8
+  queue_position: 6
+- packet_id: HEYGEN-AQ-011
+  dependency_id: REF::LOC-PARAANE-CHILD-WING
+  active: true
+  status: OPEN_UNRESOLVED
+  priority_class: P1_SHARED_HIGH_IMPACT
+  owner_lane: DRIVE-VERIFY
+  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
+  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  scope: SHARED
+  batch_impact: 6
+  impacted_batches:
+  - B06
+  - B07
+  - B08
+  - B09
+  - B10
+  - B26
+  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+  conditional_handoffs:
+  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
+    to_owner_lane: GITHUB-ONLY
+    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
+  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
+    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
+    action: Defer creation until a later explicit media-creation approval and credit-ready state.
+  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
+  approved_status_change_allowed: false
+  media_generation_allowed: false
+  heygen_submission_allowed: false
+  queue_position: 7
 - packet_id: HEYGEN-AQ-014
   dependency_id: REF::PRP-MEDICINE-CUP
   active: true
@@ -601,7 +585,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 9
+  queue_position: 8
 - packet_id: HEYGEN-AQ-015
   dependency_id: REF::PRP-PARAANE-WRIST-DEVICE
   active: true
@@ -631,7 +615,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 10
+  queue_position: 9
 - packet_id: HEYGEN-AQ-016
   dependency_id: REF::CST-ANAADHI-CHILD-INSTITUTIONAL
   active: true
@@ -661,7 +645,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 11
+  queue_position: 10
 - packet_id: HEYGEN-AQ-018
   dependency_id: REF::LOC-BHAIGAARA-RAISED-CABIN
   active: true
@@ -690,7 +674,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 12
+  queue_position: 11
 - packet_id: HEYGEN-AQ-019
   dependency_id: REF::PRP-ADK7-CARTRIDGE
   active: true
@@ -719,7 +703,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 13
+  queue_position: 12
 - packet_id: HEYGEN-AQ-020
   dependency_id: REF::PRP-SPLIT-FLOORBOARD
   active: true
@@ -748,7 +732,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 14
+  queue_position: 13
 - packet_id: HEYGEN-AQ-021
   dependency_id: REF::TEC-BLACK-KITE-DRONE
   active: true
@@ -776,7 +760,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 15
+  queue_position: 14
 - packet_id: HEYGEN-AQ-008
   dependency_id: REF::LOC-ANAADHI-HIDDEN-CABINS
   active: true
@@ -804,7 +788,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 16
+  queue_position: 15
 - packet_id: HEYGEN-AQ-017
   dependency_id: REF::LOC-PARAANE-CAMPUS-MATURE
   active: true
@@ -832,7 +816,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 17
+  queue_position: 16
 - packet_id: HEYGEN-AQ-023
   dependency_id: REF::CST-ANAADHI-27-RECOVERY
   active: true
@@ -860,7 +844,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 18
+  queue_position: 17
 - packet_id: HEYGEN-AQ-024
   dependency_id: REF::INJ-ANAADHI-27-SURGERY
   active: true
@@ -888,7 +872,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 19
+  queue_position: 18
 - packet_id: HEYGEN-AQ-025
   dependency_id: REF::ENV-BLACK-RAIN
   active: true
@@ -915,7 +899,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 20
+  queue_position: 19
 - packet_id: HEYGEN-AQ-026
   dependency_id: REF::VEH-PARAANE-MEDICAL-TRANSPORT
   active: true
@@ -942,7 +926,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 21
+  queue_position: 20
 - packet_id: HEYGEN-AQ-027
   dependency_id: REF::LOC-ADRAKA-SYSTEMS-LAB
   active: true
@@ -969,7 +953,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 22
+  queue_position: 21
 - packet_id: HEYGEN-AQ-028
   dependency_id: REF::LOC-PARAANE-CAMPUS-EARLY
   active: true
@@ -996,7 +980,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 23
+  queue_position: 22
 - packet_id: HEYGEN-AQ-022
   dependency_id: REF::LOC-PARAANE-CENTRAL-COMMAND
   active: true
@@ -1023,7 +1007,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 24
+  queue_position: 23
 - packet_id: HEYGEN-AQ-029
   dependency_id: REF::PRP-FOUR-ROAD-SHRINE
   active: true
@@ -1050,7 +1034,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 25
+  queue_position: 24
 - packet_id: HEYGEN-AQ-030
   dependency_id: REF::INJ-ANAADHI-12-ESCAPE
   active: true
@@ -1077,7 +1061,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 26
+  queue_position: 25
 - packet_id: HEYGEN-AQ-031
   dependency_id: REF::LOC-PARAANE-HIGH-OBSERVATION
   active: true
@@ -1104,7 +1088,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 27
+  queue_position: 26
 - packet_id: HEYGEN-AQ-073
   dependency_id: REF::LOC-PARVARAN-JANNE-HOUSE
   active: true
@@ -1131,7 +1115,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 28
+  queue_position: 27
 - packet_id: HEYGEN-AQ-032
   dependency_id: REF::CST-ANAADHI-FOREST-TEEN
   active: true
@@ -1158,7 +1142,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 29
+  queue_position: 28
 - packet_id: HEYGEN-AQ-007
   dependency_id: REF::LOC-BHAIGAARA-FOREST-SURVIVAL
   active: true
@@ -1185,7 +1169,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 30
+  queue_position: 29
 - packet_id: HEYGEN-AQ-033
   dependency_id: REF::LOC-VILLAGE-HAND-PUMP
   active: true
@@ -1212,7 +1196,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 31
+  queue_position: 30
 - packet_id: HEYGEN-AQ-034
   dependency_id: REF::VEH-ANAADHI-MOTORCYCLE
   active: true
@@ -1239,7 +1223,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 32
+  queue_position: 31
 - packet_id: HEYGEN-AQ-182
   dependency_id: REF::LOC-068
   active: true
@@ -1266,7 +1250,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 33
+  queue_position: 32
 - packet_id: HEYGEN-AQ-186
   dependency_id: REF::LOC-070
   active: true
@@ -1293,7 +1277,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 34
+  queue_position: 33
 - packet_id: HEYGEN-AQ-187
   dependency_id: REF::LOC-080
   active: true
@@ -1320,7 +1304,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 35
+  queue_position: 34
 - packet_id: HEYGEN-AQ-179
   dependency_id: REF::LOC-087
   active: true
@@ -1347,7 +1331,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 36
+  queue_position: 35
 - packet_id: HEYGEN-AQ-038
   dependency_id: REF::TEC-PARAANE-SENSOR-STAKE
   active: true
@@ -1373,7 +1357,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 37
+  queue_position: 36
 - packet_id: HEYGEN-AQ-037
   dependency_id: 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
   active: true
@@ -1399,7 +1383,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 38
+  queue_position: 37
 - packet_id: HEYGEN-AQ-041
   dependency_id: REF::TEC-HOLOGRAPHIC-NEURAL-MAP
   active: true
@@ -1425,7 +1409,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 39
+  queue_position: 38
 - packet_id: HEYGEN-AQ-039
   dependency_id: 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: systems-lab nested interior'
   active: true
@@ -1451,7 +1435,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 40
+  queue_position: 39
 - packet_id: HEYGEN-AQ-044
   dependency_id: REF::ENV-PARAANE-EARLY
   active: true
@@ -1477,7 +1461,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 41
+  queue_position: 40
 - packet_id: HEYGEN-AQ-045
   dependency_id: REF::PRP-FOUNDERS-CREDENTIAL
   active: true
@@ -1503,7 +1487,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 42
+  queue_position: 41
 - packet_id: HEYGEN-AQ-042
   dependency_id: 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if
     required'
@@ -1530,7 +1514,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 43
+  queue_position: 42
 - packet_id: HEYGEN-AQ-048
   dependency_id: REF::LOC-PARLIPATNA-HOSPITAL
   active: true
@@ -1556,7 +1540,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 44
+  queue_position: 43
 - packet_id: HEYGEN-AQ-046
   dependency_id: 'SPATIAL::B04::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Neonatal Diagnostic Suite | Records Control Room | Maternity Recovery Room | other
     required hospital subspaces'
@@ -1583,7 +1567,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 45
+  queue_position: 44
 - packet_id: HEYGEN-AQ-051
   dependency_id: REF::LOC-FOUR-ROAD-JUNCTION
   active: true
@@ -1609,7 +1593,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 46
+  queue_position: 45
 - packet_id: HEYGEN-AQ-052
   dependency_id: REF::VEH-SARJANYA-JEEP
   active: true
@@ -1635,7 +1619,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 47
+  queue_position: 46
 - packet_id: HEYGEN-AQ-049
   dependency_id: 'SPATIAL::B05::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-006 shrine/light scene dressing | Paraane gate nested identity under LOC-003
     if required'
@@ -1662,7 +1646,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 48
+  queue_position: 47
 - packet_id: HEYGEN-AQ-053
   dependency_id: 'SPATIAL::B06::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane emergency intake | Parvaran office / child-wing overlook'
   active: true
@@ -1688,7 +1672,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 49
+  queue_position: 48
 - packet_id: HEYGEN-AQ-057
   dependency_id: REF::HR-ANAADHI-05
   active: true
@@ -1714,7 +1698,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 50
+  queue_position: 49
 - packet_id: HEYGEN-AQ-055
   dependency_id: 'SPATIAL::B07::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: child-wing nested identity | observation gallery'
   active: true
@@ -1740,7 +1724,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 51
+  queue_position: 50
 - packet_id: HEYGEN-AQ-060
   dependency_id: REF::HR-ANAADHI-07
   active: true
@@ -1766,7 +1750,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 52
+  queue_position: 51
 - packet_id: HEYGEN-AQ-058
   dependency_id: 'SPATIAL::B08::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: child-wing consultation room | developmental assessment chamber'
   active: true
@@ -1792,7 +1776,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 53
+  queue_position: 52
 - packet_id: HEYGEN-AQ-063
   dependency_id: REF::TEC-MEDICINE-RAIL
   active: true
@@ -1818,7 +1802,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 54
+  queue_position: 53
 - packet_id: HEYGEN-AQ-061
   dependency_id: 'SPATIAL::B09::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: child-wing courtyard | medication dispensary'
   active: true
@@ -1844,7 +1828,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 55
+  queue_position: 54
 - packet_id: HEYGEN-AQ-064
   dependency_id: 'SPATIAL::B10::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: family visitation hall | child-wing community kitchen'
   active: true
@@ -1870,7 +1854,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 56
+  queue_position: 55
 - packet_id: HEYGEN-AQ-068
   dependency_id: REF::HR-ANAADHI-12-CLOSE
   active: true
@@ -1896,7 +1880,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 57
+  queue_position: 56
 - packet_id: HEYGEN-AQ-066
   dependency_id: 'SPATIAL::B11::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: high observation | audit corridor | service corridors | security control | old drainage
     passage | outer embankment'
@@ -1923,7 +1907,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 58
+  queue_position: 57
 - packet_id: HEYGEN-AQ-071
   dependency_id: REF::CST-ANAADHI-12-ESCAPE
   active: true
@@ -1949,7 +1933,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 59
+  queue_position: 58
 - packet_id: HEYGEN-AQ-072
   dependency_id: REF::HR-ANAADHI-12-FOREST
   active: true
@@ -1975,7 +1959,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 60
+  queue_position: 59
 - packet_id: HEYGEN-AQ-069
   dependency_id: 'SPATIAL::B12::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: scene-specific weather/search dressing | Parvaran-Janne house interior continuity'
   active: true
@@ -2001,7 +1985,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 61
+  queue_position: 60
 - packet_id: HEYGEN-AQ-076
   dependency_id: REF::AGE-ANAADHI-13
   active: true
@@ -2027,7 +2011,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 62
+  queue_position: 61
 - packet_id: HEYGEN-AQ-077
   dependency_id: REF::AGE-ANAADHI-14
   active: true
@@ -2053,7 +2037,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 63
+  queue_position: 62
 - packet_id: HEYGEN-AQ-078
   dependency_id: REF::AGE-ANAADHI-15
   active: true
@@ -2079,7 +2063,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 64
+  queue_position: 63
 - packet_id: HEYGEN-AQ-079
   dependency_id: REF::AGE-ANAADHI-16
   active: true
@@ -2105,7 +2089,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 65
+  queue_position: 64
 - packet_id: HEYGEN-AQ-080
   dependency_id: REF::HR-ANAADHI-16
   active: true
@@ -2131,7 +2115,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 66
+  queue_position: 65
 - packet_id: HEYGEN-AQ-074
   dependency_id: 'SPATIAL::B13::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-018 ST01 expansion | seasonal montage state continuity using already-approved
     support environments'
@@ -2158,7 +2142,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 67
+  queue_position: 66
 - packet_id: HEYGEN-AQ-083
   dependency_id: REF::AGE-ANAADHI-17
   active: true
@@ -2184,7 +2168,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 68
+  queue_position: 67
 - packet_id: HEYGEN-AQ-084
   dependency_id: REF::AGE-ANAADHI-18
   active: true
@@ -2210,7 +2194,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 69
+  queue_position: 68
 - packet_id: HEYGEN-AQ-085
   dependency_id: REF::HR-ANAADHI-18
   active: true
@@ -2236,7 +2220,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 70
+  queue_position: 69
 - packet_id: HEYGEN-AQ-081
   dependency_id: 'SPATIAL::B14::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-020 interior plate | LOC-020 loft plate | LOC-020 concealed lower passage'
   active: true
@@ -2262,7 +2246,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 71
+  queue_position: 70
 - packet_id: HEYGEN-AQ-088
   dependency_id: REF::AGE-ANAADHI-19
   active: true
@@ -2288,7 +2272,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 72
+  queue_position: 71
 - packet_id: HEYGEN-AQ-089
   dependency_id: REF::CST-ANAADHI-19
   active: true
@@ -2314,7 +2298,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 73
+  queue_position: 72
 - packet_id: HEYGEN-AQ-090
   dependency_id: REF::HR-ANAADHI-19
   active: true
@@ -2340,7 +2324,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 74
+  queue_position: 73
 - packet_id: HEYGEN-AQ-091
   dependency_id: REF::VEH-ANAADHI-CART
   active: true
@@ -2366,7 +2350,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 75
+  queue_position: 74
 - packet_id: HEYGEN-AQ-086
   dependency_id: 'SPATIAL::B15::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: scene-specific day/rain/social-use states only where canon requires'
   active: true
@@ -2392,7 +2376,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 76
+  queue_position: 75
 - packet_id: HEYGEN-AQ-094
   dependency_id: REF::AGE-ANAADHI-20
   active: true
@@ -2418,7 +2402,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 77
+  queue_position: 76
 - packet_id: HEYGEN-AQ-092
   dependency_id: 'SPATIAL::B16::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-027 stable marked surface | LOC-027 ST01-ST03'
   active: true
@@ -2444,7 +2428,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 78
+  queue_position: 77
 - packet_id: HEYGEN-AQ-097
   dependency_id: REF::AGE-ANAADHI-21
   active: true
@@ -2470,7 +2454,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 79
+  queue_position: 78
 - packet_id: HEYGEN-AQ-095
   dependency_id: 'SPATIAL::B17::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: scene-specific state/dressing only'
   active: true
@@ -2496,7 +2480,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 80
+  queue_position: 79
 - packet_id: HEYGEN-AQ-100
   dependency_id: REF::AGE-ANAADHI-22
   active: true
@@ -2522,7 +2506,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 81
+  queue_position: 80
 - packet_id: HEYGEN-AQ-098
   dependency_id: 'SPATIAL::B18::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: preserve LOC-042 already-burnt ST00; no pristine reset'
   active: true
@@ -2548,7 +2532,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 82
+  queue_position: 81
 - packet_id: HEYGEN-AQ-103
   dependency_id: REF::AGE-ANAADHI-23
   active: true
@@ -2574,7 +2558,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 83
+  queue_position: 82
 - packet_id: HEYGEN-AQ-101
   dependency_id: 'SPATIAL::B19::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: scene-specific state/dressing only'
   active: true
@@ -2600,7 +2584,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 84
+  queue_position: 83
 - packet_id: HEYGEN-AQ-106
   dependency_id: REF::AGE-ANAADHI-24
   active: true
@@ -2626,7 +2610,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 85
+  queue_position: 84
 - packet_id: HEYGEN-AQ-104
   dependency_id: 'SPATIAL::B20::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: scene-specific monsoon/flood state only'
   active: true
@@ -2652,7 +2636,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 86
+  queue_position: 85
 - packet_id: HEYGEN-AQ-109
   dependency_id: REF::AGE-ANAADHI-25
   active: true
@@ -2678,7 +2662,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 87
+  queue_position: 86
 - packet_id: HEYGEN-AQ-107
   dependency_id: 'SPATIAL::B21::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: preserve LOC-050 opened/dismantled/partly-burned ST00; no pristine reset'
   active: true
@@ -2704,7 +2688,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 88
+  queue_position: 87
 - packet_id: HEYGEN-AQ-112
   dependency_id: REF::AGE-ANAADHI-26
   active: true
@@ -2730,7 +2714,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 89
+  queue_position: 88
 - packet_id: HEYGEN-AQ-113
   dependency_id: REF::HR-ANAADHI-26-POST-BARBER
   active: true
@@ -2756,7 +2740,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 90
+  queue_position: 89
 - packet_id: HEYGEN-AQ-110
   dependency_id: 'SPATIAL::B22::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-055 mirror remains physically too low for 1.93 m Anaadhi'
   active: true
@@ -2782,7 +2766,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 91
+  queue_position: 90
 - packet_id: HEYGEN-AQ-116
   dependency_id: REF::AGE-ANAADHI-27-FOREST
   active: true
@@ -2808,7 +2792,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 92
+  queue_position: 91
 - packet_id: HEYGEN-AQ-117
   dependency_id: REF::PRP-SEVENTEEN-LAMPS
   active: true
@@ -2834,7 +2818,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 93
+  queue_position: 92
 - packet_id: HEYGEN-AQ-114
   dependency_id: 'SPATIAL::B23::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-056 repaired-bag continuity | LOC-057 seventeen-name display custody continuity
     | raised-cabin state continuity'
@@ -2861,7 +2845,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 94
+  queue_position: 93
 - packet_id: HEYGEN-AQ-162
   dependency_id: AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   active: true
@@ -2881,7 +2865,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 95
+  queue_position: 94
 - packet_id: HEYGEN-AQ-035
   dependency_id: REF::LOC-PARAANE-PHARMACY-VAULT
   active: true
@@ -2907,7 +2891,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 96
+  queue_position: 95
 - packet_id: HEYGEN-AQ-118
   dependency_id: 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin
     capture state'
@@ -2934,7 +2918,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 97
+  queue_position: 96
 - packet_id: HEYGEN-AQ-164
   dependency_id: AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07,B25-AV-08
   active: true
@@ -2954,7 +2938,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 98
+  queue_position: 97
 - packet_id: HEYGEN-AQ-119
   dependency_id: 'SPATIAL::B25::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-001 lower passage identity | grate/route continuity between cabin and ravine'
   active: true
@@ -2980,7 +2964,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 99
+  queue_position: 98
 - packet_id: HEYGEN-AQ-166
   dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
   active: true
@@ -3000,7 +2984,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 100
+  queue_position: 99
 - packet_id: HEYGEN-AQ-123
   dependency_id: REF::LOC-PARAANE-ARCHIVE
   active: true
@@ -3026,7 +3010,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 101
+  queue_position: 100
 - packet_id: HEYGEN-AQ-120
   dependency_id: 'SPATIAL::B26::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION'
   active: true
@@ -3052,7 +3036,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 102
+  queue_position: 101
 - packet_id: HEYGEN-AQ-121
   dependency_id: 'SPATIAL::B26::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: mature Paraane states | archive | old observation corridor | required nested rooms'
   active: true
@@ -3078,7 +3062,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 103
+  queue_position: 102
 - packet_id: HEYGEN-AQ-122
   dependency_id: SPATIAL::B26::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found 'PARTIAL'
   active: true
@@ -3104,7 +3088,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 104
+  queue_position: 103
 - packet_id: HEYGEN-AQ-173
   dependency_id: REF::LOC-063
   active: true
@@ -3130,7 +3114,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 105
+  queue_position: 104
 - packet_id: HEYGEN-AQ-129
   dependency_id: REF::VEH-INDEPENDENT-EMERGENCY
   active: true
@@ -3156,7 +3140,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 106
+  queue_position: 105
 - packet_id: HEYGEN-AQ-168
   dependency_id: 'SPATIAL::B27::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-063'
   active: true
@@ -3182,7 +3166,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 107
+  queue_position: 106
 - packet_id: HEYGEN-AQ-125
   dependency_id: 'SPATIAL::B27::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: canonical ENV-6L root ID binding | surgery and recovery subspaces'
   active: true
@@ -3208,7 +3192,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 108
+  queue_position: 107
 - packet_id: HEYGEN-AQ-126
   dependency_id: SPATIAL::B27::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found False
   active: true
@@ -3234,7 +3218,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 109
+  queue_position: 108
 - packet_id: HEYGEN-AQ-174
   dependency_id: REF::LOC-064
   active: true
@@ -3260,7 +3244,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 110
+  queue_position: 109
 - packet_id: HEYGEN-AQ-175
   dependency_id: REF::LOC-066
   active: true
@@ -3286,7 +3270,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 111
+  queue_position: 110
 - packet_id: HEYGEN-AQ-169
   dependency_id: 'SPATIAL::B28::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-064, LOC-066'
   active: true
@@ -3312,7 +3296,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 112
+  queue_position: 111
 - packet_id: HEYGEN-AQ-131
   dependency_id: 'SPATIAL::B28::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Forest Transfer Road / Fallen-Tree Blockade canonical ENV-6L binding | communications-tower
     scene geography'
@@ -3339,7 +3323,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 113
+  queue_position: 112
 - packet_id: HEYGEN-AQ-132
   dependency_id: SPATIAL::B28::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found 'PARTIAL'
   active: true
@@ -3365,7 +3349,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 114
+  queue_position: 113
 - packet_id: HEYGEN-AQ-183
   dependency_id: LOCATION::REFERENCE_UNDEFINED::Required reference LOC-003 is not defined in REFERENCE_REGISTRY.yaml
   active: true
@@ -3385,7 +3369,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 115
+  queue_position: 114
 - packet_id: HEYGEN-AQ-181
   dependency_id: REF::LOC-067
   active: true
@@ -3411,7 +3395,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 116
+  queue_position: 115
 - packet_id: HEYGEN-AQ-180
   dependency_id: 'SPATIAL::B29::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-067, LOC-068'
   active: true
@@ -3437,7 +3421,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 117
+  queue_position: 116
 - packet_id: HEYGEN-AQ-135
   dependency_id: 'SPATIAL::B29::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: late Paraane subspaces | hospital/council/pharmacy evidence locations'
   active: true
@@ -3463,7 +3447,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 118
+  queue_position: 117
 - packet_id: HEYGEN-AQ-136
   dependency_id: SPATIAL::B29::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found 'PARTIAL'
   active: true
@@ -3489,7 +3473,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 119
+  queue_position: 118
 - packet_id: HEYGEN-AQ-188
   dependency_id: REF::LOC-069
   active: true
@@ -3515,7 +3499,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 120
+  queue_position: 119
 - packet_id: HEYGEN-AQ-189
   dependency_id: REF::LOC-071
   active: true
@@ -3541,7 +3525,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 121
+  queue_position: 120
 - packet_id: HEYGEN-AQ-184
   dependency_id: 'SPATIAL::B30::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-068/069/070/071/080 visual masters | LOC-070 Executive/News floors | LOC-011
     interior continuity | Sarjanya HOLD root unresolved | required late/XFORM states'
@@ -3568,7 +3552,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 122
+  queue_position: 121
 - packet_id: HEYGEN-AQ-139
   dependency_id: SPATIAL::B30::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found 'PARTIAL'
   active: true
@@ -3594,7 +3578,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 123
+  queue_position: 122
 - packet_id: HEYGEN-AQ-176
   dependency_id: REF::LOC-075
   active: true
@@ -3620,7 +3604,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 124
+  queue_position: 123
 - packet_id: HEYGEN-AQ-170
   dependency_id: 'SPATIAL::B31::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-075'
   active: true
@@ -3646,7 +3630,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 125
+  queue_position: 124
 - packet_id: HEYGEN-AQ-142
   dependency_id: 'SPATIAL::B31::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: canonical ENV-6L root IDs | border medical corridor | tribunal/court state'
   active: true
@@ -3672,7 +3656,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 126
+  queue_position: 125
 - packet_id: HEYGEN-AQ-143
   dependency_id: SPATIAL::B31::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found False
   active: true
@@ -3698,7 +3682,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 127
+  queue_position: 126
 - packet_id: HEYGEN-AQ-177
   dependency_id: REF::LOC-078
   active: true
@@ -3724,7 +3708,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 128
+  queue_position: 127
 - packet_id: HEYGEN-AQ-178
   dependency_id: REF::LOC-079
   active: true
@@ -3750,7 +3734,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 129
+  queue_position: 128
 - packet_id: HEYGEN-AQ-171
   dependency_id: 'SPATIAL::B32::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-078, LOC-079'
   active: true
@@ -3776,7 +3760,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 130
+  queue_position: 129
 - packet_id: HEYGEN-AQ-147
   dependency_id: 'SPATIAL::B32::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Independent Judicial Complex family-contact corridor | remand court canonical bindings'
   active: true
@@ -3802,7 +3786,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 131
+  queue_position: 130
 - packet_id: HEYGEN-AQ-148
   dependency_id: SPATIAL::B32::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found False
   active: true
@@ -3828,7 +3812,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 132
+  queue_position: 131
 - packet_id: HEYGEN-AQ-190
   dependency_id: REF::LOC-072
   active: true
@@ -3854,7 +3838,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 133
+  queue_position: 132
 - packet_id: HEYGEN-AQ-191
   dependency_id: REF::LOC-074
   active: true
@@ -3880,7 +3864,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 134
+  queue_position: 133
 - packet_id: HEYGEN-AQ-192
   dependency_id: REF::LOC-081
   active: true
@@ -3906,7 +3890,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 135
+  queue_position: 134
 - packet_id: HEYGEN-AQ-193
   dependency_id: REF::LOC-082
   active: true
@@ -3932,7 +3916,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 136
+  queue_position: 135
 - packet_id: HEYGEN-AQ-194
   dependency_id: REF::LOC-083
   active: true
@@ -3958,7 +3942,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 137
+  queue_position: 136
 - packet_id: HEYGEN-AQ-195
   dependency_id: REF::LOC-084
   active: true
@@ -3984,7 +3968,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 138
+  queue_position: 137
 - packet_id: HEYGEN-AQ-196
   dependency_id: REF::LOC-085
   active: true
@@ -4010,7 +3994,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 139
+  queue_position: 138
 - packet_id: HEYGEN-AQ-197
   dependency_id: REF::LOC-086
   active: true
@@ -4036,7 +4020,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 140
+  queue_position: 139
 - packet_id: HEYGEN-AQ-185
   dependency_id: 'SPATIAL::B33::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-003 P4 dismantling/reform states | LOC-070 XFORM state | LOC-072 later-home
     interior | LOC-074 armoury/drug-room nested controls | LOC-080..LOC-087 visual masters | LOC-087 SC099 case-review nested identity'
@@ -4063,7 +4047,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 141
+  queue_position: 140
 - packet_id: HEYGEN-AQ-151
   dependency_id: SPATIAL::B33::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found 'PARTIAL'
   active: true
@@ -4089,7 +4073,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 142
+  queue_position: 141
 - packet_id: HEYGEN-AQ-157
   dependency_id: REF::AGE-ANAADHI-27-FINAL
   active: true
@@ -4115,7 +4099,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 143
+  queue_position: 142
 - packet_id: HEYGEN-AQ-158
   dependency_id: REF::CST-ANAADHI-27-FINAL
   active: true
@@ -4141,7 +4125,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 144
+  queue_position: 143
 - packet_id: HEYGEN-AQ-159
   dependency_id: REF::HR-ANAADHI-27-FINAL
   active: true
@@ -4167,7 +4151,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 145
+  queue_position: 144
 - packet_id: HEYGEN-AQ-160
   dependency_id: REF::INJ-ANAADHI-27-FINAL
   active: true
@@ -4193,7 +4177,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 146
+  queue_position: 145
 - packet_id: HEYGEN-AQ-172
   dependency_id: 'SPATIAL::B34::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-087'
   active: true
@@ -4219,7 +4203,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 147
+  queue_position: 146
 - packet_id: HEYGEN-AQ-154
   dependency_id: 'SPATIAL::B34::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Independent Judicial Medical Centre root | Scene-100 interview room nested identity'
   active: true
@@ -4245,7 +4229,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 148
+  queue_position: 147
 - packet_id: HEYGEN-AQ-155
   dependency_id: SPATIAL::B34::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found False
   active: true
@@ -4271,7 +4255,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 149
+  queue_position: 148
 - packet_id: HEYGEN-AQ-040
   dependency_id: AVATAR_SLOT::B02::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4294,7 +4278,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 150
+  queue_position: 149
 - packet_id: HEYGEN-AQ-043
   dependency_id: AVATAR_SLOT::B03::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4317,7 +4301,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 151
+  queue_position: 150
 - packet_id: HEYGEN-AQ-047
   dependency_id: AVATAR_SLOT::B04::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4340,7 +4324,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 152
+  queue_position: 151
 - packet_id: HEYGEN-AQ-050
   dependency_id: AVATAR_SLOT::B05::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4363,7 +4347,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 153
+  queue_position: 152
 - packet_id: HEYGEN-AQ-054
   dependency_id: AVATAR_SLOT::B06::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4386,7 +4370,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 154
+  queue_position: 153
 - packet_id: HEYGEN-AQ-056
   dependency_id: AVATAR_SLOT::B07::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4409,7 +4393,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 155
+  queue_position: 154
 - packet_id: HEYGEN-AQ-059
   dependency_id: AVATAR_SLOT::B08::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4432,7 +4416,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 156
+  queue_position: 155
 - packet_id: HEYGEN-AQ-062
   dependency_id: AVATAR_SLOT::B09::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4455,7 +4439,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 157
+  queue_position: 156
 - packet_id: HEYGEN-AQ-065
   dependency_id: AVATAR_SLOT::B10::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4478,7 +4462,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 158
+  queue_position: 157
 - packet_id: HEYGEN-AQ-067
   dependency_id: AVATAR_SLOT::B11::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4501,7 +4485,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 159
+  queue_position: 158
 - packet_id: HEYGEN-AQ-070
   dependency_id: AVATAR_SLOT::B12::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4524,7 +4508,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 160
+  queue_position: 159
 - packet_id: HEYGEN-AQ-075
   dependency_id: AVATAR_SLOT::B13::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4547,7 +4531,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 161
+  queue_position: 160
 - packet_id: HEYGEN-AQ-082
   dependency_id: AVATAR_SLOT::B14::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4570,7 +4554,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 162
+  queue_position: 161
 - packet_id: HEYGEN-AQ-087
   dependency_id: AVATAR_SLOT::B15::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4593,7 +4577,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 163
+  queue_position: 162
 - packet_id: HEYGEN-AQ-093
   dependency_id: AVATAR_SLOT::B16::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4616,7 +4600,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 164
+  queue_position: 163
 - packet_id: HEYGEN-AQ-096
   dependency_id: AVATAR_SLOT::B17::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4639,7 +4623,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 165
+  queue_position: 164
 - packet_id: HEYGEN-AQ-099
   dependency_id: AVATAR_SLOT::B18::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4662,7 +4646,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 166
+  queue_position: 165
 - packet_id: HEYGEN-AQ-102
   dependency_id: AVATAR_SLOT::B19::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4685,7 +4669,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 167
+  queue_position: 166
 - packet_id: HEYGEN-AQ-105
   dependency_id: AVATAR_SLOT::B20::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4708,7 +4692,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 168
+  queue_position: 167
 - packet_id: HEYGEN-AQ-108
   dependency_id: AVATAR_SLOT::B21::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4731,7 +4715,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 169
+  queue_position: 168
 - packet_id: HEYGEN-AQ-111
   dependency_id: AVATAR_SLOT::B22::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4754,7 +4738,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 170
+  queue_position: 169
 - packet_id: HEYGEN-AQ-115
   dependency_id: AVATAR_SLOT::B23::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4777,7 +4761,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 171
+  queue_position: 170
 - packet_id: HEYGEN-AQ-163
   dependency_id: CONSENT::production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
   active: true
@@ -4800,7 +4784,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 172
+  queue_position: 171
 - packet_id: HEYGEN-AQ-165
   dependency_id: CONSENT::production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
   active: true
@@ -4823,7 +4807,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 173
+  queue_position: 172
 - packet_id: HEYGEN-AQ-167
   dependency_id: CONSENT::production/heygen/avatars/B26/B26_AVATAR_MANIFEST.yaml
   active: true
@@ -4846,7 +4830,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 174
+  queue_position: 173
 - packet_id: HEYGEN-AQ-127
   dependency_id: AVATAR_SLOT::B27::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4869,7 +4853,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 175
+  queue_position: 174
 - packet_id: HEYGEN-AQ-133
   dependency_id: AVATAR_SLOT::B28::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4892,7 +4876,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 176
+  queue_position: 175
 - packet_id: HEYGEN-AQ-137
   dependency_id: AVATAR_SLOT::B29::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4915,7 +4899,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 177
+  queue_position: 176
 - packet_id: HEYGEN-AQ-140
   dependency_id: AVATAR_SLOT::B30::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4938,7 +4922,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 178
+  queue_position: 177
 - packet_id: HEYGEN-AQ-144
   dependency_id: AVATAR_SLOT::B31::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4961,7 +4945,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 179
+  queue_position: 178
 - packet_id: HEYGEN-AQ-149
   dependency_id: AVATAR_SLOT::B32::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -4984,7 +4968,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 180
+  queue_position: 179
 - packet_id: HEYGEN-AQ-152
   dependency_id: AVATAR_SLOT::B33::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -5007,7 +4991,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 181
+  queue_position: 180
 - packet_id: HEYGEN-AQ-156
   dependency_id: AVATAR_SLOT::B34::AVATAR_MANIFEST_UNASSIGNED
   active: true
@@ -5030,7 +5014,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 182
+  queue_position: 181
 safety:
   media_generated: false
   media_replaced: false

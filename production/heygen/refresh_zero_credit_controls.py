@@ -37,9 +37,8 @@ P0_AQ003_CURRENT_DEP = "AVATAR_LOOK_SET::B01-AV-08"
 P0_OPEN_IDS = {
     "CONSENT::ANAADHI_PRIVATE_AVATAR": "HEYGEN-AQ-001",
     "CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml": "HEYGEN-AQ-002",
-    P0_AQ003_CURRENT_DEP: "HEYGEN-AQ-003",
 }
-RESOLVED_HISTORY_IDS = {"HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"}
+RESOLVED_HISTORY_IDS = {"HEYGEN-AQ-003", "HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"}
 OWNER_MAP = {
     "CONSENT_STATE_UPDATE": "CONSENT-VERIFY",
     "DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT": "DRIVE-VERIFY",
@@ -186,10 +185,20 @@ def main() -> None:
 
     p0_overlay = old_matrix.get("p0_packet_overlay", {})
     if isinstance(p0_overlay, dict):
-        for item in p0_overlay.get("highest_priority_open", []) or []:
-            if isinstance(item, dict) and item.get("packet_id") == "HEYGEN-AQ-003":
-                item["dependency_id"] = P0_AQ003_CURRENT_DEP
-                item["evidence"] = "B01 is factually 8/9 complete; only B01-AV-08 remains without a completed HeyGen look. Paid execution remains deferred."
+        p0_overlay["highest_priority_open"] = [
+            item for item in (p0_overlay.get("highest_priority_open", []) or [])
+            if not (isinstance(item, dict) and item.get("packet_id") == "HEYGEN-AQ-003")
+        ]
+        resolved_overlay = p0_overlay.setdefault("resolved_history", [])
+        if not any(isinstance(item, dict) and item.get("packet_id") == "HEYGEN-AQ-003" for item in resolved_overlay):
+            resolved_overlay.append({
+                "packet_id": "HEYGEN-AQ-003",
+                "dependency_id": P0_AQ003_CURRENT_DEP,
+                "status": "DEPENDENCY_RESOLVED_EVIDENCED",
+                "active": False,
+                "batch_unlocked": False,
+                "evidence": "B01 manifest is HEYGEN_9_OF_9_COMPLETE and B01-AV-08 is COMPLETE.",
+            })
 
     matrix = {
         "version": 3,
@@ -231,13 +240,14 @@ def main() -> None:
         "rule": "Continue control/reuse/dependency work only; do not initiate paid HeyGen/media execution until the user explicitly opens the credit-ready gate.",
     }
     plan["p0_state"] = {
-        "open_packet_ids": ["HEYGEN-AQ-001", "HEYGEN-AQ-002", "HEYGEN-AQ-003"],
-        "resolved_history_packet_ids": ["HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],
+        "open_packet_ids": ["HEYGEN-AQ-001", "HEYGEN-AQ-002"],
+        "resolved_history_packet_ids": ["HEYGEN-AQ-003", "HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],
         "consent_handoff_status": "PREPARED_NOT_INITIATED",
         "aq003_logical_packet_id": "HEYGEN-AQ-003",
         "aq003_previous_dependency_id": P0_AQ003_PREVIOUS_DEP,
-        "aq003_current_dependency_id": P0_AQ003_CURRENT_DEP,
-        "aq003_narrowing_reason": "B01-AV-03/04/05/06/07/09 are completed; only B01-AV-08 remains deferred behind the credit gate.",
+        "aq003_final_dependency_id": P0_AQ003_CURRENT_DEP,
+        "aq003_status": "DEPENDENCY_RESOLVED_EVIDENCED",
+        "aq003_resolution_reason": "B01 is factually HEYGEN_9_OF_9_COMPLETE; B01-AV-08 Allied Gangster completed and may not be resurrected as a live blocker.",
     }
     dump_yaml(PLAN, plan)
 
@@ -256,13 +266,14 @@ def main() -> None:
     aq003_evolution_history = [{
         "logical_packet_id": "HEYGEN-AQ-003",
         "previous_dependency_id": P0_AQ003_PREVIOUS_DEP,
-        "current_dependency_id": P0_AQ003_CURRENT_DEP,
-        "status": "DEPENDENCY_NARROWED_BY_FACTUAL_B01_COMPLETION",
-        "reason": "Six previously unresolved looks completed and were reconciled; B01-AV-08 is the sole remaining look dependency.",
+        "final_dependency_id": P0_AQ003_CURRENT_DEP,
+        "status": "DEPENDENCY_RESOLVED_EVIDENCED",
+        "reason": "B01-AV-08 Allied Gangster completed; B01 is now 9/9 complete.",
         "paid_execution_authorized_by_history": False,
     }]
-    # Remove the old seven-look key so AQ-003 cannot appear twice as active/history.
+    # Remove both historical and final live keys so AQ-003 cannot be reallocated or resurrected.
     prior_by_dep.pop(P0_AQ003_PREVIOUS_DEP, None)
+    prior_by_dep.pop(P0_AQ003_CURRENT_DEP, None)
 
     # Hard lock historical P0 logical packet identities to their current live dependencies.
     for dep_id, pid in P0_OPEN_IDS.items():
@@ -271,6 +282,15 @@ def main() -> None:
         prior_by_dep[dep_id] = {"packet_id": pid, "dependency_id": dep_id}
 
     resolved_history = resolved_history_from_current_queue(old_queue)
+    if not any(str(x.get("packet_id")) == "HEYGEN-AQ-003" for x in resolved_history):
+        resolved_history.append({
+            "packet_id": "HEYGEN-AQ-003",
+            "dependency_id": P0_AQ003_CURRENT_DEP,
+            "status": "DEPENDENCY_RESOLVED_EVIDENCED",
+            "active": False,
+            "batch_unlocked": False,
+            "evidence": "B01 manifest HEYGEN_9_OF_9_COMPLETE; B01-AV-08 COMPLETE.",
+        })
     resolved_dep_ids = {str(x.get("dependency_id")) for x in resolved_history}
     if current_dep_ids & resolved_dep_ids:
         raise SystemExit("Resolved AQ-004/005/006 dependency unexpectedly returned live")
@@ -373,7 +393,7 @@ def main() -> None:
         },
         "p0_identity_lock": {
             "open": P0_OPEN_IDS,
-            "resolved_history_packet_ids": ["HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],
+            "resolved_history_packet_ids": ["HEYGEN-AQ-003", "HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],
             "aq003_evolution_history": aq003_evolution_history,
         },
         "resolved_history": resolved_history,

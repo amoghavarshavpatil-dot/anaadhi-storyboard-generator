@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: 3fb5abec9c023f428d587086d666cc9efec250bd
+validated_repository_head: 1a7afc8fcb265481c015240aa2b9b02d5abadaaa
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -24,7 +24,7 @@ report:
     passed_batches: 0
     blocked_batches: 34
     global_blockers: 0
-    total_blockers: 293
+    total_blockers: 291
   passed_batches: []
   blocked_batches:
   - B01
@@ -104,10 +104,6 @@ report:
       category: environment
       code: REFERENCE_NOT_APPROVED
       message: 'ENV-BLACK-RAIN: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B01
-      category: avatar-slot
-      code: AVATAR_LOOKS_UNRESOLVED
-      message: 'Avatar asset(s) not COMPLETE with look IDs: B01-AV-08'
     - batch_id: B01
       category: consent
       code: CONSENT_UNRESOLVED
@@ -358,10 +354,6 @@ report:
       category: location
       code: REFERENCE_NOT_APPROVED
       message: 'LOC-PARAANE-HIGH-OBSERVATION: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B11
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-PARAANE-CHILD-WING: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B11
       category: character-state
       code: REFERENCE_NOT_APPROVED
@@ -1282,10 +1274,6 @@ p0_packet_overlay:
     status: OPEN_UNRESOLVED
     evidence: 'Rechecked every existing B01-referenced private identity: Anaadhi and Aarathi groups are completed and both consent_status values remain null; no affirmative state was
       written.'
-  - packet_id: HEYGEN-AQ-003
-    dependency_id: AVATAR_LOOK_SET::B01-AV-08
-    status: OPEN_UNRESOLVED
-    evidence: B01 is factually 8/9 complete; only B01-AV-08 remains without a completed HeyGen look. Paid execution remains deferred.
   resolved_history: &id001
   - packet_id: HEYGEN-AQ-004
     dependency_id: AVATAR_SLOT::B24::AVATAR_MANIFEST_UNASSIGNED
@@ -1302,6 +1290,12 @@ p0_packet_overlay:
     status: DEPENDENCY_RESOLVED_EVIDENCED
     live_blocker_absent: true
     batch_unlocked: false
+  - packet_id: HEYGEN-AQ-003
+    dependency_id: AVATAR_LOOK_SET::B01-AV-08
+    status: DEPENDENCY_RESOLVED_EVIDENCED
+    active: false
+    batch_unlocked: false
+    evidence: B01 manifest is HEYGEN_9_OF_9_COMPLETE and B01-AV-08 is COMPLETE.
 resolved_history: *id001
 zero_credit_control_sources:
   frozen_mapping: production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml

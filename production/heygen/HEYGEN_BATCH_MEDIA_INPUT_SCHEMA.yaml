@@ -188,7 +188,7 @@ batches:
     scenes: [25,26,27]
     env6l_roots: [LOC-003]
     p1_location_status: APPROVED_ROOT__MULTIPLE_NESTED_SPACES_REMAIN
-    required_location_refs: [LOC-PARAANE-HIGH-OBSERVATION, LOC-PARAANE-CHILD-WING]
+    required_location_refs: [LOC-PARAANE-HIGH-OBSERVATION]
     required_anaadhi_refs: [AGE-ANAADHI-12-INSTITUTIONAL, HR-ANAADHI-12-CLOSE, CST-ANAADHI-CHILD-INSTITUTIONAL, INJ-ANAADHI-12-ESCAPE]
     required_prop_refs: [PRP-MEDICINE-CUP]
   B12:
