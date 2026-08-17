@@ -145,8 +145,23 @@ exact_5_execution_2026_08_17:
   b01_av08_usd_charged: 1.0
   api_key_wallet_remaining_usd: 4.0
   b01_completion: 9_OF_9
-  anarvaa: SOURCE_VISUAL_REQUIRED
+  anarvaa: COMPLETED
   parvaran: SOURCE_VISUAL_REQUIRED
   unnath: SOURCE_VISUAL_REQUIRED
   asana: SOURCE_VISUAL_REQUIRED
+  residual_wallet_spend_without_proven_source: forbidden
+
+anarvaa_completion_2026_08_17:
+  observed_at: 2026-08-17T01:17:19Z
+  source_approval: EXPLICIT_USER_APPROVAL_CURRENT_WORK_PAGE
+  source_sha256: 2101f8267e2bcc06f0a0d18bc80e4eaa7d7017b22e42cf4c4823d028fd575559
+  drive_file_id: 1OyGq0YYR29QaDQ1IvHk9_TZ2sWn3EbiG
+  heygen_operation: CREATE_PHOTO_AVATAR
+  heygen_group_id: 1642f76d7b7048a0b93ab483229bd0c2
+  heygen_look_id: d571963a713e44ab95e7d8e044eac370
+  authoritative_status: completed
+  usd_charged: 1.0
+  api_key_wallet_remaining_usd: 3.0
+  next_priority_character: CHR-PARVARAN
+  next_identity_state: SOURCE_VISUAL_REQUIRED
   residual_wallet_spend_without_proven_source: forbidden

@@ -32,12 +32,22 @@ assets:
   B24-AV-01:
     character_slot: Anarvaa
     character_ref: CHR-ANARVAA
-    binding_mode: P0_SLOT_REUSE_PRECHECK
-    approved_status: null
+    binding_mode: CANONICAL_MASTER_IDENTITY_REUSE
+    approved_status: APPROVED
     consent_status_observed: null
-    reuse_source_asset: null
-    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    reuse_source_asset: ANARVAA_MASTER_IDENTITY_V1
+    heygen_status: COMPLETE
     resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+    reuse_source_manifest: production/heygen/avatars/master_identities/CHR-ANARVAA/CHR-ANARVAA_MASTER_IDENTITY_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/master_identities/CHR-ANARVAA/source_visuals/CHR-ANARVAA_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: 2101f8267e2bcc06f0a0d18bc80e4eaa7d7017b22e42cf4c4823d028fd575559
+    drive_status: UPLOADED
+    drive_file_id: 1OyGq0YYR29QaDQ1IvHk9_TZ2sWn3EbiG
+    heygen_group_id: 1642f76d7b7048a0b93ab483229bd0c2
+    heygen_look_id: d571963a713e44ab95e7d8e044eac370
+    heygen_avatar_type: photo_avatar
+    heygen_training_status: completed
+    reuse_evidence: Approved canonical ANARVAA_MASTER_IDENTITY_V1; one stable group and one Photo Avatar look.
   B24-AV-02:
     character_slot: Parvaran
     character_ref: CHR-PARVARAN
@@ -191,7 +201,7 @@ assets:
 reuse_summary:
   p0_slot_count: 13
   b01_reuse_bound_count: 6
-  unresolved_slot_count: 7
+  unresolved_slot_count: 6
   bound:
   - slot: Aarathi
     asset: B24-AV-04
@@ -211,9 +221,10 @@ reuse_summary:
   - slot: Anaadhi
     asset: B24-AV-13
     source: B01-AV-01
-  unresolved:
   - slot: Anarvaa
     asset: B24-AV-01
+    source: ANARVAA_MASTER_IDENTITY_V1
+  unresolved:
   - slot: Parvaran
     asset: B24-AV-02
   - slot: Unnath
@@ -226,3 +237,4 @@ reuse_summary:
     asset: B24-AV-09
   - slot: Inventory Assistant
     asset: B24-AV-10
+  canonical_master_bound_count: 1

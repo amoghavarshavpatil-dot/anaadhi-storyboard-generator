@@ -100,12 +100,22 @@ assets:
   B26-AV-07:
     character_slot: Anarvaa
     character_ref: CHR-ANARVAA
-    binding_mode: P0_SLOT_REUSE_PRECHECK
-    approved_status: null
+    binding_mode: CANONICAL_MASTER_IDENTITY_REUSE
+    approved_status: APPROVED
     consent_status_observed: null
-    reuse_source_asset: null
-    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    reuse_source_asset: ANARVAA_MASTER_IDENTITY_V1
+    heygen_status: COMPLETE
     resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+    reuse_source_manifest: production/heygen/avatars/master_identities/CHR-ANARVAA/CHR-ANARVAA_MASTER_IDENTITY_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/master_identities/CHR-ANARVAA/source_visuals/CHR-ANARVAA_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: 2101f8267e2bcc06f0a0d18bc80e4eaa7d7017b22e42cf4c4823d028fd575559
+    drive_status: UPLOADED
+    drive_file_id: 1OyGq0YYR29QaDQ1IvHk9_TZ2sWn3EbiG
+    heygen_group_id: 1642f76d7b7048a0b93ab483229bd0c2
+    heygen_look_id: d571963a713e44ab95e7d8e044eac370
+    heygen_avatar_type: photo_avatar
+    heygen_training_status: completed
+    reuse_evidence: Approved canonical ANARVAA_MASTER_IDENTITY_V1; one stable group and one Photo Avatar look.
   B26-AV-08:
     character_slot: Woman Resident
     character_ref: CHR-WOMAN-RESIDENT
@@ -136,7 +146,7 @@ assets:
 reuse_summary:
   p0_slot_count: 10
   b01_reuse_bound_count: 2
-  unresolved_slot_count: 8
+  unresolved_slot_count: 7
   bound:
   - slot: Anaadhi
     asset: B26-AV-01
@@ -144,6 +154,9 @@ reuse_summary:
   - slot: Aarathi
     asset: B26-AV-02
     source: B01-AV-02
+  - slot: Anarvaa
+    asset: B26-AV-07
+    source: ANARVAA_MASTER_IDENTITY_V1
   unresolved:
   - slot: Manire
     asset: B26-AV-03
@@ -153,11 +166,10 @@ reuse_summary:
     asset: B26-AV-05
   - slot: Residents
     asset: B26-AV-06
-  - slot: Anarvaa
-    asset: B26-AV-07
   - slot: Woman Resident
     asset: B26-AV-08
   - slot: Child Anaadhi variants
     asset: B26-AV-09
   - slot: victim variants
     asset: B26-AV-10
+  canonical_master_bound_count: 1
