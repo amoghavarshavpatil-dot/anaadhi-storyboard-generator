@@ -129,7 +129,6 @@ assets:
     consent_status_observed: null
     reuse_source_asset: ANARVAA_MASTER_IDENTITY_V1
     heygen_status: COMPLETE
-    resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
     reuse_source_manifest: production/heygen/avatars/master_identities/CHR-ANARVAA/CHR-ANARVAA_MASTER_IDENTITY_MANIFEST.yaml
     source_visual_path: production/heygen/avatars/master_identities/CHR-ANARVAA/source_visuals/CHR-ANARVAA_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
     source_sha256: 2101f8267e2bcc06f0a0d18bc80e4eaa7d7017b22e42cf4c4823d028fd575559
