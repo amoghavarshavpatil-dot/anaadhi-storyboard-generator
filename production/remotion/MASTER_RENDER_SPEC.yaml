@@ -1,0 +1,51 @@
+version: 1
+project: ANAADHI
+control: REMOTION_MASTER_RENDER_SPEC
+master:
+  width: 3840
+  height: 1600
+  aspect_ratio: "2.40:1"
+  fps: 30
+  pixel_aspect_ratio: "1:1"
+  baked_letterbox: false
+  composition_id: ANAADHI_STORYBOARD_AUDIOBOOK_4K_SCOPE
+  reels:
+    - {id: REEL_01, scenes: "SC001-SC020"}
+    - {id: REEL_02, scenes: "SC021-SC040"}
+    - {id: REEL_03, scenes: "SC041-SC060"}
+    - {id: REEL_04, scenes: "SC061-SC080"}
+    - {id: REEL_05, scenes: "SC081-SC100"}
+
+picture:
+  still_fit_default: cover
+  pan_zoom_default: NONE_UNLESS_SHOT_SPECIFIED
+  parallax_default: NONE_UNLESS_SHOT_SPECIFIED
+  transition_default: CUT
+  preserve_scope_composition: true
+  no_auto_reframe: true
+  no_unapproved_crop: true
+
+audio:
+  sample_rate_hz: 48000
+  dialogue_stem_required_when_available: true
+  bgm_sfx_stem_required_when_available: true
+  scene_mix_stem_required_when_available: true
+  mastered_prefix_end_seconds: 134.293333
+  preserve_creator_voice: true
+  generated_dialogue_allowed: false
+
+revision:
+  data_driven_scene_sequences: true
+  data_driven_shot_sequences: true
+  shot_asset_replaceable_by_id: true
+  scene_reorder_supported: true
+  duration_edit_supported: true
+  screen_direction_edit_supported: true
+  camera_orientation_edit_supported: true
+  audio_cue_edit_supported: true
+
+render_policy:
+  render_only_on_explicit_user_request: true
+  scene_preview_before_reel: true
+  reel_preview_before_feature: true
+  final_render_requires_all_scene_manifests_resolved: true

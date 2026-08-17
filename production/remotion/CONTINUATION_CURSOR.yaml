@@ -1,0 +1,47 @@
+version: 1
+project: ANAADHI
+control: REMOTION_CONTINUATION_CURSOR
+as_of_local: "2026-08-17T11:50:00+05:30"
+backend:
+  github_canonical_control: true
+  chat_storyboard_generation: true
+  remotion_assembly: true
+  heygen_generation_enabled: false
+  openai_work_page_generation_enabled: false
+  paid_media_api_execution_enabled: false
+  secrets_allowed_in_repository: false
+
+visual_preproduction:
+  restart_from_scene_001: false
+  inherit_existing_locked_work: true
+  last_locked_environment_stage: ENV-6C
+  storyboard_frame_generation_started: false
+  next_phase: SHOT_SPEC_MATERIALIZATION
+  scope_to_materialize: SC001-SC100
+  note: >-
+    Shot specs cover the whole approved movie because no final per-shot manifest has yet been
+    materialized; this does not restart prior ENV/P0/P1 work. Every shot spec must inherit that work.
+
+audio:
+  mastered_prefix_locked: true
+  mastered_prefix_end_timecode: "00:02:14.293333"
+  mastered_prefix_end_seconds: 134.293333
+  resume_mix_after_seconds: 134.293333
+  reopen_locked_prefix_only_on_explicit_user_redraft: true
+
+picture_master:
+  width: 3840
+  height: 1600
+  aspect_ratio: "2.40:1"
+  fps: 30
+  baked_letterbox: false
+
+revision_policy:
+  scene_local: true
+  shot_local: true
+  allow_screen_direction_change: true
+  allow_camera_axis_change: true
+  allow_shot_reorder: true
+  allow_duration_change: true
+  allow_audio_cue_change: true
+  unrelated_scene_regeneration_required: false

@@ -1,0 +1,108 @@
+version: 1
+project: ANAADHI
+control: STORYBOARD_SHOT_SPEC_SCHEMA
+required_top_level_fields:
+  - scene_id
+  - shot_id
+  - revision_id
+  - status
+  - screenplay_source
+  - continuity
+  - composition
+  - generation
+  - remotion
+  - audio
+  - exclusions
+
+field_contract:
+  scene_id: "SC001-SC100"
+  shot_id: "SC###_SH###"
+  revision_id: "R001+"
+  status: [SPEC_DRAFT, SPEC_READY, GENERATED, REVIEW, APPROVED_SHOT, LOCKED_PICTURE, FINAL]
+  screenplay_source:
+    required: [scene_number, beat_summary, source_authority]
+    optional: [dialogue_window, action_excerpt_summary, override_id]
+  continuity:
+    required:
+      - location_root_ids
+      - nested_space_ids
+      - location_state_ids
+      - character_bindings
+      - prop_bindings
+      - vehicle_bindings
+      - technology_bindings
+      - weather_time_bindings
+    character_binding_fields:
+      - character_id
+      - identity_source
+      - age_body_state
+      - hair_state
+      - costume_state
+      - injury_state
+      - height_cm_if_applicable
+      - pose_expression_constraints
+    unknown_policy: "never silently invent a missing canonical state; record controlled_inference or blocker"
+  composition:
+    required:
+      - shot_purpose
+      - shot_size
+      - camera_height
+      - camera_side
+      - screen_direction
+      - lens_intent
+      - subject_placement
+      - depth_plan
+      - orientation_notes
+    screen_direction_values: [LEFT_TO_RIGHT, RIGHT_TO_LEFT, NEUTRAL, AXIS_LOCKED, REDRAFTABLE]
+  generation:
+    required:
+      - visual_prompt
+      - negative_constraints
+      - continuity_anchor_summary
+      - generation_backend
+    generation_backend_value: CHATGPT_CHAT_PAGE
+    secrets_permitted: false
+    api_key_fields_permitted: false
+  remotion:
+    required:
+      - duration_seconds
+      - transition_in
+      - transition_out
+      - motion_mode
+      - crop_policy
+    motion_mode_values: [STATIC, SLOW_PUSH_IN, SLOW_PULL_OUT, PAN_LEFT, PAN_RIGHT, TILT_UP, TILT_DOWN, CUSTOM]
+    optional:
+      - start_scale
+      - end_scale
+      - start_x
+      - end_x
+      - start_y
+      - end_y
+  audio:
+    required:
+      - dialogue_policy
+      - dialogue_windows
+      - bgm_cues
+      - sfx_cues
+      - ambience_cues
+    dialogue_policy_values: [CREATOR_RECORDING_ONLY, NO_DIALOGUE, VOICE_OVER_NO_LIPSYNC]
+  exclusions:
+    required:
+      - forbidden_character_states
+      - forbidden_location_aliases
+      - forbidden_prop_substitutions
+      - continuity_collision_notes
+
+redraft_contract:
+  replace_still_without_new_shot_id: true
+  update_revision_id_on_material_change: true
+  allow_orientation_change: true
+  allow_screen_direction_change: true
+  allow_shot_order_change_at_scene_manifest_level: true
+  allow_audio_timing_change: true
+  regenerate_unrelated_shots: false
+
+approval_gate:
+  generated_shot_requires_exact_git_spec: true
+  approval_must_reference_scene_and_shot_id: true
+  image_path_or_hash_must_not_be_fabricated: true

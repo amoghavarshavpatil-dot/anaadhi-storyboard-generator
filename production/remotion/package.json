@@ -1,22 +1,24 @@
 {
-  "name": "anaadhi-remotion-assembly",
-  "version": "0.1.0",
+  "name": "anaadhi-remotion-storyboard-audiobook",
   "private": true,
+  "version": "0.1.0",
   "scripts": {
-    "studio": "remotion studio src/index.ts --no-open",
-    "compositions": "remotion compositions src/index.ts",
-    "typecheck": "tsc --noEmit"
+    "studio": "remotion studio",
+    "render": "remotion render ANAADHI_STORYBOARD_AUDIOBOOK_4K_SCOPE",
+    "render:reel1": "remotion render ANAADHI_REEL_01",
+    "render:reel2": "remotion render ANAADHI_REEL_02",
+    "render:reel3": "remotion render ANAADHI_REEL_03",
+    "render:reel4": "remotion render ANAADHI_REEL_04",
+    "render:reel5": "remotion render ANAADHI_REEL_05"
   },
   "dependencies": {
-    "@remotion/cli": "4.0.506",
-    "@remotion/media": "4.0.506",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "remotion": "4.0.506"
+    "@remotion/cli": "^4.0.506",
+    "@remotion/media": "^4.0.506",
+    "remotion": "^4.0.506",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/react": "19.1.10",
-    "@types/react-dom": "19.1.7",
-    "typescript": "5.9.2"
+    "typescript": "^5.7.0"
   }
 }
