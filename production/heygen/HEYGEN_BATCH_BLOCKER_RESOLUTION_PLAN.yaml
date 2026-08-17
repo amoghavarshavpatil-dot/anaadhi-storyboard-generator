@@ -3,7 +3,7 @@ project: ANAADHI
 control: HEYGEN-BATCH-BLOCKER-RESOLUTION-PLAN
 mode: PLANNING_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_SUBMISSION
 source_matrix: production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
-source_matrix_sha256: 0f7c7fad2347c74b56d5d63f2779fd1edb0fc5268786e555ab63bb676cb92d47
+source_matrix_sha256: 294234bebafce845fdd9758f9ba1555a5177b04a01862e6903894f760ce0c44b
 validated_scope: B01-B34 / SC001-SC100
 invariants:
   fabricate_approved_status: false
