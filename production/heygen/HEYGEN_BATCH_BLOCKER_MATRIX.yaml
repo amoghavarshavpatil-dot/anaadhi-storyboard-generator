@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: ec176261ce0e9616e77fa936141c35a274476ff6
+validated_repository_head: 93246656c272f5e50ecc6c1dc94907fab21ba061
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -67,7 +67,7 @@ report:
     - batch_id: B01
       category: nested-space
       code: REMAINING_LOCATION_WORK
-      message: 'Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
+      message: 'Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state'
     - batch_id: B01
       category: location
       code: REFERENCE_NOT_APPROVED
@@ -726,7 +726,7 @@ report:
     - batch_id: B24
       category: nested-space
       code: REMAINING_LOCATION_WORK
-      message: 'Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin capture state'
+      message: 'Unresolved location/nested-space/state work: Paraane central-command nested room | SUB-003-25 pharmaceutical transfer vault visual reference | raised-cabin capture state'
     - batch_id: B24
       category: location
       code: REFERENCE_NOT_APPROVED

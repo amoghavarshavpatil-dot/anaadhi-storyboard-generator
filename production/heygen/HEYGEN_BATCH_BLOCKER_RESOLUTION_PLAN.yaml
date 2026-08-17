@@ -3,7 +3,7 @@ project: ANAADHI
 control: HEYGEN-BATCH-BLOCKER-RESOLUTION-PLAN
 mode: PLANNING_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_SUBMISSION
 source_matrix: production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
-source_matrix_sha256: 48c4a5020e530a2b728f1f9d22846f94fa6af0fd2922c538f71548db3d8b9b04
+source_matrix_sha256: 22e512259be1023ceddebf6225b7cc35b6eb2232375cc0795d637e1587fcf84d
 validated_scope: B01-B34 / SC001-SC100
 invariants:
   fabricate_approved_status: false
@@ -55,7 +55,7 @@ hard_separation:
   - AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07
   - AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-08,B26-AV-09,B26-AV-10
   conditional_work_page_media_only_after_existing_asset_checks_fail:
-  - 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
+  - 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state'
   - 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: systems-lab nested interior'
   - 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if required'
   - 'SPATIAL::B04::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Neonatal Diagnostic Suite | Records Control Room | Maternity Recovery Room | other required hospital
@@ -81,8 +81,8 @@ hard_separation:
   - 'SPATIAL::B22::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-055 mirror remains physically too low for 1.93 m Anaadhi'
   - 'SPATIAL::B23::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-056 repaired-bag continuity | LOC-057 seventeen-name display custody continuity | raised-cabin
     state continuity'
-  - 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin capture
-    state'
+  - 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | SUB-003-25 pharmaceutical transfer vault visual reference
+    | raised-cabin capture state'
   - 'SPATIAL::B25::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-001 lower passage identity | grate/route continuity between cabin and ravine'
   - 'SPATIAL::B26::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE'
   - 'SPATIAL::B26::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: mature Paraane states | archive | old observation corridor | required nested rooms'
@@ -315,7 +315,7 @@ safe_dependency_resolution_order:
   new_work_page_media_required: false
   safe_first_action: Verify the actual private-avatar consent state, then record only the observed affirmative state; do not infer consent.
 - step: 6
-  dependency_id: 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
+  dependency_id: 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state'
   scope: BATCH_SPECIFIC
   batch_impact: 1
   batches: &id006
@@ -528,8 +528,8 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
 - step: 29
-  dependency_id: 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin
-    capture state'
+  dependency_id: 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | SUB-003-25 pharmaceutical transfer vault visual
+    reference | raised-cabin capture state'
   scope: BATCH_SPECIFIC
   batch_impact: 1
   batches: &id029
@@ -2369,8 +2369,8 @@ batch_unlock_order:
   dependencies_in_safe_order:
   - CONSENT::ANAADHI_PRIVATE_AVATAR
   - CONSENT::production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
-  - 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin capture
-    state'
+  - 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | SUB-003-25 pharmaceutical transfer vault visual reference
+    | raised-cabin capture state'
   - AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   - REF::PRP-PARAANE-EMBLEM
   - REF::LOC-BHAIGAARA-RAISED-CABIN
@@ -2468,7 +2468,7 @@ batch_unlock_order:
   dependencies_in_safe_order:
   - CONSENT::ANAADHI_PRIVATE_AVATAR
   - CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
-  - 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
+  - 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state'
   - REF::PRP-PARAANE-EMBLEM
   - REF::LOC-BHAIGAARA-RAISED-CABIN
   - REF::PRP-SPLIT-FLOORBOARD
@@ -2661,7 +2661,7 @@ canonical_dependencies:
   new_work_page_media_required: false
   safe_first_action: Verify the actual private-avatar consent state, then record only the observed affirmative state; do not infer consent.
   evidence: {}
-- dependency_id: 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
+- dependency_id: 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state'
   batches: *id006
   raw_blocker_count: 1
   raw_blocker_numbers:
@@ -2670,7 +2670,7 @@ canonical_dependencies:
     batch_id: B01
     category: nested-space
     code: REMAINING_LOCATION_WORK
-    message: 'Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
+    message: 'Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state'
   batch_impact: 1
   scope: BATCH_SPECIFIC
   resolution_lane: SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK
@@ -3035,8 +3035,8 @@ canonical_dependencies:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
   evidence: {}
-- dependency_id: 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin
-    capture state'
+- dependency_id: 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | SUB-003-25 pharmaceutical transfer vault visual
+    reference | raised-cabin capture state'
   batches: *id029
   raw_blocker_count: 1
   raw_blocker_numbers:
@@ -3045,7 +3045,7 @@ canonical_dependencies:
     batch_id: B24
     category: nested-space
     code: REMAINING_LOCATION_WORK
-    message: 'Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin capture state'
+    message: 'Unresolved location/nested-space/state work: Paraane central-command nested room | SUB-003-25 pharmaceutical transfer vault visual reference | raised-cabin capture state'
   batch_impact: 1
   scope: BATCH_SPECIFIC
   resolution_lane: SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK

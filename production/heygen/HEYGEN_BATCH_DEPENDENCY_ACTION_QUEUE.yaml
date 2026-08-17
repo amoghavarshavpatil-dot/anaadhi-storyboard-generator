@@ -1244,7 +1244,7 @@ packets:
   heygen_submission_allowed: false
   queue_position: 32
 - packet_id: HEYGEN-AQ-037
-  dependency_id: 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
+  dependency_id: 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state'
   active: true
   status: OPEN_UNRESOLVED
   priority_class: P2_BATCH_SPECIFIC
@@ -2856,8 +2856,8 @@ packets:
   heygen_submission_allowed: false
   queue_position: 94
 - packet_id: HEYGEN-AQ-118
-  dependency_id: 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin
-    capture state'
+  dependency_id: 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | SUB-003-25 pharmaceutical transfer vault visual
+    reference | raised-cabin capture state'
   active: true
   status: OPEN_UNRESOLVED
   priority_class: P2_BATCH_SPECIFIC

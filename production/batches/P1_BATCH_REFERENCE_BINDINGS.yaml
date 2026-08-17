@@ -67,7 +67,7 @@ location_bindings:
     scenes: [1,2,3,4,5]
     env6l_roots: [LOC-001]
     approved_root: true
-    remaining_location_work: ["raised-cabin interior identity", "split-floor continuity", "capture/breach later-state"]
+    remaining_location_work: ["SUB-001-02 main interior visual reference", "LOC-001 ST01 capture/breach visual state"]
   B02:
     scenes: [6]
     env6l_roots: [LOC-002]
@@ -183,7 +183,7 @@ location_bindings:
     scenes: [64,65,66]
     env6l_roots: [LOC-003, LOC-001]
     approved_root: true
-    remaining_location_work: ["Paraane central-command nested room", "pharmacy/ADK-7 vault canonical binding", "raised-cabin capture state"]
+    remaining_location_work: ["Paraane central-command nested room", "SUB-003-25 pharmaceutical transfer vault visual reference", "raised-cabin capture state"]
   B25:
     scenes: [67,68]
     env6l_roots: [LOC-001, LOC-060, LOC-061]
