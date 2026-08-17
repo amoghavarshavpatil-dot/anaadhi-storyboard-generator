@@ -3,7 +3,7 @@ project: ANAADHI
 control: HEYGEN-BATCH-BLOCKER-RESOLUTION-PLAN
 mode: PLANNING_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_SUBMISSION
 source_matrix: production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
-source_matrix_sha256: 8297bde162e6afa46e2d1f33fd608bfe516bd529f19d833bbc3411935ea3be9e
+source_matrix_sha256: 0f7c7fad2347c74b56d5d63f2779fd1edb0fc5268786e555ab63bb676cb92d47
 validated_scope: B01-B34 / SC001-SC100
 invariants:
   fabricate_approved_status: false
@@ -18,8 +18,8 @@ source_snapshot:
     passed_batches: 0
     blocked_batches: 34
     global_blockers: 0
-    total_blockers: 291
-  raw_blockers_seen: 291
+    total_blockers: 284
+  raw_blockers_seen: 284
   binding_source_loaded: true
   registry_source_loaded: true
   avatar_index_loaded: true
@@ -28,7 +28,7 @@ deduplication_summary:
   canonical_dependencies: 181
   shared_dependencies: 34
   batch_specific_dependencies: 147
-  raw_blockers_collapsed: 110
+  raw_blockers_collapsed: 103
   resolution_lane_counts:
     CONSENT_STATE_UPDATE: 5
     DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 92
@@ -51,9 +51,9 @@ hard_separation:
   - CONSENT::production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
   - CONSENT::production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
   - CONSENT::production/heygen/avatars/B26/B26_AVATAR_MANIFEST.yaml
-  - AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
-  - AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07,B25-AV-08
-  - AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
+  - AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+  - AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07
+  - AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-08,B26-AV-09,B26-AV-10
   conditional_work_page_media_only_after_existing_asset_checks_fail:
   - 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
   - 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: systems-lab nested interior'
@@ -144,12 +144,10 @@ hard_separation:
   - AVATAR_SLOT::B34::AVATAR_MANIFEST_UNASSIGNED
   - REF::PRP-PARAANE-EMBLEM
   - REF::PRP-SEVENTEEN-NAME-LIST
-  - REF::AGE-ANAADHI-27-RECOVERY
   - REF::CST-ANAADHI-20-26
+  - REF::AGE-ANAADHI-27-RECOVERY
   - REF::LOC-PARAANE-CHILD-WING
-  - REF::PRP-MEDICINE-CUP
   - REF::CST-ANAADHI-CHILD-INSTITUTIONAL
-  - REF::PRP-PARAANE-WRIST-DEVICE
   - REF::LOC-BHAIGAARA-RAISED-CABIN
   - REF::PRP-ADK7-CARTRIDGE
   - REF::PRP-SPLIT-FLOORBOARD
@@ -157,6 +155,7 @@ hard_separation:
   - REF::INJ-ANAADHI-27-SURGERY
   - REF::LOC-ANAADHI-HIDDEN-CABINS
   - REF::LOC-PARAANE-CAMPUS-MATURE
+  - REF::PRP-MEDICINE-CUP
   - REF::TEC-BLACK-KITE-DRONE
   - REF::CST-ANAADHI-FOREST-TEEN
   - REF::ENV-BLACK-RAIN
@@ -173,6 +172,7 @@ hard_separation:
   - REF::LOC-PARVARAN-JANNE-HOUSE
   - REF::LOC-VILLAGE-HAND-PUMP
   - REF::PRP-FOUR-ROAD-SHRINE
+  - REF::PRP-PARAANE-WRIST-DEVICE
   - REF::VEH-ANAADHI-MOTORCYCLE
   - REF::VEH-PARAANE-MEDICAL-TRANSPORT
   - REF::AGE-ANAADHI-13
@@ -776,7 +776,7 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
 - step: 56
-  dependency_id: AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+  dependency_id: AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   scope: BATCH_SPECIFIC
   batch_impact: 1
   batches: &id056
@@ -785,7 +785,7 @@ safe_dependency_resolution_order:
   new_work_page_media_required: false
   safe_first_action: Author the batch avatar manifest by binding the explicitly designated B01 capture identities/looks; do not create replacement identity media.
 - step: 57
-  dependency_id: AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07,B25-AV-08
+  dependency_id: AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07
   scope: BATCH_SPECIFIC
   batch_impact: 1
   batches: &id057
@@ -794,7 +794,7 @@ safe_dependency_resolution_order:
   new_work_page_media_required: false
   safe_first_action: Author the batch avatar manifest by binding the explicitly designated B01 capture identities/looks; do not create replacement identity media.
 - step: 58
-  dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
+  dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-08,B26-AV-09,B26-AV-10
   scope: BATCH_SPECIFIC
   batch_impact: 1
   batches: &id058
@@ -1105,25 +1105,10 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
 - step: 91
-  dependency_id: REF::AGE-ANAADHI-27-RECOVERY
-  scope: SHARED
-  batch_impact: 7
-  batches: &id091
-  - B27
-  - B28
-  - B29
-  - B30
-  - B31
-  - B32
-  - B33
-  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 92
   dependency_id: REF::CST-ANAADHI-20-26
   scope: SHARED
   batch_impact: 7
-  batches: &id092
+  batches: &id091
   - B16
   - B17
   - B18
@@ -1131,6 +1116,20 @@ safe_dependency_resolution_order:
   - B20
   - B21
   - B22
+  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+- step: 92
+  dependency_id: REF::AGE-ANAADHI-27-RECOVERY
+  scope: SHARED
+  batch_impact: 6
+  batches: &id092
+  - B27
+  - B28
+  - B30
+  - B31
+  - B32
+  - B33
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
@@ -1149,24 +1148,10 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
 - step: 94
-  dependency_id: REF::PRP-MEDICINE-CUP
-  scope: SHARED
-  batch_impact: 6
-  batches: &id094
-  - B06
-  - B07
-  - B08
-  - B09
-  - B11
-  - B26
-  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 95
   dependency_id: REF::CST-ANAADHI-CHILD-INSTITUTIONAL
   scope: SHARED
   batch_impact: 5
-  batches: &id095
+  batches: &id094
   - B07
   - B08
   - B09
@@ -1175,21 +1160,32 @@ safe_dependency_resolution_order:
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 96
-  dependency_id: REF::PRP-PARAANE-WRIST-DEVICE
+- step: 95
+  dependency_id: REF::LOC-BHAIGAARA-RAISED-CABIN
   scope: SHARED
-  batch_impact: 5
+  batch_impact: 4
+  batches: &id095
+  - B01
+  - B23
+  - B24
+  - B25
+  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+- step: 96
+  dependency_id: REF::PRP-ADK7-CARTRIDGE
+  scope: SHARED
+  batch_impact: 4
   batches: &id096
   - B01
-  - B03
-  - B04
   - B24
   - B29
+  - B30
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
 - step: 97
-  dependency_id: REF::LOC-BHAIGAARA-RAISED-CABIN
+  dependency_id: REF::PRP-SPLIT-FLOORBOARD
   scope: SHARED
   batch_impact: 4
   batches: &id097
@@ -1201,126 +1197,123 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
 - step: 98
-  dependency_id: REF::PRP-ADK7-CARTRIDGE
+  dependency_id: REF::CST-ANAADHI-27-RECOVERY
   scope: SHARED
-  batch_impact: 4
+  batch_impact: 3
   batches: &id098
-  - B01
-  - B24
+  - B27
+  - B28
   - B29
-  - B30
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
 - step: 99
-  dependency_id: REF::PRP-SPLIT-FLOORBOARD
+  dependency_id: REF::INJ-ANAADHI-27-SURGERY
   scope: SHARED
-  batch_impact: 4
+  batch_impact: 3
   batches: &id099
-  - B01
-  - B23
-  - B24
-  - B25
+  - B27
+  - B28
+  - B29
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
 - step: 100
-  dependency_id: REF::CST-ANAADHI-27-RECOVERY
-  scope: SHARED
-  batch_impact: 3
-  batches: &id100
-  - B27
-  - B28
-  - B29
-  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 101
-  dependency_id: REF::INJ-ANAADHI-27-SURGERY
-  scope: SHARED
-  batch_impact: 3
-  batches: &id101
-  - B27
-  - B28
-  - B29
-  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 102
   dependency_id: REF::LOC-ANAADHI-HIDDEN-CABINS
   scope: SHARED
   batch_impact: 3
-  batches: &id102
+  batches: &id100
   - B16
   - B17
   - B18
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 103
+- step: 101
   dependency_id: REF::LOC-PARAANE-CAMPUS-MATURE
   scope: SHARED
   batch_impact: 3
-  batches: &id103
+  batches: &id101
   - B26
   - B30
   - B33
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 104
+- step: 102
+  dependency_id: REF::PRP-MEDICINE-CUP
+  scope: SHARED
+  batch_impact: 3
+  batches: &id102
+  - B07
+  - B09
+  - B26
+  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+- step: 103
   dependency_id: REF::TEC-BLACK-KITE-DRONE
   scope: SHARED
   batch_impact: 3
-  batches: &id104
+  batches: &id103
   - B01
   - B24
   - B25
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 105
+- step: 104
   dependency_id: REF::CST-ANAADHI-FOREST-TEEN
   scope: SHARED
   batch_impact: 2
-  batches: &id105
+  batches: &id104
   - B13
   - B14
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 106
+- step: 105
   dependency_id: REF::ENV-BLACK-RAIN
   scope: SHARED
   batch_impact: 2
-  batches: &id106
+  batches: &id105
   - B01
   - B24
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 107
+- step: 106
   dependency_id: REF::INJ-ANAADHI-12-ESCAPE
   scope: SHARED
   batch_impact: 2
-  batches: &id107
+  batches: &id106
   - B11
   - B12
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 108
+- step: 107
   dependency_id: REF::LOC-068
   scope: SHARED
   batch_impact: 2
-  batches: &id108
+  batches: &id107
   - B29
   - B30
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 109
+- step: 108
   dependency_id: REF::LOC-070
+  scope: SHARED
+  batch_impact: 2
+  batches: &id108
+  - B30
+  - B33
+  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+- step: 109
+  dependency_id: REF::LOC-080
   scope: SHARED
   batch_impact: 2
   batches: &id109
@@ -1330,102 +1323,102 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
 - step: 110
-  dependency_id: REF::LOC-080
-  scope: SHARED
-  batch_impact: 2
-  batches: &id110
-  - B30
-  - B33
-  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 111
   dependency_id: REF::LOC-087
   scope: SHARED
   batch_impact: 2
-  batches: &id111
+  batches: &id110
   - B33
   - B34
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 112
+- step: 111
   dependency_id: REF::LOC-ADRAKA-SYSTEMS-LAB
   scope: SHARED
   batch_impact: 2
-  batches: &id112
+  batches: &id111
   - B02
   - B30
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 113
+- step: 112
   dependency_id: REF::LOC-BHAIGAARA-FOREST-SURVIVAL
   scope: SHARED
   batch_impact: 2
-  batches: &id113
+  batches: &id112
   - B13
   - B19
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 114
+- step: 113
   dependency_id: REF::LOC-PARAANE-CAMPUS-EARLY
   scope: SHARED
   batch_impact: 2
-  batches: &id114
+  batches: &id113
   - B03
   - B05
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 115
+- step: 114
   dependency_id: REF::LOC-PARAANE-CENTRAL-COMMAND
   scope: SHARED
   batch_impact: 2
-  batches: &id115
+  batches: &id114
   - B03
   - B24
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 116
+- step: 115
   dependency_id: REF::LOC-PARAANE-HIGH-OBSERVATION
   scope: SHARED
   batch_impact: 2
-  batches: &id116
+  batches: &id115
   - B11
   - B26
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 117
+- step: 116
   dependency_id: REF::LOC-PARVARAN-JANNE-HOUSE
   scope: SHARED
   batch_impact: 2
-  batches: &id117
+  batches: &id116
   - B12
   - B30
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 118
+- step: 117
   dependency_id: REF::LOC-VILLAGE-HAND-PUMP
   scope: SHARED
   batch_impact: 2
-  batches: &id118
+  batches: &id117
   - B15
   - B16
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-- step: 119
+- step: 118
   dependency_id: REF::PRP-FOUR-ROAD-SHRINE
   scope: SHARED
   batch_impact: 2
-  batches: &id119
+  batches: &id118
   - B05
   - B12
+  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+- step: 119
+  dependency_id: REF::PRP-PARAANE-WRIST-DEVICE
+  scope: SHARED
+  batch_impact: 2
+  batches: &id119
+  - B01
+  - B04
   resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
   new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
@@ -1991,23 +1984,22 @@ safe_dependency_resolution_order:
   safe_first_action: Resolve metadata/control evidence first; preserve the hard block until the validator proves the dependency cleared.
 batch_unlock_order:
 - batch_id: B06
-  canonical_dependency_count: 6
-  unlock_after_dependency_step: 94
+  canonical_dependency_count: 5
+  unlock_after_dependency_step: 93
   dependencies_in_safe_order:
   - CONSENT::ANAADHI_PRIVATE_AVATAR
   - 'SPATIAL::B06::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane emergency intake | Parvaran office / child-wing overlook'
   - AVATAR_SLOT::B06::AVATAR_MANIFEST_UNASSIGNED
   - REF::PRP-PARAANE-EMBLEM
   - REF::LOC-PARAANE-CHILD-WING
-  - REF::PRP-MEDICINE-CUP
   resolution_lane_counts:
     CONSENT_STATE_UPDATE: 1
-    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 3
+    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 2
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 1
     WORK_PAGE_AVATAR_PARTIAL_REUSE_THEN_GAP_REVIEW: 1
 - batch_id: B10
   canonical_dependency_count: 5
-  unlock_after_dependency_step: 95
+  unlock_after_dependency_step: 94
   dependencies_in_safe_order:
   - CONSENT::ANAADHI_PRIVATE_AVATAR
   - 'SPATIAL::B10::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: family visitation hall | child-wing community kitchen'
@@ -2021,12 +2013,12 @@ batch_unlock_order:
     WORK_PAGE_AVATAR_REUSE_OR_SOURCE_GAP_REVIEW: 1
 - batch_id: B25
   canonical_dependency_count: 7
-  unlock_after_dependency_step: 104
+  unlock_after_dependency_step: 103
   dependencies_in_safe_order:
   - CONSENT::ANAADHI_PRIVATE_AVATAR
   - CONSENT::production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
   - 'SPATIAL::B25::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: LOC-001 lower passage identity | grate/route continuity between cabin and ravine'
-  - AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07,B25-AV-08
+  - AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07
   - REF::LOC-BHAIGAARA-RAISED-CABIN
   - REF::PRP-SPLIT-FLOORBOARD
   - REF::TEC-BLACK-KITE-DRONE
@@ -2139,8 +2131,8 @@ batch_unlock_order:
   - 'SPATIAL::B07::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: child-wing nested identity | observation gallery'
   - AVATAR_SLOT::B07::AVATAR_MANIFEST_UNASSIGNED
   - REF::LOC-PARAANE-CHILD-WING
-  - REF::PRP-MEDICINE-CUP
   - REF::CST-ANAADHI-CHILD-INSTITUTIONAL
+  - REF::PRP-MEDICINE-CUP
   - REF::HR-ANAADHI-05
   resolution_lane_counts:
     CONSENT_STATE_UPDATE: 1
@@ -2148,37 +2140,35 @@ batch_unlock_order:
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 1
     WORK_PAGE_AVATAR_REUSE_OR_SOURCE_GAP_REVIEW: 1
 - batch_id: B08
-  canonical_dependency_count: 7
+  canonical_dependency_count: 6
   unlock_after_dependency_step: 143
   dependencies_in_safe_order:
   - CONSENT::ANAADHI_PRIVATE_AVATAR
   - 'SPATIAL::B08::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: child-wing consultation room | developmental assessment chamber'
   - AVATAR_SLOT::B08::AVATAR_MANIFEST_UNASSIGNED
   - REF::LOC-PARAANE-CHILD-WING
-  - REF::PRP-MEDICINE-CUP
   - REF::CST-ANAADHI-CHILD-INSTITUTIONAL
   - REF::HR-ANAADHI-07
   resolution_lane_counts:
     CONSENT_STATE_UPDATE: 1
-    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 4
+    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 3
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 1
     WORK_PAGE_AVATAR_REUSE_OR_SOURCE_GAP_REVIEW: 1
 - batch_id: B11
-  canonical_dependency_count: 8
+  canonical_dependency_count: 7
   unlock_after_dependency_step: 144
   dependencies_in_safe_order:
   - CONSENT::ANAADHI_PRIVATE_AVATAR
   - 'SPATIAL::B11::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: high observation | audit corridor | service corridors | security control | old drainage passage
     | outer embankment'
   - AVATAR_SLOT::B11::AVATAR_MANIFEST_UNASSIGNED
-  - REF::PRP-MEDICINE-CUP
   - REF::CST-ANAADHI-CHILD-INSTITUTIONAL
   - REF::INJ-ANAADHI-12-ESCAPE
   - REF::LOC-PARAANE-HIGH-OBSERVATION
   - REF::HR-ANAADHI-12-CLOSE
   resolution_lane_counts:
     CONSENT_STATE_UPDATE: 1
-    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 5
+    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 4
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 1
     WORK_PAGE_AVATAR_REUSE_OR_SOURCE_GAP_REVIEW: 1
 - batch_id: B12
@@ -2383,12 +2373,12 @@ batch_unlock_order:
   - 'SPATIAL::B26::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION'
   - 'SPATIAL::B26::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: mature Paraane states | archive | old observation corridor | required nested rooms'
   - SPATIAL::B26::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found 'PARTIAL'
-  - AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
+  - AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-08,B26-AV-09,B26-AV-10
   - REF::PRP-PARAANE-EMBLEM
   - REF::PRP-SEVENTEEN-NAME-LIST
   - REF::LOC-PARAANE-CHILD-WING
-  - REF::PRP-MEDICINE-CUP
   - REF::LOC-PARAANE-CAMPUS-MATURE
+  - REF::PRP-MEDICINE-CUP
   - REF::LOC-PARAANE-HIGH-OBSERVATION
   - REF::LOC-PARAANE-ARCHIVE
   resolution_lane_counts:
@@ -2397,16 +2387,15 @@ batch_unlock_order:
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 3
     WORK_PAGE_AVATAR_MANIFEST_BINDING_TO_EXISTING_B01_IDENTITIES: 1
 - batch_id: B24
-  canonical_dependency_count: 14
+  canonical_dependency_count: 13
   unlock_after_dependency_step: 171
   dependencies_in_safe_order:
   - CONSENT::ANAADHI_PRIVATE_AVATAR
   - CONSENT::production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
   - 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin capture
     state'
-  - AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+  - AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   - REF::PRP-PARAANE-EMBLEM
-  - REF::PRP-PARAANE-WRIST-DEVICE
   - REF::LOC-BHAIGAARA-RAISED-CABIN
   - REF::PRP-ADK7-CARTRIDGE
   - REF::PRP-SPLIT-FLOORBOARD
@@ -2417,7 +2406,7 @@ batch_unlock_order:
   - REF::LOC-PARAANE-PHARMACY-VAULT
   resolution_lane_counts:
     CONSENT_STATE_UPDATE: 2
-    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 10
+    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 9
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 1
     WORK_PAGE_AVATAR_MANIFEST_BINDING_TO_EXISTING_B01_IDENTITIES: 1
 - batch_id: B04
@@ -2436,19 +2425,18 @@ batch_unlock_order:
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 1
     WORK_PAGE_AVATAR_PARTIAL_REUSE_THEN_GAP_REVIEW: 1
 - batch_id: B03
-  canonical_dependency_count: 8
+  canonical_dependency_count: 7
   unlock_after_dependency_step: 173
   dependencies_in_safe_order:
   - 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if required'
   - AVATAR_SLOT::B03::AVATAR_MANIFEST_UNASSIGNED
   - REF::PRP-PARAANE-EMBLEM
-  - REF::PRP-PARAANE-WRIST-DEVICE
   - REF::LOC-PARAANE-CAMPUS-EARLY
   - REF::LOC-PARAANE-CENTRAL-COMMAND
   - REF::ENV-PARAANE-EARLY
   - REF::PRP-FOUNDERS-CREDENTIAL
   resolution_lane_counts:
-    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 6
+    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 5
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 1
     WORK_PAGE_AVATAR_PARTIAL_REUSE_THEN_GAP_REVIEW: 1
 - batch_id: B23
@@ -2489,8 +2477,8 @@ batch_unlock_order:
   - 'SPATIAL::B09::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: child-wing courtyard | medication dispensary'
   - AVATAR_SLOT::B09::AVATAR_MANIFEST_UNASSIGNED
   - REF::LOC-PARAANE-CHILD-WING
-  - REF::PRP-MEDICINE-CUP
   - REF::CST-ANAADHI-CHILD-INSTITUTIONAL
+  - REF::PRP-MEDICINE-CUP
   - REF::TEC-MEDICINE-RAIL
   resolution_lane_counts:
     CONSENT_STATE_UPDATE: 1
@@ -2505,12 +2493,12 @@ batch_unlock_order:
   - CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml
   - 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state'
   - REF::PRP-PARAANE-EMBLEM
-  - REF::PRP-PARAANE-WRIST-DEVICE
   - REF::LOC-BHAIGAARA-RAISED-CABIN
   - REF::PRP-ADK7-CARTRIDGE
   - REF::PRP-SPLIT-FLOORBOARD
   - REF::TEC-BLACK-KITE-DRONE
   - REF::ENV-BLACK-RAIN
+  - REF::PRP-PARAANE-WRIST-DEVICE
   - REF::VEH-PARAANE-MEDICAL-TRANSPORT
   - REF::TEC-PARAANE-SENSOR-STAKE
   resolution_lane_counts:
@@ -2570,7 +2558,7 @@ batch_unlock_order:
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 1
     WORK_PAGE_AVATAR_PARTIAL_REUSE_THEN_GAP_REVIEW: 1
 - batch_id: B29
-  canonical_dependency_count: 13
+  canonical_dependency_count: 11
   unlock_after_dependency_step: 181
   dependencies_in_safe_order:
   - 'SPATIAL::B29::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-067, LOC-068'
@@ -2578,8 +2566,6 @@ batch_unlock_order:
   - SPATIAL::B29::ROOT_LOCATION_UNRESOLVED::approved_root must be boolean true; found 'PARTIAL'
   - AVATAR_SLOT::B29::AVATAR_MANIFEST_UNASSIGNED
   - REF::PRP-PARAANE-EMBLEM
-  - REF::AGE-ANAADHI-27-RECOVERY
-  - REF::PRP-PARAANE-WRIST-DEVICE
   - REF::PRP-ADK7-CARTRIDGE
   - REF::CST-ANAADHI-27-RECOVERY
   - REF::INJ-ANAADHI-27-SURGERY
@@ -2587,7 +2573,7 @@ batch_unlock_order:
   - REF::LOC-067
   - LOCATION::REFERENCE_UNDEFINED::Required reference LOC-003 is not defined in REFERENCE_REGISTRY.yaml
   resolution_lane_counts:
-    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 8
+    DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT: 6
     FAIL_CLOSED_REVIEW_REQUIRED: 1
     SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK: 3
     WORK_PAGE_AVATAR_REUSE_OR_SOURCE_GAP_REVIEW: 1
@@ -2597,36 +2583,36 @@ canonical_dependencies:
   raw_blocker_count: 31
   raw_blocker_numbers:
   - 12
-  - 29
-  - 36
-  - 42
-  - 49
-  - 56
-  - 63
-  - 68
-  - 76
-  - 84
-  - 94
-  - 101
-  - 109
-  - 117
-  - 123
-  - 130
-  - 138
-  - 144
-  - 151
-  - 158
-  - 166
-  - 180
-  - 187
-  - 200
-  - 210
-  - 220
+  - 28
+  - 35
+  - 40
+  - 47
+  - 53
+  - 60
+  - 65
+  - 72
+  - 80
+  - 90
+  - 97
+  - 105
+  - 113
+  - 119
+  - 126
+  - 134
+  - 140
+  - 147
+  - 154
+  - 162
+  - 175
+  - 182
+  - 195
+  - 205
+  - 215
+  - 241
   - 248
-  - 255
-  - 263
-  - 281
-  - 291
+  - 256
+  - 274
+  - 284
   representative_blocker:
     batch_id: B01
     category: consent
@@ -2658,7 +2644,7 @@ canonical_dependencies:
   batches: *id003
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 179
+  - 174
   representative_blocker:
     batch_id: B24
     category: consent
@@ -2674,7 +2660,7 @@ canonical_dependencies:
   batches: *id004
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 186
+  - 181
   representative_blocker:
     batch_id: B25
     category: consent
@@ -2690,7 +2676,7 @@ canonical_dependencies:
   batches: *id005
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 199
+  - 194
   representative_blocker:
     batch_id: B26
     category: consent
@@ -2756,7 +2742,7 @@ canonical_dependencies:
   batches: *id009
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 25
+  - 24
   representative_blocker:
     batch_id: B04
     category: nested-space
@@ -2773,7 +2759,7 @@ canonical_dependencies:
   batches: *id010
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 30
+  - 29
   representative_blocker:
     batch_id: B05
     category: nested-space
@@ -2789,7 +2775,7 @@ canonical_dependencies:
   batches: *id011
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 37
+  - 36
   representative_blocker:
     batch_id: B06
     category: nested-space
@@ -2805,7 +2791,7 @@ canonical_dependencies:
   batches: *id012
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 43
+  - 41
   representative_blocker:
     batch_id: B07
     category: nested-space
@@ -2821,7 +2807,7 @@ canonical_dependencies:
   batches: *id013
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 50
+  - 48
   representative_blocker:
     batch_id: B08
     category: nested-space
@@ -2837,7 +2823,7 @@ canonical_dependencies:
   batches: *id014
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 57
+  - 54
   representative_blocker:
     batch_id: B09
     category: nested-space
@@ -2853,7 +2839,7 @@ canonical_dependencies:
   batches: *id015
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 64
+  - 61
   representative_blocker:
     batch_id: B10
     category: nested-space
@@ -2870,7 +2856,7 @@ canonical_dependencies:
   batches: *id016
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 69
+  - 66
   representative_blocker:
     batch_id: B11
     category: nested-space
@@ -2886,7 +2872,7 @@ canonical_dependencies:
   batches: *id017
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 77
+  - 73
   representative_blocker:
     batch_id: B12
     category: nested-space
@@ -2903,7 +2889,7 @@ canonical_dependencies:
   batches: *id018
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 85
+  - 81
   representative_blocker:
     batch_id: B13
     category: nested-space
@@ -2919,7 +2905,7 @@ canonical_dependencies:
   batches: *id019
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 95
+  - 91
   representative_blocker:
     batch_id: B14
     category: nested-space
@@ -2935,7 +2921,7 @@ canonical_dependencies:
   batches: *id020
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 102
+  - 98
   representative_blocker:
     batch_id: B15
     category: nested-space
@@ -2951,7 +2937,7 @@ canonical_dependencies:
   batches: *id021
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 110
+  - 106
   representative_blocker:
     batch_id: B16
     category: nested-space
@@ -2967,7 +2953,7 @@ canonical_dependencies:
   batches: *id022
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 118
+  - 114
   representative_blocker:
     batch_id: B17
     category: nested-space
@@ -2983,7 +2969,7 @@ canonical_dependencies:
   batches: *id023
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 124
+  - 120
   representative_blocker:
     batch_id: B18
     category: nested-space
@@ -2999,7 +2985,7 @@ canonical_dependencies:
   batches: *id024
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 131
+  - 127
   representative_blocker:
     batch_id: B19
     category: nested-space
@@ -3015,7 +3001,7 @@ canonical_dependencies:
   batches: *id025
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 139
+  - 135
   representative_blocker:
     batch_id: B20
     category: nested-space
@@ -3031,7 +3017,7 @@ canonical_dependencies:
   batches: *id026
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 145
+  - 141
   representative_blocker:
     batch_id: B21
     category: nested-space
@@ -3047,7 +3033,7 @@ canonical_dependencies:
   batches: *id027
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 152
+  - 148
   representative_blocker:
     batch_id: B22
     category: nested-space
@@ -3064,7 +3050,7 @@ canonical_dependencies:
   batches: *id028
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 159
+  - 155
   representative_blocker:
     batch_id: B23
     category: nested-space
@@ -3081,7 +3067,7 @@ canonical_dependencies:
   batches: *id029
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 167
+  - 163
   representative_blocker:
     batch_id: B24
     category: nested-space
@@ -3097,7 +3083,7 @@ canonical_dependencies:
   batches: *id030
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 181
+  - 176
   representative_blocker:
     batch_id: B25
     category: nested-space
@@ -3113,7 +3099,7 @@ canonical_dependencies:
   batches: *id031
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 189
+  - 184
   representative_blocker:
     batch_id: B26
     category: location
@@ -3129,7 +3115,7 @@ canonical_dependencies:
   batches: *id032
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 190
+  - 185
   representative_blocker:
     batch_id: B26
     category: nested-space
@@ -3145,7 +3131,7 @@ canonical_dependencies:
   batches: *id033
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 188
+  - 183
   representative_blocker:
     batch_id: B26
     category: location
@@ -3161,7 +3147,7 @@ canonical_dependencies:
   batches: *id034
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 202
+  - 197
   representative_blocker:
     batch_id: B27
     category: location
@@ -3177,7 +3163,7 @@ canonical_dependencies:
   batches: *id035
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 203
+  - 198
   representative_blocker:
     batch_id: B27
     category: nested-space
@@ -3193,7 +3179,7 @@ canonical_dependencies:
   batches: *id036
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 201
+  - 196
   representative_blocker:
     batch_id: B27
     category: location
@@ -3209,7 +3195,7 @@ canonical_dependencies:
   batches: *id037
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 212
+  - 207
   representative_blocker:
     batch_id: B28
     category: location
@@ -3226,7 +3212,7 @@ canonical_dependencies:
   batches: *id038
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 213
+  - 208
   representative_blocker:
     batch_id: B28
     category: nested-space
@@ -3242,7 +3228,7 @@ canonical_dependencies:
   batches: *id039
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 211
+  - 206
   representative_blocker:
     batch_id: B28
     category: location
@@ -3258,7 +3244,7 @@ canonical_dependencies:
   batches: *id040
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 222
+  - 217
   representative_blocker:
     batch_id: B29
     category: location
@@ -3274,7 +3260,7 @@ canonical_dependencies:
   batches: *id041
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 223
+  - 218
   representative_blocker:
     batch_id: B29
     category: nested-space
@@ -3290,7 +3276,7 @@ canonical_dependencies:
   batches: *id042
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 221
+  - 216
   representative_blocker:
     batch_id: B29
     category: location
@@ -3307,7 +3293,7 @@ canonical_dependencies:
   batches: *id043
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 235
+  - 228
   representative_blocker:
     batch_id: B30
     category: nested-space
@@ -3324,7 +3310,7 @@ canonical_dependencies:
   batches: *id044
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 234
+  - 227
   representative_blocker:
     batch_id: B30
     category: location
@@ -3340,7 +3326,7 @@ canonical_dependencies:
   batches: *id045
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 250
+  - 243
   representative_blocker:
     batch_id: B31
     category: location
@@ -3356,7 +3342,7 @@ canonical_dependencies:
   batches: *id046
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 251
+  - 244
   representative_blocker:
     batch_id: B31
     category: nested-space
@@ -3372,7 +3358,7 @@ canonical_dependencies:
   batches: *id047
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 249
+  - 242
   representative_blocker:
     batch_id: B31
     category: location
@@ -3388,7 +3374,7 @@ canonical_dependencies:
   batches: *id048
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 257
+  - 250
   representative_blocker:
     batch_id: B32
     category: location
@@ -3404,7 +3390,7 @@ canonical_dependencies:
   batches: *id049
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 258
+  - 251
   representative_blocker:
     batch_id: B32
     category: nested-space
@@ -3420,7 +3406,7 @@ canonical_dependencies:
   batches: *id050
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 256
+  - 249
   representative_blocker:
     batch_id: B32
     category: location
@@ -3437,7 +3423,7 @@ canonical_dependencies:
   batches: *id051
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 265
+  - 258
   representative_blocker:
     batch_id: B33
     category: nested-space
@@ -3454,7 +3440,7 @@ canonical_dependencies:
   batches: *id052
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 264
+  - 257
   representative_blocker:
     batch_id: B33
     category: location
@@ -3470,7 +3456,7 @@ canonical_dependencies:
   batches: *id053
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 283
+  - 276
   representative_blocker:
     batch_id: B34
     category: location
@@ -3486,7 +3472,7 @@ canonical_dependencies:
   batches: *id054
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 284
+  - 277
   representative_blocker:
     batch_id: B34
     category: nested-space
@@ -3502,7 +3488,7 @@ canonical_dependencies:
   batches: *id055
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 282
+  - 275
   representative_blocker:
     batch_id: B34
     category: location
@@ -3514,16 +3500,16 @@ canonical_dependencies:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
   evidence: {}
-- dependency_id: AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+- dependency_id: AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   batches: *id056
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 178
+  - 173
   representative_blocker:
     batch_id: B24
     category: avatar-slot
     code: AVATAR_LOOKS_UNRESOLVED
-    message: 'Avatar asset(s) not COMPLETE with look IDs: B24-AV-01, B24-AV-02, B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12'
+    message: 'Avatar asset(s) not COMPLETE with look IDs: B24-AV-02, B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12'
   batch_impact: 1
   scope: BATCH_SPECIFIC
   resolution_lane: WORK_PAGE_AVATAR_MANIFEST_BINDING_TO_EXISTING_B01_IDENTITIES
@@ -3533,13 +3519,6 @@ canonical_dependencies:
     avatar_index_status: PARTIAL_REUSE_B01_CAPTURE_IDENTITIES__UNRESOLVED_SLOTS_REMAIN
     manifest: production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
     targeted_avatar_assets:
-    - asset_id: B24-AV-01
-      source_path: null
-      source_exists: false
-      drive_status: null
-      drive_file_id_present: false
-      heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
-      heygen_look_id_present: false
     - asset_id: B24-AV-02
       source_path: null
       source_exists: false
@@ -3647,16 +3626,16 @@ canonical_dependencies:
       source_exists: true
       drive_status: UPLOADED
       heygen_look_id_present: true
-- dependency_id: AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07,B25-AV-08
+- dependency_id: AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07
   batches: *id057
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 185
+  - 180
   representative_blocker:
     batch_id: B25
     category: avatar-slot
     code: AVATAR_LOOKS_UNRESOLVED
-    message: 'Avatar asset(s) not COMPLETE with look IDs: B25-AV-03, B25-AV-04, B25-AV-05, B25-AV-06, B25-AV-07, B25-AV-08'
+    message: 'Avatar asset(s) not COMPLETE with look IDs: B25-AV-03, B25-AV-04, B25-AV-05, B25-AV-06, B25-AV-07'
   batch_impact: 1
   scope: BATCH_SPECIFIC
   resolution_lane: WORK_PAGE_AVATAR_MANIFEST_BINDING_TO_EXISTING_B01_IDENTITIES
@@ -3701,13 +3680,6 @@ canonical_dependencies:
       drive_file_id_present: false
       heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
       heygen_look_id_present: false
-    - asset_id: B25-AV-08
-      source_path: null
-      source_exists: false
-      drive_status: null
-      drive_file_id_present: false
-      heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
-      heygen_look_id_present: false
     b01_reuse_evidence:
     - asset_id: B01-AV-01
       character_ref: CHR-ANAADHI
@@ -3739,16 +3711,16 @@ canonical_dependencies:
       source_exists: true
       drive_status: UPLOADED
       heygen_look_id_present: true
-- dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
+- dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-08,B26-AV-09,B26-AV-10
   batches: *id058
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 198
+  - 193
   representative_blocker:
     batch_id: B26
     category: avatar-slot
     code: AVATAR_LOOKS_UNRESOLVED
-    message: 'Avatar asset(s) not COMPLETE with look IDs: B26-AV-03, B26-AV-04, B26-AV-05, B26-AV-06, B26-AV-07, B26-AV-08, B26-AV-09, B26-AV-10'
+    message: 'Avatar asset(s) not COMPLETE with look IDs: B26-AV-03, B26-AV-04, B26-AV-05, B26-AV-06, B26-AV-08, B26-AV-09, B26-AV-10'
   batch_impact: 1
   scope: BATCH_SPECIFIC
   resolution_lane: WORK_PAGE_AVATAR_MANIFEST_BINDING_TO_EXISTING_B01_IDENTITIES
@@ -3780,13 +3752,6 @@ canonical_dependencies:
       heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
       heygen_look_id_present: false
     - asset_id: B26-AV-06
-      source_path: null
-      source_exists: false
-      drive_status: null
-      drive_file_id_present: false
-      heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
-      heygen_look_id_present: false
-    - asset_id: B26-AV-07
       source_path: null
       source_exists: false
       drive_status: null
@@ -3831,7 +3796,7 @@ canonical_dependencies:
   batches: *id059
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 24
+  - 23
   representative_blocker:
     batch_id: B03
     category: avatar-slot
@@ -3857,7 +3822,7 @@ canonical_dependencies:
   batches: *id060
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 28
+  - 27
   representative_blocker:
     batch_id: B04
     category: avatar-slot
@@ -3883,7 +3848,7 @@ canonical_dependencies:
   batches: *id061
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 35
+  - 34
   representative_blocker:
     batch_id: B05
     category: avatar-slot
@@ -3909,7 +3874,7 @@ canonical_dependencies:
   batches: *id062
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 41
+  - 39
   representative_blocker:
     batch_id: B06
     category: avatar-slot
@@ -3935,7 +3900,7 @@ canonical_dependencies:
   batches: *id063
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 165
+  - 161
   representative_blocker:
     batch_id: B23
     category: avatar-slot
@@ -3961,7 +3926,7 @@ canonical_dependencies:
   batches: *id064
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 209
+  - 204
   representative_blocker:
     batch_id: B27
     category: avatar-slot
@@ -3993,7 +3958,7 @@ canonical_dependencies:
   batches: *id065
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 219
+  - 214
   representative_blocker:
     batch_id: B28
     category: avatar-slot
@@ -4025,7 +3990,7 @@ canonical_dependencies:
   batches: *id066
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 247
+  - 240
   representative_blocker:
     batch_id: B30
     category: avatar-slot
@@ -4051,7 +4016,7 @@ canonical_dependencies:
   batches: *id067
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 254
+  - 247
   representative_blocker:
     batch_id: B31
     category: avatar-slot
@@ -4077,7 +4042,7 @@ canonical_dependencies:
   batches: *id068
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 262
+  - 255
   representative_blocker:
     batch_id: B32
     category: avatar-slot
@@ -4103,7 +4068,7 @@ canonical_dependencies:
   batches: *id069
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 280
+  - 273
   representative_blocker:
     batch_id: B33
     category: avatar-slot
@@ -4149,7 +4114,7 @@ canonical_dependencies:
   batches: *id071
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 48
+  - 46
   representative_blocker:
     batch_id: B07
     category: avatar-slot
@@ -4169,7 +4134,7 @@ canonical_dependencies:
   batches: *id072
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 55
+  - 52
   representative_blocker:
     batch_id: B08
     category: avatar-slot
@@ -4189,7 +4154,7 @@ canonical_dependencies:
   batches: *id073
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 62
+  - 59
   representative_blocker:
     batch_id: B09
     category: avatar-slot
@@ -4209,7 +4174,7 @@ canonical_dependencies:
   batches: *id074
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 67
+  - 64
   representative_blocker:
     batch_id: B10
     category: avatar-slot
@@ -4229,7 +4194,7 @@ canonical_dependencies:
   batches: *id075
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 75
+  - 71
   representative_blocker:
     batch_id: B11
     category: avatar-slot
@@ -4249,7 +4214,7 @@ canonical_dependencies:
   batches: *id076
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 83
+  - 79
   representative_blocker:
     batch_id: B12
     category: avatar-slot
@@ -4269,7 +4234,7 @@ canonical_dependencies:
   batches: *id077
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 93
+  - 89
   representative_blocker:
     batch_id: B13
     category: avatar-slot
@@ -4289,7 +4254,7 @@ canonical_dependencies:
   batches: *id078
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 100
+  - 96
   representative_blocker:
     batch_id: B14
     category: avatar-slot
@@ -4309,7 +4274,7 @@ canonical_dependencies:
   batches: *id079
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 108
+  - 104
   representative_blocker:
     batch_id: B15
     category: avatar-slot
@@ -4329,7 +4294,7 @@ canonical_dependencies:
   batches: *id080
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 116
+  - 112
   representative_blocker:
     batch_id: B16
     category: avatar-slot
@@ -4349,7 +4314,7 @@ canonical_dependencies:
   batches: *id081
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 122
+  - 118
   representative_blocker:
     batch_id: B17
     category: avatar-slot
@@ -4369,7 +4334,7 @@ canonical_dependencies:
   batches: *id082
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 129
+  - 125
   representative_blocker:
     batch_id: B18
     category: avatar-slot
@@ -4389,7 +4354,7 @@ canonical_dependencies:
   batches: *id083
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 137
+  - 133
   representative_blocker:
     batch_id: B19
     category: avatar-slot
@@ -4409,7 +4374,7 @@ canonical_dependencies:
   batches: *id084
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 143
+  - 139
   representative_blocker:
     batch_id: B20
     category: avatar-slot
@@ -4429,7 +4394,7 @@ canonical_dependencies:
   batches: *id085
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 150
+  - 146
   representative_blocker:
     batch_id: B21
     category: avatar-slot
@@ -4449,7 +4414,7 @@ canonical_dependencies:
   batches: *id086
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 157
+  - 153
   representative_blocker:
     batch_id: B22
     category: avatar-slot
@@ -4469,7 +4434,7 @@ canonical_dependencies:
   batches: *id087
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 233
+  - 226
   representative_blocker:
     batch_id: B29
     category: avatar-slot
@@ -4489,7 +4454,7 @@ canonical_dependencies:
   batches: *id088
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 290
+  - 283
   representative_blocker:
     batch_id: B34
     category: avatar-slot
@@ -4511,12 +4476,12 @@ canonical_dependencies:
   raw_blocker_numbers:
   - 4
   - 20
-  - 39
-  - 172
-  - 197
-  - 231
-  - 246
-  - 279
+  - 38
+  - 168
+  - 192
+  - 225
+  - 239
+  - 272
   representative_blocker:
     batch_id: B01
     category: prop
@@ -4538,14 +4503,14 @@ canonical_dependencies:
   batches: *id090
   raw_blocker_count: 8
   raw_blocker_numbers:
-  - 115
-  - 128
-  - 136
-  - 142
-  - 149
-  - 156
-  - 162
-  - 196
+  - 111
+  - 124
+  - 132
+  - 138
+  - 145
+  - 152
+  - 158
+  - 191
   representative_blocker:
     batch_id: B16
     category: prop
@@ -4563,45 +4528,17 @@ canonical_dependencies:
     registry_path_exists: false
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
-- dependency_id: REF::AGE-ANAADHI-27-RECOVERY
+- dependency_id: REF::CST-ANAADHI-20-26
   batches: *id091
   raw_blocker_count: 7
   raw_blocker_numbers:
-  - 205
-  - 216
-  - 227
-  - 244
-  - 253
-  - 261
-  - 278
-  representative_blocker:
-    batch_id: B27
-    category: character-state
-    code: REFERENCE_NOT_APPROVED
-    message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
-  batch_impact: 7
-  scope: SHARED
-  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-  evidence:
-    reference_id: AGE-ANAADHI-27-RECOVERY
-    registry_status: MISSING_APPROVED_ASSET
-    registry_path: null
-    registry_path_exists: false
-    github_exact_id_media_candidates: []
-    drive_exact_approved_match: null
-- dependency_id: REF::CST-ANAADHI-20-26
-  batches: *id092
-  raw_blocker_count: 7
-  raw_blocker_numbers:
-  - 114
-  - 121
-  - 127
-  - 134
-  - 141
-  - 147
-  - 155
+  - 110
+  - 117
+  - 123
+  - 130
+  - 137
+  - 143
+  - 151
   representative_blocker:
     batch_id: B16
     category: character-state
@@ -4619,16 +4556,43 @@ canonical_dependencies:
     registry_path_exists: false
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
+- dependency_id: REF::AGE-ANAADHI-27-RECOVERY
+  batches: *id092
+  raw_blocker_count: 6
+  raw_blocker_numbers:
+  - 200
+  - 211
+  - 237
+  - 246
+  - 254
+  - 271
+  representative_blocker:
+    batch_id: B27
+    category: character-state
+    code: REFERENCE_NOT_APPROVED
+    message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
+  batch_impact: 6
+  scope: SHARED
+  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+  evidence:
+    reference_id: AGE-ANAADHI-27-RECOVERY
+    registry_status: MISSING_APPROVED_ASSET
+    registry_path: null
+    registry_path_exists: false
+    github_exact_id_media_candidates: []
+    drive_exact_approved_match: null
 - dependency_id: REF::LOC-PARAANE-CHILD-WING
   batches: *id093
   raw_blocker_count: 6
   raw_blocker_numbers:
-  - 38
-  - 44
-  - 51
-  - 58
-  - 65
-  - 192
+  - 37
+  - 42
+  - 49
+  - 55
+  - 62
+  - 187
   representative_blocker:
     batch_id: B06
     category: location
@@ -4646,42 +4610,15 @@ canonical_dependencies:
     registry_path_exists: false
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
-- dependency_id: REF::PRP-MEDICINE-CUP
-  batches: *id094
-  raw_blocker_count: 6
-  raw_blocker_numbers:
-  - 40
-  - 47
-  - 54
-  - 60
-  - 74
-  - 195
-  representative_blocker:
-    batch_id: B06
-    category: prop
-    code: REFERENCE_NOT_APPROVED
-    message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
-  batch_impact: 6
-  scope: SHARED
-  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-  evidence:
-    reference_id: PRP-MEDICINE-CUP
-    registry_status: MISSING_APPROVED_ASSET
-    registry_path: null
-    registry_path_exists: false
-    github_exact_id_media_candidates: []
-    drive_exact_approved_match: null
 - dependency_id: REF::CST-ANAADHI-CHILD-INSTITUTIONAL
-  batches: *id095
+  batches: *id094
   raw_blocker_count: 5
   raw_blocker_numbers:
-  - 46
-  - 53
-  - 59
-  - 66
-  - 72
+  - 44
+  - 51
+  - 56
+  - 63
+  - 69
   representative_blocker:
     batch_id: B07
     category: character-state
@@ -4699,40 +4636,14 @@ canonical_dependencies:
     registry_path_exists: false
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
-- dependency_id: REF::PRP-PARAANE-WRIST-DEVICE
-  batches: *id096
-  raw_blocker_count: 5
-  raw_blocker_numbers:
-  - 5
-  - 22
-  - 27
-  - 173
-  - 232
-  representative_blocker:
-    batch_id: B01
-    category: prop
-    code: REFERENCE_NOT_APPROVED
-    message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
-  batch_impact: 5
-  scope: SHARED
-  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-  evidence:
-    reference_id: PRP-PARAANE-WRIST-DEVICE
-    registry_status: MISSING_APPROVED_ASSET
-    registry_path: null
-    registry_path_exists: false
-    github_exact_id_media_candidates: []
-    drive_exact_approved_match: null
 - dependency_id: REF::LOC-BHAIGAARA-RAISED-CABIN
-  batches: *id097
+  batches: *id095
   raw_blocker_count: 4
   raw_blocker_numbers:
   - 2
-  - 160
-  - 170
-  - 182
+  - 156
+  - 166
+  - 177
   representative_blocker:
     batch_id: B01
     category: location
@@ -4751,13 +4662,13 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::PRP-ADK7-CARTRIDGE
-  batches: *id098
+  batches: *id096
   raw_blocker_count: 4
   raw_blocker_numbers:
   - 3
-  - 171
-  - 230
-  - 245
+  - 167
+  - 224
+  - 238
   representative_blocker:
     batch_id: B01
     category: prop
@@ -4776,13 +4687,13 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::PRP-SPLIT-FLOORBOARD
-  batches: *id099
+  batches: *id097
   raw_blocker_count: 4
   raw_blocker_numbers:
   - 6
-  - 164
-  - 174
-  - 183
+  - 160
+  - 169
+  - 178
   representative_blocker:
     batch_id: B01
     category: prop
@@ -4801,12 +4712,12 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::CST-ANAADHI-27-RECOVERY
-  batches: *id100
+  batches: *id098
   raw_blocker_count: 3
   raw_blocker_numbers:
-  - 206
-  - 217
-  - 228
+  - 201
+  - 212
+  - 222
   representative_blocker:
     batch_id: B27
     category: character-state
@@ -4825,12 +4736,12 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::INJ-ANAADHI-27-SURGERY
-  batches: *id101
+  batches: *id099
   raw_blocker_count: 3
   raw_blocker_numbers:
-  - 207
-  - 218
-  - 229
+  - 202
+  - 213
+  - 223
   representative_blocker:
     batch_id: B27
     category: character-state
@@ -4849,12 +4760,12 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-ANAADHI-HIDDEN-CABINS
-  batches: *id102
+  batches: *id100
   raw_blocker_count: 3
   raw_blocker_numbers:
-  - 112
-  - 119
-  - 125
+  - 108
+  - 115
+  - 121
   representative_blocker:
     batch_id: B16
     category: location
@@ -4873,12 +4784,12 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-PARAANE-CAMPUS-MATURE
-  batches: *id103
+  batches: *id101
   raw_blocker_count: 3
   raw_blocker_numbers:
-  - 191
-  - 237
-  - 266
+  - 186
+  - 230
+  - 259
   representative_blocker:
     batch_id: B26
     category: location
@@ -4896,13 +4807,37 @@ canonical_dependencies:
     registry_path_exists: false
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
+- dependency_id: REF::PRP-MEDICINE-CUP
+  batches: *id102
+  raw_blocker_count: 3
+  raw_blocker_numbers:
+  - 45
+  - 57
+  - 190
+  representative_blocker:
+    batch_id: B07
+    category: prop
+    code: REFERENCE_NOT_APPROVED
+    message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
+  batch_impact: 3
+  scope: SHARED
+  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+  evidence:
+    reference_id: PRP-MEDICINE-CUP
+    registry_status: MISSING_APPROVED_ASSET
+    registry_path: null
+    registry_path_exists: false
+    github_exact_id_media_candidates: []
+    drive_exact_approved_match: null
 - dependency_id: REF::TEC-BLACK-KITE-DRONE
-  batches: *id104
+  batches: *id103
   raw_blocker_count: 3
   raw_blocker_numbers:
   - 8
-  - 176
-  - 184
+  - 171
+  - 179
   representative_blocker:
     batch_id: B01
     category: technology
@@ -4921,11 +4856,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::CST-ANAADHI-FOREST-TEEN
-  batches: *id105
+  batches: *id104
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 92
-  - 99
+  - 88
+  - 95
   representative_blocker:
     batch_id: B13
     category: character-state
@@ -4944,11 +4879,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::ENV-BLACK-RAIN
-  batches: *id106
+  batches: *id105
   raw_blocker_count: 2
   raw_blocker_numbers:
   - 10
-  - 177
+  - 172
   representative_blocker:
     batch_id: B01
     category: environment
@@ -4967,11 +4902,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::INJ-ANAADHI-12-ESCAPE
-  batches: *id107
+  batches: *id106
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 73
-  - 81
+  - 70
+  - 77
   representative_blocker:
     batch_id: B11
     category: character-state
@@ -4990,11 +4925,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-068
-  batches: *id108
+  batches: *id107
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 226
-  - 239
+  - 221
+  - 232
   representative_blocker:
     batch_id: B29
     category: location
@@ -5013,11 +4948,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-070
-  batches: *id109
+  batches: *id108
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 241
-  - 267
+  - 234
+  - 260
   representative_blocker:
     batch_id: B30
     category: location
@@ -5036,11 +4971,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-080
-  batches: *id110
+  batches: *id109
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 243
-  - 270
+  - 236
+  - 263
   representative_blocker:
     batch_id: B30
     category: location
@@ -5059,11 +4994,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-087
-  batches: *id111
+  batches: *id110
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 277
-  - 285
+  - 270
+  - 278
   representative_blocker:
     batch_id: B33
     category: location
@@ -5082,11 +5017,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-ADRAKA-SYSTEMS-LAB
-  batches: *id112
+  batches: *id111
   raw_blocker_count: 2
   raw_blocker_numbers:
   - 14
-  - 236
+  - 229
   representative_blocker:
     batch_id: B02
     category: location
@@ -5105,11 +5040,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-BHAIGAARA-FOREST-SURVIVAL
-  batches: *id113
+  batches: *id112
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 86
-  - 132
+  - 82
+  - 128
   representative_blocker:
     batch_id: B13
     category: location
@@ -5128,11 +5063,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-PARAANE-CAMPUS-EARLY
-  batches: *id114
+  batches: *id113
   raw_blocker_count: 2
   raw_blocker_numbers:
   - 18
-  - 32
+  - 31
   representative_blocker:
     batch_id: B03
     category: location
@@ -5151,11 +5086,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-PARAANE-CENTRAL-COMMAND
-  batches: *id115
+  batches: *id114
   raw_blocker_count: 2
   raw_blocker_numbers:
   - 19
-  - 168
+  - 164
   representative_blocker:
     batch_id: B03
     category: location
@@ -5174,11 +5109,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-PARAANE-HIGH-OBSERVATION
-  batches: *id116
+  batches: *id115
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 70
-  - 194
+  - 67
+  - 189
   representative_blocker:
     batch_id: B11
     category: location
@@ -5197,11 +5132,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-PARVARAN-JANNE-HOUSE
-  batches: *id117
+  batches: *id116
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 78
-  - 238
+  - 74
+  - 231
   representative_blocker:
     batch_id: B12
     category: location
@@ -5220,11 +5155,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::LOC-VILLAGE-HAND-PUMP
-  batches: *id118
+  batches: *id117
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 103
-  - 111
+  - 99
+  - 107
   representative_blocker:
     batch_id: B15
     category: location
@@ -5243,11 +5178,11 @@ canonical_dependencies:
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
 - dependency_id: REF::PRP-FOUR-ROAD-SHRINE
-  batches: *id119
+  batches: *id118
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 33
-  - 82
+  - 32
+  - 78
   representative_blocker:
     batch_id: B05
     category: prop
@@ -5265,12 +5200,35 @@ canonical_dependencies:
     registry_path_exists: false
     github_exact_id_media_candidates: []
     drive_exact_approved_match: null
+- dependency_id: REF::PRP-PARAANE-WRIST-DEVICE
+  batches: *id119
+  raw_blocker_count: 2
+  raw_blocker_numbers:
+  - 5
+  - 26
+  representative_blocker:
+    batch_id: B01
+    category: prop
+    code: REFERENCE_NOT_APPROVED
+    message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
+  batch_impact: 2
+  scope: SHARED
+  resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  new_work_page_media_required: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+  evidence:
+    reference_id: PRP-PARAANE-WRIST-DEVICE
+    registry_status: MISSING_APPROVED_ASSET
+    registry_path: null
+    registry_path_exists: false
+    github_exact_id_media_candidates: []
+    drive_exact_approved_match: null
 - dependency_id: REF::VEH-ANAADHI-MOTORCYCLE
   batches: *id120
   raw_blocker_count: 2
   raw_blocker_numbers:
-  - 135
-  - 148
+  - 131
+  - 144
   representative_blocker:
     batch_id: B19
     category: vehicle
@@ -5293,7 +5251,7 @@ canonical_dependencies:
   raw_blocker_count: 2
   raw_blocker_numbers:
   - 7
-  - 175
+  - 170
   representative_blocker:
     batch_id: B01
     category: vehicle
@@ -5315,7 +5273,7 @@ canonical_dependencies:
   batches: *id122
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 87
+  - 83
   representative_blocker:
     batch_id: B13
     category: character-state
@@ -5337,7 +5295,7 @@ canonical_dependencies:
   batches: *id123
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 88
+  - 84
   representative_blocker:
     batch_id: B13
     category: character-state
@@ -5359,7 +5317,7 @@ canonical_dependencies:
   batches: *id124
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 89
+  - 85
   representative_blocker:
     batch_id: B13
     category: character-state
@@ -5381,7 +5339,7 @@ canonical_dependencies:
   batches: *id125
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 90
+  - 86
   representative_blocker:
     batch_id: B13
     category: character-state
@@ -5403,7 +5361,7 @@ canonical_dependencies:
   batches: *id126
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 96
+  - 92
   representative_blocker:
     batch_id: B14
     category: character-state
@@ -5425,7 +5383,7 @@ canonical_dependencies:
   batches: *id127
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 97
+  - 93
   representative_blocker:
     batch_id: B14
     category: character-state
@@ -5447,7 +5405,7 @@ canonical_dependencies:
   batches: *id128
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 104
+  - 100
   representative_blocker:
     batch_id: B15
     category: character-state
@@ -5469,7 +5427,7 @@ canonical_dependencies:
   batches: *id129
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 113
+  - 109
   representative_blocker:
     batch_id: B16
     category: character-state
@@ -5491,7 +5449,7 @@ canonical_dependencies:
   batches: *id130
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 120
+  - 116
   representative_blocker:
     batch_id: B17
     category: character-state
@@ -5513,7 +5471,7 @@ canonical_dependencies:
   batches: *id131
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 126
+  - 122
   representative_blocker:
     batch_id: B18
     category: character-state
@@ -5535,7 +5493,7 @@ canonical_dependencies:
   batches: *id132
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 133
+  - 129
   representative_blocker:
     batch_id: B19
     category: character-state
@@ -5557,7 +5515,7 @@ canonical_dependencies:
   batches: *id133
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 140
+  - 136
   representative_blocker:
     batch_id: B20
     category: character-state
@@ -5579,7 +5537,7 @@ canonical_dependencies:
   batches: *id134
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 146
+  - 142
   representative_blocker:
     batch_id: B21
     category: character-state
@@ -5601,7 +5559,7 @@ canonical_dependencies:
   batches: *id135
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 153
+  - 149
   representative_blocker:
     batch_id: B22
     category: character-state
@@ -5623,7 +5581,7 @@ canonical_dependencies:
   batches: *id136
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 286
+  - 279
   representative_blocker:
     batch_id: B34
     category: character-state
@@ -5645,7 +5603,7 @@ canonical_dependencies:
   batches: *id137
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 161
+  - 157
   representative_blocker:
     batch_id: B23
     category: character-state
@@ -5667,7 +5625,7 @@ canonical_dependencies:
   batches: *id138
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 80
+  - 76
   representative_blocker:
     batch_id: B12
     category: character-state
@@ -5689,7 +5647,7 @@ canonical_dependencies:
   batches: *id139
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 106
+  - 102
   representative_blocker:
     batch_id: B15
     category: character-state
@@ -5711,7 +5669,7 @@ canonical_dependencies:
   batches: *id140
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 288
+  - 281
   representative_blocker:
     batch_id: B34
     category: character-state
@@ -5733,7 +5691,7 @@ canonical_dependencies:
   batches: *id141
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 23
+  - 22
   representative_blocker:
     batch_id: B03
     category: environment
@@ -5755,7 +5713,7 @@ canonical_dependencies:
   batches: *id142
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 45
+  - 43
   representative_blocker:
     batch_id: B07
     category: character-state
@@ -5777,7 +5735,7 @@ canonical_dependencies:
   batches: *id143
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 52
+  - 50
   representative_blocker:
     batch_id: B08
     category: character-state
@@ -5799,7 +5757,7 @@ canonical_dependencies:
   batches: *id144
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 71
+  - 68
   representative_blocker:
     batch_id: B11
     category: character-state
@@ -5821,7 +5779,7 @@ canonical_dependencies:
   batches: *id145
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 79
+  - 75
   representative_blocker:
     batch_id: B12
     category: character-state
@@ -5843,7 +5801,7 @@ canonical_dependencies:
   batches: *id146
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 91
+  - 87
   representative_blocker:
     batch_id: B13
     category: character-state
@@ -5865,7 +5823,7 @@ canonical_dependencies:
   batches: *id147
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 98
+  - 94
   representative_blocker:
     batch_id: B14
     category: character-state
@@ -5887,7 +5845,7 @@ canonical_dependencies:
   batches: *id148
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 105
+  - 101
   representative_blocker:
     batch_id: B15
     category: character-state
@@ -5909,7 +5867,7 @@ canonical_dependencies:
   batches: *id149
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 154
+  - 150
   representative_blocker:
     batch_id: B22
     category: character-state
@@ -5931,7 +5889,7 @@ canonical_dependencies:
   batches: *id150
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 287
+  - 280
   representative_blocker:
     batch_id: B34
     category: character-state
@@ -5953,7 +5911,7 @@ canonical_dependencies:
   batches: *id151
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 289
+  - 282
   representative_blocker:
     batch_id: B34
     category: character-state
@@ -5975,7 +5933,7 @@ canonical_dependencies:
   batches: *id152
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 204
+  - 199
   representative_blocker:
     batch_id: B27
     category: location
@@ -5997,7 +5955,7 @@ canonical_dependencies:
   batches: *id153
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 214
+  - 209
   representative_blocker:
     batch_id: B28
     category: location
@@ -6019,7 +5977,7 @@ canonical_dependencies:
   batches: *id154
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 215
+  - 210
   representative_blocker:
     batch_id: B28
     category: location
@@ -6041,7 +5999,7 @@ canonical_dependencies:
   batches: *id155
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 225
+  - 220
   representative_blocker:
     batch_id: B29
     category: location
@@ -6063,7 +6021,7 @@ canonical_dependencies:
   batches: *id156
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 240
+  - 233
   representative_blocker:
     batch_id: B30
     category: location
@@ -6085,7 +6043,7 @@ canonical_dependencies:
   batches: *id157
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 242
+  - 235
   representative_blocker:
     batch_id: B30
     category: location
@@ -6107,7 +6065,7 @@ canonical_dependencies:
   batches: *id158
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 268
+  - 261
   representative_blocker:
     batch_id: B33
     category: location
@@ -6129,7 +6087,7 @@ canonical_dependencies:
   batches: *id159
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 269
+  - 262
   representative_blocker:
     batch_id: B33
     category: location
@@ -6151,7 +6109,7 @@ canonical_dependencies:
   batches: *id160
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 252
+  - 245
   representative_blocker:
     batch_id: B31
     category: location
@@ -6173,7 +6131,7 @@ canonical_dependencies:
   batches: *id161
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 259
+  - 252
   representative_blocker:
     batch_id: B32
     category: location
@@ -6195,7 +6153,7 @@ canonical_dependencies:
   batches: *id162
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 260
+  - 253
   representative_blocker:
     batch_id: B32
     category: location
@@ -6217,7 +6175,7 @@ canonical_dependencies:
   batches: *id163
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 271
+  - 264
   representative_blocker:
     batch_id: B33
     category: location
@@ -6239,7 +6197,7 @@ canonical_dependencies:
   batches: *id164
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 272
+  - 265
   representative_blocker:
     batch_id: B33
     category: location
@@ -6261,7 +6219,7 @@ canonical_dependencies:
   batches: *id165
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 273
+  - 266
   representative_blocker:
     batch_id: B33
     category: location
@@ -6283,7 +6241,7 @@ canonical_dependencies:
   batches: *id166
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 274
+  - 267
   representative_blocker:
     batch_id: B33
     category: location
@@ -6305,7 +6263,7 @@ canonical_dependencies:
   batches: *id167
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 275
+  - 268
   representative_blocker:
     batch_id: B33
     category: location
@@ -6327,7 +6285,7 @@ canonical_dependencies:
   batches: *id168
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 276
+  - 269
   representative_blocker:
     batch_id: B33
     category: location
@@ -6349,7 +6307,7 @@ canonical_dependencies:
   batches: *id169
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 31
+  - 30
   representative_blocker:
     batch_id: B05
     category: location
@@ -6371,7 +6329,7 @@ canonical_dependencies:
   batches: *id170
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 193
+  - 188
   representative_blocker:
     batch_id: B26
     category: location
@@ -6393,7 +6351,7 @@ canonical_dependencies:
   batches: *id171
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 169
+  - 165
   representative_blocker:
     batch_id: B24
     category: location
@@ -6415,7 +6373,7 @@ canonical_dependencies:
   batches: *id172
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 26
+  - 25
   representative_blocker:
     batch_id: B04
     category: location
@@ -6459,7 +6417,7 @@ canonical_dependencies:
   batches: *id174
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 163
+  - 159
   representative_blocker:
     batch_id: B23
     category: prop
@@ -6503,7 +6461,7 @@ canonical_dependencies:
   batches: *id176
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 61
+  - 58
   representative_blocker:
     batch_id: B09
     category: technology
@@ -6547,7 +6505,7 @@ canonical_dependencies:
   batches: *id178
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 107
+  - 103
   representative_blocker:
     batch_id: B15
     category: vehicle
@@ -6569,7 +6527,7 @@ canonical_dependencies:
   batches: *id179
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 208
+  - 203
   representative_blocker:
     batch_id: B27
     category: vehicle
@@ -6591,7 +6549,7 @@ canonical_dependencies:
   batches: *id180
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 34
+  - 33
   representative_blocker:
     batch_id: B05
     category: vehicle
@@ -6613,7 +6571,7 @@ canonical_dependencies:
   batches: *id181
   raw_blocker_count: 1
   raw_blocker_numbers:
-  - 224
+  - 219
   representative_blocker:
     batch_id: B29
     category: location

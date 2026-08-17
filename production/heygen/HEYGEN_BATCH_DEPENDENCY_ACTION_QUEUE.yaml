@@ -7,9 +7,12 @@ source_plan: production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml
 summary:
   active_action_packets: 181
   resolved_history_packets: 4
-  superseded_history_packets: 12
-  packet_namespace_high_watermark: HEYGEN-AQ-197
-  new_packet_ids_allocated_this_refresh: []
+  superseded_history_packets: 15
+  packet_namespace_high_watermark: HEYGEN-AQ-200
+  new_packet_ids_allocated_this_refresh:
+  - HEYGEN-AQ-198
+  - HEYGEN-AQ-199
+  - HEYGEN-AQ-200
   priority_class_counts:
     P0_OPEN: 2
     P1_SHARED_HIGH_IMPACT: 33
@@ -133,6 +136,21 @@ superseded_history:
   status: SUPERSEDED_BY_CANONICAL_CONTROL_CORRECTION
   active: false
   reason: Fresh validator no longer emits this canonical dependency after frozen ENV-6L metadata/semantic correction.
+- packet_id: HEYGEN-AQ-162
+  dependency_id: AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+  status: SUPERSEDED_BY_CANONICAL_CONTROL_CORRECTION
+  active: false
+  reason: Fresh validator no longer emits this canonical dependency after frozen ENV-6L metadata/semantic correction.
+- packet_id: HEYGEN-AQ-164
+  dependency_id: AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07,B25-AV-08
+  status: SUPERSEDED_BY_CANONICAL_CONTROL_CORRECTION
+  active: false
+  reason: Fresh validator no longer emits this canonical dependency after frozen ENV-6L metadata/semantic correction.
+- packet_id: HEYGEN-AQ-166
+  dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
+  status: SUPERSEDED_BY_CANONICAL_CONTROL_CORRECTION
+  active: false
+  reason: Fresh validator no longer emits this canonical dependency after frozen ENV-6L metadata/semantic correction.
 action_views:
   DEFERRED_UNTIL_CREDIT_READY_OR_EXPLICIT_EXECUTION_GATE:
   - HEYGEN-AQ-001
@@ -174,20 +192,20 @@ action_views:
   - HEYGEN-AQ-009
   - HEYGEN-AQ-010
   - HEYGEN-AQ-012
-  - HEYGEN-AQ-013
   - HEYGEN-AQ-011
-  - HEYGEN-AQ-014
-  - HEYGEN-AQ-015
+  - HEYGEN-AQ-013
   - HEYGEN-AQ-016
   - HEYGEN-AQ-018
   - HEYGEN-AQ-019
   - HEYGEN-AQ-020
   - HEYGEN-AQ-021
+  - HEYGEN-AQ-014
   - HEYGEN-AQ-008
   - HEYGEN-AQ-017
   - HEYGEN-AQ-023
   - HEYGEN-AQ-024
   - HEYGEN-AQ-025
+  - HEYGEN-AQ-015
   - HEYGEN-AQ-026
   - HEYGEN-AQ-027
   - HEYGEN-AQ-028
@@ -262,12 +280,12 @@ action_views:
   - HEYGEN-AQ-116
   - HEYGEN-AQ-117
   - HEYGEN-AQ-114
-  - HEYGEN-AQ-162
+  - HEYGEN-AQ-198
   - HEYGEN-AQ-035
   - HEYGEN-AQ-118
-  - HEYGEN-AQ-164
+  - HEYGEN-AQ-199
   - HEYGEN-AQ-119
-  - HEYGEN-AQ-166
+  - HEYGEN-AQ-200
   - HEYGEN-AQ-123
   - HEYGEN-AQ-120
   - HEYGEN-AQ-121
@@ -492,38 +510,6 @@ packets:
   media_generation_allowed: false
   heygen_submission_allowed: false
   queue_position: 5
-- packet_id: HEYGEN-AQ-013
-  dependency_id: REF::AGE-ANAADHI-27-RECOVERY
-  active: true
-  status: OPEN_UNRESOLVED
-  priority_class: P1_SHARED_HIGH_IMPACT
-  owner_lane: DRIVE-VERIFY
-  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
-  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  scope: SHARED
-  batch_impact: 7
-  impacted_batches:
-  - B27
-  - B28
-  - B29
-  - B30
-  - B31
-  - B32
-  - B33
-  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-  conditional_handoffs:
-  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
-    to_owner_lane: GITHUB-ONLY
-    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
-  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
-    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
-    action: Defer creation until a later explicit media-creation approval and credit-ready state.
-  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
-  approved_status_change_allowed: false
-  media_generation_allowed: false
-  heygen_submission_allowed: false
-  queue_position: 6
 - packet_id: HEYGEN-AQ-011
   dependency_id: REF::LOC-PARAANE-CHILD-WING
   active: true
@@ -554,9 +540,9 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 7
-- packet_id: HEYGEN-AQ-014
-  dependency_id: REF::PRP-MEDICINE-CUP
+  queue_position: 6
+- packet_id: HEYGEN-AQ-013
+  dependency_id: REF::AGE-ANAADHI-27-RECOVERY
   active: true
   status: OPEN_UNRESOLVED
   priority_class: P1_SHARED_HIGH_IMPACT
@@ -566,12 +552,12 @@ packets:
   scope: SHARED
   batch_impact: 6
   impacted_batches:
-  - B06
-  - B07
-  - B08
-  - B09
-  - B11
-  - B26
+  - B27
+  - B28
+  - B30
+  - B31
+  - B32
+  - B33
   current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
   conditional_handoffs:
@@ -585,37 +571,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 8
-- packet_id: HEYGEN-AQ-015
-  dependency_id: REF::PRP-PARAANE-WRIST-DEVICE
-  active: true
-  status: OPEN_UNRESOLVED
-  priority_class: P1_SHARED_HIGH_IMPACT
-  owner_lane: DRIVE-VERIFY
-  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
-  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
-  scope: SHARED
-  batch_impact: 5
-  impacted_batches:
-  - B01
-  - B03
-  - B04
-  - B24
-  - B29
-  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
-  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
-  conditional_handoffs:
-  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
-    to_owner_lane: GITHUB-ONLY
-    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
-  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
-    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
-    action: Defer creation until a later explicit media-creation approval and credit-ready state.
-  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
-  approved_status_change_allowed: false
-  media_generation_allowed: false
-  heygen_submission_allowed: false
-  queue_position: 9
+  queue_position: 7
 - packet_id: HEYGEN-AQ-016
   dependency_id: REF::CST-ANAADHI-CHILD-INSTITUTIONAL
   active: true
@@ -645,7 +601,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 10
+  queue_position: 8
 - packet_id: HEYGEN-AQ-018
   dependency_id: REF::LOC-BHAIGAARA-RAISED-CABIN
   active: true
@@ -674,7 +630,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 11
+  queue_position: 9
 - packet_id: HEYGEN-AQ-019
   dependency_id: REF::PRP-ADK7-CARTRIDGE
   active: true
@@ -703,7 +659,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 12
+  queue_position: 10
 - packet_id: HEYGEN-AQ-020
   dependency_id: REF::PRP-SPLIT-FLOORBOARD
   active: true
@@ -732,7 +688,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 13
+  queue_position: 11
 - packet_id: HEYGEN-AQ-021
   dependency_id: REF::TEC-BLACK-KITE-DRONE
   active: true
@@ -760,7 +716,35 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 14
+  queue_position: 12
+- packet_id: HEYGEN-AQ-014
+  dependency_id: REF::PRP-MEDICINE-CUP
+  active: true
+  status: OPEN_UNRESOLVED
+  priority_class: P1_SHARED_HIGH_IMPACT
+  owner_lane: DRIVE-VERIFY
+  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
+  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  scope: SHARED
+  batch_impact: 3
+  impacted_batches:
+  - B07
+  - B09
+  - B26
+  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+  conditional_handoffs:
+  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
+    to_owner_lane: GITHUB-ONLY
+    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
+  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
+    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
+    action: Defer creation until a later explicit media-creation approval and credit-ready state.
+  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
+  approved_status_change_allowed: false
+  media_generation_allowed: false
+  heygen_submission_allowed: false
+  queue_position: 13
 - packet_id: HEYGEN-AQ-008
   dependency_id: REF::LOC-ANAADHI-HIDDEN-CABINS
   active: true
@@ -788,7 +772,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 15
+  queue_position: 14
 - packet_id: HEYGEN-AQ-017
   dependency_id: REF::LOC-PARAANE-CAMPUS-MATURE
   active: true
@@ -816,7 +800,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 16
+  queue_position: 15
 - packet_id: HEYGEN-AQ-023
   dependency_id: REF::CST-ANAADHI-27-RECOVERY
   active: true
@@ -844,7 +828,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 17
+  queue_position: 16
 - packet_id: HEYGEN-AQ-024
   dependency_id: REF::INJ-ANAADHI-27-SURGERY
   active: true
@@ -872,7 +856,7 @@ packets:
   approved_status_change_allowed: false
   media_generation_allowed: false
   heygen_submission_allowed: false
-  queue_position: 18
+  queue_position: 17
 - packet_id: HEYGEN-AQ-025
   dependency_id: REF::ENV-BLACK-RAIN
   active: true
@@ -886,6 +870,33 @@ packets:
   impacted_batches:
   - B01
   - B24
+  current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
+  safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
+  conditional_handoffs:
+  - condition: EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND
+    to_owner_lane: GITHUB-ONLY
+    action: Bind exact verified reuse evidence; never auto-promote APPROVED.
+  - condition: NO_EXACT_APPROVED_CANONICAL_DRIVE_ASSET_FOUND_AND_SEARCH_EVIDENCE_COMPLETE
+    to_owner_lane: WORK-PAGE-NEW-MEDIA-ONLY-IF-PROVEN-MISSING
+    action: Defer creation until a later explicit media-creation approval and credit-ready state.
+  closure_rule: Dependency remains open until authoritative evidence is recorded and a fresh validator no longer emits the corresponding blocker.
+  approved_status_change_allowed: false
+  media_generation_allowed: false
+  heygen_submission_allowed: false
+  queue_position: 18
+- packet_id: HEYGEN-AQ-015
+  dependency_id: REF::PRP-PARAANE-WRIST-DEVICE
+  active: true
+  status: OPEN_UNRESOLVED
+  priority_class: P1_SHARED_HIGH_IMPACT
+  owner_lane: DRIVE-VERIFY
+  zero_credit_execution_state: ZERO_CREDIT_ACTIONABLE
+  source_resolution_lane: DRIVE_EXACT_REUSE_CHECK_THEN_WORK_PAGE_MEDIA_IF_ABSENT
+  scope: SHARED
+  batch_impact: 2
+  impacted_batches:
+  - B01
+  - B04
   current_new_media_requirement: CONDITIONAL_ON_NO_EXACT_APPROVED_DRIVE_ASSET
   safe_first_action: Search Drive for an exact already-approved canonical asset. If none exists, route creation exclusively to the Work page.
   conditional_handoffs:
@@ -2846,8 +2857,8 @@ packets:
   media_generation_allowed: false
   heygen_submission_allowed: false
   queue_position: 93
-- packet_id: HEYGEN-AQ-162
-  dependency_id: AVATAR_LOOK_SET::B24-AV-01,B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+- packet_id: HEYGEN-AQ-198
+  dependency_id: AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   active: true
   status: OPEN_UNRESOLVED
   priority_class: P2_BATCH_SPECIFIC
@@ -2919,8 +2930,8 @@ packets:
   media_generation_allowed: false
   heygen_submission_allowed: false
   queue_position: 96
-- packet_id: HEYGEN-AQ-164
-  dependency_id: AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07,B25-AV-08
+- packet_id: HEYGEN-AQ-199
+  dependency_id: AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07
   active: true
   status: OPEN_UNRESOLVED
   priority_class: P2_BATCH_SPECIFIC
@@ -2965,8 +2976,8 @@ packets:
   media_generation_allowed: false
   heygen_submission_allowed: false
   queue_position: 98
-- packet_id: HEYGEN-AQ-166
-  dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-07,B26-AV-08,B26-AV-09,B26-AV-10
+- packet_id: HEYGEN-AQ-200
+  dependency_id: AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-08,B26-AV-09,B26-AV-10
   active: true
   status: OPEN_UNRESOLVED
   priority_class: P2_BATCH_SPECIFIC

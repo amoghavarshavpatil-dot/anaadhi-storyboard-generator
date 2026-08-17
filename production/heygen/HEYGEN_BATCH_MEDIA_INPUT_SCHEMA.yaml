@@ -133,7 +133,7 @@ batches:
     p1_location_status: APPROVED_ROOTS__STATES_AND_NESTED_REMAIN
     required_location_refs: [LOC-PARAANE-CAMPUS-EARLY, LOC-PARAANE-CENTRAL-COMMAND]
     required_anaadhi_refs: []
-    required_prop_refs: [PRP-PARAANE-EMBLEM, PRP-FOUNDERS-CREDENTIAL, PRP-PARAANE-WRIST-DEVICE, ENV-PARAANE-EARLY]
+    required_prop_refs: [PRP-PARAANE-EMBLEM, PRP-FOUNDERS-CREDENTIAL, ENV-PARAANE-EARLY]
   B04:
     scenes: [11,12,13]
     env6l_roots: [LOC-005]
@@ -155,7 +155,7 @@ batches:
     p1_location_status: APPROVED_ROOT__NESTED_REMAINS
     required_location_refs: [LOC-PARAANE-CHILD-WING]
     required_anaadhi_refs: [AGE-ANAADHI-NEWBORN]
-    required_prop_refs: [PRP-PARAANE-EMBLEM, PRP-MEDICINE-CUP]
+    required_prop_refs: [PRP-PARAANE-EMBLEM]
   B07:
     scenes: [19]
     env6l_roots: [LOC-003]
@@ -169,7 +169,7 @@ batches:
     p1_location_status: APPROVED_ROOT__NESTED_REMAINS
     required_location_refs: [LOC-PARAANE-CHILD-WING]
     required_anaadhi_refs: [AGE-ANAADHI-07, AGE-ANAADHI-08, HR-ANAADHI-07, CST-ANAADHI-CHILD-INSTITUTIONAL]
-    required_prop_refs: [PRP-MEDICINE-CUP]
+    required_prop_refs: []
   B09:
     scenes: [22,23]
     env6l_roots: [LOC-003]
@@ -190,7 +190,7 @@ batches:
     p1_location_status: APPROVED_ROOT__MULTIPLE_NESTED_SPACES_REMAIN
     required_location_refs: [LOC-PARAANE-HIGH-OBSERVATION]
     required_anaadhi_refs: [AGE-ANAADHI-12-INSTITUTIONAL, HR-ANAADHI-12-CLOSE, CST-ANAADHI-CHILD-INSTITUTIONAL, INJ-ANAADHI-12-ESCAPE]
-    required_prop_refs: [PRP-MEDICINE-CUP]
+    required_prop_refs: []
   B12:
     scenes: [28,29,30,31,32,33,34]
     env6l_roots: [LOC-009, LOC-010, LOC-011, LOC-012, LOC-013, LOC-014, LOC-015, LOC-016, LOC-017]
@@ -281,7 +281,7 @@ batches:
     p1_location_status: APPROVED_ROOTS__NESTED_AND_CAPTURE_STATE_REMAIN
     required_location_refs: [LOC-PARAANE-CENTRAL-COMMAND, LOC-PARAANE-PHARMACY-VAULT, LOC-BHAIGAARA-RAISED-CABIN]
     required_anaadhi_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
-    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-PARAANE-WRIST-DEVICE, PRP-SPLIT-FLOORBOARD, VEH-PARAANE-MEDICAL-TRANSPORT, TEC-BLACK-KITE-DRONE, ENV-BLACK-RAIN]
+    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-SPLIT-FLOORBOARD, VEH-PARAANE-MEDICAL-TRANSPORT, TEC-BLACK-KITE-DRONE, ENV-BLACK-RAIN]
   B25:
     scenes: [67,68]
     env6l_roots: [LOC-001, LOC-060, LOC-061]
@@ -321,8 +321,8 @@ batches:
     pending_named_location_refs: [LOC-067, LOC-068]
     p1_location_status: PARTIAL__LATE_ROOT_METADATA_BOUND__VISUAL_AND_NESTED_GAPS_REMAIN
     required_location_refs: [LOC-003, LOC-067, LOC-068]
-    required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
-    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-PARAANE-WRIST-DEVICE]
+    required_anaadhi_refs: [CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM]
   B30:
     scenes: [87,88,89,90,91,92]
     env6l_roots: [LOC-002, LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]

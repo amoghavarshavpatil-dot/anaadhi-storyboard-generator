@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: 1a7afc8fcb265481c015240aa2b9b02d5abadaaa
+validated_repository_head: b9696ec0b95f4d151285a7371e9d6efda8f699e4
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -24,7 +24,7 @@ report:
     passed_batches: 0
     blocked_batches: 34
     global_blockers: 0
-    total_blockers: 291
+    total_blockers: 284
   passed_batches: []
   blocked_batches:
   - B01
@@ -151,10 +151,6 @@ report:
       code: REFERENCE_NOT_APPROVED
       message: 'PRP-FOUNDERS-CREDENTIAL: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B03
-      category: prop
-      code: REFERENCE_NOT_APPROVED
-      message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B03
       category: environment
       code: REFERENCE_NOT_APPROVED
       message: 'ENV-PARAANE-EARLY: status=''MISSING_APPROVED_ASSET'', path=None'
@@ -226,10 +222,6 @@ report:
       code: REFERENCE_NOT_APPROVED
       message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B06
-      category: prop
-      code: REFERENCE_NOT_APPROVED
-      message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B06
       category: avatar-slot
       code: AVATAR_MANIFEST_UNASSIGNED
       message: No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved
@@ -283,10 +275,6 @@ report:
       category: character-state
       code: REFERENCE_NOT_APPROVED
       message: 'CST-ANAADHI-CHILD-INSTITUTIONAL: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B08
-      category: prop
-      code: REFERENCE_NOT_APPROVED
-      message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B08
       category: avatar-slot
       code: AVATAR_MANIFEST_UNASSIGNED
@@ -366,10 +354,6 @@ report:
       category: character-state
       code: REFERENCE_NOT_APPROVED
       message: 'INJ-ANAADHI-12-ESCAPE: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B11
-      category: prop
-      code: REFERENCE_NOT_APPROVED
-      message: 'PRP-MEDICINE-CUP: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B11
       category: avatar-slot
       code: AVATAR_MANIFEST_UNASSIGNED
@@ -778,10 +762,6 @@ report:
     - batch_id: B24
       category: prop
       code: REFERENCE_NOT_APPROVED
-      message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B24
-      category: prop
-      code: REFERENCE_NOT_APPROVED
       message: 'PRP-SPLIT-FLOORBOARD: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B24
       category: vehicle
@@ -798,7 +778,7 @@ report:
     - batch_id: B24
       category: avatar-slot
       code: AVATAR_LOOKS_UNRESOLVED
-      message: 'Avatar asset(s) not COMPLETE with look IDs: B24-AV-01, B24-AV-02, B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12'
+      message: 'Avatar asset(s) not COMPLETE with look IDs: B24-AV-02, B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12'
     - batch_id: B24
       category: consent
       code: CONSENT_UNRESOLVED
@@ -827,7 +807,7 @@ report:
     - batch_id: B25
       category: avatar-slot
       code: AVATAR_LOOKS_UNRESOLVED
-      message: 'Avatar asset(s) not COMPLETE with look IDs: B25-AV-03, B25-AV-04, B25-AV-05, B25-AV-06, B25-AV-07, B25-AV-08'
+      message: 'Avatar asset(s) not COMPLETE with look IDs: B25-AV-03, B25-AV-04, B25-AV-05, B25-AV-06, B25-AV-07'
     - batch_id: B25
       category: consent
       code: CONSENT_UNRESOLVED
@@ -880,7 +860,7 @@ report:
     - batch_id: B26
       category: avatar-slot
       code: AVATAR_LOOKS_UNRESOLVED
-      message: 'Avatar asset(s) not COMPLETE with look IDs: B26-AV-03, B26-AV-04, B26-AV-05, B26-AV-06, B26-AV-07, B26-AV-08, B26-AV-09, B26-AV-10'
+      message: 'Avatar asset(s) not COMPLETE with look IDs: B26-AV-03, B26-AV-04, B26-AV-05, B26-AV-06, B26-AV-08, B26-AV-09, B26-AV-10'
     - batch_id: B26
       category: consent
       code: CONSENT_UNRESOLVED
@@ -999,10 +979,6 @@ report:
     - batch_id: B29
       category: character-state
       code: REFERENCE_NOT_APPROVED
-      message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B29
-      category: character-state
-      code: REFERENCE_NOT_APPROVED
       message: 'CST-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B29
       category: character-state
@@ -1016,10 +992,6 @@ report:
       category: prop
       code: REFERENCE_NOT_APPROVED
       message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B29
-      category: prop
-      code: REFERENCE_NOT_APPROVED
-      message: 'PRP-PARAANE-WRIST-DEVICE: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B29
       category: avatar-slot
       code: AVATAR_MANIFEST_UNASSIGNED
