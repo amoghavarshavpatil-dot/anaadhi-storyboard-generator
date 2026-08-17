@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - name: Install YAML support
         run: python -m pip install --quiet pyyaml
-      - name: Apply evidenced corrections and logical packet lock
+      - name: Apply evidenced corrections across requirements schema and bindings
         shell: bash
         run: |
           set -euo pipefail
@@ -28,6 +28,7 @@ jobs:
 
           req = Path('production/references/BATCH_REFERENCE_REQUIREMENTS.yaml')
           sch = Path('production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml')
+          bind = Path('production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml')
           refresh = Path('production/heygen/refresh_zero_credit_controls.py')
           audit = Path('production/references/P1_AQ031_033_SHARED_ASSET_REUSE_AUDIT.yaml')
 
@@ -54,6 +55,12 @@ jobs:
               b = b.replace(old, new, expected)
           sch.write_text(b)
 
+          e = bind.read_text()
+          old_binding = '    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]\n'
+          new_binding = '    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE]\n'
+          assert e.count(old_binding) == 1
+          bind.write_text(e.replace(old_binding, new_binding, 1))
+
           c = refresh.read_text()
           anchor = 'P0_AQ003_CURRENT_DEP = "AVATAR_LOOK_SET::B01-AV-08"\n'
           constants = '''P0_AQ003_CURRENT_DEP = "AVATAR_LOOK_SET::B01-AV-08"\nLOGICAL_DEPENDENCY_PREFIX_LOCKS = {\n    "SPATIAL::B26::PENDING_NAMED_LOCATION::": "HEYGEN-AQ-120",\n}\n'''
@@ -67,7 +74,7 @@ jobs:
 
           d = audit.read_text()
           old_expected = '''expected_refresh:\n  previous_total_blockers: 278\n  expected_removed_raw_blockers: 3\n  expected_total_blockers: 275\n  expected_aq031_batches: [B11]\n  expected_aq032_batches: [B13, B14]\n  expected_aq033_active: false\n  preserve_aq001_aq002_open: true\n  preserve_aq003_resolved_evidenced: true\n'''
-          new_expected = '''expected_refresh:\n  previous_total_blockers: 278\n  expected_removed_raw_blockers: 2\n  expected_total_blockers: 276\n  blocker_delta_note: >-\n    Removing B26 LOC-PARAANE-HIGH-OBSERVATION narrows the existing B26 PENDING_NAMED_LOCATION blocker\n    rather than eliminating that spatial blocker. The same logical packet must remain HEYGEN-AQ-120\n    under its narrowed dependency payload; no HEYGEN-AQ-201 allocation is permitted.\n  expected_aq031_batches: [B11]\n  expected_aq032_batches: [B13, B14]\n  expected_aq033_active: false\n  expected_b26_spatial_packet_id: HEYGEN-AQ-120\n  expected_new_packet_ids: []\n  preserve_aq001_aq002_open: true\n  preserve_aq003_resolved_evidenced: true\n'''
+          new_expected = '''expected_refresh:\n  previous_total_blockers: 278\n  expected_removed_raw_blockers: 3\n  expected_total_blockers: 275\n  blocker_delta_note: >-\n    B26 high-observation is removed consistently from requirements, HeyGen schema and the P1 binding ledger.\n    Its PENDING_NAMED_LOCATION blocker remains but narrows to the three valid B26 named location families,\n    and the same logical packet remains HEYGEN-AQ-120 with no HEYGEN-AQ-201 allocation.\n  expected_aq031_batches: [B11]\n  expected_aq032_batches: [B13, B14]\n  expected_aq033_active: false\n  expected_b26_spatial_packet_id: HEYGEN-AQ-120\n  expected_new_packet_ids: []\n  preserve_aq001_aq002_open: true\n  preserve_aq003_resolved_evidenced: true\n'''
           assert d.count(old_expected) == 1
           audit.write_text(d.replace(old_expected, new_expected, 1))
           PY
@@ -84,6 +91,7 @@ jobs:
           m=yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml').read_text())
           s=yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml').read_text())
           r=yaml.safe_load(Path('production/references/BATCH_REFERENCE_REQUIREMENTS.yaml').read_text())
+          b=yaml.safe_load(Path('production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml').read_text())
           a=yaml.safe_load(Path('production/references/P1_AQ031_033_SHARED_ASSET_REUSE_AUDIT.yaml').read_text())
           packets={p['packet_id']:p for p in q['packets']}
           assert packets['HEYGEN-AQ-031']['impacted_batches']==['B11']
@@ -100,6 +108,7 @@ jobs:
           assert 'LOC-PARAANE-HIGH-OBSERVATION' not in r['batches']['B26']['locations']
           assert 'LOC-PARAANE-HIGH-OBSERVATION' not in s['batches']['B26']['required_location_refs']
           assert 'LOC-PARAANE-HIGH-OBSERVATION' not in s['batches']['B26']['pending_named_location_refs']
+          assert 'LOC-PARAANE-HIGH-OBSERVATION' not in b['location_bindings']['B26']['pending_named_location_refs']
           assert 'LOC-VILLAGE-HAND-PUMP' not in r['batches']['B15']['locations']
           assert 'LOC-VILLAGE-HAND-PUMP' not in r['batches']['B16']['locations']
           assert 'LOC-VILLAGE-HAND-PUMP' not in s['batches']['B15']['required_location_refs']
@@ -108,9 +117,9 @@ jobs:
           assert s['batches']['B16']['env6l_roots']==['LOC-027','LOC-028','LOC-029','LOC-030','LOC-031','LOC-032','LOC-033']
           assert q['p0_identity_lock']['open']['CONSENT::ANAADHI_PRIVATE_AVATAR']=='HEYGEN-AQ-001'
           assert 'HEYGEN-AQ-003' in q['p0_identity_lock']['resolved_history_packet_ids']
-          assert m['report']['summary']['total_blockers']==276
+          assert m['report']['summary']['total_blockers']==275
           assert m['report']['summary']['global_blockers']==0
-          assert a['expected_refresh']['expected_total_blockers']==276
+          assert a['expected_refresh']['expected_total_blockers']==275
           assert a['expected_refresh']['expected_b26_spatial_packet_id']=='HEYGEN-AQ-120'
           assert m['safety']['media_generated'] is False
           assert m['safety']['media_replaced'] is False
@@ -120,6 +129,7 @@ jobs:
           PY
           mapfile -t changed < <(git diff --name-only | sort)
           expected=(
+            production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
             production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
             production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml
             production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
@@ -137,6 +147,6 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add production/references/BATCH_REFERENCE_REQUIREMENTS.yaml production/references/P1_AQ031_033_SHARED_ASSET_REUSE_AUDIT.yaml production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml production/heygen/refresh_zero_credit_controls.py production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+          git add production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml production/references/BATCH_REFERENCE_REQUIREMENTS.yaml production/references/P1_AQ031_033_SHARED_ASSET_REUSE_AUDIT.yaml production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml production/heygen/refresh_zero_credit_controls.py production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
           git commit -m 'Reconcile AQ-031 AQ-033 zero-credit reuse audit'
           git push
