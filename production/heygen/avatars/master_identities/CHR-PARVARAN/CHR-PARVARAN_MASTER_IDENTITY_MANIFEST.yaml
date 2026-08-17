@@ -1,0 +1,50 @@
+version: 1
+phase: P1_CHARACTER_AVATAR_CONTROL
+identity_ref: CHR-PARVARAN
+canonical_name: PARVARAN_MASTER_IDENTITY_V1
+identity_status: APPROVED_SOURCE_ARCHIVED__HEYGEN_NOT_SUBMITTED
+source_approval:
+  status: APPROVED
+  authority: USER_ON_CURRENT_CHATGPT_WORK_PAGE
+  approved_at: '2026-08-17T04:08:01Z'
+  exactly_one_source_generated: true
+  face_and_costume_locked: true
+canonical_continuity:
+  screenplay_state: PRESENT_DAY_FOUNDER__REHABILITATION_DIRECTOR__BEFORE_FINAL_REFORM
+  role: PARAANE_REHABILITATION_DIRECTOR__PSYCHIATRIST__ANAADHI_BIOLOGICAL_FATHER
+  traits:
+  - CONTROLLED
+  - INTELLECTUALLY_FORMIDABLE
+  - MORALLY_CONFLICTED
+  - REMORSE_BEARING
+  hair: DENSE_WAVY_SALT_AND_PEPPER__SILVER_DOMINANT_AT_TEMPLES_AND_CROWN
+  facial_hair: NEAT_FULL_GREY_MOUSTACHE__CLEAN_SHAVEN_JAW
+  costume: DEEP_TEAL_TAILORED_BANDHGALA__MUTED_GREY_COLLARLESS_PROFESSIONAL_TUNIC
+source_visual:
+  github_path: production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+  github_public_url: https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+  google_drive_file_id: 1YXNgaqdaunWFa87zrrs_HXD0v_OCHhIN
+  google_drive_url: https://drive.google.com/file/d/1YXNgaqdaunWFa87zrrs_HXD0v_OCHhIN/view?usp=drivesdk
+  sha256: 1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f
+  mime_type: image/jpeg
+  width: 2160
+  height: 3840
+  colorspace: sRGB
+  heygen_acceptance_qc: PASSED
+heygen:
+  submission_status: NOT_SUBMITTED
+  api_billing_path: X_API_KEY_VIA_GITHUB_SECRET_HEYGEN_API_KEY
+  canonical_group_name: PARVARAN_MASTER_IDENTITY_V1
+  group_id: null
+  look_avatar_id: null
+  avatar_type: null
+  authoritative_status: null
+  looks_count: 0
+  consent_flow_created: false
+spend_control:
+  maximum_paid_creation_calls: 1
+  maximum_usd: 1.0
+  video_or_lipsync_or_tts: FORBIDDEN
+  digital_twin: FORBIDDEN
+  extra_looks: FORBIDDEN
+  duplicate_identity: FORBIDDEN
