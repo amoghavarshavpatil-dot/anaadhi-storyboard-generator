@@ -1,0 +1,49 @@
+version: 1
+phase: P1_CHARACTER_AVATAR_CONTROL
+identity_ref: CHR-ANARVAA
+canonical_name: ANARVAA_MASTER_IDENTITY_V1
+identity_status: APPROVED_SOURCE_ARCHIVED__HEYGEN_NOT_SUBMITTED
+source_approval:
+  status: APPROVED
+  authority: USER_ON_CURRENT_CHATGPT_WORK_PAGE
+  approved_at: '2026-08-17T01:16:56Z'
+  exactly_one_source_generated: true
+  face_and_costume_locked: true
+canonical_continuity:
+  screenplay_state: ACTIVE_PRE_FND_COLLAPSE
+  role: PARAANE_MENTAL_HOSPITAL_HEAD__PRINCIPAL_PSYCHIATRIST
+  traits:
+  - COMPOSED
+  - AMBITIOUS
+  - IMMACULATELY_ORGANISED
+  hair: DISCIPLINED_LEFT_SIDE_PART__BLACK_WITH_SILVER_TEMPLES
+  facial_hair: NEAT_SHORT_SALT_AND_PEPPER_BOXED_BEARD_AND_MOUSTACHE
+  costume: TAILORED_IVORY_PSYCHIATRIST_DIRECTOR_COAT__GRAPHITE_TUNIC
+source_visual:
+  github_path: production/heygen/avatars/master_identities/CHR-ANARVAA/source_visuals/CHR-ANARVAA_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+  github_public_url: https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/master_identities/CHR-ANARVAA/source_visuals/CHR-ANARVAA_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+  google_drive_file_id: 1OyGq0YYR29QaDQ1IvHk9_TZ2sWn3EbiG
+  google_drive_url: https://drive.google.com/file/d/1OyGq0YYR29QaDQ1IvHk9_TZ2sWn3EbiG/view?usp=drivesdk
+  sha256: 2101f8267e2bcc06f0a0d18bc80e4eaa7d7017b22e42cf4c4823d028fd575559
+  mime_type: image/jpeg
+  width: 2160
+  height: 3840
+  colorspace: sRGB
+  heygen_acceptance_qc: PASSED
+heygen:
+  submission_status: NOT_SUBMITTED
+  api_billing_path: X_API_KEY_VIA_GITHUB_SECRET_HEYGEN_API_KEY
+  canonical_group_name: ANARVAA_MASTER_IDENTITY_V1
+  group_id: null
+  look_avatar_id: null
+  avatar_type: null
+  authoritative_status: null
+  looks_count: 0
+  consent_flow_created: false
+spend_control:
+  maximum_paid_creation_calls: 1
+  maximum_usd: 1.0
+  video_or_lipsync_or_tts: FORBIDDEN
+  digital_twin: FORBIDDEN
+  extra_looks: FORBIDDEN
+  duplicate_identity: FORBIDDEN
