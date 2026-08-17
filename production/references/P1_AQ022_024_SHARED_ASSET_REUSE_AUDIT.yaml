@@ -1,0 +1,241 @@
+version: 1
+project: ANAADHI
+control: P1-AQ022-024-SHARED-ASSET-REUSE-AUDIT
+status: AUDITED__B29_STALE_RECOVERY_VISUALS_PROVEN__COMMAND_AND_RECOVERY_MASTERS_REMAIN_OPEN
+as_of_local: "2026-08-17T08:10:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+scope:
+  packets: [HEYGEN-AQ-022, HEYGEN-AQ-023, HEYGEN-AQ-024]
+  dependencies:
+    - LOC-PARAANE-CENTRAL-COMMAND
+    - CST-ANAADHI-27-RECOVERY
+    - INJ-ANAADHI-27-SURGERY
+
+source_snapshot:
+  observed_repository_head: 673e953854acbdeb31b366a91dff441c83953cff
+  blocker_matrix_blob: 978d5ed5f7cd57763e193fda19b6bc78924ae928
+  resolution_plan_blob: 99e64d7908a9e72ebe5c4c14684180404fcdfcee
+  action_queue_blob: 27b18de363abfae42c5f5e63250d45dff3145329
+  reference_registry_blob: c1004d8b122bd97f7201afe4262a9fd469bc8911
+  p0_foundation_blob: 944904a5be1fd8254928f36f63e14a557add0ff0
+  p1_requirements_blob: 1698bc7ea7000b200162cb81e9dceb3deeaeb7b0
+  heygen_schema_blob: 84786ec523c981e732b7cd9405e4d6baf5b61463
+  p1_bindings_blob: 8a81980d79070a6af52dd5ffe06396be0aeecd6b
+  drive_location_source_audit_blob: acec1d41631c9090d8043a22b5f58d7d8167be27
+  prior_LOC003_reuse_audit_blob: fb5dfcad7c400ff5471c36c652686313b2442b38
+  approved_screenplay: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+
+absolute_rules:
+  no_approved_status_promotion: true
+  no_root_approval_promotion: true
+  no_media_generation_or_replacement: true
+  no_consent_avatar_look_render_or_lipsync_submission: true
+  no_paid_heygen_api_execution: true
+  root_ST00_never_satisfies_unproven_nested_command_space: true
+  body_age_costume_injury_layers_are_independent: true
+  capture_topless_pixels_are_not_recovery_costume_authority: true
+  ADK7_capture_injury_state_is_not_surgery_or_bandage_authority: true
+  final_healed_scars_are_not_surgery_bandage_authority: true
+  transmitted_VO_does_not_require_physical_character_visual_state: true
+  incidental_clothing_bandage_or_scar_pixels_never_create_approval: true
+
+connected_drive_searches:
+  LOC_PARAANE_CENTRAL_COMMAND:
+    - {query: "Paraane Central Command", exact_standalone_asset_found: false}
+    - {query: "operations hall", exact_standalone_asset_found: false}
+    - {query: "Paraane Campus", exact_standalone_asset_found: false}
+  CST_ANAADHI_27_RECOVERY:
+    - {query: "Anaadhi recovery dark shawl", exact_standalone_asset_found: false}
+  INJ_ANAADHI_27_SURGERY:
+    - {query: "Anaadhi bandages surgery", exact_standalone_asset_found: false}
+  policy: >-
+    Empty connected-Drive searches mean no exact reusable named asset surfaced in the accessible
+    search. They do not prove global nonexistence, do not authorize generation and do not allow
+    incidental pixels to be cropped into a new canonical asset.
+
+AQ022_LOC_PARAANE_CENTRAL_COMMAND:
+  dependency_id: REF::LOC-PARAANE-CENTRAL-COMMAND
+  semantic_registry_state:
+    name: Paraane central command operations hall
+    status: MISSING_APPROVED_ASSET
+    path: null
+  exact_reusable_root_evidence:
+    env6l_root: LOC-003
+    canonical_name: Paraane Campus / Central Complex
+    drive_file_id: 1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW
+    drive_source_audit_result: REUSABLE_VERIFIED_ROOT_MASTER
+    existing_binding_authority: P1_BATCH_REFERENCE_BINDINGS.env6l_roots
+    root_already_bound_in_B03: true
+    root_already_bound_in_B24: true
+    root_regeneration_allowed: false
+    scope_limit: ROOT_ST00_ONLY
+  canonical_nested_space_separation:
+    B03:
+      scenes: [7, 8, 9, 10]
+      root_binding: [LOC-003, LOC-004]
+      exact_Paraane_nested_spaces:
+        - {id: ENV-PAR-005, name: Paraane Registration Hall, scene: 7}
+        - {id: ENV-PAR-006, name: Paraane Central Courtyard / Inauguration Courtyard, scene: 7}
+        - {id: ENV-PAR-007, name: Paraane Emergency Coordination Chamber, scene: 8}
+        - {id: ENV-PAR-008, name: Paraane Central Assessment Hub, scene: 9}
+        - {id: ENV-PAR-009, name: Paraane Founders' Council Chamber, scene: 10}
+      command_family_rule: >-
+        The early crisis/coordination/assessment/council spaces are distinct fixed nested rooms.
+        They must not be flattened into the Scene-064 Operations Hall or satisfied by the LOC-003 root plate.
+      keep_dependency: true
+    B24:
+      scenes: [64, 65, 66]
+      root_binding: [LOC-003, LOC-001]
+      exact_command_space:
+        id: ENV-PAR-029
+        name: Paraane Central Command — Operations Hall
+        scene: 64
+        classification: NEST_HERO_FIXED
+        state: P3_ADD
+        identity_note: "Capture-operation authority room; locked Scene-064 design family."
+      approved_screenplay_evidence: >-
+        SC064 is explicitly INT. PARAANE CENTRAL COMMAND – OPERATIONS HALL – NIGHT; Anaadhi is absent
+        and the room contains the forest operation map/black-stone command table and the capture-operation authority group.
+      keep_dependency: true
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_root_reuse_confirmed: true
+    root_binding_changed: false
+    exact_nested_command_master_found: false
+    stale_batch_bindings_removed: []
+    dependency_remains_open_batches: [B03, B24]
+    expected_batch_impact_after_refresh: 2
+    new_media_authorized: false
+
+AQ023_CST_ANAADHI_27_RECOVERY:
+  dependency_id: REF::CST-ANAADHI-27-RECOVERY
+  registry_state:
+    description: "hospital/recovery state with chest/abdominal dressings and dark shawl when specified"
+    status: MISSING_APPROVED_ASSET
+    path: null
+  strict_layer_separation:
+    underlying_identity: CHR-ANAADHI
+    age_body_layer: AGE-ANAADHI-27-RECOVERY
+    costume_layer: CST-ANAADHI-27-RECOVERY
+    injury_layer: INJ-ANAADHI-27-SURGERY
+    capture_costume_not_reusable: CST-ANAADHI-27-CAPTURE
+    reason: "Topless capture state precedes surgery and cannot define recovery clothing."
+  canonical_recovery_costume_progression:
+    B27:
+      scenes: [75, 76, 77, 78, 79, 80]
+      screenplay_states:
+        - {scene: 75, state: acute_transfer_stretcher, costume_authority: NOT_STANDALONE_APPROVED}
+        - {scene: 76, state: operating_theatre_surgery, costume_authority: SURGICAL_CONTEXT_NOT_RECOVERY_MASTER}
+        - {scene: 77, state: three_days_later_under_light_blankets_broad_bandaging, costume_authority: RECOVERY_STATE_REQUIRED}
+        - {scene: 78, state: open_dark_shawl_over_visible_bandages, costume_authority: RECOVERY_STATE_REQUIRED}
+        - {scene: 79, state: healing_recovery_continuity, costume_authority: RECOVERY_STATE_REQUIRED}
+        - {scene: 80, state: healing_recovery_continuity, costume_authority: RECOVERY_STATE_REQUIRED}
+      keep_dependency: true
+    B28:
+      scenes: [81, 82]
+      p0_state: "Anaadhi healing wounds under bandaging, walking slowly"
+      continuity: SAME_POST_SURGERY_RECOVERY_PERIOD
+      keep_dependency: true
+    B29:
+      scenes: [83, 84, 85, 86]
+      p0_named_characters_include_anaadhi: false
+      approved_screenplay_physical_presence: false
+      screenplay_detail: >-
+        SC083 contains Anaadhi only as transmitted V.O. 'Hello' through the abandoned phone connection;
+        physical action remains on Anarvaa and responders. SC084 follows Anarvaa in the hospital emergency ward,
+        SC085 follows the interim council, and SC086 follows the Pharmacist/Inventory Assistant inventory audit.
+      visual_rule: "A transmitted voice or referenced case record does not require Anaadhi recovery clothing pixels."
+      decision: REMOVE_STALE_REQUIREMENT
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_standalone_recovery_costume_master_found: false
+    remove_stale_batch_bindings: [B29]
+    dependency_remains_open_batches: [B27, B28]
+    expected_batch_impact_after_refresh: 2
+    new_media_authorized: false
+
+AQ024_INJ_ANAADHI_27_SURGERY:
+  dependency_id: REF::INJ-ANAADHI-27-SURGERY
+  registry_state:
+    description: chest + abdominal surgical injury and dressings
+    status: MISSING_APPROVED_ASSET
+    path: null
+  strict_layer_separation:
+    capture_ADK7_state_not_reusable: INJ-ANAADHI-27-ADK7
+    final_healed_scar_state_not_reusable: INJ-ANAADHI-27-FINAL
+    reason: >-
+      Drugged capture motor-control state, acute self-harm wounds, operative repair, broad postoperative
+      bandaging, healing/re-bleed progression and final healed scars are distinct injury substates.
+  canonical_injury_progression:
+    B27:
+      scenes: [75, 76, 77, 78, 79, 80]
+      exact_states:
+        - {scene: 75, state: ACUTE_CHEST_ABDOMEN_WOUNDS_STRETCHER}
+        - {scene: 76, state: OPERATIVE_REPAIR_CHEST_MUSCLE_PLANE_AND_DEEPER_ABDOMINAL_WOUND}
+        - {scene: 77, state: THREE_DAYS_LATER_BROAD_CHEST_ABDOMEN_BANDAGING}
+        - {scene: 78, state: HEALING_BANDAGES_VISIBLE_UNDER_OPEN_DARK_SHAWL}
+        - {scene: 79, state: HEALING_RECOVERY_CONTINUITY}
+        - {scene: 80, state: HEALING_RECOVERY_CONTINUITY}
+      keep_dependency: true
+    B28:
+      scenes: [81, 82]
+      p0_state: "healing wounds under bandaging"
+      approved_screenplay_continuity: >-
+        During the communications-tower confrontation the bandaging can bleed through from strain;
+        this remains the same post-surgical injury chain rather than a new unrelated injury master.
+      keep_dependency: true
+    B29:
+      scenes: [83, 84, 85, 86]
+      p0_named_characters_include_anaadhi: false
+      approved_screenplay_physical_presence: false
+      decision: REMOVE_STALE_REQUIREMENT
+      scope_guard: >-
+        Anaadhi's V.O./case-history references do not require his surgical wounds, dressings or bandages
+        to appear physically in the B29 image set.
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_standalone_surgery_injury_master_found: false
+    remove_stale_batch_bindings: [B29]
+    dependency_remains_open_batches: [B27, B28]
+    expected_batch_impact_after_refresh: 2
+    new_media_authorized: false
+
+machine_control_correction_authorized:
+  files:
+    - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+    - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  exact_changes:
+    B29:
+      remove_anaadhi_refs: [CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+      resulting_anaadhi_refs: []
+    LOC_PARAANE_CENTRAL_COMMAND:
+      remove_from_batches: []
+      keep_in_batches: [B03, B24]
+  no_other_requirement_removal_authorized: true
+  no_registry_change_authorized: true
+  no_root_binding_change_authorized: true
+
+p0_identity_guard:
+  keep_open_unless_separately_authoritatively_resolved: [HEYGEN-AQ-001, HEYGEN-AQ-002]
+  preserve_resolved_evidenced: HEYGEN-AQ-003
+
+expected_refresh:
+  prior_raw_blockers: 282
+  expected_AQ022_raw_blocker_delta: 0
+  expected_AQ023_raw_blocker_delta: -1
+  expected_AQ024_raw_blocker_delta: -1
+  expected_raw_blockers: 280
+  AQ022_expected_batch_impact: 2
+  AQ023_expected_batch_impact: 2
+  AQ024_expected_batch_impact: 2
+  note: "Expectation only; permanent read-only validator is authoritative."
+
+safety:
+  media_generated: false
+  media_replaced: false
+  consent_or_avatar_called: false
+  heygen_look_created: false
+  heygen_render_or_lipsync_submitted: false
+  paid_heygen_api_execution: false
+  approved_status_changed: false
+  approved_root_status_changed: false
