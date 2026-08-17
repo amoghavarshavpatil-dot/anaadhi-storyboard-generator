@@ -1,0 +1,236 @@
+version: 1
+project: ANAADHI
+control: P1-AQ013-015-SHARED-ASSET-REUSE-AUDIT
+status: AUDITED__STALE_BINDINGS_PROVEN__EXACT_ASSET_GAPS_REMAIN
+as_of_local: "2026-08-17T07:02:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+scope:
+  packets: [HEYGEN-AQ-013, HEYGEN-AQ-014, HEYGEN-AQ-015]
+  dependencies:
+    - AGE-ANAADHI-27-RECOVERY
+    - PRP-MEDICINE-CUP
+    - PRP-PARAANE-WRIST-DEVICE
+
+source_snapshot:
+  observed_repository_head: 52736f84d098ad7928296a1379be4c0ab96210e2
+  queue_blob: 2aa221d9279946a242dc85b5ab908a7c51d2cb9a
+  registry_blob: c1004d8b122bd97f7201afe4262a9fd469bc8911
+  p0_foundation_blob: 944904a5be1fd8254928f36f63e14a557add0ff0
+  p1_requirements_blob: 8386ac79187b71cb2bbd7345220c2ea388c6dbb2
+  heygen_schema_blob: 3f149efb1fbcf98c48980b2ca1bebaa65ea8c31e
+  anaadhi_state_matrix_blob: 11798df224dcbfcc4faf9496756dada6a698e050
+  age_body_family_blob: df78c67f443c107363445ab66d12a5c887c9c54a
+
+absolute_rules:
+  approved_only_exact_asset_reuse: true
+  no_approved_status_promotion: true
+  no_media_generation_or_replacement: true
+  no_heygen_consent_avatar_look_render_or_lipsync_submission: true
+  no_paid_heygen_api_execution: true
+  adult_anaadhi_height_cm: 193
+  age_body_costume_injury_layers_independent: true
+  incidental_pixels_never_create_prop_or_state_approval: true
+  generic_cup_substitution_forbidden: true
+  water_tea_clay_cups_are_not_medicine_cup_by_default: true
+  prior_design_lock_without_exact_archived_file_path_hash_is_not_asset_approval: true
+
+AQ013_AGE_ANAADHI_27_RECOVERY:
+  dependency_id: REF::AGE-ANAADHI-27-RECOVERY
+  registry_state:
+    age: 27
+    height_cm: 193
+    status: MISSING_APPROVED_ASSET
+    path: null
+  exact_existing_reuse_evidence:
+    base_identity:
+      ref: CHR-ANAADHI
+      status: APPROVED
+      scope: UNDERLYING_BIOLOGICAL_IDENTITY_ONLY
+    adult_scale:
+      height_cm: 193
+      reusable: true
+    capture_state:
+      ref: AGE-ANAADHI-27-CAPTURE
+      status: APPROVED
+      reusable_as_recovery_state: false
+      reason: "Capture geometry/condition does not establish post-surgery recovery anatomy."
+    age_body_family_P1_C2A:
+      status: APPROVED_WITH_SCOPE_LOCK
+      included_states: [AGE-ANAADHI-NEWBORN, AGE-ANAADHI-05, AGE-ANAADHI-07, AGE-ANAADHI-08, AGE-ANAADHI-09, AGE-ANAADHI-10, AGE-ANAADHI-11, AGE-ANAADHI-12-INSTITUTIONAL, AGE-ANAADHI-12-FOREST]
+      recovery_state_present: false
+      scope_rule: "Age/body geometry only; hair, costume and injury pixels are non-canonical."
+    drive_named_searches:
+      AGE_27: NO_EXACT_MATCH
+      RECOVERY: ONLY_BASE_FACE_AND_BODY_BLUEPRINT_RESULTS__NOT_RECOVERY_STATE
+  canonical_state_separation:
+    AGE_27_SURGERY_ACUTE:
+      batches: [B27]
+      scenes: [75, 76]
+      required_layers: [AGE-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    AGE_27_RECOVERY_3D:
+      batches: [B27]
+      scenes: [77]
+      required_layers: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    AGE_27_HEALING_SHAWL:
+      canonical_batches_with_anaadhi_present: [B27, B28, B30, B31, B32]
+      required_layers: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    AGE_27_SIX_MONTHS:
+      batches: [B33]
+      scenes: [99]
+      required_layers: [AGE-ANAADHI-27-RECOVERY]
+  stale_binding_audit:
+    B29:
+      current_age_requirement: AGE-ANAADHI-27-RECOVERY
+      p0_named_characters_include_anaadhi: false
+      p0_named_characters: [Anarvaa, Sister_Meera, Hospital_Workers, Senior_Physician, Neurologist, Athrima, Administrative_Officer, Technical_Clerk, Unnath, Manimantharaa, Asana, Parvaran, Pharmacist, Inventory_Assistant]
+      decision: REMOVE_AGE_REQUIREMENT_ONLY
+      scope_guard: "Do not alter B29 costume/injury requirements in this AQ013-AQ015 command; audit them separately later."
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_recovery_age_body_master_found: false
+    reusable_evidence_bound: [CHR-ANAADHI_BASE_IDENTITY, ADULT_HEIGHT_193CM]
+    remove_stale_batch_binding: B29
+    dependency_remains_open_batches: [B27, B28, B30, B31, B32, B33]
+    expected_batch_impact_after_refresh: 6
+    new_media_authorized: false
+
+AQ014_PRP_MEDICINE_CUP:
+  dependency_id: REF::PRP-MEDICINE-CUP
+  registry_state:
+    canonical_name: Paraane/Manire medicine cup family
+    status: MISSING_APPROVED_ASSET
+    path: null
+  drive_named_searches:
+    medicine_cup: NO_EXACT_MATCH
+    cup_image: NO_EXACT_MATCH
+  p0_exact_prop_anchor_audit:
+    B06:
+      scenes: [17, 18]
+      medicine_cup_named: false
+      decision: REMOVE_STALE_REQUIREMENT
+    B07:
+      scenes: [19]
+      medicine_cup_named: true
+      wording: medicine cup
+      decision: KEEP
+    B08:
+      scenes: [20, 21]
+      medicine_cup_named: false
+      wording: "fever/vitamin tablets and sweet are named; no medicine cup"
+      decision: REMOVE_STALE_REQUIREMENT
+    B09:
+      scenes: [22, 23]
+      medicine_cup_named: true
+      wording: medicine cups
+      decision: KEEP_FAMILY_IDENTITY_WITH_SCENE_SPECIFIC_MULTIPLICITY
+    B11:
+      scenes: [25, 26, 27]
+      medicine_cup_named: false
+      wording: medication cart and emergency injector are separate props
+      decision: REMOVE_STALE_REQUIREMENT
+    B26:
+      scenes: [69, 70, 71, 72, 73, 74]
+      medicine_cup_named: true
+      wording: medicine cup
+      separate_water_cup_named: true
+      decision: KEEP_MEDICINE_CUP__DO_NOT_MERGE_WATER_CUP
+  generic_substitution_guard:
+    excluded_as_proof: [water_cup, tea_cup_and_saucer, clay_cup, generic_vessels, incidental_location_pixels]
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_canonical_prop_master_found: false
+    remove_stale_batch_bindings: [B06, B08, B11]
+    dependency_remains_open_batches: [B07, B09, B26]
+    expected_batch_impact_after_refresh: 3
+    new_media_authorized: false
+
+AQ015_PRP_PARAANE_WRIST_DEVICE:
+  dependency_id: REF::PRP-PARAANE-WRIST-DEVICE
+  registry_state:
+    canonical_name: Paraane wrist display/device
+    status: MISSING_APPROVED_ASSET
+    path: null
+  prior_locked_design_evidence:
+    CB_4I_D:
+      status: DESIGN_APPROVED_CONTEXT
+      scope: "Founder credential + low-profile clinical-authority wrist-device design study"
+      constraints: [NO_MILITARY_STYLING, NO_GENERIC_SMARTWATCH, NO_CYBERPUNK_NEON, NO_HOLOGRAPHIC_SPECTACLE]
+    CB_4I_D2:
+      status: ISOLATED_WRIST_DEVICE_MASTER_PREVIOUSLY_LOCKED_IN_PROJECT_CONTEXT
+      design_grammar: "low-profile graphite/black medical-elastomer clinical-authority wrist interface with restrained dark display"
+    CB_4I_D3:
+      status: PAIRED_SCALE_PLACEMENT_INTEGRATION_PREVIOUSLY_AUDITED
+      authority_rule: "Integration evidence controls scale/placement only; isolated master is authoritative for prop close-up identity."
+    PAR_TECH01_M:
+      status: LATER_MATURE_WRIST_INTERFACE_DESIGN_CONTEXT_RECORDED
+      design_grammar: "non-smartwatch longitudinal wrist rail; graphite ceramic-polymer body; matte technical band; dark conductive side rails; inactive black display; restrained institutional marking; shallow outer docking groove"
+    archival_resolution:
+      exact_github_path_found: false
+      exact_github_blob_or_sha256_found: false
+      exact_drive_file_id_found: false
+      consequence: "Design continuity is evidenced, but exact reusable asset approval cannot be closed or promoted."
+  drive_named_searches:
+    Paraane_wrist_device: NO_EXACT_MATCH
+    wrist: NO_EXACT_MATCH
+    PAR_TECH01_M: NO_EXACT_MATCH
+  p0_exact_prop_anchor_audit:
+    B01:
+      scenes: [1, 2, 3, 4, 5]
+      wrist_device_named: true
+      wording: wrist thermal display
+      decision: KEEP_CANONICAL_FAMILY_REQUIREMENT
+    B03:
+      scenes: [7, 8, 9, 10]
+      wrist_device_named: false
+      decision: REMOVE_STALE_REQUIREMENT
+    B04:
+      scenes: [11, 12, 13]
+      wrist_device_named: true
+      wording: Parvaran wrist device
+      decision: KEEP_CANONICAL_FAMILY_REQUIREMENT
+    B24:
+      scenes: [64, 65, 66]
+      wrist_device_named: false
+      decision: REMOVE_STALE_REQUIREMENT
+    B29:
+      scenes: [83, 84, 85, 86]
+      wrist_device_named: false
+      decision: REMOVE_STALE_REQUIREMENT
+  decision:
+    status: OPEN_UNRESOLVED
+    prior_design_lock_verified: true
+    exact_archived_master_identity_resolved: false
+    remove_stale_batch_bindings: [B03, B24, B29]
+    dependency_remains_open_batches: [B01, B04]
+    expected_batch_impact_after_refresh: 2
+    registry_approval_promotion_allowed: false
+    new_media_authorized: false
+
+machine_control_correction_authorized:
+  files:
+    - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+    - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  exact_changes:
+    AGE_ANAADHI_27_RECOVERY:
+      B29_remove: AGE-ANAADHI-27-RECOVERY
+      preserve_B29_out_of_scope_layers: [CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    PRP_MEDICINE_CUP:
+      remove_from_batches: [B06, B08, B11]
+      keep_in_batches: [B07, B09, B26]
+    PRP_PARAANE_WRIST_DEVICE:
+      remove_from_batches: [B03, B24, B29]
+      keep_in_batches: [B01, B04]
+  no_other_requirement_removal_authorized: true
+
+p0_identity_guard:
+  keep_open_unless_separately_authoritatively_resolved: [HEYGEN-AQ-001, HEYGEN-AQ-002]
+  preserve_resolved_evidenced: HEYGEN-AQ-003
+
+safety:
+  media_generated: false
+  media_replaced: false
+  consent_or_avatar_called: false
+  heygen_look_created: false
+  heygen_render_or_lipsync_submitted: false
+  paid_heygen_api_execution: false
+  approved_status_changed: false
