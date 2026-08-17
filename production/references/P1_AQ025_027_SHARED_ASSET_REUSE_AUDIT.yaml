@@ -1,0 +1,251 @@
+version: 1
+project: ANAADHI
+control: P1-AQ025-027-SHARED-ASSET-REUSE-AUDIT
+status: AUDITED__B30_ADRAKA_LAB_STALE_BINDING_PROVEN__BLACK_RAIN_VEHICLE_AND_B02_LAB_GAPS_REMAIN_OPEN
+as_of_local: "2026-08-17T08:20:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+scope:
+  packets: [HEYGEN-AQ-025, HEYGEN-AQ-026, HEYGEN-AQ-027]
+  dependencies:
+    - ENV-BLACK-RAIN
+    - VEH-PARAANE-MEDICAL-TRANSPORT
+    - LOC-ADRAKA-SYSTEMS-LAB
+
+source_snapshot:
+  observed_repository_head: a30476e2a542ace61bd703113bbee7294269ffc8
+  blocker_matrix_blob: 778e78d457b67b71d10e259027de47394ac95e01
+  resolution_plan_blob: 5352b06ce67616e817f7b40b9e4d0953064de954
+  action_queue_blob: 0e5c12b0dfbe531b5272ce37ab8abdaa6b5eb75f
+  reference_registry_blob: c1004d8b122bd97f7201afe4262a9fd469bc8911
+  p0_foundation_blob: 944904a5be1fd8254928f36f63e14a557add0ff0
+  p1_requirements_blob: 0e078c35c54da8b574da58ce962fae4fe4a28cb9
+  heygen_schema_blob: 7f94bfe35e1c2bea6bf7ddb361bb6bd8c01afca4
+  p1_bindings_blob: 8a81980d79070a6af52dd5ffe06396be0aeecd6b
+  location_override_blob: aba67123f4bb72e9bb8fe4fa22ec5a8a30cef0dd
+  approved_screenplay: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+  weather_authority: ANAADHI_ENV-5E_100-Scene_Weather-Time_Exposure-Occupation_Damage-Operability_Audit.md
+  vehicle_authority: ANAADHI_ENV-4D_9-Mobile_Transformation-Inheritance_Referenced-Exclusion_Audit.md
+
+absolute_rules:
+  no_approved_status_promotion: true
+  no_root_approval_promotion: true
+  no_media_generation_or_replacement: true
+  no_consent_avatar_look_render_or_lipsync_submission: true
+  no_paid_heygen_api_execution: true
+  root_ST00_never_satisfies_unproven_nested_interior: true
+  weather_condition_master_is_not_a_visual_asset_master: true
+  ordinary_rain_or_generic_wetness_never_substitutes_for_black_rain: true
+  vehicle_family_cross_aliasing_forbidden: true
+  incidental_vehicle_pixels_are_not_standalone_vehicle_approval: true
+  exact_scene_evidence_overrides_inherited_only_routing_assumption: true
+
+connected_drive_searches:
+  ENV_BLACK_RAIN:
+    - {query: "black rain", exact_named_standalone_image_found: false}
+  VEH_PARAANE_MEDICAL_TRANSPORT:
+    - {query: "Paraane medical transport", exact_named_standalone_image_found: false}
+  LOC_ADRAKA_SYSTEMS_LAB:
+    - {query: "Adraka Medical University", exact_named_standalone_image_found: false}
+  policy: >-
+    Empty connected-Drive metadata searches mean no exact named standalone image surfaced in the accessible
+    search. They do not prove global nonexistence and do not override exact checked-in Drive file IDs already
+    locked by repository audits.
+
+AQ025_ENV_BLACK_RAIN:
+  dependency_id: REF::ENV-BLACK-RAIN
+  registry_state:
+    canonical_name: black monsoon rain / opening-capture condition
+    status: MISSING_APPROVED_ASSET
+    path: null
+  canonical_condition_authority:
+    weather_master: WC001
+    condition_code: WX2
+    scenes: [1, 2, 3, 4, 5, 66]
+    event_chain: EC-01
+    exact_rule: >-
+      Scenes 001-005 and 066 are one phased black-rain capture master and one wet/debris history.
+      Scene 066 is the complete canonical reprise, not a second storm or second operation.
+    physical_definition: >-
+      Black rain is an unexplained fictional physical condition limited to dark precipitation, wetness
+      and visibility. No toxicity, chemistry, corrosion, radiation, disease, magical effect or invented
+      environmental history is authorised.
+    ordinary_weather_separation:
+      WX1: ordinary rain/wet
+      WX2: black rain
+      WX4: storm/heavy rain/flood-active-water family where separately bound
+      examples:
+        SC065: "black rain has not yet begun"
+        SC066: "black rain begins"
+        SC067: "same black-rain event continues"
+        SC068: "later rain/flood channel condition is not automatic black-rain identity"
+  exact_scene_use:
+    B01:
+      scenes: [1, 2, 3, 4, 5]
+      screenplay_evidence: "SC001 explicitly opens with black rain falling through the ancient trees."
+      keep_dependency: true
+    B24:
+      scenes: [64, 65, 66]
+      screenplay_evidence: "SC066 explicitly says Black rain begins, exactly as in the film's opening."
+      keep_dependency: true
+  asset_boundary:
+    canonical_condition_truth_proven: true
+    standalone_approved_visual_or_weather_asset_found: false
+    rule: >-
+      WC001/WX2 controls continuity only. It is not itself an approved image, VFX plate, weather rig,
+      exposure grade, shot or storyboard frame and cannot close the P1 visual-reference dependency.
+  decision:
+    status: OPEN_UNRESOLVED
+    stale_batch_bindings_removed: []
+    dependency_remains_open_batches: [B01, B24]
+    expected_batch_impact_after_refresh: 2
+    new_media_authorized: false
+
+AQ026_VEH_PARAANE_MEDICAL_TRANSPORT:
+  dependency_id: REF::VEH-PARAANE-MEDICAL-TRANSPORT
+  registry_state:
+    canonical_name: Paraane medical transport
+    status: MISSING_APPROVED_ASSET
+    path: null
+  exact_scene_use:
+    B01:
+      scenes: [1]
+      screenplay_evidence: "SC001 explicitly places PARAANE MEDICAL TRANSPORTS beneath areca-leaf camouflage at the capture perimeter."
+      keep_dependency: true
+    B24:
+      scenes: [66]
+      screenplay_evidence: "SC066 explicitly reprises the same Paraane medical transports beneath leaf camouflage."
+      recurrence_rule: SAME_CAPTURE_OPERATION_AND_SAME_VEHICLE_FAMILY
+      keep_dependency: true
+  hard_non_alias_vehicle_families:
+    ENV-MOB-002:
+      name: Independent Emergency Vehicle
+      scenes: [75]
+      rule: "Independent surgery transfer; never Paraane-owned."
+    ENV-MOB-003:
+      name: Police Medical-Transfer Vehicle
+      scenes: [81]
+      rule: "Post-operative police/custody transfer; distinct from Scene-075 and all Paraane transports."
+    ENV-MOB-004:
+      name: Protected Judicial-Transfer Vehicle
+      scenes: [92, 93, 94, 95]
+      rule: "Protected judicial/custody witness vehicle; not the capture-perimeter Paraane transport."
+    ENV-MOB-009:
+      name: Surgery-Centre Forest-Route Medical Vehicle
+      scenes: [80]
+      rule: "Independent patient-departure vehicle; explicitly separate from ENV-MOB-002/003."
+  unresolved_vehicle_scope:
+    - exact Paraane medical-transport exterior identity
+    - any required medical compartment/interior identity
+    - arrival/perimeter concealment state
+    - deployment/door/open-close state if visibly required
+    - scale/body/livery/details
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_standalone_master_found: false
+    stale_batch_bindings_removed: []
+    dependency_remains_open_batches: [B01, B24]
+    expected_batch_impact_after_refresh: 2
+    new_media_authorized: false
+
+AQ027_LOC_ADRAKA_SYSTEMS_LAB:
+  dependency_id: REF::LOC-ADRAKA-SYSTEMS-LAB
+  registry_state:
+    canonical_name: Adraka Medical University systems lab
+    status: MISSING_APPROVED_ASSET
+    path: null
+  exact_root_reuse_evidence:
+    env6l_root: LOC-002
+    canonical_name: Adraka Medical University
+    drive_file_id: 1N1veQrahSWuwxU4MLWk2zOCmqjnGnhGn
+    action: REUSE_MASTER_SKIP_REGENERATION
+    reusable_scope: ROOT_ST00_ONLY
+    still_required: [systems-lab nested interior]
+    root_regeneration_allowed: false
+  exact_scene_audit:
+    B02:
+      scenes: [6]
+      screenplay_heading: "INT. ADRAKA MEDICAL UNIVERSITY - SYSTEMS LAB - DAY - YEARS EARLIER"
+      screenplay_identity: >-
+        Futuristic medical laboratory inside an old red-stone university, with carved wooden ceiling
+        beams and suspended holographic neural maps.
+      root_binding: LOC-002
+      semantic_dependency_stale: false
+      decision: KEEP
+    B30:
+      scenes: [87, 88, 89, 90, 91, 92]
+      p0_location_language: >-
+        INT Marsyaa Adraka study; media executive/news floors; abandoned irrigation telemetry shelter;
+        multi-location truth-war montage.
+      approved_screenplay_SC087: >-
+        INT. MARSYAA'S HOUSE - SPECIAL STUDY / INT. MEDIA NETWORK - EXECUTIVE FLOOR - DAY. The physical
+        Adraka-side study is an old house inside a ginger field containing ancient medical texts,
+        damaged student notebooks and encrypted communications equipment.
+      exact_late_root: LOC-069
+      exact_late_root_name: Marsyaa's House
+      exact_systems_lab_physical_presence: false
+      decision: REMOVE_STALE_SEMANTIC_REQUIREMENT_AND_STALE_LOC002_ROOT_BINDING
+      correction_reason: >-
+        Earlier late-routing controls retained LOC-002 only through an inherited 'where actually linked'
+        assumption. Exact approved-screenplay review now proves no Scene-087-092 physical return to the
+        university systems lab. Marsyaa's old study materials are evidence/history, not a lab revisit.
+  B30_non_lab_roots_preserved:
+    keep: [LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]
+    mobile_keep: [LOC-076, LOC-077]
+    rule: "This audit does not reopen the prior HOLD and late-root routing decisions outside LOC-002."
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_university_root_reuse_confirmed: true
+    exact_systems_lab_nested_master_found: false
+    remove_stale_batch_bindings: [B30]
+    remove_stale_env6l_root_from_batches: [B30]
+    dependency_remains_open_batches: [B02]
+    expected_batch_impact_after_refresh: 1
+    new_media_authorized: false
+
+machine_control_correction_authorized:
+  files:
+    - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+    - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+    - production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  exact_changes:
+    B30:
+      remove_required_location_ref: LOC-ADRAKA-SYSTEMS-LAB
+      remove_env6l_root: LOC-002
+      preserve_other_locations_and_roots: true
+  AQ025:
+    remove_from_batches: []
+    keep_in_batches: [B01, B24]
+  AQ026:
+    remove_from_batches: []
+    keep_in_batches: [B01, B24]
+  AQ027:
+    remove_from_batches: [B30]
+    keep_in_batches: [B02]
+  no_other_requirement_removal_authorized: true
+  no_registry_change_authorized: true
+  no_new_reference_id_authorized: true
+
+p0_identity_guard:
+  keep_open_unless_separately_authoritatively_resolved: [HEYGEN-AQ-001, HEYGEN-AQ-002]
+  preserve_resolved_evidenced: HEYGEN-AQ-003
+
+expected_refresh:
+  prior_raw_blockers: 280
+  AQ025_expected_raw_blocker_delta: 0
+  AQ026_expected_raw_blocker_delta: 0
+  AQ027_expected_raw_blocker_delta: -1
+  expected_raw_blockers_if_no_other_live_change: 279
+  AQ025_expected_batch_impact: 2
+  AQ026_expected_batch_impact: 2
+  AQ027_expected_batch_impact: 1
+  note: "Expectation only; live refresh and permanent read-only validator remain authoritative."
+
+safety:
+  media_generated: false
+  media_replaced: false
+  consent_or_avatar_called: false
+  heygen_look_created: false
+  heygen_render_or_lipsync_submitted: false
+  paid_heygen_api_execution: false
+  approved_status_changed: false
+  approved_root_status_changed: false
