@@ -1,0 +1,115 @@
+version: 1
+project: ANAADHI
+control: P1_AQ028_030_SHARED_ASSET_REUSE_AUDIT
+status: COMPLETE__ZERO_CREDIT__FAIL_CLOSED
+mode: AUDIT_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_SUBMISSION
+scope: [HEYGEN-AQ-028, HEYGEN-AQ-029, HEYGEN-AQ-030]
+
+invariants:
+  approved_status_promotion: false
+  root_status_promotion: false
+  media_generation_or_replacement: false
+  consent_avatar_look_render_lipsync_submission: false
+  paid_heygen_or_api_execution: false
+  incidental_pixels_do_not_equal_standalone_asset_approval: true
+  exact_existing_asset_evidence_required_for_reuse: true
+
+sources:
+  p0_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+  requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  registry: production/references/REFERENCE_REGISTRY.yaml
+  drive_root_audit: production/references/DRIVE_LOCATION_SOURCE_AUDIT.yaml
+  approved_screenplay: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+  env_recurrence_authority: ANAADHI_ENV-2C_Full_Recurrence_Scene-Use_Chronology_Audit.md
+  env_weather_state_authority: ANAADHI_ENV-5E_100-Scene_Weather-Time_Exposure-Occupation_Damage-Operability_Audit.md
+
+findings:
+  HEYGEN-AQ-028:
+    dependency_id: REF::LOC-PARAANE-CAMPUS-EARLY
+    status_after_audit: OPEN_UNRESOLVED
+    impacted_batches_after_audit: [B03, B05]
+    exact_reuse_evidence:
+      - LOC-003 belongs to the verified reusable root-master range LOC-001..LOC-015.
+      - Paraane Campus/Central Complex root identity may be reused only as the parent/root identity.
+    canonical_early_state_evidence:
+      B03:
+        scenes: [7,8,9,10]
+        required_distinct_spaces:
+          - ENV-PAR-004 P0 Public-Coordination / First-Years Service Montage Zone
+          - ENV-PAR-005 Registration Hall
+          - ENV-PAR-006 Central Courtyard / Inauguration Courtyard
+          - ENV-PAR-007 Emergency Coordination Chamber
+          - ENV-PAR-008 Central Assessment Hub
+          - ENV-PAR-009 Founders' Council Chamber
+        decision: KEEP_OPEN
+        reason: Root reuse does not satisfy founding/inauguration states or required nested interiors.
+      B05:
+        scenes: [14,15,16]
+        required_paraane_space: ENV-PAR-010 Paraane Rehabilitation Centre Security Gate
+        decision: KEEP_OPEN
+        reason: Generic Paraane root cannot substitute for the newborn-night rehabilitation-gate threshold/state.
+    drive_search_result: NO_EXACT_STANDALONE_EARLY_STATE_OR_NESTED_MASTER_FOUND
+    machine_correction: NONE
+
+  HEYGEN-AQ-029:
+    dependency_id: REF::PRP-FOUR-ROAD-SHRINE
+    status_after_audit: OPEN_UNRESOLVED
+    impacted_batches_before_audit: [B05, B12]
+    impacted_batches_after_audit: [B05]
+    exact_identity_evidence:
+      B05:
+        scene: 14
+        screenplay_identity: Parlipatna four-road junction shrine stone weathered smooth by monsoon seasons; newborn placed near its shrine platform.
+        decision: KEEP_OPEN
+        reason: Exact standalone shrine-stone/site master remains unproven.
+      B12:
+        scenes: [28,29,30,31,32,33,34]
+        screenplay_identity: Scene 030 abandoned forest shrine beneath a leaning jackfruit tree with a faceless stone deity, suspended copper disc and broken electronic sensor.
+        decision: REMOVE_STALE_REFERENCE
+        reason: This is a different forest shrine/site and cannot inherit the Parlipatna four-road shrine-stone identity.
+    drive_search_result: NO_EXACT_STANDALONE_FOUR_ROAD_SHRINE_MASTER_FOUND
+    anti_alias_holds:
+      - Do not alias Parlipatna four-road shrine stone to the abandoned forest shrine.
+      - Do not infer either shrine from incidental devotional pixels, roadside stones or temple precincts.
+    machine_correction:
+      remove_from_B12_required_prop_refs: [PRP-FOUR-ROAD-SHRINE]
+
+  HEYGEN-AQ-030:
+    dependency_id: REF::INJ-ANAADHI-12-ESCAPE
+    status_after_audit: OPEN_UNRESOLVED
+    impacted_batches_after_audit: [B11, B12]
+    continuity_evidence:
+      B11:
+        scenes: [25,26,27]
+        state_boundary: Paraane high-observation/audit/service escape sequence; institutional clothing accumulates tear/blood/dust only as scene progression requires.
+        decision: KEEP_OPEN
+      B12:
+        scenes: [28,29,30,31,32,33,34]
+        state_boundary: forest escape/survival continuation; soaked/torn clothing is separate from injury authority.
+        explicit_injury_evidence:
+          - Scene 031: thorn tears the sole of Anaadhi's foot; he washes the wound, applies pressure and tears a clean strip from the inner side of his institutional shirt.
+        decision: KEEP_OPEN
+    separation_rules:
+      - age/body geometry is not injury approval
+      - torn or wet institutional clothing is not injury approval
+      - dirt, blood-on-clothing and environmental wetness cannot substitute for wound geometry
+      - arm/foot/forest-cut substates and healing progression require their own exact visual evidence
+    drive_search_result: NO_EXACT_STANDALONE_AGE12_ESCAPE_INJURY_MASTER_FOUND
+    machine_correction: NONE
+
+summary:
+  stale_batch_references_removed: 1
+  stale_reference_removals:
+    - batch: B12
+      reference: PRP-FOUR-ROAD-SHRINE
+  dependencies_closed: 0
+  dependencies_remaining_open: [HEYGEN-AQ-028, HEYGEN-AQ-029, HEYGEN-AQ-030]
+  expected_raw_blocker_delta: -1
+  expected_AQ028_batches: [B03, B05]
+  expected_AQ029_batches: [B05]
+  expected_AQ030_batches: [B11, B12]
+
+next_action: >-
+  Synchronize the single B12 prop correction across requirements/schema, refresh blocker matrix,
+  resolution plan and dependency action queue, then rerun the permanent read-only validator.
