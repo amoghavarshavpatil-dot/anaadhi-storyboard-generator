@@ -1,0 +1,145 @@
+version: 1
+project: ANAADHI
+scene_id: SC094
+editorial_segment_id: SC094B
+revision_id: R001
+status: SPEC_READY
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+
+editorial_boundary:
+  start_anchor: "Manimantharaa’s members raise weapons and police respond."
+  start_inclusive: true
+  end_anchor: "ANAADHI: Because of evidence."
+  end_inclusive: true
+  source_scene_end_after_anchor: true
+  final_editorial_previous: SC100
+  final_editorial_next: SC095
+  excluded_before:
+    - "UNNATH: That is the problem."
+    - SC094A
+  excluded_after:
+    - SC095
+    - "Anaadhi’s vehicle door remains closed. His hand stays open inside."
+  boundary_reconciliation_note: >-
+    The approved screenplay ends SC094 on ANAADHI: Because of evidence. The vehicle-door/open-hand
+    beat occurs later in SC095. Because this package is SC094B only and must not begin SC095 early,
+    that later beat is intentionally excluded and remains for the SC095 package.
+
+continuity:
+  batch: B31
+  condition: WC089
+  chronology: PRE_DAWN_BORDER_CHECKPOINT_CONTINUOUS
+  location:
+    root_id: LOC-075
+    root_name: Joint Kendhalaa–Adraka Border Checkpoint
+    physical_anchors:
+      - ENV-BOR-001
+      - ENV-BOR-002
+    subspace_note: >-
+      SUB-075-01 Temporary Judicial Evidence Chamber belongs to SC096 and is not used in SC094B.
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+  mobile_assets:
+    ANAADHI_PROTECTED_TRANSFER:
+      env_id: ENV-MOB-004
+      loc_id: LOC-077
+      name: Anaadhi Protected Judicial-Transfer Vehicle
+    MARSYAA_CONVOY:
+      env_id: ENV-MOB-005
+      loc_id: LOC-076
+      name: Marsyaa Pharmaceutical Convoy
+      state: ST00_PRE_BREACH_METADATA_ERASURE_ATTEMPT
+    BREAKAWAY_SARJANYA_CONVOY:
+      env_id: ENV-MOB-006
+      loc_id: null
+      name: Breakaway Sarjanya Convoy
+      rule: DO_NOT_MERGE_WITH_LOC-073_OR_LOC-074_OR_LAWFUL_SARJANYA_UNIT
+    POLICE_INTERCEPT_EVIDENCE_VEHICLES:
+      env_id: ENV-MOB-007
+      loc_id: null
+      name: Police Intercept / Evidence Vehicles
+      rule: DISTINCT_FROM_ANAADHI_TRANSFER_AND_POLICE_CARRIER
+  characters:
+    ANAADHI:
+      age: 27
+      height_cm: 193
+      custody: UNRESTRAINED_INSIDE_LOC-077
+      body_state: AGE-ANAADHI-27-RECOVERY
+      injury_state: HEALING_POST_SURGERY
+      costume_continuity: DARK_SHAWL_OVER_HEALING_WOUNDS
+      eighteen_name_list: INNER_POCKET
+      exact_visual_reference: CONTROLLED_UNRESOLVED_B31_RECOVERY_LOOK
+    AARATHI:
+      continuity: B31_PROTECTED_TRANSFER_OPERATION
+      exact_visual_reference: CONTROLLED_UNRESOLVED_FOR_THIS_LATE_STATE
+    UNNATH:
+      continuity: B31_POLICE_COMMAND
+      uniform_rule: NO_PARAANE_EMBLEM
+      exact_visual_reference: CONTROLLED_UNRESOLVED
+    MARSYAA:
+      continuity: B31_PRESENT_DAY
+      description: GREY_HAIRED_TRADITIONAL_ADRAKA_SCHOLAR_CLOTHING_UNDER_MODERN_MEDICAL_OVERCOAT
+      exact_visual_reference: CONTROLLED_UNRESOLVED
+    PHARMACIST:
+      continuity: B31_EVIDENCE_WITNESS
+      exact_visual_reference: CONTROLLED_UNRESOLVED
+    MANIMANTHARAA:
+      continuity: B31_BREAKAWAY_SARJANYA_LEADER
+      exact_visual_reference: CONTROLLED_UNRESOLVED
+    SARJANYA_MEMBERS:
+      continuity: BREAKAWAY_GROUP_AT_WESTERN_LINE
+      exact_visual_reference: CONTROLLED_UNRESOLVED_GROUP
+    POLICE_EVIDENCE_TEAMS:
+      continuity: LAWFUL_EVIDENCE_BREACH_TEAM
+      exact_visual_reference: CONTROLLED_UNRESOLVED_GROUP
+  technology:
+    SIGNAL_CONTAINMENT_FIELD:
+      source: SCREENPLAY_EXACT_ACTION
+      canonical_standalone_id: UNPROVEN
+      rule: DO_NOT_INVENT_TECH_ID_OR_GENERIC_SCI_FI_FIELD
+    CARGO_METADATA_ERASURE:
+      source: SCREENPLAY_EXACT_ACTION
+      host_asset: LOC-076
+      rule: ERASES_CARGO_METADATA_ONLY_DO_NOT_ERASE_LOCAL_DRIVES
+    MARSYAA_CONCEALED_CONTROL:
+      source: SCREENPLAY_EXACT_PROP_ACTION
+      canonical_standalone_id: UNPROVEN
+      rule: DEVICE_DIES_WHEN_SIGNAL_CONTAINMENT_DROPS
+  special_layer:
+    env6_ruling: NO_SB
+    disposition: EP0_PHYSICAL_CHRONOLOGY_ONLY
+    prohibited:
+      - PARALLEL_EARTH_VISUALIZATION
+      - GF_LAYER
+      - ADK7_VISION
+      - SPOKEN_REFERENCE_BECOMES_IMAGE
+      - SUPERNATURAL_EVIDENCE_EFFECT
+
+screenplay_beats:
+  - "Manimantharaa’s members raise weapons and police respond. Anaadhi remains seated."
+  - "Marsyaa uses the disorder to press a concealed control; the convoy begins erasing cargo metadata."
+  - "PHARMACIST: The records are being wiped!"
+  - "UNNATH: Isolate the network!"
+  - "A signal-containment field drops over the convoy and Marsyaa’s device dies."
+  - "PHARMACIST: The local drives are still active."
+  - "UNNATH: Authorise the breach."
+  - "Police evidence teams advance."
+  - "MARSYAA: They found courage because of you."
+  - "ANAADHI: No."
+  - "ANAADHI: Because of evidence."
+
+shot_plan:
+  package: production/remotion/shot_specs/SC094B/SC094B_SHOT_PACKAGE.json
+  shot_count: 12
+  picture_planning_duration_seconds: 36
+  stills_per_minute: 20
+  minimum_stills_per_minute: 20
+  raster: 3840x1600
+  aspect: "2.40:1"
+  fps: 30
+
+safety:
+  image_generation_started: false
+  render_started: false
+  heygen_execution: false
+  paid_media_api_execution: false
+  sc095_content_imported: false
