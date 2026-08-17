@@ -1,0 +1,844 @@
+name: HeyGen Create Parvaran Photo Avatar
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/heygen-create-parvaran-photo-avatar.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: heygen-create-parvaran-photo-avatar
+  cancel-in-progress: false
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout canonical repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Archive approved source before any HeyGen mutation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pillow pyyaml
+          python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import io
+          import urllib.request
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          import yaml
+          from PIL import Image
+
+          SOURCE_PATH = Path(
+              "production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/"
+              "CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+          )
+          MANIFEST_PATH = Path(
+              "production/heygen/avatars/master_identities/CHR-PARVARAN/"
+              "CHR-PARVARAN_MASTER_IDENTITY_MANIFEST.yaml"
+          )
+          DRIVE_FILE_ID = "1YXNgaqdaunWFa87zrrs_HXD0v_OCHhIN"
+          DRIVE_URL = (
+              "https://drive.usercontent.google.com/download"
+              f"?id={DRIVE_FILE_ID}&export=download&confirm=t"
+          )
+          EXPECTED_SHA256 = "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f"
+
+          def observed_at() -> str:
+              return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+
+          request = urllib.request.Request(
+              DRIVE_URL,
+              headers={"User-Agent": "ANAADHI-GitHub-Actions"},
+          )
+          with urllib.request.urlopen(request, timeout=120) as response:
+              blob = response.read()
+
+          actual_sha256 = hashlib.sha256(blob).hexdigest()
+          assert actual_sha256 == EXPECTED_SHA256, (
+              "drive_source_checksum_mismatch",
+              actual_sha256,
+              EXPECTED_SHA256,
+          )
+          assert blob[:2] == b"\xff\xd8" and blob[-2:] == b"\xff\xd9", "not_jpeg"
+
+          with Image.open(io.BytesIO(blob)) as image:
+              assert image.format == "JPEG", image.format
+              assert image.size == (2160, 3840), image.size
+              assert image.mode == "RGB", image.mode
+
+          SOURCE_PATH.parent.mkdir(parents=True, exist_ok=True)
+          SOURCE_PATH.write_bytes(blob)
+
+          manifest = {
+              "version": 1,
+              "phase": "P1_CHARACTER_AVATAR_CONTROL",
+              "identity_ref": "CHR-PARVARAN",
+              "canonical_name": "PARVARAN_MASTER_IDENTITY_V1",
+              "identity_status": "APPROVED_SOURCE_ARCHIVED__HEYGEN_NOT_SUBMITTED",
+              "source_approval": {
+                  "status": "APPROVED",
+                  "authority": "USER_ON_CURRENT_CHATGPT_WORK_PAGE",
+                  "approved_at": observed_at(),
+                  "exactly_one_source_generated": True,
+                  "face_and_costume_locked": True,
+              },
+              "canonical_continuity": {
+                  "screenplay_state": "PRESENT_DAY_FOUNDER__REHABILITATION_DIRECTOR__BEFORE_FINAL_REFORM",
+                  "role": "PARAANE_REHABILITATION_DIRECTOR__PSYCHIATRIST__ANAADHI_BIOLOGICAL_FATHER",
+                  "traits": ["CONTROLLED", "INTELLECTUALLY_FORMIDABLE", "MORALLY_CONFLICTED", "REMORSE_BEARING"],
+                  "hair": "DENSE_WAVY_SALT_AND_PEPPER__SILVER_DOMINANT_AT_TEMPLES_AND_CROWN",
+                  "facial_hair": "NEAT_FULL_GREY_MOUSTACHE__CLEAN_SHAVEN_JAW",
+                  "costume": "DEEP_TEAL_TAILORED_BANDHGALA__MUTED_GREY_COLLARLESS_PROFESSIONAL_TUNIC",
+              },
+              "source_visual": {
+                  "github_path": str(SOURCE_PATH),
+                  "github_public_url": (
+                      "https://raw.githubusercontent.com/amoghavarshavpatil-dot/"
+                      "anaadhi-storyboard-generator/main/"
+                      + str(SOURCE_PATH)
+                  ),
+                  "google_drive_file_id": DRIVE_FILE_ID,
+                  "google_drive_url": (
+                      f"https://drive.google.com/file/d/{DRIVE_FILE_ID}/view?usp=drivesdk"
+                  ),
+                  "sha256": EXPECTED_SHA256,
+                  "mime_type": "image/jpeg",
+                  "width": 2160,
+                  "height": 3840,
+                  "colorspace": "sRGB",
+                  "heygen_acceptance_qc": "PASSED",
+              },
+              "heygen": {
+                  "submission_status": "NOT_SUBMITTED",
+                  "api_billing_path": "X_API_KEY_VIA_GITHUB_SECRET_HEYGEN_API_KEY",
+                  "canonical_group_name": "PARVARAN_MASTER_IDENTITY_V1",
+                  "group_id": None,
+                  "look_avatar_id": None,
+                  "avatar_type": None,
+                  "authoritative_status": None,
+                  "looks_count": 0,
+                  "consent_flow_created": False,
+              },
+              "spend_control": {
+                  "maximum_paid_creation_calls": 1,
+                  "maximum_usd": 1.00,
+                  "video_or_lipsync_or_tts": "FORBIDDEN",
+                  "digital_twin": "FORBIDDEN",
+                  "extra_looks": "FORBIDDEN",
+                  "duplicate_identity": "FORBIDDEN",
+              },
+          }
+          MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
+          MANIFEST_PATH.write_text(
+              yaml.safe_dump(manifest, sort_keys=False, allow_unicode=True, width=120),
+              encoding="utf-8",
+          )
+          PY
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase --autostash origin main
+          git add \
+            production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg \
+            production/heygen/avatars/master_identities/CHR-PARVARAN/CHR-PARVARAN_MASTER_IDENTITY_MANIFEST.yaml
+          if git diff --cached --quiet; then
+            echo 'Approved Parvaran source already archived.'
+          else
+            git commit -m 'Archive approved Parvaran master identity source'
+            git push origin HEAD:main
+          fi
+
+      - name: Execute one capped API-key Photo Avatar creation
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$HEYGEN_API_KEY"
+          python - <<'PY'
+          from __future__ import annotations
+
+          import hashlib
+          import io
+          import json
+          import os
+          import subprocess
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+          from decimal import Decimal
+          from pathlib import Path
+
+          import yaml
+          from PIL import Image
+
+          API = "https://api.heygen.com"
+          API_KEY = os.environ["HEYGEN_API_KEY"]
+          CHARACTER_REF = "CHR-PARVARAN"
+          CANONICAL_NAME = "PARVARAN_MASTER_IDENTITY_V1"
+          SOURCE_PATH = Path(
+              "production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/"
+              "CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+          )
+          SOURCE_URL = (
+              "https://raw.githubusercontent.com/amoghavarshavpatil-dot/"
+              "anaadhi-storyboard-generator/main/"
+              + str(SOURCE_PATH)
+          )
+          MANIFEST_PATH = Path(
+              "production/heygen/avatars/master_identities/CHR-PARVARAN/"
+              "CHR-PARVARAN_MASTER_IDENTITY_MANIFEST.yaml"
+          )
+          LEDGER_PATH = Path(
+              "production/heygen/avatars/master_identities/CHR-PARVARAN/"
+              "HEYGEN_PARVARAN_CREATION_LEDGER.json"
+          )
+          EXACT_5_LEDGER = Path(
+              "production/heygen/avatars/EXACT_5_HEYGEN_AVATAR_COMPLETION_LEDGER.json"
+          )
+          CREDIT_GATE = Path("production/heygen/HEYGEN_CREDIT_GATE_LOCK.yaml")
+          DRIVE_FILE_ID = "1YXNgaqdaunWFa87zrrs_HXD0v_OCHhIN"
+          DRIVE_URL = (
+              "https://drive.usercontent.google.com/download"
+              f"?id={DRIVE_FILE_ID}&export=download&confirm=t"
+          )
+          EXPECTED_SHA256 = "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f"
+
+          def observed_at() -> str:
+              return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+
+          def api_json(method: str, path: str, payload=None, extra_headers=None):
+              body = None if payload is None else json.dumps(
+                  payload, separators=(",", ":")
+              ).encode()
+              headers = {"x-api-key": API_KEY, "Accept": "application/json"}
+              if payload is not None:
+                  headers["Content-Type"] = "application/json"
+              if extra_headers:
+                  headers.update(extra_headers)
+              request = urllib.request.Request(
+                  API + path,
+                  data=body,
+                  headers=headers,
+                  method=method,
+              )
+              try:
+                  with urllib.request.urlopen(request, timeout=120) as response:
+                      raw = response.read()
+                      return response.status, json.loads(raw or b"{}")
+              except urllib.error.HTTPError as error:
+                  raw = error.read()
+                  try:
+                      decoded = json.loads(raw or b"{}")
+                  except Exception:
+                      decoded = {
+                          "error": "non_json_http_error",
+                          "http_status": error.code,
+                      }
+                  return error.code, decoded
+
+          def data_of(payload):
+              if isinstance(payload, dict) and "data" in payload:
+                  return payload["data"]
+              return payload
+
+          def wallet_balance() -> Decimal:
+              code, payload = api_json("GET", "/v3/users/me")
+              assert code == 200, ("users_me_http", code, payload)
+              data = data_of(payload)
+              assert isinstance(data, dict), data
+              wallet = data.get("wallet")
+              assert data.get("billing_type") == "wallet", data.get("billing_type")
+              assert isinstance(wallet, dict), wallet
+              assert str(wallet.get("currency", "")).lower() == "usd", wallet
+              return Decimal(str(wallet["remaining_balance"])).quantize(Decimal("0.01"))
+
+          def paged(path: str):
+              items = []
+              token = None
+              while True:
+                  page_path = path
+                  if token:
+                      separator = "&" if "?" in page_path else "?"
+                      page_path += separator + urllib.parse.urlencode({"token": token})
+                  code, payload = api_json("GET", page_path)
+                  assert code == 200, (page_path, code, payload)
+                  raw_data = data_of(payload)
+                  if isinstance(raw_data, list):
+                      page_items = raw_data
+                  elif isinstance(raw_data, dict):
+                      page_items = (
+                          raw_data.get("items")
+                          or raw_data.get("avatars")
+                          or raw_data.get("looks")
+                          or []
+                      )
+                  else:
+                      page_items = []
+                  items.extend(page_items)
+                  envelope = payload if isinstance(payload, dict) else {}
+                  data_envelope = raw_data if isinstance(raw_data, dict) else {}
+                  has_more = bool(
+                      envelope.get("has_more") or data_envelope.get("has_more")
+                  )
+                  token = (
+                      envelope.get("next_token")
+                      or envelope.get("token")
+                      or data_envelope.get("next_token")
+                      or data_envelope.get("token")
+                  )
+                  if not has_more or not token:
+                      return items
+
+          def list_private_groups():
+              return paged("/v3/avatars?ownership=private&limit=50")
+
+          def exact_group():
+              matches = [
+                  group for group in list_private_groups()
+                  if group.get("name") == CANONICAL_NAME
+              ]
+              assert len(matches) <= 1, (
+                  "duplicate_exact_group_name",
+                  CANONICAL_NAME,
+                  len(matches),
+              )
+              return matches[0] if matches else None
+
+          def get_group(group_id: str):
+              code, payload = api_json(
+                  "GET",
+                  f"/v3/avatars/{urllib.parse.quote(group_id)}",
+              )
+              assert code == 200, ("get_group", group_id, code, payload)
+              return data_of(payload)
+
+          def list_group_looks(group_id: str):
+              query = urllib.parse.urlencode(
+                  {"group_id": group_id, "ownership": "private", "limit": 50}
+              )
+              return paged("/v3/avatars/looks?" + query)
+
+          def get_look(look_id: str):
+              code, payload = api_json(
+                  "GET",
+                  f"/v3/avatars/looks/{urllib.parse.quote(look_id)}",
+              )
+              assert code == 200, ("get_look", look_id, code, payload)
+              return data_of(payload)
+
+          def wait_for_completed(group_id: str, look_id: str):
+              last_group = None
+              last_look = None
+              for _ in range(80):
+                  last_group = get_group(group_id)
+                  last_look = get_look(look_id)
+                  group_status = str(last_group.get("status") or "").lower()
+                  look_status = str(last_look.get("status") or "").lower()
+                  if group_status == "failed" or look_status == "failed":
+                      raise RuntimeError(
+                          ("avatar_training_failed", group_status, look_status)
+                      )
+                  if group_status == "completed" and look_status == "completed":
+                      return last_group, last_look
+                  time.sleep(15)
+              raise TimeoutError(
+                  ("avatar_training_timeout", last_group, last_look)
+              )
+
+          def read_url(url: str) -> bytes:
+              request = urllib.request.Request(
+                  url,
+                  headers={"User-Agent": "ANAADHI-GitHub-Actions"},
+              )
+              with urllib.request.urlopen(request, timeout=120) as response:
+                  return response.read()
+
+          def verify_source():
+              local_blob = SOURCE_PATH.read_bytes()
+              drive_blob = read_url(DRIVE_URL)
+              raw_blob = None
+              for _ in range(18):
+                  try:
+                      candidate = read_url(SOURCE_URL)
+                      if hashlib.sha256(candidate).hexdigest() == EXPECTED_SHA256:
+                          raw_blob = candidate
+                          break
+                  except Exception:
+                      pass
+                  time.sleep(5)
+              assert raw_blob is not None, "github_raw_source_not_available"
+              hashes = {
+                  "github_checkout_sha256": hashlib.sha256(local_blob).hexdigest(),
+                  "github_public_url_sha256": hashlib.sha256(raw_blob).hexdigest(),
+                  "google_drive_sha256": hashlib.sha256(drive_blob).hexdigest(),
+              }
+              assert set(hashes.values()) == {EXPECTED_SHA256}, hashes
+              with Image.open(io.BytesIO(local_blob)) as image:
+                  assert image.format == "JPEG", image.format
+                  assert image.size == (2160, 3840), image.size
+                  assert image.mode == "RGB", image.mode
+              return {
+                  "canonical": True,
+                  "approval": "EXPLICIT_USER_APPROVAL_CURRENT_WORK_PAGE",
+                  "github_path": str(SOURCE_PATH),
+                  "github_public_url": SOURCE_URL,
+                  "google_drive_file_id": DRIVE_FILE_ID,
+                  "expected_sha256": EXPECTED_SHA256,
+                  "dimensions": "2160x3840",
+                  "mime_type": "image/jpeg",
+                  **hashes,
+              }
+
+          def wallet_after_expected(expected: Decimal) -> Decimal:
+              current = wallet_balance()
+              for _ in range(12):
+                  if current == expected:
+                      return current
+                  time.sleep(10)
+                  current = wallet_balance()
+              return current
+
+          source_evidence = verify_source()
+          start_wallet = wallet_balance()
+          existing = exact_group()
+          created = False
+
+          if existing is None:
+              assert start_wallet == Decimal("3.00"), (
+                  "authoritative_start_wallet_not_exactly_3",
+                  str(start_wallet),
+              )
+              code, response = api_json(
+                  "POST",
+                  "/v3/avatars",
+                  payload={
+                      "type": "photo",
+                      "name": CANONICAL_NAME,
+                      "file": {"type": "url", "url": SOURCE_URL},
+                  },
+                  extra_headers={
+                      "Idempotency-Key": "anaadhi-parvaran-master-v1-20260817"
+                  },
+              )
+              assert code in (200, 201, 202), (
+                  "parvaran_create_http",
+                  code,
+                  response,
+              )
+              response_data = data_of(response)
+              avatar_item = (
+                  response_data.get("avatar_item", response_data)
+                  if isinstance(response_data, dict)
+                  else {}
+              )
+              group_id = avatar_item.get("group_id")
+              look_id = avatar_item.get("id")
+              assert group_id and look_id, response
+              created = True
+              group, look = wait_for_completed(group_id, look_id)
+          else:
+              group_id = existing["id"]
+              group = get_group(group_id)
+              looks = list_group_looks(group_id)
+              photo_looks = [
+                  look for look in looks
+                  if (look.get("avatar_type") or look.get("type")) == "photo_avatar"
+              ]
+              assert len(photo_looks) == 1, (
+                  "existing_parvaran_photo_look_count",
+                  len(photo_looks),
+              )
+              look_id = photo_looks[0]["id"]
+              group, look = wait_for_completed(group_id, look_id)
+
+          expected_wallet = start_wallet - (
+              Decimal("1.00") if created else Decimal("0.00")
+          )
+          final_wallet = wallet_after_expected(expected_wallet)
+          assert final_wallet == expected_wallet, (
+              "unexpected_wallet_after_parvaran",
+              str(expected_wallet),
+              str(final_wallet),
+          )
+          charged = start_wallet - final_wallet
+          assert charged in (Decimal("0.00"), Decimal("1.00")), charged
+          if created:
+              assert charged == Decimal("1.00"), charged
+
+          looks = list_group_looks(group_id)
+          photo_looks = [
+              item for item in looks
+              if (item.get("avatar_type") or item.get("type")) == "photo_avatar"
+          ]
+          assert len(photo_looks) == 1, (
+              "parvaran_must_have_exactly_one_photo_look",
+              len(photo_looks),
+          )
+          authoritative_look = get_look(look_id)
+          avatar_type = (
+              authoritative_look.get("avatar_type")
+              or authoritative_look.get("type")
+          )
+          assert avatar_type == "photo_avatar", avatar_type
+          status = (
+              authoritative_look.get("status")
+              or group.get("status")
+          )
+          assert str(status).lower() == "completed", status
+          observation_time = observed_at()
+
+          operation = {
+              "operation": (
+                  "CREATE_PHOTO_AVATAR"
+                  if created
+                  else "REUSE_EXISTING_EXACT_IDENTITY"
+              ),
+              "character": CHARACTER_REF,
+              "source_evidence": source_evidence,
+              "group_id": group_id,
+              "group_name": group.get("name") or CANONICAL_NAME,
+              "look_avatar_id": look_id,
+              "avatar_type": avatar_type,
+              "authoritative_status": str(status).lower(),
+              "looks_count": group.get("looks_count", len(looks)),
+              "usd_charged": float(charged),
+              "wallet_before_operation": float(start_wallet),
+              "wallet_after_operation": float(final_wallet),
+              "observation_time": observation_time,
+          }
+
+          manifest = yaml.safe_load(MANIFEST_PATH.read_text(encoding="utf-8"))
+          manifest["identity_status"] = "HEYGEN_PHOTO_AVATAR_COMPLETE"
+          manifest["heygen"].update(
+              {
+                  "submission_status": "COMPLETE",
+                  "operation": operation["operation"],
+                  "group_id": group_id,
+                  "look_avatar_id": look_id,
+                  "avatar_type": avatar_type,
+                  "authoritative_status": str(status).lower(),
+                  "looks_count": operation["looks_count"],
+                  "consent_status_observed": group.get("consent_status"),
+                  "consent_flow_created": False,
+                  "observed_at": observation_time,
+              }
+          )
+          manifest["spend_control"].update(
+              {
+                  "paid_creation_calls_made": 1 if created else 0,
+                  "usd_charged": float(charged),
+                  "api_wallet_before_usd": float(start_wallet),
+                  "api_wallet_after_usd": float(final_wallet),
+              }
+          )
+          MANIFEST_PATH.write_text(
+              yaml.safe_dump(manifest, sort_keys=False, allow_unicode=True, width=120),
+              encoding="utf-8",
+          )
+
+          ledger = {
+              "version": 1,
+              "project": "ANAADHI",
+              "control": "PARVARAN_RESERVED_USD1_PHOTO_AVATAR_COMPLETION",
+              "api_authentication": "x-api-key via GitHub Actions secret HEYGEN_API_KEY",
+              "billing_type": "wallet",
+              "currency": "usd",
+              "hard_spend_cap_usd": 1.00,
+              "paid_creation_calls": 1 if created else 0,
+              "operation": operation,
+              "prohibitions_observed": {
+                  "digital_twin": True,
+                  "extra_looks": True,
+                  "video_or_lipsync_or_tts": True,
+                  "photo_avatar_consent_flow": True,
+                  "duplicate_identity": True,
+              },
+              "github_actions_run_id": os.environ.get("GITHUB_RUN_ID"),
+              "github_trigger_sha": os.environ.get("GITHUB_SHA"),
+              "completed_at": observation_time,
+          }
+
+          exact_ledger = json.loads(EXACT_5_LEDGER.read_text(encoding="utf-8"))
+          matches = [
+              item for item in exact_ledger["operations"]
+              if item.get("character") == CHARACTER_REF
+          ]
+          assert len(matches) == 1, ("exact5_parvaran_operation_count", len(matches))
+          matches[0].clear()
+          matches[0].update(operation)
+          exact_ledger["paid_creation_calls"] = sum(
+              1
+              for item in exact_ledger["operations"]
+              if item.get("operation") == "CREATE_PHOTO_AVATAR"
+          )
+          exact_ledger["authoritative_final_wallet_usd"] = float(final_wallet)
+          exact_ledger["total_usd_charged"] = float(
+              Decimal(str(exact_ledger["authoritative_start_wallet_usd"]))
+              - final_wallet
+          )
+          exact_ledger["unused_authorised_wallet_usd"] = float(final_wallet)
+          exact_ledger["last_resumed_at"] = observation_time
+          events = exact_ledger.setdefault("resume_events", [])
+          if not any(
+              event.get("character") == CHARACTER_REF
+              and event.get("group_id") == group_id
+              for event in events
+          ):
+              events.append(
+                  {
+                      "character": CHARACTER_REF,
+                      "operation": operation["operation"],
+                      "group_id": group_id,
+                      "look_avatar_id": look_id,
+                      "usd_charged": float(charged),
+                      "wallet_after_operation": float(final_wallet),
+                      "observation_time": observation_time,
+                  }
+              )
+          EXACT_5_LEDGER.write_text(
+              json.dumps(exact_ledger, indent=2, sort_keys=False) + "\n",
+              encoding="utf-8",
+          )
+
+          def bind_batch_manifest(path_text: str):
+              path = Path(path_text)
+              payload = yaml.safe_load(path.read_text(encoding="utf-8"))
+              matches = [
+                  (asset_id, asset)
+                  for asset_id, asset in payload.get("assets", {}).items()
+                  if asset.get("character_ref") == CHARACTER_REF
+              ]
+              assert len(matches) == 1, (path_text, len(matches))
+              asset_id, asset = matches[0]
+              was_unresolved = asset.get("heygen_status") != "COMPLETE"
+              asset.update(
+                  {
+                      "binding_mode": "CANONICAL_MASTER_IDENTITY_REUSE",
+                      "approved_status": "APPROVED",
+                      "consent_status_observed": group.get("consent_status"),
+                      "reuse_source_asset": CANONICAL_NAME,
+                      "reuse_source_manifest": str(MANIFEST_PATH),
+                      "source_visual_path": str(SOURCE_PATH),
+                      "source_sha256": EXPECTED_SHA256,
+                      "drive_status": "UPLOADED",
+                      "drive_file_id": DRIVE_FILE_ID,
+                      "heygen_group_id": group_id,
+                      "heygen_look_id": look_id,
+                      "heygen_avatar_type": avatar_type,
+                      "heygen_training_status": str(status).lower(),
+                      "heygen_status": "COMPLETE",
+                      "reuse_evidence": (
+                          "Approved canonical PARVARAN_MASTER_IDENTITY_V1; "
+                          "one stable group and one Photo Avatar look."
+                      ),
+                  }
+              )
+              summary = payload.setdefault("reuse_summary", {})
+              unresolved = summary.setdefault("unresolved", [])
+              removed = [
+                  item for item in unresolved
+                  if item.get("slot") == "Parvaran" or item.get("asset") == asset_id
+              ]
+              summary["unresolved"] = [
+                  item for item in unresolved
+                  if item.get("slot") != "Parvaran" and item.get("asset") != asset_id
+              ]
+              if was_unresolved and removed:
+                  summary["unresolved_slot_count"] = max(
+                      0,
+                      int(summary.get("unresolved_slot_count", len(unresolved)))
+                      - 1,
+                  )
+              bound = summary.setdefault("bound", [])
+              if not any(item.get("asset") == asset_id for item in bound):
+                  bound.append(
+                      {
+                          "slot": "Parvaran",
+                          "asset": asset_id,
+                          "source": CANONICAL_NAME,
+                      }
+                  )
+              summary["canonical_master_bound_count"] = len(bound)
+              path.write_text(
+                  yaml.safe_dump(
+                      payload,
+                      sort_keys=False,
+                      allow_unicode=True,
+                      width=120,
+                  ),
+                  encoding="utf-8",
+              )
+
+          for batch_manifest in (
+              "production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml",
+          ):
+              bind_batch_manifest(batch_manifest)
+
+          registry_path = Path("production/references/REFERENCE_REGISTRY.yaml")
+          registry = registry_path.read_text(encoding="utf-8")
+          missing_registry_entry = (
+              "  CHR-PARVARAN: {name: Parvaran, status: MISSING_APPROVED_ASSET, path: null}"
+          )
+          approved_registry_entry = (
+              "  CHR-PARVARAN:\n"
+              "    name: Parvaran\n"
+              "    status: APPROVED\n"
+              f"    path: \"{SOURCE_PATH}\"\n"
+              f"    sha256: \"{EXPECTED_SHA256}\"\n"
+              "    identity_scope: CANONICAL_MASTER_IDENTITY\n"
+              f"    heygen_group_name: \"{CANONICAL_NAME}\""
+          )
+          if missing_registry_entry in registry:
+              registry = registry.replace(
+                  missing_registry_entry,
+                  approved_registry_entry,
+                  1,
+              )
+          else:
+              assert approved_registry_entry in registry, "unexpected_parvaran_registry_state"
+          registry_path.write_text(registry, encoding="utf-8")
+
+          avatar_file = Path("AVATAR-PARVARAN.md")
+          avatar_file.write_text(
+              (
+                  "# Avatar: Parvaran\n\n"
+                  "## Appearance\n"
+                  "- Age: Present-day mature founder; no unsupported numeric age assigned\n"
+                  "- Gender: Man\n"
+                  "- Ethnicity: South Asian; Karnataka identity\n"
+                  "- Hair: Dense wavy salt-and-pepper hair; silver dominant at temples and crown\n"
+                  "- Build: Mature, controlled institutional-leadership bearing\n"
+                  "- Features: Long oval South Indian face; dark steady eyes; defined nose; "
+                  "natural age lines; neat full grey moustache; clean-shaven jaw\n"
+                  "- Style: Photoreal master portrait; present-day rehabilitation-director continuity\n"
+                  "- Costume: Deep teal tailored bandhgala over a muted grey collarless professional tunic\n"
+                  f"- Reference: {SOURCE_PATH}\n\n"
+                  "## Voice\n"
+                  "- Status: PENDING_P3_CANONICAL_KANNADA_VOICE\n\n"
+                  "## HeyGen\n"
+                  f"- Group ID: {group_id}\n"
+                  "- Voice ID: PENDING\n"
+                  "- Voice Name: PENDING\n"
+                  "- Voice Designed: false\n"
+                  f"- Looks: portrait={look_id}\n"
+                  "- Avatar Type: photo_avatar\n"
+                  f"- Status: {str(status).lower()}\n"
+                  f"- Last Synced: {observation_time}\n\n"
+                  "The group is the stable identity anchor. "
+                  "Resolve look IDs fresh at video-render time.\n"
+              ),
+              encoding="utf-8",
+          )
+
+          gate = CREDIT_GATE.read_text(encoding="utf-8")
+          gate = gate.replace(
+              "  parvaran: SOURCE_VISUAL_REQUIRED",
+              "  parvaran: COMPLETED",
+              1,
+          )
+          if "parvaran_completion_2026_08_17:" not in gate:
+              gate += (
+                  "\nparvaran_completion_2026_08_17:\n"
+                  f"  observed_at: {observation_time}\n"
+                  "  source_approval: EXPLICIT_USER_APPROVAL_CURRENT_WORK_PAGE\n"
+                  f"  source_sha256: {EXPECTED_SHA256}\n"
+                  f"  drive_file_id: {DRIVE_FILE_ID}\n"
+                  f"  heygen_operation: {operation['operation']}\n"
+                  f"  heygen_group_id: {group_id}\n"
+                  f"  heygen_look_id: {look_id}\n"
+                  f"  authoritative_status: {str(status).lower()}\n"
+                  f"  usd_charged: {float(charged)}\n"
+                  f"  api_key_wallet_remaining_usd: {float(final_wallet)}\n"
+                  "  next_priority_character: CHR-UNNATH\n"
+                  "  next_identity_state: SOURCE_VISUAL_REQUIRED\n"
+                  "  residual_wallet_spend_without_proven_source: forbidden\n"
+              )
+          CREDIT_GATE.write_text(gate, encoding="utf-8")
+
+          validator = subprocess.run(
+              [
+                  "python",
+                  "production/heygen/validate_heygen_batch_media.py",
+                  "--json",
+              ],
+              text=True,
+              capture_output=True,
+          )
+          try:
+              validator_payload = (
+                  json.loads(validator.stdout)
+                  if validator.stdout.strip()
+                  else None
+              )
+          except json.JSONDecodeError:
+              validator_payload = None
+          ledger["permanent_validator"] = {
+              "command": "python production/heygen/validate_heygen_batch_media.py --json",
+              "exit_code": validator.returncode,
+              "json_output_parsed": validator_payload is not None,
+              "summary": validator_payload,
+              "stderr": validator.stderr[-4000:] if validator.stderr else "",
+              "observation_time": observed_at(),
+          }
+          LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
+          LEDGER_PATH.write_text(
+              json.dumps(ledger, indent=2, sort_keys=False) + "\n",
+              encoding="utf-8",
+          )
+
+          print(
+              json.dumps(
+                  {
+                      "result": "completed",
+                      "character": CHARACTER_REF,
+                      "operation": operation["operation"],
+                      "avatar_type": avatar_type,
+                      "authoritative_status": str(status).lower(),
+                      "looks_count": operation["looks_count"],
+                      "usd_charged": float(charged),
+                      "wallet_after_operation": float(final_wallet),
+                      "validator_exit_code": validator.returncode,
+                      "observation_time": observation_time,
+                  },
+                  sort_keys=True,
+              )
+          )
+          PY
+
+      - name: Commit authoritative factual metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase --autostash origin main
+          git add \
+            AVATAR-PARVARAN.md \
+            production/heygen/HEYGEN_CREDIT_GATE_LOCK.yaml \
+            production/heygen/avatars/EXACT_5_HEYGEN_AVATAR_COMPLETION_LEDGER.json \
+            production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml \
+            production/references/REFERENCE_REGISTRY.yaml \
+            production/heygen/avatars/master_identities/CHR-PARVARAN/CHR-PARVARAN_MASTER_IDENTITY_MANIFEST.yaml \
+            production/heygen/avatars/master_identities/CHR-PARVARAN/HEYGEN_PARVARAN_CREATION_LEDGER.json
+          if git diff --cached --quiet; then
+            echo 'No factual metadata changes required.'
+          else
+            git commit -m 'Complete Parvaran HeyGen Photo Avatar identity'
+            git push origin HEAD:main
+          fi
