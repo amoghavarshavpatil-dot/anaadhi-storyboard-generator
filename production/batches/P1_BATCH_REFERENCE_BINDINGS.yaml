@@ -222,7 +222,7 @@ location_bindings:
     scenes: [87,88,89,90,91,92]
     approved_root: "PARTIAL"
     canonical_metadata_binding_status: B30_B33_ZERO_CREDIT_ROUTING_AUDITED__VISUAL_APPROVAL_UNCHANGED
-    env6l_roots: [LOC-002, LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]
+    env6l_roots: [LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]
     mobile_refs: [LOC-076, LOC-077]
     remaining_location_work: ["LOC-068/069/070/071/080 visual masters", "LOC-070 Executive/News floors", "LOC-011 interior continuity", "Sarjanya HOLD root unresolved", "required late/XFORM states"]
   B31:
