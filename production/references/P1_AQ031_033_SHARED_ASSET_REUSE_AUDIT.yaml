@@ -1,0 +1,161 @@
+version: 1
+project: ANAADHI
+control: P1_AQ031_033_SHARED_ASSET_REUSE_AUDIT
+mode: ZERO_CREDIT_EVIDENCE_ONLY
+status: COMPLETE__CONTROL_CORRECTIONS_IDENTIFIED__ASSETS_REMAIN_FAIL_CLOSED
+scope:
+  packets: [HEYGEN-AQ-031, HEYGEN-AQ-032, HEYGEN-AQ-033]
+  dependencies:
+    - REF::LOC-PARAANE-HIGH-OBSERVATION
+    - REF::CST-ANAADHI-FOREST-TEEN
+    - REF::LOC-VILLAGE-HAND-PUMP
+  media_generation: false
+  media_replacement: false
+  consent_execution: false
+  avatar_or_look_submission: false
+  video_render_or_lipsync_submission: false
+  paid_heygen_api_execution: false
+  approved_status_promotion: false
+
+sources:
+  p0_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+  p1_requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  p1_bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  p1_registry: production/references/REFERENCE_REGISTRY.yaml
+  heygen_schema: production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  drive_location_audit: production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml
+  env2b_file_library: ANAADHI_ENV-2B_Canonical_Environment_Asset_Ledger.md
+  env2c_file_library: ANAADHI_ENV-2C_Full_Recurrence_Scene-Use_Chronology_Audit.md
+  env2d_file_library: ANAADHI_ENV-2D_Production-Priority_Classification.md
+  screenplay_file_library: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+
+rules:
+  - A LOC-003 Paraane root plate never satisfies an unproven nested interior.
+  - Adult-return observation geography must not be collapsed into the childhood high-observation review room or audit corridor.
+  - Age/body plates do not authorize costume pixels.
+  - Forest-teen costume continuity remains independent from AGE and HR controls.
+  - LOC-023, LOC-026 and LOC-030 remain separate operational root identities; never merge pump sites by object type.
+  - Existing exact approved root bindings supersede only redundant generic semantic location refs; they do not authorize new states or topology merges.
+  - Drive filename search failure is not proof of nonexistence; prior explicit Drive audit IDs remain authoritative reuse evidence for the audited roots.
+
+findings:
+  HEYGEN-AQ-031:
+    dependency: REF::LOC-PARAANE-HIGH-OBSERVATION
+    pre_audit_batches: [B11, B26]
+    registry_status: MISSING_APPROVED_ASSET
+    evidence:
+      B11:
+        verdict: KEEP_OPEN
+        reason: >-
+          SC025 is ENV-PAR-021 Paraane High-Observation Review Room; SC026 is ENV-PAR-022
+          Paraane Rehab Audit Corridor; SC027 continues through ENV-PAR-023 service anatomy,
+          ENV-PAR-024 security control, ENV-PAR-025 old drainage passage and ENV-PAR-026 outer embankment.
+          B11 has only reusable LOC-003 parent/root identity, so the required nested-space family remains unresolved.
+      B26:
+        verdict: REMOVE_STALE_REFERENCE
+        reason: >-
+          Adult-return SC074 uses ENV-PAR-033 Paraane Old Observation Corridor, not the childhood
+          ENV-PAR-021 high-observation review room or ENV-PAR-022 audit corridor. B26 already carries
+          LOC-PARAANE-ARCHIVE, whose registry scope explicitly includes archive core / old observation corridor.
+          Keeping LOC-PARAANE-HIGH-OBSERVATION in B26 therefore double-binds distinct nested identities.
+    post_audit_batches: [B11]
+    closure_state: OPEN_UNRESOLVED
+    approved_status_change: false
+
+  HEYGEN-AQ-032:
+    dependency: REF::CST-ANAADHI-FOREST-TEEN
+    pre_audit_batches: [B13, B14]
+    registry_status: MISSING_APPROVED_ASSET
+    evidence:
+      B13:
+        verdict: KEEP_OPEN
+        reason: >-
+          SC035 explicitly spans ages thirteen through sixteen while barter-for-cloth, seasonal survival,
+          shelter repair and growth continue. The state is costume continuity, not age/body geometry.
+      B14:
+        verdict: KEEP_OPEN
+        reason: >-
+          SC036 age seventeen and SC037 age eighteen continue forest-labour clothing before the separately
+          defined age-nineteen rough-spun tunic/repaired-trousers/weathered-sandals state. P0 explicitly locks
+          B14 to forest-labour clothing and forbids importing the age-nineteen state.
+    drive_exact_standalone_costume_master_found: false
+    age_body_pixels_authoritative_for_costume: false
+    post_audit_batches: [B13, B14]
+    closure_state: OPEN_UNRESOLVED
+    approved_status_change: false
+
+  HEYGEN-AQ-033:
+    dependency: REF::LOC-VILLAGE-HAND-PUMP
+    pre_audit_batches: [B15, B16]
+    registry_status: MISSING_APPROVED_ASSET
+    evidence:
+      exact_operational_roots:
+        LOC-023:
+          canonical_name: Forest-Edge Village
+          drive_file_id: 12LE_jDk2Qy5pzYfx-bziCzQKY04QRy8E
+          drive_audit_status: PASS
+          continuity: chipped-green pump/groundwater-monitor identity retained
+          batch: B15
+        LOC-026:
+          canonical_name: Village Feast — Hand-Pump Square
+          drive_file_id: 11N-bGrxqiYuFo8LquLdeFtQE_eM5CrMI
+          drive_audit_status: PASS
+          continuity: distinct from LOC-023 and LOC-030
+          batch: B15
+        LOC-030:
+          canonical_name: Barn-Side Pump
+          drive_file_id: 1kt7iOLkuCr7FZ2upBoFztaXMwP1P3KdJ
+          drive_audit_status: PASS
+          continuity: distinct from LOC-023 and LOC-026
+          batch: B16
+      B15:
+        verdict: REMOVE_REDUNDANT_GENERIC_REFERENCE
+        reason: >-
+          B15 already binds LOC-023 and LOC-026 explicitly in env6l_roots. Both exact roots are Drive-audited PASS.
+          The generic LOC-VILLAGE-HAND-PUMP semantic ref adds no unresolved identity and risks collapsing two
+          separately locked operational pump roots.
+      B16:
+        verdict: REMOVE_REDUNDANT_GENERIC_REFERENCE
+        reason: >-
+          B16 already binds LOC-030 explicitly in env6l_roots and the Drive audit marks it PASS and distinct
+          from LOC-023/026. The generic LOC-VILLAGE-HAND-PUMP semantic ref is therefore redundant.
+    post_audit_batches: []
+    closure_state: DEPENDENCY_REMOVED_BY_EVIDENCED_CANONICAL_ROOT_BINDINGS
+    approved_status_change: false
+    registry_promotion: false
+
+machine_corrections:
+  B26:
+    remove_required_location_ref: LOC-PARAANE-HIGH-OBSERVATION
+    preserve_required_location_refs:
+      - LOC-PARAANE-CAMPUS-MATURE
+      - LOC-PARAANE-CHILD-WING
+      - LOC-PARAANE-ARCHIVE
+    preserve_env6l_roots: [LOC-003]
+  B15:
+    remove_required_location_ref: LOC-VILLAGE-HAND-PUMP
+    preserve_env6l_roots: [LOC-020, LOC-021, LOC-022, LOC-023, LOC-024, LOC-025, LOC-026]
+  B16:
+    remove_required_location_ref: LOC-VILLAGE-HAND-PUMP
+    preserve_env6l_roots: [LOC-027, LOC-028, LOC-029, LOC-030, LOC-031, LOC-032, LOC-033]
+  no_registry_change: true
+  no_approved_status_change: true
+
+expected_refresh:
+  previous_total_blockers: 278
+  expected_removed_raw_blockers: 3
+  expected_total_blockers: 275
+  expected_aq031_batches: [B11]
+  expected_aq032_batches: [B13, B14]
+  expected_aq033_active: false
+  preserve_aq001_aq002_open: true
+  preserve_aq003_resolved_evidenced: true
+
+safety:
+  bind_only_exact_evidenced_reuse: true
+  incidental_pixels_never_promoted: true
+  collision_separation_preserved: true
+  zero_media_generation_or_replacement: true
+  zero_consent_avatar_look_render_lipsync_submission: true
+  zero_paid_heygen_api_execution: true
+  zero_approved_or_root_status_promotion: true
