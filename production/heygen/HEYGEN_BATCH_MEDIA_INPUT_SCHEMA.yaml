@@ -322,7 +322,7 @@ batches:
     p1_location_status: PARTIAL__LATE_ROOT_METADATA_BOUND__VISUAL_AND_NESTED_GAPS_REMAIN
     required_location_refs: [LOC-003, LOC-067, LOC-068]
     required_anaadhi_refs: [CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
-    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM]
+    required_prop_refs: [PRP-PARAANE-EMBLEM]
   B30:
     scenes: [87,88,89,90,91,92]
     env6l_roots: [LOC-002, LOC-003, LOC-011, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]
@@ -330,7 +330,7 @@ batches:
     p1_location_status: ROUTING_AUDITED__EXACT_LATE_ROOTS_BOUND__VISUAL_AND_HELD_BEAT_GAPS_REMAIN
     required_location_refs: [LOC-ADRAKA-SYSTEMS-LAB, LOC-PARAANE-CAMPUS-MATURE, LOC-PARVARAN-JANNE-HOUSE, LOC-068, LOC-069, LOC-070, LOC-071, LOC-080]
     required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY]
-    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM]
+    required_prop_refs: [PRP-PARAANE-EMBLEM]
   B31:
     scenes: [93,94,95,96]
     env6l_roots: [LOC-075]

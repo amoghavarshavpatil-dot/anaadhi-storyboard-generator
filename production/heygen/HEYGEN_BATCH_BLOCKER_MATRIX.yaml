@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: 84430e140ddedf0a9b520a5946d4ce1b151a701d
+validated_repository_head: 6b115a9c468c2bd84bc2accfc830c2b8c452a0b7
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -24,7 +24,7 @@ report:
     passed_batches: 0
     blocked_batches: 34
     global_blockers: 0
-    total_blockers: 284
+    total_blockers: 282
   passed_batches: []
   blocked_batches:
   - B01
@@ -987,10 +987,6 @@ report:
     - batch_id: B29
       category: prop
       code: REFERENCE_NOT_APPROVED
-      message: 'PRP-ADK7-CARTRIDGE: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B29
-      category: prop
-      code: REFERENCE_NOT_APPROVED
       message: 'PRP-PARAANE-EMBLEM: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B29
       category: avatar-slot
@@ -1042,10 +1038,6 @@ report:
       category: character-state
       code: REFERENCE_NOT_APPROVED
       message: 'AGE-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B30
-      category: prop
-      code: REFERENCE_NOT_APPROVED
-      message: 'PRP-ADK7-CARTRIDGE: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B30
       category: prop
       code: REFERENCE_NOT_APPROVED
