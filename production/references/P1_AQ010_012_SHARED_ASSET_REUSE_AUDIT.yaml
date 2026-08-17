@@ -1,0 +1,201 @@
+version: 1
+project: ANAADHI
+control: P1-AQ010-012-SHARED-ASSET-REUSE-AUDIT
+status: AUDITED__ONE_STALE_BATCH_BINDING_PROVEN__OTHER_ASSETS_OPEN
+as_of_local: "2026-08-17T06:28:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+scope:
+  packets: [HEYGEN-AQ-010, HEYGEN-AQ-011, HEYGEN-AQ-012]
+  dependencies:
+    - PRP-SEVENTEEN-NAME-LIST
+    - LOC-PARAANE-CHILD-WING
+    - CST-ANAADHI-20-26
+
+sources:
+  queue: production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+  requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  registry: production/references/REFERENCE_REGISTRY.yaml
+  p0_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+  p1_bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  heygen_schema: production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  anaadhi_state_matrix: production/references/ANAADHI_IDENTITY_STATE_MATRIX.yaml
+  location_root_override: production/locations/EXISTING_LOCATION_OVERRIDES.yaml
+  location_continuation_override: production/locations/EXISTING_LOCATION_OVERRIDES_LOC010_059.yaml
+  drive_location_audit: production/references/DRIVE_LOCATION_AUDIT_LOC010_059.yaml
+
+absolute_rules:
+  approved_root_does_not_satisfy_nested_space: true
+  location_plate_does_not_satisfy_prop_master: true
+  base_identity_does_not_satisfy_costume_state: true
+  neighbouring_age_costume_substitution_forbidden: true
+  incidental_pixels_do_not_create_prop_approval: true
+  no_approved_status_promotion: true
+  no_media_generation_or_replacement: true
+  no_heygen_consent_avatar_look_render_or_lipsync_submission: true
+  no_paid_heygen_api_execution: true
+  adult_anaadhi_height_cm: 193
+
+AQ010_PRP_SEVENTEEN_NAME_LIST:
+  dependency_id: REF::PRP-SEVENTEEN-NAME-LIST
+  registry_state:
+    status: MISSING_APPROVED_ASSET
+    path: null
+    canonical_name: seventeen-name wooden tablets / display family
+  current_batches: [B16, B18, B19, B20, B21, B22, B23, B26]
+  screenplay_foundation_variant_evidence:
+    B16: "marked cabin beam / first marks accumulate; not a proven finished seventeen-tablet master"
+    B18: "cabin name marks; not a proven finished seventeen-tablet master"
+    B19: "small wooden name piece"
+    B20: "victim-name tablet"
+    B21: "preserved names during burned-cabin/rebuild continuity"
+    B22: "victim-name wall"
+    B23: "name tablets + seventeen lamps + police 17-case-file / transparent victim-display evidence"
+    B26: "victim list in present-day Paraane return/archive sequence"
+  exact_existing_location_evidence:
+    LOC-057:
+      name: Kendhalaa Police Independent Evidence Room
+      drive_file_id: 1eHU2o1tA8syeGtO3GLe16lLsecU3ALz2
+      drive_audit_status: PASS
+      locked_note: "root ST00; RU seventeen-name display origin; HA-05"
+      continuation_rule: RUKEY_seventeen_name_display_custody_continuity
+      evidence_interpretation: >-
+        LOC-057 proves the evidence-room root and a seventeen-item display/custody context.
+        It does not establish a standalone approved PRP-SEVENTEEN-NAME-LIST asset and
+        cannot be cropped or promoted into the wooden-tablet/display-family prop master.
+  drive_searches:
+    exact_id_PRP_SEVENTEEN_NAME_LIST: NO_MATCH
+    phrase_seventeen_name_wooden_tablets: NO_MATCH
+  github_asset_search:
+    standalone_prop_master_path_found: false
+    note: >-
+      The registry contains only the unresolved hero-prop record. Existing location imagery
+      and P0 prose are continuity evidence, not an approved standalone prop file/path/hash.
+  decision:
+    status: OPEN_UNRESOLVED
+    reusable_context_bound: LOC-057_EVIDENCE_ROOM_ORIGIN_ONLY
+    prop_master_closed: false
+    batch_impact_change: 0
+    new_media_authorized: false
+
+AQ011_LOC_PARAANE_CHILD_WING:
+  dependency_id: REF::LOC-PARAANE-CHILD-WING
+  registry_state:
+    status: MISSING_APPROVED_ASSET
+    path: null
+    canonical_name: Paraane child wing family
+  existing_parent_root:
+    env6l_root: LOC-003
+    name: Paraane Campus / Central Complex
+    drive_file_id: 1adDNOiSSM01b8gbyUV7YBk9zI-aYvPKW
+    root_reuse_status: REUSE_MASTER_SKIP_REGENERATION
+    approved_root_bindings: [B06, B07, B08, B09, B10, B11, B26]
+    rule: >-
+      LOC-003 is valid reusable root identity only. Its own override explicitly keeps
+      required Paraane nested subspaces open, so it cannot satisfy the child-wing family.
+  exact_nested_requirements:
+    B06:
+      scenes: [17, 18]
+      keep_child_wing_dependency: true
+      spaces: [Paraane emergency intake, Parvaran office / child-wing overlook]
+    B07:
+      scenes: [19]
+      keep_child_wing_dependency: true
+      spaces: [child wing, observation gallery]
+    B08:
+      scenes: [20, 21]
+      keep_child_wing_dependency: true
+      spaces: [child wing, Manire consultation room, developmental assessment chamber]
+    B09:
+      scenes: [22, 23]
+      keep_child_wing_dependency: true
+      spaces: [child-wing courtyard, medication dispensary]
+    B10:
+      scenes: [24]
+      keep_child_wing_dependency: true
+      spaces: [family visitation hall, child-wing community kitchen]
+    B11:
+      scenes: [25, 26, 27]
+      keep_child_wing_dependency: false
+      reason: >-
+        Locked P0 physical geography is high-observation review, audit corridor,
+        service corridors, security control, old drainage passage and outer embankment.
+        No child-wing physical location is named for B11. The old child-wing requirement
+        is therefore a stale aggregate carry-forward and may be removed without closing
+        any high-observation/service-anatomy nested-space requirement.
+    B26:
+      scenes: [69, 70, 71, 72, 73, 74]
+      keep_child_wing_dependency: true
+      spaces: [old drainage passage, child wing, Manire room, central resident hall, archive core, old observation corridor, maintenance chamber]
+  drive_searches:
+    phrase_Paraane_child_wing: NO_EXACT_STANDALONE_MATCH
+    phrase_child_wing_Paraane_hospital: NO_EXACT_STANDALONE_MATCH
+  decision:
+    root_reuse_evidence: LOC-003
+    remove_stale_batch_binding: B11
+    dependency_remains_open_batches: [B06, B07, B08, B09, B10, B26]
+    nested_visual_master_closed: false
+    expected_batch_impact_after_refresh: 6
+    new_media_authorized: false
+
+AQ012_CST_ANAADHI_20_26:
+  dependency_id: REF::CST-ANAADHI-20-26
+  registry_state:
+    status: MISSING_APPROVED_ASSET
+    path: null
+    canonical_description: "forest labour/trader clothing; scene wear/damage applied only by continuity"
+  current_batches: [B16, B17, B18, B19, B20, B21, B22]
+  continuity_evidence:
+    B16: "age 20; torn forest-tunic continuity; first murder-cycle wear"
+    B17: "age 21; wet forest-worn clothes during fever/hunger"
+    B18: "age 22; forest-worn adult clothing with accumulated exhaustion"
+    B19: "age 23; forest labour/trader clothing"
+    B20: "age 24; same adult identity; forest-worn hair/beard/costume; hunger/rain exposure"
+    B21: "age 25; mature forest-worn look; injured/bleeding hands only as scripted"
+    B22: "age 26; same forest-worn clothing through BEFORE/HALF-CUT/SELF-CUT hair substates"
+  exact_existing_asset_check:
+    registry_costume_asset: MISSING_APPROVED_ASSET
+    anaadhi_github_costume_master_found: false
+    drive_search_CST_ANAADHI_20_26: NO_MATCH
+    drive_search_Anaadhi_age_20_forest_clothing: NO_MATCH
+    drive_search_Anaadhi_20_26_costume: NO_MATCH
+    drive_search_AGE_ANAADHI_20: NO_MATCH
+    drive_search_AGE_ANAADHI_26: NO_MATCH
+  prohibited_substitutions:
+    - "CST-ANAADHI-19 is itself unresolved and may not be promoted as the age-20–26 master."
+    - "CST-ANAADHI-27-CAPTURE is topless and is physically incompatible with the age-20–26 clothed state."
+    - "The approved adult Anaadhi face/body identity is identity geometry only and cannot satisfy costume pixels."
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_reuse_asset_found: false
+    batch_impact_change: 0
+    scene_wear_variants_must_inherit_future_base_master: true
+    new_media_authorized: false
+
+machine_control_correction_authorized:
+  files:
+    - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+    - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  exact_change:
+    B11:
+      remove_required_location_ref: LOC-PARAANE-CHILD-WING
+      preserve_required_location_ref: LOC-PARAANE-HIGH-OBSERVATION
+      preserve_env6l_root: LOC-003
+      preserve_remaining_location_work: [high observation, audit corridor, service corridors, security control, old drainage passage, outer embankment]
+  no_other_AQ010_012_requirement_removal_authorized: true
+
+concurrent_b01_truth_guard:
+  observed_repository_head_during_audit: ad333bdbf12a72c8d114745381d33af770de6bff
+  b01_manifest_status_observed: HEYGEN_9_OF_9_COMPLETE
+  B01_AV_08_status_observed: COMPLETE
+  rule: >-
+    Do not regress B01-AV-08 or preserve a stale live AQ-003 blocker after factual completion.
+    AQ-003 may remain only as resolved/evolution history when controls are refreshed.
+
+safety:
+  media_generated: false
+  media_replaced: false
+  heygen_consent_called: false
+  heygen_avatar_or_look_created: false
+  heygen_render_or_lipsync_submitted: false
+  paid_heygen_api_execution: false
+  approved_status_changed: false
