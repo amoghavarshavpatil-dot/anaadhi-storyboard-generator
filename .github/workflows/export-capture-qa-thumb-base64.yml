@@ -1,37 +1,162 @@
-name: Export Capture QA Thumbnail Base64
+name: AQ010 AQ012 Zero-Credit Shared Asset Audit Refresh
 
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/export-capture-qa-thumb-base64.yml'
-  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  export:
-    runs-on: ubuntu-latest
+  refresh-control-only:
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - name: Split QA thumbnail into temporary text chunks
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install control dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Apply exact B11 stale-child-wing correction and AQ003 factual closure
         shell: bash
         run: |
           set -euo pipefail
-          SRC="production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01_QA-THUMB.jpg"
-          OUT="production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks"
-          rm -rf "$OUT"
-          mkdir -p "$OUT"
-          base64 -w0 "$SRC" > /tmp/thumb.b64
-          split -b 4000 -d -a 2 /tmp/thumb.b64 "$OUT/chunk_"
-          for f in "$OUT"/chunk_*; do mv "$f" "$f.txt"; done
-      - name: Commit temporary QA chunks
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          req = Path('production/references/BATCH_REFERENCE_REQUIREMENTS.yaml')
+          schema = Path('production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml')
+          refresh = Path('production/heygen/refresh_zero_credit_controls.py')
+
+          def replace_exact(path, old, new, count=1):
+              text = path.read_text(encoding='utf-8')
+              found = text.count(old)
+              if found != count:
+                  raise SystemExit(f'{path}: expected {count} exact match(es), found {found}: {old!r}')
+              path.write_text(text.replace(old, new, count), encoding='utf-8')
+
+          # AQ-011: B11 P0 is high-observation/audit/service anatomy, not child wing.
+          replace_exact(
+              req,
+              '    locations: [LOC-PARAANE-HIGH-OBSERVATION, LOC-PARAANE-CHILD-WING]\n',
+              '    locations: [LOC-PARAANE-HIGH-OBSERVATION]\n',
+          )
+          replace_exact(
+              schema,
+              '    required_location_refs: [LOC-PARAANE-HIGH-OBSERVATION, LOC-PARAANE-CHILD-WING]\n',
+              '    required_location_refs: [LOC-PARAANE-HIGH-OBSERVATION]\n',
+          )
+
+          text = refresh.read_text(encoding='utf-8')
+          old = '''P0_OPEN_IDS = {\n    "CONSENT::ANAADHI_PRIVATE_AVATAR": "HEYGEN-AQ-001",\n    "CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml": "HEYGEN-AQ-002",\n    P0_AQ003_CURRENT_DEP: "HEYGEN-AQ-003",\n}\nRESOLVED_HISTORY_IDS = {"HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"}\n'''
+          new = '''P0_OPEN_IDS = {\n    "CONSENT::ANAADHI_PRIVATE_AVATAR": "HEYGEN-AQ-001",\n    "CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml": "HEYGEN-AQ-002",\n}\nRESOLVED_HISTORY_IDS = {"HEYGEN-AQ-003", "HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"}\n'''
+          if text.count(old) != 1:
+              raise SystemExit('refresh builder P0_OPEN_IDS block drifted')
+          text = text.replace(old, new, 1)
+
+          old = '''    p0_overlay = old_matrix.get("p0_packet_overlay", {})\n    if isinstance(p0_overlay, dict):\n        for item in p0_overlay.get("highest_priority_open", []) or []:\n            if isinstance(item, dict) and item.get("packet_id") == "HEYGEN-AQ-003":\n                item["dependency_id"] = P0_AQ003_CURRENT_DEP\n                item["evidence"] = "B01 is factually 8/9 complete; only B01-AV-08 remains without a completed HeyGen look. Paid execution remains deferred."\n'''
+          new = '''    p0_overlay = old_matrix.get("p0_packet_overlay", {})\n    if isinstance(p0_overlay, dict):\n        p0_overlay["highest_priority_open"] = [\n            item for item in (p0_overlay.get("highest_priority_open", []) or [])\n            if not (isinstance(item, dict) and item.get("packet_id") == "HEYGEN-AQ-003")\n        ]\n        resolved_overlay = p0_overlay.setdefault("resolved_history", [])\n        if not any(isinstance(item, dict) and item.get("packet_id") == "HEYGEN-AQ-003" for item in resolved_overlay):\n            resolved_overlay.append({\n                "packet_id": "HEYGEN-AQ-003",\n                "dependency_id": P0_AQ003_CURRENT_DEP,\n                "status": "DEPENDENCY_RESOLVED_EVIDENCED",\n                "active": False,\n                "batch_unlocked": False,\n                "evidence": "B01 manifest is HEYGEN_9_OF_9_COMPLETE and B01-AV-08 is COMPLETE.",\n            })\n'''
+          if text.count(old) != 1:
+              raise SystemExit('refresh builder p0_overlay block drifted')
+          text = text.replace(old, new, 1)
+
+          old = '''    plan["p0_state"] = {\n        "open_packet_ids": ["HEYGEN-AQ-001", "HEYGEN-AQ-002", "HEYGEN-AQ-003"],\n        "resolved_history_packet_ids": ["HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],\n        "consent_handoff_status": "PREPARED_NOT_INITIATED",\n        "aq003_logical_packet_id": "HEYGEN-AQ-003",\n        "aq003_previous_dependency_id": P0_AQ003_PREVIOUS_DEP,\n        "aq003_current_dependency_id": P0_AQ003_CURRENT_DEP,\n        "aq003_narrowing_reason": "B01-AV-03/04/05/06/07/09 are completed; only B01-AV-08 remains deferred behind the credit gate.",\n    }\n'''
+          new = '''    plan["p0_state"] = {\n        "open_packet_ids": ["HEYGEN-AQ-001", "HEYGEN-AQ-002"],\n        "resolved_history_packet_ids": ["HEYGEN-AQ-003", "HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],\n        "consent_handoff_status": "PREPARED_NOT_INITIATED",\n        "aq003_logical_packet_id": "HEYGEN-AQ-003",\n        "aq003_previous_dependency_id": P0_AQ003_PREVIOUS_DEP,\n        "aq003_final_dependency_id": P0_AQ003_CURRENT_DEP,\n        "aq003_status": "DEPENDENCY_RESOLVED_EVIDENCED",\n        "aq003_resolution_reason": "B01 is factually HEYGEN_9_OF_9_COMPLETE; B01-AV-08 Allied Gangster completed and may not be resurrected as a live blocker.",\n    }\n'''
+          if text.count(old) != 1:
+              raise SystemExit('refresh builder plan p0_state block drifted')
+          text = text.replace(old, new, 1)
+
+          old = '''    aq003_evolution_history = [{\n        "logical_packet_id": "HEYGEN-AQ-003",\n        "previous_dependency_id": P0_AQ003_PREVIOUS_DEP,\n        "current_dependency_id": P0_AQ003_CURRENT_DEP,\n        "status": "DEPENDENCY_NARROWED_BY_FACTUAL_B01_COMPLETION",\n        "reason": "Six previously unresolved looks completed and were reconciled; B01-AV-08 is the sole remaining look dependency.",\n        "paid_execution_authorized_by_history": False,\n    }]\n    # Remove the old seven-look key so AQ-003 cannot appear twice as active/history.\n    prior_by_dep.pop(P0_AQ003_PREVIOUS_DEP, None)\n'''
+          new = '''    aq003_evolution_history = [{\n        "logical_packet_id": "HEYGEN-AQ-003",\n        "previous_dependency_id": P0_AQ003_PREVIOUS_DEP,\n        "final_dependency_id": P0_AQ003_CURRENT_DEP,\n        "status": "DEPENDENCY_RESOLVED_EVIDENCED",\n        "reason": "B01-AV-08 Allied Gangster completed; B01 is now 9/9 complete.",\n        "paid_execution_authorized_by_history": False,\n    }]\n    # Remove both historical and final live keys so AQ-003 cannot be reallocated or resurrected.\n    prior_by_dep.pop(P0_AQ003_PREVIOUS_DEP, None)\n    prior_by_dep.pop(P0_AQ003_CURRENT_DEP, None)\n'''
+          if text.count(old) != 1:
+              raise SystemExit('refresh builder AQ003 evolution block drifted')
+          text = text.replace(old, new, 1)
+
+          old = '''    resolved_history = resolved_history_from_current_queue(old_queue)\n    resolved_dep_ids = {str(x.get("dependency_id")) for x in resolved_history}\n'''
+          new = '''    resolved_history = resolved_history_from_current_queue(old_queue)\n    if not any(str(x.get("packet_id")) == "HEYGEN-AQ-003" for x in resolved_history):\n        resolved_history.append({\n            "packet_id": "HEYGEN-AQ-003",\n            "dependency_id": P0_AQ003_CURRENT_DEP,\n            "status": "DEPENDENCY_RESOLVED_EVIDENCED",\n            "active": False,\n            "batch_unlocked": False,\n            "evidence": "B01 manifest HEYGEN_9_OF_9_COMPLETE; B01-AV-08 COMPLETE.",\n        })\n    resolved_dep_ids = {str(x.get("dependency_id")) for x in resolved_history}\n'''
+          if text.count(old) != 1:
+              raise SystemExit('refresh builder resolved_history block drifted')
+          text = text.replace(old, new, 1)
+
+          old = '''            "resolved_history_packet_ids": ["HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],\n            "aq003_evolution_history": aq003_evolution_history,\n'''
+          new = '''            "resolved_history_packet_ids": ["HEYGEN-AQ-003", "HEYGEN-AQ-004", "HEYGEN-AQ-005", "HEYGEN-AQ-006"],\n            "aq003_evolution_history": aq003_evolution_history,\n'''
+          if text.count(old) != 1:
+              raise SystemExit('refresh builder queue p0 lock block drifted')
+          text = text.replace(old, new, 1)
+
+          refresh.write_text(text, encoding='utf-8')
+          compile(text, str(refresh), 'exec')
+
+          # YAML controls must remain parseable before refresh.
+          req_doc = yaml.safe_load(req.read_text(encoding='utf-8'))
+          schema_doc = yaml.safe_load(schema.read_text(encoding='utf-8'))
+          assert req_doc['batches']['B11']['locations'] == ['LOC-PARAANE-HIGH-OBSERVATION']
+          assert schema_doc['batches']['B11']['required_location_refs'] == ['LOC-PARAANE-HIGH-OBSERVATION']
+          assert schema_doc['batches']['B11']['env6l_roots'] == ['LOC-003']
+          PY
+      - name: Refresh matrix plan and action queue from live validator
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks/
-          git commit -m "Temporary QA export for capture-body visual inspection"
-          git push
+          python production/heygen/refresh_zero_credit_controls.py | tee /tmp/aq010_012_refresh.txt
+      - name: Verify AQ010 AQ011 AQ012 and zero-credit safety
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          q = yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml').read_text())
+          packets = {p['packet_id']: p for p in q['packets']}
+          assert 'HEYGEN-AQ-003' not in packets
+          hist = {x['packet_id']: x for x in q['resolved_history']}
+          assert hist['HEYGEN-AQ-003']['status'] == 'DEPENDENCY_RESOLVED_EVIDENCED'
+          assert q['p0_identity_lock']['open']['CONSENT::ANAADHI_PRIVATE_AVATAR'] == 'HEYGEN-AQ-001'
+          assert q['p0_identity_lock']['open']['CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml'] == 'HEYGEN-AQ-002'
+          assert 'AVATAR_LOOK_SET::B01-AV-08' not in q['p0_identity_lock']['open']
+
+          aq10 = packets['HEYGEN-AQ-010']
+          aq11 = packets['HEYGEN-AQ-011']
+          aq12 = packets['HEYGEN-AQ-012']
+          assert aq10['dependency_id'] == 'REF::PRP-SEVENTEEN-NAME-LIST'
+          assert aq10['impacted_batches'] == ['B16','B18','B19','B20','B21','B22','B23','B26']
+          assert aq11['dependency_id'] == 'REF::LOC-PARAANE-CHILD-WING'
+          assert aq11['impacted_batches'] == ['B06','B07','B08','B09','B10','B26']
+          assert aq12['dependency_id'] == 'REF::CST-ANAADHI-20-26'
+          assert aq12['impacted_batches'] == ['B16','B17','B18','B19','B20','B21','B22']
+          assert q['credit_gate']['no_heygen_consent_or_media_execution'] is True
+          for p in (aq10, aq11, aq12):
+              assert p['media_generation_allowed'] is False
+              assert p['heygen_submission_allowed'] is False
+          PY
+          changed="$(git diff --name-only)"
+          expected=$'production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml\nproduction/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml\nproduction/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml\nproduction/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml\nproduction/heygen/refresh_zero_credit_controls.py\nproduction/references/BATCH_REFERENCE_REQUIREMENTS.yaml'
+          printf '%s\n' "$changed"
+          test "$changed" = "$expected" || { echo 'Unexpected mutation scope'; exit 1; }
+          ! git diff | grep -E '^\+.*(approved_root: true|status: APPROVED)' || { echo 'Forbidden approval promotion'; exit 1; }
+      - name: Commit control-only changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/references/BATCH_REFERENCE_REQUIREMENTS.yaml \
+                  production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml \
+                  production/heygen/refresh_zero_credit_controls.py \
+                  production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml \
+                  production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml \
+                  production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
+          git commit -m 'Audit AQ010 AQ012 and remove stale B11 child-wing dependency'
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 6
