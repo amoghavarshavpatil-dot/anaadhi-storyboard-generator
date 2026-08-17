@@ -1,0 +1,204 @@
+version: 1
+project: ANAADHI
+control: P1_AQ038_039_041_DEPENDENCY_REUSE_AUDIT
+mode: ZERO_CREDIT_EVIDENCE_ONLY
+status: COMPLETE__SYSTEMS_LAB_METADATA_BINDING_RECONCILED__TECHNOLOGY_AND_VISUAL_GAPS_REMAIN_FAIL_CLOSED
+as_of_local: "2026-08-17T10:33:00+05:30"
+scope:
+  packets: [HEYGEN-AQ-038, HEYGEN-AQ-039, HEYGEN-AQ-041]
+  explicitly_skipped_deferred_packets: [HEYGEN-AQ-040]
+  dependencies:
+    - REF::TEC-PARAANE-SENSOR-STAKE
+    - SPATIAL::B02::REMAINING_LOCATION_WORK
+    - REF::TEC-HOLOGRAPHIC-NEURAL-MAP
+  media_generation: false
+  media_replacement: false
+  consent_execution: false
+  avatar_or_look_submission: false
+  video_render_or_lipsync_submission: false
+  paid_heygen_api_execution: false
+  approved_status_promotion: false
+  root_status_promotion: false
+
+source_snapshot:
+  observed_repository_head_before_audit: cb2520683cb1e74edb42a4074a566f9f3567e2b5
+  note: >-
+    Main contained concurrent avatar-manifest work after the prior AQ034/035/037 audit. This audit
+    does not revert or reinterpret those avatar changes and remains limited to AQ038/AQ039/AQ041.
+
+sources:
+  p0_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+  p1_requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  p1_bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  p1_registry: production/references/REFERENCE_REGISTRY.yaml
+  heygen_schema: production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  env6l_file_library: ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json
+  env5_charter_file_library: ANAADHI_ENV-5_Stage_Definition_and_Execution_Charter.md
+  env5g_file_library: ANAADHI_ENV-5G_Full_Design-System_Inversion_155-Row_260-Link_Final-ENV-5_QA.md
+  approved_screenplay_file_library: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+
+absolute_rules:
+  - Technology identity remains independent from incidental pixels, displays, environment plates and generic institutional equipment.
+  - ENV-5D technology grammar defines bounded function/installation logic but does not by itself create an approved standalone visual asset.
+  - LOC-002 reusable parent/root identity never satisfies SUB-002-01 Systems Lab visual identity.
+  - SUB-002-01 metadata lock proves canonical parentage and room identity only; it does not prove a visual master.
+  - Screen or hologram content is not interchangeable with the room containing it.
+  - Hidden sensor stakes are not interchangeable with broken forest sensors, sensor towers, black-kite drones, wrist displays or generic surveillance equipment.
+  - Empty Drive keyword searches are negative search evidence only and never authorise generation or APPROVED promotion.
+
+connected_drive_searches:
+  sensor_stake:
+    queries: ["Paraane sensor stake"]
+    exact_standalone_approved_master_found: false
+  holographic_neural_map:
+    queries: ["holographic neural map"]
+    exact_standalone_approved_master_found: false
+  systems_lab:
+    queries: ["LOC-002", "Adraka Medical University"]
+    exact_SUB_002_01_visual_master_found: false
+  policy: >-
+    No exact matching standalone asset was surfaced by connected Drive keyword search. This does not
+    prove global nonexistence and does not authorise generation. Existing LOC-002 root reuse remains
+    authoritative only at parent/root scope.
+
+findings:
+  HEYGEN-AQ-038:
+    dependency: REF::TEC-PARAANE-SENSOR-STAKE
+    pre_audit_batches: [B01]
+    registry_status: MISSING_APPROVED_ASSET
+    registry_identity: hidden Paraane/police forest sensor stake
+    screenplay_and_p0_evidence:
+      scenes: [1]
+      approved_screenplay: >-
+        SC001 explicitly states that massive roots surround hidden sensor stakes during the black-rain
+        capture perimeter. P0 separately lists hidden sensors among the opening-capture anchors.
+      decision: KEEP_OPEN
+    collision_exclusions:
+      - TEC-BLACK-KITE-DRONE
+      - Police Commander wrist thermal display
+      - broken electronic sensor at the abandoned forest shrine
+      - ruined sensor towers in later forest chronology
+      - generic surveillance/camera equipment
+    exact_reusable_technology_master_found: false
+    post_audit_batches: [B01]
+    closure_state: OPEN_UNRESOLVED
+    machine_requirement_change: NONE
+
+  HEYGEN-AQ-039:
+    dependency: SPATIAL::B02::REMAINING_LOCATION_WORK
+    pre_audit_wording: systems-lab nested interior
+    authoritative_root_reuse:
+      env6l_root: LOC-002
+      canonical_name: Adraka Medical University
+      existing_binding: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml B02.env6l_roots
+      root_already_bound: true
+      root_scope_only: true
+    exact_nested_authority:
+      env6l_subspace: SUB-002-01
+      canonical_name: Systems Lab
+      parent_loc_id: LOC-002
+      env6j_prompt_id: ENV6J-SUB-002-01-v001
+      env6j_prompt_hash: 38f85cf6e3661a094c87b721e2a339dce8c850498a2672b395529b242cc8d007
+      canonical_metadata_status: LOCKED
+      visual_reference_status: NOT_PRESENT_IN_WORKSPACE
+      visual_reference_file: ""
+      visual_reference_sha256: ""
+      final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+      asset_metadata_hash: 5c7c382d7ace2add07f203da39fa898a9bddc7c50a8c0bb91f6631ab8e157a39
+    screenplay_and_p0_evidence:
+      scenes: [6]
+      exact_scope: >-
+        SC006 is explicitly INT. ADRAKA MEDICAL UNIVERSITY – SYSTEMS LAB – DAY – YEARS EARLIER,
+        with red-stone university fabric, carved timber ceiling beams and embedded/suspended systems.
+      decision: KEEP_OPEN_WITH_EXACT_SUBSPACE_WORDING
+    collision_exclusions:
+      - LOC-002 parent/root exterior or generic university plate
+      - later Adraka/Marsyaa study locations
+      - generic medical laboratory
+      - holographic neural-map asset itself
+    exact_nested_visual_found: false
+    post_audit_spatial_work: ["SUB-002-01 systems lab visual reference"]
+    closure_state: OPEN_UNRESOLVED
+    machine_binding_wording_correction: >-
+      Replace generic "systems-lab nested interior" with exact "SUB-002-01 systems lab visual reference";
+      preserve logical packet HEYGEN-AQ-039 because the dependency narrowed rather than becoming new work.
+
+  HEYGEN-AQ-041:
+    dependency: REF::TEC-HOLOGRAPHIC-NEURAL-MAP
+    pre_audit_batches: [B02]
+    registry_status: MISSING_APPROVED_ASSET
+    registry_identity: Adraka/Paraane holographic neural-system language
+    screenplay_and_p0_evidence:
+      scenes: [6]
+      approved_screenplay: >-
+        SC006 explicitly places suspended holographic neural maps in the systems lab and then uses a
+        holographic patient-flow model whose four systems are expanded, merged, frozen and separated.
+      p0_anchor: suspended holographic neural maps; integrated patient-flow model; lab console
+      decision: KEEP_OPEN
+    scope_separation:
+      room_identity_packet: HEYGEN-AQ-039
+      rule: >-
+        SUB-002-01 Systems Lab metadata/visual identity cannot close the neural-map technology asset,
+        and the neural-map technology cannot close the room visual.
+    collision_exclusions:
+      - generic holographic display
+      - Paraane risk/assessment screens
+      - operational maps
+      - command-room displays
+      - incidental screen content in an approved location plate
+    exact_reusable_technology_master_found: false
+    post_audit_batches: [B02]
+    closure_state: OPEN_UNRESOLVED
+    machine_requirement_change: NONE
+
+machine_control_corrections_authorized:
+  P1_BATCH_REFERENCE_BINDINGS:
+    B02:
+      replace_remaining_location_work:
+        from: ["systems-lab nested interior"]
+        to: ["SUB-002-01 systems lab visual reference"]
+  reference_requirement_changes: NONE
+  heygen_schema_requirement_changes: NONE
+  reference_registry_changes: NONE
+  preserve_semantic_requirements:
+    - TEC-PARAANE-SENSOR-STAKE in B01
+    - TEC-HOLOGRAPHIC-NEURAL-MAP in B02
+    - LOC-ADRAKA-SYSTEMS-LAB in B02
+  packet_identity_locks_required:
+    - {prefix: "SPATIAL::B01::REMAINING_LOCATION_WORK::", packet_id: HEYGEN-AQ-037}
+    - {prefix: "SPATIAL::B02::REMAINING_LOCATION_WORK::", packet_id: HEYGEN-AQ-039}
+    - {prefix: "SPATIAL::B24::REMAINING_LOCATION_WORK::", packet_id: HEYGEN-AQ-118}
+    - {prefix: "SPATIAL::B26::PENDING_NAMED_LOCATION::", packet_id: HEYGEN-AQ-120}
+  no_new_packet_ids_due_to_dependency_string_narrowing: true
+
+expected_refresh:
+  previous_total_blockers: 275
+  expected_raw_blocker_delta: 0
+  expected_total_blockers: 275
+  expected_AQ038_batches: [B01]
+  expected_AQ039_status: OPEN_UNRESOLVED
+  expected_AQ039_packet_id: HEYGEN-AQ-039
+  expected_AQ041_batches: [B02]
+  expected_B01_spatial_packet_id: HEYGEN-AQ-037
+  expected_B24_spatial_packet_id: HEYGEN-AQ-118
+  expected_B26_spatial_packet_id: HEYGEN-AQ-120
+  expected_new_packet_ids: []
+  preserve_AQ040_deferred: true
+  preserve_aq001_aq002_open: true
+  preserve_aq003_resolved_evidenced: true
+  preserve_aq033_superseded: true
+  preserve_aq036_superseded: true
+  note: >-
+    Concurrent avatar-manifest changes may legitimately change avatar-related blocker totals when the fresh
+    validator materialises current main. The scoped AQ038/AQ039/AQ041 correction itself has zero intended
+    blocker delta and must not allocate a new packet for B02 wording evolution.
+
+safety:
+  bind_only_exact_evidenced_reuse: true
+  incidental_pixels_never_promoted: true
+  technology_collision_separation_preserved: true
+  nested_space_collision_separation_preserved: true
+  zero_media_generation_or_replacement: true
+  zero_consent_avatar_look_render_lipsync_submission: true
+  zero_paid_heygen_api_execution: true
+  zero_approved_or_root_status_promotion: true
