@@ -1,0 +1,195 @@
+version: 1
+project: ANAADHI
+scene_id: SC100
+revision_id: R001
+status: SPEC_READY
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: "INT. INDEPENDENT JUDICIAL MEDICAL CENTRE – INTERVIEW ROOM – DAWN"
+editorial:
+  previous_segment: SC099B
+  next_segment: SC094B
+  final_feature_position: 3
+  source_scene_number_preserved: true
+  no_parallel_or_special_transform: true
+  end_boundary: FADE_OUT
+screenplay_truth:
+  room:
+    simple: true
+    table_count: 1
+    chair_count: 2
+    wide_window_count: 1
+    open_door: true
+    court_officers_outside: 2
+    court_officers_visible_not_looming: true
+  anaadhi:
+    unrestrained: true
+    wounds: "surgical wounds healed into long scars"
+    physical_presence: "tall, masculine and physically imposing, but no longer uses size to control the room"
+  characters:
+    - ANAADHI
+    - INDEPENDENT_CLINICIAN
+    - LEGAL_ADVOCATE
+    - COURT_OFFICER_01
+    - COURT_OFFICER_02
+  exact_dialogue_order:
+    - {speaker: INDEPENDENT_CLINICIAN, line: "This interview is separate from your criminal statement."}
+    - {speaker: ANAADHI, line: "I understand."}
+    - {speaker: INDEPENDENT_CLINICIAN, line: "You may stop this interview whenever you want."}
+    - {speaker: ANAADHI, line: "But the court may still keep me here."}
+    - {speaker: LEGAL_ADVOCATE, line: "Yes."}
+    - {speaker: ANAADHI, line: "Then do not call that door freedom."}
+    - {speaker: INDEPENDENT_CLINICIAN, line: "I will not."}
+    - {speaker: INDEPENDENT_CLINICIAN, line: "You may fill in the identity section yourself."}
+    - {speaker: INDEPENDENT_CLINICIAN, line: "Is it your choice that we continue to call you Anaadhi?"}
+    - {speaker: ANAADHI, line: "Yes."}
+    - {speaker: INDEPENDENT_CLINICIAN, line: "Your father chose this name."}
+    - {speaker: ANAADHI, line: "He chose the beginning."}
+    - {speaker: ANAADHI, line: "I will decide whether it continues."}
+    - {speaker: INDEPENDENT_CLINICIAN, line: "Where shall we begin?"}
+    - {speaker: ANAADHI, line: "Mallayya."}
+  identity_form:
+    NAME: ANAADHI
+    MOTHER: JANNE
+    FATHER: PARVARAN
+    GUARDIAN: NONE
+    pause_rules:
+      NAME: NONE_SPECIFIED
+      MOTHER: PAUSE
+      FATHER: LONGER_PAUSE
+      GUARDIAN: "LOOK_TOWARD_OPEN_DOOR_AND_MORNING_LIGHT"
+  first_victim_file:
+    authorised_readable_name: MALLAYYA
+    forbidden_substitution: "Salt Vendor"
+  final_image:
+    anaadhi_palm: OPEN_UPWARD_ON_TABLE
+    roads: EXACTLY_FOUR_PHYSICAL_ROADS
+    ordinary_vehicle_movement: true
+    salvation_or_destiny_label: false
+    fifth_road_forbidden: true
+    supernatural_branching_forbidden: true
+    end: FADE_OUT
+continuity:
+  batch: B34
+  location:
+    root_id: LOC-087
+    root_name: Independent Judicial Medical Centre
+    subspace_id: SUB-087-01
+    subspace_name: Interview Room
+    canonical_design_anchors:
+      - ENV-IJM-001
+      - ENV-IJM-003
+      - ENV-IJM-004
+    condition: WC095
+    state: ST00
+    environment_visual_status: METADATA_LOCKED_VISUAL_PENDING
+    rules:
+      - "one table, exactly two chairs, one wide window, door open"
+      - "no restraint/interrogation architecture"
+      - "ENV-IJM-004 is a real grounds/four-road view, not GF04"
+      - "ordinary traffic only; no destiny/salvation road label"
+  anaadhi:
+    identity_authority: production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01.yaml
+    height_cm: 193
+    required_state_ids:
+      - AGE-ANAADHI-27-FINAL
+      - HR-ANAADHI-27-FINAL
+      - CST-ANAADHI-27-FINAL
+      - INJ-ANAADHI-27-FINAL
+    body: "lean-defined masculine post-recovery body"
+    injury: "healed long surgical scars"
+    hair: "dense voluminous medium-long hair with natural lift and side taper"
+    facial_hair: "medium-full beard with disciplined moustache"
+    costume: CONTROLLED_UNRESOLVED_FINAL_GARMENT
+    rules:
+      - "Do not reuse SC099B AGE-ANAADHI-27-RECOVERY visual state once SC100 begins."
+      - "Do not invent final garment, colour, insignia, uniform, robe or custody clothing."
+      - "Preserve 193 cm adult scale without enlarging furniture or room."
+  other_character_visuals:
+    INDEPENDENT_CLINICIAN: CONTROLLED_UNRESOLVED_VISUAL_REFERENCE
+    LEGAL_ADVOCATE: CONTROLLED_UNRESOLVED_VISUAL_REFERENCE
+    COURT_OFFICERS: CONTROLLED_UNRESOLVED_VISUAL_REFERENCE
+  props:
+    INTAKE_FORM: "physical form; readable copy restricted to screenplay-authorised identity fields/values"
+    PEN: "physical writing instrument; reused for identity form and then placed down"
+    FIRST_VICTIM_FILE: "physical file; only authorised readable victim name is MALLAYYA"
+    INTERVIEW_TABLE: "single table; distinct from SC099B writing desk"
+    OPEN_DOOR: "physical architectural opening; not freedom symbol made literal"
+    FOUR_ROAD_EXTERIOR: "physical grounds view; exactly four roads; ordinary vehicles"
+  technology_bindings: []
+env6_boundary_audit:
+  scene_condition: WC095
+  special_beat_intersects_scene: false
+  source_ruling: NO_SB
+  disposition: EP0_PHYSICAL_CHRONOLOGY_ONLY
+  physical_anchors:
+    - ENV-IJM-001
+    - ENV-IJM-003
+    - ENV-IJM-004
+  prohibited:
+    - GF04
+    - alternate_earth
+    - supernatural_four_road_branching
+    - destiny_or_salvation_label
+    - invented_fifth_road
+    - represented_residue
+shot_contract:
+  duration_seconds: 108
+  shot_count: 36
+  stills_per_minute: 20
+  minimum_stills_per_minute: 20
+  raster: 3840x1600
+  aspect: "2.40:1"
+  fps: 30
+  image_generation_started: false
+  render_started: false
+  each_shot_fields:
+    - shot_id
+    - purpose
+    - framing
+    - camera_height
+    - camera_side
+    - lens_intent
+    - screen_direction
+    - subject_placement
+    - depth_plan
+    - orientation_notes
+    - character_bindings
+    - location_bindings
+    - prop_bindings
+    - technology_bindings
+    - visual_prompt
+    - negative_constraints
+    - continuity_anchor
+    - audio_window_seconds
+    - dialogue
+    - bgm
+    - sfx
+    - ambience
+    - duration_seconds
+    - motion_mode
+    - transition_in
+    - transition_out
+    - crop_policy
+audio:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  mastered_prefix_end_timecode: "00:02:14.293333"
+  exact_audio_timecode_alignment: PENDING_EXTRACTION
+  relative_windows_are_picture_planning_only: true
+  retime_locked_master: false
+  final_sound_rule: "No mandatory heroic resolution cue; preserve humane restraint and ordinary exterior traffic."
+negative_global:
+  - "no SC099B secure-unit writing room substitution"
+  - "no handcuffs, restraints or looming guards"
+  - "no extra chair, extra table, extra door or extra window"
+  - "no Paraane emblem"
+  - "no interrogation architecture"
+  - "no invented readable court text"
+  - "no fabricated victim names"
+  - "no road labels"
+  - "no fifth road"
+  - "no supernatural light path"
+  - "no alternate Anaadhi"
+  - "no final-garment invention"
+  - "no lip-sync generation at this specification stage"
+  - "no storyboard image generation yet"
+  - "no Remotion rendering yet"
