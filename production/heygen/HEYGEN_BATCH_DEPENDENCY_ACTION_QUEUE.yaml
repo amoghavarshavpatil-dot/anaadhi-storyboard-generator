@@ -1322,7 +1322,7 @@ packets:
   heygen_submission_allowed: false
   queue_position: 35
 - packet_id: HEYGEN-AQ-039
-  dependency_id: 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: systems-lab nested interior'
+  dependency_id: 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-002-01 systems lab visual reference'
   active: true
   status: OPEN_UNRESOLVED
   priority_class: P2_BATCH_SPECIFIC
@@ -2810,7 +2810,7 @@ packets:
   heygen_submission_allowed: false
   queue_position: 92
 - packet_id: HEYGEN-AQ-198
-  dependency_id: AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+  dependency_id: AVATAR_LOOK_SET::B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   active: true
   status: OPEN_UNRESOLVED
   priority_class: P2_BATCH_SPECIFIC

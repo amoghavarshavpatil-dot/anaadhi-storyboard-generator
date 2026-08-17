@@ -72,7 +72,7 @@ location_bindings:
     scenes: [6]
     env6l_roots: [LOC-002]
     approved_root: true
-    remaining_location_work: ["systems-lab nested interior"]
+    remaining_location_work: ["SUB-002-01 systems lab visual reference"]
   B03:
     scenes: [7,8,9,10]
     env6l_roots: [LOC-003, LOC-004]

@@ -3,7 +3,7 @@ project: ANAADHI
 control: HEYGEN-BATCH-BLOCKER-RESOLUTION-PLAN
 mode: PLANNING_ONLY__ZERO_MEDIA_GENERATION__ZERO_HEYGEN_SUBMISSION
 source_matrix: production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml
-source_matrix_sha256: 22e512259be1023ceddebf6225b7cc35b6eb2232375cc0795d637e1587fcf84d
+source_matrix_sha256: 7b204ca43c90c474e3a3c3d54b6281979da2d4135b71556aea4abb5d4aa46b85
 validated_scope: B01-B34 / SC001-SC100
 invariants:
   fabricate_approved_status: false
@@ -51,12 +51,12 @@ hard_separation:
   - CONSENT::production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
   - CONSENT::production/heygen/avatars/B25/B25_AVATAR_MANIFEST.yaml
   - CONSENT::production/heygen/avatars/B26/B26_AVATAR_MANIFEST.yaml
-  - AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+  - AVATAR_LOOK_SET::B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   - AVATAR_LOOK_SET::B25-AV-03,B25-AV-04,B25-AV-05,B25-AV-06,B25-AV-07
   - AVATAR_LOOK_SET::B26-AV-03,B26-AV-04,B26-AV-05,B26-AV-06,B26-AV-08,B26-AV-09,B26-AV-10
   conditional_work_page_media_only_after_existing_asset_checks_fail:
   - 'SPATIAL::B01::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state'
-  - 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: systems-lab nested interior'
+  - 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-002-01 systems lab visual reference'
   - 'SPATIAL::B03::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane ST01-ST04 | required Paraane nested interiors | Workers Public Square if required'
   - 'SPATIAL::B04::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Neonatal Diagnostic Suite | Records Control Room | Maternity Recovery Room | other required hospital
     subspaces'
@@ -324,7 +324,7 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
 - step: 7
-  dependency_id: 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: systems-lab nested interior'
+  dependency_id: 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-002-01 systems lab visual reference'
   scope: BATCH_SPECIFIC
   batch_impact: 1
   batches: &id007
@@ -775,7 +775,7 @@ safe_dependency_resolution_order:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
 - step: 56
-  dependency_id: AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+  dependency_id: AVATAR_LOOK_SET::B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   scope: BATCH_SPECIFIC
   batch_impact: 1
   batches: &id056
@@ -2371,7 +2371,7 @@ batch_unlock_order:
   - CONSENT::production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
   - 'SPATIAL::B24::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: Paraane central-command nested room | SUB-003-25 pharmaceutical transfer vault visual reference
     | raised-cabin capture state'
-  - AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+  - AVATAR_LOOK_SET::B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   - REF::PRP-PARAANE-EMBLEM
   - REF::LOC-BHAIGAARA-RAISED-CABIN
   - REF::PRP-SPLIT-FLOORBOARD
@@ -2438,7 +2438,7 @@ batch_unlock_order:
   canonical_dependency_count: 4
   unlock_after_dependency_step: 174
   dependencies_in_safe_order:
-  - 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: systems-lab nested interior'
+  - 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-002-01 systems lab visual reference'
   - AVATAR_SLOT::B02::AVATAR_MANIFEST_UNASSIGNED
   - REF::LOC-ADRAKA-SYSTEMS-LAB
   - REF::TEC-HOLOGRAPHIC-NEURAL-MAP
@@ -2677,7 +2677,7 @@ canonical_dependencies:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
   evidence: {}
-- dependency_id: 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: systems-lab nested interior'
+- dependency_id: 'SPATIAL::B02::REMAINING_LOCATION_WORK::Unresolved location/nested-space/state work: SUB-002-01 systems lab visual reference'
   batches: *id007
   raw_blocker_count: 1
   raw_blocker_numbers:
@@ -2686,7 +2686,7 @@ canonical_dependencies:
     batch_id: B02
     category: nested-space
     code: REMAINING_LOCATION_WORK
-    message: 'Unresolved location/nested-space/state work: systems-lab nested interior'
+    message: 'Unresolved location/nested-space/state work: SUB-002-01 systems lab visual reference'
   batch_impact: 1
   scope: BATCH_SPECIFIC
   resolution_lane: SPATIAL_BINDING_FIRST_THEN_EXISTING_ASSET_CHECK
@@ -3473,7 +3473,7 @@ canonical_dependencies:
   new_work_page_media_required: CONDITIONAL_ON_MISSING_CANONICAL_SPACE_ASSET
   safe_first_action: Resolve root/nested-space identity and binding from existing approved plates first. Only unresolved canonical visual gaps may be routed to Work-page creation.
   evidence: {}
-- dependency_id: AVATAR_LOOK_SET::B24-AV-02,B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
+- dependency_id: AVATAR_LOOK_SET::B24-AV-03,B24-AV-05,B24-AV-06,B24-AV-07,B24-AV-08,B24-AV-09,B24-AV-10,B24-AV-11,B24-AV-12
   batches: *id056
   raw_blocker_count: 1
   raw_blocker_numbers:
@@ -3482,7 +3482,7 @@ canonical_dependencies:
     batch_id: B24
     category: avatar-slot
     code: AVATAR_LOOKS_UNRESOLVED
-    message: 'Avatar asset(s) not COMPLETE with look IDs: B24-AV-02, B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12'
+    message: 'Avatar asset(s) not COMPLETE with look IDs: B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12'
   batch_impact: 1
   scope: BATCH_SPECIFIC
   resolution_lane: WORK_PAGE_AVATAR_MANIFEST_BINDING_TO_EXISTING_B01_IDENTITIES
@@ -3492,13 +3492,6 @@ canonical_dependencies:
     avatar_index_status: PARTIAL_REUSE_B01_CAPTURE_IDENTITIES__UNRESOLVED_SLOTS_REMAIN
     manifest: production/heygen/avatars/B24/B24_AVATAR_MANIFEST.yaml
     targeted_avatar_assets:
-    - asset_id: B24-AV-02
-      source_path: null
-      source_exists: false
-      drive_status: null
-      drive_file_id_present: false
-      heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
-      heygen_look_id_present: false
     - asset_id: B24-AV-03
       source_path: null
       source_exists: false

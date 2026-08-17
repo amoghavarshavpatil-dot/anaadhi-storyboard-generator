@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: 93246656c272f5e50ecc6c1dc94907fab21ba061
+validated_repository_head: b2fac9160ed3595f4e8d9990091ae1140854812a
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -116,7 +116,7 @@ report:
     - batch_id: B02
       category: nested-space
       code: REMAINING_LOCATION_WORK
-      message: 'Unresolved location/nested-space/state work: systems-lab nested interior'
+      message: 'Unresolved location/nested-space/state work: SUB-002-01 systems lab visual reference'
     - batch_id: B02
       category: location
       code: REFERENCE_NOT_APPROVED
@@ -766,7 +766,7 @@ report:
     - batch_id: B24
       category: avatar-slot
       code: AVATAR_LOOKS_UNRESOLVED
-      message: 'Avatar asset(s) not COMPLETE with look IDs: B24-AV-02, B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12'
+      message: 'Avatar asset(s) not COMPLETE with look IDs: B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12'
     - batch_id: B24
       category: consent
       code: CONSENT_UNRESOLVED
