@@ -1,162 +1,37 @@
-name: AQ013 AQ015 Zero-Credit Shared Asset Audit Refresh
+name: Export Capture QA Thumbnail Base64
 
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/export-capture-qa-thumb-base64.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  refresh-control-only:
-    runs-on: ubuntu-24.04
+  export:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout full history
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Install control dependency
-        run: python -m pip install --disable-pip-version-check PyYAML
-      - name: Apply exact AQ013 AQ014 AQ015 stale-binding corrections
+      - uses: actions/checkout@v4
+      - name: Split QA thumbnail into temporary text chunks
         shell: bash
         run: |
           set -euo pipefail
-          python - <<'PY'
-          from pathlib import Path
-          import yaml
-
-          req = Path('production/references/BATCH_REFERENCE_REQUIREMENTS.yaml')
-          schema = Path('production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml')
-
-          def replace_exact(path, old, new, count=1):
-              text = path.read_text(encoding='utf-8')
-              found = text.count(old)
-              if found != count:
-                  raise SystemExit(f'{path}: expected {count} exact match(es), found {found}: {old!r}')
-              path.write_text(text.replace(old, new, count), encoding='utf-8')
-
-          # AQ-014: medicine cup appears in locked P0 only for B07, B09 and B26.
-          replace_exact(req, '    props: [PRP-PARAANE-EMBLEM, PRP-MEDICINE-CUP]\n', '    props: [PRP-PARAANE-EMBLEM]\n', 1)
-          # B08 exact contextual block prevents accidentally changing B07/B09/B26.
-          replace_exact(req,
-              '  B08:\n    scenes: [20,21]\n    anaadhi: [AGE-ANAADHI-07, AGE-ANAADHI-08, HR-ANAADHI-07, CST-ANAADHI-CHILD-INSTITUTIONAL]\n    locations: [LOC-PARAANE-CHILD-WING]\n    props: [PRP-MEDICINE-CUP]\n',
-              '  B08:\n    scenes: [20,21]\n    anaadhi: [AGE-ANAADHI-07, AGE-ANAADHI-08, HR-ANAADHI-07, CST-ANAADHI-CHILD-INSTITUTIONAL]\n    locations: [LOC-PARAANE-CHILD-WING]\n    props: []\n')
-          replace_exact(req,
-              '  B11:\n    scenes: [25,26,27]\n    anaadhi: [AGE-ANAADHI-12-INSTITUTIONAL, HR-ANAADHI-12-CLOSE, CST-ANAADHI-CHILD-INSTITUTIONAL, INJ-ANAADHI-12-ESCAPE]\n    locations: [LOC-PARAANE-HIGH-OBSERVATION]\n    props: [PRP-MEDICINE-CUP]\n',
-              '  B11:\n    scenes: [25,26,27]\n    anaadhi: [AGE-ANAADHI-12-INSTITUTIONAL, HR-ANAADHI-12-CLOSE, CST-ANAADHI-CHILD-INSTITUTIONAL, INJ-ANAADHI-12-ESCAPE]\n    locations: [LOC-PARAANE-HIGH-OBSERVATION]\n    props: []\n')
-
-          # AQ-015: wrist device appears in locked P0 only for B01 and B04.
-          replace_exact(req,
-              '    props: [PRP-PARAANE-EMBLEM, PRP-FOUNDERS-CREDENTIAL, PRP-PARAANE-WRIST-DEVICE, ENV-PARAANE-EARLY]\n',
-              '    props: [PRP-PARAANE-EMBLEM, PRP-FOUNDERS-CREDENTIAL, ENV-PARAANE-EARLY]\n')
-          replace_exact(req,
-              '    props: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-PARAANE-WRIST-DEVICE, PRP-SPLIT-FLOORBOARD, VEH-PARAANE-MEDICAL-TRANSPORT, TEC-BLACK-KITE-DRONE, ENV-BLACK-RAIN]\n',
-              '    props: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-SPLIT-FLOORBOARD, VEH-PARAANE-MEDICAL-TRANSPORT, TEC-BLACK-KITE-DRONE, ENV-BLACK-RAIN]\n')
-
-          # AQ-013 + AQ-015: B29 has no Anaadhi and no wrist device in locked P0.
-          replace_exact(req,
-              '  B29:\n    scenes: [83,84,85,86]\n    anaadhi: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]\n    locations: [LOC-003, LOC-067, LOC-068]\n    props: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-PARAANE-WRIST-DEVICE]\n',
-              '  B29:\n    scenes: [83,84,85,86]\n    anaadhi: [CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]\n    locations: [LOC-003, LOC-067, LOC-068]\n    props: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM]\n')
-
-          # Mirror the same exact semantic corrections in the HeyGen input schema.
-          replace_exact(schema,
-              '    required_prop_refs: [PRP-PARAANE-EMBLEM, PRP-MEDICINE-CUP]\n',
-              '    required_prop_refs: [PRP-PARAANE-EMBLEM]\n', 1)
-          replace_exact(schema,
-              '  B08:\n    scenes: [20,21]\n    env6l_roots: [LOC-003]\n    p1_location_status: APPROVED_ROOT__NESTED_REMAINS\n    required_location_refs: [LOC-PARAANE-CHILD-WING]\n    required_anaadhi_refs: [AGE-ANAADHI-07, AGE-ANAADHI-08, HR-ANAADHI-07, CST-ANAADHI-CHILD-INSTITUTIONAL]\n    required_prop_refs: [PRP-MEDICINE-CUP]\n',
-              '  B08:\n    scenes: [20,21]\n    env6l_roots: [LOC-003]\n    p1_location_status: APPROVED_ROOT__NESTED_REMAINS\n    required_location_refs: [LOC-PARAANE-CHILD-WING]\n    required_anaadhi_refs: [AGE-ANAADHI-07, AGE-ANAADHI-08, HR-ANAADHI-07, CST-ANAADHI-CHILD-INSTITUTIONAL]\n    required_prop_refs: []\n')
-          replace_exact(schema,
-              '  B11:\n    scenes: [25,26,27]\n    env6l_roots: [LOC-003]\n    p1_location_status: APPROVED_ROOT__MULTIPLE_NESTED_SPACES_REMAIN\n    required_location_refs: [LOC-PARAANE-HIGH-OBSERVATION]\n    required_anaadhi_refs: [AGE-ANAADHI-12-INSTITUTIONAL, HR-ANAADHI-12-CLOSE, CST-ANAADHI-CHILD-INSTITUTIONAL, INJ-ANAADHI-12-ESCAPE]\n    required_prop_refs: [PRP-MEDICINE-CUP]\n',
-              '  B11:\n    scenes: [25,26,27]\n    env6l_roots: [LOC-003]\n    p1_location_status: APPROVED_ROOT__MULTIPLE_NESTED_SPACES_REMAIN\n    required_location_refs: [LOC-PARAANE-HIGH-OBSERVATION]\n    required_anaadhi_refs: [AGE-ANAADHI-12-INSTITUTIONAL, HR-ANAADHI-12-CLOSE, CST-ANAADHI-CHILD-INSTITUTIONAL, INJ-ANAADHI-12-ESCAPE]\n    required_prop_refs: []\n')
-          replace_exact(schema,
-              '    required_prop_refs: [PRP-PARAANE-EMBLEM, PRP-FOUNDERS-CREDENTIAL, PRP-PARAANE-WRIST-DEVICE, ENV-PARAANE-EARLY]\n',
-              '    required_prop_refs: [PRP-PARAANE-EMBLEM, PRP-FOUNDERS-CREDENTIAL, ENV-PARAANE-EARLY]\n')
-          replace_exact(schema,
-              '    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-PARAANE-WRIST-DEVICE, PRP-SPLIT-FLOORBOARD, VEH-PARAANE-MEDICAL-TRANSPORT, TEC-BLACK-KITE-DRONE, ENV-BLACK-RAIN]\n',
-              '    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-SPLIT-FLOORBOARD, VEH-PARAANE-MEDICAL-TRANSPORT, TEC-BLACK-KITE-DRONE, ENV-BLACK-RAIN]\n')
-          replace_exact(schema,
-              '  B29:\n    scenes: [83,84,85,86]\n    env6l_roots: [LOC-003, LOC-067, LOC-068]\n    pending_named_location_refs: [LOC-067, LOC-068]\n    p1_location_status: PARTIAL__LATE_ROOT_METADATA_BOUND__VISUAL_AND_NESTED_GAPS_REMAIN\n    required_location_refs: [LOC-003, LOC-067, LOC-068]\n    required_anaadhi_refs: [AGE-ANAADHI-27-RECOVERY, CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]\n    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM, PRP-PARAANE-WRIST-DEVICE]\n',
-              '  B29:\n    scenes: [83,84,85,86]\n    env6l_roots: [LOC-003, LOC-067, LOC-068]\n    pending_named_location_refs: [LOC-067, LOC-068]\n    p1_location_status: PARTIAL__LATE_ROOT_METADATA_BOUND__VISUAL_AND_NESTED_GAPS_REMAIN\n    required_location_refs: [LOC-003, LOC-067, LOC-068]\n    required_anaadhi_refs: [CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]\n    required_prop_refs: [PRP-ADK7-CARTRIDGE, PRP-PARAANE-EMBLEM]\n')
-
-          # Fail closed before refresh: exact keep/remove states must match the approved audit.
-          r = yaml.safe_load(req.read_text(encoding='utf-8'))['batches']
-          s = yaml.safe_load(schema.read_text(encoding='utf-8'))['batches']
-          for b in ('B07','B09','B26'):
-              assert 'PRP-MEDICINE-CUP' in r[b]['props'] and 'PRP-MEDICINE-CUP' in s[b]['required_prop_refs']
-          for b in ('B06','B08','B11'):
-              assert 'PRP-MEDICINE-CUP' not in r[b]['props'] and 'PRP-MEDICINE-CUP' not in s[b]['required_prop_refs']
-          for b in ('B01','B04'):
-              assert 'PRP-PARAANE-WRIST-DEVICE' in r[b]['props'] and 'PRP-PARAANE-WRIST-DEVICE' in s[b]['required_prop_refs']
-          for b in ('B03','B24','B29'):
-              assert 'PRP-PARAANE-WRIST-DEVICE' not in r[b]['props'] and 'PRP-PARAANE-WRIST-DEVICE' not in s[b]['required_prop_refs']
-          for b in ('B27','B28','B30','B31','B32','B33'):
-              assert 'AGE-ANAADHI-27-RECOVERY' in r[b]['anaadhi'] and 'AGE-ANAADHI-27-RECOVERY' in s[b]['required_anaadhi_refs']
-          assert 'AGE-ANAADHI-27-RECOVERY' not in r['B29']['anaadhi']
-          assert 'AGE-ANAADHI-27-RECOVERY' not in s['B29']['required_anaadhi_refs']
-          assert r['B29']['anaadhi'] == ['CST-ANAADHI-27-RECOVERY','INJ-ANAADHI-27-SURGERY']
-          assert s['B29']['required_anaadhi_refs'] == ['CST-ANAADHI-27-RECOVERY','INJ-ANAADHI-27-SURGERY']
-          PY
-      - name: Refresh matrix plan and action queue from live validator
+          SRC="production/references/characters/anaadhi/age_body/P1-B01-A/CHR-ANAADHI_AGE27_CAPTURE_BODY_HEYGEN-CANDIDATE-01_QA-THUMB.jpg"
+          OUT="production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks"
+          rm -rf "$OUT"
+          mkdir -p "$OUT"
+          base64 -w0 "$SRC" > /tmp/thumb.b64
+          split -b 4000 -d -a 2 /tmp/thumb.b64 "$OUT/chunk_"
+          for f in "$OUT"/chunk_*; do mv "$f" "$f.txt"; done
+      - name: Commit temporary QA chunks
         shell: bash
         run: |
           set -euo pipefail
-          python production/heygen/refresh_zero_credit_controls.py | tee /tmp/aq013_015_refresh.txt
-      - name: Verify AQ013 AQ014 AQ015 and zero-credit safety
-        shell: bash
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          from pathlib import Path
-          import yaml
-          q = yaml.safe_load(Path('production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml').read_text())
-          packets = {p['packet_id']: p for p in q['packets']}
-          assert q['p0_identity_lock']['open']['CONSENT::ANAADHI_PRIVATE_AVATAR'] == 'HEYGEN-AQ-001'
-          assert q['p0_identity_lock']['open']['CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml'] == 'HEYGEN-AQ-002'
-          assert 'HEYGEN-AQ-003' not in packets
-          hist = {x['packet_id']: x for x in q['resolved_history']}
-          assert hist['HEYGEN-AQ-003']['status'] == 'DEPENDENCY_RESOLVED_EVIDENCED'
-
-          aq13 = packets['HEYGEN-AQ-013']
-          aq14 = packets['HEYGEN-AQ-014']
-          aq15 = packets['HEYGEN-AQ-015']
-          assert aq13['dependency_id'] == 'REF::AGE-ANAADHI-27-RECOVERY'
-          assert aq13['impacted_batches'] == ['B27','B28','B30','B31','B32','B33']
-          assert aq14['dependency_id'] == 'REF::PRP-MEDICINE-CUP'
-          assert aq14['impacted_batches'] == ['B07','B09','B26']
-          assert aq15['dependency_id'] == 'REF::PRP-PARAANE-WRIST-DEVICE'
-          assert aq15['impacted_batches'] == ['B01','B04']
-          for p in (aq13, aq14, aq15):
-              assert p['status'] == 'OPEN_UNRESOLVED'
-              assert p['media_generation_allowed'] is False
-              assert p['heygen_submission_allowed'] is False
-          assert q['credit_gate']['no_heygen_consent_or_media_execution'] is True
-          PY
-          changed="$(git diff --name-only)"
-          expected=$'production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml\nproduction/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml\nproduction/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml\nproduction/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml\nproduction/references/BATCH_REFERENCE_REQUIREMENTS.yaml'
-          printf '%s\n' "$changed"
-          test "$changed" = "$expected" || { echo 'Unexpected mutation scope'; exit 1; }
-          ! git diff | grep -E '^\+.*status: APPROVED' || { echo 'Forbidden approval promotion'; exit 1; }
-      - name: Commit control-only changes
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add production/references/BATCH_REFERENCE_REQUIREMENTS.yaml \
-                  production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml \
-                  production/heygen/HEYGEN_BATCH_BLOCKER_MATRIX.yaml \
-                  production/heygen/HEYGEN_BATCH_BLOCKER_RESOLUTION_PLAN.yaml \
-                  production/heygen/HEYGEN_BATCH_DEPENDENCY_ACTION_QUEUE.yaml
-          git commit -m 'Audit AQ013 AQ015 and remove stale shared bindings'
-          for attempt in 1 2 3 4; do
-            git pull --rebase origin main
-            if git push origin HEAD:main; then exit 0; fi
-            sleep 2
-          done
-          exit 6
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f production/references/characters/anaadhi/age_body/P1-B01-A/.qa_chunks/
+          git commit -m "Temporary QA export for capture-body visual inspection"
+          git push
