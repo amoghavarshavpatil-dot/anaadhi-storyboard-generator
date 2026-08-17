@@ -33,7 +33,13 @@ character_identities:
     identity_scope: BASE_BIOLOGICAL_IDENTITY
     parallel_medical_look_path: "production/heygen/avatars/B01/source_visuals/CHR-AARATHI_B01_PARALLEL-MEDICAL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
     parallel_medical_look_sha256: "366c610176f2597ca2935211e98ddcc26c0a6b8fceb84cff45a3b83d83c71d56"
-  CHR-PARVARAN: {name: Parvaran, status: MISSING_APPROVED_ASSET, path: null}
+  CHR-PARVARAN:
+    name: Parvaran
+    status: APPROVED
+    path: "production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    sha256: "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f"
+    identity_scope: CANONICAL_MASTER_IDENTITY
+    heygen_group_name: "PARVARAN_MASTER_IDENTITY_V1"
   CHR-ANARVAA: {name: Anarvaa, status: MISSING_APPROVED_ASSET, path: null}
   CHR-MANIRE: {name: Manire, status: MISSING_APPROVED_ASSET, path: null}
   CHR-SEMMAA:

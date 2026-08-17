@@ -1,150 +1,49 @@
 {
   "version": 1,
   "project": "ANAADHI",
-  "control": "EXACT-$5_HEYGEN_API_AVATAR-COMPLETION_ALLOCATION",
+  "control": "PARVARAN_RESERVED_USD1_PHOTO_AVATAR_COMPLETION",
   "api_authentication": "x-api-key via GitHub Actions secret HEYGEN_API_KEY",
   "billing_type": "wallet",
   "currency": "usd",
-  "hard_spend_cap_usd": 5.0,
-  "authoritative_start_wallet_usd": 5.0,
-  "github_actions_run_id": "31980260515",
-  "github_trigger_sha": "4a2a16320bb5b03ff3524771cf46a69f20b8f198",
-  "started_at": "2026-08-16T23:50:46Z",
-  "paid_creation_calls": 3,
-  "operations": [
-    {
-      "operation": "CREATE_PHOTO_AVATAR",
-      "character": "CHR-ALLIED-GANGSTER",
-      "source_evidence": {
-        "canonical": true,
-        "github_path": "production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
-        "github_public_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
-        "drive_file_id": "1xjXoCSCtBq3Jag_P8UEiNECUwHjlfqQJ",
-        "expected_sha256": "9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec",
-        "github_checkout_sha256": "9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec",
-        "github_public_url_sha256": "9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec",
-        "google_drive_sha256": "9a37014fe24169ec9e3dac2039f6ed87e7bcc1183a6b2f6944668e385f5bf7ec"
-      },
-      "group_id": "03f2f8314d5648fcad77f16b93bb5f31",
-      "group_name": "ALLIED_GANGSTER_B01_CHATGPT_V1",
-      "look_avatar_id": "217a29f94fae4b7f98b3141f1490e2a9",
-      "avatar_type": "photo_avatar",
-      "authoritative_status": "completed",
-      "looks_count": 1,
-      "usd_charged": 1.0,
-      "wallet_after_operation": 4.0,
-      "observation_time": "2026-08-16T23:51:05Z"
+  "hard_spend_cap_usd": 1.0,
+  "paid_creation_calls": 1,
+  "operation": {
+    "operation": "CREATE_PHOTO_AVATAR",
+    "character": "CHR-PARVARAN",
+    "source_evidence": {
+      "canonical": true,
+      "approval": "EXPLICIT_USER_APPROVAL_CURRENT_WORK_PAGE",
+      "github_path": "production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "github_public_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+      "google_drive_file_id": "1YXNgaqdaunWFa87zrrs_HXD0v_OCHhIN",
+      "expected_sha256": "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f",
+      "dimensions": "2160x3840",
+      "mime_type": "image/jpeg",
+      "github_checkout_sha256": "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f",
+      "github_public_url_sha256": "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f",
+      "google_drive_sha256": "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f"
     },
-    {
-      "operation": "CREATE_PHOTO_AVATAR",
-      "character": "CHR-ANARVAA",
-      "source_evidence": {
-        "canonical": true,
-        "approval": "EXPLICIT_USER_APPROVAL_CURRENT_WORK_PAGE",
-        "github_path": "production/heygen/avatars/master_identities/CHR-ANARVAA/source_visuals/CHR-ANARVAA_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
-        "github_public_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/master_identities/CHR-ANARVAA/source_visuals/CHR-ANARVAA_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
-        "google_drive_file_id": "1OyGq0YYR29QaDQ1IvHk9_TZ2sWn3EbiG",
-        "expected_sha256": "2101f8267e2bcc06f0a0d18bc80e4eaa7d7017b22e42cf4c4823d028fd575559",
-        "dimensions": "2160x3840",
-        "mime_type": "image/jpeg",
-        "github_checkout_sha256": "2101f8267e2bcc06f0a0d18bc80e4eaa7d7017b22e42cf4c4823d028fd575559",
-        "github_public_url_sha256": "2101f8267e2bcc06f0a0d18bc80e4eaa7d7017b22e42cf4c4823d028fd575559",
-        "google_drive_sha256": "2101f8267e2bcc06f0a0d18bc80e4eaa7d7017b22e42cf4c4823d028fd575559"
-      },
-      "group_id": "1642f76d7b7048a0b93ab483229bd0c2",
-      "group_name": "ANARVAA_MASTER_IDENTITY_V1",
-      "look_avatar_id": "d571963a713e44ab95e7d8e044eac370",
-      "avatar_type": "photo_avatar",
-      "authoritative_status": "completed",
-      "looks_count": 1,
-      "usd_charged": 1.0,
-      "wallet_before_operation": 4.0,
-      "wallet_after_operation": 3.0,
-      "observation_time": "2026-08-17T01:17:19Z"
-    },
-    {
-      "operation": "CREATE_PHOTO_AVATAR",
-      "character": "CHR-PARVARAN",
-      "source_evidence": {
-        "canonical": true,
-        "approval": "EXPLICIT_USER_APPROVAL_CURRENT_WORK_PAGE",
-        "github_path": "production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
-        "github_public_url": "https://raw.githubusercontent.com/amoghavarshavpatil-dot/anaadhi-storyboard-generator/main/production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
-        "google_drive_file_id": "1YXNgaqdaunWFa87zrrs_HXD0v_OCHhIN",
-        "expected_sha256": "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f",
-        "dimensions": "2160x3840",
-        "mime_type": "image/jpeg",
-        "github_checkout_sha256": "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f",
-        "github_public_url_sha256": "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f",
-        "google_drive_sha256": "1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f"
-      },
-      "group_id": "141ccc9c26384407ac826c9bddc434f3",
-      "group_name": "PARVARAN_MASTER_IDENTITY_V1",
-      "look_avatar_id": "5e4ac9537a9c4da8a5f8f6fd39b1c4c7",
-      "avatar_type": "photo_avatar",
-      "authoritative_status": "completed",
-      "looks_count": 1,
-      "usd_charged": 1.0,
-      "wallet_before_operation": 3.0,
-      "wallet_after_operation": 2.0,
-      "observation_time": "2026-08-17T04:08:23Z"
-    },
-    {
-      "operation": "SKIPPED_SOURCE_VISUAL_REQUIRED",
-      "character": "CHR-UNNATH",
-      "source_evidence": {
-        "canonical": false,
-        "github_canonical_image_path_matches": [],
-        "google_drive_exact_character_search_results": 0,
-        "work_page_registry_state": "MISSING_APPROVED_SOURCE_ASSET",
-        "required_next_state": "SOURCE_VISUAL_REQUIRED",
-        "source_substitution_permitted": false
-      },
-      "group_id": null,
-      "group_name": "UNNATH_MASTER_IDENTITY_V1",
-      "look_avatar_id": null,
-      "look_avatar_ids": [],
-      "avatar_type": null,
-      "authoritative_status": "SOURCE_VISUAL_REQUIRED",
-      "looks_count": 0,
-      "usd_charged": 0.0,
-      "wallet_after_operation": 4.0,
-      "observation_time": "2026-08-16T23:51:07Z"
-    },
-    {
-      "operation": "SKIPPED_SOURCE_VISUAL_REQUIRED",
-      "character": "CHR-ASANA",
-      "source_evidence": {
-        "canonical": false,
-        "github_canonical_image_path_matches": [],
-        "google_drive_exact_character_search_results": 0,
-        "work_page_registry_state": "MISSING_APPROVED_SOURCE_ASSET",
-        "required_next_state": "SOURCE_VISUAL_REQUIRED",
-        "source_substitution_permitted": false
-      },
-      "group_id": null,
-      "group_name": "ASANA_MASTER_IDENTITY_V1",
-      "look_avatar_id": null,
-      "look_avatar_ids": [],
-      "avatar_type": null,
-      "authoritative_status": "SOURCE_VISUAL_REQUIRED",
-      "looks_count": 0,
-      "usd_charged": 0.0,
-      "wallet_after_operation": 4.0,
-      "observation_time": "2026-08-16T23:51:07Z"
-    }
-  ],
+    "group_id": "141ccc9c26384407ac826c9bddc434f3",
+    "group_name": "PARVARAN_MASTER_IDENTITY_V1",
+    "look_avatar_id": "5e4ac9537a9c4da8a5f8f6fd39b1c4c7",
+    "avatar_type": "photo_avatar",
+    "authoritative_status": "completed",
+    "looks_count": 1,
+    "usd_charged": 1.0,
+    "wallet_before_operation": 3.0,
+    "wallet_after_operation": 2.0,
+    "observation_time": "2026-08-17T04:08:23Z"
+  },
   "prohibitions_observed": {
     "digital_twin": true,
     "extra_looks": true,
     "video_or_lipsync_or_tts": true,
     "photo_avatar_consent_flow": true,
-    "unproven_source_substitution": true
+    "duplicate_identity": true
   },
-  "authoritative_final_wallet_usd": 2.0,
-  "total_usd_charged": 3.0,
-  "unused_authorised_wallet_usd": 2.0,
-  "completed_at": "2026-08-16T23:51:08Z",
+  "github_actions_run_id": "31993383877",
+  "github_trigger_sha": "5d39be96acda7ce6a04b3a6b8ffa6a5538c73e31",
+  "completed_at": "2026-08-17T04:08:23Z",
   "permanent_validator": {
     "command": "python production/heygen/validate_heygen_batch_media.py --json",
     "exit_code": 2,
@@ -167,7 +66,7 @@
         "passed_batches": 0,
         "blocked_batches": 34,
         "global_blockers": 0,
-        "total_blockers": 292
+        "total_blockers": 275
       },
       "passed_batches": [],
       "blocked_batches": [
@@ -213,7 +112,7 @@
             "batch_id": "B01",
             "category": "nested-space",
             "code": "REMAINING_LOCATION_WORK",
-            "message": "Unresolved location/nested-space/state work: raised-cabin interior identity | split-floor continuity | capture/breach later-state"
+            "message": "Unresolved location/nested-space/state work: SUB-001-02 main interior visual reference | LOC-001 ST01 capture/breach visual state"
           },
           {
             "batch_id": "B01",
@@ -341,12 +240,6 @@
           },
           {
             "batch_id": "B03",
-            "category": "prop",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "PRP-PARAANE-WRIST-DEVICE: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B03",
             "category": "environment",
             "code": "REFERENCE_NOT_APPROVED",
             "message": "ENV-PARAANE-EARLY: status='MISSING_APPROVED_ASSET', path=None"
@@ -455,12 +348,6 @@
           },
           {
             "batch_id": "B06",
-            "category": "prop",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "PRP-MEDICINE-CUP: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B06",
             "category": "avatar-slot",
             "code": "AVATAR_MANIFEST_UNASSIGNED",
             "message": "No avatar manifest is assigned for this batch; inherited P0 slots remain unresolved"
@@ -540,12 +427,6 @@
             "category": "character-state",
             "code": "REFERENCE_NOT_APPROVED",
             "message": "CST-ANAADHI-CHILD-INSTITUTIONAL: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B08",
-            "category": "prop",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "PRP-MEDICINE-CUP: status='MISSING_APPROVED_ASSET', path=None"
           },
           {
             "batch_id": "B08",
@@ -651,12 +532,6 @@
           },
           {
             "batch_id": "B11",
-            "category": "location",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "LOC-PARAANE-CHILD-WING: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B11",
             "category": "character-state",
             "code": "REFERENCE_NOT_APPROVED",
             "message": "HR-ANAADHI-12-CLOSE: status='MISSING_APPROVED_ASSET', path=None"
@@ -672,12 +547,6 @@
             "category": "character-state",
             "code": "REFERENCE_NOT_APPROVED",
             "message": "INJ-ANAADHI-12-ESCAPE: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B11",
-            "category": "prop",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "PRP-MEDICINE-CUP: status='MISSING_APPROVED_ASSET', path=None"
           },
           {
             "batch_id": "B11",
@@ -722,12 +591,6 @@
             "category": "character-state",
             "code": "REFERENCE_NOT_APPROVED",
             "message": "INJ-ANAADHI-12-ESCAPE: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B12",
-            "category": "prop",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "PRP-FOUR-ROAD-SHRINE: status='MISSING_APPROVED_ASSET', path=None"
           },
           {
             "batch_id": "B12",
@@ -857,12 +720,6 @@
           },
           {
             "batch_id": "B15",
-            "category": "location",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "LOC-VILLAGE-HAND-PUMP: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B15",
             "category": "character-state",
             "code": "REFERENCE_NOT_APPROVED",
             "message": "AGE-ANAADHI-19: status='MISSING_APPROVED_ASSET', path=None"
@@ -904,12 +761,6 @@
             "category": "nested-space",
             "code": "REMAINING_LOCATION_WORK",
             "message": "Unresolved location/nested-space/state work: LOC-027 stable marked surface | LOC-027 ST01-ST03"
-          },
-          {
-            "batch_id": "B16",
-            "category": "location",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "LOC-VILLAGE-HAND-PUMP: status='MISSING_APPROVED_ASSET', path=None"
           },
           {
             "batch_id": "B16",
@@ -1261,7 +1112,7 @@
             "batch_id": "B24",
             "category": "nested-space",
             "code": "REMAINING_LOCATION_WORK",
-            "message": "Unresolved location/nested-space/state work: Paraane central-command nested room | pharmacy/ADK-7 vault canonical binding | raised-cabin capture state"
+            "message": "Unresolved location/nested-space/state work: Paraane central-command nested room | SUB-003-25 pharmaceutical transfer vault visual reference | raised-cabin capture state"
           },
           {
             "batch_id": "B24",
@@ -1297,12 +1148,6 @@
             "batch_id": "B24",
             "category": "prop",
             "code": "REFERENCE_NOT_APPROVED",
-            "message": "PRP-PARAANE-WRIST-DEVICE: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B24",
-            "category": "prop",
-            "code": "REFERENCE_NOT_APPROVED",
             "message": "PRP-SPLIT-FLOORBOARD: status='MISSING_APPROVED_ASSET', path=None"
           },
           {
@@ -1327,7 +1172,7 @@
             "batch_id": "B24",
             "category": "avatar-slot",
             "code": "AVATAR_LOOKS_UNRESOLVED",
-            "message": "Avatar asset(s) not COMPLETE with look IDs: B24-AV-01, B24-AV-02, B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12"
+            "message": "Avatar asset(s) not COMPLETE with look IDs: B24-AV-03, B24-AV-05, B24-AV-06, B24-AV-07, B24-AV-08, B24-AV-09, B24-AV-10, B24-AV-11, B24-AV-12"
           },
           {
             "batch_id": "B24",
@@ -1371,7 +1216,7 @@
             "batch_id": "B25",
             "category": "avatar-slot",
             "code": "AVATAR_LOOKS_UNRESOLVED",
-            "message": "Avatar asset(s) not COMPLETE with look IDs: B25-AV-03, B25-AV-04, B25-AV-05, B25-AV-06, B25-AV-07, B25-AV-08"
+            "message": "Avatar asset(s) not COMPLETE with look IDs: B25-AV-03, B25-AV-04, B25-AV-05, B25-AV-06, B25-AV-07"
           },
           {
             "batch_id": "B25",
@@ -1397,7 +1242,7 @@
             "batch_id": "B26",
             "category": "location",
             "code": "PENDING_NAMED_LOCATION",
-            "message": "Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION"
+            "message": "Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE"
           },
           {
             "batch_id": "B26",
@@ -1425,12 +1270,6 @@
           },
           {
             "batch_id": "B26",
-            "category": "location",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "LOC-PARAANE-HIGH-OBSERVATION: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B26",
             "category": "prop",
             "code": "REFERENCE_NOT_APPROVED",
             "message": "PRP-MEDICINE-CUP: status='MISSING_APPROVED_ASSET', path=None"
@@ -1451,7 +1290,7 @@
             "batch_id": "B26",
             "category": "avatar-slot",
             "code": "AVATAR_LOOKS_UNRESOLVED",
-            "message": "Avatar asset(s) not COMPLETE with look IDs: B26-AV-03, B26-AV-04, B26-AV-05, B26-AV-06, B26-AV-07, B26-AV-08, B26-AV-09, B26-AV-10"
+            "message": "Avatar asset(s) not COMPLETE with look IDs: B26-AV-03, B26-AV-04, B26-AV-05, B26-AV-06, B26-AV-08, B26-AV-09, B26-AV-10"
           },
           {
             "batch_id": "B26",
@@ -1629,39 +1468,9 @@
           },
           {
             "batch_id": "B29",
-            "category": "character-state",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "AGE-ANAADHI-27-RECOVERY: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B29",
-            "category": "character-state",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "CST-ANAADHI-27-RECOVERY: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B29",
-            "category": "character-state",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "INJ-ANAADHI-27-SURGERY: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B29",
-            "category": "prop",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "PRP-ADK7-CARTRIDGE: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B29",
             "category": "prop",
             "code": "REFERENCE_NOT_APPROVED",
             "message": "PRP-PARAANE-EMBLEM: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B29",
-            "category": "prop",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "PRP-PARAANE-WRIST-DEVICE: status='MISSING_APPROVED_ASSET', path=None"
           },
           {
             "batch_id": "B29",
@@ -1682,12 +1491,6 @@
             "category": "nested-space",
             "code": "REMAINING_LOCATION_WORK",
             "message": "Unresolved location/nested-space/state work: LOC-068/069/070/071/080 visual masters | LOC-070 Executive/News floors | LOC-011 interior continuity | Sarjanya HOLD root unresolved | required late/XFORM states"
-          },
-          {
-            "batch_id": "B30",
-            "category": "location",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "LOC-ADRAKA-SYSTEMS-LAB: status='MISSING_APPROVED_ASSET', path=None"
           },
           {
             "batch_id": "B30",
@@ -1736,12 +1539,6 @@
             "category": "character-state",
             "code": "REFERENCE_NOT_APPROVED",
             "message": "AGE-ANAADHI-27-RECOVERY: status='MISSING_APPROVED_ASSET', path=None"
-          },
-          {
-            "batch_id": "B30",
-            "category": "prop",
-            "code": "REFERENCE_NOT_APPROVED",
-            "message": "PRP-ADK7-CARTRIDGE: status='MISSING_APPROVED_ASSET', path=None"
           },
           {
             "batch_id": "B30",
@@ -2031,27 +1828,6 @@
       }
     },
     "stderr": "",
-    "observation_time": "2026-08-16T23:51:08Z"
-  },
-  "last_resumed_at": "2026-08-17T04:08:23Z",
-  "resume_events": [
-    {
-      "character": "CHR-ANARVAA",
-      "operation": "CREATE_PHOTO_AVATAR",
-      "group_id": "1642f76d7b7048a0b93ab483229bd0c2",
-      "look_avatar_id": "d571963a713e44ab95e7d8e044eac370",
-      "usd_charged": 1.0,
-      "wallet_after_operation": 3.0,
-      "observation_time": "2026-08-17T01:17:19Z"
-    },
-    {
-      "character": "CHR-PARVARAN",
-      "operation": "CREATE_PHOTO_AVATAR",
-      "group_id": "141ccc9c26384407ac826c9bddc434f3",
-      "look_avatar_id": "5e4ac9537a9c4da8a5f8f6fd39b1c4c7",
-      "usd_charged": 1.0,
-      "wallet_after_operation": 2.0,
-      "observation_time": "2026-08-17T04:08:23Z"
-    }
-  ]
+    "observation_time": "2026-08-17T04:08:23Z"
+  }
 }

@@ -50,12 +50,22 @@ assets:
   B24-AV-02:
     character_slot: Parvaran
     character_ref: CHR-PARVARAN
-    binding_mode: P0_SLOT_REUSE_PRECHECK
-    approved_status: null
+    binding_mode: CANONICAL_MASTER_IDENTITY_REUSE
+    approved_status: APPROVED
     consent_status_observed: null
-    reuse_source_asset: null
-    heygen_status: UNRESOLVED_NO_B01_REUSE_BINDING_VERIFIED
+    reuse_source_asset: PARVARAN_MASTER_IDENTITY_V1
+    heygen_status: COMPLETE
     resolution_note: No B01 reuse binding is evidenced for this P0 character slot. Keep unresolved; do not generate here.
+    reuse_source_manifest: production/heygen/avatars/master_identities/CHR-PARVARAN/CHR-PARVARAN_MASTER_IDENTITY_MANIFEST.yaml
+    source_visual_path: production/heygen/avatars/master_identities/CHR-PARVARAN/source_visuals/CHR-PARVARAN_MASTER_IDENTITY_V1_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    source_sha256: 1ce8062b21c4c1f0468c8cd4cc2307f42a04d983a1b2a36a25c6d9de3dfd1e1f
+    drive_status: UPLOADED
+    drive_file_id: 1YXNgaqdaunWFa87zrrs_HXD0v_OCHhIN
+    heygen_group_id: 141ccc9c26384407ac826c9bddc434f3
+    heygen_look_id: 5e4ac9537a9c4da8a5f8f6fd39b1c4c7
+    heygen_avatar_type: photo_avatar
+    heygen_training_status: completed
+    reuse_evidence: Approved canonical PARVARAN_MASTER_IDENTITY_V1; one stable group and one Photo Avatar look.
   B24-AV-03:
     character_slot: Unnath
     character_ref: CHR-UNNATH
@@ -200,7 +210,7 @@ assets:
 reuse_summary:
   p0_slot_count: 13
   b01_reuse_bound_count: 6
-  unresolved_slot_count: 6
+  unresolved_slot_count: 5
   bound:
   - slot: Aarathi
     asset: B24-AV-04
@@ -223,9 +233,10 @@ reuse_summary:
   - slot: Anarvaa
     asset: B24-AV-01
     source: ANARVAA_MASTER_IDENTITY_V1
-  unresolved:
   - slot: Parvaran
     asset: B24-AV-02
+    source: PARVARAN_MASTER_IDENTITY_V1
+  unresolved:
   - slot: Unnath
     asset: B24-AV-03
   - slot: Asana
@@ -236,4 +247,4 @@ reuse_summary:
     asset: B24-AV-09
   - slot: Inventory Assistant
     asset: B24-AV-10
-  canonical_master_bound_count: 1
+  canonical_master_bound_count: 8

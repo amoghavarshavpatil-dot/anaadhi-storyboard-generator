@@ -2,7 +2,7 @@ version: 1
 phase: P1_CHARACTER_AVATAR_CONTROL
 identity_ref: CHR-PARVARAN
 canonical_name: PARVARAN_MASTER_IDENTITY_V1
-identity_status: APPROVED_SOURCE_ARCHIVED__HEYGEN_NOT_SUBMITTED
+identity_status: HEYGEN_PHOTO_AVATAR_COMPLETE
 source_approval:
   status: APPROVED
   authority: USER_ON_CURRENT_CHATGPT_WORK_PAGE
@@ -32,15 +32,18 @@ source_visual:
   colorspace: sRGB
   heygen_acceptance_qc: PASSED
 heygen:
-  submission_status: NOT_SUBMITTED
+  submission_status: COMPLETE
   api_billing_path: X_API_KEY_VIA_GITHUB_SECRET_HEYGEN_API_KEY
   canonical_group_name: PARVARAN_MASTER_IDENTITY_V1
-  group_id: null
-  look_avatar_id: null
-  avatar_type: null
-  authoritative_status: null
-  looks_count: 0
+  group_id: 141ccc9c26384407ac826c9bddc434f3
+  look_avatar_id: 5e4ac9537a9c4da8a5f8f6fd39b1c4c7
+  avatar_type: photo_avatar
+  authoritative_status: completed
+  looks_count: 1
   consent_flow_created: false
+  operation: CREATE_PHOTO_AVATAR
+  consent_status_observed: null
+  observed_at: '2026-08-17T04:08:23Z'
 spend_control:
   maximum_paid_creation_calls: 1
   maximum_usd: 1.0
@@ -48,3 +51,7 @@ spend_control:
   digital_twin: FORBIDDEN
   extra_looks: FORBIDDEN
   duplicate_identity: FORBIDDEN
+  paid_creation_calls_made: 1
+  usd_charged: 1.0
+  api_wallet_before_usd: 3.0
+  api_wallet_after_usd: 2.0
