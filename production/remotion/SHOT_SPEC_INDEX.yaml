@@ -1,7 +1,8 @@
-version: 1
+version: 2
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
+
 coverage:
   SC001:
     state: LEGACY_SCENE_PLAN_PRESENT
@@ -19,15 +20,51 @@ coverage:
     image_generation_started: false
   SC003-SC100:
     state: NOT_YET_MATERIALIZED
+    note: >-
+      Source scene numbers remain screenplay authority, but final render order follows
+      EDITORIAL_SEQUENCE_LOCK.yaml and split packages are required for SC074, SC094 and SC099.
+
+editorial:
+  locked: true
+  manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
+  source_numeric_order_is_not_final_render_order: true
+  split_packages_required:
+    - SC074A
+    - SC074B
+    - SC094A
+    - SC094B
+    - SC099A
+    - SC099B
+  materialization_blocks_after_SC005:
+    - SC099B
+    - SC100
+    - SC094B
+    - SC095
+    - SC060-SC073
+    - SC074A
+    - SC006-SC059
+    - SC074B
+    - SC075-SC093
+    - SC094A
+    - SC096-SC098
+    - SC099A
+    - END
+
 cursor:
   last_materialized_scene: SC002
   next_scene: SC003
+  before_first_editorial_jump:
+    - SC003
+    - SC004
+    - SC005
+  after_SC005: SC099B
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
+
 backend:
   github: CANONICAL
   chat_storyboard_generation: ENABLED_AFTER_SPEC_READY
-  remotion: ASSEMBLY_CODE_READY
+  remotion: EDITORIAL_LOCKED_ASSEMBLY_CODE_READY
   heygen: HISTORICAL_ONLY_DISABLED_FOR_EXECUTION
   openai_work_page: DISABLED
   paid_media_apis: DISABLED

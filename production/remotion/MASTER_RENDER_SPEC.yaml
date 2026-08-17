@@ -1,6 +1,7 @@
-version: 1
+version: 2
 project: ANAADHI
 control: REMOTION_MASTER_RENDER_SPEC
+
 master:
   width: 3840
   height: 1600
@@ -9,12 +10,15 @@ master:
   pixel_aspect_ratio: "1:1"
   baked_letterbox: false
   composition_id: ANAADHI_STORYBOARD_AUDIOBOOK_4K_SCOPE
-  reels:
-    - {id: REEL_01, scenes: "SC001-SC020"}
-    - {id: REEL_02, scenes: "SC021-SC040"}
-    - {id: REEL_03, scenes: "SC041-SC060"}
-    - {id: REEL_04, scenes: "SC061-SC080"}
-    - {id: REEL_05, scenes: "SC081-SC100"}
+  final_timeline_mode: EDITORIAL_LOCKED
+  editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
+  final_reel_boundaries: DEFER_UNTIL_DURATIONS_LOCKED
+  source_review_compositions:
+    - {id: ANAADHI_SOURCE_REVIEW_01, scenes: "SC001-SC020"}
+    - {id: ANAADHI_SOURCE_REVIEW_02, scenes: "SC021-SC040"}
+    - {id: ANAADHI_SOURCE_REVIEW_03, scenes: "SC041-SC060"}
+    - {id: ANAADHI_SOURCE_REVIEW_04, scenes: "SC061-SC080"}
+    - {id: ANAADHI_SOURCE_REVIEW_05, scenes: "SC081-SC100"}
 
 picture:
   still_fit_default: cover
@@ -24,6 +28,8 @@ picture:
   preserve_scope_composition: true
   no_auto_reframe: true
   no_unapproved_crop: true
+  source_scene_numbers_preserved: true
+  final_render_order_from_editorial_manifest: true
 
 audio:
   sample_rate_hz: 48000
@@ -33,12 +39,15 @@ audio:
   mastered_prefix_end_seconds: 134.293333
   preserve_creator_voice: true
   generated_dialogue_allowed: false
+  audio_follows_editorial_segment_order: true
 
 revision:
   data_driven_scene_sequences: true
   data_driven_shot_sequences: true
+  data_driven_editorial_segments: true
   shot_asset_replaceable_by_id: true
   scene_reorder_supported: true
+  split_scene_segment_reorder_supported: true
   duration_edit_supported: true
   screen_direction_edit_supported: true
   camera_orientation_edit_supported: true
@@ -46,6 +55,6 @@ revision:
 
 render_policy:
   render_only_on_explicit_user_request: true
-  scene_preview_before_reel: true
-  reel_preview_before_feature: true
-  final_render_requires_all_scene_manifests_resolved: true
+  source_review_before_final_feature: true
+  final_render_requires_all_editorial_segments_resolved: true
+  final_render_requires_no_unmaterialized_split_segment: true

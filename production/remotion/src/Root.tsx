@@ -1,13 +1,17 @@
 import React from 'react';
 import {Composition} from 'remotion';
-import {AnaadhiStoryboardAudiobook, getDurationFramesForRange} from './AnaadhiStoryboardAudiobook';
+import {
+  AnaadhiStoryboardAudiobook,
+  getDurationFramesForEditorialOrder,
+  getDurationFramesForRange,
+} from './AnaadhiStoryboardAudiobook';
 
-const FullFeature = () => <AnaadhiStoryboardAudiobook startScene={1} endScene={100} />;
-const Reel01 = () => <AnaadhiStoryboardAudiobook startScene={1} endScene={20} />;
-const Reel02 = () => <AnaadhiStoryboardAudiobook startScene={21} endScene={40} />;
-const Reel03 = () => <AnaadhiStoryboardAudiobook startScene={41} endScene={60} />;
-const Reel04 = () => <AnaadhiStoryboardAudiobook startScene={61} endScene={80} />;
-const Reel05 = () => <AnaadhiStoryboardAudiobook startScene={81} endScene={100} />;
+const FullFeature = () => <AnaadhiStoryboardAudiobook timelineMode="EDITORIAL_LOCKED" />;
+const SourceReview01 = () => <AnaadhiStoryboardAudiobook timelineMode="SOURCE_RANGE" startScene={1} endScene={20} />;
+const SourceReview02 = () => <AnaadhiStoryboardAudiobook timelineMode="SOURCE_RANGE" startScene={21} endScene={40} />;
+const SourceReview03 = () => <AnaadhiStoryboardAudiobook timelineMode="SOURCE_RANGE" startScene={41} endScene={60} />;
+const SourceReview04 = () => <AnaadhiStoryboardAudiobook timelineMode="SOURCE_RANGE" startScene={61} endScene={80} />;
+const SourceReview05 = () => <AnaadhiStoryboardAudiobook timelineMode="SOURCE_RANGE" startScene={81} endScene={100} />;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -18,12 +22,12 @@ export const RemotionRoot: React.FC = () => {
         width={3840}
         height={1600}
         fps={30}
-        durationInFrames={getDurationFramesForRange(1, 100, 30)}
+        durationInFrames={getDurationFramesForEditorialOrder(30)}
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_REEL_01"
-        component={Reel01}
+        id="ANAADHI_SOURCE_REVIEW_01"
+        component={SourceReview01}
         width={3840}
         height={1600}
         fps={30}
@@ -31,8 +35,8 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_REEL_02"
-        component={Reel02}
+        id="ANAADHI_SOURCE_REVIEW_02"
+        component={SourceReview02}
         width={3840}
         height={1600}
         fps={30}
@@ -40,8 +44,8 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_REEL_03"
-        component={Reel03}
+        id="ANAADHI_SOURCE_REVIEW_03"
+        component={SourceReview03}
         width={3840}
         height={1600}
         fps={30}
@@ -49,8 +53,8 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_REEL_04"
-        component={Reel04}
+        id="ANAADHI_SOURCE_REVIEW_04"
+        component={SourceReview04}
         width={3840}
         height={1600}
         fps={30}
@@ -58,8 +62,8 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_REEL_05"
-        component={Reel05}
+        id="ANAADHI_SOURCE_REVIEW_05"
+        component={SourceReview05}
         width={3840}
         height={1600}
         fps={30}

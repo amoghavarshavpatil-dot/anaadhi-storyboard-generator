@@ -1,7 +1,8 @@
-version: 2
+version: 3
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: "2026-08-17T11:50:00+05:30"
+as_of_local: "2026-08-17T12:14:00+05:30"
+
 backend:
   github_canonical_control: true
   chat_storyboard_generation: true
@@ -17,14 +18,20 @@ visual_preproduction:
   last_locked_environment_stage: ENV-6C
   storyboard_frame_generation_started: false
   next_phase: SHOT_SPEC_MATERIALIZATION
-  scope_to_materialize: SC001-SC100
+  source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
   latest_new_schema_scene_materialized: SC002
   next_scene_to_materialize: SC003
+  before_first_editorial_jump:
+    - SC003
+    - SC004
+    - SC005
+  after_SC005: SC099B
+  editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   note: >-
-    Scene 001 already had a shot plan before the backend migration, so the new materialization phase
-    continued at Scene 002 rather than recreating Scene 001. Scene 001 will be schema-migrated later
-    without changing its approved/legacy visual intent unless the user explicitly redrafts it.
+    Continue SC003-SC005 next. Immediately after SC005 is complete, materialization and final
+    assembly follow the user-locked non-linear editorial sequence. Source screenplay numbering
+    remains unchanged and is used only as authority/reference.
 
 audio:
   mastered_prefix_locked: true
@@ -32,6 +39,7 @@ audio:
   mastered_prefix_end_seconds: 134.293333
   resume_mix_after_seconds: 134.293333
   reopen_locked_prefix_only_on_explicit_user_redraft: true
+  editorial_audio_order_follows_picture_manifest: true
 
 picture_master:
   width: 3840
@@ -47,12 +55,25 @@ shot_density:
     shot_count: 18
     stills_per_minute: 20
 
+editorial_lock:
+  enabled: true
+  split_scene_ids:
+    - SC074
+    - SC094
+    - SC099
+  final_end_after: SC099A
+  source_scene_order_is_not_render_order: true
+  remotion_final_feature_uses_locked_sequence: true
+  final_reel_boundaries_deferred_until_duration_lock: true
+
 revision_policy:
   scene_local: true
   shot_local: true
+  editorial_segment_local: true
   allow_screen_direction_change: true
   allow_camera_axis_change: true
   allow_shot_reorder: true
   allow_duration_change: true
   allow_audio_cue_change: true
+  allow_editorial_segment_reorder_only_on_explicit_user_redraft: true
   unrelated_scene_regeneration_required: false

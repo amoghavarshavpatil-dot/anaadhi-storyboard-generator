@@ -1,0 +1,111 @@
+version: 1
+project: ANAADHI
+control: REMOTION_EDITORIAL_SEQUENCE_LOCK
+status: LOCKED_BY_USER
+locked_at_local: "2026-08-17T12:14:00+05:30"
+source_authority:
+  screenplay: "ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx"
+  source_scene_numbers_preserved: true
+  source_screenplay_rewritten: false
+  editorial_order_is_non_destructive: true
+
+rules:
+  source_scene_number_is_not_final_render_order: true
+  split_scene_ids:
+    - SC074
+    - SC094
+    - SC099
+  all_other_source_scenes_are_full_scene_segments: true
+  cut_only_at_locked_boundaries: true
+  no_duplicate_dialogue_across_split_segments: true
+  no_omitted_source_scene_except_by_explicit_future_redraft: true
+  final_end_after_SC099A: true
+
+segments:
+  SC074A:
+    source_scene: SC074
+    start: SCENE_START
+    end_anchor: "No triumph—only immediate terror."
+    end_inclusive: true
+  SC074B:
+    source_scene: SC074
+    start_speaker: AARATHI
+    start_dialogue: "Manire!"
+    start_inclusive: true
+    end: SCENE_END
+  SC094A:
+    source_scene: SC094
+    start: SCENE_START
+    end_speaker: UNNATH
+    end_dialogue: "That is the problem."
+    end_inclusive: true
+  SC094B:
+    source_scene: SC094
+    start_anchor: "Manimantharaa’s members raise weapons and police respond."
+    start_inclusive: true
+    end: SCENE_END
+  SC099A:
+    source_scene: SC099
+    start: SCENE_START
+    end_speaker: "ANAADHI (V.O.)"
+    end_dialogue: "The relationship still needs a road."
+    end_inclusive: true
+  SC099B:
+    source_scene: SC099
+    start_anchor: "In the independent secure medical unit, Anaadhi sits at a desk with no covered mirrors or carved marks."
+    start_inclusive: true
+    end_anchor: "His pen reaches: MALLAYYA. CUT TO:"
+    end_inclusive: true
+
+final_editorial_order:
+  - {order: 1, content: "SC001-SC005", kind: FULL_SCENE_RANGE}
+  - {order: 2, content: SC099B, kind: SPLIT_SCENE_SEGMENT}
+  - {order: 3, content: SC100, kind: FULL_SCENE}
+  - {order: 4, content: SC094B, kind: SPLIT_SCENE_SEGMENT}
+  - {order: 5, content: SC095, kind: FULL_SCENE}
+  - {order: 6, content: "SC060-SC073", kind: FULL_SCENE_RANGE}
+  - {order: 7, content: SC074A, kind: SPLIT_SCENE_SEGMENT}
+  - {order: 8, content: "SC006-SC059", kind: FULL_SCENE_RANGE}
+  - {order: 9, content: SC074B, kind: SPLIT_SCENE_SEGMENT}
+  - {order: 10, content: "SC075-SC093", kind: FULL_SCENE_RANGE}
+  - {order: 11, content: SC094A, kind: SPLIT_SCENE_SEGMENT}
+  - {order: 12, content: "SC096-SC098", kind: FULL_SCENE_RANGE}
+  - {order: 13, content: SC099A, kind: SPLIT_SCENE_SEGMENT}
+  - {order: 14, content: END, kind: TERMINAL}
+
+continuity_transitions:
+  after_SC005: SC099B
+  after_SC099B: SC100
+  after_SC100: SC094B
+  after_SC094B: SC095
+  after_SC095: SC060
+  after_SC073: SC074A
+  after_SC074A: SC006
+  after_SC059: SC074B
+  after_SC074B: SC075
+  after_SC093: SC094A
+  after_SC094A: SC096
+  after_SC098: SC099A
+  after_SC099A: END
+
+materialization:
+  current_next: SC003
+  continue_before_first_jump:
+    - SC003
+    - SC004
+    - SC005
+  then_follow_final_editorial_order: true
+  scene_segments_must_have_independent_shot_packages: true
+  split_package_ids:
+    - SC074A
+    - SC074B
+    - SC094A
+    - SC094B
+    - SC099A
+    - SC099B
+
+remotion:
+  final_feature_must_use_editorial_sequence: true
+  source_numeric_order_allowed_only_for_review_compositions: true
+  final_reel_boundaries: DEFER_UNTIL_DURATIONS_LOCKED
+  revision_space_required: true

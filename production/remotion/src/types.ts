@@ -32,6 +32,8 @@ export type AudioStem = {
 
 export type SceneSpec = {
   sceneId: string;
+  sourceSceneId?: string;
+  editorialSegmentId?: string;
   revisionId: string;
   status: 'SPEC_DRAFT' | 'SPEC_READY' | 'GENERATED' | 'REVIEW' | 'LOCKED_PICTURE' | 'FINAL';
   shots: ShotSpec[];

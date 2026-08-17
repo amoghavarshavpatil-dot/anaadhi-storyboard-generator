@@ -11,6 +11,7 @@ import {
   useVideoConfig,
 } from 'remotion';
 import {Audio} from '@remotion/media';
+import {editorialSequenceKeys} from './data/editorialSequence';
 import {masterTimeline} from './data/masterTimeline';
 import type {MotionMode, SceneSpec, ShotSpec} from './types';
 
@@ -123,32 +124,51 @@ const Scene: React.FC<{scene: SceneSpec}> = ({scene}) => {
   );
 };
 
-const sceneNumber = (sceneId: string) => Number(sceneId.replace('SC', ''));
+const sourceSceneNumber = (scene: SceneSpec) =>
+  Number((scene.sourceSceneId ?? scene.sceneId).replace('SC', ''));
+
+const editorialKey = (scene: SceneSpec) => scene.editorialSegmentId ?? scene.sceneId;
 
 export const getScenesInRange = (startScene = 1, endScene = 100) =>
   masterTimeline.scenes.filter((scene) => {
-    const n = sceneNumber(scene.sceneId);
+    const n = sourceSceneNumber(scene);
     return n >= startScene && n <= endScene;
   });
 
-export const getDurationFramesForRange = (startScene = 1, endScene = 100, fps = 30) =>
-  Math.max(
-    1,
-    Math.round(
-      getScenesInRange(startScene, endScene).reduce(
-        (sceneTotal, scene) =>
-          sceneTotal + scene.shots.reduce((shotTotal, shot) => shotTotal + shot.durationSeconds, 0),
-        0,
-      ) * fps,
-    ),
+export const getScenesInEditorialOrder = () => {
+  const byKey = new Map(masterTimeline.scenes.map((scene) => [editorialKey(scene), scene]));
+  return editorialSequenceKeys
+    .map((key) => byKey.get(key))
+    .filter((scene): scene is SceneSpec => Boolean(scene));
+};
+
+const durationSecondsForScenes = (scenes: SceneSpec[]) =>
+  scenes.reduce(
+    (sceneTotal, scene) =>
+      sceneTotal + scene.shots.reduce((shotTotal, shot) => shotTotal + shot.durationSeconds, 0),
+    0,
   );
 
-export const AnaadhiStoryboardAudiobook: React.FC<{startScene?: number; endScene?: number}> = ({
+export const getDurationFramesForRange = (startScene = 1, endScene = 100, fps = 30) =>
+  Math.max(1, Math.round(durationSecondsForScenes(getScenesInRange(startScene, endScene)) * fps));
+
+export const getDurationFramesForEditorialOrder = (fps = 30) =>
+  Math.max(1, Math.round(durationSecondsForScenes(getScenesInEditorialOrder()) * fps));
+
+export const AnaadhiStoryboardAudiobook: React.FC<{
+  timelineMode?: 'EDITORIAL_LOCKED' | 'SOURCE_RANGE';
+  startScene?: number;
+  endScene?: number;
+}> = ({
+  timelineMode = 'EDITORIAL_LOCKED',
   startScene = 1,
   endScene = 100,
 }) => {
   const {fps} = useVideoConfig();
-  const scenes = getScenesInRange(startScene, endScene);
+  const scenes =
+    timelineMode === 'EDITORIAL_LOCKED'
+      ? getScenesInEditorialOrder()
+      : getScenesInRange(startScene, endScene);
   let sceneStart = 0;
 
   return (
@@ -160,8 +180,9 @@ export const AnaadhiStoryboardAudiobook: React.FC<{startScene?: number; endScene
         );
         const start = sceneStart;
         sceneStart += durationInFrames;
+        const sequenceName = scene.editorialSegmentId ?? scene.sceneId;
         return (
-          <Sequence key={`${scene.sceneId}-${scene.revisionId}`} name={scene.sceneId} from={start} durationInFrames={durationInFrames}>
+          <Sequence key={`${sequenceName}-${scene.revisionId}`} name={sequenceName} from={start} durationInFrames={durationInFrames}>
             <Scene scene={scene} />
           </Sequence>
         );
