@@ -14,6 +14,7 @@ on:
       - production/references/REFERENCE_REGISTRY.yaml
       - production/references/P1_AQ010_012_SHARED_ASSET_REUSE_AUDIT.yaml
       - production/references/P1_AQ013_015_SHARED_ASSET_REUSE_AUDIT.yaml
+      - production/references/P1_AQ016_018_SHARED_ASSET_REUSE_AUDIT.yaml
       - production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
       - production/batches/ANAADHI_BATCH_FOUNDATION.py
       - production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
