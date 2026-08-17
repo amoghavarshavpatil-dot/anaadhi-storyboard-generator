@@ -1,4 +1,4 @@
-version: 6
+version: 7
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -60,12 +60,27 @@ coverage:
     location: "LOC-085 / WC094 / ENV-IJM-002 semantic writing-room authority; no proven SUB-085 visual ID"
     image_generation_started: false
     final_editorial_next: SC100
-  SC006-SC100:
+  SC100:
+    state: SPEC_READY
+    source_scene_id: SC100
+    source: scenes/100/scene.yaml
+    shot_package: production/remotion/shot_specs/SC100/SC100_SHOT_PACKAGE.json
+    shot_count: 36
+    duration_seconds: 108
+    stills_per_minute: 20
+    env6_disposition: "NO SB / EP0 physical chronology only"
+    location: "LOC-087 / SUB-087-01 / ENV-IJM-001 + ENV-IJM-003 + ENV-IJM-004 / WC095"
+    anaadhi_state: "AGE-ANAADHI-27-FINAL + HR-ANAADHI-27-FINAL + CST-ANAADHI-27-FINAL + INJ-ANAADHI-27-FINAL; final garment controlled-unresolved"
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC094B
+  SC006-SC099:
     state: NOT_YET_MATERIALIZED_EXCEPT_LISTED_SEGMENTS
     exceptions: [SC099B]
     note: >-
       Source scene numbers remain screenplay authority, but final render order follows
-      EDITORIAL_SEQUENCE_LOCK.yaml. SC099B is independently materialized; SC099A remains pending.
+      EDITORIAL_SEQUENCE_LOCK.yaml. SC099B and SC100 are independently materialized;
+      SC099A remains pending at the terminal editorial position.
 
 editorial:
   locked: true
@@ -82,7 +97,6 @@ editorial:
   split_packages_materialized:
     - SC099B
   remaining_materialization_order:
-    - SC100
     - SC094B
     - SC095
     - SC060-SC073
@@ -96,11 +110,11 @@ editorial:
     - END
 
 cursor:
-  last_materialized_source_scene: SC099
-  last_materialized_editorial_segment: SC099B
-  next_scene: SC100
-  next_editorial_segment: SC100
-  after_SC099B: SC100
+  last_materialized_source_scene: SC100
+  last_materialized_editorial_segment: SC100
+  next_scene: SC094B
+  next_editorial_segment: SC094B
+  after_SC100: SC094B
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 
