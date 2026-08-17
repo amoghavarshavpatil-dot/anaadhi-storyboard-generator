@@ -20,6 +20,7 @@ on:
       - production/references/P1_AQ025_027_SHARED_ASSET_REUSE_AUDIT.yaml
       - production/references/P1_AQ028_030_SHARED_ASSET_REUSE_AUDIT.yaml
       - production/references/P1_AQ031_033_SHARED_ASSET_REUSE_AUDIT.yaml
+      - production/references/P1_AQ034_035_037_DEPENDENCY_REUSE_AUDIT.yaml
       - production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
       - production/batches/ANAADHI_BATCH_FOUNDATION.py
       - production/locations/ENV6L_LOC062_087_CANONICAL_MAPPING.yaml
