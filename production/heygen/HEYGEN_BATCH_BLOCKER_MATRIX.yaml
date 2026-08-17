@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: 6b115a9c468c2bd84bc2accfc830c2b8c452a0b7
+validated_repository_head: 853fcbc3207f0f8abad51774fb0b39f4d1a4d4c1
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -24,7 +24,7 @@ report:
     passed_batches: 0
     blocked_batches: 34
     global_blockers: 0
-    total_blockers: 282
+    total_blockers: 280
   passed_batches: []
   blocked_batches:
   - B01
@@ -976,14 +976,6 @@ report:
       category: location
       code: REFERENCE_NOT_APPROVED
       message: 'LOC-068: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B29
-      category: character-state
-      code: REFERENCE_NOT_APPROVED
-      message: 'CST-ANAADHI-27-RECOVERY: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B29
-      category: character-state
-      code: REFERENCE_NOT_APPROVED
-      message: 'INJ-ANAADHI-27-SURGERY: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B29
       category: prop
       code: REFERENCE_NOT_APPROVED

@@ -156,7 +156,7 @@ batches:
     props: []
   B29:
     scenes: [83,84,85,86]
-    anaadhi: [CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    anaadhi: []
     locations: [LOC-003, LOC-067, LOC-068]
     props: [PRP-PARAANE-EMBLEM]
   B30:

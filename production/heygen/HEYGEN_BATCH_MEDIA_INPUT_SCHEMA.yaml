@@ -321,7 +321,7 @@ batches:
     pending_named_location_refs: [LOC-067, LOC-068]
     p1_location_status: PARTIAL__LATE_ROOT_METADATA_BOUND__VISUAL_AND_NESTED_GAPS_REMAIN
     required_location_refs: [LOC-003, LOC-067, LOC-068]
-    required_anaadhi_refs: [CST-ANAADHI-27-RECOVERY, INJ-ANAADHI-27-SURGERY]
+    required_anaadhi_refs: []
     required_prop_refs: [PRP-PARAANE-EMBLEM]
   B30:
     scenes: [87,88,89,90,91,92]
