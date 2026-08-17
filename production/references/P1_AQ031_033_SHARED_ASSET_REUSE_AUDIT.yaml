@@ -145,9 +145,15 @@ expected_refresh:
   previous_total_blockers: 278
   expected_removed_raw_blockers: 3
   expected_total_blockers: 275
+  blocker_delta_note: >-
+    B26 high-observation is removed consistently from requirements, HeyGen schema and the P1 binding ledger.
+    Its PENDING_NAMED_LOCATION blocker remains but narrows to the three valid B26 named location families,
+    and the same logical packet remains HEYGEN-AQ-120 with no HEYGEN-AQ-201 allocation.
   expected_aq031_batches: [B11]
   expected_aq032_batches: [B13, B14]
   expected_aq033_active: false
+  expected_b26_spatial_packet_id: HEYGEN-AQ-120
+  expected_new_packet_ids: []
   preserve_aq001_aq002_open: true
   preserve_aq003_resolved_evidenced: true
 

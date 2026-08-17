@@ -193,7 +193,7 @@ location_bindings:
     scenes: [69,70,71,72,73,74]
     approved_root: "PARTIAL"
     env6l_roots: [LOC-003]
-    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]
+    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE]
     remaining_location_work: ["mature Paraane states", "archive", "old observation corridor", "required nested rooms"]
   B27:
     scenes: [75,76,77,78,79,80]

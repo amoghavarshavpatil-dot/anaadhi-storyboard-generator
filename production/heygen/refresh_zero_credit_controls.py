@@ -34,6 +34,9 @@ PLAN_BUILDER = ROOT / "production/heygen/build_heygen_blocker_resolution_plan.py
 OLD_V1_QUEUE_BLOB = "6ece360ace926b94d022b6eaa66ac4591db89b6d"
 P0_AQ003_PREVIOUS_DEP = "AVATAR_LOOK_SET::B01-AV-03,B01-AV-04,B01-AV-05,B01-AV-06,B01-AV-07,B01-AV-08,B01-AV-09"
 P0_AQ003_CURRENT_DEP = "AVATAR_LOOK_SET::B01-AV-08"
+LOGICAL_DEPENDENCY_PREFIX_LOCKS = {
+    "SPATIAL::B26::PENDING_NAMED_LOCATION::": "HEYGEN-AQ-120",
+}
 P0_OPEN_IDS = {
     "CONSENT::ANAADHI_PRIVATE_AVATAR": "HEYGEN-AQ-001",
     "CONSENT::production/heygen/avatars/B01/B01_AVATAR_MANIFEST.yaml": "HEYGEN-AQ-002",
@@ -280,6 +283,22 @@ def main() -> None:
         if dep_id not in current_dep_ids:
             raise SystemExit(f"P0 dependency disappeared unexpectedly: {dep_id}")
         prior_by_dep[dep_id] = {"packet_id": pid, "dependency_id": dep_id}
+
+    # Preserve logical packet identity when canonical corrections narrow dependency payload text.
+    for prefix, locked_packet_id in LOGICAL_DEPENDENCY_PREFIX_LOCKS.items():
+        current_matches = [dep_id for dep_id in current_dep_ids if dep_id.startswith(prefix)]
+        if not current_matches:
+            continue
+        if len(current_matches) != 1:
+            raise SystemExit(f"Logical dependency prefix is ambiguous: {prefix} -> {current_matches}")
+        current_dep_id = current_matches[0]
+        prior_matches = [dep_id for dep_id in prior_by_dep if dep_id.startswith(prefix)]
+        for prior_dep_id in prior_matches:
+            prior_by_dep.pop(prior_dep_id, None)
+        prior_by_dep[current_dep_id] = {
+            "packet_id": locked_packet_id,
+            "dependency_id": current_dep_id,
+        }
 
     resolved_history = resolved_history_from_current_queue(old_queue)
     if not any(str(x.get("packet_id")) == "HEYGEN-AQ-003" for x in resolved_history):

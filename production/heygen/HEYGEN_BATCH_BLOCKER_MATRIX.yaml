@@ -4,7 +4,7 @@ control: HEYGEN-BATCH-BLOCKER-MATRIX
 status: LIVE_ZERO_CREDIT_POST_ENV6L_SEMANTIC_CORRECTION__HARD_BLOCKS_REMAIN
 mode: VALIDATION_ONLY__ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_SUBMISSION
 validated_scope: B01-B34 / SC001-SC100
-validated_repository_head: 2de36a78c3ff300bea25de0286fbb3e5b3b7b88f
+validated_repository_head: ec176261ce0e9616e77fa936141c35a274476ff6
 validator_exit_code: 2
 gate_result: HARD_BLOCKED
 report:
@@ -24,7 +24,7 @@ report:
     passed_batches: 0
     blocked_batches: 34
     global_blockers: 0
-    total_blockers: 278
+    total_blockers: 275
   passed_batches: []
   blocked_batches:
   - B01
@@ -467,10 +467,6 @@ report:
       code: REMAINING_LOCATION_WORK
       message: 'Unresolved location/nested-space/state work: scene-specific day/rain/social-use states only where canon requires'
     - batch_id: B15
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-VILLAGE-HAND-PUMP: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B15
       category: character-state
       code: REFERENCE_NOT_APPROVED
       message: 'AGE-ANAADHI-19: status=''MISSING_APPROVED_ASSET'', path=None'
@@ -499,10 +495,6 @@ report:
       category: nested-space
       code: REMAINING_LOCATION_WORK
       message: 'Unresolved location/nested-space/state work: LOC-027 stable marked surface | LOC-027 ST01-ST03'
-    - batch_id: B16
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-VILLAGE-HAND-PUMP: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B16
       category: location
       code: REFERENCE_NOT_APPROVED
@@ -820,7 +812,7 @@ report:
     - batch_id: B26
       category: location
       code: PENDING_NAMED_LOCATION
-      message: 'Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION'
+      message: 'Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE'
     - batch_id: B26
       category: nested-space
       code: REMAINING_LOCATION_WORK
@@ -837,10 +829,6 @@ report:
       category: location
       code: REFERENCE_NOT_APPROVED
       message: 'LOC-PARAANE-ARCHIVE: status=''MISSING_APPROVED_ASSET'', path=None'
-    - batch_id: B26
-      category: location
-      code: REFERENCE_NOT_APPROVED
-      message: 'LOC-PARAANE-HIGH-OBSERVATION: status=''MISSING_APPROVED_ASSET'', path=None'
     - batch_id: B26
       category: prop
       code: REFERENCE_NOT_APPROVED

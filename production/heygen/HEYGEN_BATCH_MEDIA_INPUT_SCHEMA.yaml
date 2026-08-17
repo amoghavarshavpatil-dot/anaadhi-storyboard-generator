@@ -216,14 +216,14 @@ batches:
     scenes: [38,39,40,41,42]
     env6l_roots: [LOC-020, LOC-021, LOC-022, LOC-023, LOC-024, LOC-025, LOC-026]
     p1_location_status: APPROVED_ROOTS__SCENE_STATES_ONLY
-    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP]
+    required_location_refs: [LOC-FOREST-EDGE-BARTER]
     required_anaadhi_refs: [AGE-ANAADHI-19, HR-ANAADHI-19, CST-ANAADHI-19]
     required_prop_refs: [VEH-ANAADHI-CART]
   B16:
     scenes: [43,44,45,46]
     env6l_roots: [LOC-027, LOC-028, LOC-029, LOC-030, LOC-031, LOC-032, LOC-033]
     p1_location_status: APPROVED_ROOTS__LOC027_STATES_REMAIN
-    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-VILLAGE-HAND-PUMP, LOC-ANAADHI-HIDDEN-CABINS]
+    required_location_refs: [LOC-FOREST-EDGE-BARTER, LOC-ANAADHI-HIDDEN-CABINS]
     required_anaadhi_refs: [AGE-ANAADHI-20, CST-ANAADHI-20-26]
     required_prop_refs: [PRP-SEVENTEEN-NAME-LIST]
   B17:
@@ -292,9 +292,9 @@ batches:
   B26:
     scenes: [69,70,71,72,73,74]
     env6l_roots: [LOC-003]
-    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]
+    pending_named_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE]
     p1_location_status: PARTIAL
-    required_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION]
+    required_location_refs: [LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE]
     required_anaadhi_refs: [AGE-ANAADHI-27-CAPTURE, HR-ANAADHI-27-CAPTURE, CST-ANAADHI-27-CAPTURE, INJ-ANAADHI-27-ADK7]
     required_prop_refs: [PRP-MEDICINE-CUP, PRP-SEVENTEEN-NAME-LIST, PRP-PARAANE-EMBLEM]
   B27:
