@@ -1,0 +1,241 @@
+version: 1
+project: ANAADHI
+control: P1-AQ019-021-SHARED-ASSET-REUSE-AUDIT
+status: AUDITED__PHYSICAL_PROP_SCOPE_CORRECTED__STANDALONE_ASSET_GAPS_REMAIN_OPEN
+as_of_local: "2026-08-17T07:58:00+05:30"
+mode: ZERO_MEDIA_GENERATION__ZERO_MEDIA_REPLACEMENT__ZERO_HEYGEN_EXECUTION
+scope:
+  packets: [HEYGEN-AQ-019, HEYGEN-AQ-020, HEYGEN-AQ-021]
+  dependencies:
+    - PRP-ADK7-CARTRIDGE
+    - PRP-SPLIT-FLOORBOARD
+    - TEC-BLACK-KITE-DRONE
+
+source_snapshot:
+  observed_repository_head: ad6da7a9ed25d9b6a5f692f035e05fb37297cfed
+  blocker_matrix_blob: 1e5055d2ab8c9732348716c135c671287c6942fc
+  action_queue_blob: 9bff7a7abba3a6bac897662f072f153332b1f06f
+  reference_registry_blob: c1004d8b122bd97f7201afe4262a9fd469bc8911
+  p0_foundation_blob: 944904a5be1fd8254928f36f63e14a557add0ff0
+  p1_requirements_blob: e1a4bd83b3161091a2018cb19d01e55e821257de
+  heygen_schema_blob: 5452ef584bea7d826816c7b9b270c85a9493defc
+  p1_bindings_blob: 8a81980d79070a6af52dd5ffe06396be0aeecd6b
+  approved_screenplay: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+
+absolute_rules:
+  no_approved_status_promotion: true
+  no_root_approval_promotion: true
+  no_media_generation_or_replacement: true
+  no_consent_avatar_look_render_or_lipsync_submission: true
+  no_paid_heygen_api_execution: true
+  incidental_pixels_are_not_standalone_prop_or_technology_approval: true
+  no_crop_or_inference_from_location_or_character_plate: true
+  physical_prop_identity_is_distinct_from_documentary_or_negative_space_evidence: true
+  root_or_nested_location_evidence_does_not_close_loose_prop_or_technology_asset: true
+  recurring_object_identity_may_have_multiple_scene_states_without_minting_unproven_approved_assets: true
+
+connected_drive_searches:
+  PRP_ADK7_CARTRIDGE:
+    - {query: "ADK-7", exact_standalone_asset_found: false}
+    - {query: "cartridge", exact_standalone_asset_found: false}
+  PRP_SPLIT_FLOORBOARD:
+    - {query: "split floorboard", exact_standalone_asset_found: false}
+    - {query: "floor release", exact_standalone_asset_found: false}
+  TEC_BLACK_KITE_DRONE:
+    - {query: "black-kite drone", exact_standalone_asset_found: false}
+    - {query: "drone", exact_standalone_asset_found: false}
+  policy: >-
+    Empty connected-Drive searches mean no exact standalone reusable asset was surfaced by the
+    accessible search. They do not prove global nonexistence and never authorize generation.
+
+github_asset_search:
+  standalone_prop_or_technology_directory_found: false
+  exact_ADK7_asset_path_found: false
+  exact_split_floorboard_asset_path_found: false
+  exact_black_kite_asset_path_found: false
+  registry_records_remain_missing:
+    PRP-ADK7-CARTRIDGE: {status: MISSING_APPROVED_ASSET, path: null}
+    PRP-SPLIT-FLOORBOARD: {status: MISSING_APPROVED_ASSET, path: null}
+    TEC-BLACK-KITE-DRONE: {status: MISSING_APPROVED_ASSET, path: null}
+
+AQ019_PRP_ADK7_CARTRIDGE:
+  dependency_id: REF::PRP-ADK7-CARTRIDGE
+  canonical_identity: ADK-7 restricted transfer cartridge
+  exact_physical_cartridge_use:
+    B01:
+      scenes: [2, 4]
+      screenplay_evidence: >-
+        Specialist metal case contains one differently coded ADK-7 / RESTRICTED TRANSFER cartridge;
+        Scene 004 removes and loads the physical cartridge into the compressed injector.
+      decision: KEEP
+    B24:
+      scenes: [65, 66]
+      screenplay_evidence: >-
+        Scene 065 mechanically substitutes ADK-7 Unit 07 into the twelve-cartridge operation case;
+        Scene 066 reaches Unit Seven and loads it during the same canonical capture event.
+      capture_recurrence_rule: "SC001-SC005 = SC066; this is one operation and one cartridge continuity chain."
+      decision: KEEP
+  non_cartridge_ADK7_evidence:
+    B29:
+      scenes: [86]
+      p0_anchor: "medicine cartridges; ADK-7 microseal; evidence drives; recording phone"
+      screenplay_evidence: >-
+        Pharmacist counts eleven standard cartridges and an EMPTY slot containing a foreign microseal;
+        the microseal is scanned as ADK-7 restricted research transfer. The restricted ADK-7 cartridge
+        itself is absent from the slot.
+      distinction: MICROSEAL_AND_EMPTY_SLOT_EVIDENCE__NOT_PHYSICAL_ADK7_CARTRIDGE
+      decision: REMOVE_STALE_PHYSICAL_CARTRIDGE_REQUIREMENT
+      future_scope_note: >-
+        The microseal/evidence-chain visual remains inherited from P0/screenplay and may require its own
+        separately defined evidence-prop control later; this audit does not fabricate or approve one.
+    B30:
+      scenes: [87]
+      p0_anchor: "locked case; evidence copies; newsroom/evidence-war materials"
+      screenplay_evidence: >-
+        Pharmacist discusses an ADK-7 transfer record. Marsyaa's locked case contains ADK-7 research files,
+        Paraane correspondence, a border-route map and one EMPTY cartridge space. No physical ADK-7
+        cartridge is shown in B30.
+      distinction: RECORDS_FILES_AND_NEGATIVE_SPACE__NOT_PHYSICAL_ADK7_CARTRIDGE
+      decision: REMOVE_STALE_PHYSICAL_CARTRIDGE_REQUIREMENT
+      future_scope_note: >-
+        ADK-7 documentary evidence remains canonical scene content but is not closed by, or equivalent to,
+        the standalone restricted-cartridge master.
+  state_and_variant_separation:
+    physical_identity_states: [case_stored, loaded_into_compressed_injector, post_discharge_removed]
+    documentary_or_absence_states: [microseal_evidence, empty_slot, empty_cartridge_space, research_files, transfer_record]
+    rule: "Do not use one physical-cartridge image as automatic approval for documentary/microseal/negative-space evidence variants."
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_standalone_master_found: false
+    remove_stale_batch_bindings: [B29, B30]
+    dependency_remains_open_batches: [B01, B24]
+    expected_batch_impact_after_refresh: 2
+    new_media_authorized: false
+
+AQ020_PRP_SPLIT_FLOORBOARD:
+  dependency_id: REF::PRP-SPLIT-FLOORBOARD
+  canonical_identity: raised-cabin split floorboard / concealed escape release
+  exact_location_context:
+    env6l_root: LOC-001
+    root_status: REUSE_LOCKED_ROOT_ST00
+    rule: >-
+      LOC-001 exterior/root approval does not approve the floorboard, interior identity, concealed release,
+      lower passage or opened/capture state.
+  exact_scene_use:
+    B01:
+      scenes: [1, 4]
+      screenplay_evidence: "Anaadhi drags/reaches toward the split floorboard during the opening capture."
+      decision: KEEP
+    B23:
+      scenes: [59]
+      screenplay_evidence: >-
+        Inside the same final/primary cabin, Anaadhi places all weapons beneath a locked floorboard;
+        ENV-5E locks this secured-tools/floorboard state to persist into the capture build-up and says no new hidden room is created.
+      recurrence_rule: "Treat as a secured/closed state of the recurring cabin floorboard family unless later specialist prop control proves a separate mechanism."
+      decision: KEEP_FAIL_CLOSED
+    B24:
+      scenes: [66]
+      screenplay_evidence: "Anaadhi reaches toward the split floorboard and concealed hatch during the canonical capture reprise."
+      decision: KEEP
+    B25:
+      scenes: [67]
+      screenplay_evidence: >-
+        Anaadhi feels the concealed release groove, strikes the hidden release, and the lower escape panel opens once;
+        ENV-5E preserves one continuous opening/escape event.
+      decision: KEEP
+  required_visual_states_not_auto_approved:
+    - closed_split_floorboard
+    - locked_weapons_storage_state
+    - concealed_release_groove
+    - opening_lower_escape_panel
+    - post_open_or_reclosed_continuity
+    - lower_passage_interface
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_standalone_master_found: false
+    stale_batch_bindings_removed: []
+    dependency_remains_open_batches: [B01, B23, B24, B25]
+    expected_batch_impact_after_refresh: 4
+    new_media_authorized: false
+
+AQ021_TEC_BLACK_KITE_DRONE:
+  dependency_id: REF::TEC-BLACK-KITE-DRONE
+  canonical_identity: black-kite police drone
+  exact_scene_use:
+    B01:
+      scenes: [1]
+      screenplay_evidence: "Police drones hover without propellers; silhouettes are explicitly modelled after black kites."
+      decision: KEEP
+    B24:
+      scenes: [65, 66]
+      screenplay_evidence: >-
+        Aarathi sees hidden black-kite drones in the trees before the authorised capture signal;
+        Scene 066 reprises the same operation with police drones above the ancient trees.
+      decision: KEEP
+    B25:
+      scenes: [68]
+      screenplay_evidence: "Black-kite drones scan the canopy above Anaadhi and Aarathi during the flood-channel pursuit."
+      decision: KEEP
+  technology_state_separation:
+    base_design_identity: UNRESOLVED
+    deployment_states:
+      - hidden_pre_operation_perimeter
+      - hover_above_capture_canopy
+      - moving_scan_over_flood_channel
+    separately_unapproved_controls:
+      - scale
+      - underside_and_topside_geometry
+      - sensor_apertures
+      - operational_light_or_indicator_state
+      - deployment_angle
+      - damage_or_weathering_if_any
+    rule: "Do not infer drone geometry from tiny/incidental pixels in forest or capture plates."
+  decision:
+    status: OPEN_UNRESOLVED
+    exact_standalone_master_found: false
+    stale_batch_bindings_removed: []
+    dependency_remains_open_batches: [B01, B24, B25]
+    expected_batch_impact_after_refresh: 3
+    new_media_authorized: false
+
+machine_control_correction_authorized:
+  files:
+    - production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+    - production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  exact_changes:
+    PRP_ADK7_CARTRIDGE:
+      remove_from_batches: [B29, B30]
+      keep_in_batches: [B01, B24]
+    PRP_SPLIT_FLOORBOARD:
+      remove_from_batches: []
+      keep_in_batches: [B01, B23, B24, B25]
+    TEC_BLACK_KITE_DRONE:
+      remove_from_batches: []
+      keep_in_batches: [B01, B24, B25]
+  no_other_requirement_removal_authorized: true
+  no_new_reference_id_authorized: true
+
+p0_identity_guard:
+  keep_open_unless_separately_authoritatively_resolved: [HEYGEN-AQ-001, HEYGEN-AQ-002]
+  preserve_resolved_evidenced: HEYGEN-AQ-003
+
+expected_refresh:
+  prior_raw_blockers: 284
+  expected_AQ019_raw_blocker_delta: -2
+  expected_AQ020_raw_blocker_delta: 0
+  expected_AQ021_raw_blocker_delta: 0
+  expected_raw_blockers: 282
+  AQ019_expected_batch_impact: 2
+  AQ020_expected_batch_impact: 4
+  AQ021_expected_batch_impact: 3
+  note: "Expectation only; the permanent read-only validator remains authoritative."
+
+safety:
+  media_generated: false
+  media_replaced: false
+  consent_or_avatar_called: false
+  heygen_look_created: false
+  heygen_render_or_lipsync_submitted: false
+  paid_heygen_api_execution: false
+  approved_status_changed: false
+  approved_root_status_changed: false
