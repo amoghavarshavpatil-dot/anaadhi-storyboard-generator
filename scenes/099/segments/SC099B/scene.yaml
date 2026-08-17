@@ -1,0 +1,132 @@
+version: 1
+scene_id: SC099
+editorial_segment_id: SC099B
+status: SPEC_READY
+revision_id: R001
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+
+editorial:
+  source_scene_id: SC099
+  segment_id: SC099B
+  source_scene_heading: "MONTAGE – THE DISMANTLING OF PARAANE – SIX MONTHS LATER"
+  start_anchor: "In the independent secure medical unit, Anaadhi sits at a desk with no covered mirrors or carved marks."
+  end_anchor: "His pen reaches: MALLAYYA. CUT TO:"
+  start_inclusive: true
+  end_inclusive: true
+  excludes:
+    - SC099A
+    - SC100_EARLY
+  follows_materialized: SC005
+  next_materialization: SC100
+  final_editorial_order_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
+
+screenplay_beats:
+  - "Anaadhi sits at a desk in the independent secure medical unit; no covered mirrors or carved marks."
+  - "Eighteen complete case files lie before him."
+  - "He copies real names by hand, not categories."
+  - "ANAADHI (V.O.): Writing a category is easy."
+  - "ANAADHI (V.O.): Salt Vendor. Cloth Seller. Mirror Man."
+  - "He stops and crosses none out."
+  - "ANAADHI (V.O.): The hand slows when it writes a name."
+  - "ANAADHI (V.O.): Slowness is not punishment."
+  - "ANAADHI (V.O.): For the first time, they are entering my story completely."
+  - "His pen reaches MALLAYYA; CUT TO SC100."
+
+continuity:
+  batch: B33
+  epoch: SIX_MONTHS_LATER
+  location:
+    root_id: LOC-085
+    root_name: Independent Secure Medical Unit
+    condition: WC094
+    nested_semantic_authority: "ENV-IJM-002 — IJMC Secure Wing — Eighteen-File Case-Review / Writing Room"
+    frozen_subspace_id: UNPROVEN_NO_SUB-085-ID_IN_CURRENT_ENV6L_CROSSWALK
+    visual_status: METADATA_LOCKED_VISUAL_PENDING
+    rules:
+      - "Do not substitute LOC-087 / SC100 Interview Room."
+      - "Do not invent a SUB-085-* identifier."
+      - "No covered mirrors."
+      - "No carved marks."
+      - "No SC099A reform-location imagery."
+  anaadhi:
+    identity_authority: production/references/characters/anaadhi/CHR-ANAADHI_MASTER-IDENTITY-01.yaml
+    required_state_ids: [AGE-ANAADHI-27-RECOVERY]
+    height_cm: 193
+    chronology: "Six months later; Scene-074 injury/surgery history persists as recovery chronology."
+    exact_visual_state_source: CONTROLLED_UNRESOLVED_VISUAL_REFERENCE
+    hair_state: NOT_SPECIFIED_FOR_SC099B
+    costume_state: NOT_SPECIFIED_FOR_SC099B
+    visible_injury_state: NOT_SPECIFIED_FOR_SC099B
+    final_state_substitution_forbidden: [AGE-ANAADHI-27-FINAL, HR-ANAADHI-27-FINAL, CST-ANAADHI-27-FINAL, INJ-ANAADHI-27-FINAL]
+    rules:
+      - "Preserve one recognisable adult Anaadhi identity and 193 cm scale."
+      - "Do not import SC100 final hair/beard/body anatomy."
+      - "Do not invent visible scars, remaining bandages or a final costume where SC099B does not specify them."
+  props:
+    CASE_FILES_18_COMPLETE: "Exactly eighteen complete case files; separate controlled set."
+    WRITING_DESK: "Simple writing desk; not the SC100 interview table."
+    PEN: "Physical pen; used throughout and completes MALLAYYA at the end."
+    HANDWRITTEN_REAL_NAMES: "Real names are copied by hand; all names remain visually unreadable until MALLAYYA."
+  readable_text:
+    only_authorised_readable_victim_name: MALLAYYA
+    categories_audio_only: ["Salt Vendor", "Cloth Seller", "Mirror Man"]
+    forbidden:
+      - "fabricated readable victim names"
+      - "readable case-file labels"
+      - "category labels written on the page"
+
+env6_boundary_audit:
+  special_beat_intersects_segment: false
+  disposition: EP0_PHYSICAL_CHRONOLOGY_ONLY
+  excluded_scene099_special_beat:
+    beat_id: SB103
+    grammar: GF11
+    ep: EP7
+    anchor: ENV-KMN-003
+    reason: "SB103 is the earlier Kadraayini evidence/editorial-reform passage inside SC099A; it does not intersect SC099B."
+  rule: "Ordinary narrator V.O. and real later chronology do not qualify as special ENV-6 presentation without a source-bounded special layer."
+
+shot_plan:
+  duration_seconds: 48
+  shot_count: 16
+  stills_per_minute: 20
+  target_raster: 3840x1600
+  aspect_ratio: "2.40:1"
+  fps: 30
+  shot_ids:
+    - SC099B_SH001
+    - SC099B_SH002
+    - SC099B_SH003
+    - SC099B_SH004
+    - SC099B_SH005
+    - SC099B_SH006
+    - SC099B_SH007
+    - SC099B_SH008
+    - SC099B_SH009
+    - SC099B_SH010
+    - SC099B_SH011
+    - SC099B_SH012
+    - SC099B_SH013
+    - SC099B_SH014
+    - SC099B_SH015
+    - SC099B_SH016
+
+image_generation:
+  started: false
+  backend_when_authorized: CHATGPT_CHAT_PAGE
+  gate: HOLD
+  note: "Specification only; no still is generated, replaced or rendered by this commit."
+
+audio:
+  voice_policy: CREATOR_RECORDED_VO_ONLY
+  lip_sync_required: false
+  mastered_prefix_locked: true
+  mastered_prefix_end_timecode: "00:02:14.293333"
+  retime_locked_audio: false
+  segment_relative_visual_timing_is_provisional: true
+  exact_audio_timecode_alignment: PENDING_EXTRACTION
+  rule: "Preserve existing mastered material; map SC099B picture to exact creator-recorded V.O. timecodes later."
+
+transition_out:
+  exact_end: "His pen reaches: MALLAYYA. CUT TO:"
+  next_editorial_segment: SC100
