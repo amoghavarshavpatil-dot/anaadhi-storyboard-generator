@@ -1,0 +1,268 @@
+version: 1
+project: ANAADHI
+control: P1_AQ042_044_045_DEPENDENCY_REUSE_AUDIT
+mode: ZERO_CREDIT_EVIDENCE_ONLY
+status: COMPLETE__PARAANE_B03_METADATA_NARROWED__ENVIRONMENT_AND_FOUNDER_CREDENTIAL_GAPS_REMAIN_FAIL_CLOSED
+as_of_local: "2026-08-17T10:54:00+05:30"
+scope:
+  packets: [HEYGEN-AQ-042, HEYGEN-AQ-044, HEYGEN-AQ-045]
+  explicitly_skipped_deferred_packets: [HEYGEN-AQ-043]
+  dependencies:
+    - SPATIAL::B03::REMAINING_LOCATION_WORK
+    - REF::ENV-PARAANE-EARLY
+    - REF::PRP-FOUNDERS-CREDENTIAL
+  media_generation: false
+  media_replacement: false
+  consent_execution: false
+  avatar_or_look_submission: false
+  video_render_or_lipsync_submission: false
+  paid_heygen_api_execution: false
+  approved_status_promotion: false
+  root_status_promotion: false
+
+source_snapshot:
+  observed_repository_head_before_audit: ec8f56c49de9a8f6ae9bc09ae6c858b5e236d7e4
+  note: >-
+    Audit is limited to AQ-042/AQ-044/AQ-045. Deferred AQ-043 avatar completion is not executed or modified.
+
+sources:
+  p0_foundation: production/batches/ANAADHI_BATCH_FOUNDATION.py
+  p1_requirements: production/references/BATCH_REFERENCE_REQUIREMENTS.yaml
+  p1_bindings: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml
+  p1_registry: production/references/REFERENCE_REGISTRY.yaml
+  heygen_schema: production/heygen/HEYGEN_BATCH_MEDIA_INPUT_SCHEMA.yaml
+  env6l_file_library: ENV-6L_Final_Environment_Asset_Lock_Registry_v001.json
+  env6j_file_library: ENV-6J_Master_Environment_Generation_Manifest_v001.json
+  env5_charter_file_library: ANAADHI_ENV-5_Stage_Definition_and_Execution_Charter.md
+  env5a_file_library: ANAADHI_ENV-5A_141-Fixed_Architecture-Landscape_Morphology_22-Hero-Family_Design-DNA_Audit.md
+  env5e_file_library: ANAADHI_ENV-5E_100-Scene_Weather-Time_Exposure-Occupation_Damage-Operability_Audit.md
+  env5g_file_library: ANAADHI_ENV-5G_Full_Design-System_Inversion_155-Row_260-Link_Final-ENV-5_QA.md
+  env2b_file_library: ANAADHI_ENV-2B_Canonical_Environment_Asset_Ledger.md
+  env2c_file_library: ANAADHI_ENV-2C_Full_Recurrence_Scene-Use_Chronology_Audit.md
+  env4a_file_library: ANAADHI_ENV-4A_68-Root_Site-Envelope_Compound-Zone_Local-Orientation_Audit.md
+  approved_screenplay_file_library: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+  prior_design_authority_from_approved_project_history:
+    - CB-4I-D Founder Credential + Paraane Wrist-Device Study
+    - CB-4I-D1 Founder Credential Master
+
+absolute_rules:
+  - LOC-003 Paraane Campus / Central Complex root identity remains separate from every nested room and every later physical state.
+  - LOC-004 Kendhalaa Workers' District root identity remains separate from SUB-004-01 Workers' Public Square.
+  - ENV-6L metadata lock proves canonical identity, parentage and state inheritance only; it never proves an accepted visual master.
+  - Paraane remains one campus across P0-P4; ST00-ST04 are chronological physical states, not new campuses.
+  - ENV-PARAANE-EARLY remains a visual-condition dependency and cannot be inferred from incidental pixels in a generic LOC-003 plate or substituted by mature/P4 Paraane states.
+  - Founder Credential remains a standalone hero-prop identity; costume/character plates containing incidental credential-like pixels cannot satisfy it.
+  - Prior locked design continuity is not equivalent to an archived approved production asset unless an exact repository path/hash or Drive file ID is evidenced.
+  - Empty Drive keyword searches are negative search evidence only and do not authorise generation or APPROVED promotion.
+
+connected_drive_searches:
+  founder_credential:
+    queries: ["Founder Credential", "CB-4I-D1", "Paraane credential"]
+    exact_archived_master_with_path_hash_or_drive_id_found: false
+  paraane_required_nested_visuals:
+    queries: ["SUB-003-01", "Paraane Founders Council Chamber"]
+    exact_required_visual_master_found: false
+  workers_public_square:
+    queries: ["Workers Public Square"]
+    exact_SUB_004_01_visual_master_found: false
+  paraane_early_environment:
+    queries: ["ENV-PARAANE-EARLY"]
+    exact_standalone_approved_environment_master_found: false
+  policy: >-
+    No exact matching standalone approved asset was surfaced by connected Drive keyword search. This does not
+    prove global nonexistence and does not authorise generation. Existing approved root reuse remains authoritative
+    only at the root scope already recorded in P1 bindings.
+
+findings:
+  HEYGEN-AQ-042:
+    dependency: SPATIAL::B03::REMAINING_LOCATION_WORK
+    pre_audit_wording:
+      - Paraane ST01-ST04
+      - required Paraane nested interiors
+      - Workers Public Square if required
+    authoritative_root_reuse:
+      LOC-003:
+        canonical_name: Paraane Campus / Central Complex
+        existing_binding: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml B03.env6l_roots
+        root_already_bound: true
+        root_scope_only: true
+      LOC-004:
+        canonical_name: Kendhalaa Workers' District
+        existing_binding: production/batches/P1_BATCH_REFERENCE_BINDINGS.yaml B03.env6l_roots
+        root_already_bound: true
+        root_scope_only: true
+    p0_exact_location_scope:
+      scenes: [7, 8, 9, 10]
+      required_places:
+        - EXT Paraane inauguration/courtyard
+        - INT registration hall
+        - INT emergency coordination chamber
+        - INT central assessment hub
+        - INT founders council
+        - EXT Workers District
+    exact_nested_authority:
+      - subspace_id: SUB-003-01
+        canonical_name: Registration Hall
+        parent_loc_id: LOC-003
+        canonical_metadata_status: LOCKED
+        final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+      - subspace_id: SUB-003-02
+        canonical_name: Paraane Courtyard
+        parent_loc_id: LOC-003
+        canonical_metadata_status: LOCKED
+        final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+      - subspace_id: SUB-003-03
+        canonical_name: Emergency Coordination Chamber
+        parent_loc_id: LOC-003
+        canonical_metadata_status: LOCKED
+        final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+      - subspace_id: SUB-003-04
+        canonical_name: Central Assessment Hub
+        parent_loc_id: LOC-003
+        canonical_metadata_status: LOCKED
+        final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+      - subspace_id: SUB-003-05
+        canonical_name: Founders' Council Chamber
+        parent_loc_id: LOC-003
+        canonical_metadata_status: LOCKED
+        final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+      - subspace_id: SUB-004-01
+        canonical_name: Workers' Public Square
+        parent_loc_id: LOC-004
+        canonical_metadata_status: LOCKED
+        final_asset_lock_status: METADATA_LOCKED_VISUAL_PENDING
+    paraane_state_authority:
+      loc_id: LOC-003
+      canonical_states: [ST00, ST01, ST02, ST03, ST04]
+      unresolved_visual_states_for_this_dependency: [ST01, ST02, ST03, ST04]
+      env6l_rule: METADATA_LOCKED_VISUAL_PENDING
+      no_pristine_reset_across_states: true
+    collision_exclusions:
+      - LOC-003 root/ST00 plate cannot satisfy SUB-003-01 through SUB-003-05.
+      - LOC-004 root plate cannot satisfy SUB-004-01 Workers' Public Square.
+      - Central Assessment Hub is not the Workers' Public Square even though Scene 009 intercuts them.
+      - Founders' Council Chamber is not a later Kendhalaa convention/council hall.
+      - ST01-ST04 are state variants of LOC-003 and cannot be collapsed into a generic early or mature campus image.
+    exact_required_visuals_found: false
+    post_audit_spatial_work:
+      - LOC-003 ST01-ST04 visual states
+      - SUB-003-01 Registration Hall visual reference
+      - SUB-003-02 Paraane Courtyard / inauguration courtyard visual reference
+      - SUB-003-03 Emergency Coordination Chamber visual reference
+      - SUB-003-04 Central Assessment Hub visual reference
+      - SUB-003-05 Founders' Council Chamber visual reference
+      - SUB-004-01 Workers' Public Square visual reference
+    closure_state: OPEN_UNRESOLVED
+    machine_binding_wording_correction: >-
+      Replace the three generic B03 remaining-location strings with exact ENV-6L state/subspace identities above;
+      preserve logical packet HEYGEN-AQ-042 because this narrows existing work rather than creating a new dependency.
+
+  HEYGEN-AQ-044:
+    dependency: REF::ENV-PARAANE-EARLY
+    pre_audit_batches: [B03]
+    registry_status: MISSING_APPROVED_ASSET
+    registry_identity: Paraane early hopeful visual condition
+    screenplay_and_env5_evidence:
+      scenes: [7, 8, 9, 10]
+      phase_boundary: >-
+        Scene 007 is P0 inauguration/first-years service activity; Scene 008 is P0 emergency integration;
+        Scenes 009-010 move into P1 centralisation. ENV-5F preserves these as controlled Paraane evolution,
+        not one generic timeless campus look.
+      decision: KEEP_OPEN
+    scope_separation:
+      generic_root_identity: LOC-003 Paraane Campus / Central Complex
+      mature_or_integrated_condition: ENV-PARAANE-LATE and later Paraane state controls
+      dismantling_reform_condition: LOC-003 P4/ST04 and associated P4 controls
+      rule: >-
+        ENV-PARAANE-EARLY cannot be closed by root identity, by mature/integrated Paraane, by P4 dismantling/reform,
+        or by incidental early-looking pixels in another approved plate.
+    exact_reusable_environment_master_found: false
+    post_audit_batches: [B03]
+    closure_state: OPEN_UNRESOLVED
+    machine_requirement_change: NONE
+
+  HEYGEN-AQ-045:
+    dependency: REF::PRP-FOUNDERS-CREDENTIAL
+    pre_audit_batches: [B03]
+    registry_status: MISSING_APPROVED_ASSET
+    registry_identity: Paraane founder credential
+    prior_design_continuity:
+      design_lock_acknowledged: true
+      named_history:
+        - CB-4I-D Founder Credential + Paraane Wrist-Device Study
+        - CB-4I-D1 Founder Credential Master
+      archival_evidence_requirement: exact GitHub path/hash and/or Drive file ID
+      exact_archival_evidence_found_in_current_connected_searches: false
+      decision: KEEP_OPEN
+    collision_exclusions:
+      - Parvaran character/identity plate
+      - Anarvaa character/identity plate
+      - incidental badge or credential-like pixels in any location or costume image
+      - generic Paraane emblem or signage
+      - wrist-device identity
+    exact_reusable_hero_prop_master_found: false
+    post_audit_batches: [B03]
+    closure_state: OPEN_UNRESOLVED
+    machine_requirement_change: NONE
+
+machine_control_corrections_authorized:
+  P1_BATCH_REFERENCE_BINDINGS:
+    B03:
+      replace_remaining_location_work:
+        from:
+          - Paraane ST01-ST04
+          - required Paraane nested interiors
+          - Workers Public Square if required
+        to:
+          - LOC-003 ST01-ST04 visual states
+          - SUB-003-01 Registration Hall visual reference
+          - SUB-003-02 Paraane Courtyard / inauguration courtyard visual reference
+          - SUB-003-03 Emergency Coordination Chamber visual reference
+          - SUB-003-04 Central Assessment Hub visual reference
+          - SUB-003-05 Founders' Council Chamber visual reference
+          - SUB-004-01 Workers' Public Square visual reference
+  reference_requirement_changes: NONE
+  heygen_schema_requirement_changes: NONE
+  reference_registry_changes: NONE
+  preserve_semantic_requirements:
+    - ENV-PARAANE-EARLY in B03
+    - PRP-FOUNDERS-CREDENTIAL in B03
+  packet_identity_locks_required:
+    - {prefix: "SPATIAL::B01::REMAINING_LOCATION_WORK::", packet_id: HEYGEN-AQ-037}
+    - {prefix: "SPATIAL::B02::REMAINING_LOCATION_WORK::", packet_id: HEYGEN-AQ-039}
+    - {prefix: "SPATIAL::B03::REMAINING_LOCATION_WORK::", packet_id: HEYGEN-AQ-042}
+    - {prefix: "SPATIAL::B24::REMAINING_LOCATION_WORK::", packet_id: HEYGEN-AQ-118}
+    - {prefix: "SPATIAL::B26::PENDING_NAMED_LOCATION::", packet_id: HEYGEN-AQ-120}
+    - {prefix: "AVATAR_LOOK_SET::B24", packet_id: HEYGEN-AQ-198}
+  no_new_packet_ids_due_to_dependency_string_narrowing: true
+
+expected_refresh:
+  previous_total_blockers: 275
+  expected_raw_blocker_delta: 0
+  expected_total_blockers: 275
+  expected_AQ042_status: OPEN_UNRESOLVED
+  expected_AQ042_packet_id: HEYGEN-AQ-042
+  expected_AQ044_batches: [B03]
+  expected_AQ045_batches: [B03]
+  expected_B01_spatial_packet_id: HEYGEN-AQ-037
+  expected_B02_spatial_packet_id: HEYGEN-AQ-039
+  expected_B24_spatial_packet_id: HEYGEN-AQ-118
+  expected_B26_spatial_packet_id: HEYGEN-AQ-120
+  expected_B24_avatar_look_packet_id: HEYGEN-AQ-198
+  expected_new_packet_ids: []
+  preserve_AQ043_deferred: true
+  preserve_aq001_aq002_open: true
+  preserve_aq003_resolved_evidenced: true
+  preserve_aq033_superseded: true
+  preserve_aq036_superseded: true
+
+safety:
+  bind_only_exact_evidenced_reuse: true
+  incidental_pixels_never_promoted: true
+  root_nested_state_separation_preserved: true
+  paraane_phase_separation_preserved: true
+  founder_credential_standalone_identity_preserved: true
+  zero_media_generation_or_replacement: true
+  zero_consent_avatar_look_render_lipsync_submission: true
+  zero_paid_heygen_api_execution: true
+  zero_approved_or_root_status_promotion: true
