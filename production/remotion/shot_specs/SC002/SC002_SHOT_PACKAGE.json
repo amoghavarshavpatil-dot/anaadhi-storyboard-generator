@@ -1,0 +1,121 @@
+{
+  "scene_id": "SC002",
+  "revision_id": "R001",
+  "status": "SPEC_READY",
+  "source_authority": "ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx",
+  "continuation_note": "Continues from the existing SC001 plan; Scene 001 is not rebuilt.",
+  "screenplay_source": {
+    "heading": "INT. ANAADHI’S RAISED CABIN – FIRST FLOOR – PRE-DAWN",
+    "physical_beats": [
+      "main door breaches inward once",
+      "police shields enter first",
+      "Paraane medical staff follow",
+      "Sarjanya personnel fill staircase",
+      "Allied Gangsters force in behind official line",
+      "Allied Gangster threatens Anaadhi with iron hook",
+      "Semmaa stops and disarms the threat",
+      "two officers remove Allied Gangster",
+      "Anaadhi sees SB002 newborn-rain flash",
+      "Medical Specialist opens cartridge case",
+      "ADK-7 restricted-transfer cartridge is revealed",
+      "Anaadhi sees only the needle"
+    ],
+    "special_beat": {
+      "id": "SB002",
+      "grammar": "GF01",
+      "boundary": "Anaadhi sees Semmaa through the drug haze -> image disappears before Anaadhi recognises the face",
+      "rule": "subjective/audience representation only; no physical residue or event-certainty promotion"
+    }
+  },
+  "continuity": {
+    "location_root_ids": ["LOC-001", "ENV-CAB-008"],
+    "nested_space_ids": ["SUB-001-02"],
+    "location_state_ids": ["WC001/B", "LOC-001_ST01_CAPTURE_BREACH"],
+    "weather_time": ["PRE_DAWN", "BLACK_RAIN_OUTSIDE", "INTERIOR_WETNESS_BY_INGRESS_ONLY"],
+    "damage_rules": [
+      "SC002 is the single real door breach",
+      "breach debris/open state persists through SC003-SC005 and SC066",
+      "no second explosion or pristine reset",
+      "parallel-Earth weather/damage never becomes physical cabin state"
+    ],
+    "character_bindings": {
+      "ANAADHI": {
+        "source": "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_CAPTURE_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+        "state": ["AGE-ANAADHI-27-CAPTURE", "HR-ANAADHI-27-CAPTURE", "CST-ANAADHI-27-CAPTURE", "INJ-ANAADHI-27-ADK7"],
+        "height_cm": 193,
+        "constraints": "topless; shaved scalp with rough regrowth; sedated floor-level motor recovery; no long hair"
+      },
+      "SEMMAA": {
+        "source": "production/heygen/avatars/B01/source_visuals/CHR-SEMMAA_B01_FIELD_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+        "constraints": "older disciplined present-day state; violence-capable but not eager"
+      },
+      "POLICE_COMMANDER": {
+        "source": "production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+      },
+      "MEDICAL_SPECIALIST": {
+        "source": "production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+      },
+      "ALLIED_GANGSTER": {
+        "source": "production/heygen/avatars/B01/source_visuals/CHR-ALLIED-GANGSTER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+        "constraints": "no official insignia; iron hook threat"
+      },
+      "NEWBORN_ANAADHI_FLASH": {
+        "source": "production/heygen/avatars/B01/source_visuals/CHR-ANAADHI_B01_NEWBORN-PARALLEL_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg",
+        "state": ["AGE-ANAADHI-NEWBORN"],
+        "constraints": "SB002 only; protected in rain; no persistence after flash"
+      }
+    },
+    "props": {
+      "POLICE_SHIELDS": "screenplay-required",
+      "IRON_HOOK": "screenplay-required",
+      "PARAANE_MEDICAL_CASE": "B01 continuity",
+      "STANDARD_CARTRIDGES": "case content",
+      "PRP-ADK7-CARTRIDGE": "standalone master still missing; generate only when SH017 is reached",
+      "NEEDLE": "subjective end-beat only; no injection in SC002"
+    },
+    "controlled_inference": [
+      "SUB-001-02 interior pixels may be created from locked cabin spatial metadata because standalone approved interior pixels are absent",
+      "SB002 carrier face remains rain-obscured/partial rather than asserting an unsupported exact younger-Semmaa portrait"
+    ]
+  },
+  "generation_defaults": {
+    "backend": "CHATGPT_CHAT_PAGE",
+    "master_raster": "3840x1600",
+    "aspect": "2.40:1",
+    "style": "photoreal cinematic storyboard still; grounded future Karnataka; no borders; no text",
+    "negative_global": ["long-haired Anaadhi", "daylight", "storyboard borders", "subtitles", "second door breach", "Scene-004 injection", "parallel-world physical residue"]
+  },
+  "remotion_defaults": {
+    "fps": 30,
+    "transition_in": "CUT",
+    "transition_out": "CUT",
+    "crop_policy": "NO_UNAPPROVED_AUTO_REFRAME"
+  },
+  "audio": {
+    "dialogue_policy": "CREATOR_RECORDING_ONLY",
+    "sync": "ALIGN_TO_LOCKED_EXISTING_MASTER",
+    "scene_window": "PENDING_TIMECODE_EXTRACTION",
+    "locked_master_prefix_end_seconds": 134.293333,
+    "bgm_sfx": "inherit locked opening master; refine timing only without rebuilding manufactured elements"
+  },
+  "shots": [
+    {"shot_id":"SC002_SH001","duration_seconds":3,"purpose":"one real door breach","framing":"wide interior facing main door","screen_direction":"AXIS_LOCKED","motion":"STATIC","prompt":"Main door blows inward once; wet debris enters; police shields visible behind breach.","negative":"fireball; second breach; intact reset door"},
+    {"shot_id":"SC002_SH002","duration_seconds":3,"purpose":"police shields enter first","framing":"low wide floor level","screen_direction":"LEFT_TO_RIGHT","motion":"SLOW_PUSH_IN","prompt":"Police shields cross breached threshold first; wet tracked floor; Anaadhi blurred foreground edge.","negative":"gunfire; pristine dry floor"},
+    {"shot_id":"SC002_SH003","duration_seconds":3,"purpose":"Paraane Sarjanya allied entry compresses staircase","framing":"wide depth tableau","screen_direction":"LEFT_TO_RIGHT","motion":"STATIC","prompt":"Paraane medical personnel follow shields; Sarjanya personnel fill staircase; Allied Gangsters force in behind official line.","negative":"generic SWAT-only team; empty staircase"},
+    {"shot_id":"SC002_SH004","duration_seconds":3,"purpose":"Anaadhi drug-haze POV circle","framing":"POV insert montage","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Boots, badges, white medical gloves and weapons form one closing circle around sedated Anaadhi.","negative":"standing Anaadhi; long hair"},
+    {"shot_id":"SC002_SH005","duration_seconds":3,"purpose":"Police Commander approaches","framing":"medium low angle from floor","screen_direction":"RIGHT_TO_LEFT","motion":"SLOW_PUSH_IN","prompt":"Police Commander approaches face-down Anaadhi after shield entry; command posture; others hold line.","negative":"visible-mouth lip mismatch; attack pose"},
+    {"shot_id":"SC002_SH006","duration_seconds":3,"purpose":"Anaadhi motor failure","framing":"tight body and arm detail","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Anaadhi attempts to lift head; one arm collapses from sedation; topless heavy-athletic body; shaved rough regrowth.","negative":"heroic standing pose; gore"},
+    {"shot_id":"SC002_SH007","duration_seconds":3,"purpose":"Allied Gangster crosses official line","framing":"medium aisle shot","screen_direction":"LEFT_TO_RIGHT","motion":"PAN_RIGHT","prompt":"Allied Gangster steps through official line carrying iron hook, anger overriding procedure.","negative":"official insignia on gangster; firearm replacing hook"},
+    {"shot_id":"SC002_SH008","duration_seconds":3,"purpose":"hook threat held before impact","framing":"low threatening insert","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Iron hook rises over sedated Anaadhi; threat held before impact; official line behind.","negative":"hook striking body; explicit gore"},
+    {"shot_id":"SC002_SH009","duration_seconds":3,"purpose":"Semmaa catches wrist","framing":"tight two-person action","screen_direction":"RIGHT_TO_LEFT","motion":"STATIC","prompt":"Semmaa catches the Gangster's hook wrist mid-air with controlled force.","negative":"Semmaa raging; hook already hitting Anaadhi"},
+    {"shot_id":"SC002_SH010","duration_seconds":3,"purpose":"Semmaa twists hook downward","framing":"medium two-shot","screen_direction":"AXIS_LOCKED","motion":"SLOW_PUSH_IN","prompt":"Semmaa twists iron hook downward while Gangster resists; capture line remains behind them.","negative":"martial-arts spectacle; gunfire"},
+    {"shot_id":"SC002_SH011","duration_seconds":3,"purpose":"Police Commander orders removal","framing":"profile command shot","screen_direction":"LEFT_TO_RIGHT","motion":"STATIC","prompt":"Police Commander points toward rear line; two officers move to remove Allied Gangster.","negative":"speaking-mouth close-up; unrelated characters"},
+    {"shot_id":"SC002_SH012","duration_seconds":3,"purpose":"Gangster dragged away","framing":"wide receding action","screen_direction":"RIGHT_TO_LEFT","motion":"PAN_LEFT","prompt":"Two officers drag Allied Gangster back out through breached line; hook controlled away from Anaadhi.","negative":"Gangster escaping deeper inside; second fight"},
+    {"shot_id":"SC002_SH013","duration_seconds":3,"purpose":"Anaadhi sees Semmaa through haze","framing":"Anaadhi POV medium close","screen_direction":"NEUTRAL","motion":"SLOW_PUSH_IN","prompt":"Present-day Semmaa settles into view through Anaadhi drug haze; older disciplined face; shallow focus and breathing blur.","negative":"alternate-world residue; clean studio portrait"},
+    {"shot_id":"SC002_SH014","duration_seconds":3,"purpose":"SB002 newborn rain flash","framing":"subjective flash medium","screen_direction":"REDRAFTABLE","motion":"STATIC","prompt":"Incomplete counterfactual flash: Semmaa-shaped carrier moves through heavy rain with protected newborn; carrier face partly obscured and unrecognisable.","negative":"confirmed recovered memory; clear young-Semmaa portrait; rain becoming cabin state"},
+    {"shot_id":"SC002_SH015","duration_seconds":3,"purpose":"return to cabin and motor-control warning","framing":"medium medical reaction","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Flash vanishes; Medical Specialist watches Anaadhi regain motor control; breached door state persists.","negative":"flash residue; reset door"},
+    {"shot_id":"SC002_SH016","duration_seconds":3,"purpose":"medical case opens","framing":"overhead prop insert","screen_direction":"NEUTRAL","motion":"SLOW_PUSH_IN","prompt":"Metal medical case opens inside capture circle; standard cartridges arranged clinically; ADK-7 not yet hero-emphasised.","negative":"fantasy potion vials; generic suitcase"},
+    {"shot_id":"SC002_SH017","duration_seconds":3,"purpose":"ADK-7 restricted cartridge reveal","framing":"macro hero insert","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"One cartridge is visibly distinct from standard cartridges and carries canonical ADK-7 restricted-transfer identity; restrained clinical design.","negative":"huge sci-fi canister; invented brand clutter; crop from unrelated asset"},
+    {"shot_id":"SC002_SH018","duration_seconds":3,"purpose":"Anaadhi sees only the needle","framing":"extreme subjective close","screen_direction":"NEUTRAL","motion":"SLOW_PUSH_IN","prompt":"From Anaadhi collapsing POV the case detail becomes only a threatening medical needle; edges blur with sedation; no injection yet.","negative":"needle penetrating skin; Scene-004 injection; gore"}
+  ]
+}

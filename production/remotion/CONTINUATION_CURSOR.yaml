@@ -1,4 +1,4 @@
-version: 1
+version: 2
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
 as_of_local: "2026-08-17T11:50:00+05:30"
@@ -18,9 +18,13 @@ visual_preproduction:
   storyboard_frame_generation_started: false
   next_phase: SHOT_SPEC_MATERIALIZATION
   scope_to_materialize: SC001-SC100
+  legacy_scene_plan_present: SC001
+  latest_new_schema_scene_materialized: SC002
+  next_scene_to_materialize: SC003
   note: >-
-    Shot specs cover the whole approved movie because no final per-shot manifest has yet been
-    materialized; this does not restart prior ENV/P0/P1 work. Every shot spec must inherit that work.
+    Scene 001 already had a shot plan before the backend migration, so the new materialization phase
+    continued at Scene 002 rather than recreating Scene 001. Scene 001 will be schema-migrated later
+    without changing its approved/legacy visual intent unless the user explicitly redrafts it.
 
 audio:
   mastered_prefix_locked: true
@@ -35,6 +39,13 @@ picture_master:
   aspect_ratio: "2.40:1"
   fps: 30
   baked_letterbox: false
+
+shot_density:
+  target_minimum_stills_per_minute: 20
+  SC002:
+    duration_seconds: 54
+    shot_count: 18
+    stills_per_minute: 20
 
 revision_policy:
   scene_local: true

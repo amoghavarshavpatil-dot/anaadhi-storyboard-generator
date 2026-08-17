@@ -1,0 +1,56 @@
+scene_id: '002'
+status: SPEC_READY
+screenplay_revision: Approved Latest Indian English screenplay baseline; editable
+source:
+  heading: INT. ANAADHI’S RAISED CABIN – FIRST FLOOR – PRE-DAWN
+  action_summary: >-
+    The real cabin door is breached once. Police, Paraane medical staff, Sarjanya personnel and Allied Gangsters enter.
+    An Allied Gangster threatens Anaadhi with an iron hook; Semmaa stops him. Anaadhi sees a brief parallel flash of
+    Semmaa carrying a newborn through rain. The Medical Specialist opens a metal case containing standard cartridges
+    and one ADK-7 restricted-transfer cartridge; Anaadhi sees only the needle.
+  dialogue_source: creator_recorded_locked_opening_master
+continuity:
+  physical_anchor: [LOC-001, ENV-CAB-008, SUB-001-02]
+  condition: WC001/B
+  special_beat: SB002 / GF01
+  single_breach_rule: Main door breaches once in SC002; debris/open state persists through SC003-SC005 and SC066.
+  characters: [ANAADHI, POLICE_COMMANDER, MEDICAL_SPECIALIST, SEMMAA, ALLIED_GANGSTER, SARJANYA_PERSONNEL, POLICE_OFFICERS]
+  props: [POLICE_SHIELDS, IRON_HOOK, PARAANE_MEDICAL_CASE, STANDARD_CARTRIDGES, PRP-ADK7-CARTRIDGE, NEEDLE]
+  exclusions:
+    - no second breach or door reset
+    - no long-haired Anaadhi
+    - no Scene-004 injection in Scene 002
+    - no alternate-world physical residue
+remotion:
+  shot_package: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json
+  master_raster: 3840x1600
+  aspect: 2.40:1
+  fps: 30
+  audio_sync: ALIGN_TO_LOCKED_MASTER_PREFIX
+  total_duration_seconds: 54
+  stills_per_minute: 20
+shots:
+  - {shot_id: SC002_SH001, duration_seconds: 3, purpose: one real door breach, status: SPEC_READY}
+  - {shot_id: SC002_SH002, duration_seconds: 3, purpose: police shields enter first, status: SPEC_READY}
+  - {shot_id: SC002_SH003, duration_seconds: 3, purpose: Paraane Sarjanya allied entry compresses staircase, status: SPEC_READY}
+  - {shot_id: SC002_SH004, duration_seconds: 3, purpose: Anaadhi drug-haze POV circle of boots badges gloves weapons, status: SPEC_READY}
+  - {shot_id: SC002_SH005, duration_seconds: 3, purpose: Police Commander approaches, status: SPEC_READY}
+  - {shot_id: SC002_SH006, duration_seconds: 3, purpose: Anaadhi tries to raise head and arm collapses, status: SPEC_READY}
+  - {shot_id: SC002_SH007, duration_seconds: 3, purpose: Allied Gangster crosses official line with iron hook, status: SPEC_READY}
+  - {shot_id: SC002_SH008, duration_seconds: 3, purpose: hook raised over Anaadhi, status: SPEC_READY}
+  - {shot_id: SC002_SH009, duration_seconds: 3, purpose: Semmaa catches Gangster wrist, status: SPEC_READY}
+  - {shot_id: SC002_SH010, duration_seconds: 3, purpose: Semmaa twists hook downward, status: SPEC_READY}
+  - {shot_id: SC002_SH011, duration_seconds: 3, purpose: Police Commander orders removal, status: SPEC_READY}
+  - {shot_id: SC002_SH012, duration_seconds: 3, purpose: officers drag Gangster away, status: SPEC_READY}
+  - {shot_id: SC002_SH013, duration_seconds: 3, purpose: Anaadhi sees Semmaa through drug haze, status: SPEC_READY}
+  - {shot_id: SC002_SH014, duration_seconds: 3, purpose: SB002 Semmaa newborn rain flash, status: SPEC_READY}
+  - {shot_id: SC002_SH015, duration_seconds: 3, purpose: flash disappears and motor-control warning, status: SPEC_READY}
+  - {shot_id: SC002_SH016, duration_seconds: 3, purpose: medical case opens with standard cartridges, status: SPEC_READY}
+  - {shot_id: SC002_SH017, duration_seconds: 3, purpose: ADK-7 restricted cartridge reveal, status: SPEC_READY}
+  - {shot_id: SC002_SH018, duration_seconds: 3, purpose: Anaadhi sees only the needle, status: SPEC_READY}
+notes:
+  continue_from_existing_scene_001: true
+  image_generation_started: false
+  generation_backend: CHATGPT_CHAT_PAGE
+  heygen_execution: false
+  openai_work_page_generation: false

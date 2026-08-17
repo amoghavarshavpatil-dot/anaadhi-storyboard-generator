@@ -1,0 +1,33 @@
+version: 1
+project: ANAADHI
+control: REMOTION_SHOT_SPEC_INDEX
+master_rule: Existing approved preproduction is inherited; do not restart it.
+coverage:
+  SC001:
+    state: LEGACY_SCENE_PLAN_PRESENT
+    source: scenes/001/scene.yaml
+    shot_count: 8
+    migration_to_new_schema: PENDING
+    regenerate_now: false
+  SC002:
+    state: SPEC_READY
+    source: scenes/002/scene.yaml
+    shot_package: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json
+    shot_count: 18
+    duration_seconds: 54
+    stills_per_minute: 20
+    image_generation_started: false
+  SC003-SC100:
+    state: NOT_YET_MATERIALIZED
+cursor:
+  last_materialized_scene: SC002
+  next_scene: SC003
+  image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
+  audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
+backend:
+  github: CANONICAL
+  chat_storyboard_generation: ENABLED_AFTER_SPEC_READY
+  remotion: ASSEMBLY_CODE_READY
+  heygen: HISTORICAL_ONLY_DISABLED_FOR_EXECUTION
+  openai_work_page: DISABLED
+  paid_media_apis: DISABLED
