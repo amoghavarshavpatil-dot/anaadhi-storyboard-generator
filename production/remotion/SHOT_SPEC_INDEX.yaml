@@ -1,4 +1,4 @@
-version: 2
+version: 3
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -18,7 +18,16 @@ coverage:
     duration_seconds: 54
     stills_per_minute: 20
     image_generation_started: false
-  SC003-SC100:
+  SC003:
+    state: SPEC_READY
+    source: scenes/003/scene.yaml
+    shot_package: production/remotion/shot_specs/SC003/SC003_SHOT_PACKAGE.json
+    shot_count: 20
+    duration_seconds: 60
+    stills_per_minute: 20
+    parallel_earth: "SB003 / GF02 / ANCH02 / INV6-02 / WC001-C / RST01"
+    image_generation_started: false
+  SC004-SC100:
     state: NOT_YET_MATERIALIZED
     note: >-
       Source scene numbers remain screenplay authority, but final render order follows
@@ -51,10 +60,9 @@ editorial:
     - END
 
 cursor:
-  last_materialized_scene: SC002
-  next_scene: SC003
+  last_materialized_scene: SC003
+  next_scene: SC004
   before_first_editorial_jump:
-    - SC003
     - SC004
     - SC005
   after_SC005: SC099B
