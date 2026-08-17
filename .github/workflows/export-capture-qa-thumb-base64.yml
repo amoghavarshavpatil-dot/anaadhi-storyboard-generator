@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - name: Install YAML support
         run: python -m pip install --quiet pyyaml
-      - name: Apply evidenced AQ-031 and AQ-033 corrections and packet-evolution lock
+      - name: Apply evidenced corrections and logical packet lock
         shell: bash
         run: |
           set -euo pipefail
@@ -56,18 +56,18 @@ jobs:
 
           c = refresh.read_text()
           anchor = 'P0_AQ003_CURRENT_DEP = "AVATAR_LOOK_SET::B01-AV-08"\n'
-          evolution_constants = '''P0_AQ003_CURRENT_DEP = "AVATAR_LOOK_SET::B01-AV-08"\nCANONICAL_DEPENDENCY_EVOLUTIONS = {\n    "SPATIAL::B26::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE, LOC-PARAANE-HIGH-OBSERVATION":\n        "SPATIAL::B26::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE",\n}\n'''
+          constants = '''P0_AQ003_CURRENT_DEP = "AVATAR_LOOK_SET::B01-AV-08"\nLOGICAL_DEPENDENCY_PREFIX_LOCKS = {\n    "SPATIAL::B26::PENDING_NAMED_LOCATION::": "HEYGEN-AQ-120",\n}\n'''
           assert c.count(anchor) == 1
-          c = c.replace(anchor, evolution_constants, 1)
+          c = c.replace(anchor, constants, 1)
           alias_anchor = '''    # Hard lock historical P0 logical packet identities to their current live dependencies.\n    for dep_id, pid in P0_OPEN_IDS.items():\n        if dep_id not in current_dep_ids:\n            raise SystemExit(f"P0 dependency disappeared unexpectedly: {dep_id}")\n        prior_by_dep[dep_id] = {"packet_id": pid, "dependency_id": dep_id}\n\n'''
-          alias_block = alias_anchor + '''    # Preserve packet identity when a canonical correction narrows the payload of the same logical dependency.\n    for previous_dep_id, current_dep_id in CANONICAL_DEPENDENCY_EVOLUTIONS.items():\n        if current_dep_id not in current_dep_ids:\n            continue\n        if current_dep_id in prior_by_dep:\n            prior_by_dep.pop(previous_dep_id, None)\n            continue\n        previous_packet = prior_by_dep.pop(previous_dep_id, None)\n        if previous_packet:\n            prior_by_dep[current_dep_id] = {\n                "packet_id": str(previous_packet["packet_id"]),\n                "dependency_id": current_dep_id,\n            }\n\n'''
+          alias_block = alias_anchor + '''    # Preserve logical packet identity when canonical corrections narrow dependency payload text.\n    for prefix, locked_packet_id in LOGICAL_DEPENDENCY_PREFIX_LOCKS.items():\n        current_matches = [dep_id for dep_id in current_dep_ids if dep_id.startswith(prefix)]\n        if not current_matches:\n            continue\n        if len(current_matches) != 1:\n            raise SystemExit(f"Logical dependency prefix is ambiguous: {prefix} -> {current_matches}")\n        current_dep_id = current_matches[0]\n        prior_matches = [dep_id for dep_id in prior_by_dep if dep_id.startswith(prefix)]\n        for prior_dep_id in prior_matches:\n            prior_by_dep.pop(prior_dep_id, None)\n        prior_by_dep[current_dep_id] = {\n            "packet_id": locked_packet_id,\n            "dependency_id": current_dep_id,\n        }\n\n'''
           assert c.count(alias_anchor) == 1
           c = c.replace(alias_anchor, alias_block, 1)
           refresh.write_text(c)
 
           d = audit.read_text()
           old_expected = '''expected_refresh:\n  previous_total_blockers: 278\n  expected_removed_raw_blockers: 3\n  expected_total_blockers: 275\n  expected_aq031_batches: [B11]\n  expected_aq032_batches: [B13, B14]\n  expected_aq033_active: false\n  preserve_aq001_aq002_open: true\n  preserve_aq003_resolved_evidenced: true\n'''
-          new_expected = '''expected_refresh:\n  previous_total_blockers: 278\n  expected_removed_raw_blockers: 2\n  expected_total_blockers: 276\n  blocker_delta_note: >-\n    Removing B26 LOC-PARAANE-HIGH-OBSERVATION narrows the existing B26 PENDING_NAMED_LOCATION blocker\n    rather than eliminating that spatial blocker. The same logical packet must remain HEYGEN-AQ-120\n    under its narrowed dependency string; no HEYGEN-AQ-201 allocation is permitted.\n  expected_aq031_batches: [B11]\n  expected_aq032_batches: [B13, B14]\n  expected_aq033_active: false\n  expected_b26_spatial_packet_id: HEYGEN-AQ-120\n  expected_new_packet_ids: []\n  preserve_aq001_aq002_open: true\n  preserve_aq003_resolved_evidenced: true\n'''
+          new_expected = '''expected_refresh:\n  previous_total_blockers: 278\n  expected_removed_raw_blockers: 2\n  expected_total_blockers: 276\n  blocker_delta_note: >-\n    Removing B26 LOC-PARAANE-HIGH-OBSERVATION narrows the existing B26 PENDING_NAMED_LOCATION blocker\n    rather than eliminating that spatial blocker. The same logical packet must remain HEYGEN-AQ-120\n    under its narrowed dependency payload; no HEYGEN-AQ-201 allocation is permitted.\n  expected_aq031_batches: [B11]\n  expected_aq032_batches: [B13, B14]\n  expected_aq033_active: false\n  expected_b26_spatial_packet_id: HEYGEN-AQ-120\n  expected_new_packet_ids: []\n  preserve_aq001_aq002_open: true\n  preserve_aq003_resolved_evidenced: true\n'''
           assert d.count(old_expected) == 1
           audit.write_text(d.replace(old_expected, new_expected, 1))
           PY
@@ -86,15 +86,14 @@ jobs:
           r=yaml.safe_load(Path('production/references/BATCH_REFERENCE_REQUIREMENTS.yaml').read_text())
           a=yaml.safe_load(Path('production/references/P1_AQ031_033_SHARED_ASSET_REUSE_AUDIT.yaml').read_text())
           packets={p['packet_id']:p for p in q['packets']}
-          deps={p['dependency_id']:p for p in q['packets']}
-          b26_new='SPATIAL::B26::PENDING_NAMED_LOCATION::Unresolved named location binding(s): LOC-PARAANE-CAMPUS-MATURE, LOC-PARAANE-CHILD-WING, LOC-PARAANE-ARCHIVE'
           assert packets['HEYGEN-AQ-031']['impacted_batches']==['B11']
           assert packets['HEYGEN-AQ-031']['status']=='OPEN_UNRESOLVED'
           assert packets['HEYGEN-AQ-032']['impacted_batches']==['B13','B14']
           assert packets['HEYGEN-AQ-032']['status']=='OPEN_UNRESOLVED'
           assert 'HEYGEN-AQ-033' not in packets
-          assert packets['HEYGEN-AQ-120']['dependency_id']==b26_new
-          assert deps[b26_new]['packet_id']=='HEYGEN-AQ-120'
+          assert packets['HEYGEN-AQ-120']['dependency_id'].startswith('SPATIAL::B26::PENDING_NAMED_LOCATION::')
+          assert 'LOC-PARAANE-HIGH-OBSERVATION' not in packets['HEYGEN-AQ-120']['dependency_id']
+          assert packets['HEYGEN-AQ-120']['impacted_batches']==['B26']
           assert 'HEYGEN-AQ-201' not in packets
           assert q['summary']['new_packet_ids_allocated_this_refresh']==[]
           assert q['summary']['packet_namespace_high_watermark']=='HEYGEN-AQ-200'
