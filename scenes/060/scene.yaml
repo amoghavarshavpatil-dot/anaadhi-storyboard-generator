@@ -1,0 +1,65 @@
+scene_id: SC060
+source_scene_number: 60
+status: SPEC_READY
+heading: INT. KENDHALAA POLICE – INDEPENDENT EVIDENCE ROOM – NIGHT
+editorial_previous: SC095
+editorial_next: SC061
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+source_boundary:
+  start: Anaadhi is absent. Seventeen case files form a circle around AARATHI.
+  end: She gathers the seventeen names into a portable transparent display and leaves for the Bhaigaara buffer forest.
+  start_inclusive: true
+  end_inclusive: true
+location:
+  root_id: LOC-057
+  name: Kendhalaa Police Independent Evidence Room
+  environment_anchor: ENV-KND-003
+  condition: WC056
+  state: ST00
+  drive_audit: PASS
+  drive_file_id: 1eHU2o1tA8syeGtO3GLe16lLsecU3ALz2
+  formal_visual_status: METADATA_LOCKED_VISUAL_PENDING
+  approved_visual_reference: false
+  subspace_id: null
+  do_not_invent_subspace: true
+env6:
+  ruling: NO_SB
+  disposition: EP0_PHYSICAL_CHRONOLOGY_ONLY
+  special_beat_intersects_scene: false
+  forbid:
+  - Parallel Earths
+  - crime-scene reconstruction
+  - victim apparitions
+  - traversable maps
+  - Anaadhi visualization
+  - SC061 content
+characters:
+  ANAADHI: ABSENT_PHYSICALLY_AND_REPRESENTATION_FORBIDDEN
+  AARATHI: CHR-AARATHI base identity approved; exact SC060 look controlled-unresolved
+  UNNATH: controlled-unresolved; no approved visual reference asserted
+  POLICE_ANALYST: controlled-unresolved; no invented identity master
+evidence_controls:
+  case_files:
+    count: 17
+    rule: complete separate files; real names preferred over categories; do not fabricate readable names
+  madhava_file: opened as focal evidence
+  repaired_travel_bag: separate evidence item
+  repair_receipt: name evidence only; do not invent receipt data
+  forest_resin_trace: correlation only; do not invent measurements/formula
+  paraane_psychiatric_risk_profile: attached then removed from operational brief
+  portable_transparent_display:
+    rukey: RUKEY_seventeen_name_display
+    custody_origin: Aarathi in SC060
+shot_plan:
+  shot_count: 24
+  duration_seconds: 72
+  stills_per_minute: 20
+  shot_package: production/remotion/shot_specs/SC060/SC060_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  mastered_prefix_end_timecode: 00:02:14.293333
+  retime_locked_master: false
+next: SC061

@@ -1,8 +1,7 @@
-version: 10
+version: 11
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: "2026-08-18T05:29:00+05:30"
-
+as_of_local: '2026-08-18T06:06:00+05:30'
 backend:
   github_canonical_control: true
   chat_storyboard_generation: true
@@ -11,7 +10,6 @@ backend:
   openai_work_page_generation_enabled: false
   paid_media_api_execution_enabled: false
   secrets_allowed_in_repository: false
-
 visual_preproduction:
   restart_from_scene_001: false
   inherit_existing_locked_work: true
@@ -20,20 +18,16 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC095
-  latest_source_scene_materialized: SC095
-  next_scene_to_materialize: SC060
-  next_editorial_segment: SC060
+  latest_new_schema_materialized: SC060
+  latest_source_scene_materialized: SC060
+  next_scene_to_materialize: SC061
+  next_editorial_segment: SC061
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: >-
-    SC095 is now SPEC_READY through its exact source end: Marsyaa is taken into joint judicial
-    custody, Anaadhi's protected-transfer vehicle door remains closed and his hand stays open inside.
-    Continue directly to SC060 under the locked nonlinear editorial order; do not advance to SC096.
-
+  note: SC060 is now SPEC_READY as the Kendhalaa Police Independent Evidence Room scene. Anaadhi is physically and representationally absent; WC056 is NO SB; LOC-057 ST00 / ENV-KND-003 remains operationally reuse-audited but formally METADATA_LOCKED_VISUAL_PENDING. Continue directly to SC061.
 audio:
   mastered_prefix_locked: true
-  mastered_prefix_end_timecode: "00:02:14.293333"
+  mastered_prefix_end_timecode: '00:02:14.293333'
   mastered_prefix_end_seconds: 134.293333
   resume_mix_after_seconds: 134.293333
   reopen_locked_prefix_only_on_explicit_user_redraft: true
@@ -48,56 +42,62 @@ audio:
     picture_planning_duration_seconds: 90
     exact_master_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
-    subjective_sound_rule: "At SB004 onset external sound disappears; heartbeat remains until RST01 returns the physical cabin."
+    subjective_sound_rule: At SB004 onset external sound disappears; heartbeat remains until RST01 returns the physical cabin.
   SC005:
     dialogue_policy: CREATOR_RECORDING_ONLY
     picture_planning_duration_seconds: 72
     exact_master_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
-    source_transition: "Bright university-laboratory bridge / source screenplay SMASH CUT TO SC006"
-    final_editorial_transition: "CUT TO SC099B under EDITORIAL_SEQUENCE_LOCK.yaml"
+    source_transition: Bright university-laboratory bridge / source screenplay SMASH CUT TO SC006
+    final_editorial_transition: CUT TO SC099B under EDITORIAL_SEQUENCE_LOCK.yaml
   SC099B:
     voice_policy: CREATOR_RECORDED_VO_ONLY
     lip_sync_required: false
     picture_planning_duration_seconds: 48
     exact_audio_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
-    transition_in: "CUT FROM SC005 under final editorial lock"
-    transition_out: "CUT TO SC100 at MALLAYYA end anchor"
+    transition_in: CUT FROM SC005 under final editorial lock
+    transition_out: CUT TO SC100 at MALLAYYA end anchor
   SC100:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
     picture_planning_duration_seconds: 108
     exact_audio_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
-    transition_in: "CUT FROM SC099B handwritten MALLAYYA end anchor"
-    transition_out: "FADE OUT inside SC100 source scene, then editorial continuation CUT/assembly to SC094B under locked non-linear feature order"
-    final_sound_rule: "No mandatory heroic resolution cue; preserve humane restraint, quiet room tone and ordinary distant traffic unless creator later approves a different mix."
+    transition_in: CUT FROM SC099B handwritten MALLAYYA end anchor
+    transition_out: FADE OUT inside SC100 source scene, then editorial continuation CUT/assembly to SC094B under locked non-linear feature order
+    final_sound_rule: No mandatory heroic resolution cue; preserve humane restraint, quiet room tone and ordinary distant traffic unless creator later approves a different mix.
   SC094B:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
     picture_planning_duration_seconds: 36
     exact_audio_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
-    transition_in: "CUT/assembly from SC100 after its source-scene FADE OUT under nonlinear editorial lock"
-    transition_out: "CUT TO SC095 after ANAADHI: Because of evidence."
-    boundary_rule: "Do not import SC095 vehicle-door/open-hand beat into SC094B."
-    sound_rule: "Real checkpoint/evidence containment only; no Parallel-Earth or ADK-7 represented layer in WC089."
+    transition_in: CUT/assembly from SC100 after its source-scene FADE OUT under nonlinear editorial lock
+    transition_out: 'CUT TO SC095 after ANAADHI: Because of evidence.'
+    boundary_rule: Do not import SC095 vehicle-door/open-hand beat into SC094B.
+    sound_rule: Real checkpoint/evidence containment only; no Parallel-Earth or ADK-7 represented layer in WC089.
   SC095:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
     picture_planning_duration_seconds: 126
     exact_audio_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
-    transition_in: "CUT FROM SC094B after ANAADHI: Because of evidence."
-    transition_out: "CUT TO SC060 under EDITORIAL_SEQUENCE_LOCK.yaml after the closed vehicle door/open-hand end image"
-    special_sound_rule: "Only TP099/SB099 may carry represented Parallel-Earth sound; RST05 restores full physical checkpoint sound before the Young Sarjanya Member lowers his weapon."
-    final_sound_rule: "No celebration and no heroic music; end on quiet protected-vehicle interior with distant checkpoint ambience."
-
+    transition_in: 'CUT FROM SC094B after ANAADHI: Because of evidence.'
+    transition_out: CUT TO SC060 under EDITORIAL_SEQUENCE_LOCK.yaml after the closed vehicle door/open-hand end image
+    special_sound_rule: Only TP099/SB099 may carry represented Parallel-Earth sound; RST05 restores full physical checkpoint sound before the Young Sarjanya Member lowers his weapon.
+    final_sound_rule: No celebration and no heroic music; end on quiet protected-vehicle interior with distant checkpoint ambience.
+  SC060:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 72
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    transition_in: CUT FROM SC095 closed vehicle door/open-hand image under nonlinear editorial lock
+    transition_out: CUT TO SC061 after Aarathi leaves with the portable seventeen-name display
+    sound_rule: Physical evidence-room dialogue and restrained room tone only; no represented-layer audio, crime reenactment sound or victim voices.
 picture_master:
   width: 3840
   height: 1600
-  aspect_ratio: "2.40:1"
+  aspect_ratio: 2.40:1
   fps: 30
   baked_letterbox: false
-
 shot_density:
   target_minimum_stills_per_minute: 20
   SC002:
@@ -132,92 +132,73 @@ shot_density:
     duration_seconds: 126
     shot_count: 42
     stills_per_minute: 20
-
+  SC060:
+    duration_seconds: 72
+    shot_count: 24
+    stills_per_minute: 20
 env6_cursor:
-  latest_materialized_segment: SC095
-  source_scene: SC095
-  scene_condition: WC090
-  special_beat_intersects_scene: true
-  source_ruling: QUALIFIES_1_SB099
-  transformation_packet: TP099
-  special_beat: SB099
-  primary_grammar: GF10
-  ep_stack: [EP0, EP1, EP3, EP-U]
-  observer: OBS01
-  anchor: ANCH72
-  inverse: INV6-72
-  variation: [VAR6-01, VAR6-03]
-  reality_return: RST05
-  exact_onset: "Parallel Earths show Anaadhi breaking free"
-  exact_end: "Semmaa lowering every weapon."
-  zero_physical_residue: true
-  physical_location_root: LOC-075
-  physical_anchors:
-    - ENV-BOR-001
-    - ENV-BOR-002
-    - ENV-MOB-004
-    - ENV-MOB-005
-    - ENV-MOB-006
-    - ENV-MOB-007
-    - ENV-MOB-008
-  mobile_crosswalk:
-    ENV-MOB-004: LOC-077
-    ENV-MOB-005: LOC-076
-    ENV-MOB-006: NO_LOC_ALIAS_ASSERTED
-    ENV-MOB-007: NO_LOC_ALIAS_ASSERTED
-    ENV-MOB-008: NO_LOC_ALIAS_ASSERTED
-  lawful_sarjanya_arrival:
-    canonical_env_id: UNPROVEN
-    rule: "Separate exterior fleet dependency; never merge with ENV-MOB-006."
+  latest_materialized_segment: SC060
+  source_scene: SC060
+  scene_condition: WC056
+  special_beat_intersects_scene: false
+  source_ruling: NO_SB
+  disposition: EP0_PHYSICAL_EVIDENCE_ROOM_CHRONOLOGY_ONLY
+  physical_location_root: LOC-057
+  environment_anchor: ENV-KND-003
+  canonical_state: ST00
+  formal_visual_status: METADATA_LOCKED_VISUAL_PENDING
+  drive_reuse_audit: PASS
+  rukey: RUKEY_seventeen_name_display
   prohibited:
-    - ALTERNATE_OUTCOME_PROMOTED_TO_FACT
-    - PERSISTENT_PARALLEL_DAMAGE
-    - SEMMAA_PHYSICALLY_PRESENT_AFTER_RST05
-    - ASANA_LAWFUL_UNIT_MERGED_WITH_ENV_MOB_006
-    - ENV_MOB_008_USED_FOR_ANAADHI
-    - INVENTED_CHECKSUM_OR_SEAL_NUMBER
-
+  - PARALLEL_EARTH_VISUALIZATION
+  - CRIME_SCENE_RECONSTRUCTION
+  - VICTIM_APPARITIONS
+  - TRAVERSABLE_EVIDENCE_MAP
+  - PSYCHIATRIC_PROFILE_AS_MURDER_EVIDENCE
+  - ANAADHI_PHYSICAL_OR_REPRESENTED_APPEARANCE
+  - SC061_CONTENT
 character_cursor:
   anaadhi:
-    source_scene: SC095
-    required_state: AGE-ANAADHI-27-RECOVERY
-    height_cm: 193
-    custody: UNRESTRAINED_INSIDE_LOC-077
-    injury: HEALING_POST_SURGERY
-    costume_continuity: DARK_SHAWL_OVER_HEALING_WOUNDS
-    eighteen_name_list: INNER_POCKET
-    exact_visual_state: CONTROLLED_UNRESOLVED_B31_RECOVERY_LOOK
-    final_hand_state: OPEN_PHYSICAL
-    vehicle_door_end_state: CLOSED
-    must_not_import_SC100_final_state: true
-
+    source_scene: SC060
+    physical_presence: ABSENT
+    represented_presence: FORBIDDEN
+  aarathi:
+    identity: CHR-AARATHI
+    base_identity_status: APPROVED
+    scene_look: CONTROLLED_UNRESOLVED_SC060
+    portable_display_custody: ACQUIRED_AT_SC060_END
+  unnath:
+    approved_visual_reference: MISSING_APPROVED_ASSET
+    scene_look: CONTROLLED_UNRESOLVED
+  police_analyst:
+    approved_visual_reference: UNPROVEN
+    scene_look: CONTROLLED_UNRESOLVED
 editorial_lock:
   enabled: true
   split_scene_ids:
-    - SC074
-    - SC094
-    - SC099
+  - SC074
+  - SC094
+  - SC099
   split_segment_completed:
-    - SC094B
-    - SC099B
+  - SC094B
+  - SC099B
   final_end_after: SC099A
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
   first_jump_completed_at: SC005
-  current_completed_segment: SC095
-  next_editorial_segment: SC060
+  current_completed_segment: SC060
+  next_editorial_segment: SC061
   remaining_materialization_order:
-    - SC060-SC073
-    - SC074A
-    - SC006-SC059
-    - SC074B
-    - SC075-SC093
-    - SC094A
-    - SC096-SC098
-    - SC099A
-    - END
+  - SC061-SC073
+  - SC074A
+  - SC006-SC059
+  - SC074B
+  - SC075-SC093
+  - SC094A
+  - SC096-SC098
+  - SC099A
+  - END
   final_reel_boundaries_deferred_until_duration_lock: true
-
 revision_policy:
   scene_local: true
   shot_local: true

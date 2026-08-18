@@ -1,8 +1,7 @@
-version: 9
+version: 10
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
-
 coverage:
   SC001:
     state: LEGACY_SCENE_PLAN_PRESENT
@@ -25,7 +24,7 @@ coverage:
     shot_count: 20
     duration_seconds: 60
     stills_per_minute: 20
-    parallel_earth: "SB003 / GF02 / ANCH02 / INV6-02 / WC001-C / RST01"
+    parallel_earth: SB003 / GF02 / ANCH02 / INV6-02 / WC001-C / RST01
     image_generation_started: false
   SC004:
     state: SPEC_READY
@@ -34,7 +33,7 @@ coverage:
     shot_count: 36
     duration_seconds: 90
     stills_per_minute: 24
-    parallel_earth: "SB004 / TP004 / GF03 / ANCH02 / INV6-02 / WC001-D / RST01"
+    parallel_earth: SB004 / TP004 / GF03 / ANCH02 / INV6-02 / WC001-D / RST01
     image_generation_started: false
   SC005:
     state: SPEC_READY
@@ -43,7 +42,7 @@ coverage:
     shot_count: 24
     duration_seconds: 72
     stills_per_minute: 20
-    parallel_earth: "SB005 / TP005 / GF06 / OBS03 / ANCH02 / INV6-02 / WC001-E / RST03"
+    parallel_earth: SB005 / TP005 / GF06 / OBS03 / ANCH02 / INV6-02 / WC001-E / RST03
     image_generation_started: false
     source_screenplay_next: SC006
     final_editorial_next: SC099B
@@ -56,8 +55,8 @@ coverage:
     shot_count: 16
     duration_seconds: 48
     stills_per_minute: 20
-    env6_disposition: "EP0 physical chronology only; SB103/GF11/EP7 belongs to SC099A and is excluded"
-    location: "LOC-085 / WC094 / ENV-IJM-002 semantic writing-room authority; no proven SUB-085 visual ID"
+    env6_disposition: EP0 physical chronology only; SB103/GF11/EP7 belongs to SC099A and is excluded
+    location: LOC-085 / WC094 / ENV-IJM-002 semantic writing-room authority; no proven SUB-085 visual ID
     image_generation_started: false
     final_editorial_next: SC100
   SC100:
@@ -68,9 +67,9 @@ coverage:
     shot_count: 36
     duration_seconds: 108
     stills_per_minute: 20
-    env6_disposition: "NO SB / EP0 physical chronology only"
-    location: "LOC-087 / SUB-087-01 / ENV-IJM-001 + ENV-IJM-003 + ENV-IJM-004 / WC095"
-    anaadhi_state: "AGE-ANAADHI-27-FINAL + HR-ANAADHI-27-FINAL + CST-ANAADHI-27-FINAL + INJ-ANAADHI-27-FINAL; final garment controlled-unresolved"
+    env6_disposition: NO SB / EP0 physical chronology only
+    location: LOC-087 / SUB-087-01 / ENV-IJM-001 + ENV-IJM-003 + ENV-IJM-004 / WC095
+    anaadhi_state: AGE-ANAADHI-27-FINAL + HR-ANAADHI-27-FINAL + CST-ANAADHI-27-FINAL + INJ-ANAADHI-27-FINAL; final garment controlled-unresolved
     image_generation_started: false
     render_started: false
     final_editorial_next: SC094B
@@ -83,10 +82,10 @@ coverage:
     shot_count: 12
     duration_seconds: 36
     stills_per_minute: 20
-    env6_disposition: "WC089 / NO SB / EP0 physical checkpoint chronology only"
-    location: "LOC-075 / ENV-BOR-001 + ENV-BOR-002; mobile ENV-MOB-004/005/006/007; LOC-077 and LOC-076 exact where mapped"
-    source_end: "ANAADHI: Because of evidence."
-    boundary_note: "Vehicle-door/open-hand beat belongs to SC095 and is not imported into SC094B."
+    env6_disposition: WC089 / NO SB / EP0 physical checkpoint chronology only
+    location: LOC-075 / ENV-BOR-001 + ENV-BOR-002; mobile ENV-MOB-004/005/006/007; LOC-077 and LOC-076 exact where mapped
+    source_end: 'ANAADHI: Because of evidence.'
+    boundary_note: Vehicle-door/open-hand beat belongs to SC095 and is not imported into SC094B.
     image_generation_started: false
     render_started: false
     final_editorial_next: SC095
@@ -98,55 +97,67 @@ coverage:
     shot_count: 42
     duration_seconds: 126
     stills_per_minute: 20
-    parallel_earth: "TP099 / SB099 / GF10 / EP0+EP1+EP3+EP-U / OBS01 / ANCH72 / INV6-72 / WC090 / VAR6-01+VAR6-03 / RST05"
-    location: "LOC-075 / ENV-BOR-001 + ENV-BOR-002; ENV-MOB-004/005/006/007/008; LOC-077 and LOC-076 exact where mapped"
-    boundary_note: "SB099 exists only from Parallel Earths show Anaadhi breaking free through Semmaa lowering every weapon; all other SC095 action is physical chronology."
+    parallel_earth: TP099 / SB099 / GF10 / EP0+EP1+EP3+EP-U / OBS01 / ANCH72 / INV6-72 / WC090 / VAR6-01+VAR6-03 / RST05
+    location: LOC-075 / ENV-BOR-001 + ENV-BOR-002; ENV-MOB-004/005/006/007/008; LOC-077 and LOC-076 exact where mapped
+    boundary_note: SB099 exists only from Parallel Earths show Anaadhi breaking free through Semmaa lowering every weapon; all other SC095 action is physical chronology.
     image_generation_started: false
     render_started: false
     final_editorial_next: SC060
+  SC060:
+    state: SPEC_READY
+    source_scene_id: SC060
+    source: scenes/060/scene.yaml
+    shot_package: production/remotion/shot_specs/SC060/SC060_SHOT_PACKAGE.json
+    shot_count: 24
+    duration_seconds: 72
+    stills_per_minute: 20
+    env6_disposition: WC056 / NO SB / EP0 physical evidence-room chronology only
+    location: LOC-057 ST00 / ENV-KND-003; Drive reuse audit PASS; formal visual status METADATA_LOCKED_VISUAL_PENDING
+    evidence_control: RUKEY_seventeen_name_display custody origin; Anaadhi absent; flat evidence interfaces only
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC061
   SC006-SC099:
     state: NOT_YET_MATERIALIZED_EXCEPT_LISTED_SEGMENTS
-    exceptions: [SC094B, SC095, SC099B]
-    note: >-
-      Source scene numbers remain screenplay authority, but final render order follows
-      EDITORIAL_SEQUENCE_LOCK.yaml. SC094B, SC095 and SC099B are independently materialized;
-      SC094A and SC099A remain pending at their locked later editorial positions.
-
+    exceptions:
+    - SC060
+    - SC094B
+    - SC095
+    - SC099B
+    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   source_numeric_order_is_not_final_render_order: true
   first_editorial_jump_reached: true
   split_packages_required:
-    - SC074A
-    - SC074B
-    - SC094A
-    - SC094B
-    - SC099A
-    - SC099B
+  - SC074A
+  - SC074B
+  - SC094A
+  - SC094B
+  - SC099A
+  - SC099B
   split_packages_materialized:
-    - SC094B
-    - SC099B
+  - SC094B
+  - SC099B
   remaining_materialization_order:
-    - SC060-SC073
-    - SC074A
-    - SC006-SC059
-    - SC074B
-    - SC075-SC093
-    - SC094A
-    - SC096-SC098
-    - SC099A
-    - END
-
+  - SC061-SC073
+  - SC074A
+  - SC006-SC059
+  - SC074B
+  - SC075-SC093
+  - SC094A
+  - SC096-SC098
+  - SC099A
+  - END
 cursor:
-  last_materialized_source_scene: SC095
-  last_materialized_editorial_segment: SC095
-  next_scene: SC060
-  next_editorial_segment: SC060
-  after_SC095: SC060
+  last_materialized_source_scene: SC060
+  last_materialized_editorial_segment: SC060
+  next_scene: SC061
+  next_editorial_segment: SC061
+  after_SC060: SC061
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
-
 backend:
   github: CANONICAL
   chat_storyboard_generation: ENABLED_AFTER_SPEC_READY
