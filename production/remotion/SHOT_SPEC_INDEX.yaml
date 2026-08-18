@@ -1,4 +1,4 @@
-version: 8
+version: 9
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -90,12 +90,26 @@ coverage:
     image_generation_started: false
     render_started: false
     final_editorial_next: SC095
+  SC095:
+    state: SPEC_READY
+    source_scene_id: SC095
+    source: scenes/095/scene.yaml
+    shot_package: production/remotion/shot_specs/SC095/SC095_SHOT_PACKAGE.json
+    shot_count: 42
+    duration_seconds: 126
+    stills_per_minute: 20
+    parallel_earth: "TP099 / SB099 / GF10 / EP0+EP1+EP3+EP-U / OBS01 / ANCH72 / INV6-72 / WC090 / VAR6-01+VAR6-03 / RST05"
+    location: "LOC-075 / ENV-BOR-001 + ENV-BOR-002; ENV-MOB-004/005/006/007/008; LOC-077 and LOC-076 exact where mapped"
+    boundary_note: "SB099 exists only from Parallel Earths show Anaadhi breaking free through Semmaa lowering every weapon; all other SC095 action is physical chronology."
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC060
   SC006-SC099:
     state: NOT_YET_MATERIALIZED_EXCEPT_LISTED_SEGMENTS
-    exceptions: [SC094B, SC099B]
+    exceptions: [SC094B, SC095, SC099B]
     note: >-
       Source scene numbers remain screenplay authority, but final render order follows
-      EDITORIAL_SEQUENCE_LOCK.yaml. SC094B and SC099B are independently materialized;
+      EDITORIAL_SEQUENCE_LOCK.yaml. SC094B, SC095 and SC099B are independently materialized;
       SC094A and SC099A remain pending at their locked later editorial positions.
 
 editorial:
@@ -114,7 +128,6 @@ editorial:
     - SC094B
     - SC099B
   remaining_materialization_order:
-    - SC095
     - SC060-SC073
     - SC074A
     - SC006-SC059
@@ -126,11 +139,11 @@ editorial:
     - END
 
 cursor:
-  last_materialized_source_scene: SC094
-  last_materialized_editorial_segment: SC094B
-  next_scene: SC095
-  next_editorial_segment: SC095
-  after_SC094B: SC095
+  last_materialized_source_scene: SC095
+  last_materialized_editorial_segment: SC095
+  next_scene: SC060
+  next_editorial_segment: SC060
+  after_SC095: SC060
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 
