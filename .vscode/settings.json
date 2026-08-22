@@ -1,0 +1,4 @@
+{
+  "chat.defaultModel": "auto",
+  "chat.byokUtilityModelDefault": "GitHub Copilot"
+}
