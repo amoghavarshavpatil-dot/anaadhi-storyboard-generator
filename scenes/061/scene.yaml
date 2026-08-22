@@ -1,0 +1,98 @@
+scene_id: SC061
+source_scene_number: 61
+status: SPEC_READY
+heading: EXT. BHAIGAARA BUFFER FOREST – ABANDONED CABINS / REST PATH – DAY
+editorial_previous: SC060
+editorial_next: SC062
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+source_boundary:
+  start: Aarathi moves alone through Anaadhi’s abandoned shelters. She carries no visible weapon.
+  end: The cabin door opens a few inches.
+  start_inclusive: true
+  end_inclusive: true
+env6:
+  condition: WC057
+  ruling: NO_SB
+  disposition: EP0_PHYSICAL_SEARCH_AND_CABIN_DISCOVERY_ONLY
+  special_beat_intersects_scene: false
+  physical_anchors:
+  - ENV-BHG-001
+  - ENV-BHG-021
+  - ENV-CAB-007
+  - ENV-CAB-008
+  special_grammar_ids: null
+  forbid:
+  - PARALLEL_EARTH
+  - MEMORY_VARIANT_LAYER
+  - TRAVERSABLE_MAP
+  - WATER_FLOW_AS_ANIMATED_ROUTE
+  - GATHERER_CHILD_AS_PARALLEL_CHILD
+  - SC062_INTERIOR_OR_DIALOGUE
+locations:
+  LOC-058:
+    name: Bhaigaara Abandoned-Cabins Cluster
+    semantic_anchor: ENV-CAB-007
+    state: ST00
+    drive_audit: PASS
+    rule: Multiple distinct abandoned shelters; never merge into one cabin or LOC-001.
+    formal_visual_status: OPERATIONAL_REUSE_PASS__FORMAL_ENV6L_PIXEL_APPROVAL_NOT_ASSERTED
+  LOC-056:
+    name: Forest Rest Path
+    semantic_anchor: ENV-BHG-021
+    state: ST00
+    drive_audit: PASS
+    rule: Same Madhava rest-path geography as SC059.
+    formal_visual_status: OPERATIONAL_REUSE_PASS__FORMAL_ENV6L_PIXEL_APPROVAL_NOT_ASSERTED
+  LOC-059:
+    name: Bhaigaara Buffer Forest Approach
+    semantic_anchor: ENV-BHG-001
+    state: ST00
+    drive_audit: PASS
+    rule: Dense physical approach to LOC-001; no animated route or operation overlay.
+    formal_visual_status: OPERATIONAL_REUSE_PASS__FORMAL_ENV6L_PIXEL_APPROVAL_NOT_ASSERTED
+  LOC-001:
+    name: Anaadhi Primary / Final / Raised Cabin
+    semantic_anchor: ENV-CAB-008
+    subspace: SUB-001-01 Exterior Cabin Site
+    state: ST00
+    env6l_status: METADATA_LOCKED_VISUAL_PENDING
+    approved_pixel_reference_asserted: false
+    rule: SC061 pre-capture intact raised cabin above drainage; door closed until final beat, then opens only a few inches.
+characters:
+  AARATHI: CHR-AARATHI base biological identity APPROVED; exact SC061 field look CONTROLLED_UNRESOLVED; no visible weapon.
+  GATHERER_FAMILY_CHILD: REAL_PHYSICAL_WITNESS; name/age/look CONTROLLED_UNRESOLVED; never Parallel Child Anaadhi.
+  ANAADHI: O.S. ONLY in SC061; do not reveal physical body/face/posture before SC062.
+continuity_controls:
+  portable_seventeen_name_display:
+    rukey: RUKEY_seventeen_name_display
+    custody: AARATHI_CARRIED_FROM_SC060
+    readable_name_rule: Do not fabricate readable victim names.
+  madhava_repaired_bag:
+    rukey: RUKEY_madhava_repaired_bag
+    identity: SAME_PHYSICAL_BAG_FROM_SC059_SC060
+    state: ST01_LEAF_PROTECTION_CONTINUITY
+    replacement_forbidden: true
+  abandoned_shelter_residue:
+  - medicinal tools
+  - repaired cooking vessels
+  - burned alcohol jars
+  - prayer stones
+  - covered mirrors
+  - incomplete lists
+  raised_cabin:
+  - old drainage line
+  - exactly seventeen small lamps
+  - occupant-controlled door
+shot_plan:
+  shot_count: 30
+  duration_seconds: 90
+  stills_per_minute: 20
+  shot_package: production/remotion/shot_specs/SC061/SC061_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  mastered_prefix_end_timecode: 00:02:14.293333
+  retime_locked_master: false
+next: SC062

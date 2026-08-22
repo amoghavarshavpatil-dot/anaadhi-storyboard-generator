@@ -1,7 +1,7 @@
-version: 11
+version: 12
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: '2026-08-18T06:06:00+05:30'
+as_of_local: '2026-08-22T18:45:00+05:30'
 backend:
   github_canonical_control: true
   chat_storyboard_generation: true
@@ -18,13 +18,13 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC060
-  latest_source_scene_materialized: SC060
-  next_scene_to_materialize: SC061
-  next_editorial_segment: SC061
+  latest_new_schema_materialized: SC061
+  latest_source_scene_materialized: SC061
+  next_scene_to_materialize: SC062
+  next_editorial_segment: SC062
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC060 is now SPEC_READY as the Kendhalaa Police Independent Evidence Room scene. Anaadhi is physically and representationally absent; WC056 is NO SB; LOC-057 ST00 / ENV-KND-003 remains operationally reuse-audited but formally METADATA_LOCKED_VISUAL_PENDING. Continue directly to SC061.
+  note: SC061 is SPEC_READY through the exact door-opens-a-few-inches end boundary. WC057 is NO SB; the search remains physical chronology. Continue directly to SC062; do not reveal or enter the cabin interior before SC062.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
@@ -92,6 +92,14 @@ audio:
     transition_in: CUT FROM SC095 closed vehicle door/open-hand image under nonlinear editorial lock
     transition_out: CUT TO SC061 after Aarathi leaves with the portable seventeen-name display
     sound_rule: Physical evidence-room dialogue and restrained room tone only; no represented-layer audio, crime reenactment sound or victim voices.
+  SC061:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 90
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    transition_in: CUT FROM SC060 with Aarathi retaining custody of RUKEY_seventeen_name_display
+    transition_out: CUT TO SC062 only after the LOC-001 door opens a few inches
+    sound_rule: Physical forest/search ambience only; no represented-layer audio, victim voices, crime reenactment or heroic cabin reveal.
 picture_master:
   width: 3840
   height: 1600
@@ -100,96 +108,82 @@ picture_master:
   baked_letterbox: false
 shot_density:
   target_minimum_stills_per_minute: 20
-  SC002:
-    duration_seconds: 54
-    shot_count: 18
-    stills_per_minute: 20
-  SC003:
-    duration_seconds: 60
-    shot_count: 20
-    stills_per_minute: 20
-  SC004:
-    duration_seconds: 90
-    shot_count: 36
-    stills_per_minute: 24
-  SC005:
-    duration_seconds: 72
-    shot_count: 24
-    stills_per_minute: 20
-  SC099B:
-    duration_seconds: 48
-    shot_count: 16
-    stills_per_minute: 20
-  SC100:
-    duration_seconds: 108
-    shot_count: 36
-    stills_per_minute: 20
-  SC094B:
-    duration_seconds: 36
-    shot_count: 12
-    stills_per_minute: 20
-  SC095:
-    duration_seconds: 126
-    shot_count: 42
-    stills_per_minute: 20
-  SC060:
-    duration_seconds: 72
-    shot_count: 24
-    stills_per_minute: 20
+  SC002: {duration_seconds: 54, shot_count: 18, stills_per_minute: 20}
+  SC003: {duration_seconds: 60, shot_count: 20, stills_per_minute: 20}
+  SC004: {duration_seconds: 90, shot_count: 36, stills_per_minute: 24}
+  SC005: {duration_seconds: 72, shot_count: 24, stills_per_minute: 20}
+  SC099B: {duration_seconds: 48, shot_count: 16, stills_per_minute: 20}
+  SC100: {duration_seconds: 108, shot_count: 36, stills_per_minute: 20}
+  SC094B: {duration_seconds: 36, shot_count: 12, stills_per_minute: 20}
+  SC095: {duration_seconds: 126, shot_count: 42, stills_per_minute: 20}
+  SC060: {duration_seconds: 72, shot_count: 24, stills_per_minute: 20}
+  SC061: {duration_seconds: 90, shot_count: 30, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC060
-  source_scene: SC060
-  scene_condition: WC056
+  latest_materialized_segment: SC061
+  source_scene: SC061
+  scene_condition: WC057
   special_beat_intersects_scene: false
   source_ruling: NO_SB
-  disposition: EP0_PHYSICAL_EVIDENCE_ROOM_CHRONOLOGY_ONLY
-  physical_location_root: LOC-057
-  environment_anchor: ENV-KND-003
-  canonical_state: ST00
-  formal_visual_status: METADATA_LOCKED_VISUAL_PENDING
-  drive_reuse_audit: PASS
-  rukey: RUKEY_seventeen_name_display
+  disposition: EP0_PHYSICAL_SEARCH_AND_CABIN_DISCOVERY_ONLY
+  physical_anchors:
+  - ENV-BHG-001
+  - ENV-BHG-021
+  - ENV-CAB-007
+  - ENV-CAB-008
+  loc_crosswalk:
+    ENV-CAB-007: LOC-058
+    ENV-BHG-021: LOC-056
+    ENV-BHG-001: LOC-059_SEARCH_APPROACH_COMPONENT
+    ENV-CAB-008: LOC-001
+    LOC-001_SUBSPACE: SUB-001-01
+  weather_time: DAY__WEATHER_UNSTATED
+  madhava_bag:
+    rukey: RUKEY_madhava_repaired_bag
+    state: ST01_LEAF_PROTECTION_CONTINUITY
+    same_physical_object: true
+  seventeen_name_display:
+    rukey: RUKEY_seventeen_name_display
+    custody: AARATHI_CARRIED_FROM_SC060
+  loc_001_visual_status: METADATA_LOCKED_VISUAL_PENDING
   prohibited:
   - PARALLEL_EARTH_VISUALIZATION
-  - CRIME_SCENE_RECONSTRUCTION
+  - MEMORY_VARIANT_LAYER
   - VICTIM_APPARITIONS
-  - TRAVERSABLE_EVIDENCE_MAP
-  - PSYCHIATRIC_PROFILE_AS_MURDER_EVIDENCE
-  - ANAADHI_PHYSICAL_OR_REPRESENTED_APPEARANCE
-  - SC061_CONTENT
+  - TRAVERSABLE_MAP
+  - ANIMATED_WATER_ROUTE
+  - GATHERER_CHILD_AS_PARALLEL_CHILD
+  - ANAADHI_VISIBLE_BEFORE_SC062
+  - SC062_CONTENT
 character_cursor:
   anaadhi:
-    source_scene: SC060
-    physical_presence: ABSENT
-    represented_presence: FORBIDDEN
+    source_scene: SC061
+    physical_visibility: FORBIDDEN_IN_SC061
+    dialogue_presence: O_S_ONLY
+    exact_visual_state: DEFER_TO_SC062_AUTHORITY
   aarathi:
     identity: CHR-AARATHI
     base_identity_status: APPROVED
-    scene_look: CONTROLLED_UNRESOLVED_SC060
-    portable_display_custody: ACQUIRED_AT_SC060_END
-  unnath:
-    approved_visual_reference: MISSING_APPROVED_ASSET
-    scene_look: CONTROLLED_UNRESOLVED
-  police_analyst:
-    approved_visual_reference: UNPROVEN
-    scene_look: CONTROLLED_UNRESOLVED
+    scene_look: CONTROLLED_UNRESOLVED_SC061_FIELD
+    visible_weapon: false
+    portable_display_custody: CONTINUES_FROM_SC060
+  gatherer_family_child:
+    physical_witness: true
+    identity_master: UNPROVEN
+    name: UNSPECIFIED
+    exact_age: UNSPECIFIED
+    parallel_identity: false
 editorial_lock:
   enabled: true
-  split_scene_ids:
-  - SC074
-  - SC094
-  - SC099
-  split_segment_completed:
-  - SC094B
-  - SC099B
+  split_scene_ids: [SC074, SC094, SC099]
+  split_segment_completed: [SC094B, SC099B]
   final_end_after: SC099A
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
   first_jump_completed_at: SC005
-  current_completed_segment: SC060
-  next_editorial_segment: SC061
+  current_completed_segment: SC061
+  next_editorial_segment: SC062
   remaining_materialization_order:
-  - SC061-SC073
+  - SC062-SC073
   - SC074A
   - SC006-SC059
   - SC074B
