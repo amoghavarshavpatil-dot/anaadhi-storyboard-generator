@@ -77,7 +77,7 @@ shots:
     regenerate: false
 
   - shot_id: "SC001_SH003"
-    status: DRAFT
+    status: APPROVED_SHOT
     duration_seconds: 5.0
     purpose: "Thermal confirmation: one body inside"
     framing: "medium close insert on Police Commander's wrist and reflected cabin"
@@ -85,12 +85,17 @@ shots:
     visual_prompt: "wet tactical wrist display in pre-dawn rain showing thermal silhouette of one human body inside raised wooden cabin, Police Commander partially visible, cinematic photorealism"
     negative_prompt: "readable exposition text, sci-fi hologram clutter, letterbox bars"
     reference_assets: []
+    approved_asset:
+      version: V001
+      path: "production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED_3840x1600.png"
+      sha256: "8b22bd4449159833b02da8e6535dd4e2c1f0cd81e2562d8d8e0f6af0603f633f"
+      manifest: "production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED.yaml"
     visible_speaker: POLICE_COMMANDER
     lip_sync_required: false
     dialogue_clip: null
     bgm_cue: "thin tension layer"
     sfx_cues: ["wrist interface pulse", "radio static", "rain"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH004"
     status: DRAFT

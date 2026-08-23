@@ -1,0 +1,77 @@
+version: 1
+project: ANAADHI
+canonical_shot_key: B01_SC001_SH003
+scene_id: SC001
+shot_id: SC001_SH003
+candidate_version: V001
+lifecycle_status: APPROVED_SHOT
+generated_at: 2026-08-23
+
+source:
+  authority: scenes/001/scene.yaml
+  purpose: "Thermal confirmation: one body inside."
+  framing: medium close insert on Police Commander's wrist and reflected cabin
+  camera_motion: minimal handheld micro-movement
+  continuity_references:
+    - production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED_3840x1600.png
+    - production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+  generation_backend: CHATGPT_BUILT_IN_IMAGE_GENERATION
+  supercool_used: false
+  heygen_used: false
+  paid_media_api_used: false
+
+controlled_inference:
+  reason: PRP-PARAANE-WRIST-DEVICE has no approved binary asset in the repository.
+  applied_design_grammar: >-
+    Low-profile longitudinal wrist rail with graphite ceramic-polymer body, matte
+    technical band, dark conductive side rails, shallow docking groove and a
+    restrained dark display. No generic smartwatch, military bulk or cyberpunk styling.
+  approval_scope: Approved within SC001_SH003 V001 by the user.
+
+generation_prompt:
+  positive: >-
+    Rain-wet Police Commander checks a low-profile graphite wrist display in the
+    pre-dawn rainforest operation. Medium-close over-shoulder insert with the device
+    in sharp focus, the Commander partially visible and silent, and the approved
+    raised wooden cabin softly present behind him. The display contains exactly one
+    restrained warm thermal human silhouette inside the cabin. Grounded cinematic
+    photorealism, cool blue-black rain, subtle amber cabin practicals, full-bleed 2.40:1.
+  negative:
+    - readable text or numbers
+    - captions or watermark
+    - letterbox bars or storyboard borders
+    - generic smartwatch
+    - floating hologram
+    - neon cyberpunk interface
+    - bulky military device
+    - HUD clutter
+    - more than one thermal body
+    - speaking pose
+
+picture_master:
+  native_path: production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED_NATIVE_1942x809.png
+  native_resolution: 1942x809
+  native_sha256: 75c5a9dc4ec5fb0a6afc0101109e84266b53b119d81c8d3f5680d97a6bbd1d6f
+  canonical_review_path: production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED_3840x1600.png
+  canonical_review_resolution: 3840x1600
+  canonical_review_sha256: 8b22bd4449159833b02da8e6535dd4e2c1f0cd81e2562d8d8e0f6af0603f633f
+  canonical_resample: LANCZOS_MECHANICAL_ONLY
+  baked_letterbox_bars: false
+
+qc:
+  approved_sh002_world_continuity_pass: true
+  police_commander_identity_pass: true
+  wrist_insert_framing_pass: true
+  exactly_one_thermal_body_pass: true
+  raised_cabin_anchor_pass: true
+  black_rain_pass: true
+  no_text_or_bars_pass: true
+  overall_result: APPROVED_BY_USER
+
+review_gate:
+  user_approval: APPROVED
+  approved_at: 2026-08-23
+  next_shot: SC001_SH004
+  next_shot_generation_blocked_until_decision: false
+  approved_shot_claimed: true
+  locked_picture_claimed: false
