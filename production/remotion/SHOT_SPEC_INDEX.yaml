@@ -1,4 +1,4 @@
-version: 12
+version: 13
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -146,16 +146,33 @@ coverage:
     image_generation_started: false
     render_started: false
     final_editorial_next: SC063
+  SC063:
+    state: SPEC_READY
+    source_scene_id: SC063
+    source: scenes/063/scene.yaml
+    shot_package: production/remotion/shot_specs/SC063/SC063_SHOT_PACKAGE.json
+    shot_count: 48
+    duration_seconds: 144
+    stills_per_minute: 20
+    env6_disposition: WC059 / NO SB / EP0 physical surrender-terms chronology only; inner-voice discussion remains testimony and is not visualized
+    location: LOC-001 / ENV-CAB-008 / ST00; before dawn; interior subspace controlled-unresolved
+    evidence_control: exactly 17 lamps and 17 wooden names persist; same RUKEY_seventeen_name_display begins beside wood list and Aarathi takes it at scene end
+    weapon_control: Anaadhi weapons locked beneath PRP-SPLIT-FLOORBOARD and never visible; key remains on table; no floorboard opening
+    technology_control: consented location and surrender conditions sent to Unnath; integrated Paraane authorisation auto-copies Anarvaa and central medical command; first hidden drones enter forest only at exact SC063 end
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC064
   SC006-SC099:
     state: NOT_YET_MATERIALIZED_EXCEPT_LISTED_SEGMENTS
     exceptions:
     - SC060
     - SC061
     - SC062
+    - SC063
     - SC094B
     - SC095
     - SC099B
-    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060, SC061, SC062, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
+    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060-SC063, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
@@ -172,7 +189,7 @@ editorial:
   - SC094B
   - SC099B
   remaining_materialization_order:
-  - SC063-SC073
+  - SC064-SC073
   - SC074A
   - SC006-SC059
   - SC074B
@@ -182,11 +199,11 @@ editorial:
   - SC099A
   - END
 cursor:
-  last_materialized_source_scene: SC062
-  last_materialized_editorial_segment: SC062
-  next_scene: SC063
-  next_editorial_segment: SC063
-  after_SC062: SC063
+  last_materialized_source_scene: SC063
+  last_materialized_editorial_segment: SC063
+  next_scene: SC064
+  next_editorial_segment: SC064
+  after_SC063: SC064
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:
