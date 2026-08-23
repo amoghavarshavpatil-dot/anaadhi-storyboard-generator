@@ -1,0 +1,67 @@
+name: Zyrex full catalogue audit
+
+on:
+  push:
+    branches:
+      - zyrex-catalogue-audit
+    paths-ignore:
+      - 'data/zyrex/**'
+      - 'reports/zyrex/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zyrex-full-catalogue-audit
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout isolated audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: zyrex-catalogue-audit
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install crawler dependencies
+        run: pip install -r zyrex-audit/requirements.txt
+
+      - name: Crawl complete public Zyrex catalogue
+        run: >-
+          python zyrex-audit/zyrex_catalogue_crawler.py
+          --base-url https://zyrexayurveda.com/
+          --out-dir data/zyrex
+          --expected-min 4000
+          --workers 2
+          --delay 0.20
+
+      - name: Upload crawl output as workflow artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zyrex-full-catalogue-audit
+          path: |
+            data/zyrex/
+            reports/zyrex/
+          retention-days: 30
+
+      - name: Commit verified registry output to isolated branch
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/zyrex reports/zyrex
+          if git diff --cached --quiet; then
+            echo "No catalogue changes to commit."
+          else
+            git commit -m "Update Zyrex full catalogue registry [skip ci]"
+            git push origin HEAD:zyrex-catalogue-audit
+          fi

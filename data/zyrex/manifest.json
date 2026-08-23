@@ -1,0 +1,15 @@
+{
+  "project": "ZYREX_FULL_PRODUCT_REGISTRY",
+  "base_url": "https://zyrexayurveda.com/",
+  "generated_at_utc": "2026-08-23T20:04:38+00:00",
+  "enumeration_sources": {
+    "sitemap": 4866
+  },
+  "product_urls_discovered": 4866,
+  "unique_canonical_products": 4850,
+  "failed_product_pages": 16,
+  "possible_variant_groups": 762,
+  "expected_minimum_gate": 4000,
+  "gate_passed": true,
+  "source_text_policy": "<= 180 source-derived words retained per product; canonical URL and SHA-256 retained for audit."
+}
