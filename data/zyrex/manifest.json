@@ -1,45 +1,15 @@
 {
   "project": "ZYREX_FULL_PRODUCT_REGISTRY",
   "base_url": "https://zyrexayurveda.com/",
-  "generated_at_utc": "2026-08-23T16:36:36+00:00",
+  "generated_at_utc": "2026-08-23T20:04:38+00:00",
   "enumeration_sources": {
-    "store_api": {
-      "status": 200,
-      "pages_fetched": 49,
-      "total_header": 4855,
-      "total_pages_header": 49,
-      "records_received": 4855,
-      "records_normalized": 4855
-    }
+    "sitemap": 4866
   },
-  "product_urls_discovered": 4855,
-  "product_pages_fetched": 0,
-  "unique_canonical_products": 4855,
-  "duplicates_resolved": 0,
-  "failed_product_pages": 0,
-  "possible_variant_groups": 756,
-  "categories_covered": 13,
-  "category_names": [
-    "Acute Kidney Failure",
-    "Acute Liver Failure",
-    "Anti Cancer Herbs and Extracts",
-    "Ayurvedic Bhasma",
-    "Cancer",
-    "Herbal Extracts",
-    "Liquid and Soft Extract",
-    "Natural Ingredients for Beauty and Cosmetic",
-    "Organic Flavonoids",
-    "Personal Care",
-    "Rare and Essential Oils",
-    "Raw Herbs &amp; Powder and Spices",
-    "Spray Dried Fruit and Vegetable Powders"
-  ],
-  "complete_records": 2795,
-  "partial_records": 2060,
-  "missing_data_records": 4854,
-  "high_risk_claim_records": 747,
-  "moderate_risk_claim_records": 1093,
+  "product_urls_discovered": 4866,
+  "unique_canonical_products": 4850,
+  "failed_product_pages": 16,
+  "possible_variant_groups": 762,
   "expected_minimum_gate": 4000,
   "gate_passed": true,
-  "source_text_policy": "<= 180 source-derived words retained per product; canonical source URL and SHA-256 retained."
+  "source_text_policy": "<= 180 source-derived words retained per product; canonical URL and SHA-256 retained for audit."
 }
