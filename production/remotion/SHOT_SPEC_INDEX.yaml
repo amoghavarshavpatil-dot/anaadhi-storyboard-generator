@@ -1,4 +1,4 @@
-version: 14
+version: 15
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -178,6 +178,23 @@ coverage:
     image_generation_started: false
     render_started: false
     final_editorial_next: SC065
+  SC065:
+    state: SPEC_READY
+    source_scene_id: SC065
+    source: scenes/065/scene.yaml
+    shot_package: production/remotion/shot_specs/SC065/SC065_SHOT_PACKAGE.json
+    shot_count: 74
+    duration_seconds: 222
+    stills_per_minute: 20
+    parallel_earth: SB069 / GF10 / Band D / EP0+EP1+EP3+EP-U / OBS01 / ANCH02 / INV6-02 / WC061 / VAR6-01+VAR6-03 / RST02
+    location: LOC-003/SUB-003-25 pharmaceutical transfer vault + LOC-001 Bhaigaara buffer forest approach (subspace controlled-unresolved) + LOC-001/ENV-CAB-008/ST00 primary cabin + rear staircase subspace controlled-unresolved
+    evidence_control: same RUKEY_seventeen_name_display from SC060-SC064; exactly 17 names; Aarathi hands it to Anaadhi, Anaadhi opens/folds/returns it, Aarathi re-clips it into rainproof satchel; no fabricated names
+    pharmaceutical_control: initial 12 PNX-4; only Unit 07 replaced by darker ADK-7 under restricted override; final display says TWELVE AUTHORISED UNITS; no drug administration in SC065
+    character_control: Anaadhi age27/193cm forest-pre-capture; no early B01 shaved/topless capture state; Aarathi B24 field continuity with no sidearm; Inner Voice silent before SB069
+    boundary_note: "current approved SC065 materialization ends immediately after SEMMAA (O.S.): Get down!; operation detonation, forced entry and drug administration begin only in SC066"
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC066
   SC006-SC099:
     state: NOT_YET_MATERIALIZED_EXCEPT_LISTED_SEGMENTS
     exceptions:
@@ -186,10 +203,11 @@ coverage:
     - SC062
     - SC063
     - SC064
+    - SC065
     - SC094B
     - SC095
     - SC099B
-    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060-SC064, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
+    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060-SC065, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
@@ -206,7 +224,7 @@ editorial:
   - SC094B
   - SC099B
   remaining_materialization_order:
-  - SC065-SC073
+  - SC066-SC073
   - SC074A
   - SC006-SC059
   - SC074B
@@ -216,11 +234,11 @@ editorial:
   - SC099A
   - END
 cursor:
-  last_materialized_source_scene: SC064
-  last_materialized_editorial_segment: SC064
-  next_scene: SC065
-  next_editorial_segment: SC065
-  after_SC064: SC065
+  last_materialized_source_scene: SC065
+  last_materialized_editorial_segment: SC065
+  next_scene: SC066
+  next_editorial_segment: SC066
+  after_SC065: SC066
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:

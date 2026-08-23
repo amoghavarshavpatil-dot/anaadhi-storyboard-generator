@@ -1,0 +1,215 @@
+scene_id: SC065
+source_scene_number: 65
+status: SPEC_READY
+heading: INT. PARAANE PHARMACEUTICAL TRANSFER VAULT – PRE-DAWN / EXT. BHAIGAARA BUFFER FOREST / INT. ANAADHI’S CABIN
+editorial_previous: SC064
+editorial_next: SC066
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+source_boundary:
+  start: Paraane pharmaceutical transfer-vault operation crate sequence before dawn.
+  end: 'Allied Gangster climbs the rear staircase before authorised signal; Semmaa sees him; SEMMAA (O.S.): Get down!'
+  start_inclusive: true
+  end_inclusive: true
+  current_materialization_boundary_rule: Operation detonating into motion and all forced-entry/drug-administration action
+    are excluded to SC066.
+batch:
+  canonical: B24
+  scenes:
+  - 64
+  - 65
+  - 66
+  handoff_from: SC064
+locations:
+  pharmaceutical_transfer_vault:
+    root_id: LOC-003
+    subspace_id: SUB-003-25
+    visual_status: CONTROLLED_PENDING_B24_REFERENCE
+    rule: Use canonical Paraane root; do not invent missing vault architecture beyond screenplay/locked references.
+  bhaigaara_buffer_forest:
+    root_id: LOC-001
+    subspace_id: CONTROLLED_UNRESOLVED_NOT_PROVEN
+    rule: B24 locked roots are LOC-003 and LOC-001; do not invent a separate numeric forest subspace.
+  anaadhi_primary_cabin:
+    root_id: LOC-001
+    environment_anchor: ENV-CAB-008
+    state: ST00_UNTIL_SC066_CAPTURE_TRANSITION_PROVEN
+    rule: Same primary/final/raised cabin identity inherited from SC063; no redesign.
+  rear_staircase:
+    root_id: LOC-001
+    subspace_id: CONTROLLED_UNRESOLVED_NOT_PROVEN
+    rule: Screenplay rear staircase only; no fabricated numeric subspace.
+env6:
+  condition: WC061
+  special_beat: SB069
+  grammar_family: GF10
+  recurrence_position: 4/11
+  band: D — Consequence accumulation and capture return
+  ep: EP0+EP1+EP3+EP-U
+  observer: OBS01
+  anchor: ANCH02
+  inverse: INV6-02
+  variations:
+  - VAR6-01
+  - VAR6-03
+  restore: RST02
+  transition_point_id: NO_SEPARATE_TP_ID_RETRIEVED_DO_NOT_INVENT
+  physical_anchor: ENV-CAB-008
+  special_beat_start: Parallel Earths invade the room.
+  special_beat_end: Anaadhi looks from the open-hand version to his real hands; RST02 restores unchanged WC061 reality.
+  alternatives:
+  - Aarathi leads him safely through an empty forest.
+  - Police shoot before he reaches the door.
+  - Anaadhi kills everyone outside.
+  - The cabin remains undiscovered.
+  - Twelve-year-old Anaadhi escapes through the lower hatch.
+  - Adult Anaadhi surrenders with open hands.
+  mutually_exclusive: true
+  zero_residue_restore: true
+characters:
+  ANAADHI:
+    identity: CHR-ANAADHI
+    age: 27
+    height_cm: 193
+    state: AGE_27_FOREST_PRECAPTURE / forest-built, scarred, physically imposing, exhausted
+    hair: HR-ANAADHI-26-POST-BARBER / SELF-CUT unfinished continuity unless exact SC065 override is proven
+    costume: FOREST_ADULT_SC065_DETAIL_CONTROLLED_UNRESOLVED
+    injury: EXISTING_FOREST_WEAR; NO_ADK7; NO_CAPTURE_IMPAIRMENT
+    sleep: HAS_NOT_SLEPT
+    inner_voice: SILENT_BEFORE_SB069
+    forbid:
+    - B01_SHAVED_CAPTURE_HAIR_EARLY
+    - TOPLESS_CAPTURE_IMPORT
+    - ADK7_IMPAIRMENT_EARLY
+  AARATHI:
+    identity: CHR-AARATHI
+    state: B24_FIELD_CONTINUITY
+    hair: LONG_PLAIT_WET_WHERE_CARRIED
+    sidearm: NONE_VISIBLE
+    approach: ALONE
+    display_custody: RUKEY_seventeen_name_display
+  ANARVAA:
+    identity: CHR-ANARVAA
+    presence: COMMUNICATION_VO_ONLY_IN_FOREST_SEGMENT
+  SEMMAA:
+    identity: CHR-SEMMAA
+    state: OLDER_DISCIPLINED_PRESENT_DAY
+    end_action: SEES_PREMATURE_REAR_STAIR_MOVEMENT_AND_CALLS_GET_DOWN
+  PHARMACY_TECHNICIAN:
+    identity: CONTROLLED_UNRESOLVED_ROLE_ID
+    state: PROFESSIONAL_VAULT_WORK
+  INVENTORY_ASSISTANT:
+    identity: CONTROLLED_UNRESOLVED_ROLE_ID
+    state: PROFESSIONAL_VAULT_WORK
+  ALLIED_GANGSTER:
+    identity: CHR-ALLIED-GANGSTER
+    state: PREMATURE_REAR_STAIR_CLIMB_ONLY_IN_SC065
+pharmaceutical_sequence:
+  crate_initial_display: 'AUTHORISED: PNX-4 STANDARD SEDATIVE'
+  initial_cartridge_count: 12
+  restricted_command:
+  - PRIORITY CLINICAL OVERRIDE
+  - REPLACE UNIT 07
+  - CENTRAL CLEARANCE CONFIRMED
+  mechanical_action: Only Unit 07 is replaced.
+  replacement:
+  - ADK-7
+  - RESTRICTED TRANSFER
+  - MEMORY-ASSOCIATION COMPOUND
+  - FIELD USE NOT AUTHORISED
+  encrypted_clearance: ADK-7 warnings disappear beneath encrypted clearance layer.
+  physical_tell: ADK-7 cartridge metal is darker.
+  final_sealed_display: TWELVE AUTHORISED UNITS
+  administration: FORBIDDEN_IN_SC065
+evidence_and_props:
+  portable_display:
+    rukey: RUKEY_seventeen_name_display
+    same_physical_object_from:
+    - SC060
+    - SC061
+    - SC062
+    - SC063
+    - SC064
+    count: 17
+    fabricated_names_forbidden: true
+    sequence:
+    - Aarathi carries it into forest/cabin.
+    - Aarathi hands it to Anaadhi.
+    - Anaadhi opens it; seventeen names remain aligned.
+    - Anaadhi folds/closes and returns it.
+    - Aarathi clips it into rainproof inner sleeve of field satchel.
+  real_cabin_names:
+    prop: PRP-SEVENTEEN-NAME-LIST
+    count: 17
+    fabricated_names_forbidden: true
+  seventeen_lamps:
+    prop: PRP-SEVENTEEN-LAMPS
+    count: 17
+    rule: Inherited continuity only where visible; do not alter count.
+  covered_mirror:
+    state: COVERED; drone reflection crosses it; do not reveal mirror face beyond source action.
+  rear_staircase:
+    state: Allied Gangster climbs before authorised signal.
+technology:
+  magnetic_medicine_rails: VAULT_PHYSICAL_SYSTEM
+  mechanical_transfer_arm: REPLACES_UNIT_07_ONLY
+  encrypted_clearance_layer: COVERS_RESTRICTED_WARNINGS
+  black_kite_drones: HIDDEN_AND_VISIBLE_TOO_EARLY; no attack in SC065
+  aarathi_field_communicator: CONTACTS_UNNATH; STATIC; ANARVAA_INTERVENES
+  ru_key_display: SAME_PHYSICAL_DISPLAY; not redesigned
+dialogue_and_audio:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  exact_lines_locked:
+  - 'PHARMACY TECHNICIAN: Why is the batch colour different?'
+  - 'INVENTORY ASSISTANT: The system says it is authorised.'
+  - 'INVENTORY ASSISTANT: My salary is not high enough to argue with central clearance.'
+  - 'AARATHI: Unnath, do not start the operation. I have not confirmed surrender.'
+  - 'ANARVAA (V.O.): The operation is already active.'
+  - 'AARATHI: This is not the agreement.'
+  - 'ANARVAA (V.O.): We do not make agreements with an accused person.'
+  - 'AARATHI: There are teams outside.'
+  - 'AARATHI: I gave them the location.'
+  - 'AARATHI: I did not approve this operation.'
+  - 'AARATHI: So that there would be no gunfire.'
+  - 'ANAADHI: You opened the door.'
+  - 'AARATHI: I will demand police custody.'
+  - 'AARATHI: I cannot guarantee it.'
+  - 'ANAADHI: That is better than a false guarantee.'
+  - 'AARATHI: Come outside with me. Keep your hands visible. I will walk in front.'
+  - 'ANAADHI: You go first.'
+  - 'SEMMAA (O.S.): Get down!'
+  unretrieved_dialogue_rule: Where the exact approved wording is not available in the retrieved source evidence, shot specs
+    say SOURCE_EXACT_DIALOGUE_REQUIRED and do not invent text.
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  sound_rule: Physical vault/forest/cabin sound outside SB069. Inner Voice is silent before SB069. Represented-layer sound
+    is restricted to SB069 alternatives and RST02 restores real WC061 sound with zero residue.
+shot_plan:
+  shot_count: 74
+  duration_seconds: 222
+  stills_per_minute: 20
+  shot_package: production/remotion/shot_specs/SC065/SC065_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+hard_exclusions:
+- SC066_DOOR_EXPLOSION
+- POLICE_SHIELD_ENTRY
+- PNX4_ADMINISTRATION
+- ADK7_ADMINISTRATION
+- IRON_HOOK_ATTACK
+- AARATHI_PULLED_ASIDE
+- CAPTURE_CIRCLE
+- UNSOURCED_BLACK_RAIN_ESCALATION
+- PARAANE_CORRIDOR_CONVERGENCE
+- SC067_LOWER_PASSAGE_ESCAPE
+- OPERATION_DETONATION_AFTER_GET_DOWN
+- FABRICATED_VICTIM_NAMES
+- DISPLAY_REPLACEMENT_OR_REDESIGN
+- INNER_VOICE_AUDIO_BEFORE_SB069
+- PREMATURE_B01_CAPTURE_HAIR_OR_TOPLESS_STATE
+generation:
+  storyboard_image_generation: false
+  remotion_render: false
+  supercool_invoked: false
+  heygen_invoked: false
+  paid_media_api_execution: false
+next: SC066
