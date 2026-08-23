@@ -1,207 +1,28 @@
-version: 1
+version: 2
 run_id: ANAADHI_SC001_SC005_SUPERCOOL_RUN01
-status: ARMED_AWAITING_CODESPACES_AGENT_EXECUTION
-purpose: Generate storyboard still candidates for SC001-SC005 sequentially through the authenticated SuperCool MCP connection.
-authorization:
-  explicit_user_approval: true
-  scope: SC001 through SC005 only
-  media_type: IMAGE_STILL_ONLY
-  candidates_per_shot: 1
-  automatic_retries: false
-  finalization_requires_user_review: true
-  supercool_credit_spend_authorized: EXISTING_CREDIT_BALANCE_ONLY
-  cash_spend_authorized_usd: 0
+status: DISABLED_BY_USER
+execution_enabled: false
+purpose: Historical SuperCool storyboard queue retained for audit only. Do not execute.
+disabled:
+  by_user: true
+  reason: Pipeline switched to GitHub + ChatGPT asset/spec records + Remotion only.
+  effective_rule: NO_SUPERCOOL_EXECUTION
+  preserve_existing_credits: true
   pay_as_you_go_must_remain_off: true
   topup_forbidden: true
-  subscription_change_forbidden: true
-credit_control:
-  observed_balance_from_user_screenshot: 6173
-  observed_plan: Mini
-  observed_pay_as_you_go: 'OFF'
-  runtime_balance_authority: Query authenticated SuperCool account/billing/credits tool before first paid generation and whenever available.
-  fallback_when_balance_tool_unavailable: Continue only until SuperCool returns explicit insufficient-credit response; do not retry that shot and stop the run.
-  stop_before_unaffordable_request_when_cost_can_be_known: true
-  never_enable_payg_or_purchase_credits: true
-supercool_session:
-  preferred_name: ANAADHI Storyboard SC001-SC005 Run 01
-  require_account_retention: true
-  first_asset_retention_gate:
-    shot: SC001_SH001
-    after_generation:
-    - Confirm returned asset_id or equivalent.
-    - Confirm asset/session is retrievable from authenticated SuperCool account.
-    - Confirm a download/retrieval URL or equivalent is returned or discoverable.
-    on_failure: STOP_BEFORE_SC001_SH002
-  asset_naming: ANAADHI_{shot_id}_CANDIDATE_01
-generation_policy:
-  tool_selection:
-  - Use a SuperCool still-image/photo-generation tool, never a video-generation tool.
-  - Prefer the most credit-efficient available photoreal cinematic image model that supports the shot's required reference images.
-  - Inspect the tool schema before spending credits. If required reference inputs cannot be provided, STOP rather than generate an unbound continuity image.
-  target:
-    aspect_ratio: '2.40:1'
-    target_raster: 3840x1600
-    rule_if_exact_raster_unsupported: Use the closest native 2.40:1/ultrawide landscape mode at highest normal-quality resolution; record native dimensions; do not pay for separate upscale during this run.
-  continuity:
-  - Use all approved character/location/prop reference assets cited by the shot package when the SuperCool tool accepts references.
-  - Never substitute a different face, costume, location, prop, vehicle or technology design when an approved reference exists.
-  - Never invent a missing victim name, label, code, route, portal, location ID or character identity.
-  - Represented/Parallel-Earth layers must obey each scene's exact SB/TP/GF/ANCH/WC/RST boundary and leave zero residue after RST.
-  output_status: CANDIDATE_READY
-  do_not_mark_final: true
-  do_not_create_video: true
-  do_not_create_audio: true
-  do_not_use_heygen: true
-  do_not_use_other_paid_media_tools: true
+  paid_media_execution_forbidden: true
+scope:
+  first_shot: SC001_SH001
+  last_shot: SC005_SH024
+  planned_shots: 106
+historical_authorization:
+  superseded: true
+  note: Earlier authorization to spend existing SuperCool credits is revoked by the later user instruction to stop SuperCool.
 source_map:
-  SC001:
-    mode: LEGACY_SCENE_YAML_EXPLICIT_USER_GENERATION_OVERRIDE
-    path: scenes/001/scene.yaml
-    shot_count: 8
-    env6: TP001 / SB001 / GF10 1/11 / Band A / EP0+EP1+EP3+EP4+EP5+EP-U / OBS01 / ANCH01 / INV6-01 / ENV-CAB-008 + ENV-BHG-001 / WC001/A / VAR6-01+VAR6-03+VAR6-04+VAR6-05 / RST01
-    special_boundary: 'His vision fractures. PARALLEL EARTH FLASHES: -> BACK TO PRESENT.'
-    note: Use existing per-shot visual_prompt + negative_prompt; do not reinterpret DRAFT status as permission to change screenplay or continuity.
-  SC002:
-    mode: SHOT_PACKAGE
-    path: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json
-    shot_count: 18
-  SC003:
-    mode: SHOT_PACKAGE
-    path: production/remotion/shot_specs/SC003/SC003_SHOT_PACKAGE.json
-    shot_count: 20
-  SC004:
-    mode: SHOT_PACKAGE
-    path: production/remotion/shot_specs/SC004/SC004_SHOT_PACKAGE.json
-    shot_count: 36
-  SC005:
-    mode: SHOT_PACKAGE
-    path: production/remotion/shot_specs/SC005/SC005_SHOT_PACKAGE.json
-    shot_count: 24
-sequence:
-- SC001_SH001
-- SC001_SH002
-- SC001_SH003
-- SC001_SH004
-- SC001_SH005
-- SC001_SH006
-- SC001_SH007
-- SC001_SH008
-- SC002_SH001
-- SC002_SH002
-- SC002_SH003
-- SC002_SH004
-- SC002_SH005
-- SC002_SH006
-- SC002_SH007
-- SC002_SH008
-- SC002_SH009
-- SC002_SH010
-- SC002_SH011
-- SC002_SH012
-- SC002_SH013
-- SC002_SH014
-- SC002_SH015
-- SC002_SH016
-- SC002_SH017
-- SC002_SH018
-- SC003_SH001
-- SC003_SH002
-- SC003_SH003
-- SC003_SH004
-- SC003_SH005
-- SC003_SH006
-- SC003_SH007
-- SC003_SH008
-- SC003_SH009
-- SC003_SH010
-- SC003_SH011
-- SC003_SH012
-- SC003_SH013
-- SC003_SH014
-- SC003_SH015
-- SC003_SH016
-- SC003_SH017
-- SC003_SH018
-- SC003_SH019
-- SC003_SH020
-- SC004_SH001
-- SC004_SH002
-- SC004_SH003
-- SC004_SH004
-- SC004_SH005
-- SC004_SH006
-- SC004_SH007
-- SC004_SH008
-- SC004_SH009
-- SC004_SH010
-- SC004_SH011
-- SC004_SH012
-- SC004_SH013
-- SC004_SH014
-- SC004_SH015
-- SC004_SH016
-- SC004_SH017
-- SC004_SH018
-- SC004_SH019
-- SC004_SH020
-- SC004_SH021
-- SC004_SH022
-- SC004_SH023
-- SC004_SH024
-- SC004_SH025
-- SC004_SH026
-- SC004_SH027
-- SC004_SH028
-- SC004_SH029
-- SC004_SH030
-- SC004_SH031
-- SC004_SH032
-- SC004_SH033
-- SC004_SH034
-- SC004_SH035
-- SC004_SH036
-- SC005_SH001
-- SC005_SH002
-- SC005_SH003
-- SC005_SH004
-- SC005_SH005
-- SC005_SH006
-- SC005_SH007
-- SC005_SH008
-- SC005_SH009
-- SC005_SH010
-- SC005_SH011
-- SC005_SH012
-- SC005_SH013
-- SC005_SH014
-- SC005_SH015
-- SC005_SH016
-- SC005_SH017
-- SC005_SH018
-- SC005_SH019
-- SC005_SH020
-- SC005_SH021
-- SC005_SH022
-- SC005_SH023
-- SC005_SH024
-per_shot_runtime:
-- Resolve the exact source shot and all inherited/global constraints.
-- Resolve approved reference assets reachable from the repository; attach them only if the chosen SuperCool image tool supports them.
-- Read live SuperCool credit balance/cost when available.
-- Generate exactly one still candidate.
-- Do not auto-regenerate for aesthetics.
-- Record asset/session/download metadata and credit before/after in the run ledger.
-- Advance to the next shot only after the current shot has a retrievable candidate.
-failure_policy:
-  insufficient_credits: STOP_SUCCESSFULLY_AT_LAST_COMPLETED_SHOT
-  paid_or_unknown_failure: STOP_TO_AVOID_DUPLICATE_SPEND
-  missing_required_reference_support: STOP_BEFORE_SPEND
-  asset_not_retrievable_in_supercool: STOP_BEFORE_NEXT_SHOT
-  source_or_continuity_blocker: STOP_AND_RECORD_BLOCKER
-  never_skip_failed_shot_to_generate_later_shots: true
-review_policy:
-  generated_candidate_is_not_final: true
-  user_review_required: true
-  approval_action: After user approves a shot, record FINAL_APPROVED with the exact SuperCool asset ID; do not regenerate it.
-  rejection_action: Only regenerate a rejected shot after separate explicit approval, so remaining credits are not silently consumed.
+  SC001: scenes/001/scene.yaml
+  SC002: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json
+  SC003: production/remotion/shot_specs/SC003/SC003_SHOT_PACKAGE.json
+  SC004: production/remotion/shot_specs/SC004/SC004_SHOT_PACKAGE.json
+  SC005: production/remotion/shot_specs/SC005/SC005_SHOT_PACKAGE.json
+sequence_retained_for_audit_only: SC001_SH001_THROUGH_SC005_SH024
 ledger_path: production/supercool/runs/ANAADHI_SC001_SC005_SUPERCOOL_RUN01/ledger.yaml
