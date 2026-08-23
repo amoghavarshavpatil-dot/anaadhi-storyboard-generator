@@ -1,7 +1,7 @@
-version: 13
+version: 14
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: '2026-08-23T06:06:00+05:30'
+as_of_local: '2026-08-23T06:11:00+05:30'
 backend:
   github_canonical_control: true
   chat_storyboard_generation: true
@@ -18,13 +18,13 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC062
-  latest_source_scene_materialized: SC062
-  next_scene_to_materialize: SC063
-  next_editorial_segment: SC063
+  latest_new_schema_materialized: SC063
+  latest_source_scene_materialized: SC063
+  next_scene_to_materialize: SC064
+  next_editorial_segment: SC064
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC062 is SPEC_READY through the exact end where Aarathi exits and Anaadhi keeps D3 open until she disappears among the trees. Continue directly to SC063; do not begin SC063 surrender logistics, weapons or main-door action inside SC062.
+  note: SC063 is SPEC_READY through the exact end where Aarathi takes RUKEY_seventeen_name_display and Anaadhi remains before the seventeen lamps as the first hidden drones enter the forest. Continue directly to SC064; do not import command-hall action, PNX-4 planning or SC065 operation details into SC063.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
@@ -109,6 +109,15 @@ audio:
     transition_out: CUT TO SC063 only after Aarathi disappears among the trees while D3 remains open
     special_sound_rule: Only SB068 carries represented Parallel-Earth sound. The four alternatives are mutually exclusive. RST05 must restore unchanged real WC058 cabin sound completely by the end of AARATHI: That is a possibility, not a defence.
     final_sound_rule: End on real late-afternoon cabin/forest ambience with fading Aarathi footsteps; no police approach, surrender operation or dawn cue before SC063.
+  SC063:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 144
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    transition_in: CUT FROM SC062 after the time gap to before dawn; do not invent Aarathi's intervening portal mechanics
+    transition_out: CUT TO SC064 only after Aarathi takes RUKEY_seventeen_name_display and the first hidden drones enter the forest
+    sound_rule: WC059 is NO SB. The inner-voice discussion is testimony only; no subjective voice, victim voice, flashback, Parallel-Earth sound or reenactment. Preserve quiet before-dawn cabin/forest ambience and creator-recorded dialogue.
+    final_sound_rule: Hidden-drone sound is not mandatory unless later mix authority supplies it; do not begin command-hall or operation audio before SC064.
 picture_master:
   width: 3840
   height: 1600
@@ -128,83 +137,79 @@ shot_density:
   SC060: {duration_seconds: 72, shot_count: 24, stills_per_minute: 20}
   SC061: {duration_seconds: 90, shot_count: 30, stills_per_minute: 20}
   SC062: {duration_seconds: 117, shot_count: 39, stills_per_minute: 20}
+  SC063: {duration_seconds: 144, shot_count: 48, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC062
-  source_scene: SC062
-  scene_condition: WC058
-  special_beat_intersects_scene: true
-  source_ruling: SB068_SOURCE_BOUNDED
-  disposition: NON_XFORM_SOURCE_BOUNDED
-  transformation_packet:
-    special_beat: SB068
-    grammar: GF02
-    band: D
-    ep_stack: [EP0, EP1, EP3, EP-U]
-    observer: OBS01
-    anchor: ANCH02
-    inverse: INV6-02
-    variation: [VAR6-01, VAR6-03]
-    reality_return: RST05
-    physical_anchor: ENV-CAB-008
-    onset: 'Anaadhi sees parallel versions of the room:'
-    end: 'AARATHI: That is a possibility, not a defence.'
-    mutually_exclusive_alternatives:
-    - Aarathi arrests him safely.
-    - Armed units burn the cabin.
-    - Anaadhi kills her.
-    - She never finds him.
-    zero_residue: true
-    event_fact_conversion_forbidden: true
+  latest_materialized_segment: SC063
+  source_scene: SC063
+  scene_condition: WC059
+  special_beat_intersects_scene: false
+  source_ruling: NO_SB
+  disposition: EP0_PHYSICAL_SURRENDER_TERMS_ONLY
+  physical_anchor: ENV-CAB-008
   loc_crosswalk:
     ENV-CAB-008: LOC-001
     LOC-001_INTERIOR_SUBSPACE: CONTROLLED_UNRESOLVED_NOT_PROVEN
-    D3: SIDE_UTILITY_DOOR_ENTRY_EXIT_HELD_OPEN_AT_END
-    D1: CLOSED_IN_SC062
-    D2: CLOSED_IN_SC062
-  weather_time: LATE_AFTERNOON__WEATHER_UNSTATED
+    D1: CLOSED_AND_UNDER_ANAADHI_CONTROL_BEFORE_DAWN
+    D2: CONTROLLED_UNRESOLVED_IN_SC063
+    D3: CONTROLLED_UNRESOLVED_AFTER_SC062_TIME_GAP
+  weather_time: BEFORE_DAWN__WEATHER_UNSTATED
   seventeen_name_display:
     rukey: RUKEY_seventeen_name_display
-    custody_origin: AARATHI_FROM_SC060_SC061
-    SC062_position: PLACED_BESIDE_ANAADHI_WOODEN_LIST
+    start_state: BESIDE_ANAADHI_WOODEN_LIST_FROM_SC062
+    end_state: AARATHI_TAKES_DISPLAY
     no_fabricated_names: true
   seventeen_lamps:
     count: 17
-    arrangement: IMPERFECT_9_PLUS_8
-    state: LOWER_UNEVEN_FLAMES
+    arrangement: IMPERFECT_9_PLUS_8_CONTINUITY
+    state: BURNING_BEFORE_DAWN
   seventeen_wooden_names:
     count: 17
-    readable_name_rule: MADHAVA_ONLY_EXPLICITLY_SOURCED_IN_SC062
+    state: PERSISTENT_MEMORIAL
+  floorboard:
+    prop: PRP-SPLIT-FLOORBOARD
+    state: LOCKED
+    contents: ANAADHI_WEAPONS_UNSEEN
+  surrender_key:
+    registry_id: CONTROLLED_UNRESOLVED
+    state: ON_TABLE
+  authorization_system:
+    function: CONSENTED_LOCATION_AND_TERMS_TO_UNNATH_THEN_AUTO_COPY_ANARVAA_AND_CENTRAL_MEDICAL_COMMAND
+    remote_visualization: FORBIDDEN
+  hidden_drones:
+    state: FIRST_DRONES_ENTER_FOREST_AT_EXACT_SC063_END
+    model_detail: CONTROLLED_UNRESOLVED_IN_SC063
   prohibited:
-  - SC063_CONTENT
-  - VISIBLE_REAL_WORLD_WEAPONS
+  - SC064_CONTENT
+  - SC065_CONTENT
+  - COMMAND_HALL_VISUALIZATION
+  - PNX4_OR_ADK7_OPERATION_PLANNING
+  - VISIBLE_ANAADHI_WEAPONS
+  - FLOORBOARD_OPENING
+  - PARALLEL_EARTH_VISUALIZATION
+  - INNER_VOICE_MANIFESTATION
   - FABRICATED_VICTIM_NAMES
-  - NEW_ENVIRONMENT_ID
-  - UNPROVEN_INTERIOR_SUBSPACE_ID
-  - PERSISTENT_PARALLEL_EARTH_RESIDUE
-  - PHYSICAL_WC058_FIRE_DAMAGE
-  - PHYSICAL_WC058_ARREST_EQUIPMENT
-  - CAPTURE_HAIR_OR_ADK7_STATE
+  - BLACK_RAIN
+  - POLICE_ENTRY
+  - DAWN_SURRENDER_EXECUTION
 character_cursor:
   anaadhi:
-    source_scene: SC062
+    source_scene: SC063
     identity: CHR-ANAADHI
     age: 27
     height_cm: 193
     exact_visual_state: AGE_27_FOREST_PRECAPTURE
     hair_state: HR-ANAADHI-26-POST-BARBER / SELF-CUT unfinished transition
     body_state: FOREST_BUILT_SCARRED_PHYSICALLY_IMPOSING_BUT_EXHAUSTED
-    costume_state: FOREST_ADULT_EXACT_SC062_DETAIL_CONTROLLED_UNRESOLVED
+    costume_state: FOREST_ADULT_EXACT_SC063_DETAIL_CONTROLLED_UNRESOLVED
     injury_state: EXISTING_FOREST_WEAR_NO_ADK7
+    surrender_state: VOLUNTARY_NEGOTIATION_WITH_EXPLICIT_CONDITIONS
   aarathi:
     identity: CHR-AARATHI
     base_identity_status: APPROVED
-    scene_look: CONTROLLED_UNRESOLVED_SC062
-    entry_hands: BOTH_VISIBLE
-    visible_weapon: false
-    portable_display: LEFT_AT_LAST_EXPLICIT_SCRIPTED_POSITION_BESIDE_WOODEN_LIST
-    exit: THROUGH_D3_THEN_DISAPPEARS_AMONG_TREES
-  gatherer_family_child:
-    physical_witness: SC061_ONLY_NOT_PRESENT_SC062
+    scene_look: CONTROLLED_UNRESOLVED_SC063
+    return_state: RETURNS_ALONE
+    visible_weapon: DO_NOT_INVENT_VISIBLE_WEAPON
+    portable_display_end_custody: AARATHI_TAKES_RUKEY_SEVENTEEN_NAME_DISPLAY
 editorial_lock:
   enabled: true
   split_scene_ids: [SC074, SC094, SC099]
@@ -213,10 +218,10 @@ editorial_lock:
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
   first_jump_completed_at: SC005
-  current_completed_segment: SC062
-  next_editorial_segment: SC063
+  current_completed_segment: SC063
+  next_editorial_segment: SC064
   remaining_materialization_order:
-  - SC063-SC073
+  - SC064-SC073
   - SC074A
   - SC006-SC059
   - SC074B
