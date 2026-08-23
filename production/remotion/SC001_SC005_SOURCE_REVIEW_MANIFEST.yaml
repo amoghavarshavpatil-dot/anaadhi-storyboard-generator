@@ -1,0 +1,82 @@
+version: 1
+project: ANAADHI
+control: REMOTION_SC001_SC005_SOURCE_REVIEW
+status: SOURCE_REVIEW_RENDERED
+revision_id: R001-REMOTION-SOURCE-REVIEW
+
+scope:
+  first_scene: SC001
+  last_scene: SC005
+  scene_count: 5
+  shot_count: 106
+  duration_seconds: 329
+  duration_frames: 9870
+  editorial_next_after_SC005: SC099B
+
+composition:
+  id: ANAADHI-SC001-SC005-SOURCE-REVIEW-4K-SCOPE
+  width: 3840
+  height: 1600
+  fps: 30
+  aspect_ratio: "2.40:1"
+  baked_letterbox: false
+  transition_default: CUT
+  shot_timing: EXACT_GITHUB_PACKAGE_DURATIONS
+
+scene_arithmetic:
+  SC001: {shots: 8, seconds: 53, frames: 1590}
+  SC002: {shots: 18, seconds: 54, frames: 1620}
+  SC003: {shots: 20, seconds: 60, frames: 1800}
+  SC004: {shots: 36, seconds: 90, frames: 2700}
+  SC005: {shots: 24, seconds: 72, frames: 2160}
+
+source_authority:
+  SC001: scenes/001/scene.yaml
+  SC002: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json
+  SC003: production/remotion/shot_specs/SC003/SC003_SHOT_PACKAGE.json
+  SC004: production/remotion/shot_specs/SC004/SC004_SHOT_PACKAGE.json
+  SC005: production/remotion/shot_specs/SC005/SC005_SHOT_PACKAGE.json
+  character_identity_family: production/heygen/avatars/B01/source_visuals
+  ecology_plate: production/references/locations/LOC-012/LOC-012_MASTER-01_Bhaigaara-Root-Shelter_3840x1600_FINAL.jpg
+
+production_method:
+  image_generation_calls: 0
+  paid_media_calls: 0
+  heygen_calls: 0
+  supercool_calls: 0
+  remotion_mode: DATA_DRIVEN_PROCEDURAL_SOURCE_REVIEW
+  identity_handling: REUSE_LOCKED_B01_SOURCES
+  location_handling: PROCEDURAL_CONTROLLED_INFERENCE_OVER_EXISTING_BHAIGAARA_ECOLOGY
+  represented_layers: SYMBOLIC_AND_ZERO_RESIDUE
+
+audio:
+  dialogue_generated: false
+  replacement_voice_used: false
+  attached_audio_stems: []
+  encoded_track: SILENT_STEREO_AAC
+  measured_max_volume_db: -91.0
+  reason: Creator dialogue and locked master-audio bytes are not present in the repository.
+
+review_status:
+  generated_stills_claimed: false
+  approved_shots_claimed: false
+  locked_picture_claimed: false
+  final_claimed: false
+  intended_use: SOURCE_REVIEW_AND_TIMING_APPROVAL
+
+deliverables:
+  review_encode:
+    path: production/remotion/out/ANAADHI_SC001_SC005_SOURCE_REVIEW_1920x800.mp4
+    width: 1920
+    height: 800
+    fps: 30
+    codec: H264
+    duration_seconds_measured: 329.045333
+    size_bytes: 96394773
+    status: RENDERED_AND_VERIFIED
+    sha256: ac83e56c87d10a5d88fd8c125c94eea89b1a7e7b6a4fd73a692862432d417493
+  full_scope_render:
+    path: production/remotion/out/ANAADHI_SC001_SC005_SOURCE_REVIEW_4K_SCOPE.mp4
+    width: 3840
+    height: 1600
+    status: NOT_RENDERED

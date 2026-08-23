@@ -3,22 +3,28 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "studio": "remotion studio",
-    "render": "remotion render ANAADHI_STORYBOARD_AUDIOBOOK_4K_SCOPE",
-    "render:reel1": "remotion render ANAADHI_REEL_01",
-    "render:reel2": "remotion render ANAADHI_REEL_02",
-    "render:reel3": "remotion render ANAADHI_REEL_03",
-    "render:reel4": "remotion render ANAADHI_REEL_04",
-    "render:reel5": "remotion render ANAADHI_REEL_05"
+    "assets:sync": "node scripts/sync-canon-assets.mjs",
+    "studio": "npm run assets:sync && remotion studio",
+    "render": "remotion render ANAADHI-STORYBOARD-AUDIOBOOK-4K-SCOPE",
+    "render:sc001-005": "npm run assets:sync && remotion render ANAADHI-SC001-SC005-SOURCE-REVIEW-4K-SCOPE out/ANAADHI_SC001_SC005_SOURCE_REVIEW_4K_SCOPE.mp4 --codec=h264 --crf=18",
+    "render:sc001-005-preview": "npm run assets:sync && remotion render ANAADHI-SC001-SC005-SOURCE-REVIEW-4K-SCOPE out/ANAADHI_SC001_SC005_SOURCE_REVIEW_1920x800.mp4 --codec=h264 --crf=20 --scale=0.5",
+    "still:sc001-005": "npm run assets:sync && remotion still ANAADHI-SC001-SC005-SOURCE-REVIEW-4K-SCOPE out/ANAADHI_SC001_SC005_QA_FRAME.jpg --frame=4935 --image-format=jpeg",
+    "render:reel1": "remotion render ANAADHI-REEL-01",
+    "render:reel2": "remotion render ANAADHI-REEL-02",
+    "render:reel3": "remotion render ANAADHI-REEL-03",
+    "render:reel4": "remotion render ANAADHI-REEL-04",
+    "render:reel5": "remotion render ANAADHI-REEL-05"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.506",
     "@remotion/media": "^4.0.506",
-    "remotion": "^4.0.506",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.506"
   },
   "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "typescript": "^5.7.0"
   }
 }
