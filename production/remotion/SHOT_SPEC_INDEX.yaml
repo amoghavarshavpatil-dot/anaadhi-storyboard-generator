@@ -1,4 +1,4 @@
-version: 17
+version: 18
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
@@ -165,6 +165,21 @@ coverage:
     image_generation_started: false
     render_started: false
     final_editorial_next: SC068
+  SC068:
+    state: SPEC_READY
+    source: scenes/068/scene.yaml
+    shot_package: production/remotion/shot_specs/SC068/SC068_SHOT_PACKAGE.json
+    shot_count: 50
+    duration_seconds: 150
+    stills_per_minute: 20
+    parallel_earth: TP075/SB075/GF07/OBS01+OBS04/ANCH55/INV6-55/ENV-BHG-022/WC063/RST02
+    location: LOC-061 / ENV-BHG-022 Bhaigaara Flood Channel
+    character_control: Anaadhi AGE_27_CAPTURE / ADK-7 active / unsteady; Aarathi several steps behind, unarmed, explicitly not hostage
+    technology_control: black-kite drones scan canopy; field communicator with Unnath/Anarvaa V.O.; no remote-room visualization
+    boundary_note: ends at They disappear into rain; SC069 Paraane eastern drainage return excluded
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC069
 unmaterialized:
   state: NOT_YET_MATERIALIZED_EXCEPT_LISTED
   note: Source scene numbers remain screenplay authority; final render order follows EDITORIAL_SEQUENCE_LOCK.yaml.
@@ -183,7 +198,7 @@ editorial:
   - SC094B
   - SC099B
   remaining_materialization_order:
-  - SC068-SC073
+  - SC069-SC073
   - SC074A
   - SC006-SC059
   - SC074B
@@ -193,11 +208,11 @@ editorial:
   - SC099A
   - END
 cursor:
-  last_materialized_source_scene: SC067
-  last_materialized_editorial_segment: SC067
-  next_scene: SC068
-  next_editorial_segment: SC068
-  after_SC067: SC068
+  last_materialized_source_scene: SC068
+  last_materialized_editorial_segment: SC068
+  next_scene: SC069
+  next_editorial_segment: SC069
+  after_SC068: SC069
   image_generation_gate: EXTERNAL_CHAT_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:

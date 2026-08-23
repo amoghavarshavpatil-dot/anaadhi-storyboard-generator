@@ -1,0 +1,138 @@
+scene_id: SC068
+source_scene_number: 68
+status: SPEC_READY
+revision_id: R001
+heading: EXT. BHAIGAARA FOREST – FLOOD CHANNEL – DAWN
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+editorial_previous: SC067
+editorial_next: SC069
+source_boundary:
+  start: "Rain begins again. Anaadhi moves unsteadily through knee-deep water."
+  end: "They disappear into rain."
+  hard_stop: "Do not begin SC069 Paraane eastern drainage wall / old drainage passage / child-wing return."
+batch:
+  canonical: B25
+  scenes: [67, 68]
+physical:
+  condition: WC063
+  signature: TD2/WX4/EX3/LS0/OC1/OP2/T
+  weather_time: DAWN__RAIN_BEGINS_AGAIN
+  location:
+    loc: LOC-061
+    environment: ENV-BHG-022
+    canonical_name: Bhaigaara Flood Channel
+    type: ROOT
+  water:
+    depth: KNEE_DEEP_ONLY
+    flow_rate: UNAUTHORISED_DO_NOT_INVENT
+    vehicle_access: NONE_INFERRED
+    paraane_distance: NONE_INFERRED
+characters:
+  anaadhi:
+    identity: CHR-ANAADHI
+    age: 27
+    height_cm: 193
+    state: AGE_27_CAPTURE
+    hair: HR-ANAADHI-27-CAPTURE / shaved rough regrowth
+    costume: wet/soiled escape continuity
+    injury: INJ-ANAADHI-27-ADK7 / active chemically impaired state
+    movement: UNSTEADY_THROUGH_KNEE_DEEP_WATER
+    armed: false
+    new_drug_dose: false
+  aarathi:
+    identity: CHR-AARATHI
+    state: B25_FIELD_CONTINUITY
+    position: SEVERAL_STEPS_BEHIND_ANAADHI
+    purpose_of_distance: PROVE_NOT_BEING_DRAGGED
+    hostage: false
+    visible_weapon: NONE
+    display_custody: RUKEY_seventeen_name_display remains secured; SC068 does not authorize display use or redesign
+  unnath:
+    identity: CHR-UNNATH
+    presence: V.O. police-frequency only
+  anarvaa:
+    identity: CHR-ANARVAA
+    presence: V.O. police-frequency only
+  child_anaadhi_age7:
+    identity_family: CHR-ANAADHI
+    represented_age: 7
+    action: carries medicinal plants ahead within SB075 only
+technology:
+  black_kite_drones:
+    action: scan canopy above
+    attack: false
+    omniscient_tracking: false
+  aarathi_field_communicator:
+    action: police-frequency exchange with Unnath; Anarvaa cuts into channel; Anarvaa disconnects
+    remote_room_visualisation: forbidden
+env6:
+  SB075:
+    tp: TP075
+    grammar: GF07
+    recurrence: 5/7
+    band: E
+    ep: EP0+EP2+EP3+EP5+EP-U
+    observers: [OBS01, OBS04]
+    anchor: ANCH55
+    inverse: INV6-55
+    physical_anchor: ENV-BHG-022
+    condition: WC063
+    variations: [VAR6-02, VAR6-03, VAR6-05]
+    reset: RST02
+    start: "The forest briefly becomes a Paraane corridor."
+    represented_content:
+      - "Seven-year-old Anaadhi carries medicinal plants ahead."
+      - "Adult Anaadhi follows."
+    access:
+      anaadhi: FULL_REPRESENTED_CORRIDOR
+      aarathi: ONLY_A_FLICKER_OF_WARM_INTERIOR_LIGHT_PASSING_BETWEEN_TREES
+    end: "Aarathi sees only a flicker of warm interior light passing between trees."
+    restore: "Physical flood-channel route remains authoritative; full corridor does not persist or create a route."
+    zero_residue: true
+screenplay_end:
+  dialogue:
+    - "AARATHI: You are seeing something again."
+    - "ANAADHI: Something that is not here."
+    - "AARATHI: Is it real?"
+    - "ANAADHI: It is real to me."
+    - "AARATHI: That is not enough for us to make a decision."
+    - "ANAADHI: Correct."
+    - "ANAADHI: That is why I am going to Paraane."
+  action: They disappear into rain.
+shot_plan:
+  shot_count: 50
+  duration_seconds: 150
+  stills_per_minute: 20
+  minimum_required_stills_per_minute: 20
+  raster: 3840x1600
+  aspect_ratio: 2.40:1
+  fps: 30
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  package: production/remotion/shot_specs/SC068/SC068_SHOT_PACKAGE.json
+audio:
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  mastered_prefix_locked: true
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  exact_alignment: PENDING_EXTRACTION
+  rule: "Physical dawn rain/flood-channel/field-communicator sound outside SB075; represented corridor sound is Anaadhi-level only; Aarathi receives only source-authorized warm-light flicker; RST02 leaves physical route unchanged."
+hard_exclusions:
+  - SC069_PARAANE_COMPLEX
+  - WATER_DEEPER_THAN_KNEE
+  - INVENTED_FLOW_RATE
+  - DRONE_ATTACK
+  - REMOTE_COMMAND_ROOM_VISUALISATION
+  - HOSTAGE_FRAMING
+  - ANAADHI_WEAPON
+  - NEW_ADK7_DOSE
+  - DIAGNOSIS_CERTAINTY
+  - FULL_CORRIDOR_ACCESS_FOR_AARATHI
+  - CORRIDOR_AS_PHYSICAL_ROUTE
+  - REPRESENTED_RESIDUE
+  - FABRICATED_VICTIM_NAMES
+generation:
+  storyboard_image_generation_started: false
+  remotion_render_started: false
+  supercool_invoked: false
+  heygen_invoked: false
+  paid_media_api_execution: false
+next: SC069

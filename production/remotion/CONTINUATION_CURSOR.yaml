@@ -1,7 +1,7 @@
-version: 18
+version: 19
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: '2026-08-23T15:36:00+05:30'
+as_of_local: '2026-08-23T15:50:00+05:30'
 backend:
   github_canonical_control: true
   chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE
@@ -19,13 +19,13 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC067
-  latest_source_scene_materialized: SC067
-  next_scene_to_materialize: SC068
-  next_editorial_segment: SC068
+  latest_new_schema_materialized: SC068
+  latest_source_scene_materialized: SC068
+  next_scene_to_materialize: SC069
+  next_editorial_segment: SC069
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC067 SPEC_READY through 'They move deeper into the ravine.' Continue SC068 only from flood channel dawn. SuperCool disabled by user; no paid media execution.
+  note: SC068 SPEC_READY through 'They disappear into rain.' Continue SC069 only from Paraane eastern drainage wall / old drainage passage / child wing morning. SuperCool remains disabled; no paid media execution.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
@@ -44,6 +44,16 @@ audio:
     SB073_sound: Represented overlap only inside TP073/SB073; RST01 restores same physical cabin.
     SB074_sound: Represented route multiplication only inside TP074/SB074; RST01 restores physical three-route passage.
     final_sound_rule: Do not begin SC068 renewed-rain/flood-channel sound before the cut.
+  SC068:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 150
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    transition_in: CUT FROM SC067 after they move deeper into ravine
+    transition_out: CUT TO SC069 after Anaadhi and Aarathi disappear into rain
+    sound_rule: Physical WC063 dawn rain/knee-deep flood-channel/field-communicator sound outside SB075.
+    SB075_sound: GF07 represented corridor for Anaadhi only; Aarathi perceives only source-authorized warm-light flicker; RST02 leaves physical flood-channel route unchanged.
+    final_sound_rule: Do not begin SC069 Paraane complex/drainage ambience before cut.
 picture_master:
   width: 3840
   height: 1600
@@ -52,91 +62,73 @@ picture_master:
   baked_letterbox: false
 shot_density:
   target_minimum_stills_per_minute: 20
-  SC067:
-    duration_seconds: 240
-    shot_count: 80
-    stills_per_minute: 20
+  SC067: {duration_seconds: 240, shot_count: 80, stills_per_minute: 20}
+  SC068: {duration_seconds: 150, shot_count: 50, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC067
-  source_scene: SC067
-  scene_condition: WC062
-  condition_signature: TD8/WX2/EX4/LS2/OC5/OP3/T+A
+  latest_materialized_segment: SC068
+  source_scene: SC068
+  scene_condition: WC063
+  condition_signature: TD2/WX4/EX3/LS0/OC1/OP2/T
   special_beat_intersects_scene: true
-  source_ruling: TWO_SEPARATE_SOURCE_BOUNDED_BEATS
+  source_ruling: ONE_SOURCE_BOUNDED_BEAT
   batch:
     canonical: B25
     scenes: [67, 68]
-  physical_anchors:
-    cabin: LOC-001/ENV-CAB-008
-    lower_passage: LOC-001/ENV-CAB-008 subordinate; nested ID controlled-unresolved
-    ravine: LOC-060 ST00/ENV-BHG-003 Forest Ravine — Adult Escape
-  weather_time: CONTINUOUS_FROM_SC066_BLACK_RAIN_EVENT
-  operability:
-    escape_panel: OPEN_ONCE
-    concealed_grate: OPEN_ONCE
-    anaadhi_clearance_cm: 193
-    searchlights: NO_NEW_PATH_OR_BEARING
-  SB073:
-    tp: TP073
-    grammar: GF02
-    recurrence: 10/11
-    band: D
-    ep: EP0+EP1+EP3+EP-U
-    observer: OBS01
-    anchor: ANCH02
-    inverse: INV6-02
-    variations: [VAR6-01, VAR6-03]
-    reset: RST01
-    start: The armed operation surrounding him fractures into overlapping versions.
-    end: Back to the present.
-    zero_residue: true
-  SB074:
-    tp: TP074
-    grammar: GF03
-    recurrence: 6/6
-    band: D
-    ep: EP0+EP1+EP3+EP4+EP5+EP-U
-    observer: OBS01
-    anchor: ANCH02
-    inverse: INV6-02
-    variations: [VAR6-01, VAR6-03, VAR6-04, VAR6-05]
-    reset: RST01
-    start: 'All three routes multiply across parallel Earths:'
-    end: The vision disappears.
+  physical_anchor: LOC-061 / ENV-BHG-022 Bhaigaara Flood Channel
+  weather_time: DAWN__RAIN_BEGINS_AGAIN
+  water_depth: KNEE_DEEP_ONLY
+  SB075:
+    tp: TP075
+    grammar: GF07
+    recurrence: 5/7
+    band: E
+    ep: EP0+EP2+EP3+EP5+EP-U
+    observers: [OBS01, OBS04]
+    anchor: ANCH55
+    inverse: INV6-55
+    variations: [VAR6-02, VAR6-03, VAR6-05]
+    reset: RST02
+    start: The forest briefly becomes a Paraane corridor.
+    end: Aarathi sees only a flicker of warm interior light passing between trees.
+    anaadhi_access: FULL_REPRESENTED_CORRIDOR
+    aarathi_access: WARM_LIGHT_FLICKER_ONLY
     zero_residue: true
   exact_end:
-    dialogue: 'AARATHI: Not before I record the seventeen-count confession.'
-    action: They move deeper into the ravine.
-    cut_before: SC068 flood channel dawn / rain begins again
+    dialogue: 'ANAADHI: That is why I am going to Paraane.'
+    action: They disappear into rain.
+    cut_before: SC069 Paraane eastern drainage wall
 character_cursor:
   anaadhi:
-    source_scene: SC067
+    source_scene: SC068
     identity: CHR-ANAADHI
     age: 27
     height_cm: 193
     state: AGE_27_CAPTURE
-    body: HEAVY_ATHLETIC_FOREST_BUILT
     hair: HR-ANAADHI-27-CAPTURE_SHAVED_ROUGH_REGROWTH
     costume: WET_SOILED_CAPTURE_ESCAPE_CONTINUITY
     injury: INJ-ANAADHI-27-ADK7_ACTIVE
-    motor: RETURNING_BUT_IMPAIRED
+    movement: UNSTEADY_KNEE_DEEP_WATER
+    armed: false
     new_dose: false
-    end_state: MOVING_DEEPER_IN_RAVINE
+    end_intent: RETURN_TO_PARAANE
   aarathi:
     identity: CHR-AARATHI
     state: B25_FIELD_CONTINUITY
     hair: WET_LONG_PLAIT
     visible_weapon: NONE
-    display_custody: RUKEY_seventeen_name_display secured in rainproof satchel
+    distance: SEVERAL_STEPS_BEHIND
     hostage_status: false
-  semmaa:
-    identity: CHR-SEMMAA
-    state: OLDER_DISCIPLINED
-    position: OPERATION_ABOVE
-    decision: FOLLOW_PHYSICAL_DRAINAGE_NOT_SENSOR_MULTIPLICATION
-  child_anaadhi:
+    display_custody: RUKEY_seventeen_name_display secured
+  unnath:
+    identity: CHR-UNNATH
+    presence: V.O. FIELD_COMM
+  anarvaa:
+    identity: CHR-ANARVAA
+    presence: V.O. FIELD_COMM; disconnects channel
+  child_anaadhi_age7:
     identity_family: CHR-ANAADHI
-    represented_age: 12
+    represented_age: 7
+    action: carries medicinal plants in SB075
     physical_persistence: false
 editorial_lock:
   enabled: true
@@ -145,10 +137,10 @@ editorial_lock:
   final_end_after: SC099A
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
-  current_completed_segment: SC067
-  next_editorial_segment: SC068
+  current_completed_segment: SC068
+  next_editorial_segment: SC069
   remaining_materialization_order:
-  - SC068-SC073
+  - SC069-SC073
   - SC074A
   - SC006-SC059
   - SC074B
