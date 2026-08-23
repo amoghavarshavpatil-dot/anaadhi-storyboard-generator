@@ -1,0 +1,38 @@
+version: 1
+run_id: ANAADHI_SC001_SC005_SUPERCOOL_RUN01
+status: NOT_STARTED
+scope:
+  first_shot: SC001_SH001
+  last_shot: SC005_SH024
+  planned_shots: 106
+credit:
+  observed_before_run: 6173
+  authoritative_runtime_start: null
+  authoritative_runtime_end: null
+  pay_as_you_go: MUST_REMAIN_OFF
+  cash_spend_usd: 0
+supercool:
+  session_id: null
+  session_name: ANAADHI Storyboard SC001-SC005 Run 01
+  first_asset_retention_verified: false
+progress:
+  last_completed_shot: null
+  next_shot: SC001_SH001
+  completed_count: 0
+  stopped_reason: null
+results: []
+result_schema:
+  shot_id: SCxxx_SH###
+  status: CANDIDATE_READY|FINAL_APPROVED|FAILED|BLOCKED
+  asset_name: ANAADHI_SCxxx_SH###_CANDIDATE_01
+  supercool_asset_id: null
+  supercool_session_id: null
+  download_or_retrieval_url: null
+  native_width: null
+  native_height: null
+  credit_before: null
+  credit_after: null
+  credit_cost: null
+  model_or_tool: null
+  generated_at: null
+  notes: null
