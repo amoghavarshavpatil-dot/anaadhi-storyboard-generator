@@ -1,0 +1,180 @@
+scene_id: SC067
+source_scene_number: 67
+status: SPEC_READY
+revision_id: R001
+heading: INT. ANAADHI’S PRIMARY CABIN / LOWER CABIN PASSAGE / EXT. FOREST RAVINE – CONTINUOUS
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+editorial_previous: SC066
+editorial_next: SC068
+source_boundary:
+  start: "BLACK. Anaadhi’s heartbeat returns once, twice, then violently fast."
+  end: "They move deeper into the ravine."
+  hard_stop: "Do not begin SC068 EXT. BHAIGAARA FOREST – FLOOD CHANNEL – DAWN or its renewed-rain/knee-deep-water action."
+batch:
+  canonical: B25
+  scenes: [67, 68]
+  env6l_roots: [LOC-001, LOC-060, LOC-061]
+  SC067_roots: [LOC-001, LOC-060]
+  approved_root: true
+physical:
+  condition: WC062
+  signature: TD8/WX2/EX4/LS2/OC5/OP3/T+A
+  weather_time: CONTINUOUS_FROM_SC066__BLACK_RAIN_EVENT_CONTINUES
+  locations:
+    cabin:
+      root: LOC-001
+      anchor: ENV-CAB-008
+      rule: "Same physical capture-persistence cabin; no reset, repair or duplicate operation."
+    lower_passage:
+      parent: LOC-001 / ENV-CAB-008
+      nested_id: CONTROLLED_UNRESOLVED_NOT_PROVEN
+      rule: "Existing concealed release/passage only; do not invent a numeric subspace or new route."
+    ravine:
+      loc: LOC-060
+      environment: ENV-BHG-003
+      state: ST00
+      canonical_name: Forest Ravine — Adult Escape
+      rule: "Wet roots, rock cover and drainage-outlet relationship; same ravine system as Scene 028, HOLD-separated staging; no new bearing."
+  operability:
+    - "Escape panel opens once."
+    - "Concealed grate opens once."
+    - "Anaadhi 193 cm body clearance remains constrained."
+    - "Searchlights do not create a new path or reveal regional bearings."
+characters:
+  anaadhi:
+    identity: CHR-ANAADHI
+    age: 27
+    height_cm: 193
+    state: AGE_27_CAPTURE
+    body: heavy-athletic forest-built
+    hair: HR-ANAADHI-27-CAPTURE / shaved scalp with several days rough regrowth
+    costume: wet/soiled capture-escape continuity as locked
+    injury: INJ-ANAADHI-27-ADK7 / chemically impaired motor control; motor activity returns but remains impaired
+    new_drug_dose_in_SC067: false
+  aarathi:
+    identity: CHR-AARATHI
+    state: B25_FIELD_CONTINUITY
+    hair: wet long plait
+    visible_weapon: NONE
+    display_custody: "RUKEY_seventeen_name_display remains secured in rainproof satchel; scene does not authorize display use, redesign or new names."
+  semmaa:
+    identity: CHR-SEMMAA
+    state: older disciplined present-day
+    presence: operation above; reads physical drainage rather than sensor multiplication
+  police_commander:
+    identity: CHR-POLICE-COMMANDER
+    presence: operation above
+  medical_specialist:
+    identity: CHR-MEDICAL-SPECIALIST
+    presence: operation above
+    line: "Motor activity is returning."
+  police_technician:
+    presence: V.O. sensor-report role
+  child_anaadhi:
+    identity_family: CHR-ANAADHI
+    represented_age: 12
+    rule: "Explicit age-12 represented state; never resize the adult capture body."
+env6:
+  SB073:
+    tp: TP073
+    grammar: GF02
+    recurrence: 10/11
+    band: D
+    ep: EP0+EP1+EP3+EP-U
+    observer: OBS01
+    anchor: ANCH02
+    inverse: INV6-02
+    physical_anchor: ENV-CAB-008
+    condition: WC062
+    variations: [VAR6-01, VAR6-03]
+    reset: RST01
+    start: "The armed operation surrounding him fractures into overlapping versions."
+    end: "Back to the present."
+    alternatives:
+      - "Eight police officers wait outside; no Sarjanya; no Paraane medical unit; Anaadhi walks through main door with open hands."
+      - "Allied Gangster’s iron hook falls; Semmaa does not stop it."
+      - "Aarathi reaches Anaadhi before the second injection."
+      - "The cabin has been empty for twenty-seven years."
+    mutually_exclusive: true
+    zero_residue: true
+  SB074:
+    tp: TP074
+    grammar: GF03
+    recurrence: 6/6
+    band: D
+    ep: EP0+EP1+EP3+EP4+EP5+EP-U
+    observer: OBS01
+    anchor: ANCH02
+    inverse: INV6-02
+    physical_anchor: ENV-CAB-008
+    condition: WC062
+    variations: [VAR6-01, VAR6-03, VAR6-04, VAR6-05]
+    reset: RST01
+    start: "All three routes multiply across parallel Earths:"
+    end: "The vision disappears."
+    alternatives:
+      - "One represented route contains armed police."
+      - "One represented route is collapsed."
+      - "One represented route leads into Paraane’s childhood corridor with Child Anaadhi."
+    mutually_exclusive: true
+    zero_residue: true
+evidence_and_technology:
+  split_floorboard: PRP-SPLIT-FLOORBOARD
+  concealed_release: EXISTING_CONCEALED_RELEASE
+  escape_panel: EXISTING_ESCAPE_PANEL__OPEN_ONCE
+  field_light: AARATHI_SMALL_FIELD_LIGHT
+  concealed_grate: EXISTING_DRAINAGE_GRATE__OPEN_ONCE
+  thermal_sensor:
+    rule: "Three readings are sensor outputs only; there is one real subject."
+  seventeen_name_display:
+    rukey: RUKEY_seventeen_name_display
+    state: SECURED_WITH_AARATHI
+    fabricated_names_forbidden: true
+screenplay_end:
+  final_dialogue:
+    - "AARATHI: If we remain here, they will capture both of us."
+    - "ANAADHI: You can go."
+    - "AARATHI: Not before I record the seventeen-count confession."
+  final_action: "They move deeper into the ravine."
+shot_plan:
+  shot_count: 80
+  duration_seconds: 240
+  stills_per_minute: 20
+  minimum_required_stills_per_minute: 20
+  raster: 3840x1600
+  aspect_ratio: 2.40:1
+  fps: 30
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  package: production/remotion/shot_specs/SC067/SC067_SHOT_PACKAGE.json
+audio:
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  mastered_prefix_locked: true
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  exact_alignment: PENDING_EXTRACTION
+  rule: "Physical WC062 sound outside SB073/SB074; represented sound only inside exact source boundaries; each RST01 returns completely to physical cabin/passage/ravine sound."
+hard_exclusions:
+  - SC068_FLOOD_CHANNEL
+  - SC068_RAIN_BEGINS_AGAIN
+  - NEW_ADK7_DOSE
+  - SUCCESSFUL_RESTRAINT_BEFORE_FLOOR_DROP
+  - NEW_ROUTE_OR_REGIONAL_BEARING
+  - PHYSICAL_ROUTE_MULTIPLICATION
+  - LITERAL_PARAANE_CORRIDOR_AFTER_RST
+  - EXTRA_REAL_TARGET_BODIES
+  - AARATHI_HOSTAGE_STATUS
+  - FABRICATED_VICTIM_NAMES
+  - DISPLAY_REDESIGN
+  - LITERAL_MULTIVERSE_CERTAINTY
+  - SUPERNATURAL_CERTAINTY
+  - DIAGNOSIS_CERTAINTY
+  - REPRESENTED_RESIDUE
+  - GORE_EXPANSION
+  - INVENTED_LOWER_PASSAGE_ID
+  - EXTRA_OPERATION_GEOMETRY
+generation:
+  storyboard_image_generation_started: false
+  remotion_render_started: false
+  supercool_invoked: false
+  heygen_invoked: false
+  paid_media_api_execution: false
+next: SC068

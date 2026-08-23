@@ -1,7 +1,7 @@
-version: 16
+version: 17
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
-master_rule: Existing approved preproduction is inherited; do not restart it.
+master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
 coverage:
   SC001:
     state: LEGACY_SCENE_PLAN_PRESENT
@@ -24,7 +24,7 @@ coverage:
     shot_count: 20
     duration_seconds: 60
     stills_per_minute: 20
-    parallel_earth: SB003 / GF02 / ANCH02 / INV6-02 / WC001-C / RST01
+    parallel_earth: SB003/GF02/ANCH02/INV6-02/WC001-C/RST01
     image_generation_started: false
   SC004:
     state: SPEC_READY
@@ -33,7 +33,7 @@ coverage:
     shot_count: 36
     duration_seconds: 90
     stills_per_minute: 24
-    parallel_earth: SB004 / TP004 / GF03 / ANCH02 / INV6-02 / WC001-D / RST01
+    parallel_earth: SB004/TP004/GF03/ANCH02/INV6-02/WC001-D/RST01
     image_generation_started: false
   SC005:
     state: SPEC_READY
@@ -42,9 +42,8 @@ coverage:
     shot_count: 24
     duration_seconds: 72
     stills_per_minute: 20
-    parallel_earth: SB005 / TP005 / GF06 / OBS03 / ANCH02 / INV6-02 / WC001-E / RST03
+    parallel_earth: SB005/TP005/GF06/OBS03/ANCH02/INV6-02/WC001-E/RST03
     image_generation_started: false
-    source_screenplay_next: SC006
     final_editorial_next: SC099B
   SC099B:
     state: SPEC_READY
@@ -55,23 +54,17 @@ coverage:
     shot_count: 16
     duration_seconds: 48
     stills_per_minute: 20
-    env6_disposition: EP0 physical chronology only; SB103/GF11/EP7 belongs to SC099A and is excluded
-    location: LOC-085 / WC094 / ENV-IJM-002 semantic writing-room authority; no proven SUB-085 visual ID
-    image_generation_started: false
+    env6_disposition: EP0 physical chronology only; SB103/GF11/EP7 excluded
     final_editorial_next: SC100
   SC100:
     state: SPEC_READY
-    source_scene_id: SC100
     source: scenes/100/scene.yaml
     shot_package: production/remotion/shot_specs/SC100/SC100_SHOT_PACKAGE.json
     shot_count: 36
     duration_seconds: 108
     stills_per_minute: 20
-    env6_disposition: NO SB / EP0 physical chronology only
-    location: LOC-087 / SUB-087-01 / ENV-IJM-001 + ENV-IJM-003 + ENV-IJM-004 / WC095
-    anaadhi_state: AGE-ANAADHI-27-FINAL + HR-ANAADHI-27-FINAL + CST-ANAADHI-27-FINAL + INJ-ANAADHI-27-FINAL; final garment controlled-unresolved
-    image_generation_started: false
-    render_started: false
+    env6_disposition: NO SB/EP0 physical chronology
+    location: LOC-087/SUB-087-01/ENV-IJM-001+003+004/WC095
     final_editorial_next: SC094B
   SC094B:
     state: SPEC_READY
@@ -82,159 +75,115 @@ coverage:
     shot_count: 12
     duration_seconds: 36
     stills_per_minute: 20
-    env6_disposition: WC089 / NO SB / EP0 physical checkpoint chronology only
-    location: LOC-075 / ENV-BOR-001 + ENV-BOR-002; mobile ENV-MOB-004/005/006/007; LOC-077 and LOC-076 exact where mapped
-    source_end: 'ANAADHI: Because of evidence.'
-    boundary_note: Vehicle-door/open-hand beat belongs to SC095 and is not imported into SC094B.
-    image_generation_started: false
-    render_started: false
+    env6_disposition: WC089/NO SB
     final_editorial_next: SC095
   SC095:
     state: SPEC_READY
-    source_scene_id: SC095
     source: scenes/095/scene.yaml
     shot_package: production/remotion/shot_specs/SC095/SC095_SHOT_PACKAGE.json
     shot_count: 42
     duration_seconds: 126
     stills_per_minute: 20
-    parallel_earth: TP099 / SB099 / GF10 / EP0+EP1+EP3+EP-U / OBS01 / ANCH72 / INV6-72 / WC090 / VAR6-01+VAR6-03 / RST05
-    location: LOC-075 / ENV-BOR-001 + ENV-BOR-002; ENV-MOB-004/005/006/007/008; LOC-077 and LOC-076 exact where mapped
-    boundary_note: SB099 exists only from Parallel Earths show Anaadhi breaking free through Semmaa lowering every weapon; all other SC095 action is physical chronology.
-    image_generation_started: false
-    render_started: false
+    parallel_earth: TP099/SB099/GF10/ANCH72/INV6-72/WC090/RST05
     final_editorial_next: SC060
   SC060:
     state: SPEC_READY
-    source_scene_id: SC060
     source: scenes/060/scene.yaml
     shot_package: production/remotion/shot_specs/SC060/SC060_SHOT_PACKAGE.json
     shot_count: 24
     duration_seconds: 72
     stills_per_minute: 20
-    env6_disposition: WC056 / NO SB / EP0 physical evidence-room chronology only
-    location: LOC-057 ST00 / ENV-KND-003; Drive reuse audit PASS; formal visual status METADATA_LOCKED_VISUAL_PENDING
-    evidence_control: RUKEY_seventeen_name_display custody origin; Anaadhi absent; flat evidence interfaces only
-    image_generation_started: false
-    render_started: false
+    env6_disposition: WC056/NO SB
     final_editorial_next: SC061
   SC061:
     state: SPEC_READY
-    source_scene_id: SC061
     source: scenes/061/scene.yaml
     shot_package: production/remotion/shot_specs/SC061/SC061_SHOT_PACKAGE.json
     shot_count: 30
     duration_seconds: 90
     stills_per_minute: 20
-    env6_disposition: WC057 / NO SB / EP0 physical forest search and cabin discovery only
-    location: LOC-058/ENV-CAB-007 + LOC-056/ENV-BHG-021 + LOC-059/ENV-BHG-001 + LOC-001/SUB-001-01/ENV-CAB-008
-    evidence_control: RUKEY_seventeen_name_display carried from SC060; RUKEY_madhava_repaired_bag same physical object under leaves; exactly 17 lamps; Anaadhi O.S. only and not visible before SC062
-    image_generation_started: false
-    render_started: false
+    env6_disposition: WC057/NO SB
     final_editorial_next: SC062
   SC062:
     state: SPEC_READY
-    source_scene_id: SC062
     source: scenes/062/scene.yaml
     shot_package: production/remotion/shot_specs/SC062/SC062_SHOT_PACKAGE.json
     shot_count: 39
     duration_seconds: 117
     stills_per_minute: 20
-    parallel_earth: SB068 / GF02 / Band D / EP0+EP1+EP3+EP-U / OBS01 / ANCH02 / INV6-02 / WC058 / VAR6-01+VAR6-03 / RST05
-    location: LOC-001 / ENV-CAB-008 / ST00; interior subspace controlled-unresolved; D3 continues from SC061 few-inch opening and remains open through exact SC062 end
-    evidence_control: exactly 17 lamps in fixed imperfect 9+8 rows; exactly 17 wooden-name positions; same RUKEY_seventeen_name_display aligned beside wooden list; Madhava only explicitly sourced readable name; no fabricated names
-    weapon_control: every real-world weapon absent from sight in SC062
-    image_generation_started: false
-    render_started: false
+    parallel_earth: SB068/GF02/WC058/RST05
     final_editorial_next: SC063
   SC063:
     state: SPEC_READY
-    source_scene_id: SC063
     source: scenes/063/scene.yaml
     shot_package: production/remotion/shot_specs/SC063/SC063_SHOT_PACKAGE.json
     shot_count: 48
     duration_seconds: 144
     stills_per_minute: 20
-    env6_disposition: WC059 / NO SB / EP0 physical surrender-terms chronology only; inner-voice discussion remains testimony and is not visualized
-    location: LOC-001 / ENV-CAB-008 / ST00; before dawn; interior subspace controlled-unresolved
-    evidence_control: exactly 17 lamps and 17 wooden names persist; same RUKEY_seventeen_name_display begins beside wood list and Aarathi takes it at scene end
-    weapon_control: Anaadhi weapons locked beneath PRP-SPLIT-FLOORBOARD and never visible; key remains on table; no floorboard opening
-    technology_control: consented location and surrender conditions sent to Unnath; integrated Paraane authorisation auto-copies Anarvaa and central medical command; first hidden drones enter forest only at exact SC063 end
-    image_generation_started: false
-    render_started: false
+    env6_disposition: WC059/NO SB
     final_editorial_next: SC064
   SC064:
     state: SPEC_READY
-    source_scene_id: SC064
     source: scenes/064/scene.yaml
     shot_package: production/remotion/shot_specs/SC064/SC064_SHOT_PACKAGE.json
     shot_count: 64
     duration_seconds: 192
     stills_per_minute: 20
-    env6_disposition: WC060 / NO SB / EP0 physical command-prep chronology only
-    location: LOC-003 Paraane Campus / Central Complex; central-command operations-hall nested subspace remains controlled-unresolved per B24 reference binding
-    evidence_control: RUKEY_seventeen_name_display remains in Aarathi custody from SC063; not converted into Anaadhi file or surrender-condition screen; no fabricated names
-    technology_control: forest map + old Paraane file interface + surrender-condition screen + PNX-4 protocol + stalled integrated authorisation + physical-order printer + red founder stamp; no ADK-7/cartridge/vault action
-    batch_control: canonical B24; B23 continuity inherited only from SC063 handoff
-    image_generation_started: false
-    render_started: false
+    env6_disposition: WC060/NO SB
     final_editorial_next: SC065
   SC065:
     state: SPEC_READY
-    source_scene_id: SC065
     source: scenes/065/scene.yaml
     shot_package: production/remotion/shot_specs/SC065/SC065_SHOT_PACKAGE.json
     shot_count: 74
     duration_seconds: 222
     stills_per_minute: 20
-    parallel_earth: SB069 / GF10 / Band D / EP0+EP1+EP3+EP-U / OBS01 / ANCH02 / INV6-02 / WC061 / VAR6-01+VAR6-03 / RST02
-    location: LOC-003/SUB-003-25 pharmaceutical transfer vault + LOC-001 Bhaigaara buffer forest approach (subspace controlled-unresolved) + LOC-001/ENV-CAB-008/ST00 primary cabin + rear staircase subspace controlled-unresolved
-    evidence_control: same RUKEY_seventeen_name_display from SC060-SC064; exactly 17 names; Aarathi hands it to Anaadhi, Anaadhi opens/folds/returns it, Aarathi re-clips it into rainproof satchel; no fabricated names
-    pharmaceutical_control: initial 12 PNX-4; only Unit 07 replaced by darker ADK-7 under restricted override; final display says TWELVE AUTHORISED UNITS; no drug administration in SC065
-    character_control: Anaadhi age27/193cm forest-pre-capture; no early B01 shaved/topless capture state; Aarathi B24 field continuity with no sidearm; Inner Voice silent before SB069
-    boundary_note: "current approved SC065 materialization ends immediately after SEMMAA (O.S.): Get down!; operation detonation, forced entry and drug administration begin only in SC066"
-    image_generation_started: false
-    render_started: false
+    parallel_earth: SB069/GF10/WC061/RST02
     final_editorial_next: SC066
   SC066:
     state: SPEC_READY
-    source_scene_id: SC066
     source: scenes/066/scene.yaml
     shot_package: production/remotion/shot_specs/SC066/SC066_SHOT_PACKAGE.json
     shot_count: 90
     duration_seconds: 270
     stills_per_minute: 20
-    parallel_earth: three separate beats — SB070/GF03/RST05; SB071/GF10/RST01; SB072/GF03/RST01 — all WC001/FULL and zero-residue restores
-    location: LOC-001 / ENV-CAB-008 + ENV-BHG-001; SC002 single-breach/debris/wetness state is the same canonical event reprised chronologically in SC066
-    drug_control: first standard sedative upper arm -> conscious stagger; later Unit Seven ADK-7 after SB070 and names/file exchange; never merge administrations
-    evidence_control: same RUKEY_seventeen_name_display, exactly 17 names, never converted into Paraane file; split floorboard/hatch remain physical but adult escape excluded to SC067
-    character_control: Anaadhi AGE_27_CAPTURE / 193cm / heavy-athletic / shaved rough-regrowth capture state where B24-B01 continuity requires; SC065-to-SC066 appearance transition mechanic remains unresolved and is not visualized
-    boundary_note: exact end CUT TO BLACK. INTERVAL.; SC067 heartbeat return and all recovery/escape action excluded
+    parallel_earth: SB070/GF03/RST05 + SB071/GF10/RST01 + SB072/GF03/RST01; WC001/FULL
+    final_editorial_next: SC067
+  SC067:
+    state: SPEC_READY
+    source: scenes/067/scene.yaml
+    shot_package: production/remotion/shot_specs/SC067/SC067_SHOT_PACKAGE.json
+    shot_count: 80
+    duration_seconds: 240
+    stills_per_minute: 20
+    parallel_earth: TP073/SB073/GF02/RST01 + TP074/SB074/GF03/RST01; both WC062; zero residue
+    location: LOC-001/ENV-CAB-008 lower passage (numeric nested ID unresolved) + LOC-060 ST00/ENV-BHG-003 adult escape ravine
+    drug_control: ADK-7 active; motor returning but impaired; no new dose
+    sensor_control: three thermal readings are outputs only; one real Anaadhi
+    evidence_control: RUKEY_seventeen_name_display remains secured with Aarathi; no fabricated names
+    boundary_note: ends at They move deeper into the ravine; SC068 flood-channel action excluded
     image_generation_started: false
     render_started: false
-    final_editorial_next: SC067
-  SC006-SC099:
-    state: NOT_YET_MATERIALIZED_EXCEPT_LISTED_SEGMENTS
-    exceptions:
-    - SC060
-    - SC061
-    - SC062
-    - SC063
-    - SC064
-    - SC065
-    - SC066
-    - SC094B
-    - SC095
-    - SC099B
-    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060-SC066, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
+    final_editorial_next: SC068
+unmaterialized:
+  state: NOT_YET_MATERIALIZED_EXCEPT_LISTED
+  note: Source scene numbers remain screenplay authority; final render order follows EDITORIAL_SEQUENCE_LOCK.yaml.
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   source_numeric_order_is_not_final_render_order: true
-  first_editorial_jump_reached: true
-  split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
-  split_packages_materialized: [SC094B, SC099B]
+  split_packages_required:
+  - SC074A
+  - SC074B
+  - SC094A
+  - SC094B
+  - SC099A
+  - SC099B
+  split_packages_materialized:
+  - SC094B
+  - SC099B
   remaining_materialization_order:
-  - SC067-SC073
+  - SC068-SC073
   - SC074A
   - SC006-SC059
   - SC074B
@@ -244,17 +193,18 @@ editorial:
   - SC099A
   - END
 cursor:
-  last_materialized_source_scene: SC066
-  last_materialized_editorial_segment: SC066
-  next_scene: SC067
-  next_editorial_segment: SC067
-  after_SC066: SC067
-  image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
+  last_materialized_source_scene: SC067
+  last_materialized_editorial_segment: SC067
+  next_scene: SC068
+  next_editorial_segment: SC068
+  after_SC067: SC068
+  image_generation_gate: EXTERNAL_CHAT_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:
   github: CANONICAL
-  chat_storyboard_generation: ENABLED_AFTER_SPEC_READY
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE
   remotion: EDITORIAL_LOCKED_ASSEMBLY_CODE_READY
-  heygen: HISTORICAL_ONLY_DISABLED_FOR_EXECUTION
+  supercool: DISABLED
+  heygen: DISABLED
   openai_work_page: DISABLED
   paid_media_apis: DISABLED

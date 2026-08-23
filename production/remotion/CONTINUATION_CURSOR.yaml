@@ -1,11 +1,12 @@
-version: 17
+version: 18
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: '2026-08-23T07:21:00+05:30'
+as_of_local: '2026-08-23T15:36:00+05:30'
 backend:
   github_canonical_control: true
-  chat_storyboard_generation: true
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE
   remotion_assembly: true
+  supercool_generation_enabled: false
   heygen_generation_enabled: false
   openai_work_page_generation_enabled: false
   paid_media_api_execution_enabled: false
@@ -18,13 +19,13 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC066
-  latest_source_scene_materialized: SC066
-  next_scene_to_materialize: SC067
-  next_editorial_segment: SC067
+  latest_new_schema_materialized: SC067
+  latest_source_scene_materialized: SC067
+  next_scene_to_materialize: SC068
+  next_editorial_segment: SC068
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC066 is SPEC_READY through exact CUT TO BLACK. INTERVAL. It is the chronological expansion/reprise of the B01 capture event; SC002 single-breach damage is not duplicated. Continue directly to SC067; heartbeat return, motor recovery, restraint and adult lower-passage escape begin only there.
+  note: SC067 SPEC_READY through 'They move deeper into the ravine.' Continue SC068 only from flood channel dawn. SuperCool disabled by user; no paid media execution.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
@@ -32,123 +33,17 @@ audio:
   resume_mix_after_seconds: 134.293333
   reopen_locked_prefix_only_on_explicit_user_redraft: true
   editorial_audio_order_follows_picture_manifest: true
-  SC003:
-    dialogue_policy: CREATOR_RECORDING_ONLY
-    picture_planning_duration_seconds: 60
-    exact_master_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-  SC004:
-    dialogue_policy: CREATOR_RECORDING_ONLY
-    picture_planning_duration_seconds: 90
-    exact_master_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    subjective_sound_rule: At SB004 onset external sound disappears; heartbeat remains until RST01 returns the physical cabin.
-  SC005:
-    dialogue_policy: CREATOR_RECORDING_ONLY
-    picture_planning_duration_seconds: 72
-    exact_master_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    source_transition: Bright university-laboratory bridge / source screenplay SMASH CUT TO SC006
-    final_editorial_transition: CUT TO SC099B under EDITORIAL_SEQUENCE_LOCK.yaml
-  SC099B:
-    voice_policy: CREATOR_RECORDED_VO_ONLY
-    lip_sync_required: false
-    picture_planning_duration_seconds: 48
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: CUT FROM SC005 under final editorial lock
-    transition_out: CUT TO SC100 at MALLAYYA end anchor
-  SC100:
+  SC067:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 108
+    picture_planning_duration_seconds: 240
     exact_audio_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
-    transition_in: CUT FROM SC099B handwritten MALLAYYA end anchor
-    transition_out: FADE OUT inside SC100 source scene, then editorial continuation CUT/assembly to SC094B under locked non-linear feature order
-    final_sound_rule: No mandatory heroic resolution cue; preserve humane restraint, quiet room tone and ordinary distant traffic unless creator later approves a different mix.
-  SC094B:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 36
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: CUT/assembly from SC100 after its source-scene FADE OUT under nonlinear editorial lock
-    transition_out: 'CUT TO SC095 after ANAADHI: Because of evidence.'
-    boundary_rule: Do not import SC095 vehicle-door/open-hand beat into SC094B.
-    sound_rule: Real checkpoint/evidence containment only; no Parallel-Earth or ADK-7 represented layer in WC089.
-  SC095:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 126
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: 'CUT FROM SC094B after ANAADHI: Because of evidence.'
-    transition_out: CUT TO SC060 under EDITORIAL_SEQUENCE_LOCK.yaml after the closed vehicle door/open-hand end image
-    special_sound_rule: Only TP099/SB099 may carry represented Parallel-Earth sound; RST05 restores full physical checkpoint sound before the Young Sarjanya Member lowers his weapon.
-    final_sound_rule: No celebration and no heroic music; end on quiet protected-vehicle interior with distant checkpoint ambience.
-  SC060:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 72
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: CUT FROM SC095 closed vehicle door/open-hand image under nonlinear editorial lock
-    transition_out: CUT TO SC061 after Aarathi leaves with the portable seventeen-name display
-    sound_rule: Physical evidence-room dialogue and restrained room tone only; no represented-layer audio, crime reenactment sound or victim voices.
-  SC061:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 90
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: CUT FROM SC060 with Aarathi retaining custody of RUKEY_seventeen_name_display
-    transition_out: CUT TO SC062 only after the LOC-001 door opens a few inches
-    sound_rule: Physical forest/search ambience only; no represented-layer audio, victim voices, crime reenactment or heroic cabin reveal.
-  SC062:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 117
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: CUT FROM SC061 exact few-inch D3 opening
-    transition_out: CUT TO SC063 only after Aarathi disappears among the trees while D3 remains open
-    special_sound_rule: "Only SB068 carries represented Parallel-Earth sound. The four alternatives are mutually exclusive. RST05 must restore unchanged real WC058 cabin sound completely by the end of AARATHI: That is a possibility, not a defence."
-    final_sound_rule: End on real late-afternoon cabin/forest ambience with fading Aarathi footsteps; no police approach, surrender operation or dawn cue before SC063.
-  SC063:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 144
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: CUT FROM SC062 after the time gap to before dawn; do not invent Aarathi's intervening portal mechanics
-    transition_out: CUT TO SC064 only after Aarathi takes RUKEY_seventeen_name_display and the first hidden drones enter the forest
-    sound_rule: WC059 is NO SB. The inner-voice discussion is testimony only; no subjective voice, victim voice, flashback, Parallel-Earth sound or reenactment. Preserve quiet before-dawn cabin/forest ambience and creator-recorded dialogue.
-    final_sound_rule: Hidden-drone sound is not mandatory unless later mix authority supplies it; do not begin command-hall or operation audio before SC064.
-  SC064:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 192
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: CUT FROM SC063 only after Aarathi takes RUKEY_seventeen_name_display and the first hidden drones enter the forest
-    transition_out: CUT TO SC065 only after Parvaran signs the physical operation order and another compromise enters the file
-    sound_rule: WC060 is NO SB. Use physical operations-hall dialogue, restrained room tone and source-action interface/printer/paper sounds only. No Parallel-Earth, flashback, real-forest operation, capture, pharmaceutical-vault, cartridge-transfer or ADK-7 sound.
-    final_sound_rule: End on pen/paper and subdued command-hall ambience; do not begin SC065 vault mechanics before the cut.
-  SC065:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 222
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: CUT FROM SC064 only after Parvaran signs the physical operation order and another compromise enters the file
-    transition_out: "CUT TO SC066 immediately after SEMMAA (O.S.): Get down!"
-    sound_rule: Physical vault/forest/cabin sound outside SB069. Inner Voice is silent before SB069. No operation detonation, forced-entry, hook, PNX-4 administration or ADK-7 administration sound in SC065.
-    special_sound_rule: SB069 / GF10 / Band D / EP0+EP1+EP3+EP-U / OBS01 / ANCH02 / INV6-02 / WC061 / VAR6-01+VAR6-03 only. Six alternatives remain mutually exclusive; RST02 restores unchanged real WC061 cabin sound when Anaadhi looks from the open-hand version to his real hands.
-    final_sound_rule: End on Semmaa's creator-recorded Get down! and cut before the operation detonates into motion.
-  SC066:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 270
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    retime_locked_master: false
-    transition_in: "CUT FROM SC065 immediately after SEMMAA (O.S.): Get down!"
-    transition_out: CUT TO BLACK. INTERVAL.; editorial materialization continues to SC067 only after the interval boundary
-    sound_rule: WC001/FULL physical black rain/cabin/perimeter outside represented beats. Standard sedative and ADK-7 are separate source events. Do not add SC067 heartbeat.
-    SB070_sound: GF03 child-wing represented sound only inside SB070; RST05 fully restores WC001/FULL.
-    SB071_sound: GF10 convergence sound begins only after ADK-7 administration; RST01 restores physical cabin when Anaadhi falls onto one hand.
-    SB072_sound: GF03 represented corridor sound only inside SB072; RST01 restores physical cabin for final conscious instant.
-    final_sound_rule: CUT TO BLACK. INTERVAL. is a hard sound/picture boundary; no heartbeat return before SC067.
+    transition_in: After SC066 CUT TO BLACK. INTERVAL.; heartbeat returns in SC067
+    transition_out: CUT TO SC068 after they move deeper into the ravine
+    sound_rule: Physical WC062 black-rain cabin/lower-passage/ravine sound outside SB073/SB074; no new ADK-7 dose.
+    SB073_sound: Represented overlap only inside TP073/SB073; RST01 restores same physical cabin.
+    SB074_sound: Represented route multiplication only inside TP074/SB074; RST01 restores physical three-route passage.
+    final_sound_rule: Do not begin SC068 renewed-rain/flood-channel sound before the cut.
 picture_master:
   width: 3840
   height: 1600
@@ -157,161 +52,92 @@ picture_master:
   baked_letterbox: false
 shot_density:
   target_minimum_stills_per_minute: 20
-  SC002: {duration_seconds: 54, shot_count: 18, stills_per_minute: 20}
-  SC003: {duration_seconds: 60, shot_count: 20, stills_per_minute: 20}
-  SC004: {duration_seconds: 90, shot_count: 36, stills_per_minute: 24}
-  SC005: {duration_seconds: 72, shot_count: 24, stills_per_minute: 20}
-  SC099B: {duration_seconds: 48, shot_count: 16, stills_per_minute: 20}
-  SC100: {duration_seconds: 108, shot_count: 36, stills_per_minute: 20}
-  SC094B: {duration_seconds: 36, shot_count: 12, stills_per_minute: 20}
-  SC095: {duration_seconds: 126, shot_count: 42, stills_per_minute: 20}
-  SC060: {duration_seconds: 72, shot_count: 24, stills_per_minute: 20}
-  SC061: {duration_seconds: 90, shot_count: 30, stills_per_minute: 20}
-  SC062: {duration_seconds: 117, shot_count: 39, stills_per_minute: 20}
-  SC063: {duration_seconds: 144, shot_count: 48, stills_per_minute: 20}
-  SC064: {duration_seconds: 192, shot_count: 64, stills_per_minute: 20}
-  SC065: {duration_seconds: 222, shot_count: 74, stills_per_minute: 20}
-  SC066: {duration_seconds: 270, shot_count: 90, stills_per_minute: 20}
+  SC067:
+    duration_seconds: 240
+    shot_count: 80
+    stills_per_minute: 20
 env6_cursor:
-  latest_materialized_segment: SC066
-  source_scene: SC066
-  scene_condition: WC001/FULL
+  latest_materialized_segment: SC067
+  source_scene: SC067
+  scene_condition: WC062
+  condition_signature: TD8/WX2/EX4/LS2/OC5/OP3/T+A
   special_beat_intersects_scene: true
-  source_ruling: THREE_SEPARATE_SOURCE_BOUNDED_BEATS
-  physical_anchor: ENV-CAB-008
-  perimeter_anchor: ENV-BHG-001
+  source_ruling: TWO_SEPARATE_SOURCE_BOUNDED_BEATS
   batch:
-    canonical: B24
-    capture_reprise: B01
-  loc_crosswalk:
-    LOC-001: Anaadhi Primary / Final / Raised Cabin root
-    ENV-CAB-008: Final / Primary / Raised Cabin physical anchor
-    ENV-BHG-001: Bhaigaara Buffer Forest — Core / Capture Perimeter
-  weather_time: PRE_DAWN_BLACK_RAIN
-  damage:
-    canonical_breach_source: SC002
-    SC066_relation: SAME_EVENT_CHRONOLOGICAL_REPRISE
-    second_breach_event: false
-    debris_wetness_persist: true
-  drugs:
-    first: STANDARD_SEDATIVE_UPPER_ARM__ANAADHI_STAGGERS_REMAINS_CONSCIOUS
-    unit_seven_reveal_after_first: ADK7
-    second: ADK7_AFTER_SB070_AND_NAMES_FILE_EXCHANGE
-    merged_administration_forbidden: true
-  display:
-    rukey: RUKEY_seventeen_name_display
-    count: 17
-    not_paraane_file: true
-    fabricated_names_forbidden: true
-    replacement_redesign_forbidden: true
-  SB070:
-    grammar: GF03
-    recurrence: 4/6
+    canonical: B25
+    scenes: [67, 68]
+  physical_anchors:
+    cabin: LOC-001/ENV-CAB-008
+    lower_passage: LOC-001/ENV-CAB-008 subordinate; nested ID controlled-unresolved
+    ravine: LOC-060 ST00/ENV-BHG-003 Forest Ravine — Adult Escape
+  weather_time: CONTINUOUS_FROM_SC066_BLACK_RAIN_EVENT
+  operability:
+    escape_panel: OPEN_ONCE
+    concealed_grate: OPEN_ONCE
+    anaadhi_clearance_cm: 193
+    searchlights: NO_NEW_PATH_OR_BEARING
+  SB073:
+    tp: TP073
+    grammar: GF02
+    recurrence: 10/11
     band: D
-    ep: EP0+EP2+EP3+EP4+EP5+EP-U
+    ep: EP0+EP1+EP3+EP-U
     observer: OBS01
     anchor: ANCH02
     inverse: INV6-02
-    variations: [VAR6-02, VAR6-03, VAR6-04, VAR6-05]
-    reset: RST05
-    start: The cabin becomes Paraane’s child wing.
-    end: The same door again.
-    zero_residue: true
-  SB071:
-    grammar: GF10
-    recurrence: 5/11
-    band: D
-    ep: EP0+EP1+EP2+EP3+EP4+EP5+EP-U
-    observer: OBS01
-    anchor: ANCH01
-    inverse: INV6-01
-    variations: [VAR6-01, VAR6-02, VAR6-03, VAR6-04, VAR6-05]
+    variations: [VAR6-01, VAR6-03]
     reset: RST01
-    precondition: ADK7_ENTERED_BLOODSTREAM
-    start: PARALLEL-EARTH CONVERGENCE
-    end: BACK_IN_PRESENT_ANAADHI_FALLS_ONTO_ONE_HAND
+    start: The armed operation surrounding him fractures into overlapping versions.
+    end: Back to the present.
     zero_residue: true
-  SB072:
+  SB074:
+    tp: TP074
     grammar: GF03
-    recurrence: 5/6
+    recurrence: 6/6
     band: D
-    ep: EP0+EP2+EP3+EP4+EP5+EP-U
+    ep: EP0+EP1+EP3+EP4+EP5+EP-U
     observer: OBS01
     anchor: ANCH02
     inverse: INV6-02
-    variations: [VAR6-02, VAR6-03, VAR6-04, VAR6-05]
+    variations: [VAR6-01, VAR6-03, VAR6-04, VAR6-05]
     reset: RST01
-    start: ANAADHI_VISION_ENTERS_ENDLESS_PARAANE_CORRIDOR
-    end: ANAADHI_RETURNS_TO_REAL_CABIN_FOR_FINAL_CONSCIOUS_INSTANT
+    start: 'All three routes multiply across parallel Earths:'
+    end: The vision disappears.
     zero_residue: true
   exact_end:
-    lines:
-    - 'ANAADHI: You did not come to capture me.'
-    - 'ANAADHI: You came to take back what you created.'
-    collapse: true
-    black_floor: true
-    paraane_emblem_above: true
-    boundary: CUT_TO_BLACK_INTERVAL
-  prohibited:
-  - SC067_HEARTBEAT_RETURN
-  - SC067_MOTOR_RECOVERY
-  - POST_COLLAPSE_RESTRAINT
-  - ADULT_LOWER_PASSAGE_ESCAPE
-  - RAVINE_ACTION
-  - EXTRA_ADK7
-  - INVENTED_PHARMACEUTICAL_MECHANICS
-  - ADDITIONAL_GORE
-  - NEW_PARALLEL_VARIANTS
-  - PERSISTENT_REPRESENTED_ARCHITECTURE
-  - RST_RESIDUE
-  - FABRICATED_VICTIM_NAMES
-  - DIAGNOSIS_CERTAINTY
-  - SUPERNATURAL_CERTAINTY
-  - LITERAL_MULTIVERSE_CERTAINTY
-  - SC068_ACTION
+    dialogue: 'AARATHI: Not before I record the seventeen-count confession.'
+    action: They move deeper into the ravine.
+    cut_before: SC068 flood channel dawn / rain begins again
 character_cursor:
   anaadhi:
-    source_scene: SC066
+    source_scene: SC067
     identity: CHR-ANAADHI
-    presence: PHYSICALLY_PRESENT_UNTIL_COLLAPSE
     age: 27
     height_cm: 193
-    exact_visual_state: AGE_27_CAPTURE
-    body_state: HEAVY_ATHLETIC_FOREST_BUILT
-    hair_state: HR-ANAADHI-27-CAPTURE__SHAVED_SCALP_ROUGH_REGROWTH
-    costume_state: CST-ANAADHI-27-CAPTURE__TOPLESS_WHERE_OPENING_CONTINUITY_REQUIRES
-    identity_transition_from_SC065: UNRESOLVED_DO_NOT_VISUALIZE_HAIRCUT_OR_UNDRESSING
-    drug_state_start: NO_ADK7
-    drug_state_mid: STANDARD_SEDATIVE_CONSCIOUS_STAGGER
-    drug_state_late: ADK7_CIRCULATING_CHEMICAL_MOTOR_IMPAIRMENT_UNUSUAL_CONSCIOUSNESS
-    end_state: COLLAPSED_AT_INTERVAL_BOUNDARY
+    state: AGE_27_CAPTURE
+    body: HEAVY_ATHLETIC_FOREST_BUILT
+    hair: HR-ANAADHI-27-CAPTURE_SHAVED_ROUGH_REGROWTH
+    costume: WET_SOILED_CAPTURE_ESCAPE_CONTINUITY
+    injury: INJ-ANAADHI-27-ADK7_ACTIVE
+    motor: RETURNING_BUT_IMPAIRED
+    new_dose: false
+    end_state: MOVING_DEEPER_IN_RAVINE
   aarathi:
     identity: CHR-AARATHI
-    scene_look: B24_B01_FIELD_CONTINUITY
-    hair_state: WET_LONG_PLAIT
+    state: B25_FIELD_CONTINUITY
+    hair: WET_LONG_PLAIT
     visible_weapon: NONE
-    surrender_role: ENTERS_DOORWAY_FIRST_AND_ATTEMPTS_TO_PREVENT_ESCALATION
-    display_custody: RUKEY_seventeen_name_display continuity preserved; no fabrication or repurposing
+    display_custody: RUKEY_seventeen_name_display secured in rainproof satchel
+    hostage_status: false
   semmaa:
     identity: CHR-SEMMAA
-    state: OLDER_DISCIPLINED_PRESENT_DAY
-    operation_position: CAPTURE_NOT_EXECUTION
-  police_commander:
-    identity: CHR-POLICE-COMMANDER
-    state: B01_B24_CAPTURE_COMMAND
-  medical_specialist:
-    identity: CHR-MEDICAL-SPECIALIST
-    state: B01_B24_OPERATION_MEDICAL
-    drug_actions: STANDARD_SEDATIVE_THEN_LATER_ADK7
-  allied_gangster:
-    identity: CHR-ALLIED-GANGSTER
-    state: MANIMANTHARAA_ALIGNED_REAR_UNIT
-    hook_action: SOURCE_BOUNDED_ONLY
-    removed_by_semmaa: true
+    state: OLDER_DISCIPLINED
+    position: OPERATION_ABOVE
+    decision: FOLLOW_PHYSICAL_DRAINAGE_NOT_SENSOR_MULTIPLICATION
   child_anaadhi:
-    identity: CHR-ANAADHI
-    represented_age_state: AGE_12_EXPLICIT
-    resized_adult_forbidden: true
+    identity_family: CHR-ANAADHI
+    represented_age: 12
+    physical_persistence: false
 editorial_lock:
   enabled: true
   split_scene_ids: [SC074, SC094, SC099]
@@ -319,11 +145,10 @@ editorial_lock:
   final_end_after: SC099A
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
-  first_jump_completed_at: SC005
-  current_completed_segment: SC066
-  next_editorial_segment: SC067
+  current_completed_segment: SC067
+  next_editorial_segment: SC068
   remaining_materialization_order:
-  - SC067-SC073
+  - SC068-SC073
   - SC074A
   - SC006-SC059
   - SC074B
