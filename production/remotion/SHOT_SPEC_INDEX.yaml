@@ -1,154 +1,24 @@
-version: 18
+version: 19
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
 coverage:
-  SC001:
-    state: LEGACY_SCENE_PLAN_PRESENT
-    source: scenes/001/scene.yaml
-    shot_count: 8
-    migration_to_new_schema: PENDING
-    regenerate_now: false
-  SC002:
-    state: SPEC_READY
-    source: scenes/002/scene.yaml
-    shot_package: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json
-    shot_count: 18
-    duration_seconds: 54
-    stills_per_minute: 20
-    image_generation_started: false
-  SC003:
-    state: SPEC_READY
-    source: scenes/003/scene.yaml
-    shot_package: production/remotion/shot_specs/SC003/SC003_SHOT_PACKAGE.json
-    shot_count: 20
-    duration_seconds: 60
-    stills_per_minute: 20
-    parallel_earth: SB003/GF02/ANCH02/INV6-02/WC001-C/RST01
-    image_generation_started: false
-  SC004:
-    state: SPEC_READY
-    source: scenes/004/scene.yaml
-    shot_package: production/remotion/shot_specs/SC004/SC004_SHOT_PACKAGE.json
-    shot_count: 36
-    duration_seconds: 90
-    stills_per_minute: 24
-    parallel_earth: SB004/TP004/GF03/ANCH02/INV6-02/WC001-D/RST01
-    image_generation_started: false
-  SC005:
-    state: SPEC_READY
-    source: scenes/005/scene.yaml
-    shot_package: production/remotion/shot_specs/SC005/SC005_SHOT_PACKAGE.json
-    shot_count: 24
-    duration_seconds: 72
-    stills_per_minute: 20
-    parallel_earth: SB005/TP005/GF06/OBS03/ANCH02/INV6-02/WC001-E/RST03
-    image_generation_started: false
-    final_editorial_next: SC099B
-  SC099B:
-    state: SPEC_READY
-    source_scene_id: SC099
-    editorial_segment_id: SC099B
-    source: scenes/099/segments/SC099B/scene.yaml
-    shot_package: production/remotion/shot_specs/SC099B/SC099B_SHOT_PACKAGE.json
-    shot_count: 16
-    duration_seconds: 48
-    stills_per_minute: 20
-    env6_disposition: EP0 physical chronology only; SB103/GF11/EP7 excluded
-    final_editorial_next: SC100
-  SC100:
-    state: SPEC_READY
-    source: scenes/100/scene.yaml
-    shot_package: production/remotion/shot_specs/SC100/SC100_SHOT_PACKAGE.json
-    shot_count: 36
-    duration_seconds: 108
-    stills_per_minute: 20
-    env6_disposition: NO SB/EP0 physical chronology
-    location: LOC-087/SUB-087-01/ENV-IJM-001+003+004/WC095
-    final_editorial_next: SC094B
-  SC094B:
-    state: SPEC_READY
-    source_scene_id: SC094
-    editorial_segment_id: SC094B
-    source: scenes/094/segments/SC094B/scene.yaml
-    shot_package: production/remotion/shot_specs/SC094B/SC094B_SHOT_PACKAGE.json
-    shot_count: 12
-    duration_seconds: 36
-    stills_per_minute: 20
-    env6_disposition: WC089/NO SB
-    final_editorial_next: SC095
-  SC095:
-    state: SPEC_READY
-    source: scenes/095/scene.yaml
-    shot_package: production/remotion/shot_specs/SC095/SC095_SHOT_PACKAGE.json
-    shot_count: 42
-    duration_seconds: 126
-    stills_per_minute: 20
-    parallel_earth: TP099/SB099/GF10/ANCH72/INV6-72/WC090/RST05
-    final_editorial_next: SC060
-  SC060:
-    state: SPEC_READY
-    source: scenes/060/scene.yaml
-    shot_package: production/remotion/shot_specs/SC060/SC060_SHOT_PACKAGE.json
-    shot_count: 24
-    duration_seconds: 72
-    stills_per_minute: 20
-    env6_disposition: WC056/NO SB
-    final_editorial_next: SC061
-  SC061:
-    state: SPEC_READY
-    source: scenes/061/scene.yaml
-    shot_package: production/remotion/shot_specs/SC061/SC061_SHOT_PACKAGE.json
-    shot_count: 30
-    duration_seconds: 90
-    stills_per_minute: 20
-    env6_disposition: WC057/NO SB
-    final_editorial_next: SC062
-  SC062:
-    state: SPEC_READY
-    source: scenes/062/scene.yaml
-    shot_package: production/remotion/shot_specs/SC062/SC062_SHOT_PACKAGE.json
-    shot_count: 39
-    duration_seconds: 117
-    stills_per_minute: 20
-    parallel_earth: SB068/GF02/WC058/RST05
-    final_editorial_next: SC063
-  SC063:
-    state: SPEC_READY
-    source: scenes/063/scene.yaml
-    shot_package: production/remotion/shot_specs/SC063/SC063_SHOT_PACKAGE.json
-    shot_count: 48
-    duration_seconds: 144
-    stills_per_minute: 20
-    env6_disposition: WC059/NO SB
-    final_editorial_next: SC064
-  SC064:
-    state: SPEC_READY
-    source: scenes/064/scene.yaml
-    shot_package: production/remotion/shot_specs/SC064/SC064_SHOT_PACKAGE.json
-    shot_count: 64
-    duration_seconds: 192
-    stills_per_minute: 20
-    env6_disposition: WC060/NO SB
-    final_editorial_next: SC065
-  SC065:
-    state: SPEC_READY
-    source: scenes/065/scene.yaml
-    shot_package: production/remotion/shot_specs/SC065/SC065_SHOT_PACKAGE.json
-    shot_count: 74
-    duration_seconds: 222
-    stills_per_minute: 20
-    parallel_earth: SB069/GF10/WC061/RST02
-    final_editorial_next: SC066
-  SC066:
-    state: SPEC_READY
-    source: scenes/066/scene.yaml
-    shot_package: production/remotion/shot_specs/SC066/SC066_SHOT_PACKAGE.json
-    shot_count: 90
-    duration_seconds: 270
-    stills_per_minute: 20
-    parallel_earth: SB070/GF03/RST05 + SB071/GF10/RST01 + SB072/GF03/RST01; WC001/FULL
-    final_editorial_next: SC067
+  SC001: {state: LEGACY_SCENE_PLAN_PRESENT, source: scenes/001/scene.yaml, shot_count: 8, migration_to_new_schema: PENDING}
+  SC002: {state: SPEC_READY, source: scenes/002/scene.yaml, shot_package: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json, shot_count: 18, duration_seconds: 54, stills_per_minute: 20}
+  SC003: {state: SPEC_READY, source: scenes/003/scene.yaml, shot_package: production/remotion/shot_specs/SC003/SC003_SHOT_PACKAGE.json, shot_count: 20, duration_seconds: 60, stills_per_minute: 20}
+  SC004: {state: SPEC_READY, source: scenes/004/scene.yaml, shot_package: production/remotion/shot_specs/SC004/SC004_SHOT_PACKAGE.json, shot_count: 36, duration_seconds: 90, stills_per_minute: 24}
+  SC005: {state: SPEC_READY, source: scenes/005/scene.yaml, shot_package: production/remotion/shot_specs/SC005/SC005_SHOT_PACKAGE.json, shot_count: 24, duration_seconds: 72, stills_per_minute: 20, final_editorial_next: SC099B}
+  SC099B: {state: SPEC_READY, source: scenes/099/segments/SC099B/scene.yaml, shot_package: production/remotion/shot_specs/SC099B/SC099B_SHOT_PACKAGE.json, shot_count: 16, duration_seconds: 48, stills_per_minute: 20, final_editorial_next: SC100}
+  SC100: {state: SPEC_READY, source: scenes/100/scene.yaml, shot_package: production/remotion/shot_specs/SC100/SC100_SHOT_PACKAGE.json, shot_count: 36, duration_seconds: 108, stills_per_minute: 20, final_editorial_next: SC094B}
+  SC094B: {state: SPEC_READY, source: scenes/094/segments/SC094B/scene.yaml, shot_package: production/remotion/shot_specs/SC094B/SC094B_SHOT_PACKAGE.json, shot_count: 12, duration_seconds: 36, stills_per_minute: 20, final_editorial_next: SC095}
+  SC095: {state: SPEC_READY, source: scenes/095/scene.yaml, shot_package: production/remotion/shot_specs/SC095/SC095_SHOT_PACKAGE.json, shot_count: 42, duration_seconds: 126, stills_per_minute: 20, final_editorial_next: SC060}
+  SC060: {state: SPEC_READY, source: scenes/060/scene.yaml, shot_package: production/remotion/shot_specs/SC060/SC060_SHOT_PACKAGE.json, shot_count: 24, duration_seconds: 72, stills_per_minute: 20, final_editorial_next: SC061}
+  SC061: {state: SPEC_READY, source: scenes/061/scene.yaml, shot_package: production/remotion/shot_specs/SC061/SC061_SHOT_PACKAGE.json, shot_count: 30, duration_seconds: 90, stills_per_minute: 20, final_editorial_next: SC062}
+  SC062: {state: SPEC_READY, source: scenes/062/scene.yaml, shot_package: production/remotion/shot_specs/SC062/SC062_SHOT_PACKAGE.json, shot_count: 39, duration_seconds: 117, stills_per_minute: 20, final_editorial_next: SC063}
+  SC063: {state: SPEC_READY, source: scenes/063/scene.yaml, shot_package: production/remotion/shot_specs/SC063/SC063_SHOT_PACKAGE.json, shot_count: 48, duration_seconds: 144, stills_per_minute: 20, final_editorial_next: SC064}
+  SC064: {state: SPEC_READY, source: scenes/064/scene.yaml, shot_package: production/remotion/shot_specs/SC064/SC064_SHOT_PACKAGE.json, shot_count: 64, duration_seconds: 192, stills_per_minute: 20, final_editorial_next: SC065}
+  SC065: {state: SPEC_READY, source: scenes/065/scene.yaml, shot_package: production/remotion/shot_specs/SC065/SC065_SHOT_PACKAGE.json, shot_count: 74, duration_seconds: 222, stills_per_minute: 20, final_editorial_next: SC066}
+  SC066: {state: SPEC_READY, source: scenes/066/scene.yaml, shot_package: production/remotion/shot_specs/SC066/SC066_SHOT_PACKAGE.json, shot_count: 90, duration_seconds: 270, stills_per_minute: 20, final_editorial_next: SC067}
   SC067:
     state: SPEC_READY
     source: scenes/067/scene.yaml
@@ -156,14 +26,7 @@ coverage:
     shot_count: 80
     duration_seconds: 240
     stills_per_minute: 20
-    parallel_earth: TP073/SB073/GF02/RST01 + TP074/SB074/GF03/RST01; both WC062; zero residue
-    location: LOC-001/ENV-CAB-008 lower passage (numeric nested ID unresolved) + LOC-060 ST00/ENV-BHG-003 adult escape ravine
-    drug_control: ADK-7 active; motor returning but impaired; no new dose
-    sensor_control: three thermal readings are outputs only; one real Anaadhi
-    evidence_control: RUKEY_seventeen_name_display remains secured with Aarathi; no fabricated names
-    boundary_note: ends at They move deeper into the ravine; SC068 flood-channel action excluded
-    image_generation_started: false
-    render_started: false
+    parallel_earth: TP073/SB073/GF02/RST01 + TP074/SB074/GF03/RST01; WC062
     final_editorial_next: SC068
   SC068:
     state: SPEC_READY
@@ -172,48 +35,51 @@ coverage:
     shot_count: 50
     duration_seconds: 150
     stills_per_minute: 20
-    parallel_earth: TP075/SB075/GF07/OBS01+OBS04/ANCH55/INV6-55/ENV-BHG-022/WC063/RST02
+    parallel_earth: TP075/SB075/GF07/OBS01+OBS04/ANCH55/INV6-55/WC063/RST02
     location: LOC-061 / ENV-BHG-022 Bhaigaara Flood Channel
-    character_control: Anaadhi AGE_27_CAPTURE / ADK-7 active / unsteady; Aarathi several steps behind, unarmed, explicitly not hostage
-    technology_control: black-kite drones scan canopy; field communicator with Unnath/Anarvaa V.O.; no remote-room visualization
-    boundary_note: ends at They disappear into rain; SC069 Paraane eastern drainage return excluded
+    final_editorial_next: SC069
+  SC069:
+    state: SPEC_READY
+    source: scenes/069/scene.yaml
+    shot_package: production/remotion/shot_specs/SC069/SC069_SHOT_PACKAGE.json
+    shot_count: 69
+    duration_seconds: 207
+    stills_per_minute: 20
+    env6_disposition: B26 / WC064 / NO SB / EP0 physical chronology only
+    environment: ENV-PAR-001/PV004 + ENV-PAR-003/PV014 + ENV-PAR-013/PV064 + ENV-PAR-025/PV124 + ENV-PAR-026/PV129
+    route_control: same SC027 grate/Old Drainage Passage reversed inward to southeast maintenance hatch and Child Wing
+    evidence_control: child-height marks photographed as evidence only; not automatic fact; RUKEY_seventeen_name_display remains same secured object
+    character_control: Anaadhi AGE_27_PARAANE_RETURN / 193cm / capture hair / wet post-operation continuity / no SC074 wounds; Manire asks permission and does not embrace
+    boundary_note: exact end Her pulse answers.; SC070 excluded
     image_generation_started: false
     render_started: false
-    final_editorial_next: SC069
+    final_editorial_next: SC070
 unmaterialized:
   state: NOT_YET_MATERIALIZED_EXCEPT_LISTED
-  note: Source scene numbers remain screenplay authority; final render order follows EDITORIAL_SEQUENCE_LOCK.yaml.
+  note: Final render order follows production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml.
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   source_numeric_order_is_not_final_render_order: true
-  split_packages_required:
-  - SC074A
-  - SC074B
-  - SC094A
-  - SC094B
-  - SC099A
-  - SC099B
-  split_packages_materialized:
-  - SC094B
-  - SC099B
+  split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
+  split_packages_materialized: [SC094B, SC099B]
   remaining_materialization_order:
-  - SC069-SC073
-  - SC074A
-  - SC006-SC059
-  - SC074B
-  - SC075-SC093
-  - SC094A
-  - SC096-SC098
-  - SC099A
-  - END
+    - SC070-SC073
+    - SC074A
+    - SC006-SC059
+    - SC074B
+    - SC075-SC093
+    - SC094A
+    - SC096-SC098
+    - SC099A
+    - END
 cursor:
-  last_materialized_source_scene: SC068
-  last_materialized_editorial_segment: SC068
-  next_scene: SC069
-  next_editorial_segment: SC069
-  after_SC068: SC069
-  image_generation_gate: EXTERNAL_CHAT_PAGE_ONLY_WHEN_SEPARATELY_RUN
+  last_materialized_source_scene: SC069
+  last_materialized_editorial_segment: SC069
+  next_scene: SC070
+  next_editorial_segment: SC070
+  after_SC069: SC070
+  image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:
   github: CANONICAL

@@ -1,0 +1,175 @@
+scene_id: SC069
+status: SPEC_READY
+source_scene_number: 69
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: EXT. PARAANE REHABILITATION COMPLEX – EASTERN DRAINAGE WALL / INT. OLD DRAINAGE PASSAGE / CHILD WING – MORNING
+editorial_previous: SC068
+editorial_next: SC070
+source_boundary:
+  start: Paraane rises beyond mist-covered hills.
+  end: Her pulse answers.
+  start_inclusive: true
+  end_inclusive: true
+batch:
+  canonical: B26
+env6:
+  condition: WC064
+  special_beat: NO_SB
+  ep: EP0_PHYSICAL_CHRONOLOGY_ONLY
+  represented_layer: false
+  rule: No Parallel-Earth, subjective corridor, hallucination, memory reenactment, supernatural transition, or represented-layer architecture.
+environment_authorities:
+  - id: ENV-PAR-001
+    pv: PV004
+    role: PARAANE_CAMPUS_CENTRAL_INSTITUTIONAL_FRONTAGE_PARENT
+  - id: ENV-PAR-003
+    pv: PV014
+    role: REHAB_PARENT_EXTERIOR_AND_SOUTHEAST_MAINTENANCE_HATCH_COMMON_HALL_EDGE
+  - id: ENV-PAR-013
+    pv: PV064
+    role: CHILD_WING_COMMON_HALL_DESTINATION
+  - id: ENV-PAR-025
+    pv: PV124
+    role: OLD_DRAINAGE_PASSAGE
+  - id: ENV-PAR-026
+    pv: PV129
+    role: OUTER_EMBANKMENT_EASTERN_DRAINAGE_WALL_SAME_GRATE_THRESHOLD
+route_lock:
+  sequence:
+    - SC068 rain approach
+    - eastern drainage wall
+    - same rusted grate threshold
+    - ENV-PAR-025 Old Drainage Passage inward/west
+    - southeast maintenance hatch / common-hall edge
+    - ENV-PAR-013 Child Wing common hall
+  inheritance:
+    scene_027_broken_lower_hinge_persists: true
+    same_route_reverse_direction: true
+  forbidden:
+    - NEW_PORTAL
+    - EASIER_ROUTE
+    - MAGICAL_TRANSITION
+    - UNSOURCED_ROOM_ID
+characters:
+  ANAADHI:
+    identity: CHR-ANAADHI
+    state: AGE_27_PARAANE_RETURN
+    age: 27
+    height_cm: 193
+    body: wet post-operation/capture continuity
+    hair: preserve capture hair until approved transition
+    costume: wet post-operation clothing
+    injury: chemical aftermath/exhaustion only
+    forbidden: [HEALTHY_FOREST_RESET, SC074_CHEST_WOUNDS_EARLY, SC074_ABDOMEN_WOUNDS_EARLY]
+  AARATHI:
+    identity: CHR-AARATHI
+    state: B26_CONTINUITY
+    evidence_custody: RUKEY_seventeen_name_display
+    display_rule: Same physical object; no redesign, duplication, relabeling, or fabricated victim names.
+    weapon_rule: no unscripted weapon draw
+  MANIRE:
+    identity: SOURCE_CHARACTER_ID_CONTROLLED_UNRESOLVED
+    state: older now; grey in hair; same steady presence
+    recognition: recognizes Anaadhi
+    approach: asks permission before coming closer
+    embrace: FORBIDDEN
+    final_contact: Anaadhi initiates by placing two fingers against her wrist
+  ATTENDANT:
+    identity: SOURCE_CHARACTER_ID_CONTROLLED_UNRESOLVED
+    action_scope: source medicine-cup interaction only
+  DISTRESSED_BOY:
+    identity: SOURCE_CHARACTER_ID_CONTROLLED_UNRESOLVED
+    dignity_rule: no added coercion or invented diagnosis
+evidence:
+  child_height_wall_marks:
+    physical: true
+    elements: [one line, another line, crude arrow pointing outward]
+    observed_by: [ANAADHI, AARATHI]
+    photographed_by: AARATHI
+    epistemic_rule: Physical evidence may support memory but does not automatically become fact or authorship certainty beyond the screenplay.
+props_and_technology:
+  rusted_grate:
+    continuity: same Scene-027 threshold
+    broken_lower_hinge_persists: true
+  maintenance_hatch:
+    location: southeast child-wing common-hall edge
+  sensory_walls:
+    projections: [monsoon fields, coastal waves, dry northern plains]
+  magnetically_sealed_doors: present
+  adaptive_lights: present
+  medicine_cup: source prop only
+  aarathi_investigator_credential: displayed
+dialogue:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  exact_lines:
+    - 'AARATHI: How will you get inside?'
+    - 'ANAADHI: Through the way I came out.'
+    - 'AARATHI: You remembered this from when you were twelve?'
+    - 'ANAADHI: The body never forgets an escape route.'
+    - 'ANAADHI: This is mine.'
+    - 'AARATHI: Are you certain?'
+    - 'ANAADHI: Nobody draws a direction outward from here unless they are trying to leave.'
+    - 'ANAADHI: For evidence?'
+    - 'AARATHI: To support your memory.'
+    - 'ANAADHI: And if it does not support it?'
+    - 'AARATHI: The memory will still exist.'
+    - 'AARATHI: It simply will not become a fact.'
+    - 'ANAADHI: Let go of his hand.'
+    - 'ATTENDANT: Who are you?'
+    - 'ANAADHI: First let go of his hand.'
+    - 'AARATHI: Release his hand.'
+    - 'ATTENDANT: The medicine is necessary.'
+    - 'ANAADHI: Did you explain it?'
+    - 'ATTENDANT: Should I teach pharmacology to a child?'
+    - 'MANIRE (O.S.): Correct.'
+    - 'MANIRE: Anaadhi?'
+    - 'MANIRE: Anaadhi...'
+    - 'MANIRE: May I come closer?'
+    - 'ANAADHI: Do you still explain things?'
+    - 'MANIRE: Yes.'
+    - 'MANIRE: Until it is understood.'
+audio:
+  mastered_prefix_locked: true
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  bgm: PROVISIONAL_HOLD_OR_CREATOR_APPROVED_ONLY
+  sfx: SOURCE_ACTION_ONLY
+  ambience: PHYSICAL_PARAANE_MORNING_DRAINAGE_AND_CHILD_WING_ONLY
+shot_plan:
+  shot_count: 69
+  duration_seconds: 207
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  shot_package: production/remotion/shot_specs/SC069/SC069_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+final_beat:
+  manire_does_not_embrace: true
+  manire_stands_within_reach: true
+  anaadhi_decides_contact: true
+  contact: two fingers against Manire wrist
+  end: Her pulse answers.
+hard_exclusions:
+  - PARALLEL_EARTH
+  - SUBJECTIVE_CORRIDOR
+  - HALLUCINATION
+  - MEMORY_REENACTMENT
+  - FABRICATED_CHILD_IDENTITY_FROM_MARKS
+  - FABRICATED_VICTIM_NAMES
+  - ANAADHI_HEALTHY_RESET
+  - SC074_WOUNDS_EARLY
+  - MANIRE_EMBRACE
+  - SC070_ACTION
+  - PREMATURE_PARAANE_CONFRONTATION
+  - IMAGE_GENERATION
+  - VIDEO_RENDER
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+next: SC070

@@ -1,7 +1,7 @@
-version: 19
+version: 20
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: '2026-08-23T15:50:00+05:30'
+as_of_local: '2026-08-23T18:39:00+05:30'
 backend:
   github_canonical_control: true
   chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE
@@ -19,13 +19,13 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC068
-  latest_source_scene_materialized: SC068
-  next_scene_to_materialize: SC069
-  next_editorial_segment: SC069
+  latest_new_schema_materialized: SC069
+  latest_source_scene_materialized: SC069
+  next_scene_to_materialize: SC070
+  next_editorial_segment: SC070
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC068 SPEC_READY through 'They disappear into rain.' Continue SC069 only from Paraane eastern drainage wall / old drainage passage / child wing morning. SuperCool remains disabled; no paid media execution.
+  note: SC069 SPEC_READY through exact 'Her pulse answers.' Continue directly to SC070. SuperCool remains disabled; no paid media execution.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
@@ -38,22 +38,21 @@ audio:
     picture_planning_duration_seconds: 240
     exact_audio_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
-    transition_in: After SC066 CUT TO BLACK. INTERVAL.; heartbeat returns in SC067
-    transition_out: CUT TO SC068 after they move deeper into the ravine
-    sound_rule: Physical WC062 black-rain cabin/lower-passage/ravine sound outside SB073/SB074; no new ADK-7 dose.
-    SB073_sound: Represented overlap only inside TP073/SB073; RST01 restores same physical cabin.
-    SB074_sound: Represented route multiplication only inside TP074/SB074; RST01 restores physical three-route passage.
-    final_sound_rule: Do not begin SC068 renewed-rain/flood-channel sound before the cut.
   SC068:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
     picture_planning_duration_seconds: 150
     exact_audio_timecode_alignment: PENDING_EXTRACTION
     retime_locked_master: false
-    transition_in: CUT FROM SC067 after they move deeper into ravine
-    transition_out: CUT TO SC069 after Anaadhi and Aarathi disappear into rain
-    sound_rule: Physical WC063 dawn rain/knee-deep flood-channel/field-communicator sound outside SB075.
-    SB075_sound: GF07 represented corridor for Anaadhi only; Aarathi perceives only source-authorized warm-light flicker; RST02 leaves physical flood-channel route unchanged.
-    final_sound_rule: Do not begin SC069 Paraane complex/drainage ambience before cut.
+  SC069:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 207
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    transition_in: CUT FROM SC068 after They disappear into rain.
+    transition_out: CUT TO SC070 only after Her pulse answers.
+    sound_rule: WC064 NO-SB physical Paraane morning/drainage/Child-Wing sound only; no represented-layer audio.
+    evidence_rule: Aarathi photographing child-height marks documents evidence; it does not make authorship/memory factual automatically.
+    final_sound_rule: Hold intimate physical room tone at Manire wrist/pulse contact; no SC070 action before cut.
 picture_master:
   width: 3840
   height: 1600
@@ -64,100 +63,76 @@ shot_density:
   target_minimum_stills_per_minute: 20
   SC067: {duration_seconds: 240, shot_count: 80, stills_per_minute: 20}
   SC068: {duration_seconds: 150, shot_count: 50, stills_per_minute: 20}
+  SC069: {duration_seconds: 207, shot_count: 69, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC068
-  source_scene: SC068
-  scene_condition: WC063
-  condition_signature: TD2/WX4/EX3/LS0/OC1/OP2/T
-  special_beat_intersects_scene: true
-  source_ruling: ONE_SOURCE_BOUNDED_BEAT
+  latest_materialized_segment: SC069
+  source_scene: SC069
+  scene_condition: WC064
+  special_beat_intersects_scene: false
+  source_ruling: NO_SB_EP0_PHYSICAL_CHRONOLOGY_ONLY
   batch:
-    canonical: B25
-    scenes: [67, 68]
-  physical_anchor: LOC-061 / ENV-BHG-022 Bhaigaara Flood Channel
-  weather_time: DAWN__RAIN_BEGINS_AGAIN
-  water_depth: KNEE_DEEP_ONLY
-  SB075:
-    tp: TP075
-    grammar: GF07
-    recurrence: 5/7
-    band: E
-    ep: EP0+EP2+EP3+EP5+EP-U
-    observers: [OBS01, OBS04]
-    anchor: ANCH55
-    inverse: INV6-55
-    variations: [VAR6-02, VAR6-03, VAR6-05]
-    reset: RST02
-    start: The forest briefly becomes a Paraane corridor.
-    end: Aarathi sees only a flicker of warm interior light passing between trees.
-    anaadhi_access: FULL_REPRESENTED_CORRIDOR
-    aarathi_access: WARM_LIGHT_FLICKER_ONLY
-    zero_residue: true
+    canonical: B26
+    scenes: [69,70,71,72,73,74]
+  root: LOC-003
+  p3_environment_authorities:
+    - ENV-PAR-001/PV004
+    - ENV-PAR-003/PV014
+    - ENV-PAR-013/PV064
+    - ENV-PAR-025/PV124
+    - ENV-PAR-026/PV129
+  route:
+    direction: P3_INWARD_WEST
+    same_as_scene_027_reverse: true
+    broken_lower_hinge_persists: true
+    sequence: [eastern drainage wall, same grate, Old Drainage Passage, southeast maintenance hatch, Child Wing common hall]
   exact_end:
-    dialogue: 'ANAADHI: That is why I am going to Paraane.'
-    action: They disappear into rain.
-    cut_before: SC069 Paraane eastern drainage wall
+    contact: ANAADHI_TWO_FINGERS_TO_MANIRE_WRIST
+    embrace: false
+    final_action: HER_PULSE_ANSWERS
+    cut_before: SC070
 character_cursor:
   anaadhi:
-    source_scene: SC068
+    source_scene: SC069
     identity: CHR-ANAADHI
     age: 27
     height_cm: 193
-    state: AGE_27_CAPTURE
-    hair: HR-ANAADHI-27-CAPTURE_SHAVED_ROUGH_REGROWTH
-    costume: WET_SOILED_CAPTURE_ESCAPE_CONTINUITY
-    injury: INJ-ANAADHI-27-ADK7_ACTIVE
-    movement: UNSTEADY_KNEE_DEEP_WATER
-    armed: false
-    new_dose: false
-    end_intent: RETURN_TO_PARAANE
+    state: AGE_27_PARAANE_RETURN
+    body: WET_POST_OPERATION_CAPTURE_CONTINUITY
+    hair: CAPTURE_HAIR_PRESERVED
+    costume: WET_POST_OPERATION_CLOTHING
+    injury: CHEMICAL_AFTERMATH_EXHAUSTION_ONLY
+    SC074_wounds: NOT_YET_PRESENT
   aarathi:
     identity: CHR-AARATHI
-    state: B25_FIELD_CONTINUITY
-    hair: WET_LONG_PLAIT
-    visible_weapon: NONE
-    distance: SEVERAL_STEPS_BEHIND
-    hostage_status: false
-    display_custody: RUKEY_seventeen_name_display secured
-  unnath:
-    identity: CHR-UNNATH
-    presence: V.O. FIELD_COMM
-  anarvaa:
-    identity: CHR-ANARVAA
-    presence: V.O. FIELD_COMM; disconnects channel
-  child_anaadhi_age7:
-    identity_family: CHR-ANAADHI
-    represented_age: 7
-    action: carries medicinal plants in SB075
-    physical_persistence: false
+    state: B26_CONTINUITY
+    evidence_custody: RUKEY_seventeen_name_display
+    child_height_marks: PHOTOGRAPHED_AS_EVIDENCE_NOT_AUTOMATIC_FACT
+  manire:
+    identity: SOURCE_CHARACTER_ID_CONTROLLED_UNRESOLVED
+    state: OLDER_GREY_HAIR_SAME_STEADY_PRESENCE
+    approach_permission: true
+    embrace: false
+    final_contact_initiator: ANAADHI
 editorial_lock:
   enabled: true
   split_scene_ids: [SC074, SC094, SC099]
   split_segment_completed: [SC094B, SC099B]
-  final_end_after: SC099A
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
-  current_completed_segment: SC068
-  next_editorial_segment: SC069
+  current_completed_segment: SC069
+  next_editorial_segment: SC070
   remaining_materialization_order:
-  - SC069-SC073
-  - SC074A
-  - SC006-SC059
-  - SC074B
-  - SC075-SC093
-  - SC094A
-  - SC096-SC098
-  - SC099A
-  - END
-  final_reel_boundaries_deferred_until_duration_lock: true
+    - SC070-SC073
+    - SC074A
+    - SC006-SC059
+    - SC074B
+    - SC075-SC093
+    - SC094A
+    - SC096-SC098
+    - SC099A
+    - END
 revision_policy:
   scene_local: true
   shot_local: true
   editorial_segment_local: true
-  allow_screen_direction_change: true
-  allow_camera_axis_change: true
-  allow_shot_reorder: true
-  allow_duration_change: true
-  allow_audio_cue_change: true
-  allow_editorial_segment_reorder_only_on_explicit_user_redraft: true
   unrelated_scene_regeneration_required: false
