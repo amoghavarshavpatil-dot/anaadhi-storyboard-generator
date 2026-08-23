@@ -1,0 +1,22 @@
+version: 1
+project: ANAADHI
+control: REMOTION_APPROVED_SHOT_INDEX
+repository: amoghavarshavpatil-dot/anaadhi-storyboard-generator
+branch: codex/remotion-sc001-sc005-source-review
+ordering: SCENE_THEN_SHOT_ASCENDING
+approved_count: 1
+next_shot: SC001_SH002
+
+shots:
+  - sequence_number: 1
+    batch_id: B01
+    scene_id: SC001
+    shot_id: SC001_SH001
+    version: V001
+    lifecycle_status: APPROVED_SHOT
+    remotion_static_path: shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED_3840x1600.png
+    repository_path: production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED_3840x1600.png
+    source_native_path: production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED_NATIVE_1942x809.png
+    manifest_path: production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED.yaml
+    raster: 3840x1600
+    sha256: b7621f3595d03a63d587269d621d28497db1492851240739becb35a9242b0423

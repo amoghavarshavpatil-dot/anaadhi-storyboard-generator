@@ -1,6 +1,8 @@
 # ANAADHI SC001-SC005 Remotion Source Review
 
-This composition assembles the complete SC001-SC005 run from the canonical GitHub shot packages without SuperCool, HeyGen execution, paid image generation, generated dialogue, or replacement voice.
+This composition assembles the complete SC001-SC005 timing run from the canonical GitHub shot packages without SuperCool, HeyGen execution, paid image generation, generated dialogue, or replacement voice.
+
+The original review encode is retracted as a storyboard deliverable because it used procedural source-review visuals rather than materialized storyboard stills. Approved stills now enter the sequential `public/shots/SC###/SC###_SH###/` tree one shot at a time. A corrected storyboard video must not be claimed until all required shot images are approved and resolved from that tree.
 
 ## What is locked in this build
 

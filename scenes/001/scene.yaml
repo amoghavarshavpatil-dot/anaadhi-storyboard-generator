@@ -35,7 +35,7 @@ continuity:
 
 shots:
   - shot_id: "SC001_SH001"
-    status: DRAFT
+    status: APPROVED_SHOT
     duration_seconds: 6.0
     purpose: "Establish Bhaigaara forest, black rain and raised cabin under covert encirclement"
     framing: "very wide anamorphic establishing"
@@ -43,12 +43,17 @@ shots:
     visual_prompt: "Pre-dawn Karnataka Western Ghats evolved a century into the future, black rain, enormous roots, hidden sensors, raised timber cabin, black-kite-shaped propellerless police drones, medical transports camouflaged beneath areca leaves, cinematic realism"
     negative_prompt: "text, subtitles, letterbox bars, daylight, generic western forest"
     reference_assets: []
+    approved_asset:
+      version: V001
+      path: "production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED_3840x1600.png"
+      sha256: "b7621f3595d03a63d587269d621d28497db1492851240739becb35a9242b0423"
+      manifest: "production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED.yaml"
     visible_speaker: null
     lip_sync_required: false
     dialogue_clip: null
     bgm_cue: "low psychological opening pulse"
     sfx_cues: ["black rain", "distant drone pressure", "forest insects", "sub-bass perimeter tension"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH002"
     status: DRAFT

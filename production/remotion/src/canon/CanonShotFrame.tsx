@@ -1,7 +1,16 @@
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
+import {
+  AbsoluteFill,
+  CanvasImage,
+  Easing,
+  interpolate,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+} from 'remotion';
 import {CharacterLayer, CinematicGrade, EnvironmentLayer} from './Visuals';
 import {PerceptionOverlay, PropOverlayLayer} from './PropOverlays';
+import {approvedShotAssets} from './shot-assets';
 import type {CanonMotionMode, CanonShot} from './types';
 
 const cameraRanges = (mode: CanonMotionMode) => {
@@ -26,6 +35,7 @@ const cameraRanges = (mode: CanonMotionMode) => {
 export const CanonShotFrame: React.FC<{readonly shot: CanonShot}> = ({shot}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
+  const approvedAsset = approvedShotAssets[shot.shotId];
   const ranges = cameraRanges(shot.motionMode);
   const endFrame = Math.max(1, durationInFrames - 1);
   const impact = shot.purpose.toLowerCase().includes('thud')
@@ -59,12 +69,24 @@ export const CanonShotFrame: React.FC<{readonly shot: CanonShot}> = ({shot}) => 
           ),
         }}
       >
-        <EnvironmentLayer shot={shot} />
-        <CharacterLayer shot={shot} />
-        <PropOverlayLayer shot={shot} />
-        <PerceptionOverlay shot={shot} />
+        {approvedAsset ? (
+          <CanvasImage
+            src={staticFile(approvedAsset.path)}
+            width={3840}
+            height={1600}
+            fit="cover"
+            style={{width: '100%', height: '100%'}}
+          />
+        ) : (
+          <>
+            <EnvironmentLayer shot={shot} />
+            <CharacterLayer shot={shot} />
+            <PropOverlayLayer shot={shot} />
+            <PerceptionOverlay shot={shot} />
+          </>
+        )}
       </AbsoluteFill>
-      <CinematicGrade shot={shot} />
+      {approvedAsset ? null : <CinematicGrade shot={shot} />}
     </AbsoluteFill>
   );
 };

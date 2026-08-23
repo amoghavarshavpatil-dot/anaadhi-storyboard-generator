@@ -1,7 +1,7 @@
 version: 1
 project: ANAADHI
 control: REMOTION_SC001_SC005_SOURCE_REVIEW
-status: SOURCE_REVIEW_RENDERED
+status: RETRACTED_AS_STORYBOARD_DELIVERABLE
 revision_id: R001-REMOTION-SOURCE-REVIEW
 
 scope:
@@ -63,6 +63,15 @@ review_status:
   locked_picture_claimed: false
   final_claimed: false
   intended_use: SOURCE_REVIEW_AND_TIMING_APPROVAL
+
+storyboard_materialization:
+  approved_shot_count: 1
+  total_required_shot_count: 106
+  last_approved_shot: SC001_SH001
+  next_shot: SC001_SH002
+  approved_assets_index: production/remotion/public/shots/APPROVED_SHOT_INDEX.yaml
+  previous_review_encode_contains_all_storyboard_shots: false
+  corrected_storyboard_render_status: BLOCKED_UNTIL_ALL_REQUIRED_SHOTS_ARE_APPROVED
 
 deliverables:
   review_encode:

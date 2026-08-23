@@ -4,11 +4,17 @@ control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
 coverage:
   SC001:
-    state: LEGACY_SCENE_PLAN_PRESENT
+    state: PARTIAL_SHOT_GENERATION
     source: scenes/001/scene.yaml
     shot_count: 8
     migration_to_new_schema: PENDING
     regenerate_now: false
+    image_generation_started: true
+    generated_shot_count: 1
+    approved_shot_count: 1
+    last_approved_shot: SC001_SH001
+    next_shot: SC001_SH002
+    approved_assets_index: production/remotion/public/shots/APPROVED_SHOT_INDEX.yaml
   SC002:
     state: SPEC_READY
     source: scenes/002/scene.yaml
