@@ -1,4 +1,4 @@
-version: 11
+version: 12
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -131,15 +131,31 @@ coverage:
     image_generation_started: false
     render_started: false
     final_editorial_next: SC062
+  SC062:
+    state: SPEC_READY
+    source_scene_id: SC062
+    source: scenes/062/scene.yaml
+    shot_package: production/remotion/shot_specs/SC062/SC062_SHOT_PACKAGE.json
+    shot_count: 39
+    duration_seconds: 117
+    stills_per_minute: 20
+    parallel_earth: SB068 / GF02 / Band D / EP0+EP1+EP3+EP-U / OBS01 / ANCH02 / INV6-02 / WC058 / VAR6-01+VAR6-03 / RST05
+    location: LOC-001 / ENV-CAB-008 / ST00; interior subspace controlled-unresolved; D3 continues from SC061 few-inch opening and remains open through exact SC062 end
+    evidence_control: exactly 17 lamps in fixed imperfect 9+8 rows; exactly 17 wooden-name positions; same RUKEY_seventeen_name_display aligned beside wooden list; Madhava only explicitly sourced readable name; no fabricated names
+    weapon_control: every real-world weapon absent from sight in SC062
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC063
   SC006-SC099:
     state: NOT_YET_MATERIALIZED_EXCEPT_LISTED_SEGMENTS
     exceptions:
     - SC060
     - SC061
+    - SC062
     - SC094B
     - SC095
     - SC099B
-    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060, SC061, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
+    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060, SC061, SC062, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
@@ -156,7 +172,7 @@ editorial:
   - SC094B
   - SC099B
   remaining_materialization_order:
-  - SC062-SC073
+  - SC063-SC073
   - SC074A
   - SC006-SC059
   - SC074B
@@ -166,11 +182,11 @@ editorial:
   - SC099A
   - END
 cursor:
-  last_materialized_source_scene: SC061
-  last_materialized_editorial_segment: SC061
-  next_scene: SC062
-  next_editorial_segment: SC062
-  after_SC061: SC062
+  last_materialized_source_scene: SC062
+  last_materialized_editorial_segment: SC062
+  next_scene: SC063
+  next_editorial_segment: SC063
+  after_SC062: SC063
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:

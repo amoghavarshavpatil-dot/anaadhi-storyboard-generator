@@ -1,0 +1,139 @@
+scene_id: SC062
+source_scene_number: 62
+status: SPEC_READY
+heading: INT. ANAADHI’S PRIMARY CABIN – LATE AFTERNOON
+editorial_previous: SC061
+editorial_next: SC063
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+source_boundary:
+  start: Aarathi enters with both hands visible.
+  end: Aarathi exits. Anaadhi keeps the door open until she disappears among the trees.
+  start_inclusive: true
+  end_inclusive: true
+batch: B23
+location:
+  root_id: LOC-001
+  legacy_batch_location: LOC-BHAIGAARA-RAISED-CABIN
+  environment_anchor: ENV-CAB-008
+  state: ST00
+  nested_interior_subspace_id: CONTROLLED_UNRESOLVED_NOT_PROVEN
+  rule: Same primary/final/raised cabin reached at SC061 end; no pristine reset or redesign.
+portals:
+  D3:
+    name: side utility door
+    role: AARATHI_ENTRY_EXIT
+    start_state: OPEN_ONLY_A_FEW_INCHES_FROM_SC061
+    scene_state: OPEN_FOR_ENTRY_AND_HELD_OPEN_THROUGH_DEPARTURE
+    end_state: HELD_OPEN_UNTIL_AARATHI_DISAPPEARS
+  D1:
+    name: main surrender / forced-entry door
+    state: CLOSED_IN_SC062
+  D2:
+    name: rear access / rear-stair door
+    state: CLOSED_IN_SC062
+env6:
+  condition: WC058
+  wc_signature: TD5/WX0/EX0/LS1/OC1/OP0/T
+  special_beat: SB068
+  primary_grammar: GF02
+  grammar_name: Multiplicity / Co-location
+  recurrence: controlled recurrence; Band D Consequence accumulation and capture return
+  ep_stack: [EP0, EP1, EP3, EP-U]
+  observer: OBS01
+  anchor: ANCH02
+  inverse: INV6-02
+  physical_anchor: ENV-CAB-008
+  variation: [VAR6-01, VAR6-03]
+  reality_return: RST05
+  packet_disposition: NON_XFORM_SOURCE_BOUNDED
+  exact_onset: "Anaadhi sees parallel versions of the room:"
+  exact_end: "AARATHI: That is a possibility, not a defence."
+  allowed_alternatives:
+    - Aarathi arrests him safely.
+    - Armed units burn the cabin.
+    - Anaadhi kills her.
+    - She never finds him.
+  mutually_exclusive: true
+  zero_residue: true
+  event_fact_conversion_forbidden: true
+  physical_wc_change_forbidden: true
+characters:
+  ANAADHI:
+    identity: CHR-ANAADHI
+    age: 27
+    height_cm: 193
+    age_body_state: AGE_27_FOREST_PRECAPTURE / AGE-ANAADHI-27-FOREST
+    hair_state: HR-ANAADHI-26-POST-BARBER continuity; SELF-CUT / unfinished barber-transition from SC058
+    body: forest-built adult; forest-burned skin/scars; physically imposing but exhausted
+    costume: forest adult clothing; exact SC062 garment detail CONTROLLED_UNRESOLVED
+    injury: existing forest scars/wear plus scripted exhaustion
+    forbid: [SHAVED_CAPTURE_HAIR, TOPLESS_CAPTURE_IMPORT, ADK7_IMPAIRMENT]
+  AARATHI:
+    identity: CHR-AARATHI
+    exact_scene_look: CONTROLLED_UNRESOLVED
+    entry: both hands visible
+    visible_weapon: false
+    parallel_rule: same biological identity in every represented alternative
+evidence_controls:
+  seventeen_lamps:
+    canonical_prop: PRP-SEVENTEEN-LAMPS
+    count: 17
+    arrangement: fixed imperfect 9+8 rows
+    state: lower/uneven late-afternoon flames
+  seventeen_wooden_names:
+    canonical_prop: PRP-SEVENTEEN-NAME-LIST
+    count: 17
+    surface: wood
+    readable_text_rule: Do not fabricate spellings; Madhava is the only explicitly sourced victim name in SC062.
+  portable_transparent_display:
+    rukey: RUKEY_seventeen_name_display
+    same_physical_display_from: SC060-SC061
+    action: Aarathi places it beside Anaadhi’s wooden list; seventeen real-name positions align.
+    replacement_forbidden: true
+    fabricated_names_forbidden: true
+    end_state: Remains at last explicitly scripted position; no invented pickup/re-clipping in SC062.
+  b23_split_floorboard:
+    canonical_prop: PRP-SPLIT-FLOORBOARD
+    visibility: NOT_REVEALED_AS_WEAPON_STORAGE_OR_ESCAPE_MECHANISM_IN_SC062
+weapon_rule: EVERY_WEAPON_ABSENT_FROM_SIGHT_IN_REAL_SC062
+dialogue_sequence:
+  - "ANAADHI: You brought their names."
+  - "AARATHI: You kept some of them. You did not know all of them."
+  - "ANAADHI: Madhava was written inside the bag."
+  - "AARATHI: You asked after he was dead."
+  - "ANAADHI: Yes."
+  - "AARATHI: I am not here to explain you to yourself. I am here to ask whether you will surrender."
+  - "ANAADHI: To Paraane?"
+  - "AARATHI: To police custody. Paraane will ask for medical control. I will oppose it."
+  - "ANAADHI: Opposition is not protection."
+  - "AARATHI: Correct. I cannot promise what I do not control."
+  - "ANAADHI: In one version, you leave and I remain here."
+  - "AARATHI: That is a possibility, not a defence."
+  - "ANAADHI: I walked away before every death."
+  - "AARATHI: And returned."
+  - "ANAADHI: I had time."
+  - "AARATHI: Yes."
+  - "ANAADHI: Come back before dawn. Alone. Then I will tell you the terms."
+  - "AARATHI: I will come back. I will not lie that I am the only person who knows I am here."
+  - "ANAADHI: That is why you may leave."
+shot_plan:
+  shot_count: 39
+  duration_seconds: 117
+  stills_per_minute: 20
+  shot_package: production/remotion/shot_specs/SC062/SC062_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  mastered_prefix_end_timecode: 00:02:14.293333
+  retime_locked_master: false
+  represented_layer_rule: Only SB068 may carry subjective sound; RST05 restores unchanged real cabin sound by the end of Aarathi’s line "That is a possibility, not a defence."
+boundary_exclusions:
+  - SC063_CONTENT
+  - VISIBLE_REAL_WORLD_WEAPONS
+  - FABRICATED_VICTIM_NAMES
+  - NEW_ENVIRONMENT_ID
+  - UNPROVEN_INTERIOR_SUBSPACE_ID
+  - PERSISTENT_PARALLEL_EARTH_RESIDUE
+next: SC063
