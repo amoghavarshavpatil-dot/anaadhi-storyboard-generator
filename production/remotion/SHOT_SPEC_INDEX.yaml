@@ -1,4 +1,4 @@
-version: 20
+version: 21
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
@@ -19,25 +19,8 @@ coverage:
   SC064: {state: SPEC_READY, source: scenes/064/scene.yaml, shot_package: production/remotion/shot_specs/SC064/SC064_SHOT_PACKAGE.json, shot_count: 64, duration_seconds: 192, stills_per_minute: 20, final_editorial_next: SC065}
   SC065: {state: SPEC_READY, source: scenes/065/scene.yaml, shot_package: production/remotion/shot_specs/SC065/SC065_SHOT_PACKAGE.json, shot_count: 74, duration_seconds: 222, stills_per_minute: 20, final_editorial_next: SC066}
   SC066: {state: SPEC_READY, source: scenes/066/scene.yaml, shot_package: production/remotion/shot_specs/SC066/SC066_SHOT_PACKAGE.json, shot_count: 90, duration_seconds: 270, stills_per_minute: 20, final_editorial_next: SC067}
-  SC067:
-    state: SPEC_READY
-    source: scenes/067/scene.yaml
-    shot_package: production/remotion/shot_specs/SC067/SC067_SHOT_PACKAGE.json
-    shot_count: 80
-    duration_seconds: 240
-    stills_per_minute: 20
-    parallel_earth: TP073/SB073/GF02/RST01 + TP074/SB074/GF03/RST01; WC062
-    final_editorial_next: SC068
-  SC068:
-    state: SPEC_READY
-    source: scenes/068/scene.yaml
-    shot_package: production/remotion/shot_specs/SC068/SC068_SHOT_PACKAGE.json
-    shot_count: 50
-    duration_seconds: 150
-    stills_per_minute: 20
-    parallel_earth: TP075/SB075/GF07/OBS01+OBS04/ANCH55/INV6-55/WC063/RST02
-    location: LOC-061 / ENV-BHG-022 Bhaigaara Flood Channel
-    final_editorial_next: SC069
+  SC067: {state: SPEC_READY, source: scenes/067/scene.yaml, shot_package: production/remotion/shot_specs/SC067/SC067_SHOT_PACKAGE.json, shot_count: 80, duration_seconds: 240, stills_per_minute: 20, final_editorial_next: SC068}
+  SC068: {state: SPEC_READY, source: scenes/068/scene.yaml, shot_package: production/remotion/shot_specs/SC068/SC068_SHOT_PACKAGE.json, shot_count: 50, duration_seconds: 150, stills_per_minute: 20, final_editorial_next: SC069}
   SC069:
     state: SPEC_READY
     source: scenes/069/scene.yaml
@@ -47,12 +30,6 @@ coverage:
     stills_per_minute: 20
     env6_disposition: B26 / WC064 / NO SB / EP0 physical chronology only
     environment: ENV-PAR-001/PV004 + ENV-PAR-003/PV014 + ENV-PAR-013/PV064 + ENV-PAR-025/PV124 + ENV-PAR-026/PV129
-    route_control: same SC027 grate/Old Drainage Passage reversed inward to southeast maintenance hatch and Child Wing
-    evidence_control: child-height marks photographed as evidence only; not automatic fact; RUKEY_seventeen_name_display remains same secured object
-    character_control: Anaadhi AGE_27_PARAANE_RETURN / 193cm / capture hair / wet post-operation continuity / no SC074 wounds; Manire asks permission and does not embrace
-    boundary_note: exact end Her pulse answers.; SC070 excluded
-    image_generation_started: false
-    render_started: false
     final_editorial_next: SC070
   SC070:
     state: SPEC_READY
@@ -63,11 +40,21 @@ coverage:
     stills_per_minute: 20
     parallel_earth: TP076/SB076/GF06 9/13/Band E/OBS01/ANCH56/INV6-56/WC065/VAR6-01+03+05/RST05
     environment: LOC-003 + ENV-PAR-014/PV069 + ENV-PAR-015/PV074
-    access_control: Adult Anaadhi full represented access; Manire/Aarathi no full-layer access
-    boundary_note: old observation glass represented layer only; RST05 restores physical room; exact end door remains open after manual override
+    final_editorial_next: SC071
+  SC071:
+    state: SPEC_READY
+    source: scenes/071/scene.yaml
+    shot_package: production/remotion/shot_specs/SC071/SC071_SHOT_PACKAGE.json
+    shot_count: 55
+    duration_seconds: 165
+    stills_per_minute: 20
+    env6_disposition: WC066 physical screenplay chronology; exact Scene-071 audit TP/SB row not retrieved and therefore not invented
+    environment: LOC-003 / ENV-PAR-031 / PV154 / P3:ADD Central Resident Hall
+    crowd_control: residents remain witnesses, not supporters
+    character_control: Anaadhi AGE_27_PARAANE_RETURN / no SC074 wounds; Asana head of security; Manire prioritizes frightened child
     image_generation_started: false
     render_started: false
-    final_editorial_next: SC071
+    final_editorial_next: SC072
 unmaterialized:
   state: NOT_YET_MATERIALIZED_EXCEPT_LISTED
   note: Final render order follows production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml.
@@ -78,7 +65,7 @@ editorial:
   split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
   split_packages_materialized: [SC094B, SC099B]
   remaining_materialization_order:
-    - SC071-SC073
+    - SC072-SC073
     - SC074A
     - SC006-SC059
     - SC074B
@@ -88,11 +75,11 @@ editorial:
     - SC099A
     - END
 cursor:
-  last_materialized_source_scene: SC070
-  last_materialized_editorial_segment: SC070
-  next_scene: SC071
-  next_editorial_segment: SC071
-  after_SC070: SC071
+  last_materialized_source_scene: SC071
+  last_materialized_editorial_segment: SC071
+  next_scene: SC072
+  next_editorial_segment: SC072
+  after_SC071: SC072
   image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:
