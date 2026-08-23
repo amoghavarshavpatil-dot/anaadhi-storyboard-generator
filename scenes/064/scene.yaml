@@ -1,0 +1,236 @@
+scene_id: SC064
+source_scene_number: 64
+status: SPEC_READY
+heading: INT. PARAANE CENTRAL COMMAND – OPERATIONS HALL – NIGHT
+editorial_previous: SC063
+editorial_next: SC065
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+source_boundary:
+  start: Anaadhi is absent. Aarathi stands before ANARVAA, PARVARAN, UNNATH, SEMMAA, ASANA and a PARAANE MEDICAL SPECIALIST.
+  end: Parvaran looks at the place where his signature is required, then at Anaadhi’s name. He signs. Another compromise enters
+    the file.
+  start_inclusive: true
+  end_inclusive: true
+batch:
+  canonical: B24
+  handoff_from: B23
+  rule: SC064 is canonically B24 in the locked batch foundation. Preserve B23 surrender/evidence continuity from SC063 but
+    do not relabel SC064 as B23.
+location:
+  root_id: LOC-003
+  root_name: Paraane Campus / Central Complex
+  environment_anchor: LOC-003
+  state: PRESENT_DAY_OPERATION_PREP_CONTROLLED_UNRESOLVED_LOC003_STATE
+  nested_interior_subspace_id: CONTROLLED_UNRESOLVED_PARAANE_CENTRAL_COMMAND_OPERATIONS_HALL
+  nested_visual_status: UNRESOLVED
+  rule: B24 binding proves LOC-003 but explicitly lists the Paraane central-command nested room as remaining location work.
+    Use only screenplay-proven black-stone table, floating forest map, printer, screens and physical orders; do not invent
+    architecture or a canonical subspace ID.
+env6:
+  condition: WC060
+  wc_signature: CONTROLLED_UNRESOLVED_NOT_PRESENT_IN_MATERIALIZED_REPO
+  special_beat: NONE
+  special_beat_intersects_scene: false
+  source_ruling: NO_SB
+  disposition: EP0_PHYSICAL_COMMAND_PREP_ONLY
+  physical_anchor: LOC-003
+  parallel_earth_visualization_forbidden: true
+  reality_restore_required: false
+  screenplay_rationale: SC064 contains only physical command-hall chronology and informational screens/maps/files; no Parallel-Earth
+    beat occurs.
+characters:
+  ANAADHI:
+    identity: CHR-ANAADHI
+    presence: PHYSICALLY_ABSENT
+    allowed_representations:
+    - CABIN_GLOW_ON_OPERATION_MAP
+    - NAME_AGE_ESCAPE_DATE_IN_OLD_PARAANE_FILE
+    forbid:
+    - PHYSICAL_BODY
+    - PARALLEL_DOUBLE
+    - FLASHBACK
+  AARATHI:
+    identity: CHR-AARATHI
+    continuity: B24_FIELD_CONTINUITY_FROM_APPROVED_AARATHI_IDENTITY
+    hair: LONG_PLAIT__WET_FIELD_CONTINUITY_WHERE_CARRIED
+    costume: CIVILIAN_FIELD_CLOTHES_B24_CONTINUITY
+    evidence_custody: RUKEY_seventeen_name_display
+    visible_weapon: DO_NOT_INVENT
+  ANARVAA:
+    identity: CHR-ANARVAA
+    state: PRESENT_DAY_PARAANE_HEAD
+    costume: CONTROLLED_UNRESOLVED_SC064
+  PARVARAN:
+    identity: CHR-PARVARAN
+    state: PRESENT_DAY_FOUNDER_REHAB_HEAD
+    costume: CONTROLLED_UNRESOLVED_SC064
+    performance_rule: Concern may register; do not reveal fatherhood or create flashback.
+  UNNATH:
+    identity: CHR-UNNATH
+    state: PRESENT_DAY_POLICE_COMMAND
+    costume: CONTROLLED_UNRESOLVED_SC064
+  SEMMAA:
+    identity: CHR-SEMMAA
+    state: OLDER_DISCIPLINED_PRESENT_DAY
+    costume: CONTROLLED_UNRESOLVED_SC064
+    position: CAPTURE_NOT_EXECUTION
+  ASANA:
+    identity: CHR-ASANA
+    state: PRESENT_DAY_SECURITY_HEAD
+    costume: CONTROLLED_UNRESOLVED_SC064
+  MEDICAL_SPECIALIST:
+    identity: CHR-MEDICAL-SPECIALIST
+    state: PRESENT_DAY_PARAANE_MEDICAL
+    costume: CONTROLLED_UNRESOLVED_SC064
+  ADMINISTRATIVE_OFFICER:
+    identity: CHR-ADMINISTRATIVE-OFFICER
+    state: SUPPORTING_CONTROLLED_UNRESOLVED
+    appearance: DO_NOT_INVENT_DISTINGUISHING_TRAITS
+evidence_and_props:
+  portable_seventeen_name_display:
+    rukey: RUKEY_seventeen_name_display
+    same_physical_display_from: SC060-SC063
+    custody: AARATHI
+    use_in_SC064: CARRY/CUSTODY_CONTINUITY_ONLY_UNLESS_VISUALLY_NEEDED
+    replacement_forbidden: true
+    fabricated_names_forbidden: true
+    not_anaadhi_old_file: true
+    not_surrender_condition_screen: true
+  black_stone_operations_table:
+    registry_id: CONTROLLED_UNRESOLVED
+    source: SCREENPLAY
+    state: PRESENT
+  forest_operation_map:
+    registry_id: CONTROLLED_UNRESOLVED
+    source: SCREENPLAY
+    state: FLOATING_ABOVE_TABLE
+    anaadhi_cabin: GLOWS_AT_CENTRE_AS_MAP_LOCATION_ONLY
+  old_paraane_file:
+    registry_id: CONTROLLED_UNRESOLVED
+    source: SCREENPLAY
+    state: INFORMATIONAL_ONLY
+    visible_fields:
+    - name
+    - age
+    - escape date
+  physical_operation_orders:
+    registry_id: CONTROLLED_UNRESOLVED
+    source: SCREENPLAY
+    state: PRINTED_AFTER_INTEGRATED_SYSTEM_STALLS
+  red_founder_stamp:
+    registry_id: CONTROLLED_UNRESOLVED
+    source: SCREENPLAY
+    state: CARRIED_IN_BY_ADMINISTRATIVE_OFFICER
+  signing_pen:
+    registry_id: CONTROLLED_UNRESOLVED
+    detail_rule: DO_NOT_INVENT_DESIGN
+technology:
+  surrender_conditions_screen:
+    registry_id: CONTROLLED_UNRESOLVED
+    exact_text:
+    - DAWN APPROACH
+    - LIMITED OFFICERS
+    - NO SARJANYA
+    - NO MEDIA
+    - NO FORCED MEDICATION BEFORE ASSESSMENT
+    delete_action: ANARVAA_DELETES_ONLY_FINAL_LINE
+    restore_dialogue: AARATHI_DEMANDS_RESTORE
+    unscripted_restoration_visual_forbidden: true
+  pnx4_protocol:
+    registry_id: PNX-4
+    function: planned standard compressed sedative / weight-adjusted dose
+    physical_cartridge_visibility: NONE
+    adk7_forbidden: true
+  integrated_authorisation_system:
+    registry_id: CONTROLLED_UNRESOLVED
+    state: STALLED_NEAR_SC064_END
+    digital_clearance: COMPLETE
+    physical_stamp_required: true
+  printer:
+    registry_id: CONTROLLED_UNRESOLVED
+    function: produces physical operation orders
+  unofficial_rear_unit_map_layer:
+    registry_id: CONTROLLED_UNRESOLVED
+    identity: MANIMANTHARAA_PEOPLE
+    visualization: MAP_INFORMATION_ONLY_BEYOND_POLICE_LINE
+dialogue_sequence:
+- 'ANARVAA: You contacted the accused alone.'
+- 'AARATHI: The contact was successful.'
+- 'ANARVAA: He has not been arrested.'
+- 'AARATHI: Nobody died.'
+- 'ANARVAA: Do you define that as success?'
+- 'AARATHI: After seventeen murders? Yes.'
+- 'PARVARAN: Open the original intake archive.'
+- 'ANARVAA: After capture.'
+- 'PARVARAN: Now.'
+- 'ANARVAA: It has no operational relevance.'
+- 'PARVARAN: He is a former Paraane resident. It has clinical relevance.'
+- 'AARATHI: He has refused Paraane custody.'
+- 'ANARVAA: An accused person does not choose custody.'
+- 'UNNATH: An institution does not choose it either. Criminal custody belongs to the police.'
+- 'ANARVAA: Under the Kendhalaa emergency charter, Paraane has authority over a high-risk psychiatric accused.'
+- 'UNNATH: That same charter is under review.'
+- 'ANARVAA: A review is not law.'
+- 'AARATHI: Restore that line.'
+- 'ANARVAA: He killed seventeen people.'
+- 'AARATHI: That is why custody is required. Not an unexplained injection.'
+- 'MEDICAL SPECIALIST: A standard compressed sedative. Weight-adjusted dose.'
+- 'PARVARAN: Drug name?'
+- 'MEDICAL SPECIALIST: PNX-4.'
+- 'PARVARAN: Contraindications?'
+- 'MEDICAL SPECIALIST: We do not have complete records.'
+- 'PARVARAN: Then a direct injection should not be approved.'
+- 'ANARVAA: You are unusually concerned about his clinical safety.'
+- 'PARVARAN: The plan is unusually unsafe.'
+- 'SEMMAA: Who is the allied group?'
+- 'ASANA: Manimantharaa’s people.'
+- 'SEMMAA: Why are gangsters part of a capture operation?'
+- 'ANARVAA: Terrain support.'
+- 'SEMMAA: Terrain needs a forest guide, not a revenge team.'
+- 'ANARVAA: They will remain on the rear perimeter.'
+- 'SEMMAA: If they enter the perimeter, I will throw them out.'
+- 'ANARVAA: Follow the order.'
+- 'SEMMAA: I will follow a capture order.'
+- 'SEMMAA: Not an execution.'
+- 'UNNATH: My officers will fire only if there is an immediate threat.'
+- 'AARATHI: I will go inside first.'
+- 'ANARVAA: No.'
+- 'AARATHI: He expects my voice.'
+- 'ANARVAA: That is exactly why you will remain on the outer line.'
+- 'ADMINISTRATIVE OFFICER: Digital clearance is complete. A founder’s stamp is required.'
+- 'UNNATH: An armed operation is waiting, and the system wants a rubber stamp.'
+- 'SEMMAA: Who gave power to the rubber?'
+- 'PARVARAN: We did.'
+shot_plan:
+  shot_count: 64
+  duration_seconds: 192
+  stills_per_minute: 20
+  shot_package: production/remotion/shot_specs/SC064/SC064_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  retime_locked_master: false
+  sound_rule: Physical WC060 operations-hall dialogue/room tone and source-action interface/printer/paper sounds only. No
+    Parallel-Earth, flashback, forest combat, capture or SC065 pharmaceutical-vault sound.
+boundary_exclusions:
+- SC065_PHARMACEUTICAL_TRANSFER_VAULT
+- SC065_CARTRIDGE_TRANSFER
+- ADK7
+- ALTERED_BATCH_COLOUR
+- PHYSICAL_ANAADHI
+- PARALLEL_EARTH
+- FLASHBACK
+- REAL_FOREST_OPERATION_CUTAWAY
+- CAPTURE_ACTION
+- WEAPON_FIRE
+- FABRICATED_VICTIM_NAMES
+- RUKEY_REPLACEMENT_OR_REPURPOSING
+- UNPROVEN_PARAANE_COMMAND_SUBSPACE_ID_OR_ARCHITECTURE
+exact_end:
+  action: Parvaran signs the physical operation order.
+  narrative: Another compromise enters the file.
+  transition: CUT_TO_SC065
+next: SC065

@@ -1,7 +1,7 @@
-version: 14
+version: 15
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: '2026-08-23T06:11:00+05:30'
+as_of_local: '2026-08-23T06:27:00+05:30'
 backend:
   github_canonical_control: true
   chat_storyboard_generation: true
@@ -18,13 +18,13 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC063
-  latest_source_scene_materialized: SC063
-  next_scene_to_materialize: SC064
-  next_editorial_segment: SC064
+  latest_new_schema_materialized: SC064
+  latest_source_scene_materialized: SC064
+  next_scene_to_materialize: SC065
+  next_editorial_segment: SC065
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC063 is SPEC_READY through the exact end where Aarathi takes RUKEY_seventeen_name_display and Anaadhi remains before the seventeen lamps as the first hidden drones enter the forest. Continue directly to SC064; do not import command-hall action, PNX-4 planning or SC065 operation details into SC063.
+  note: SC064 is SPEC_READY through the exact end where Parvaran signs the physical operation order and another compromise enters the file. SC064 is canonically B24, inheriting B23 continuity only from SC063. Continue directly to SC065; do not import pharmaceutical-vault, cartridge-transfer, ADK-7 or altered-batch-colour action into SC064.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
@@ -107,7 +107,7 @@ audio:
     retime_locked_master: false
     transition_in: CUT FROM SC061 exact few-inch D3 opening
     transition_out: CUT TO SC063 only after Aarathi disappears among the trees while D3 remains open
-    special_sound_rule: Only SB068 carries represented Parallel-Earth sound. The four alternatives are mutually exclusive. RST05 must restore unchanged real WC058 cabin sound completely by the end of AARATHI: That is a possibility, not a defence.
+    special_sound_rule: "Only SB068 carries represented Parallel-Earth sound. The four alternatives are mutually exclusive. RST05 must restore unchanged real WC058 cabin sound completely by the end of AARATHI: That is a possibility, not a defence."
     final_sound_rule: End on real late-afternoon cabin/forest ambience with fading Aarathi footsteps; no police approach, surrender operation or dawn cue before SC063.
   SC063:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
@@ -118,6 +118,15 @@ audio:
     transition_out: CUT TO SC064 only after Aarathi takes RUKEY_seventeen_name_display and the first hidden drones enter the forest
     sound_rule: WC059 is NO SB. The inner-voice discussion is testimony only; no subjective voice, victim voice, flashback, Parallel-Earth sound or reenactment. Preserve quiet before-dawn cabin/forest ambience and creator-recorded dialogue.
     final_sound_rule: Hidden-drone sound is not mandatory unless later mix authority supplies it; do not begin command-hall or operation audio before SC064.
+  SC064:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 192
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    transition_in: CUT FROM SC063 only after Aarathi takes RUKEY_seventeen_name_display and the first hidden drones enter the forest
+    transition_out: CUT TO SC065 only after Parvaran signs the physical operation order and another compromise enters the file
+    sound_rule: WC060 is NO SB. Use physical operations-hall dialogue, restrained room tone and source-action interface/printer/paper sounds only. No Parallel-Earth, flashback, real-forest operation, capture, pharmaceutical-vault, cartridge-transfer or ADK-7 sound.
+    final_sound_rule: End on pen/paper and subdued command-hall ambience; do not begin SC065 vault mechanics before the cut.
 picture_master:
   width: 3840
   height: 1600
@@ -138,78 +147,109 @@ shot_density:
   SC061: {duration_seconds: 90, shot_count: 30, stills_per_minute: 20}
   SC062: {duration_seconds: 117, shot_count: 39, stills_per_minute: 20}
   SC063: {duration_seconds: 144, shot_count: 48, stills_per_minute: 20}
+  SC064: {duration_seconds: 192, shot_count: 64, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC063
-  source_scene: SC063
-  scene_condition: WC059
+  latest_materialized_segment: SC064
+  source_scene: SC064
+  scene_condition: WC060
   special_beat_intersects_scene: false
   source_ruling: NO_SB
-  disposition: EP0_PHYSICAL_SURRENDER_TERMS_ONLY
-  physical_anchor: ENV-CAB-008
+  disposition: EP0_PHYSICAL_COMMAND_PREP_ONLY
+  physical_anchor: LOC-003
   loc_crosswalk:
-    ENV-CAB-008: LOC-001
-    LOC-001_INTERIOR_SUBSPACE: CONTROLLED_UNRESOLVED_NOT_PROVEN
-    D1: CLOSED_AND_UNDER_ANAADHI_CONTROL_BEFORE_DAWN
-    D2: CONTROLLED_UNRESOLVED_IN_SC063
-    D3: CONTROLLED_UNRESOLVED_AFTER_SC062_TIME_GAP
-  weather_time: BEFORE_DAWN__WEATHER_UNSTATED
+    LOC-003: Paraane Campus / Central Complex
+    PARAANE_CENTRAL_COMMAND_OPERATIONS_HALL: CONTROLLED_UNRESOLVED_NOT_PROVEN
+  weather_time: NIGHT_INTERIOR__EXTERIOR_WEATHER_NOT_VISUALIZED
+  batch:
+    canonical: B24
+    handoff_from: B23
   seventeen_name_display:
     rukey: RUKEY_seventeen_name_display
-    start_state: BESIDE_ANAADHI_WOODEN_LIST_FROM_SC062
-    end_state: AARATHI_TAKES_DISPLAY
+    custody: AARATHI
+    state: CARRIED_FROM_SC063
+    not_anaadhi_old_file: true
+    not_surrender_condition_screen: true
     no_fabricated_names: true
-  seventeen_lamps:
-    count: 17
-    arrangement: IMPERFECT_9_PLUS_8_CONTINUITY
-    state: BURNING_BEFORE_DAWN
-  seventeen_wooden_names:
-    count: 17
-    state: PERSISTENT_MEMORIAL
-  floorboard:
-    prop: PRP-SPLIT-FLOORBOARD
-    state: LOCKED
-    contents: ANAADHI_WEAPONS_UNSEEN
-  surrender_key:
-    registry_id: CONTROLLED_UNRESOLVED
-    state: ON_TABLE
+  anaadhi:
+    physical_presence: ABSENT
+    allowed_map_representation: CABIN_GLOWS_AT_CENTRE_OF_FOREST_OPERATION_MAP
+    allowed_file_representation: NAME_AGE_ESCAPE_DATE_INFORMATIONAL_ONLY
+  surrender_conditions:
+    exact_text:
+    - DAWN APPROACH
+    - LIMITED OFFICERS
+    - NO SARJANYA
+    - NO MEDIA
+    - NO FORCED MEDICATION BEFORE ASSESSMENT
+    deletion: ANARVAA_DELETES_ONLY_FINAL_LINE
+    unscripted_restore_visual: FORBIDDEN
+  medicine:
+    allowed: PNX4_PROTOCOL_DISCUSSION_ONLY
+    contraindication_record_state: INCOMPLETE
+    parvaran_ruling: DIRECT_INJECTION_SHOULD_NOT_BE_APPROVED
+  rear_unit:
+    map_identity: MANIMANTHARAA_PEOPLE
+    position: BEYOND_POLICE_LINE
+    visualization: MAP_INFORMATION_ONLY
   authorization_system:
-    function: CONSENTED_LOCATION_AND_TERMS_TO_UNNATH_THEN_AUTO_COPY_ANARVAA_AND_CENTRAL_MEDICAL_COMMAND
-    remote_visualization: FORBIDDEN
-  hidden_drones:
-    state: FIRST_DRONES_ENTER_FOREST_AT_EXACT_SC063_END
-    model_detail: CONTROLLED_UNRESOLVED_IN_SC063
+    state: STALLED_AT_END
+    digital_clearance: COMPLETE
+    physical_founder_stamp_required: true
+    output: PHYSICAL_OPERATION_ORDERS
+  exact_end:
+    action: PARVARAN_SIGNS_PHYSICAL_OPERATION_ORDER
+    narrative: ANOTHER_COMPROMISE_ENTERS_THE_FILE
   prohibited:
-  - SC064_CONTENT
-  - SC065_CONTENT
-  - COMMAND_HALL_VISUALIZATION
-  - PNX4_OR_ADK7_OPERATION_PLANNING
-  - VISIBLE_ANAADHI_WEAPONS
-  - FLOORBOARD_OPENING
+  - SC065_PHARMACEUTICAL_TRANSFER_VAULT
+  - CARTRIDGE_TRANSFER
+  - ADK7
+  - ALTERED_BATCH_COLOUR
+  - PHYSICAL_ANAADHI
   - PARALLEL_EARTH_VISUALIZATION
-  - INNER_VOICE_MANIFESTATION
+  - FLASHBACK
+  - REAL_FOREST_OPERATION_CUTAWAY
+  - CAPTURE_ACTION
   - FABRICATED_VICTIM_NAMES
-  - BLACK_RAIN
-  - POLICE_ENTRY
-  - DAWN_SURRENDER_EXECUTION
+  - RUKEY_REPLACEMENT_OR_REPURPOSING
+  - UNPROVEN_PARAANE_COMMAND_SUBSPACE_ID_OR_ARCHITECTURE
 character_cursor:
   anaadhi:
-    source_scene: SC063
+    source_scene: SC064
     identity: CHR-ANAADHI
-    age: 27
-    height_cm: 193
-    exact_visual_state: AGE_27_FOREST_PRECAPTURE
-    hair_state: HR-ANAADHI-26-POST-BARBER / SELF-CUT unfinished transition
-    body_state: FOREST_BUILT_SCARRED_PHYSICALLY_IMPOSING_BUT_EXHAUSTED
-    costume_state: FOREST_ADULT_EXACT_SC063_DETAIL_CONTROLLED_UNRESOLVED
-    injury_state: EXISTING_FOREST_WEAR_NO_ADK7
-    surrender_state: VOLUNTARY_NEGOTIATION_WITH_EXPLICIT_CONDITIONS
+    presence: PHYSICALLY_ABSENT
+    last_physical_scene: SC063
+    last_physical_state: AGE_27_FOREST_PRECAPTURE / 193CM / FOREST_BUILT_SCARRED_PHYSICALLY_IMPOSING_BUT_EXHAUSTED
+    next_batch_requirement: B24_CAPTURE_STATE_MUST_MATCH_B01_ONLY_WHEN_SC066_REACHES_THAT_CONTINUITY
+    adk7_state: NOT_YET_ADMINISTERED
   aarathi:
     identity: CHR-AARATHI
     base_identity_status: APPROVED
-    scene_look: CONTROLLED_UNRESOLVED_SC063
-    return_state: RETURNS_ALONE
+    scene_look: B24_FIELD_CONTINUITY
+    hair_state: LONG_PLAIT__WET_FIELD_CONTINUITY_WHERE_CARRIED
     visible_weapon: DO_NOT_INVENT_VISIBLE_WEAPON
-    portable_display_end_custody: AARATHI_TAKES_RUKEY_SEVENTEEN_NAME_DISPLAY
+    portable_display_custody: AARATHI_RETAINS_RUKEY_SEVENTEEN_NAME_DISPLAY
+  anarvaa:
+    identity: CHR-ANARVAA
+    state: PRESENT_DAY_PARAANE_HEAD
+  parvaran:
+    identity: CHR-PARVARAN
+    state: PRESENT_DAY_FOUNDER_REHAB_HEAD
+    sc064_end: SIGNS_PHYSICAL_OPERATION_ORDER
+  unnath:
+    identity: CHR-UNNATH
+    state: PRESENT_DAY_POLICE_COMMAND
+    force_threshold: IMMEDIATE_THREAT_ONLY
+  semmaa:
+    identity: CHR-SEMMAA
+    state: OLDER_DISCIPLINED_PRESENT_DAY
+    operation_position: CAPTURE_NOT_EXECUTION
+  asana:
+    identity: CHR-ASANA
+    state: PRESENT_DAY_SECURITY_HEAD
+  medical_specialist:
+    identity: CHR-MEDICAL-SPECIALIST
+    state: PRESENT_DAY_PARAANE_MEDICAL
+    sc064_protocol: PNX4_ONLY
 editorial_lock:
   enabled: true
   split_scene_ids: [SC074, SC094, SC099]
@@ -218,10 +258,10 @@ editorial_lock:
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
   first_jump_completed_at: SC005
-  current_completed_segment: SC063
-  next_editorial_segment: SC064
+  current_completed_segment: SC064
+  next_editorial_segment: SC065
   remaining_materialization_order:
-  - SC064-SC073
+  - SC065-SC073
   - SC074A
   - SC006-SC059
   - SC074B
