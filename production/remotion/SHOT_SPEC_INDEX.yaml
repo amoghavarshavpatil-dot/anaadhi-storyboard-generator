@@ -10,10 +10,10 @@ coverage:
     migration_to_new_schema: PENDING
     regenerate_now: false
     image_generation_started: true
-    generated_shot_count: 1
-    approved_shot_count: 1
-    last_approved_shot: SC001_SH001
-    next_shot: SC001_SH002
+    generated_shot_count: 2
+    approved_shot_count: 2
+    last_approved_shot: SC001_SH002
+    next_shot: SC001_SH003
     approved_assets_index: production/remotion/public/shots/APPROVED_SHOT_INDEX.yaml
   SC002:
     state: SPEC_READY

@@ -56,7 +56,7 @@ shots:
     regenerate: false
 
   - shot_id: "SC001_SH002"
-    status: DRAFT
+    status: APPROVED_SHOT
     duration_seconds: 6.0
     purpose: "Reveal the four-force perimeter and shared Paraane visual language"
     framing: "wide lateral operation tableau"
@@ -64,12 +64,17 @@ shots:
     visual_prompt: "Kendhalaa Police around a raised cabin, Sarjanya at rear perimeter, Allied Gangsters waiting behind official forces, Paraane medical vehicles under foliage camouflage, rain, restrained tactical realism, variations of the same Paraane emblem visible across forces"
     negative_prompt: "battlefield firefight, muzzle flashes, daylight, text overlays"
     reference_assets: []
+    approved_asset:
+      version: V001
+      path: "production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED_3840x1600.png"
+      sha256: "9a208bc9fb5225b93eab89205eb1e4aeeb2f54e398e482e690c722a7d96268a0"
+      manifest: "production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED.yaml"
     visible_speaker: null
     lip_sync_required: false
     dialogue_clip: null
     bgm_cue: "continue opening pulse"
     sfx_cues: ["rain on leaves", "equipment handling", "distant boots in mud"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH003"
     status: DRAFT
