@@ -1,4 +1,4 @@
-version: 15
+version: 16
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -195,6 +195,23 @@ coverage:
     image_generation_started: false
     render_started: false
     final_editorial_next: SC066
+  SC066:
+    state: SPEC_READY
+    source_scene_id: SC066
+    source: scenes/066/scene.yaml
+    shot_package: production/remotion/shot_specs/SC066/SC066_SHOT_PACKAGE.json
+    shot_count: 90
+    duration_seconds: 270
+    stills_per_minute: 20
+    parallel_earth: three separate beats — SB070/GF03/RST05; SB071/GF10/RST01; SB072/GF03/RST01 — all WC001/FULL and zero-residue restores
+    location: LOC-001 / ENV-CAB-008 + ENV-BHG-001; SC002 single-breach/debris/wetness state is the same canonical event reprised chronologically in SC066
+    drug_control: first standard sedative upper arm -> conscious stagger; later Unit Seven ADK-7 after SB070 and names/file exchange; never merge administrations
+    evidence_control: same RUKEY_seventeen_name_display, exactly 17 names, never converted into Paraane file; split floorboard/hatch remain physical but adult escape excluded to SC067
+    character_control: Anaadhi AGE_27_CAPTURE / 193cm / heavy-athletic / shaved rough-regrowth capture state where B24-B01 continuity requires; SC065-to-SC066 appearance transition mechanic remains unresolved and is not visualized
+    boundary_note: exact end CUT TO BLACK. INTERVAL.; SC067 heartbeat return and all recovery/escape action excluded
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC067
   SC006-SC099:
     state: NOT_YET_MATERIALIZED_EXCEPT_LISTED_SEGMENTS
     exceptions:
@@ -204,27 +221,20 @@ coverage:
     - SC063
     - SC064
     - SC065
+    - SC066
     - SC094B
     - SC095
     - SC099B
-    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060-SC065, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
+    note: Source scene numbers remain screenplay authority, but final render order follows EDITORIAL_SEQUENCE_LOCK.yaml. SC060-SC066, SC094B, SC095 and SC099B are independently materialized; SC094A and SC099A remain pending at their locked later editorial positions.
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   source_numeric_order_is_not_final_render_order: true
   first_editorial_jump_reached: true
-  split_packages_required:
-  - SC074A
-  - SC074B
-  - SC094A
-  - SC094B
-  - SC099A
-  - SC099B
-  split_packages_materialized:
-  - SC094B
-  - SC099B
+  split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
+  split_packages_materialized: [SC094B, SC099B]
   remaining_materialization_order:
-  - SC066-SC073
+  - SC067-SC073
   - SC074A
   - SC006-SC059
   - SC074B
@@ -234,11 +244,11 @@ editorial:
   - SC099A
   - END
 cursor:
-  last_materialized_source_scene: SC065
-  last_materialized_editorial_segment: SC065
-  next_scene: SC066
-  next_editorial_segment: SC066
-  after_SC065: SC066
+  last_materialized_source_scene: SC066
+  last_materialized_editorial_segment: SC066
+  next_scene: SC067
+  next_editorial_segment: SC067
+  after_SC066: SC067
   image_generation_gate: HOLD_UNTIL_SHOT_SPEC_MATERIALIZATION_ADVANCES
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:

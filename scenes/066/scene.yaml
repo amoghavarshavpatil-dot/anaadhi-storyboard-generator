@@ -1,0 +1,189 @@
+scene_id: SC066
+source_scene_number: 66
+status: SPEC_READY
+revision_id: R001
+heading: EXT./INT. ANAADHI’S RAISED CABIN – PRE-DAWN
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+editorial_previous: SC065
+editorial_next: SC067
+source_boundary:
+  start: "Immediately after SC065 final warning: SEMMAA (O.S.): Get down!"
+  end: CUT TO BLACK. INTERVAL.
+  hard_stop: No SC067 heartbeat return, motor recovery, restraint attempt, lower-passage escape or ravine action.
+batch_and_reprise:
+  canonical_batch: B24
+  capture_reprise_authority: B01
+  chronological_scene: SC066
+  opening_reprise_scenes: [SC002, SC003, SC004, SC005]
+  single_breach_rule: SC002 and SC066 depict the same canonical breach event. Preserve one breached-door/debris/wetness state; never create a second physical breach or pristine reset.
+  SC065_to_SC066_identity_transition: Repository P1 marks self-cut-to-capture hair transition unresolved. Use locked B24/B01 SC066 capture appearance without depicting or inventing haircut, undressing or transformation mechanics.
+physical:
+  condition: WC001/FULL
+  weather_time: PRE_DAWN_BLACK_RAIN
+  root: LOC-001
+  anchors: [ENV-CAB-008, ENV-BHG-001]
+  cabin: Final / Primary / Raised Cabin; capture-persistence state; SC002 breach debris and wet ingress persist.
+  perimeter: Bhaigaara Buffer Forest — Core / Capture Perimeter
+  perimeter_groups: [police drones, Paraane medical transports, Kendhalaa Police, Sarjanya rear perimeter, Allied Gangsters]
+  distinct_group_rule: Police, medicine, Sarjanya and gangsters remain visually distinct.
+characters:
+  anaadhi:
+    identity: CHR-ANAADHI
+    age: 27
+    height_cm: 193
+    state: AGE_27_CAPTURE
+    body: heavy-athletic forest-built
+    hair: HR-ANAADHI-27-CAPTURE / shaved scalp with several days rough regrowth
+    costume: CST-ANAADHI-27-CAPTURE / topless where opening continuity requires
+    drug_progression: no ADK-7 at start -> first standard sedative conscious stagger -> later ADK-7 chemical motor impairment while unusually conscious
+  aarathi: CHR-AARATHI / B24-B01 civilian field continuity / wet long plait / no weapon
+  semmaa: CHR-SEMMAA / older disciplined / capture-not-execution
+  police_commander: CHR-POLICE-COMMANDER / B01-B24 capture command continuity
+  medical_specialist: CHR-MEDICAL-SPECIALIST / B01-B24 operation continuity
+  allied_gangster: CHR-ALLIED-GANGSTER / Manimantharaa-aligned rear-unit operative / iron-hook action only as scripted
+  child_anaadhi: same Anaadhi identity family in explicit age-12 represented state; never shrink adult body
+props_technology:
+  police_shields: POLICE_SHIELDS
+  iron_hook: IRON_HOOK
+  paraane_medical_case: PARAANE_MEDICAL_CASE
+  paraane_emblem: PRP-PARAANE-EMBLEM
+  first_sedative: PNX4_OR_SCREENPLAY_STANDARD_SEDATIVE
+  adk7: PRP-ADK7-CARTRIDGE / UNIT_07
+  compressed_injector: COMPRESSED_INJECTOR
+  split_floorboard: PRP-SPLIT-FLOORBOARD
+  concealed_hatch: EXISTING_CONCEALED_HATCH
+  portable_display: RUKEY_seventeen_name_display
+  display_rule: Same physical display from SC060-SC065; exactly seventeen names; no replacement, redesign, fabricated names or conversion into Paraane file.
+opening_operation:
+  sequence:
+  - Aarathi reaches upper doorway first and orders Anaadhi to keep hands visible.
+  - Anaadhi steps behind with both hands open.
+  - Allied Gangster calls Target and forces through with iron hook.
+  - Anaadhi pulls Aarathi aside instinctively; hook tears through wall.
+  - Police misread the movement; Police Commander calls Entry.
+  - Main door breach is the same canonical SC002 breach event.
+  - Shields first; Paraane medical personnel follow; Sarjanya fills staircase; Allied Gangster raises hook again.
+  locked_dialogue: ['ALLIED GANGSTER: Target!', 'POLICE COMMANDER: Entry!']
+semmaa_intervention:
+  locked_dialogue:
+  - 'SEMMAA: The order is for capture.'
+  - 'ALLIED GANGSTER: Manimantharaa wants the body.'
+  - 'SEMMAA: A body should be breathing. Otherwise it is evidence.'
+  - 'AARATHI: Nobody shoot! He was surrendering!'
+  - 'POLICE COMMANDER: Subject, get on the ground!'
+  - 'ANAADHI: I began life from the ground.'
+  action: Semmaa forces Allied Gangster outside; no extra violence.
+drug_chain:
+  first:
+    drug: PNX4_OR_STANDARD_SEDATIVE
+    target: upper arm
+    effect: Anaadhi staggers but remains conscious.
+    line: 'MEDICAL SPECIALIST: Resistance is high.'
+  unit_seven:
+    reveal_after_first_sedative: true
+    lines: ['AARATHI: Stop!', 'AARATHI: That is not authorised stock!', 'MEDICAL SPECIALIST: It has central clearance.']
+    administration_before_SB070: false
+  second:
+    drug: ADK-7
+    administration_after: [SB070_RST05_COMPLETE, NAMES_FILE_EXCHANGE]
+    delivery: COMPRESSED_INJECTOR
+    distinction_rule: Never merge standard sedative and ADK-7 into one injection.
+parallel_earth:
+  rules:
+  - SB070, SB071 and SB072 are three separate source-bounded represented beats; never merge them.
+  - Physical WC001/FULL remains inherited underneath every represented layer.
+  - No represented portal/topology/damage persists after reset.
+  - No diagnosis, prophecy, supernatural certainty or literal-multiverse certainty.
+  SB070:
+    packet: SB070
+    grammar: GF03
+    recurrence: 4/6
+    band: D
+    ep: EP0+EP2+EP3+EP4+EP5+EP-U
+    observer: OBS01
+    anchor: ANCH02
+    inverse: INV6-02
+    condition: WC001/FULL
+    variations: [VAR6-02, VAR6-03, VAR6-04, VAR6-05]
+    reset: RST05
+    start: The cabin becomes Paraane’s child wing.
+    end: The same door again.
+    after_reset: Real cabin restored before Anaadhi reaches locked split floorboard/concealed hatch.
+  names_file_exchange: ['ANAADHI: You came with the names.', 'ANAADHI: They came with the file.']
+  SB071:
+    packet: SB071
+    grammar: GF10
+    recurrence: 5/11
+    band: D
+    ep: EP0+EP1+EP2+EP3+EP4+EP5+EP-U
+    observer: OBS01
+    anchor: ANCH01
+    inverse: INV6-01
+    anchors: [ENV-CAB-008, ENV-BHG-001]
+    condition: WC001/FULL
+    variations: [VAR6-01, VAR6-02, VAR6-03, VAR6-04, VAR6-05]
+    reset: RST01
+    precondition: ADK-7 has entered bloodstream.
+    start: 'PARALLEL-EARTH CONVERGENCE:'
+    variants: [empty cabin, Anaadhi dead before capture, Aarathi helping through lower passage, Semmaa carrying newborn through rain, Janne holding child Anaadhi, Parvaran behind institutional glass, Anarvaa on throne built from medical files, Marsyaa beside Adraka medicine vault, seventeen victims, Madhava walking, Mallayya giving two salt packets, Anaadhi as Paraane doctor, Anaadhi burning Paraane, future courtroom]
+    convergence_rule: Every variant turns toward Anaadhi.
+    lines: ['ANAADHI: The scene is changing.', 'INNER VOICE: Not the choice.']
+    end: Back in the present, Anaadhi falls onto one hand.
+  physical_after_SB071:
+    lines:
+    - 'AARATHI: I did not use the injector.'
+    - 'ANAADHI: Who gave the location?'
+    - 'AARATHI: I did.'
+    - 'ANAADHI: Everyone’s uniform is different.'
+    - 'ANAADHI: The hand is the same.'
+    medical_report: ADK-7 circulating rapidly; Anaadhi should not still be conscious; exact creator recording governs wording.
+  SB072:
+    packet: SB072
+    grammar: GF03
+    recurrence: 5/6
+    band: D
+    ep: EP0+EP2+EP3+EP4+EP5+EP-U
+    observer: OBS01
+    anchor: ANCH02
+    inverse: INV6-02
+    environment_anchor: ENV-CAB-008
+    condition: WC001/FULL
+    variations: [VAR6-02, VAR6-03, VAR6-04, VAR6-05]
+    reset: RST01
+    start: Anaadhi’s vision enters an endless Paraane corridor.
+    elements: [Child Anaadhi, hidden-faced man behind observation glass, seventeen deaths, four roads, empty cradle, Manire’s medicine cup, Parvaran’s signature, Aarathi inside armed circle]
+    lines: ['They did not look for you.', 'They wanted back what belonged to them.']
+    end: Anaadhi returns to the real cabin for one final conscious instant.
+exact_end:
+  condition: WC001/FULL_PHYSICAL
+  sequence:
+  - Anaadhi looks at physical Paraane emblem and Aarathi.
+  - 'ANAADHI: You did not come to capture me.'
+  - 'ANAADHI: You came to take back what you created.'
+  - Anaadhi collapses.
+  - Floor becomes black; Paraane emblem remains above him.
+  - CUT TO BLACK. INTERVAL.
+  forbidden_after_cut: Any SC067 heartbeat return.
+shot_plan:
+  shot_count: 90
+  duration_seconds: 270
+  stills_per_minute: 20
+  target_raster: 3840x1600
+  aspect_ratio: 2.40:1
+  fps: 30
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  package: production/remotion/shot_specs/SC066/SC066_SHOT_PACKAGE.json
+audio:
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  mastered_prefix_locked: true
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  exact_alignment: PENDING_EXTRACTION
+  represented_audio: restricted to each source-bounded SB; each RST restores physical WC001/FULL sound with zero residue
+hard_exclusions: [SC067_HEARTBEAT_RETURN, SC067_MOTOR_RECOVERY, POST_COLLAPSE_RESTRAINT, ADULT_LOWER_PASSAGE_ESCAPE, RAVINE_ACTION, EXTRA_ADK7, INVENTED_PHARMACEUTICAL_MECHANICS, ADDITIONAL_GORE, NEW_PARALLEL_VARIANTS, PERSISTENT_REPRESENTED_ARCHITECTURE, RST_RESIDUE, FABRICATED_VICTIM_NAMES, DIAGNOSIS_CERTAINTY, SUPERNATURAL_CERTAINTY, MULTIVERSE_CERTAINTY, SC068_ACTION]
+generation:
+  storyboard_image_generation_started: false
+  remotion_render_started: false
+  supercool_invoked: false
+  heygen_invoked: false
+  paid_media_api_execution: false
+next: SC067
