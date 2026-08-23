@@ -1,4 +1,4 @@
-version: 20
+version: 21
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
 as_of_local: '2026-08-23T18:39:00+05:30'
@@ -19,13 +19,13 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC069
-  latest_source_scene_materialized: SC069
-  next_scene_to_materialize: SC070
-  next_editorial_segment: SC070
+  latest_new_schema_materialized: SC070
+  latest_source_scene_materialized: SC070
+  next_scene_to_materialize: SC071
+  next_editorial_segment: SC071
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC069 SPEC_READY through exact 'Her pulse answers.' Continue directly to SC070. SuperCool remains disabled; no paid media execution.
+  note: SC070 SPEC_READY through the consultation-room door remaining open after manual override. Continue directly to SC071. SuperCool remains disabled; no paid media execution.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
@@ -53,6 +53,15 @@ audio:
     sound_rule: WC064 NO-SB physical Paraane morning/drainage/Child-Wing sound only; no represented-layer audio.
     evidence_rule: Aarathi photographing child-height marks documents evidence; it does not make authorship/memory factual automatically.
     final_sound_rule: Hold intimate physical room tone at Manire wrist/pulse contact; no SC070 action before cut.
+  SC070:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 180
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    retime_locked_master: false
+    transition_in: CUT FROM SC069 after Her pulse answers.
+    transition_out: CUT TO SC071 only after Manire asks Can you see it?, Anaadhi nods, and the door remains open.
+    sound_rule: Physical WC065 consultation-room sound outside SB076; represented glass-layer sound only inside TP076/SB076; RST05 restores physical room completely.
+    observer_rule: Manire and Aarathi do not receive full represented-layer access.
 picture_master:
   width: 3840
   height: 1600
@@ -64,12 +73,13 @@ shot_density:
   SC067: {duration_seconds: 240, shot_count: 80, stills_per_minute: 20}
   SC068: {duration_seconds: 150, shot_count: 50, stills_per_minute: 20}
   SC069: {duration_seconds: 207, shot_count: 69, stills_per_minute: 20}
+  SC070: {duration_seconds: 180, shot_count: 60, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC069
-  source_scene: SC069
-  scene_condition: WC064
-  special_beat_intersects_scene: false
-  source_ruling: NO_SB_EP0_PHYSICAL_CHRONOLOGY_ONLY
+  latest_materialized_segment: SC070
+  source_scene: SC070
+  scene_condition: WC065
+  special_beat_intersects_scene: true
+  source_ruling: TP076_SB076_GF06_SOURCE_BOUNDED_WITH_RST05
   batch:
     canonical: B26
     scenes: [69,70,71,72,73,74]
@@ -90,9 +100,27 @@ env6_cursor:
     embrace: false
     final_action: HER_PULSE_ANSWERS
     cut_before: SC070
+  SC070_current:
+    tp: TP076
+    sb: SB076
+    grammar: GF06
+    recurrence: 9/13
+    band: E
+    ep: EP0+EP1+EP3+EP5+EP-U
+    observers: OBS01
+    anchor: ANCH56
+    inverse: INV6-56
+    variations: [VAR6-01, VAR6-03, VAR6-05]
+    restore: RST05
+    physical_env: [ENV-PAR-014/PV069, ENV-PAR-015/PV074]
+    start: 'The old observation glass reflects the room. Parallel Earths appear:'
+    end: the glass does not exist.
+    access: Adult Anaadhi full represented layer; Manire/Aarathi no full-layer access
+    zero_residue: true
+    exact_end: door remains open after manual override and Anaadhi nods that he can see the gap
 character_cursor:
   anaadhi:
-    source_scene: SC069
+    source_scene: SC070
     identity: CHR-ANAADHI
     age: 27
     height_cm: 193
@@ -119,10 +147,10 @@ editorial_lock:
   split_segment_completed: [SC094B, SC099B]
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
-  current_completed_segment: SC069
-  next_editorial_segment: SC070
+  current_completed_segment: SC070
+  next_editorial_segment: SC071
   remaining_materialization_order:
-    - SC070-SC073
+    - SC071-SC073
     - SC074A
     - SC006-SC059
     - SC074B

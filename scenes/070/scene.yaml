@@ -1,0 +1,161 @@
+scene_id: SC070
+status: SPEC_READY
+source_scene_number: 70
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: INT. PARAANE CHILD WING – MANIRE’S CONSULTATION ROOM – LATER
+editorial_previous: SC069
+editorial_next: SC071
+source_boundary:
+  start: The door remains open, exactly as it did during Anaadhi’s childhood.
+  end: The door remains open.
+  start_inclusive: true
+  end_inclusive: true
+batch: {canonical: B26}
+env6:
+  condition: WC065
+  transition_point: TP076
+  special_beat: SB076
+  grammar_family: GF06
+  recurrence: 9/13
+  band: E_RETURN_SURGERY_AND_REENTRY
+  ep: EP0+EP1+EP3+EP5+EP-U
+  observers: OBS01
+  observer_access: Adult Anaadhi receives full represented layer; Manire and Aarathi do not; audience receives representation.
+  anchor: ANCH56
+  inverse: INV6-56
+  variations: [VAR6-01, VAR6-03, VAR6-05]
+  restore: RST05
+  start: 'The old observation glass reflects the room. Parallel Earths appear:'
+  end: the glass does not exist.
+  zero_residue_restore: true
+environment_authorities:
+  - {id: ENV-PAR-014, pv: PV069, role: PARAANE_CHILD_WING_OBSERVATION_GALLERY_AND_ONE_WAY_GLASS_AXIS}
+  - {id: ENV-PAR-015, pv: PV074, role: MANIRE_CONSULTATION_ROOM}
+root: LOC-003
+characters:
+  ANAADHI:
+    state: AGE_27_PARAANE_RETURN
+    age: 27
+    height_cm: 193
+    continuity: wet post-operation/capture body; capture hair preserved; chemical aftermath/exhaustion; no SC074 wounds
+    position: near exit
+  AARATHI:
+    state: B26_CONTINUITY
+    position: beside wall
+    represented_access: none
+    evidence_custody: RUKEY_seventeen_name_display secured
+  MANIRE:
+    state: older grey-hair same steady presence
+    consent_behavior: explicit suggestion/permission/manual-door reassurance
+    represented_access: none
+  PARVARAN:
+    physical_presence: false
+    represented_presence: SB076 only
+  CHILD_ANAADHI:
+    represented_age: 5
+    resized_adult_forbidden: true
+props_and_technology:
+  transparent_water_cup:
+    medicine: none
+  old_observation_glass:
+    anchor: ENV-PAR-014/PV069
+  adoption_papers:
+    represented_only: true
+    readable_text: forbidden unless source supplied
+  lockdown_alert:
+    exact_text: SECURITY BREACH; ALL INTERNAL DOORS SEALING
+  consultation_door:
+    starts_open: true
+    automatic_closing: true
+    manual_override: Manire forces it before lock
+    ends_open: true
+dialogue:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  exact_lines:
+    - 'MANIRE: Filtered water. There is no medicine in it.'
+    - 'MANIRE: Do you have a fever?'
+    - 'ANAADHI: I do not know.'
+    - 'MANIRE: Dizziness?'
+    - 'ANAADHI: Sometimes the ground is not straight.'
+    - 'MANIRE: After the injection?'
+    - 'ANAADHI: I had visuals before as well. Now the doors will not stop.'
+    - 'MANIRE: I suggest an examination.'
+    - 'MANIRE: It is only a suggestion.'
+    - 'ANAADHI: A Paraane doctor?'
+    - 'MANIRE: An independent doctor, if you do not want Paraane.'
+    - 'ANAADHI: Not now.'
+    - 'MANIRE: All right.'
+    - 'AARATHI: Manire, until what age was he here?'
+    - 'MANIRE: Twelve.'
+    - 'AARATHI: Family record?'
+    - 'MANIRE: It said “unknown”.'
+    - 'ANAADHI: Was that a lie?'
+    - 'MANIRE: Later, I began to doubt that it was the complete truth.'
+    - 'ANAADHI: Who knew?'
+    - 'MANIRE: Parvaran.'
+    - 'AARATHI: The rehabilitation head?'
+    - 'MANIRE: Yes.'
+    - 'ANAADHI: Did he see me?'
+    - 'MANIRE: Many times.'
+    - 'ANAADHI: Did he speak to me?'
+    - 'MANIRE: No.'
+    - 'ANAADHI: Then why did he watch?'
+    - 'MANIRE: I asked him.'
+    - 'ANAADHI: His answer?'
+    - 'MANIRE: He did not give one.'
+    - 'ANAADHI: I was inside.'
+    - 'ANAADHI: He was outside.'
+    - 'MANIRE: Yes.'
+    - 'ANAADHI: He did not open the door.'
+    - 'MANIRE: No.'
+    - 'MANIRE: Anaadhi, the door is automatic.'
+    - 'ANAADHI: Automatic fear is still fear.'
+    - 'MANIRE: It is open.'
+    - 'MANIRE: Can you see it?'
+represented_variants:
+  - Parvaran enters and lifts five-year-old Anaadhi.
+  - Parvaran signs adoption papers.
+  - Parvaran turns away exactly as he did.
+  - Anaadhi attacks him through the glass.
+  - The glass does not exist.
+represented_rules:
+  mutually_exclusive_or_layered_only_as_source_implies: true
+  manire_aathi_full_access: false
+  no_persistence_after_RST05: true
+  no_invented_adoption_text: true
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  physical_sound_outside_SB076: true
+  represented_sound_only_inside_SB076: true
+shot_plan:
+  shot_count: 60
+  duration_seconds: 180
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  shot_package: production/remotion/shot_specs/SC070/SC070_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+hard_exclusions:
+  - SB076_OUTSIDE_EXACT_BOUNDARY
+  - MANIRE_OR_AARATHI_FULL_REPRESENTED_ACCESS
+  - DIAGNOSIS_CERTAINTY
+  - FORCED_EXAM
+  - MEDICATED_WATER
+  - INVENTED_ADOPTION_PAPER_TEXT
+  - PERSISTENT_GLASS_VARIANT
+  - SC071_ACTION
+  - SC074_WOUNDS_EARLY
+  - IMAGE_GENERATION
+  - VIDEO_RENDER
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+next: SC071

@@ -1,4 +1,4 @@
-version: 19
+version: 20
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
@@ -54,6 +54,20 @@ coverage:
     image_generation_started: false
     render_started: false
     final_editorial_next: SC070
+  SC070:
+    state: SPEC_READY
+    source: scenes/070/scene.yaml
+    shot_package: production/remotion/shot_specs/SC070/SC070_SHOT_PACKAGE.json
+    shot_count: 60
+    duration_seconds: 180
+    stills_per_minute: 20
+    parallel_earth: TP076/SB076/GF06 9/13/Band E/OBS01/ANCH56/INV6-56/WC065/VAR6-01+03+05/RST05
+    environment: LOC-003 + ENV-PAR-014/PV069 + ENV-PAR-015/PV074
+    access_control: Adult Anaadhi full represented access; Manire/Aarathi no full-layer access
+    boundary_note: old observation glass represented layer only; RST05 restores physical room; exact end door remains open after manual override
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC071
 unmaterialized:
   state: NOT_YET_MATERIALIZED_EXCEPT_LISTED
   note: Final render order follows production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml.
@@ -64,7 +78,7 @@ editorial:
   split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
   split_packages_materialized: [SC094B, SC099B]
   remaining_materialization_order:
-    - SC070-SC073
+    - SC071-SC073
     - SC074A
     - SC006-SC059
     - SC074B
@@ -74,11 +88,11 @@ editorial:
     - SC099A
     - END
 cursor:
-  last_materialized_source_scene: SC069
-  last_materialized_editorial_segment: SC069
-  next_scene: SC070
-  next_editorial_segment: SC070
-  after_SC069: SC070
+  last_materialized_source_scene: SC070
+  last_materialized_editorial_segment: SC070
+  next_scene: SC071
+  next_editorial_segment: SC071
+  after_SC070: SC071
   image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:
