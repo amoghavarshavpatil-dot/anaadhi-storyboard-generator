@@ -1,0 +1,67 @@
+version: 1
+project: ANAADHI
+canonical_shot_key: B01_SC001_SH002
+scene_id: SC001
+shot_id: SC001_SH002
+candidate_version: V001
+lifecycle_status: APPROVED_SHOT
+generated_at: 2026-08-23
+
+source:
+  authority: scenes/001/scene.yaml
+  purpose: Reveal the four-force perimeter and shared Paraane visual language.
+  framing: wide lateral operation tableau
+  camera_motion: slow lateral drift
+  continuity_reference: production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED_3840x1600.png
+  generation_backend: CHATGPT_BUILT_IN_IMAGE_GENERATION
+  supercool_used: false
+  heygen_used: false
+  paid_media_api_used: false
+
+generation_prompt:
+  positive: >-
+    Same raised cabin, Karnataka rainforest, pre-dawn black rain, foliage-camouflaged
+    medical transports and restrained future design as approved SC001_SH001. Wide lateral
+    tableau with Kendhalaa Police on the official forward containment line, Sarjanya at the
+    rear perimeter, Allied Gangsters distinctly behind official forces, and Paraane medical
+    vehicles under wet areca foliage. Groups remain visually separate through blocking,
+    silhouette, equipment posture and depth. Grounded photoreal Indian science-fiction cinema.
+  negative:
+    - battlefield firefight
+    - muzzle flashes
+    - daylight
+    - generic western military styling
+    - neon cyberpunk
+    - mixed force groups
+    - text
+    - captions
+    - watermark
+    - storyboard borders
+    - letterbox bars
+
+picture_master:
+  native_path: production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED_NATIVE_1942x809.png
+  native_resolution: 1942x809
+  native_sha256: fe85566a1d655c86e1ba9f97dc5b206a0ef16b15d1cddf3c7a225697ea963a32
+  canonical_review_path: production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED_3840x1600.png
+  canonical_review_resolution: 3840x1600
+  canonical_review_sha256: 9a208bc9fb5225b93eab89205eb1e4aeeb2f54e398e482e690c722a7d96268a0
+  canonical_resample: LANCZOS_MECHANICAL_ONLY
+  baked_letterbox_bars: false
+
+qc:
+  approved_sh001_world_continuity_pass: true
+  four_force_layering_pass: true
+  raised_cabin_anchor_pass: true
+  black_rain_pass: true
+  no_firefight_pass: true
+  no_text_or_bars_pass: true
+  overall_result: APPROVED_BY_USER
+
+review_gate:
+  user_approval: APPROVED
+  approved_at: 2026-08-23
+  next_shot: SC001_SH003
+  next_shot_generation_blocked_until_decision: false
+  approved_shot_claimed: true
+  locked_picture_claimed: false

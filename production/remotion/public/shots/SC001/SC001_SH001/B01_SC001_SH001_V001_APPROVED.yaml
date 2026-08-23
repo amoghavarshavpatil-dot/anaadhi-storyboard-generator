@@ -1,0 +1,67 @@
+version: 1
+project: ANAADHI
+canonical_shot_key: B01_SC001_SH001
+scene_id: SC001
+shot_id: SC001_SH001
+candidate_version: V001
+lifecycle_status: APPROVED_SHOT
+generated_at: 2026-08-23
+
+source:
+  authority: scenes/001/scene.yaml
+  purpose: Establish Bhaigaara forest, black rain and raised cabin under covert encirclement.
+  framing: very wide anamorphic establishing
+  camera_motion: slow controlled push through wet foreground roots
+  generation_backend: CHATGPT_BUILT_IN_IMAGE_GENERATION
+  supercool_used: false
+  heygen_used: false
+  paid_media_api_used: false
+
+generation_prompt:
+  positive: >-
+    Pre-dawn Karnataka Western Ghats evolved a century into the future; dense South Indian
+    rainforest ecology; enormous wet foreground roots; black rain; hidden sensors integrated
+    into bark and roots; weathered raised timber cabin half-concealed in the mid-distance;
+    black-kite-shaped propellerless Kendhalaa police drones; Paraane medical transports
+    camouflaged beneath areca leaves; restrained covert perimeter silhouettes; grounded
+    photoreal cinematic realism; full-bleed 2.40:1 composition.
+  negative:
+    - text
+    - subtitles
+    - logos
+    - watermark
+    - storyboard borders
+    - letterbox bars
+    - daylight
+    - generic western forest
+    - neon cyberpunk city
+    - conventional quadcopters
+    - gunfire
+    - explosions
+
+picture_master:
+  native_path: production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED_NATIVE_1942x809.png
+  native_resolution: 1942x809
+  native_sha256: 2eb09e64c75b1f55718a753a869bd4225d13f1e079528512efe72277262090ac
+  canonical_review_path: production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED_3840x1600.png
+  canonical_review_resolution: 3840x1600
+  canonical_review_sha256: b7621f3595d03a63d587269d621d28497db1492851240739becb35a9242b0423
+  canonical_resample: LANCZOS_MECHANICAL_ONLY
+  baked_letterbox_bars: false
+
+qc:
+  shot_purpose_pass: true
+  karnataka_ecology_pass: true
+  black_rain_pass: true
+  raised_cabin_pass: true
+  covert_encirclement_pass: true
+  no_text_or_bars_pass: true
+  overall_result: APPROVED_BY_USER
+
+review_gate:
+  user_approval: APPROVED
+  approved_at: 2026-08-23
+  next_shot: SC001_SH002
+  next_shot_generation_blocked_until_decision: false
+  approved_shot_claimed: true
+  locked_picture_claimed: false

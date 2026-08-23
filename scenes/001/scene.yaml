@@ -35,7 +35,7 @@ continuity:
 
 shots:
   - shot_id: "SC001_SH001"
-    status: DRAFT
+    status: APPROVED_SHOT
     duration_seconds: 6.0
     purpose: "Establish Bhaigaara forest, black rain and raised cabin under covert encirclement"
     framing: "very wide anamorphic establishing"
@@ -43,15 +43,20 @@ shots:
     visual_prompt: "Pre-dawn Karnataka Western Ghats evolved a century into the future, black rain, enormous roots, hidden sensors, raised timber cabin, black-kite-shaped propellerless police drones, medical transports camouflaged beneath areca leaves, cinematic realism"
     negative_prompt: "text, subtitles, letterbox bars, daylight, generic western forest"
     reference_assets: []
+    approved_asset:
+      version: V001
+      path: "production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED_3840x1600.png"
+      sha256: "b7621f3595d03a63d587269d621d28497db1492851240739becb35a9242b0423"
+      manifest: "production/remotion/public/shots/SC001/SC001_SH001/B01_SC001_SH001_V001_APPROVED.yaml"
     visible_speaker: null
     lip_sync_required: false
     dialogue_clip: null
     bgm_cue: "low psychological opening pulse"
     sfx_cues: ["black rain", "distant drone pressure", "forest insects", "sub-bass perimeter tension"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH002"
-    status: DRAFT
+    status: APPROVED_SHOT
     duration_seconds: 6.0
     purpose: "Reveal the four-force perimeter and shared Paraane visual language"
     framing: "wide lateral operation tableau"
@@ -59,15 +64,20 @@ shots:
     visual_prompt: "Kendhalaa Police around a raised cabin, Sarjanya at rear perimeter, Allied Gangsters waiting behind official forces, Paraane medical vehicles under foliage camouflage, rain, restrained tactical realism, variations of the same Paraane emblem visible across forces"
     negative_prompt: "battlefield firefight, muzzle flashes, daylight, text overlays"
     reference_assets: []
+    approved_asset:
+      version: V001
+      path: "production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED_3840x1600.png"
+      sha256: "9a208bc9fb5225b93eab89205eb1e4aeeb2f54e398e482e690c722a7d96268a0"
+      manifest: "production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED.yaml"
     visible_speaker: null
     lip_sync_required: false
     dialogue_clip: null
     bgm_cue: "continue opening pulse"
     sfx_cues: ["rain on leaves", "equipment handling", "distant boots in mud"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH003"
-    status: DRAFT
+    status: APPROVED_SHOT
     duration_seconds: 5.0
     purpose: "Thermal confirmation: one body inside"
     framing: "medium close insert on Police Commander's wrist and reflected cabin"
@@ -75,12 +85,17 @@ shots:
     visual_prompt: "wet tactical wrist display in pre-dawn rain showing thermal silhouette of one human body inside raised wooden cabin, Police Commander partially visible, cinematic photorealism"
     negative_prompt: "readable exposition text, sci-fi hologram clutter, letterbox bars"
     reference_assets: []
+    approved_asset:
+      version: V001
+      path: "production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED_3840x1600.png"
+      sha256: "8b22bd4449159833b02da8e6535dd4e2c1f0cd81e2562d8d8e0f6af0603f633f"
+      manifest: "production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED.yaml"
     visible_speaker: POLICE_COMMANDER
     lip_sync_required: false
     dialogue_clip: null
     bgm_cue: "thin tension layer"
     sfx_cues: ["wrist interface pulse", "radio static", "rain"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH004"
     status: DRAFT
