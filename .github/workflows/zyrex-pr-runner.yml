@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: zyrex-catalogue-pr-runner
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   crawl:
@@ -42,8 +42,8 @@ jobs:
           --base-url https://zyrexayurveda.com/
           --out-dir data/zyrex
           --expected-min 4000
-          --workers 2
-          --delay 0.20
+          --workers 4
+          --delay 0.15
 
       - name: Upload crawl output
         if: always()
