@@ -38,7 +38,7 @@ jobs:
 
       - name: Crawl complete public Zyrex catalogue
         run: >-
-          python zyrex-audit/zyrex_catalogue_crawler.py
+          python zyrex-audit/zyrex_catalogue_crawler_v2.py
           --base-url https://zyrexayurveda.com/
           --out-dir data/zyrex
           --expected-min 4000
