@@ -25,6 +25,12 @@ class ReferralCodecTests(unittest.TestCase):
         with self.assertRaises(TokenError):
             codec.verify(token[:-1] + ("A" if token[-1] != "A" else "B"))
 
+    def test_urlsafe_referral_id_with_separators(self):
+        codec = ReferralCodec(SECRET)
+        referral_id = "creator_01-test"
+        token = codec.issue(referral_id)
+        self.assertEqual(codec.verify(token), referral_id)
+
 
 class DownloadTokenCodecTests(unittest.TestCase):
     def test_expiry(self):
