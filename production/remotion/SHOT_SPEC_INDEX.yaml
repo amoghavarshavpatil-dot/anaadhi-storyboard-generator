@@ -1,4 +1,4 @@
-version: 28
+version: 29
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
@@ -43,6 +43,26 @@ coverage:
     final_editorial_next: SC009
     image_generation_started: false
     render_started: false
+  SC009:
+    state: SPEC_READY
+    finalized: true
+    lock_state: LOCKED
+    revision: R001
+    package_schema: ANAADHI_REMOTION_SHOT_PACKAGE_EXPANDED_V2_RESOLVABLE_REFS
+    source: scenes/009/scene.yaml
+    shot_package: production/remotion/shot_specs/SC009/SC009_SHOT_PACKAGE.json
+    shot_count: 45
+    duration_seconds: 135
+    stills_per_minute: 20
+    environments: ENV-KND-001 Kendhalaa Workers' District / Public Square + ENV-PAR-008 Paraane Central Assessment Hub
+    locs: LOC-004 + LOC-003
+    wc: WC005
+    paraane_state: PV037 / P1 / ADD
+    env6_control: NO_SB; real protest/intercut and literal harmful classification only; no represented layer
+    character_control: Anarvaa/Parvaran/Marsyaa inherit locked SC008 continuity into P1; worker/crowd/commander/operator remain source-role only; Anaadhi and Asana absent
+    final_editorial_next: SC010
+    image_generation_started: false
+    render_started: false
 unmaterialized: {state: NOT_YET_MATERIALIZED_EXCEPT_LISTED}
 editorial:
   locked: true
@@ -50,7 +70,7 @@ editorial:
   split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
   split_packages_materialized: [SC074A, SC094B, SC099B]
   remaining_materialization_order:
-    - SC009-SC059
+    - SC010-SC059
     - SC074B
     - SC075-SC093
     - SC094A
@@ -58,11 +78,11 @@ editorial:
     - SC099A
     - END
 cursor:
-  last_materialized_source_scene: SC008
-  last_materialized_editorial_segment: SC008
-  next_scene: SC009
-  next_editorial_segment: SC009
-  after_SC008: SC009
+  last_materialized_source_scene: SC009
+  last_materialized_editorial_segment: SC009
+  next_scene: SC010
+  next_editorial_segment: SC010
+  after_SC009: SC010
   source_continuation_pending: SC074B
   image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY

@@ -1,0 +1,148 @@
+scene_id: SC009
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+source_scene_number: 9
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: EXT. KENDHALAA WORKERS’ DISTRICT – DAY
+headings:
+- EXT. KENDHALAA WORKERS’ DISTRICT – DAY
+- INT. PARAANE CENTRAL ASSESSMENT HUB – SAME TIME
+source_previous: SC008
+source_next: SC010
+editorial_previous: SC008
+editorial_next: SC010
+continuation_in:
+  from_scene: SC008
+  exact_previous_end: He does not look away when the crisis counter reaches zero.
+  rule: CUT directly into SC009 physical chronology; do not repeat or redesign SC008.
+source_boundary:
+  start: Factory workers occupy a public square.
+  end: Their protest banner falls into mud.
+env6:
+  wc: WC005
+  signature: TD4/WX0/EX4/LS5/OC7/OP1/T+A
+  disposition: NO_SB
+  tp: NONE_NOT_APPLICABLE_NO_SB
+  sb: NONE_NOT_APPLICABLE_NO_SB
+  gf: NONE_NOT_APPLICABLE_NO_SB
+  ep: NONE_NOT_APPLICABLE_NO_SB
+  observers: NONE_NOT_APPLICABLE_NO_SB
+  restore: NONE_NOT_APPLICABLE_NO_SB
+  ruling: Real protest/intercut. The risk label is a harmful literal classification, not an ENV-6 visual simulation, site substitution or alternate branch.
+  represented_layer_authorized: false
+environment_authority:
+  workers_district:
+    loc: LOC-004
+    subspace: SUB-004-01
+    env: ENV-KND-001
+    name: Kendhalaa Workers' District / Public Square
+    form: ROOT
+    state: ST00
+    wc: WC005
+    pv: N/A_NON_PARAANE
+    design:
+    - AR046/INV046
+    - MS046
+    - KC046
+    - TG046
+    lock: Ordinary working civic/worker district; Workers' Public Square protest dressing is temporary.
+  assessment_hub:
+    loc: LOC-003
+    subspace: SUB-003-04
+    env: ENV-PAR-008
+    name: Paraane Central Assessment Hub
+    form: NEST
+    parent: LOC-003 Paraane Campus / Central Complex
+    hero_family: HF-04
+    wc: WC005
+    pv: PV037
+    paraane_phase: P1_CENTRALISING
+    pv_operation: ADD
+    design:
+    - AR015/INV015
+    - MS015
+    - KC015
+    - TG015
+    lock: Protected data systems and institutional work surfaces; no fabricated public identity, proprietary interface or readable case/clinical text.
+characters:
+  ANARVAA:
+    continuity: INHERIT_LOCKED_SC008_TO_P1_NO_REDESIGN
+    role: centralising authority; opens classification template and directs assessment order
+  PARVARAN:
+    continuity: INHERIT_LOCKED_SC008_TO_P1_NO_REDESIGN
+    role: refuses force; limits observation to six hours with no compulsory medication; signs then challenges batch classification
+  MARSYAA:
+    continuity: INHERIT_LOCKED_SC008_TO_P1_NO_REDESIGN
+    role: mentor/observer/dissent
+  WORKER:
+    continuity: UNNAMED_SOURCE_ROLE_ONLY
+    role: factory-worker speaker; no name/backstory fabrication
+  WORKERS_CROWD:
+    continuity: FACTORY_WORKERS_NO_WEAPONS_NO_RIOT
+    role: nonviolent public assembly
+  POLICE_COMMANDER:
+    continuity: ON_SCREEN_SOURCE_ROLE_ONLY
+    role: requests force; no name fabrication
+  SYSTEM_OPERATOR:
+    continuity: SOURCE_ROLE_ONLY
+    role: reports central-protocol auto-extension; no name fabrication
+  ANAADHI:
+    presence: ABSENT
+  ASANA:
+    presence: ABSENT
+technology_and_record_authority:
+  exact_source_technology:
+  - civic camera
+  - police vehicles
+  - Paraane assessment drones
+  - wall-sized display
+  - behavioural-risk program
+  - emergency classification template
+  - police commander screen feed
+  - impact weapons prepared but not used
+  - assessment order
+  - classification system
+  - automatic batch classification across forty-one identities
+  - Paraane vehicles
+  readable_text_allowlist:
+  - COLLECTIVE AGITATION
+  - 'CONTAGION PROBABILITY: ELEVATED'
+  record_rule: The first worker’s file and the source-stated forty-one-identity batch remain unnamed. Do not fabricate clinical fields, protocol text, names, doses, diagnoses, case numbers or additional interface text.
+shot_plan:
+  shot_count: 45
+  duration_seconds: 135
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  timing: PROVISIONAL_PENDING_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC009/SC009_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  sound_rule: Physical Workers' District / Central Assessment Hub / diegetic remote-feed sound only; no represented-layer sound and no new audio generation.
+hard_exclusions:
+- GUESSED_OR_INVENTED_ENV6_SB_TP_GF
+- PARALLEL_EARTH_OR_REPRESENTED_LAYER
+- RIOT_OR_WORKER_WEAPONS
+- UNSCRIPTED_FORCE_OR_IMPACT_WEAPON_USE
+- FABRICATED_WORKER_IDENTITY_OR_BACKSTORY
+- FABRICATED_UI_RECORD_CASE_PROTOCOL_OR_CLINICAL_TEXT
+- CONTINUITY_REDESIGN
+- SC010_OR_LATER_ACTION
+- IMAGE_GENERATION
+- VIDEO_RENDER
+generation:
+  chat_storyboard_generation: DISABLED_ON_THIS_WORK_PAGE
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+next: SC010

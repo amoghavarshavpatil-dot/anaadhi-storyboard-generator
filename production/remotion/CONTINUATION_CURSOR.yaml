@@ -1,7 +1,7 @@
-version: 29
+version: 30
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: '2026-08-24T08:41:00+05:30'
+as_of_local: '2026-08-24T09:04:00+05:30'
 backend:
   github_canonical_control: true
   chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE
@@ -11,13 +11,13 @@ backend:
   openai_work_page_generation_enabled: false
   paid_media_api_execution_enabled: false
 visual_preproduction:
-  latest_new_schema_materialized: SC008
-  latest_source_scene_materialized: SC008
-  next_scene_to_materialize: SC009
-  next_editorial_segment: SC009
+  latest_new_schema_materialized: SC009
+  latest_source_scene_materialized: SC009
+  next_scene_to_materialize: SC010
+  next_editorial_segment: SC010
   source_continuation_pending: SC074B
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC008 Emergency Coordination Chamber SPEC_READY. Continue SC009. Exact Scene-008 ENV-6 packet remains controlled-unresolved; no represented layer invented.
+  note: SC009 Workers' District / Central Assessment Hub SPEC_READY and LOCKED. WC005 is authoritative; ENV-6 ruling is NO_SB real protest/intercut. Continue SC010 without importing SC010 action early.
   retrospective_SC072_finalization:
     finalized: true
     revision: R002
@@ -39,6 +39,14 @@ audio:
     transition_in: CUT FROM SC007.
     transition_out: CUT TO SC009.
     sound_rule: Physical emergency coordination ambience, alert and literal command-system sounds only.
+  SC009:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 135
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    mastered_prefix_end_timecode: '00:02:14.293333'
+    transition_in: CUT FROM SC008.
+    transition_out: CUT TO SC010.
+    sound_rule: Physical Workers' District, Central Assessment Hub and literal diegetic remote-feed sound only; no represented-layer audio and no new BGM/SFX generation.
   SC072_finalized:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
     picture_planning_duration_seconds: 180
@@ -51,16 +59,24 @@ shot_density:
   target_minimum_stills_per_minute: 20
   SC007: {duration_seconds: 150, shot_count: 50, stills_per_minute: 20}
   SC008: {duration_seconds: 135, shot_count: 45, stills_per_minute: 20}
+  SC009: {duration_seconds: 135, shot_count: 45, stills_per_minute: 20}
   SC072_finalized: {duration_seconds: 180, shot_count: 60, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC008
-  source_scene: SC008
-  special_beat_intersects_scene: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
-  source_ruling: PHYSICAL_SCREENPLAY_CHRONOLOGY_ONLY_UNTIL_PACKET_RETRIEVED
-  environment: ENV-PAR-007 Paraane Emergency Coordination Chamber
-  state: P0_FOUNDING_PHYSICAL_GEOGRAPHY_WITH_EMERGENCY_INTEGRATION_TRANSITION_MARKERS
-  root_pv_wc: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
-  physical_rule: buildings/services remain physically separate; data/records/routes/command temporarily link
+  latest_materialized_segment: SC009
+  source_scene: SC009
+  special_beat_intersects_scene: NO_SB
+  source_ruling: REAL_PROTEST_INTERCUT_LITERAL_CLASSIFICATION_ONLY
+  wc: WC005
+  wc_signature: TD4/WX0/EX4/LS5/OC7/OP1/T+A
+  environments: [ENV-KND-001, ENV-PAR-008]
+  root_locations: [LOC-004, LOC-003]
+  paraane_pv: PV037
+  paraane_phase: P1_CENTRALISING
+  paraane_pv_operation: ADD
+  tp: NONE_NOT_APPLICABLE_NO_SB
+  sb: NONE_NOT_APPLICABLE_NO_SB
+  gf: NONE_NOT_APPLICABLE_NO_SB
+  physical_rule: Workers' District and Paraane Hub remain separate physical sites joined only by literal data/video/authority links; no represented layer or site substitution.
   finalized_scene_lock_SC072:
     wc: WC065
     tp: TP077
@@ -84,6 +100,16 @@ character_cursor:
     marsyaa: {role: MENTOR_OBSERVER, action: REQUIRES_SUNSET_CLAUSE}
     asana: {state: YOUNG, role: SARJANYA_RESCUE_LOGISTICS}
     anaadhi: {presence: ABSENT}
+  SC009:
+    anarvaa: {continuity: INHERIT_LOCKED_SC008_TO_P1_NO_REDESIGN, role: CENTRALISING_AUTHORITY}
+    parvaran: {continuity: INHERIT_LOCKED_SC008_TO_P1_NO_REDESIGN, role: CLINICAL_FOUNDER, action: REFUSES_FORCE_LIMITS_ORDER_SIGNS_THEN_CHALLENGES_BATCH}
+    marsyaa: {continuity: INHERIT_LOCKED_SC008_TO_P1_NO_REDESIGN, role: MENTOR_DISSENT}
+    worker: {state: UNNAMED_SOURCE_ROLE_ONLY}
+    workers_crowd: {state: FACTORY_WORKERS_NO_WEAPONS_NO_RIOT}
+    police_commander: {state: ON_SCREEN_SOURCE_ROLE_ONLY}
+    system_operator: {state: SOURCE_ROLE_ONLY}
+    anaadhi: {presence: ABSENT}
+    asana: {presence: ABSENT}
   SC072_finalized:
     anaadhi: {state: AGE_27_PARAANE_RETURN, age: 27, height_cm: 193, body: WET_POST_OPERATION_CAPTURE_CHEMICAL_EXHAUSTION, hair: CAPTURE_HAIR, sc074_wounds: false}
     aarathi: {state: B26_INVESTIGATOR, rukey_seventeen_name_display: SECURED, full_represented_access: false}
@@ -94,10 +120,10 @@ editorial_lock:
   enabled: true
   split_scene_ids: [SC074, SC094, SC099]
   split_segment_completed: [SC074A, SC094B, SC099B]
-  current_completed_segment: SC008
-  next_editorial_segment: SC009
+  current_completed_segment: SC009
+  next_editorial_segment: SC010
   remaining_materialization_order:
-    - SC009-SC059
+    - SC010-SC059
     - SC074B
     - SC075-SC093
     - SC094A
