@@ -1,7 +1,8 @@
-version: 31
+version: 32
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
-master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
+master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status
+  only.
 coverage:
   SC001:
     state: LEGACY_SCENE_PLAN_PRESENT
@@ -221,9 +222,11 @@ coverage:
     duration_seconds: 135
     stills_per_minute: 20
     environment: ENV-PAR-007 Paraane Emergency Coordination Chamber
-    state_control: P0 founding physical geography with emergency-integration transition markers; buildings remain separate while data/command temporarily link
+    state_control: P0 founding physical geography with emergency-integration transition markers; buildings remain separate
+      while data/command temporarily link
     env6_control: exact packet not retrieved; physical screenplay chronology only; no represented layer invented
-    characters: Anarvaa command; Parvaran hospital coordination; Marsyaa sunset-clause challenge; young Asana rescue logistics; Anaadhi absent
+    characters: Anarvaa command; Parvaran hospital coordination; Marsyaa sunset-clause challenge; young Asana rescue logistics;
+      Anaadhi absent
     final_editorial_next: SC009
     image_generation_started: false
     render_started: false
@@ -243,8 +246,8 @@ coverage:
     wc: WC005
     paraane_state: PV037 / P1 / ADD
     env6_control: NO_SB; real protest/intercut and literal harmful classification only; no represented layer
-    character_control: Anarvaa/Parvaran/Marsyaa inherit locked SC008 continuity into P1; worker/crowd/commander/operator remain source-role only; Anaadhi and Asana
-      absent
+    character_control: Anarvaa/Parvaran/Marsyaa inherit locked SC008 continuity into P1; worker/crowd/commander/operator remain
+      source-role only; Anaadhi and Asana absent
     final_editorial_next: SC010
     image_generation_started: false
     render_started: false
@@ -265,7 +268,8 @@ coverage:
     wc: WC006
     paraane_state: PV042 / P1 / ADD
     env6_control: NO_SB / PHYSICAL_SCREENPLAY_CHRONOLOGY_ONLY; TP and GF controlled-unresolved, no represented layer
-    character_control: Anarvaa/Parvaran/Marsyaa inherit locked SC009 continuity; governing council unnamed; Janne message-only; Anaadhi and Asana absent
+    character_control: Anarvaa/Parvaran/Marsyaa inherit locked SC009 continuity; governing council unnamed; Janne message-only;
+      Anaadhi and Asana absent
     final_editorial_next: SC011
     image_generation_started: false
     render_started: false
@@ -284,11 +288,38 @@ coverage:
     loc: LOC-005
     wc: WC007
     pv: N/A_NON_PARAANE_ANCHOR
-    env6_control: TP006/SB006/GF01 + TP007/SB007/GF05; OBS04; ANCH03/INV6-03; RST01; newborn Anaadhi + audience receive; Parvaran/Janne excluded from full-layer access
-    character_control: Parvaran direct SC010 coat/Paraane-ID continuity; Janne source-only physical facts; newborn Anaadhi physical + represented receiver; Adult
-      Anaadhi represented only at 193 cm
+    env6_control: TP006/SB006/GF01 + TP007/SB007/GF05; OBS04; ANCH03/INV6-03; RST01; newborn Anaadhi + audience receive; Parvaran/Janne
+      excluded from full-layer access
+    character_control: Parvaran direct SC010 coat/Paraane-ID continuity; Janne source-only physical facts; newborn Anaadhi
+      physical + represented receiver; Adult Anaadhi represented only at 193 cm
     exact_end: At this moment, he believes it.
     final_editorial_next: SC012
+    image_generation_started: false
+    render_started: false
+  SC012:
+    state: SPEC_READY
+    finalized: true
+    lock_state: LOCKED
+    revision: R001
+    package_schema: ANAADHI_REMOTION_SC012_V12_COMPACT_RESOLVABLE_R2
+    source: scenes/012/scene.yaml
+    shot_package: production/remotion/shot_specs/SC012/SC012_SHOT_PACKAGE.json
+    shot_count: 80
+    duration_seconds: 240
+    stills_per_minute: 20
+    environment: ENV-PLP-002 Parlipatna Hospital — Neonatal Diagnostic Suite
+    parent_environment: ENV-PLP-001
+    loc: LOC-005
+    subspace: SUB-005-01
+    wc: WC008
+    pv: N/A_NON_PARAANE_ANCHOR
+    env5_closure: AR003 / INV003 / MS003 / KC003 / TG003
+    env6_control: TP008/SB008/GF09/EP0+EP1+EP6/OBS02/ANCH04/INV6-04/RST04 carrier-only; TP009/SB009/GF02/EP0+EP1+EP3+EP-U/OBS01/ANCH04/INV6-04/RST05;
+      zero residue
+    character_control: Parvaran direct SC011 continuity; Neonatal Specialist source-role and exits before TP009; real newborn
+      physical with no TP009 full-layer access; Janne offscreen elsewhere
+    exact_end: He mistakes uncertainty for permission.
+    final_editorial_next: SC013
     image_generation_started: false
     render_started: false
 unmaterialized:
@@ -308,7 +339,7 @@ editorial:
   - SC094B
   - SC099B
   remaining_materialization_order:
-  - SC012-SC059
+  - SC013-SC059
   - SC074B
   - SC075-SC093
   - SC094A
@@ -316,11 +347,11 @@ editorial:
   - SC099A
   - END
 cursor:
-  last_materialized_source_scene: SC011
-  last_materialized_editorial_segment: SC011
-  next_scene: SC012
-  next_editorial_segment: SC012
-  after_SC011: SC012
+  last_materialized_source_scene: SC012
+  last_materialized_editorial_segment: SC012
+  next_scene: SC013
+  next_editorial_segment: SC013
+  after_SC012: SC013
   source_continuation_pending: SC074B
   image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY

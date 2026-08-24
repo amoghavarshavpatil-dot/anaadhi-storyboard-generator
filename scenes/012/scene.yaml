@@ -1,0 +1,227 @@
+scene_id: SC012
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+package_schema: ANAADHI_REMOTION_SC012_V12_COMPACT_RESOLVABLE_R2
+source_scene_number: 12
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: INT. PARLIPATNA HOSPITAL – NEONATAL DIAGNOSTIC SUITE – LATER
+source_previous: SC011
+source_next: SC013
+editorial_previous: SC011
+editorial_next: SC013
+source_boundary:
+  previous_exact_end: At this moment, he believes it.
+  start: The newborn rests inside a transparent temperature cradle.
+  end: He mistakes uncertainty for permission.
+  next_heading_excluded: INT. PARLIPATNA HOSPITAL – RECORDS CONTROL ROOM – NIGHT
+environment:
+  loc: LOC-005
+  sub: SUB-005-01
+  env: ENV-PLP-002
+  name: Parlipatna Hospital — Neonatal Diagnostic Suite
+  parent_env: ENV-PLP-001
+  wc: WC008
+  wc_signature: TD8/WX1/EX0/LS4/OC3/OP0/T
+  story_period: C1
+  time: LATER_DURING_SAME_HOSPITAL_NIGHT
+  pv: N/A_NON_PARAANE_ANCHOR
+  closures:
+  - AR003
+  - INV003
+  - MS003
+  - KC003
+  - TG003
+  state: ENCLOSED_DRY_PRIVACY_CONTROLLED_OPERATIONAL
+  external_rain: INHERITED_CONTEXT_ONLY_NOT_IMPORTED_INDOORS
+  spatial_rule: NESTED_IN_ENV-PLP-001; NO_NEW_ROOM_WARD_CORRIDOR_PORTAL_ROUTE_WING_OR_TESTING_SYSTEM
+characters:
+  PARVARAN:
+    continuity: DIRECT_FROM_SC011_NO_REDESIGN
+    costume: SC010_SC011_HOSPITAL_NIGHT_COAT_WITH_PARAANE_ID_CLIPPED
+    wrist_device: EXISTING
+    role: FATHER_AND_PARAANE_FOUNDER
+    tp008_visibility: true
+    tp009_full_layer_access: true
+  NEONATAL_SPECIALIST:
+    state: SOURCE_ROLE_ONLY
+    physical_presence: UNTIL_STANDARD_DISCHARGE_REPORT_EXIT
+    tp009_full_layer_access: false
+  NEWBORN_ANAADHI:
+    state: PHYSICAL_NEWBORN
+    location: TRANSPARENT_TEMPERATURE_CRADLE
+    tp009_full_layer_access: false
+  JANNE:
+    state: OFFSCREEN_SLEEPING_IN_RECOVERY_ELSEWHERE
+    physical_presence_in_suite: false
+    cutaway_authorised: false
+physical_chronology:
+- The newborn rests inside the transparent temperature cradle.
+- Biometric light travels gently across his skin.
+- No needles.
+- No restraints.
+- The Neonatal Specialist studies the layered neural-development report while Parvaran stands beside her.
+- Janne sleeps in recovery elsewhere and is not shown in the suite.
+- The Specialist limits interpretation and rejects criminality, personality and violence prediction.
+- The Specialist closes the risk projection and leaves to complete the standard discharge report.
+- Parvaran's wrist device automatically synchronises the hospital findings with his Paraane profile.
+- The Paraane risk program opens without being requested.
+- Parvaran selects VIEW PROJECTED OUTCOMES.
+- TP008 remains contained in the diegetic carrier.
+- TP009 remains a fear-edited represented layer.
+- RST05 restores the unchanged suite, real crying newborn, Parvaran and existing cradle with zero residue.
+- The machine answers neither probability question.
+- Parvaran looks toward the Paraane emblem on his wrist.
+- He mistakes uncertainty for permission.
+dialogue:
+- speaker: PARVARAN
+  text: How rare is this profile?
+- speaker: NEONATAL SPECIALIST
+  text: It is not rare. Only the interpretation is new.
+- speaker: PARVARAN
+  text: Behavioural risk?
+- speaker: NEONATAL SPECIALIST
+  text: It is already on the screen.
+- speaker: NEONATAL SPECIALIST
+  text: This is not a diagnosis. It is certainly not a sentence.
+- speaker: PARVARAN
+  text: There may be a difference in stress regulation.
+- speaker: NEONATAL SPECIALIST
+  text: There may be.
+- speaker: PARVARAN
+  text: Impulse threshold?
+- speaker: NEONATAL SPECIALIST
+  text: We do not know.
+- speaker: PARVARAN
+  text: Susceptibility to aggression?
+- speaker: NEONATAL SPECIALIST
+  text: We do not know.
+- speaker: NEONATAL SPECIALIST
+  text: '''We do not know'' does not mean danger, Doctor.'
+- speaker: PARVARAN
+  text: What if the environment becomes adverse?
+- speaker: NEONATAL SPECIALIST
+  text: An adverse environment can harm any child.
+- speaker: PARVARAN
+  text: The cases we have seen in Paraane--
+- speaker: NEONATAL SPECIALIST
+  text: Paraane's patients are not this child's future.
+- speaker: NEONATAL SPECIALIST
+  text: There may be a gene. Experience may come. Choice may grow.
+- speaker: NEONATAL SPECIALIST
+  text: What is before you today is not even a patient.
+- speaker: NEONATAL SPECIALIST
+  text: A newborn.
+- speaker: PARVARAN
+  text: What is the chance that I am wrong?
+  delivery: quietly
+- speaker: PARVARAN
+  text: What is the chance that I am right?
+readable_text_allowlist:
+- N-4 STRESS-RESPONSE VARIANT
+- 'CLINICAL SIGNIFICANCE: UNDETERMINED'
+- 'VIOLENCE PREDICTION: NOT VALID'
+- 'PERSONALITY PREDICTION: NOT VALID'
+- N-4
+- THIS MARKER MUST NOT BE USED TO PREDICT CRIMINALITY, PERSONALITY OR FUTURE VIOLENCE.
+- PARENTAL PUBLIC-OFFICE EXPOSURE DETECTED
+- HEREDITARY MONITORING OPTION AVAILABLE
+- 'LONG-TERM CONTROLLED OBSERVATION: RECOMMENDED'
+- VIEW PROJECTED OUTCOMES
+- Conduct disturbance.
+- Institutional resistance.
+- Public scandal.
+- Violence probability.
+- LOW CONFIDENCE
+- NOT FOR INDIVIDUAL DECISION-MAKING
+env6:
+  source_ruling: PHYSICAL_SCENE_WITH_TWO_AUTHORITATIVE_BOUNDED_REPRESENTED_BEATS
+  TP008:
+    sb: SB008
+    gf: GF09
+    ep: EP0+EP1+EP6
+    obs: OBS02
+    anchor: ANCH04
+    inverse: INV6-04
+    restore: RST04
+    boundary: 'He selects: VIEW PROJECTED OUTCOMES -> NOT FOR INDIVIDUAL DECISION-MAKING'
+    carrier: PARVARAN_WRIST_DEVICE_SCREEN
+    receivers:
+    - PARVARAN
+    - AUDIENCE
+    rule: DIEGETIC_CARRIER_ONLY_NOT_SITE_PORTAL_LIVE_FUTURE_MEDICAL_TRUTH_OR_INDEPENDENT_EVENT
+  TP009:
+    sb: SB009
+    gf: GF02
+    ep: EP0+EP1+EP3+EP-U
+    obs: OBS01
+    anchor: ANCH04
+    inverse: INV6-04
+    restore: RST05
+    boundary: But Parvaran’s fear edits out the warnings. -> The possibilities overlap until none is clearer than another.
+    receivers:
+    - PARVARAN
+    - AUDIENCE
+    excluded_full_layer:
+    - REAL_NEWBORN
+    - NEONATAL_SPECIALIST
+    possibilities:
+    - The child grows up laughing beside Janne.
+    - The child becomes a healer.
+    - The child dies young.
+    - The child becomes a police officer.
+    - The child kills Parvaran.
+    - The child saves him.
+    - The child remains ordinary and unknown.
+    rule: ARTIFICIAL_LOW_CONFIDENCE_MUTUALLY_UNRESOLVED_NOT_PROPHECY_DIAGNOSIS_CRIMINALITY_PERSONALITY_VIOLENCE_SUPERNATURAL_OR_CANONICAL_FUTURE
+  rst05_result: UNCHANGED_PHYSICAL_SUITE_REAL_CRYING_NEWBORN_PARVARAN_EXISTING_CRADLE_ZERO_RESIDUE
+shot_plan:
+  shot_count: 80
+  duration_seconds: 240
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC012/SC012_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  new_bgm_sfx_voice_or_represented_audio_generation: false
+  sound_rule: SOURCE_AUTHORISED_PHYSICAL_SUITE_AND_NEWBORN_CRY_ONLY; NO_INVENTED_REPRESENTED_LAYER_AUDIO
+hard_exclusions:
+- NO_SC013_ACTION_OR_RECORDS_CONTROL_ROOM
+- NO_FOUNDERS_RECORDS_ACCESS
+- NO_NEWBORN_LIVE_FILE_ALTERATION
+- NO_FALSE_DEATH_ENTRY_OR_EMERGENCY_CORRECTION
+- NO_SC013_REFLECTION_DOUBLE
+- NO_ADDITIONAL_HOSPITAL_ROOM_WARD_CORRIDOR_PORTAL_ROUTE_OR_WING
+- NO_NEW_MEDICAL_DEVICE_OR_TESTING_SYSTEM
+- NO_NEEDLES_RESTRAINTS_OR_INVASIVE_PROCEDURE
+- NO_INVENTED_NEWBORN_IDENTITY_IDENTIFIER_SCORE_PERCENTAGE_GENE_RESULT_DIAGNOSIS_PATHOLOGY_RISK_LEVEL_OR_TREATMENT
+- NO_INVENTED_JANNE_MEDICAL_FACTS
+- NO_DIAGNOSIS_CRIMINALITY_PERSONALITY_OR_VIOLENCE_PREDICTION_AS_FACT
+- NO_N4_RARE_DANGEROUS_DETERMINISTIC_OR_SENTENCE_CLAIM
+- NO_REPRESENTED_OUTCOME_PROMOTED_TO_PHYSICAL_OR_FUTURE_FACT
+- NO_FULL_LAYER_TP009_ACCESS_FOR_REAL_NEWBORN_OR_NEONATAL_SPECIALIST
+- NO_UNAUTHORISED_READABLE_CLINICAL_ADMINISTRATIVE_OR_PARAANE_TEXT
+- NO_CONTINUITY_REDESIGN
+- NO_IMAGE_GENERATION
+- NO_VIDEO_RENDERING
+- NO_SUPERCOOL_HEYGEN_OR_PAID_MEDIA_API
+- NO_NEW_BGM_SFX_VOICE_OR_REPRESENTED_LAYER_AUDIO
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: PERMANENTLY_DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
+  execute_now: false
+next: SC013

@@ -1,7 +1,7 @@
-version: 32
+version: 33
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: '2026-08-24T10:25:00+05:30'
+as_of_local: '2026-08-24T18:12:00+05:30'
 backend:
   github_canonical_control: true
   chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE
@@ -11,14 +11,15 @@ backend:
   openai_work_page_generation_enabled: false
   paid_media_api_execution_enabled: false
 visual_preproduction:
-  latest_new_schema_materialized: SC011
-  latest_source_scene_materialized: SC011
-  next_scene_to_materialize: SC012
-  next_editorial_segment: SC012
+  latest_new_schema_materialized: SC012
+  latest_source_scene_materialized: SC012
+  next_scene_to_materialize: SC013
+  next_editorial_segment: SC013
   source_continuation_pending: SC074B
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC011 Parlipatna Maternity Hospital SPEC_READY and LOCKED. WC007 / LOC-005 / ENV-PLP-001 / PV N/A authoritative. TP006/SB006/GF01 and TP007/SB007/GF05 are
-    bounded represented beats with RST01; continue SC012 without importing neonatal diagnostics early.
+  note: SC012 Neonatal Diagnostic Suite SPEC_READY and LOCKED. WC008 / LOC-005 / SUB-005-01 / ENV-PLP-002 / PV N/A authoritative.
+    TP008/SB008/GF09 carrier-only with RST04 and TP009/SB009/GF02 fear-edited with RST05 are bounded; continue SC013 without
+    importing records-control action early.
   retrospective_SC072_finalization:
     finalized: true
     revision: R002
@@ -50,7 +51,8 @@ audio:
     mastered_prefix_end_timecode: '00:02:14.293333'
     transition_in: CUT FROM SC008.
     transition_out: CUT TO SC010.
-    sound_rule: Physical Workers' District, Central Assessment Hub and literal diegetic remote-feed sound only; no represented-layer audio and no new BGM/SFX generation.
+    sound_rule: Physical Workers' District, Central Assessment Hub and literal diegetic remote-feed sound only; no represented-layer
+      audio and no new BGM/SFX generation.
   SC010:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
     picture_planning_duration_seconds: 180
@@ -58,8 +60,8 @@ audio:
     mastered_prefix_end_timecode: '00:02:14.293333'
     transition_in: CUT FROM SC009.
     transition_out: CUT TO BLACK; SC011 begins only after black.
-    sound_rule: Physical Founders' Council Chamber, literal record/display/door/phone sounds only; preserve existing master; no represented-layer audio and no new
-      BGM/SFX generation.
+    sound_rule: Physical Founders' Council Chamber, literal record/display/door/phone sounds only; preserve existing master;
+      no represented-layer audio and no new BGM/SFX generation.
   SC011:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
     picture_planning_duration_seconds: 183
@@ -67,8 +69,17 @@ audio:
     mastered_prefix_end_timecode: '00:02:14.293333'
     transition_in: CUT FROM SC010 BLACK.
     transition_out: CUT TO SC012 only after exact endpoint.
-    sound_rule: Physical rain/hospital/corridor/monitor/alarm/wrist-device/newborn-cry/room sounds only where source authorizes; TP006/TP007 carry no invented represented-layer
-      audio; preserve existing master; no new BGM/SFX generation.
+    sound_rule: Physical rain/hospital/corridor/monitor/alarm/wrist-device/newborn-cry/room sounds only where source authorizes;
+      TP006/TP007 carry no invented represented-layer audio; preserve existing master; no new BGM/SFX generation.
+  SC012:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 240
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    mastered_prefix_end_timecode: '00:02:14.293333'
+    transition_in: CUT FROM SC011 exact endpoint.
+    transition_out: CUT TO SC013 only after 'He mistakes uncertainty for permission.'
+    sound_rule: Physical dry neonatal-suite room tone and source-authorised device/newborn-cry sounds only; TP008/TP009 receive
+      no invented represented-layer audio; preserve existing master; no new BGM/SFX/voice generation.
   SC072_finalized:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
     picture_planning_duration_seconds: 180
@@ -104,56 +115,66 @@ shot_density:
     duration_seconds: 183
     shot_count: 61
     stills_per_minute: 20
+  SC012:
+    duration_seconds: 240
+    shot_count: 80
+    stills_per_minute: 20
   SC072_finalized:
     duration_seconds: 180
     shot_count: 60
     stills_per_minute: 20
 env6_cursor:
-  latest_materialized_segment: SC011
-  source_scene: SC011
+  latest_materialized_segment: SC012
+  source_scene: SC012
   special_beat_intersects_scene:
-  - SB006
-  - SB007
+  - SB008
+  - SB009
   source_ruling: PHYSICAL_SCENE_WITH_TWO_AUTHORITATIVE_BOUNDED_REPRESENTED_BEATS
-  wc: WC007
-  wc_signature: TD7/WX1/EX1/LS4/OC3/OP0/T
-  environment: ENV-PLP-001
+  wc: WC008
+  wc_signature: TD8/WX1/EX0/LS4/OC3/OP0/T
+  environment: ENV-PLP-002
+  parent_environment: ENV-PLP-001
   root_location: LOC-005
+  subspace: SUB-005-01
   paraane_pv: N/A_NON_PARAANE_ANCHOR
-  physical_rule: Parlipatna maternity clinical floor/delivery environment remains authoritative; no SC012 Neonatal Diagnostic Suite, new room, route or portal is
-    imported.
+  env5_closure:
+  - AR003
+  - INV003
+  - MS003
+  - KC003
+  - TG003
+  physical_rule: Neonatal Diagnostic Suite remains enclosed, dry, privacy-controlled and operational; no SC013 Records Control
+    Room, new room, ward, route, portal or test system is imported.
   represented_beats:
-    TP006:
-      sb: SB006
-      gf: GF01
-      ep: EP0+EP1+EP-U
-      obs: OBS04
-      anchor: ANCH03
-      inverse: INV6-03
-      restore: RST01
-      boundary: 'PARALLEL-EARTH FRACTURES: -> BACK TO PRESENT.'
+    TP008:
+      sb: SB008
+      gf: GF09
+      ep: EP0+EP1+EP6
+      obs: OBS02
+      anchor: ANCH04
+      inverse: INV6-04
+      restore: RST04
+      boundary: 'He selects: VIEW PROJECTED OUTCOMES -> NOT FOR INDIVIDUAL DECISION-MAKING'
+      carrier: PARVARAN_WRIST_DEVICE_SCREEN
       receivers:
-      - NEWBORN_ANAADHI
+      - PARVARAN
+      - AUDIENCE
+      persistence: CARRIER_CONTAINED_ZERO_SITE_OR_EVENT_CREATION
+    TP009:
+      sb: SB009
+      gf: GF02
+      ep: EP0+EP1+EP3+EP-U
+      obs: OBS01
+      anchor: ANCH04
+      inverse: INV6-04
+      restore: RST05
+      boundary: But Parvaran’s fear edits out the warnings. -> The possibilities overlap until none is clearer than another.
+      receivers:
+      - PARVARAN
       - AUDIENCE
       excluded_full_layer:
-      - PARVARAN
-      - JANNE
-      persistence: ZERO_RESIDUE
-    TP007:
-      sb: SB007
-      gf: GF05
-      ep: EP0+EP4+EP5+EP-U
-      obs: OBS04
-      anchor: ANCH03
-      inverse: INV6-03
-      restore: RST01
-      boundary: His unfocused eyes move toward the empty corner occupied, for one impossible instant, by ADULT ANAADHI. -> The image disappears.
-      receivers:
-      - NEWBORN_ANAADHI
-      - AUDIENCE
-      excluded_full_layer:
-      - PARVARAN
-      - JANNE
+      - REAL_NEWBORN
+      - NEONATAL_SPECIALIST
       persistence: ZERO_RESIDUE
   finalized_scene_lock_SC072:
     wc: WC065
@@ -262,6 +283,37 @@ character_cursor:
       state: SOURCE_ROLE_ONLY
     asana:
       presence: ABSENT
+  SC012:
+    parvaran:
+      continuity: DIRECT_FROM_SC011_NO_REDESIGN
+      role: FATHER_AND_PARAANE_FOUNDER
+      costume: SC010_SC011_HOSPITAL_NIGHT_COAT_WITH_PARAANE_ID_CLIPPED
+      wrist_device: EXISTING
+      tp008_carrier_visibility: true
+      tp009_full_layer_access: true
+    neonatal_specialist:
+      state: SOURCE_ROLE_ONLY
+      physical_presence: UNTIL_STANDARD_DISCHARGE_REPORT_EXIT
+      tp009_full_layer_access: false
+    newborn_anaadhi:
+      presence: PHYSICAL_NEWBORN_IN_TRANSPARENT_TEMPERATURE_CRADLE
+      tp009_full_layer_access: false
+      diagnosis: NONE_AUTHORISED
+    janne:
+      presence: OFFSCREEN_SLEEPING_IN_RECOVERY_ELSEWHERE
+      physical_suite_presence: false
+      cutaway_authorised: false
+    represented_child_variants:
+      presence: TP009_ONLY_NON_EVENT
+      possibilities:
+      - LAUGHING_BESIDE_JANNE
+      - HEALER
+      - DIES_YOUNG
+      - POLICE_OFFICER
+      - KILLS_PARVARAN
+      - SAVES_PARVARAN
+      - ORDINARY_UNKNOWN
+      physical_persistence: false
   SC072_finalized:
     anaadhi:
       state: AGE_27_PARAANE_RETURN
@@ -292,10 +344,10 @@ editorial_lock:
   - SC074A
   - SC094B
   - SC099B
-  current_completed_segment: SC011
-  next_editorial_segment: SC012
+  current_completed_segment: SC012
+  next_editorial_segment: SC013
   remaining_materialization_order:
-  - SC012-SC059
+  - SC013-SC059
   - SC074B
   - SC075-SC093
   - SC094A
