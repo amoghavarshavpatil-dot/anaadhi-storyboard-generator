@@ -1,0 +1,133 @@
+scene_id: SC074
+editorial_segment_id: SC074A
+status: SPEC_READY
+source_scene_number: 74
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: INT. PARAANE OLD OBSERVATION CORRIDOR / MAINTENANCE CHAMBER – EVENING
+editorial_previous: SC073
+editorial_next: SC006
+source_next_segment: SC074B
+source_boundary:
+  start: SCENE_START
+  end: No triumph—only immediate terror.
+  end_inclusive: true
+  source_continuation:
+    speaker: AARATHI
+    dialogue: Manire!
+batch: {canonical: B26}
+wc:
+  id: WC069
+  signature: TD6/WX0/EX0/LS1/OC1/OP3/C+A+T
+environments:
+  - {root: LOC-003, id: ENV-PAR-033, pv: PV164, name: Paraane Old Observation Corridor}
+  - {root: LOC-003, id: ENV-PAR-034, pv: PV169, name: Paraane Maintenance Chamber}
+env6:
+  SB079:
+    tp: TP079
+    grammar: GF05
+    grammar_name: Parallel Double / Echo
+    recurrence: 18/20
+    band: E_RETURN_SURGERY_AND_REENTRY
+    ep: EP0+EP2+EP3+EP4+EP-U
+    observer: OBS01
+    access: Adult Anaadhi full layer; Aarathi no full-layer; audience receives representation
+    anchor: ANCH59
+    inverse: INV6-59
+    variations: [VAR6-02, VAR6-03, VAR6-04]
+    restore: RST02
+    environment: ENV-PAR-033/PV164
+    start: In the reflection, five-year-old Anaadhi presses his palm against the glass.
+    end: The real Aarathi sees Anaadhi speaking to an empty reflection.
+    zero_residue: true
+  SB080:
+    tp: TP080
+    grammar: GF10
+    grammar_name: Convergence / Invasion / Collapse
+    recurrence: 6/11
+    band: E_RETURN_SURGERY_AND_REENTRY
+    ep: EP0+EP1+EP2+EP3+EP4+EP-U
+    observer: OBS01
+    access: Adult Anaadhi full layer; Aarathi no full-layer; audience receives representation
+    anchor: ANCH60
+    inverse: INV6-60
+    variations: CONTROLLED_UNRESOLVED_NOT_RETRIEVED_DO_NOT_INVENT
+    restore: RST02_IN_SC074B_SOURCE_END
+    environments: [ENV-PAR-033/PV164, ENV-PAR-034/PV169]
+    start: 'Parallel Earths explode around Anaadhi:'
+    source_end: His open palm slowly closes.
+    segment_end_state: ACTIVE_ACROSS_SC074A_SPLIT
+    editorial_rule: SC074A-to-SC006 cut is not a canonical RST02. No represented content may contaminate SC006. SC074B later resumes source continuity at AARATHI Manire!
+characters:
+  ANAADHI:
+    state_before_injury: AGE_27_PARAANE_RETURN
+    age: 27
+    height_cm: 193
+    hair: CAPTURE_HAIR_PRESERVED
+    costume: WET_POST_OPERATION_CLOTHING
+    injury_onset: REAL_SC074_CHEST_ABDOMEN_WOUNDS begin after off-camera present action inside SC074A
+    persistence: real wounds continue through SC074B and treatment scenes; represented child/victim/impossible outcomes do not persist
+  AARATHI:
+    state: B26_CONTINUITY
+    represented_access: none
+    blocking: follows at distance in corridor; reaches maintenance-chamber doorway; advances only as sourced
+  CHILD_ANAADHI:
+    represented_age: 5
+    represented_only: true
+  MADHAVA:
+    represented_only: SB079
+  MALLAYYA:
+    represented_only: SB079
+  SEVENTEEN_VICTIMS:
+    represented_only: true
+    count: 17
+props:
+  old_treatment_equipment: source physical chamber dressing
+  broken_institutional_furniture: source physical chamber dressing
+  shattered_steel_panel: source physical reflective object
+  damaged_sharp_edged_object:
+    source: present among debris
+    exact_type: CONTROLLED_UNRESOLVED
+    rule: never invent method/object identity; later described only as metallic object striking floor
+safety_representation:
+  crisis_action: non-graphic
+  method_detail: forbidden
+  camera_rule: camera remains on Aarathi’s face for the decisive present action
+  injury_aftereffect: blood spreads across chest and abdomen beneath torn clothing; no action detail shown
+shot_plan:
+  shot_count: 55
+  duration_seconds: 165
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  shot_package: production/remotion/shot_specs/SC074A/SC074A_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  represented_sound: source-bounded SB079 and SB080 only
+  final_cue: no triumph; immediate terror; no celebratory/heroic cue
+hard_exclusions:
+  - SC074B_DIALOGUE
+  - MANIRE_BEFORE_SPLIT
+  - EMERGENCY_STAFF_BEFORE_SPLIT
+  - GORE
+  - SELF_HARM_METHOD_DETAIL
+  - INVENTED_OBJECT_TYPE
+  - SB079_PERSISTENCE_AFTER_RST02
+  - SB080_RST_INSIDE_SC074A
+  - SC006_CONTAMINATION_FROM_SB080
+  - SC075_ACTION
+  - IMAGE_GENERATION
+  - VIDEO_RENDER
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+next_editorial: SC006
+source_continuation_later: SC074B

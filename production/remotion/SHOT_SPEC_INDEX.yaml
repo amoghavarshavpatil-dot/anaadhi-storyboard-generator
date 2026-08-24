@@ -1,4 +1,4 @@
-version: 23
+version: 24
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
@@ -21,55 +21,10 @@ coverage:
   SC066: {state: SPEC_READY, source: scenes/066/scene.yaml, shot_package: production/remotion/shot_specs/SC066/SC066_SHOT_PACKAGE.json, shot_count: 90, duration_seconds: 270, stills_per_minute: 20, final_editorial_next: SC067}
   SC067: {state: SPEC_READY, source: scenes/067/scene.yaml, shot_package: production/remotion/shot_specs/SC067/SC067_SHOT_PACKAGE.json, shot_count: 80, duration_seconds: 240, stills_per_minute: 20, final_editorial_next: SC068}
   SC068: {state: SPEC_READY, source: scenes/068/scene.yaml, shot_package: production/remotion/shot_specs/SC068/SC068_SHOT_PACKAGE.json, shot_count: 50, duration_seconds: 150, stills_per_minute: 20, final_editorial_next: SC069}
-  SC069:
-    state: SPEC_READY
-    source: scenes/069/scene.yaml
-    shot_package: production/remotion/shot_specs/SC069/SC069_SHOT_PACKAGE.json
-    shot_count: 69
-    duration_seconds: 207
-    stills_per_minute: 20
-    env6_disposition: B26 / WC064 / NO SB / EP0 physical chronology only
-    environment: ENV-PAR-001/PV004 + ENV-PAR-003/PV014 + ENV-PAR-013/PV064 + ENV-PAR-025/PV124 + ENV-PAR-026/PV129
-    final_editorial_next: SC070
-  SC070:
-    state: SPEC_READY
-    source: scenes/070/scene.yaml
-    shot_package: production/remotion/shot_specs/SC070/SC070_SHOT_PACKAGE.json
-    shot_count: 60
-    duration_seconds: 180
-    stills_per_minute: 20
-    parallel_earth: TP076/SB076/GF06 9/13/Band E/OBS01/ANCH56/INV6-56/WC065/VAR6-01+03+05/RST05
-    environment: LOC-003 + ENV-PAR-014/PV069 + ENV-PAR-015/PV074
-    final_editorial_next: SC071
-  SC071:
-    state: SPEC_READY
-    source: scenes/071/scene.yaml
-    shot_package: production/remotion/shot_specs/SC071/SC071_SHOT_PACKAGE.json
-    shot_count: 55
-    duration_seconds: 165
-    stills_per_minute: 20
-    env6_disposition: WC066 physical screenplay chronology; exact Scene-071 audit TP/SB row not retrieved and therefore not invented
-    environment: LOC-003 / ENV-PAR-031 / PV154 / P3:ADD Central Resident Hall
-    crowd_control: residents remain witnesses, not supporters
-    character_control: Anaadhi AGE_27_PARAANE_RETURN / no SC074 wounds; Asana head of security; Manire prioritizes frightened child
-    image_generation_started: false
-    render_started: false
-    final_editorial_next: SC072
-  SC072:
-    state: SPEC_READY
-    source: scenes/072/scene.yaml
-    shot_package: production/remotion/shot_specs/SC072/SC072_SHOT_PACKAGE.json
-    shot_count: 60
-    duration_seconds: 180
-    stills_per_minute: 20
-    parallel_earth: TP077 / SB077 / GF06 / EP0+EP2+EP3+EP-U / OBS01 / ANCH57 / INV6-57 / WC065 / ENV-PAR-032 / PV159 / RST05
-    environment: LOC-003 / ENV-PAR-032 / PV159 Paraane Archive Core
-    evidence_control: childhood identity + guardianship renewals + Parvaran signatures + neonatal transfer + sealed parental fields + FOUNDER-LEVEL RESTRICTION; no invented parent identity or archive text
-    observer_control: Adult Anaadhi full represented access only; Aarathi/Manire/Asana no full-layer access
-    boundary_note: SB077 ends on Aarathi line that record/story/visual may have mixed; RST05 restores physical archive; exact scene end screens dark/question illuminated
-    image_generation_started: false
-    render_started: false
-    final_editorial_next: SC073
+  SC069: {state: SPEC_READY, source: scenes/069/scene.yaml, shot_package: production/remotion/shot_specs/SC069/SC069_SHOT_PACKAGE.json, shot_count: 69, duration_seconds: 207, stills_per_minute: 20, final_editorial_next: SC070}
+  SC070: {state: SPEC_READY, source: scenes/070/scene.yaml, shot_package: production/remotion/shot_specs/SC070/SC070_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC071}
+  SC071: {state: SPEC_READY, source: scenes/071/scene.yaml, shot_package: production/remotion/shot_specs/SC071/SC071_SHOT_PACKAGE.json, shot_count: 55, duration_seconds: 165, stills_per_minute: 20, final_editorial_next: SC072}
+  SC072: {state: SPEC_READY, source: scenes/072/scene.yaml, shot_package: production/remotion/shot_specs/SC072/SC072_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC073}
   SC073:
     state: SPEC_READY
     source: scenes/073/scene.yaml
@@ -79,23 +34,32 @@ coverage:
     stills_per_minute: 20
     parallel_earth: TP078 / SB078 / GF08 4/4 / Band E / EP0+EP2+EP3+EP4+EP5+EP-U / OBS01 / ANCH58 / INV6-58 / WC068 / VAR6-02+03+04+05 / RST05
     environment: LOC-003 / ENV-PAR-031 / PV154 Paraane Central Resident Hall / late afternoon
-    evidence_control: exact source victim list of 17 names; recorder on central table; RUKEY display remains separate and secured; no fabricated names
-    observer_control: Adult Anaadhi alone receives full represented layer; Aarathi and residents remain physical witnesses; Manire/Asana absent
-    boundary_note: SB078 begins immediately after Mallayya with salt sack represented beat and ends when the parallel victims move closer; RST05 clears all represented persistence at next physical continuation
+    final_editorial_next: SC074A
+  SC074A:
+    state: SPEC_READY
+    source_scene_id: SC074
+    editorial_segment_id: SC074A
+    source: scenes/074/segments/SC074A/scene.yaml
+    shot_package: production/remotion/shot_specs/SC074A/SC074A_SHOT_PACKAGE.json
+    shot_count: 55
+    duration_seconds: 165
+    stills_per_minute: 20
+    environment: LOC-003 / ENV-PAR-033/PV164 Old Observation Corridor + ENV-PAR-034/PV169 Maintenance Chamber
+    parallel_earth: TP079/SB079/GF05 18/20/Band E/ANCH59/INV6-59/WC069/VAR6-02+03+04/RST02 + TP080/SB080/GF10 6/11/Band E/ANCH60/INV6-60/WC069 partial source segment
+    injury_control: real chest+abdomen wounds begin only after off-camera present action near segment end; persist into SC074B/SC075/SC076; no action detail or gore
+    boundary_note: exact end 'No triumph—only immediate terror.'; SB080 source beat remains active; no RST02 inside SC074A; later SC074B resumes at AARATHI 'Manire!'
+    final_editorial_next: SC006
     image_generation_started: false
     render_started: false
-    final_editorial_next: SC074A
 unmaterialized:
   state: NOT_YET_MATERIALIZED_EXCEPT_LISTED
   note: Final render order follows production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml.
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  source_numeric_order_is_not_final_render_order: true
   split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
-  split_packages_materialized: [SC094B, SC099B]
+  split_packages_materialized: [SC074A, SC094B, SC099B]
   remaining_materialization_order:
-    - SC074A
     - SC006-SC059
     - SC074B
     - SC075-SC093
@@ -104,11 +68,12 @@ editorial:
     - SC099A
     - END
 cursor:
-  last_materialized_source_scene: SC073
-  last_materialized_editorial_segment: SC073
-  next_scene: SC074
-  next_editorial_segment: SC074A
-  after_SC073: SC074A
+  last_materialized_source_scene: SC074
+  last_materialized_editorial_segment: SC074A
+  next_scene: SC006
+  next_editorial_segment: SC006
+  after_SC074A: SC006
+  source_continuation_pending: SC074B
   image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:
