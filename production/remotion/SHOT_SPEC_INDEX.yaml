@@ -1,5 +1,5 @@
 {
-  "version": 37,
+  "version": 38,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -373,6 +373,32 @@
       "exact_end": "Her fingers touch only the cold sheet. No music. Only rain.",
       "image_generation_started": false,
       "render_started": false
+    },
+    "SC014": {
+      "state": "SPEC_READY",
+      "source": "scenes/014/scene.yaml",
+      "shot_package": "production/remotion/shot_specs/SC014/SC014_SHOT_PACKAGE.json",
+      "shot_count": 80,
+      "duration_seconds": 240,
+      "stills_per_minute": 20,
+      "final_editorial_next": "SC015",
+      "finalized": true,
+      "lock_state": "LOCKED",
+      "revision": "R001",
+      "package_schema": "ANAADHI_REMOTION_SC014_V14_COMPACT_RESOLVABLE_R2",
+      "environment": "ENV-PLP-005 Parlipatna Four-Road Birth Junction",
+      "mobile_environment": "ENV-MOB-001 Parvaran's Car — Interior",
+      "parent_environment": null,
+      "loc": "LOC-006",
+      "subspace": null,
+      "wc": "WC010",
+      "pv": "N/A_NON_PARAANE_ANCHOR",
+      "env5_closure": "AR006 / INV006 / MS006 / KC006 / TG006",
+      "env6_control": "TP012/SB012/GF04/EP0+EP1+EP3+EP5+EP-U/OBS01/ANCH07/INV6-07/RST01; TP013/SB013/GF05/EP0+EP2+EP5+EP-U/OBS03/ANCH07/INV6-07/RST05; zero residue",
+      "record_truth_control": "newborn physically healthy and alive; legally dead only in Parvaran's false record",
+      "exact_end": "An approaching engine grows louder.",
+      "image_generation_started": false,
+      "render_started": false
     }
   },
   "unmaterialized": {
@@ -395,7 +421,7 @@
       "SC099B"
     ],
     "remaining_materialization_order": [
-      "SC014-SC059",
+      "SC015-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
@@ -405,11 +431,11 @@
     ]
   },
   "cursor": {
-    "last_materialized_source_scene": "SC013",
-    "last_materialized_editorial_segment": "SC013",
-    "next_scene": "SC014",
-    "next_editorial_segment": "SC014",
-    "after_SC013": "SC014",
+    "last_materialized_source_scene": "SC014",
+    "last_materialized_editorial_segment": "SC014",
+    "next_scene": "SC015",
+    "next_editorial_segment": "SC015",
+    "after_SC014": "SC015",
     "source_continuation_pending": "SC074B",
     "image_generation_gate": "EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN",
     "audio_generation_gate": "RESUME_AFTER_00_02_14_293333_ONLY"

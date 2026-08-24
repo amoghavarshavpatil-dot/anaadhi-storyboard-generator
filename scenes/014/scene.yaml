@@ -1,0 +1,294 @@
+scene_id: SC014
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+package_schema: ANAADHI_REMOTION_SC014_V14_COMPACT_RESOLVABLE_R2
+source_scene_number: 14
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+headings:
+- EXT. PARLIPATNA – FOUR-ROAD JUNCTION – NIGHT
+source_previous: SC013
+source_next: SC015
+editorial_previous: SC013
+editorial_next: SC015
+source_boundary:
+  previous_exact_end:
+  - Her fingers touch only the cold sheet.
+  - No music.
+  - Only rain.
+  start: The city ends at a deserted junction where four roads meet.
+  end: An approaching engine grows louder.
+  next_heading_excluded: EXT. PARLIPATNA OUTER PATROL ROAD – CONTINUOUS
+environment:
+  loc: LOC-006
+  env: ENV-PLP-005
+  name: Parlipatna Four-Road Birth Junction
+  sub: null
+  parent_env: null
+  hierarchy: ROOT/H/HF-03
+  state: ST00
+  closures:
+  - AR006
+  - INV006
+  - MS006
+  - KC006
+  - TG006
+  wc: WC010
+  wc_signature: TD7/WX4/EX3/LS2/OC1/OP5/T
+  story_period: C1
+  time: NIGHT
+  weather: ACTIVE_PHYSICAL_MONSOON_RAIN_SAME_NEWBORN_NIGHT
+  pv: N/A_NON_PARAANE_ANCHOR
+  topology:
+    junction_id: J-01
+    physical_road_count: 4
+    destination_arms:
+    - Kendhalaa city
+    - Paraane
+    - Bhaigaara forest boundary
+    - Adraka
+    compass_assignments: UNRESOLVED
+    visible_signage: NONE_AUTHORISED
+    non_alias_rule: ENV-PLP-005_NEVER_MERGES_WITH_ENV-PLP-006_ENV-BOR-001_ENV-IJM-004_OR_ANOTHER_FOUR_ROAD_SYSTEM
+  root_asset_control:
+    loc006_st00: APPROVED_REFERENCE_REUSE_LOCKED_SKIP_REGENERATION
+    shrine_and_light: EXISTING_REFERENCE_BINDING_WITH_STANDALONE_ASSET_STATUS_UNRESOLVED
+    shrine_rule: WEATHER_SMOOTHED_STONE_AND_LOW_PLATFORM_ONLY_NO_TEMPLE_DEITY_ALTAR_RITUAL_PORTAL_OR_ORNAMENT
+mobile_environment:
+  env: ENV-MOB-001
+  name: Parvaran’s Car — Interior
+  class: MOB
+  hierarchy: HF-03
+  closures:
+  - ENV-4D
+  - KC142
+  - TG142
+  continuity: SAME_CAR_SC014_TO_SC015
+  design_status: CONTROLLED_UNRESOLVED
+  prohibited_inventions:
+  - MAKE
+  - MODEL
+  - COLOUR
+  - REGISTRATION_PLATE
+  - DASHBOARD_INTERFACE
+  - ROUTE_SYSTEM
+  - CREDENTIAL
+  - CHILD_SEAT_MECHANICS
+  - HIDDEN_COMPARTMENT
+characters:
+  PARVARAN:
+    identity: CHR-PARVARAN
+    continuity: DIRECT_FROM_SC013_SAME_BIRTH_NIGHT_PHYSICAL_IDENTITY_AND_AGE
+    role: FATHER_AND_PARAANE_FOUNDER
+    costume: SC013_COAT_REMOVED_CONTINUITY_NO_REDONNING_OR_WARDROBE_EVENT
+    deception: HEALTHY_CHILD_LEGALLY_DEAD_ONLY_IN_FALSE_RECORD
+    tp012_full_layer_access: true
+    tp013_full_layer_access: false
+  NEWBORN_ANAADHI:
+    identity: CHR-ANAADHI
+    age_body: AGE-ANAADHI-NEWBORN
+    physical_status: HEALTHY_ALIVE_AND_LEGALLY_DEAD_ONLY_IN_PARVARANS_FALSE_RECORD
+    initial_state:
+    - AWAKE
+    - NOT_CRYING
+    - WATCHING
+    costume: DARK_WOOL_BLANKET
+    extra_shawl: false
+    injury_or_illness: NONE
+    readable_identifier: NONE
+    tp012_full_layer_access: false
+    tp013_full_layer_access: false
+  ALTERNATE_PARVARANS:
+    identity: CHR-PARVARAN
+    state: TP012_REPRESENTED_ONLY_SAME_CANONICAL_IDENTITY_DIFFERENT_DECISIONS
+    physical_duplicates: false
+    persistence: ZERO_RESIDUE_AT_RST01
+  REPRESENTED_JANNE:
+    identity: CHR-JANNE
+    state: TP012_REPRESENTED_ONLY
+    physical_presence_at_junction: false
+    persistence: ZERO_RESIDUE_AT_RST01
+  ADULT_ANAADHI:
+    identity: CHR-ANAADHI
+    height_cm: 193
+    proportions: CANONICAL_ADULT_IDENTITY_AND_SCALE
+    tp012_state: REPRESENTED_ONLY_BENEATH_SAME_STREETLIGHT
+    tp013_state: CREATOR_RECORDED_FUTURE_VO_ONLY_NO_PHYSICAL_DEPICTION
+    physical_presence_at_junction: false
+    literal_time_communication: false
+physical_chronology:
+- The deserted city-edge junction and exactly four physical roads are established.
+- The Kendhalaa city, Paraane, Bhaigaara forest boundary and Adraka destination arms are established without readable signs or compass assignments.
+- The weak solar streetlight flickers above the weather-smoothed shrine stone.
+- Parvaran’s car stops beneath the streetlight without depicting the hospital exit or route.
+- Parvaran exits carrying the physically healthy newborn in the dark wool blanket.
+- The newborn is awake, not crying and watching.
+- Parvaran walks toward the centre of the junction and every step becomes harder.
+- He places the newborn near the shrine platform, protected from direct rain.
+- The newborn’s hand emerges; Parvaran gives him one finger; the child holds it; Parvaran closes his eyes.
+- Parvaran delivers the exact source dialogue while preserving that his file/risk statements describe what he has already done.
+- The newborn tightens his grip; Parvaran tells him to let go; the child does not.
+- Parvaran carefully opens the tiny fingers one by one.
+- TP012 / SB012 occurs only within its exact boundary.
+- RST01 restores exactly four physical roads and all unchanged physical scene elements with zero represented residue.
+- Only after RST01 does the physical newborn begin crying.
+- Parvaran turns, takes two steps back toward the newborn and nearly returns.
+- A Paraane patrol light appears far down the road; no personnel or vehicle identity is revealed.
+- Parvaran sees it and retreats to his car.
+- From inside ENV-MOB-001 he watches through rain-covered glass.
+- Parvaran says they will take the child to rehabilitation and repeats He will be safe as justification, not established fact.
+- The physically healthy newborn continues crying beneath the four physical roads.
+- TP013 / SB013 occurs only within its exact audience-only future-V.O. boundary.
+- RST05 restores the unchanged physical junction, rain, newborn and Parvaran’s car with zero represented residue.
+- An approaching engine grows louder without revealing its vehicle, occupants or SC015 action.
+dialogue:
+- speaker: PARVARAN
+  text: If you stay with me, they will not see you as my son.
+- speaker: PARVARAN
+  text: They will see you as a file.
+- speaker: PARVARAN
+  text: They will see you as a risk.
+- speaker: PARVARAN
+  text: Someone here may care for you better than I can.
+- speaker: PARVARAN
+  text: Let go of my hand.
+- speaker: PARVARAN
+  delivery: TO_HIMSELF
+  text: They will take him to rehabilitation.
+- speaker: PARVARAN
+  text: He will be safe.
+- speaker: ANAADHI
+  delivery: V.O.
+  text: I was not abandoned on a road.
+- speaker: ANAADHI
+  delivery: V.O.
+  text: I was abandoned on a decision from which nobody turned back.
+readable_text_allowlist: []
+truth_control:
+  physical_newborn_health: HEALTHY_ALIVE
+  legal_record_state: LEGALLY_DEAD_ONLY_WITHIN_PARVARANS_FALSE_SC013_RECORD
+  actual_cardiorespiratory_failure: false
+  actual_medical_complication: false
+  actual_newborn_death: false
+  rehabilitation_safety_claim: PARVARAN_JUSTIFICATION_NOT_ESTABLISHED_FACT
+env6:
+  source_ruling: PHYSICAL_SCENE_WITH_TWO_AUTHORITATIVE_BOUNDED_REPRESENTED_BEATS
+  TP012:
+    sb: SB012
+    gf: GF04
+    ep: EP0+EP1+EP3+EP5+EP-U
+    obs: OBS01
+    anchor: ANCH07
+    inverse: INV6-07
+    restore: RST01
+    environment: ENV-PLP-005
+    boundary: 'The image fractures. PARALLEL EARTHS occupy all four roads: -> The roads collapse back to four.'
+    receivers:
+    - PARVARAN
+    - AUDIENCE
+    excluded_full_layer:
+    - NEWBORN_ANAADHI
+    content:
+    - On the first represented road, Parvaran lifts the child and returns to Janne.
+    - On the second represented road, Janne runs barefoot through the rain and reaches them.
+    - On the third represented road, the junction is empty because Parvaran never came.
+    - On the fourth represented road, Adult Anaadhi stands beneath the same streetlight at canonical 1.93 m scale.
+    - More represented roads emerge behind the four: dozens, then hundreds.
+    - Represented roads include ancient stone paths, elevated neon highways, flooded bridges, forest trails lit by bioluminescent roots and a cosmic road suspended above stars.
+    - Every represented road contains a different Parvaran making a different decision.
+    - The present Parvaran steps away.
+    - The represented roads collapse back to exactly four physical roads.
+    persistence: ZERO_RESIDUE_EXACTLY_FOUR_PHYSICAL_ROADS_AFTER_RST01
+  TP013:
+    sb: SB013
+    gf: GF05
+    ep: EP0+EP2+EP5+EP-U
+    obs: OBS03
+    anchor: ANCH07
+    inverse: INV6-07
+    restore: RST05
+    environment: ENV-PLP-005
+    boundary: Adult Anaadhi’s voice enters from an impossible future. -> nobody turned back.
+    receivers:
+    - AUDIENCE
+    excluded_full_layer:
+    - PARVARAN
+    - NEWBORN_ANAADHI
+    content:
+    - 'Adult Anaadhi (V.O.): I was not abandoned on a road.'
+    - 'Adult Anaadhi (V.O.): I was abandoned on a decision from which nobody turned back.'
+    picture_rule: NO_PHYSICAL_ADULT_ANAADHI_APPARITION_REFLECTION_LIPSYNC_OR_FUTURE_LOCATION
+    persistence: ZERO_REPRESENTED_PERSON_VOICE_OBJECT_WEATHER_OR_ROAD_RESIDUE_AFTER_RST05
+shot_plan:
+  shot_count: 80
+  duration_seconds: 240
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  duration_per_shot_seconds: 3
+  crop: NONE
+  baked_letterbox: false
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC014/SC014_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  bgm: NONE
+  allowed_physical_audio:
+  - ACTIVE_RAIN
+  - NEWBORN_CRYING_ONLY_AFTER_TP012_RST01
+  - APPROACHING_ENGINE_ONLY_AFTER_TP013_RST05
+  represented_audio_generation: false
+  adult_anaadhi_vo: FUTURE_CREATOR_RECORDED_DIALOGUE_WINDOW_ONLY_NO_VOICE_TREATMENT
+  prohibited_audio:
+  - MUSICAL_TRANSITION
+  - FRACTURE_SOUND
+  - SUPERNATURAL_VOICE_TREATMENT
+  - DECORATIVE_CHIME
+  - UNSUPPORTED_VEHICLE_SOUND
+hard_exclusions:
+- NO_SC015_OUTER_PATROL_ROAD_ACTION_OR_CHARACTERS
+- NO_SARJANYA_JEEP_YOUNG_SEMMAA_KENCHAA_DRIVER_OR_SARJANYA_MEMBERS
+- NO_ROUTE_PROJECTOR_HOLIGE_CONTAINER_OR_EXTRA_SHAWL
+- NO_NEWBORN_RECOVERY_PICKUP_OR_TRANSPORT_AFTER_SC014_ENDPOINT
+- NO_SC016_PARAANE_GATE_SECURITY_OVERRIDE_INTAKE_INTERFACE_OR_THERMAL_CRADLE
+- NO_HOSPITAL_EXIT_BABY_REMOVAL_PROCESS_OR_HOSPITAL_TO_JUNCTION_ROUTE
+- NO_FIFTH_PHYSICAL_ROAD_SIGN_LABEL_COMPASS_BEARING_DISTANCE_OR_DESTINY_SYMBOLISM
+- NO_J01_MERGE_WITH_BORDER_OR_FINAL_MEDICAL_CENTRE_CROSSROADS
+- NO_INVENTED_CAR_DESIGN_PLATE_DRIVER_PASSENGER_CREDENTIAL_ROUTE_TECHNOLOGY_OR_HIDDEN_FEATURE
+- NO_ACTUAL_CARDIORESPIRATORY_FAILURE_NEWBORN_ILLNESS_MEDICAL_COMPLICATION_OR_DEATH
+- NO_BODY_MORGUE_CERTIFICATE_DEATH_PROCEDURE_DISPOSAL_BURIAL_OR_FUNERAL
+- NO_NEWBORN_NAME_IDENTIFIER_MEDICAL_TAG_RECORD_FIELD_OR_READABLE_INTERFACE
+- NO_EARLY_EXTRA_SHAWL_OR_DARK_WOOL_BLANKET_REDESIGN
+- NO_SHRINE_ALIAS_TO_FOREST_SHRINE
+- NO_TEMPLE_DEITY_PRIEST_RITUAL_OFFERING_BELL_INSCRIPTION_PORTAL_OR_ORNATE_STRUCTURE
+- NO_PHYSICAL_JANNE_OR_ADULT_ANAADHI_AT_JUNCTION
+- NO_ALTERNATE_PARVARAN_PROMOTED_TO_PHYSICAL_DUPLICATE
+- NO_REPRESENTED_ROAD_PROMOTED_TO_PHYSICAL_GEOGRAPHY
+- NO_PHYSICAL_FLOODED_BRIDGE_NEON_HIGHWAY_BIOLUMINESCENT_TRAIL_OR_COSMIC_ROAD
+- NO_TP012_OUTSIDE_EXACT_BOUNDARY_OR_FULL_TP012_ACCESS_FOR_NEWBORN
+- NO_TP013_OUTSIDE_EXACT_BOUNDARY_OR_TP013_ACCESS_FOR_PARVARAN_OR_NEWBORN
+- NO_REPRESENTED_LAYER_RESIDUE_AFTER_RST01_OR_RST05
+- NO_STROBING_DISTRESS_SPECTACLE_OR_CONTINUITY_REDESIGN
+- NO_ADDITIONAL_READABLE_TEXT
+- NO_IMAGE_GENERATION
+- NO_VIDEO_RENDERING
+- NO_NEW_AUDIO_GENERATION
+- NO_SUPERCOOL_HEYGEN_OR_PAID_MEDIA_API
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: PERMANENTLY_DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
+  audio_generation: DISABLED
+  execute_now: false
+next: SC015

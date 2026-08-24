@@ -1,8 +1,8 @@
 {
-  "version": 38,
+  "version": 39,
   "project": "ANAADHI",
   "control": "REMOTION_CONTINUATION_CURSOR",
-  "as_of_local": "2026-08-25T01:45:51+05:30",
+  "as_of_local": "2026-08-25T02:54:14+05:30",
   "backend": {
     "github_canonical_control": true,
     "remotion_assembly": true,
@@ -12,24 +12,24 @@
     "paid_media_api_execution_enabled": false
   },
   "visual_preproduction": {
-    "latest_new_schema_materialized": "SC013",
-    "latest_source_scene_materialized": "SC013",
-    "next_scene_to_materialize": "SC014",
-    "next_editorial_segment": "SC014",
+    "latest_new_schema_materialized": "SC014",
+    "latest_source_scene_materialized": "SC014",
+    "next_scene_to_materialize": "SC015",
+    "next_editorial_segment": "SC015",
     "source_continuation_pending": "SC074B",
     "editorial_sequence_manifest": "production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml",
-    "note": "SC013 R002 LOCKED: LOC-005 / WC009 / ENV-PLP-003 + ENV-PLP-004; exact Clerk chronology restored; TP010 and TP011 bounded by RST01 with zero residue; continue SC014 without importing Four-Road Junction action early.",
-    "materialization_revision": "R002",
-    "package_schema": "ANAADHI_REMOTION_SC013_V13_COMPACT_RESOLVABLE_R2"
+    "note": "SC014 R001 LOCKED: LOC-006 / ENV-PLP-005 / WC010 with exactly four physical J-01 roads and separate ENV-MOB-001 binding; TP012/RST01 and audience-only TP013/RST05 are exact-bounded with zero residue; continue SC015 only after the approaching-engine endpoint.",
+    "materialization_revision": "R001",
+    "package_schema": "ANAADHI_REMOTION_SC014_V14_COMPACT_RESOLVABLE_R2"
   },
   "audio": {
     "mastered_prefix_locked": true,
     "mastered_prefix_end_timecode": "00:02:14.293333",
-    "SC013": {
+    "SC014": {
       "dialogue_policy": "CREATOR_RECORDED_DIALOGUE_ONLY",
-      "picture_planning_duration_seconds": 270,
+      "picture_planning_duration_seconds": 240,
       "exact_audio_timecode_alignment": "PENDING_EXTRACTION",
-      "final_window": "BGM_NONE_ONLY_PHYSICAL_RAIN",
+      "final_window": "BGM_NONE_PHYSICAL_RAIN_NEWBORN_CRY_APPROACHING_ENGINE_ONLY",
       "new_generation": false
     }
   },
@@ -42,83 +42,80 @@
   },
   "shot_density": {
     "target_minimum_stills_per_minute": 20,
-    "SC013": {
-      "duration_seconds": 270,
-      "shot_count": 90,
+    "SC014": {
+      "duration_seconds": 240,
+      "shot_count": 80,
       "stills_per_minute": 20
     }
   },
   "env6_cursor": {
-    "latest_materialized_segment": "SC013",
-    "source_scene": "SC013",
-    "wc": "WC009",
-    "wc_signature": "TD7/WX1/EX0/LS1/OC4/OP0/T",
-    "root_location": "LOC-005",
-    "parent_environment": "ENV-PLP-001",
+    "latest_materialized_segment": "SC014",
+    "source_scene": "SC014",
+    "wc": "WC010",
+    "wc_signature": "TD7/WX4/EX3/LS2/OC1/OP5/T",
+    "root_location": "LOC-006",
+    "environment": "ENV-PLP-005",
+    "parent_environment": null,
+    "subspace": null,
+    "hierarchy": "ROOT/H/HF-03",
+    "state": "ST00",
     "paraane_pv": "N/A_NON_PARAANE_ANCHOR",
-    "nested_spaces": {
-      "records": {
-        "sub": "SUB-005-02",
-        "env": "ENV-PLP-003",
-        "closure": [
-          "AR004",
-          "INV004",
-          "MS004",
-          "KC004",
-          "TG004"
-        ]
-      },
-      "recovery": {
-        "sub": "SUB-005-03",
-        "env": "ENV-PLP-004",
-        "closure": [
-          "AR005",
-          "INV005",
-          "MS005",
-          "KC005",
-          "TG005"
-        ]
-      }
+    "env5_closure": [
+      "AR006",
+      "INV006",
+      "MS006",
+      "KC006",
+      "TG006"
+    ],
+    "mobile_environment": {
+      "env": "ENV-MOB-001",
+      "class": "MOB/HF-03",
+      "closure": [
+        "ENV-4D",
+        "KC142",
+        "TG142"
+      ],
+      "design_status": "CONTROLLED_UNRESOLVED"
     },
-    "TP010": {
-      "sb": "SB010",
-      "gf": "GF05",
-      "ep": "EP0+EP1+EP4+EP5+EP-U",
+    "TP012": {
+      "sb": "SB012",
+      "gf": "GF04",
+      "ep": "EP0+EP1+EP3+EP5+EP-U",
       "obs": "OBS01",
-      "anchor": "ANCH05",
-      "inverse": "INV6-05",
+      "anchor": "ANCH07",
+      "inverse": "INV6-07",
       "restore": "RST01",
       "receivers": [
         "PARVARAN",
         "AUDIENCE"
       ],
       "excluded": [
-        "RECORDS_CLERK"
+        "NEWBORN_ANAADHI"
       ],
-      "persistence": "ZERO_RESIDUE_CONFIRM_UNPRESSED",
-      "represented_shot_range": "SC013_SH018-SC013_SH021",
-      "rst_boundary_shot": "SC013_SH022"
+      "persistence": "ZERO_RESIDUE_EXACTLY_FOUR_PHYSICAL_ROADS",
+      "represented_shot_range": "SC014_SH038-SC014_SH056",
+      "rst_boundary_shot": "SC014_SH057"
     },
-    "TP011": {
-      "sb": "SB011",
-      "gf": "GF01",
-      "ep": "EP0+EP1+EP3+EP-U",
-      "obs": "OBS01",
-      "anchor": "ANCH06",
-      "inverse": "INV6-06",
-      "restore": "RST01",
+    "TP013": {
+      "sb": "SB013",
+      "gf": "GF05",
+      "ep": "EP0+EP2+EP5+EP-U",
+      "obs": "OBS03",
+      "anchor": "ANCH07",
+      "inverse": "INV6-07",
+      "restore": "RST05",
       "receivers": [
-        "JANNE",
         "AUDIENCE"
       ],
       "excluded": [
-        "PARVARAN"
+        "PARVARAN",
+        "NEWBORN_ANAADHI"
       ],
-      "persistence": "ZERO_RESIDUE_EMPTY_CRADLE",
-      "represented_shot_range": "SC013_SH084-SC013_SH088",
-      "rst_boundary_shot": "SC013_SH089"
+      "persistence": "ZERO_REPRESENTED_VOICE_PERSON_OBJECT_WEATHER_OR_ROAD_RESIDUE",
+      "represented_shot_range": "SC014_SH074-SC014_SH077",
+      "rst_boundary_shot": "SC014_SH078"
     },
-    "record_truth": "FALSE_CARDIORESPIRATORY_ENTRY_ONLY; CHILD_PHYSICALLY_HEALTHY; LEGALLY_DEAD_IN_RECORD_AFTER_CONFIRM; NO_POST_CONFIRM_TEXT",
+    "record_truth": "CHILD_PHYSICALLY_HEALTHY_AND_ALIVE; LEGALLY_DEAD_ONLY_IN_PARVARANS_FALSE_SC013_RECORD; NO_ACTUAL_CARDIORESPIRATORY_FAILURE_COMPLICATION_OR_DEATH",
     "SC072_lock": {
       "tp": "TP077",
       "sb": "SB077",
@@ -136,20 +133,20 @@
     }
   },
   "character_cursor": {
-    "SC013": {
-      "parvaran": "DIRECT_SC012; RECORDS_COAT_ID_WRIST; RECOVERY_COAT_REMOVED; TP010_FULL; TP011_EXCLUDED",
-      "records_clerk": "UNNAMED; TEA; AFTER_TP010_RST01; TP010_EXCLUDED",
-      "janne": "PHYSICAL_RECOVERY; TP011_FULL",
-      "newborn": "PHYSICALLY_HEALTHY; ABSENT_FROM_BOTH_ROOMS; LEGALLY_MARKED_DEAD_AFTER_CONFIRM; ACTUAL_DEATH_FALSE",
-      "represented_janne": "TP010_DESTINATION_ONLY_AND_TP011_REPRESENTED_ONLY; NEVER_PHYSICAL_IN_RECORDS_ROOM; ZERO_RESIDUE"
+    "SC014": {
+      "parvaran": "DIRECT_SC013_BIRTH_NIGHT; COAT_REMOVED_NO_REDONNING; TP012_FULL; TP013_EXCLUDED",
+      "newborn": "CHR-ANAADHI/AGE-ANAADHI-NEWBORN; PHYSICALLY_HEALTHY_ALIVE; DARK_WOOL_BLANKET_NO_EXTRA_SHAWL; TP012_AND_TP013_EXCLUDED",
+      "represented_janne": "TP012_ONLY; NEVER_PHYSICAL_AT_JUNCTION; ZERO_RESIDUE_AT_RST01",
+      "alternate_parvarans": "TP012_ONLY_SAME_CANONICAL_IDENTITY; NEVER_PHYSICAL_DUPLICATES; ZERO_RESIDUE_AT_RST01",
+      "adult_anaadhi": "TP012_REPRESENTED_AT_193CM; TP013_CREATOR_RECORDED_VO_IDENTITY_ONLY; NEVER_PHYSICAL_AT_JUNCTION"
     }
   },
   "editorial_lock": {
     "enabled": true,
-    "current_completed_segment": "SC013",
-    "next_editorial_segment": "SC014",
+    "current_completed_segment": "SC014",
+    "next_editorial_segment": "SC015",
     "remaining_materialization_order": [
-      "SC014-SC059",
+      "SC015-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
