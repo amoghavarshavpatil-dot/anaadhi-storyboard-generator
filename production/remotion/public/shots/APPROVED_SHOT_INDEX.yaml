@@ -4,8 +4,8 @@ control: REMOTION_APPROVED_SHOT_INDEX
 repository: amoghavarshavpatil-dot/anaadhi-storyboard-generator
 branch: codex/remotion-sc001-sc005-source-review
 ordering: SCENE_THEN_SHOT_ASCENDING
-approved_count: 3
-next_shot: SC001_SH004
+approved_count: 4
+next_shot: SC001_SH005
 
 shots:
   - sequence_number: 1
@@ -44,3 +44,15 @@ shots:
     manifest_path: production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED.yaml
     raster: 3840x1600
     sha256: 8b22bd4449159833b02da8e6535dd4e2c1f0cd81e2562d8d8e0f6af0603f633f
+  - sequence_number: 4
+    batch_id: B01
+    scene_id: SC001
+    shot_id: SC001_SH004
+    version: V001
+    lifecycle_status: APPROVED_SHOT
+    remotion_static_path: shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED_3840x1600.png
+    repository_path: production/remotion/public/shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED_3840x1600.png
+    source_native_path: production/remotion/public/shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED_NATIVE_1942x809.png
+    manifest_path: production/remotion/public/shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED.yaml
+    raster: 3840x1600
+    sha256: ff9930f55945a877efec373dcf9a99415ec14c165548e56149132a489fe6fedf

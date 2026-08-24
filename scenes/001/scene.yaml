@@ -98,20 +98,30 @@ shots:
     regenerate: false
 
   - shot_id: "SC001_SH004"
-    status: DRAFT
+    status: APPROVED_SHOT
     duration_seconds: 7.0
     purpose: "Command exchange without requiring visible lip-sync"
     framing: "intercut tactical profiles, helmets, hands, radios and medical case details"
     camera_motion: "measured cuts"
     visual_prompt: "police commander, Sarjanya officer and medical specialist communicating under black rain around cabin perimeter, faces often profile or partly obscured by rain and tactical framing, grounded Karnataka-future design"
     negative_prompt: "visible mismatched speaking mouths, exaggerated military action, text"
-    reference_assets: []
+    reference_assets:
+      - "production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED_3840x1600.png"
+      - "production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED_3840x1600.png"
+      - "production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+      - "production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+      - "production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg"
+    approved_asset:
+      version: V001
+      path: "production/remotion/public/shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED_3840x1600.png"
+      sha256: "ff9930f55945a877efec373dcf9a99415ec14c165548e56149132a489fe6fedf"
+      manifest: "production/remotion/public/shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED.yaml"
     visible_speaker: null
     lip_sync_required: false
     dialogue_clip: null
     bgm_cue: "hold tension under creator dialogue"
     sfx_cues: ["radio clicks", "rain", "fabric movement"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH005"
     status: DRAFT

@@ -1,0 +1,75 @@
+version: 1
+project: ANAADHI
+canonical_shot_key: B01_SC001_SH004
+scene_id: SC001
+shot_id: SC001_SH004
+candidate_version: V001
+lifecycle_status: APPROVED_SHOT
+generated_at: 2026-08-24
+
+source:
+  authority: scenes/001/scene.yaml
+  purpose: "Command exchange without requiring visible lip-sync."
+  framing: intercut tactical profiles, hands, radio and medical-case detail
+  camera_motion: measured cuts
+  continuity_references:
+    - production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED_3840x1600.png
+    - production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED_3840x1600.png
+    - production/heygen/avatars/B01/source_visuals/CHR-POLICE-COMMANDER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    - production/heygen/avatars/B01/source_visuals/CHR-SARJANYA-OFFICER_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+    - production/heygen/avatars/B01/source_visuals/CHR-MEDICAL-SPECIALIST_B01_HEYGEN-UPLOAD-MASTER_2160x3840_FINAL.jpg
+  generation_backend: CHATGPT_BUILT_IN_IMAGE_GENERATION
+  supercool_used: false
+  heygen_used: false
+  paid_media_api_used: false
+
+generation_prompt:
+  positive: >-
+    The locked B01 Police Commander, Sarjanya Officer and Medical Specialist conduct a
+    restrained command exchange under black rain around the same raised-cabin perimeter.
+    The Police Commander holds a compact radio and gives a controlled hold-position hand
+    signal; the Sarjanya Officer listens in profile; the Medical Specialist remains beside
+    a closed rain-wet field case. Preserve all three exact faces, ages and costumes, the
+    cool blue-black pre-dawn grade, subtle amber cabin practicals, grounded Karnataka-future
+    design, natural anatomy and a full-bleed 2.40:1 photoreal cinematic composition.
+  negative:
+    - visible speaking mouths or lip-sync pose
+    - face drift, merging, duplication or costume swaps
+    - cabin entry or breach
+    - open medical case
+    - exaggerated military action
+    - exposed guns, muzzle flashes or firefight
+    - generic western SWAT styling
+    - neon cyberpunk or floating holograms
+    - text, captions, watermark or storyboard borders
+    - baked letterbox bars
+
+picture_master:
+  native_path: production/remotion/public/shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED_NATIVE_1942x809.png
+  native_resolution: 1942x809
+  native_sha256: 65547b99314c863c2d89856cfbd0daa72ceb5495acec4af15ac9bd1a79688b3f
+  canonical_review_path: production/remotion/public/shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED_3840x1600.png
+  canonical_review_resolution: 3840x1600
+  canonical_review_sha256: ff9930f55945a877efec373dcf9a99415ec14c165548e56149132a489fe6fedf
+  canonical_resample: LANCZOS_MECHANICAL_ONLY
+  baked_letterbox_bars: false
+
+qc:
+  approved_sh002_sh003_world_continuity_pass: true
+  police_commander_identity_pass: true
+  sarjanya_officer_identity_pass: true
+  medical_specialist_identity_pass: true
+  closed_mouth_no_lipsync_pass: true
+  radio_hand_signal_and_closed_case_pass: true
+  raised_cabin_anchor_pass: true
+  black_rain_pass: true
+  no_text_or_bars_pass: true
+  overall_result: APPROVED_BY_USER
+
+review_gate:
+  user_approval: APPROVED
+  approved_at: 2026-08-24
+  next_shot: SC001_SH005
+  next_shot_generation_blocked_until_decision: false
+  approved_shot_claimed: true
+  locked_picture_claimed: false

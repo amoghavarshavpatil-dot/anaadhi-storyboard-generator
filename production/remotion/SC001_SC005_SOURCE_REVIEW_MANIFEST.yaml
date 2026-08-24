@@ -65,10 +65,10 @@ review_status:
   intended_use: SOURCE_REVIEW_AND_TIMING_APPROVAL
 
 storyboard_materialization:
-  approved_shot_count: 3
+  approved_shot_count: 4
   total_required_shot_count: 106
-  last_approved_shot: SC001_SH003
-  next_shot: SC001_SH004
+  last_approved_shot: SC001_SH004
+  next_shot: SC001_SH005
   approved_assets_index: production/remotion/public/shots/APPROVED_SHOT_INDEX.yaml
   previous_review_encode_contains_all_storyboard_shots: false
   corrected_storyboard_render_status: BLOCKED_UNTIL_ALL_REQUIRED_SHOTS_ARE_APPROVED

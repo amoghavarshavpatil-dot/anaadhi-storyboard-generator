@@ -20,4 +20,9 @@ export const approvedShotAssets: Readonly<Record<string, ApprovedShotAsset>> = {
     lifecycle: 'APPROVED_SHOT',
     version: 'V001',
   },
+  SC001_SH004: {
+    path: 'shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED_3840x1600.png',
+    lifecycle: 'APPROVED_SHOT',
+    version: 'V001',
+  },
 };
