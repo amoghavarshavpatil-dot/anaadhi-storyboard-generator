@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "project": "ANAADHI",
+  "scene_id": "SC001",
+  "revision_id": "R001",
+  "status": "SPEC_READY",
+  "lock_state": "APPROVED_SEQUENCE_PARTIAL",
+  "source_authority": "scenes/001/scene.yaml",
+  "screenplay_source": {
+    "heading": "EXT./INT. BHAIGAARA BUFFER FOREST — ANAADHI'S RAISED CABIN — PRE-DAWN",
+    "beat_summary": "Black rain, a covert four-force perimeter, one thermal signature, the command exchange, an internal THUD, and the transition toward sedated Anaadhi inside the cabin."
+  },
+  "continuity": {
+    "locations": ["BHAIGAARA_BUFFER_FOREST", "ANAADHI_RAISED_CABIN_EXT", "ANAADHI_RAISED_CABIN_INT"],
+    "characters": ["POLICE_COMMANDER", "SARJANYA_OFFICER", "MEDICAL_SPECIALIST", "ANAADHI"],
+    "props": ["POLICE_COMMANDER_WRIST_DISPLAY", "EMPTY_INJECTOR", "SPLIT_FLOORBOARD"],
+    "weather_time": ["PRE_DAWN", "BLACK_RAIN"],
+    "character_lock": "Anaadhi is age 27, 193 cm / 6'4, heavy-athletic, topless, with a completely shaved scalp and several days of rough regrowth."
+  },
+  "generation": {
+    "backend": "CHATGPT_CHAT_PAGE",
+    "style": "photoreal cinematic storyboard still; grounded future Karnataka; no borders; no text",
+    "regeneration_requires_new_user_direction": true
+  },
+  "remotion": {
+    "master_width": 3840,
+    "master_height": 1600,
+    "aspect_ratio": "2.40:1",
+    "fps": 30,
+    "composition_id": "ANAADHI_SC001_APPROVED_V001",
+    "scene_data": "src/data/sc001Approved.ts",
+    "crop_policy": "NO_UNAPPROVED_AUTO_REFRAME",
+    "motion_policy": "Only the already specified SH001 slow push is active; all other approved stills remain static until an explicit motion lock."
+  },
+  "audio": {
+    "dialogue_policy": "CREATOR_RECORDING_ONLY",
+    "locked_master_prefix_end_seconds": 134.293333,
+    "picture_only_commit": true
+  },
+  "exclusions": [
+    "no screenshot crops",
+    "no recompression",
+    "no image regeneration",
+    "no unapproved motion or reframing",
+    "no SC001_SH006 generation in this commit"
+  ],
+  "picture_progress": {
+    "planned_scene_shots": 8,
+    "planned_run_shots": 106,
+    "approved_count": 5,
+    "approved_through": "SC001_SH005",
+    "next_shot": "SC001_SH006",
+    "render_started": false
+  },
+  "shots": [
+    {
+      "shot_id": "SC001_SH001",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
+      "duration_seconds": 6,
+      "purpose": "Establish Bhaigaara forest, black rain and raised cabin under covert encirclement",
+      "framing": "very wide anamorphic establishing",
+      "screen_direction": "NEUTRAL",
+      "motion_mode": "SLOW_PUSH_IN",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "2eb09e64c75b1f55718a753a869bd4225d13f1e079528512efe72277262090ac",
+      "git_path": "production/remotion/public/shots/SC001/SC001_SH001_V001.png",
+      "remotion_static_file": "shots/SC001/SC001_SH001_V001.png",
+      "original_title": "Black Rain Over the Raised Cabin.png"
+    },
+    {
+      "shot_id": "SC001_SH002",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
+      "duration_seconds": 6,
+      "purpose": "Reveal the four-force perimeter and shared Paraane visual language",
+      "framing": "wide lateral operation tableau",
+      "screen_direction": "NEUTRAL",
+      "motion_mode": "STATIC",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "fe85566a1d655c86e1ba9f97dc5b206a0ef16b15d1cddf3c7a225697ea963a32",
+      "git_path": "production/remotion/public/shots/SC001/SC001_SH002_V001.png",
+      "remotion_static_file": "shots/SC001/SC001_SH002_V001.png",
+      "original_title": "Four Forces Around the Raised Cabin.png"
+    },
+    {
+      "shot_id": "SC001_SH003",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
+      "duration_seconds": 5,
+      "purpose": "Thermal confirmation: one body inside",
+      "framing": "medium close insert on Police Commander's wrist and reflected cabin",
+      "screen_direction": "NEUTRAL",
+      "motion_mode": "STATIC",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "75c5a9dc4ec5fb0a6afc0101109e84266b53b119d81c8d3f5680d97a6bbd1d6f",
+      "git_path": "production/remotion/public/shots/SC001/SC001_SH003_V001.png",
+      "remotion_static_file": "shots/SC001/SC001_SH003_V001.png",
+      "original_title": "One Heat Signature in the Cabin.png"
+    },
+    {
+      "shot_id": "SC001_SH004",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
+      "duration_seconds": 7,
+      "purpose": "Command exchange without requiring visible lip-sync",
+      "framing": "intercut tactical profiles, helmets, hands, radios and medical case details",
+      "screen_direction": "NEUTRAL",
+      "motion_mode": "STATIC",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "65547b99314c863c2d89856cfbd0daa72ceb5495acec4af15ac9bd1a79688b3f",
+      "git_path": "production/remotion/public/shots/SC001/SC001_SH004_V001.png",
+      "remotion_static_file": "shots/SC001/SC001_SH004_V001.png",
+      "original_title": "Silent command beneath black rain.png"
+    },
+    {
+      "shot_id": "SC001_SH005",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
+      "duration_seconds": 3,
+      "purpose": "Violent THUD shakes cabin and perimeter snaps to aim",
+      "framing": "medium-wide cabin exterior",
+      "screen_direction": "NEUTRAL",
+      "motion_mode": "STATIC",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "9fcb6c1e3ad936a31ac7961bcc0c76553dee9a66000f709be8accf78a610dd8a",
+      "git_path": "production/remotion/public/shots/SC001/SC001_SH005_V001.png",
+      "remotion_static_file": "shots/SC001/SC001_SH005_V001.png",
+      "original_title": "Cabin Shudders, Perimeter Raises Rifles.png"
+    },
+    {
+      "shot_id": "SC001_SH006",
+      "status": "SPEC_READY",
+      "duration_seconds": 8,
+      "purpose": "First interior reveal of sedated Anaadhi",
+      "asset": null
+    },
+    {
+      "shot_id": "SC001_SH007",
+      "status": "SPEC_READY",
+      "duration_seconds": 10,
+      "purpose": "Five Parallel Earth fracture montage",
+      "asset": null
+    },
+    {
+      "shot_id": "SC001_SH008",
+      "status": "SPEC_READY",
+      "duration_seconds": 8,
+      "purpose": "Return to present; fingers reach floor crack; operation closes around him",
+      "asset": null
+    }
+  ]
+}

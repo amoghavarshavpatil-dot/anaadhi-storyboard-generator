@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "project": "ANAADHI",
+  "pipeline": "GITHUB_CHATGPT_ASSETS_REMOTION",
+  "sequence_scope": {
+    "first_shot": "SC001_SH001",
+    "last_shot": "SC005_SH024",
+    "planned_shots": 106
+  },
+  "progress": {
+    "approved_count": 5,
+    "last_approved_shot": "SC001_SH005",
+    "next_shot": "SC001_SH006",
+    "last_approved_revision": "V001"
+  },
+  "asset_ledger": "production/remotion/shot_specs/SC001/SC001_SHOT_PACKAGE.json",
+  "remotion_scene_data": "production/remotion/src/data/sc001Approved.ts",
+  "generation_gate": "USER_APPROVAL_REQUIRED_PER_SHOT",
+  "render_started": false
+}

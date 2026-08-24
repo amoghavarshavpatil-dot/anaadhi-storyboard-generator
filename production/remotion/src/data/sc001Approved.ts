@@ -1,0 +1,54 @@
+import type {SceneSpec} from '../types';
+
+export const sc001ApprovedScene: SceneSpec = {
+  sceneId: 'SC001',
+  revisionId: 'V001',
+  status: 'SPEC_READY',
+  shots: [
+    {
+      sceneId: 'SC001',
+      shotId: 'SC001_SH001',
+      revisionId: 'V001',
+      imagePath: 'shots/SC001/SC001_SH001_V001.png',
+      durationSeconds: 6,
+      motionMode: 'SLOW_PUSH_IN',
+      screenDirection: 'NEUTRAL',
+    },
+    {
+      sceneId: 'SC001',
+      shotId: 'SC001_SH002',
+      revisionId: 'V001',
+      imagePath: 'shots/SC001/SC001_SH002_V001.png',
+      durationSeconds: 6,
+      motionMode: 'STATIC',
+      screenDirection: 'NEUTRAL',
+    },
+    {
+      sceneId: 'SC001',
+      shotId: 'SC001_SH003',
+      revisionId: 'V001',
+      imagePath: 'shots/SC001/SC001_SH003_V001.png',
+      durationSeconds: 5,
+      motionMode: 'STATIC',
+      screenDirection: 'NEUTRAL',
+    },
+    {
+      sceneId: 'SC001',
+      shotId: 'SC001_SH004',
+      revisionId: 'V001',
+      imagePath: 'shots/SC001/SC001_SH004_V001.png',
+      durationSeconds: 7,
+      motionMode: 'STATIC',
+      screenDirection: 'NEUTRAL',
+    },
+    {
+      sceneId: 'SC001',
+      shotId: 'SC001_SH005',
+      revisionId: 'V001',
+      imagePath: 'shots/SC001/SC001_SH005_V001.png',
+      durationSeconds: 3,
+      motionMode: 'STATIC',
+      screenDirection: 'NEUTRAL',
+    },
+  ],
+};

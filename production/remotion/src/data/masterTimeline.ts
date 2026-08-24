@@ -1,11 +1,12 @@
 import type {MasterTimeline} from '../types';
+import {sc001ApprovedScene} from './sc001Approved';
 
 export const masterTimeline: MasterTimeline = {
   width: 3840,
   height: 1600,
   fps: 30,
   lockedAudioPrefixSeconds: 134.293333,
-  scenes: [],
+  scenes: [sc001ApprovedScene],
 };
 
 export const totalTimelineSeconds = masterTimeline.scenes.reduce(

@@ -1,1 +1,173 @@
-{"version":34,"project":"ANAADHI","control":"REMOTION_CONTINUATION_CURSOR","as_of_local":"2026-08-24T19:52:00+05:30","backend":{"github_canonical_control":true,"remotion_assembly":true,"supercool_generation_enabled":false,"heygen_generation_enabled":false,"openai_work_page_generation_enabled":false,"paid_media_api_execution_enabled":false},"visual_preproduction":{"latest_new_schema_materialized":"SC013","latest_source_scene_materialized":"SC013","next_scene_to_materialize":"SC014","next_editorial_segment":"SC014","source_continuation_pending":"SC074B","editorial_sequence_manifest":"production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml","note":"SC013 LOCKED: LOC-005 / WC009 / ENV-PLP-003 + ENV-PLP-004; TP010 and TP011 bounded by RST01 with zero residue; do not begin SC014 early."},"audio":{"mastered_prefix_locked":true,"mastered_prefix_end_timecode":"00:02:14.293333","SC013":{"dialogue_policy":"CREATOR_RECORDED_DIALOGUE_ONLY","picture_planning_duration_seconds":270,"exact_audio_timecode_alignment":"PENDING_EXTRACTION","final_window":"BGM_NONE_ONLY_PHYSICAL_RAIN","new_generation":false}},"picture_master":{"width":3840,"height":1600,"aspect_ratio":"2.40:1","fps":30,"baked_letterbox":false},"shot_density":{"target_minimum_stills_per_minute":20,"SC013":{"duration_seconds":270,"shot_count":90,"stills_per_minute":20}},"env6_cursor":{"latest_materialized_segment":"SC013","source_scene":"SC013","wc":"WC009","wc_signature":"TD7/WX1/EX0/LS1/OC4/OP0/T","root_location":"LOC-005","parent_environment":"ENV-PLP-001","paraane_pv":"N/A_NON_PARAANE_ANCHOR","nested_spaces":{"records":{"sub":"SUB-005-02","env":"ENV-PLP-003","closure":["AR004","INV004","MS004","KC004","TG004"]},"recovery":{"sub":"SUB-005-03","env":"ENV-PLP-004","closure":["AR005","INV005","MS005","KC005","TG005"]}},"TP010":{"sb":"SB010","gf":"GF05","ep":"EP0+EP1+EP4+EP5+EP-U","obs":"OBS01","anchor":"ANCH05","inverse":"INV6-05","restore":"RST01","receivers":["PARVARAN","AUDIENCE"],"excluded":["RECORDS_CLERK"],"persistence":"ZERO_RESIDUE_CONFIRM_UNPRESSED"},"TP011":{"sb":"SB011","gf":"GF01","ep":"EP0+EP1+EP3+EP-U","obs":"OBS01","anchor":"ANCH06","inverse":"INV6-06","restore":"RST01","receivers":["JANNE","AUDIENCE"],"excluded":["PARVARAN"],"persistence":"ZERO_RESIDUE_EMPTY_CRADLE"},"record_truth":"FALSE_CARDIORESPIRATORY_ENTRY_ONLY; CHILD_PHYSICALLY_HEALTHY; LEGALLY_DEAD_IN_RECORD_AFTER_CONFIRM; NO_POST_CONFIRM_TEXT","SC072_lock":{"tp":"TP077","sb":"SB077","gf":"GF06","env":"ENV-PAR-032","pv":"PV159","restore":"RST05","zero_residue_from":"SC072_SH014"},"SC074B_pending":{"tp":"TP080","sb":"SB080","restore":"RST02","contamination":"FORBIDDEN"}},"character_cursor":{"SC013":{"parvaran":"DIRECT_SC012; RECORDS_COAT_ID_WRIST; RECOVERY_COAT_REMOVED; TP010_FULL; TP011_EXCLUDED","records_clerk":"UNNAMED; TEA; AFTER_TP010_RST01; TP010_EXCLUDED","janne":"PHYSICAL_RECOVERY; TP011_FULL","newborn":"PHYSICALLY_HEALTHY; ABSENT_FROM_BOTH_ROOMS; LEGALLY_MARKED_DEAD_AFTER_CONFIRM; ACTUAL_DEATH_FALSE"}},"editorial_lock":{"enabled":true,"current_completed_segment":"SC013","next_editorial_segment":"SC014","remaining_materialization_order":["SC014-SC059","SC074B","SC075-SC093","SC094A","SC096-SC098","SC099A","END"]},"revision_policy":{"scene_local":true,"shot_local":true,"editorial_segment_local":true,"unrelated_scene_regeneration_required":false}}
+{
+  "version": 35,
+  "project": "ANAADHI",
+  "control": "REMOTION_CONTINUATION_CURSOR",
+  "as_of_local": "2026-08-24T21:05:00+05:30",
+  "backend": {
+    "github_canonical_control": true,
+    "remotion_assembly": true,
+    "supercool_generation_enabled": false,
+    "heygen_generation_enabled": false,
+    "openai_work_page_generation_enabled": false,
+    "paid_media_api_execution_enabled": false
+  },
+  "visual_preproduction": {
+    "latest_new_schema_materialized": "SC013",
+    "latest_source_scene_materialized": "SC013",
+    "next_scene_to_materialize": "SC014",
+    "next_editorial_segment": "SC014",
+    "source_continuation_pending": "SC074B",
+    "editorial_sequence_manifest": "production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml",
+    "note": "SC013 LOCKED: LOC-005 / WC009 / ENV-PLP-003 + ENV-PLP-004; TP010 and TP011 bounded by RST01 with zero residue; do not begin SC014 early."
+  },
+  "audio": {
+    "mastered_prefix_locked": true,
+    "mastered_prefix_end_timecode": "00:02:14.293333",
+    "SC013": {
+      "dialogue_policy": "CREATOR_RECORDED_DIALOGUE_ONLY",
+      "picture_planning_duration_seconds": 270,
+      "exact_audio_timecode_alignment": "PENDING_EXTRACTION",
+      "final_window": "BGM_NONE_ONLY_PHYSICAL_RAIN",
+      "new_generation": false
+    }
+  },
+  "picture_master": {
+    "width": 3840,
+    "height": 1600,
+    "aspect_ratio": "2.40:1",
+    "fps": 30,
+    "baked_letterbox": false
+  },
+  "shot_density": {
+    "target_minimum_stills_per_minute": 20,
+    "SC013": {
+      "duration_seconds": 270,
+      "shot_count": 90,
+      "stills_per_minute": 20
+    }
+  },
+  "env6_cursor": {
+    "latest_materialized_segment": "SC013",
+    "source_scene": "SC013",
+    "wc": "WC009",
+    "wc_signature": "TD7/WX1/EX0/LS1/OC4/OP0/T",
+    "root_location": "LOC-005",
+    "parent_environment": "ENV-PLP-001",
+    "paraane_pv": "N/A_NON_PARAANE_ANCHOR",
+    "nested_spaces": {
+      "records": {
+        "sub": "SUB-005-02",
+        "env": "ENV-PLP-003",
+        "closure": [
+          "AR004",
+          "INV004",
+          "MS004",
+          "KC004",
+          "TG004"
+        ]
+      },
+      "recovery": {
+        "sub": "SUB-005-03",
+        "env": "ENV-PLP-004",
+        "closure": [
+          "AR005",
+          "INV005",
+          "MS005",
+          "KC005",
+          "TG005"
+        ]
+      }
+    },
+    "TP010": {
+      "sb": "SB010",
+      "gf": "GF05",
+      "ep": "EP0+EP1+EP4+EP5+EP-U",
+      "obs": "OBS01",
+      "anchor": "ANCH05",
+      "inverse": "INV6-05",
+      "restore": "RST01",
+      "receivers": [
+        "PARVARAN",
+        "AUDIENCE"
+      ],
+      "excluded": [
+        "RECORDS_CLERK"
+      ],
+      "persistence": "ZERO_RESIDUE_CONFIRM_UNPRESSED"
+    },
+    "TP011": {
+      "sb": "SB011",
+      "gf": "GF01",
+      "ep": "EP0+EP1+EP3+EP-U",
+      "obs": "OBS01",
+      "anchor": "ANCH06",
+      "inverse": "INV6-06",
+      "restore": "RST01",
+      "receivers": [
+        "JANNE",
+        "AUDIENCE"
+      ],
+      "excluded": [
+        "PARVARAN"
+      ],
+      "persistence": "ZERO_RESIDUE_EMPTY_CRADLE"
+    },
+    "record_truth": "FALSE_CARDIORESPIRATORY_ENTRY_ONLY; CHILD_PHYSICALLY_HEALTHY; LEGALLY_DEAD_IN_RECORD_AFTER_CONFIRM; NO_POST_CONFIRM_TEXT",
+    "SC072_lock": {
+      "tp": "TP077",
+      "sb": "SB077",
+      "gf": "GF06",
+      "env": "ENV-PAR-032",
+      "pv": "PV159",
+      "restore": "RST05",
+      "zero_residue_from": "SC072_SH014"
+    },
+    "SC074B_pending": {
+      "tp": "TP080",
+      "sb": "SB080",
+      "restore": "RST02",
+      "contamination": "FORBIDDEN"
+    }
+  },
+  "character_cursor": {
+    "SC013": {
+      "parvaran": "DIRECT_SC012; RECORDS_COAT_ID_WRIST; RECOVERY_COAT_REMOVED; TP010_FULL; TP011_EXCLUDED",
+      "records_clerk": "UNNAMED; TEA; AFTER_TP010_RST01; TP010_EXCLUDED",
+      "janne": "PHYSICAL_RECOVERY; TP011_FULL",
+      "newborn": "PHYSICALLY_HEALTHY; ABSENT_FROM_BOTH_ROOMS; LEGALLY_MARKED_DEAD_AFTER_CONFIRM; ACTUAL_DEATH_FALSE"
+    }
+  },
+  "editorial_lock": {
+    "enabled": true,
+    "current_completed_segment": "SC013",
+    "next_editorial_segment": "SC014",
+    "remaining_materialization_order": [
+      "SC014-SC059",
+      "SC074B",
+      "SC075-SC093",
+      "SC094A",
+      "SC096-SC098",
+      "SC099A",
+      "END"
+    ]
+  },
+  "revision_policy": {
+    "scene_local": true,
+    "shot_local": true,
+    "editorial_segment_local": true,
+    "unrelated_scene_regeneration_required": false
+  },
+  "picture_production": {
+    "pipeline": "GITHUB_CHATGPT_ASSETS_REMOTION",
+    "scope": "SC001_SH001_TO_SC005_SH024",
+    "planned_shots": 106,
+    "approved_count": 5,
+    "approved_through": "SC001_SH005",
+    "next_shot": "SC001_SH006",
+    "shot_package": "production/remotion/shot_specs/SC001/SC001_SHOT_PACKAGE.json",
+    "cursor": "production/remotion/PICTURE_APPROVAL_CURSOR.json",
+    "remotion_scene_data": "production/remotion/src/data/sc001Approved.ts",
+    "state": "ACTIVE_AWAITING_NEXT_CANDIDATE",
+    "render_started": false
+  }
+}

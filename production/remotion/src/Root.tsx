@@ -7,6 +7,7 @@ import {
 } from './AnaadhiStoryboardAudiobook';
 
 const FullFeature = () => <AnaadhiStoryboardAudiobook timelineMode="EDITORIAL_LOCKED" />;
+const Scene001Approved = () => <AnaadhiStoryboardAudiobook timelineMode="SOURCE_RANGE" startScene={1} endScene={1} />;
 const SourceReview01 = () => <AnaadhiStoryboardAudiobook timelineMode="SOURCE_RANGE" startScene={1} endScene={20} />;
 const SourceReview02 = () => <AnaadhiStoryboardAudiobook timelineMode="SOURCE_RANGE" startScene={21} endScene={40} />;
 const SourceReview03 = () => <AnaadhiStoryboardAudiobook timelineMode="SOURCE_RANGE" startScene={41} endScene={60} />;
@@ -23,6 +24,15 @@ export const RemotionRoot: React.FC = () => {
         height={1600}
         fps={30}
         durationInFrames={getDurationFramesForEditorialOrder(30)}
+        defaultProps={{}}
+      />
+      <Composition
+        id="ANAADHI_SC001_APPROVED_V001"
+        component={Scene001Approved}
+        width={3840}
+        height={1600}
+        fps={30}
+        durationInFrames={getDurationFramesForRange(1, 1, 30)}
         defaultProps={{}}
       />
       <Composition

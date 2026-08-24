@@ -29,6 +29,9 @@ jobs:
       - name: Install Remotion dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Verify approved shot assets
+        run: npm run verify:approved-shots
+
       - name: Typecheck
         run: npm run typecheck
 

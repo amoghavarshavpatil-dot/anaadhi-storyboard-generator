@@ -1,5 +1,6 @@
 scene_id: "001"
-status: DRAFT
+status: SPEC_READY
+picture_status: PARTIAL_APPROVED
 screenplay_revision: "Approved Latest Indian English screenplay baseline; editable"
 
 source:
@@ -35,7 +36,15 @@ continuity:
 
 shots:
   - shot_id: "SC001_SH001"
-    status: DRAFT
+    revision_id: "V001"
+    status: APPROVED_SHOT
+    approved_asset:
+      git_path: "production/remotion/public/shots/SC001/SC001_SH001_V001.png"
+      remotion_static_file: "shots/SC001/SC001_SH001_V001.png"
+      sha256: "2eb09e64c75b1f55718a753a869bd4225d13f1e079528512efe72277262090ac"
+      width: 1942
+      height: 809
+      aspect_ratio: "2.40:1"
     duration_seconds: 6.0
     purpose: "Establish Bhaigaara forest, black rain and raised cabin under covert encirclement"
     framing: "very wide anamorphic establishing"
@@ -48,10 +57,18 @@ shots:
     dialogue_clip: null
     bgm_cue: "low psychological opening pulse"
     sfx_cues: ["black rain", "distant drone pressure", "forest insects", "sub-bass perimeter tension"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH002"
-    status: DRAFT
+    revision_id: "V001"
+    status: APPROVED_SHOT
+    approved_asset:
+      git_path: "production/remotion/public/shots/SC001/SC001_SH002_V001.png"
+      remotion_static_file: "shots/SC001/SC001_SH002_V001.png"
+      sha256: "fe85566a1d655c86e1ba9f97dc5b206a0ef16b15d1cddf3c7a225697ea963a32"
+      width: 1942
+      height: 809
+      aspect_ratio: "2.40:1"
     duration_seconds: 6.0
     purpose: "Reveal the four-force perimeter and shared Paraane visual language"
     framing: "wide lateral operation tableau"
@@ -64,10 +81,18 @@ shots:
     dialogue_clip: null
     bgm_cue: "continue opening pulse"
     sfx_cues: ["rain on leaves", "equipment handling", "distant boots in mud"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH003"
-    status: DRAFT
+    revision_id: "V001"
+    status: APPROVED_SHOT
+    approved_asset:
+      git_path: "production/remotion/public/shots/SC001/SC001_SH003_V001.png"
+      remotion_static_file: "shots/SC001/SC001_SH003_V001.png"
+      sha256: "75c5a9dc4ec5fb0a6afc0101109e84266b53b119d81c8d3f5680d97a6bbd1d6f"
+      width: 1942
+      height: 809
+      aspect_ratio: "2.40:1"
     duration_seconds: 5.0
     purpose: "Thermal confirmation: one body inside"
     framing: "medium close insert on Police Commander's wrist and reflected cabin"
@@ -80,10 +105,18 @@ shots:
     dialogue_clip: null
     bgm_cue: "thin tension layer"
     sfx_cues: ["wrist interface pulse", "radio static", "rain"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH004"
-    status: DRAFT
+    revision_id: "V001"
+    status: APPROVED_SHOT
+    approved_asset:
+      git_path: "production/remotion/public/shots/SC001/SC001_SH004_V001.png"
+      remotion_static_file: "shots/SC001/SC001_SH004_V001.png"
+      sha256: "65547b99314c863c2d89856cfbd0daa72ceb5495acec4af15ac9bd1a79688b3f"
+      width: 1942
+      height: 809
+      aspect_ratio: "2.40:1"
     duration_seconds: 7.0
     purpose: "Command exchange without requiring visible lip-sync"
     framing: "intercut tactical profiles, helmets, hands, radios and medical case details"
@@ -96,10 +129,18 @@ shots:
     dialogue_clip: null
     bgm_cue: "hold tension under creator dialogue"
     sfx_cues: ["radio clicks", "rain", "fabric movement"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH005"
-    status: DRAFT
+    revision_id: "V001"
+    status: APPROVED_SHOT
+    approved_asset:
+      git_path: "production/remotion/public/shots/SC001/SC001_SH005_V001.png"
+      remotion_static_file: "shots/SC001/SC001_SH005_V001.png"
+      sha256: "9fcb6c1e3ad936a31ac7961bcc0c76553dee9a66000f709be8accf78a610dd8a"
+      width: 1942
+      height: 809
+      aspect_ratio: "2.40:1"
     duration_seconds: 3.0
     purpose: "Violent THUD shakes cabin and perimeter snaps to aim"
     framing: "medium-wide cabin exterior"
@@ -112,10 +153,10 @@ shots:
     dialogue_clip: null
     bgm_cue: "brief drop before impact"
     sfx_cues: ["massive interior THUD", "wood structure groan", "weapons raising", "rain"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH006"
-    status: DRAFT
+    status: SPEC_READY
     duration_seconds: 8.0
     purpose: "First interior reveal of sedated Anaadhi"
     framing: "low floor-level wide/medium"
@@ -131,7 +172,7 @@ shots:
     regenerate: true
 
   - shot_id: "SC001_SH007"
-    status: DRAFT
+    status: SPEC_READY
     duration_seconds: 10.0
     purpose: "Five Parallel Earth fracture montage"
     framing: "subject-anchored reality shards"
@@ -147,7 +188,7 @@ shots:
     regenerate: true
 
   - shot_id: "SC001_SH008"
-    status: DRAFT
+    status: SPEC_READY
     duration_seconds: 8.0
     purpose: "Return to present; fingers reach floor crack; operation closes around him"
     framing: "extreme close hand-to-floor crack, then subtle widening"
@@ -161,6 +202,15 @@ shots:
     bgm_cue: "leave space for Anaadhi V.O."
     sfx_cues: ["finger on cracked wood", "breathing", "distant boots tightening perimeter", "rain"]
     regenerate: true
+
+remotion:
+  shot_package: "production/remotion/shot_specs/SC001/SC001_SHOT_PACKAGE.json"
+  picture_approval_cursor: "production/remotion/PICTURE_APPROVAL_CURSOR.json"
+  scene_data: "production/remotion/src/data/sc001Approved.ts"
+  approved_count: 5
+  approved_through: "SC001_SH005"
+  next_shot: "SC001_SH006"
+  render_started: false
 
 scene_audio:
   dialogue_generated: false
