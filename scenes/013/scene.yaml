@@ -1,0 +1,294 @@
+scene_id: SC013
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+package_schema: ANAADHI_REMOTION_SC013_V13_COMPACT_RESOLVABLE
+source_scene_number: 13
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+headings:
+- INT. PARLIPATNA HOSPITAL – RECORDS CONTROL ROOM – NIGHT
+- INT. MATERNITY RECOVERY ROOM – LATER
+source_previous: SC012
+source_next: SC014
+editorial_previous: SC012
+editorial_next: SC014
+source_boundary:
+  previous_exact_end: He mistakes uncertainty for permission.
+  start: Rain strikes the narrow windows.
+  end:
+  - Her fingers touch only the cold sheet.
+  - No music.
+  - Only rain.
+  next_heading_excluded: EXT. PARLIPATNA – FOUR-ROAD JUNCTION – NIGHT
+environment:
+  loc: LOC-005
+  parent_env: ENV-PLP-001
+  wc: WC009
+  wc_signature: TD7/WX1/EX0/LS1/OC4/OP0/T
+  story_period: C1
+  time: NIGHT
+  weather: RAIN_STRIKES_HOSPITAL_WINDOWS
+  pv: N/A_NON_PARAANE_ANCHOR
+  nested_spaces:
+    records_control_room:
+      sub: SUB-005-02
+      env: ENV-PLP-003
+      name: Parlipatna Hospital — Records Control Room
+      closures:
+      - AR004
+      - INV004
+      - MS004
+      - KC004
+      - TG004
+      function: RESTRICTED_RECORD_ACCESS_RETRIEVAL_AUDIT_MAINTENANCE
+    maternity_recovery_room:
+      sub: SUB-005-03
+      env: ENV-PLP-004
+      name: Parlipatna Hospital — Maternity Recovery Room
+      closures:
+      - AR005
+      - INV005
+      - MS005
+      - KC005
+      - TG005
+      function: MATERNITY_RECOVERY_BED_WINDOW_EMPTY_CRADLE_RELATIONSHIP
+  separation_rule: DISTINCT_NESTED_SPACES_NO_CONNECTING_DOOR_OR_ROUTE_SHOWN; EDITORIAL_TRANSITION_DOES_NOT_PROVE_ADJACENCY
+characters:
+  PARVARAN:
+    continuity: DIRECT_FROM_SC012_NO_REDESIGN
+    records_room_costume: SAME_HOSPITAL_NIGHT_COAT_WITH_PARAANE_ID_AND_WRIST_DEVICE
+    access: FOUNDERS_ACCESS_SOURCE_ONLY_NO_INVENTED_CREDENTIAL_SCANNER_PASSWORD_OR_RITUAL
+    recovery_room_costume: COAT_REMOVED_SOURCE_STATE_NO_REMOVAL_SCENE
+    tp010_full_layer_access: true
+    tp011_full_layer_access: false
+  RECORDS_CLERK:
+    state: UNNAMED_SOURCE_ROLE_ONLY
+    prop: TEA
+    tp010_full_layer_access: false
+    entry: ONLY_AFTER_TP010_RST01_COMPLETE
+  JANNE:
+    state: PHYSICAL_RECOVERY_ROOM
+    tp011_full_layer_access: true
+    represented_layer_epistemic: COUNTERFACTUAL_NOT_LITERAL_MEMORY_OR_EVENT_FACT
+  NEWBORN_ANAADHI:
+    physical_presence_records_room: false
+    physical_presence_recovery_room: false
+    physical_status: HEALTHY_CHILD_LEGALLY_MARKED_DEAD_IN_RECORD_ONLY
+    represented_presence_tp010: true
+    represented_presence_tp011: true
+    actual_cardiorespiratory_failure: false
+    actual_death: false
+  ALTERNATE_PARVARAN:
+    state: TP010_REPRESENTED_COUNTERFACTUAL_SAME_CANONICAL_IDENTITY
+    physical_presence: false
+    independent_person_or_witness: false
+records_control_room_chronology:
+- Rain strikes the narrow windows.
+- Parvaran enters using founders’ access.
+- The automated hospital records system recognises him.
+- Parvaran opens the newborn’s live file.
+- The file initially records the child as healthy.
+- Parvaran’s hand hovers over the keyboard.
+- The restricted-alteration prompt appears.
+- Parvaran types the deliberately false clinical justification ACUTE POSTNATAL CARDIORESPIRATORY FAILURE.
+- The system asks CONFIRM DEATH?
+- Parvaran initially cannot press it.
+- TP010 / SB010 occurs only within its exact boundary.
+- RST01 restores the unchanged Records Control Room with confirmation unpressed and zero residue.
+- The Records Clerk enters carrying tea.
+- Parvaran closes the file window and completes the exact dialogue exchange.
+- The Clerk leaves.
+- Parvaran reopens the same file.
+- Parvaran presses CONFIRM.
+- The physically healthy child becomes legally dead within the record system; no additional post-confirmation text is shown.
+recovery_room_chronology:
+- Direct screenplay-authorised editorial transition; no route or adjacency is depicted.
+- Janne wakes slowly.
+- The cradle beside her is physically empty.
+- Parvaran sits near the window with his coat removed.
+- Parvaran delivers false statements about a complication, breathing collapse and death.
+- No body, clinical emergency or physical evidence supports the deception.
+- Janne recalls hearing the newborn cry and feeling him hold her finger.
+- Janne demands to see him and rejects being treated as a procedure.
+- Parvaran cannot produce a body for the child he has declared legally dead.
+- Parvaran falsely says the child is not in a condition to be seen.
+- Janne challenges whether the problem is the child’s condition or Parvaran’s inability to face her.
+- Parvaran tells her to rest.
+- Janne turns away and reaches toward the empty cradle.
+- TP011 / SB011 begins only at its exact boundary.
+- RST01 restores Janne, Parvaran and the unchanged empty cradle with zero represented residue.
+- Her fingers touch only the cold sheet.
+- No music.
+- Only rain.
+dialogue:
+- speaker: RECORDS CLERK
+  text: Doctor, have you still not gone home?
+- speaker: PARVARAN
+  text: There is an emergency correction.
+- speaker: RECORDS CLERK
+  text: If there is a system correction at night, the morning shift will blame us, sir.
+- speaker: RECORDS CLERK
+  text: Is there any problem?
+- speaker: PARVARAN
+  text: No.
+- speaker: PARVARAN
+  text: You may leave.
+- speaker: JANNE
+  text: Where is the baby?
+- speaker: JANNE
+  text: Parvaran...
+- speaker: PARVARAN
+  text: There was a complication.
+- speaker: JANNE
+  text: What complication?
+- speaker: PARVARAN
+  text: His breathing suddenly collapsed.
+- speaker: JANNE
+  text: Where is he now?
+- speaker: PARVARAN
+  text: He did not survive.
+- speaker: JANNE
+  text: No.
+- speaker: PARVARAN
+  text: Janne--
+- speaker: JANNE
+  text: I heard him cry.
+- speaker: PARVARAN
+  text: I know.
+- speaker: JANNE
+  text: He held my finger.
+- speaker: JANNE
+  text: I want to see him.
+- speaker: PARVARAN
+  text: The procedure--
+- speaker: JANNE
+  text: I am his mother.
+- speaker: JANNE
+  text: Not a procedure.
+- speaker: PARVARAN
+  text: He is not in a condition to be seen now.
+- speaker: JANNE
+  text: Is he not?
+- speaker: JANNE
+  text: Or are you not?
+- speaker: PARVARAN
+  text: Get some rest.
+readable_text_allowlist:
+- WELCOME, DR. PARVARAN
+- PARAANE REHABILITATION DIRECTOR
+- 'STATUS: HEALTHY'
+- 'MOTHER: JANNE'
+- 'FATHER: PARVARAN'
+- RESTRICTED ALTERATION REQUIRES CLINICAL JUSTIFICATION
+- ACUTE POSTNATAL CARDIORESPIRATORY FAILURE
+- CONFIRM DEATH?
+- CONFIRM
+record_truth_control:
+  typed_cardiorespiratory_failure: DELIBERATELY_FALSE_RECORD_ENTRY
+  physical_cardiorespiratory_failure: false
+  physical_newborn_death: false
+  legal_record_consequence: HEALTHY_CHILD_BECOMES_LEGALLY_DEAD_AFTER_CONFIRM
+  post_confirmation_text: NONE_AUTHORISED
+env6:
+  source_ruling: PHYSICAL_SCENE_WITH_TWO_AUTHORITATIVE_BOUNDED_REPRESENTED_BEATS
+  TP010:
+    sb: SB010
+    gf: GF05
+    ep: EP0+EP1+EP4+EP5+EP-U
+    obs: OBS01
+    anchor: ANCH05
+    inverse: INV6-05
+    restore: RST01
+    environment: ENV-PLP-003
+    boundary: His reflection appears across the dark display. Behind the reflection stands another Parvaran from a parallel
+      Earth. -> No one is there.
+    receivers:
+    - PARVARAN
+    - AUDIENCE
+    excluded_full_layer:
+    - RECORDS_CLERK
+    content:
+    - Another Parvaran stands behind the real Parvaran’s reflection.
+    - That represented Parvaran carries the child back to Janne.
+    - The real Parvaran turns.
+    - No one is physically present.
+    persistence: ZERO_RESIDUE_CONFIRMATION_STILL_UNPRESSED_BEFORE_CLERK_ENTRY
+  TP011:
+    sb: SB011
+    gf: GF01
+    ep: EP0+EP1+EP3+EP-U
+    obs: OBS01
+    anchor: ANCH06
+    inverse: INV6-06
+    restore: RST01
+    environment: ENV-PLP-004
+    boundary: 'PARALLEL-EARTH FLASH: -> Her fingers touch only the cold sheet.'
+    receivers:
+    - JANNE
+    - AUDIENCE
+    excluded_full_layer:
+    - PARVARAN
+    content:
+    - The newborn lies safely beside Janne.
+    - Janne opens her eyes in that represented Earth.
+    - The cradle is full.
+    - BACK TO PRESENT.
+    - Her real fingers touch only the cold sheet.
+    persistence: ZERO_RESIDUE_EMPTY_CRADLE_UNCHANGED
+shot_plan:
+  shot_count: 90
+  duration_seconds: 270
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC013/SC013_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  new_bgm_sfx_voice_or_represented_audio_generation: false
+  records_room_rule: PHYSICAL_RAIN_RECORDS_ROOM_AND_LITERAL_INTERFACE_INPUT_ONLY; NO_REPRESENTED_AUDIO
+  recovery_room_rule: RESTRAINED_PHYSICAL_RECOVERY_ROOM_AND_RAIN_ONLY; FINAL_WINDOW_BGM_NONE
+  exact_end_audio:
+  - NO_MUSIC
+  - ONLY_PHYSICAL_RAIN
+hard_exclusions:
+- NO_TP010_OUTSIDE_EXACT_REFLECTION_BOUNDARY
+- NO_TP011_OUTSIDE_EXACT_RECOVERY_FLASH_BOUNDARY
+- NO_FULL_TP010_ACCESS_FOR_RECORDS_CLERK
+- NO_FULL_TP011_ACCESS_FOR_PARVARAN
+- NO_REPRESENTED_PERSON_OR_NEWBORN_PROMOTED_TO_PHYSICAL_FACT
+- NO_PHYSICAL_NEWBORN_IN_RECORDS_CONTROL_ROOM_OR_RECOVERY_ROOM
+- NO_ACTUAL_CARDIORESPIRATORY_FAILURE_OR_NEWBORN_DEATH
+- NO_INVENTED_MEDICAL_COMPLICATION_OR_SUPPORTING_EVIDENCE
+- NO_BODY_MORGUE_DEATH_PROCEDURE_CERTIFICATE_DISPOSAL_BURIAL_OR_FUNERAL
+- NO_INVENTED_NEWBORN_NAME_IDENTIFIER_SCORE_DIAGNOSIS_TIMESTAMP_CLINICIAN_AUDIT_OR_POST_CONFIRMATION_STATUS
+- NO_ADDITIONAL_READABLE_HOSPITAL_OR_PARAANE_TEXT
+- NO_INVENTED_FOUNDER_CREDENTIAL_PASSWORD_SCANNER_BIOMETRIC_RITUAL_OR_ACCESS_TECHNOLOGY
+- NO_ADDITIONAL_RECORDS_HIDDEN_DESTINATIONS_OR_PARENTAL_IDENTITIES
+- NO_INVENTED_CLERK_IDENTITY_SUSPICION_INTERVENTION_OR_TESTIMONY
+- NO_INVENTED_JANNE_MEDICAL_FACTS
+- NO_ADDITIONAL_HOSPITAL_ROOM_WARD_CORRIDOR_PORTAL_OR_ROUTE
+- NO_PHYSICAL_ROUTE_SHOWN_BETWEEN_NESTED_SPACES
+- NO_SC014_ACTION_CAR_SHRINE_FOUR_ROADS_WOOL_BLANKET_ABANDONMENT_OR_TRANSFER
+- NO_CONTINUITY_REDESIGN
+- NO_IMAGE_GENERATION
+- NO_VIDEO_RENDERING
+- NO_SUPERCOOL_HEYGEN_OR_PAID_MEDIA_API
+- NO_NEW_BGM_SFX_VOICE_OR_REPRESENTED_LAYER_AUDIO
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: PERMANENTLY_DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
+  execute_now: false
+next: SC014
