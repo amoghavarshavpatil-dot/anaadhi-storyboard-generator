@@ -1,0 +1,119 @@
+scene_id: SC072
+status: SPEC_READY
+source_scene_number: 72
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: INT. PARAANE ARCHIVE CORE – DAY
+editorial_previous: SC071
+editorial_next: SC073
+source_boundary:
+  start: Aarathi, Anaadhi and Manire enter the oldest records chamber. Asana follows at a controlled distance.
+  end: The screens go dark. The question remains illuminated.
+batch: {canonical: B26}
+env6:
+  condition: WC065
+  signature: TD8/WX0/EX0/LS1/OC3/OP0/T
+  transition_point: TP077
+  special_beat: SB077
+  grammar_family: GF06
+  ep: EP0+EP2+EP3+EP-U
+  observers: OBS01
+  access: Adult Anaadhi receives the full represented layer; Aarathi, Manire and Asana do not; audience receives representation.
+  anchor: ANCH57
+  inverse: INV6-57
+  environment: ENV-PAR-032
+  pv: PV159
+  restore: RST05
+  start: 'A flash: Semmaa carrying the newborn in rain'
+  end: 'A record, a story and a visual may have mixed together.'
+  zero_residue_restore: true
+  ep_u: UNRESOLVED
+  prohibited: [X-S01-X-S08, X-G02, X-G03, X-COUNT]
+environment_authority:
+  root: LOC-003
+  id: ENV-PAR-032
+  pv: PV159
+  name: Paraane Archive Core
+  form: NEST
+  parent: ENV-PAR-001
+  priority: H
+  hero_family: HF-06
+  closure: [AR039/INV039, MS039, KC039, TG039]
+  time: DAY
+  weather: UNSTATED
+characters:
+  ANAADHI:
+    state: AGE_27_PARAANE_RETURN
+    age: 27
+    height_cm: 193
+    continuity: wet post-operation/capture body; capture hair; chemical aftermath/exhaustion; no SC074 wounds
+  AARATHI:
+    state: B26_CONTINUITY
+    role: evidence preservation
+    evidence_custody: RUKEY_seventeen_name_display secured
+    represented_access: none
+  MANIRE:
+    state: B26 older/grey-hair continuity
+    represented_access: none
+  ASANA:
+    identity: CHR-ASANA
+    blocking: follows at controlled distance
+    represented_access: none
+  SEMMAA_NEWBORN_FLASH:
+    represented_only: true
+    persistence: none after RST05
+  ANARVAA:
+    presence: remote archive-screen appearance only after physical restore
+evidence_and_technology:
+  suspended_files: thousands inside black-stone vault
+  childhood_identity:
+    exact_fields:
+      NAME: ANAADHI
+      FAMILY: UNKNOWN
+      GUARDIAN: PARAANE REHABILITATION AUTHORITY
+  original_admission_record: physical archive evidence
+  guardianship_renewals:
+    age_range: one through twelve
+    authorising_signature: PARVARAN
+  neonatal_transfer:
+    facility: PARLIPATNA MULTI-SPECIALITY MATERNITY HOSPITAL
+    parental_fields: SEALED
+    access_state: FOUNDER-LEVEL RESTRICTION
+  epistemic_rule: Do not fabricate parental identities, extra record text, or memory certainty.
+dialogue:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  exact_source_order: true
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  physical_sound_outside_SB077: true
+  represented_sound_only_inside_SB077: true
+  restore_rule: RST05 returns unchanged Archive Core sound with zero residue.
+shot_plan:
+  shot_count: 60
+  duration_seconds: 180
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  shot_package: production/remotion/shot_specs/SC072/SC072_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+hard_exclusions:
+  - SB077_OUTSIDE_EXACT_BOUNDARY
+  - AARATHI_MANIRE_ASANA_FULL_REPRESENTED_ACCESS
+  - PARENT_IDENTITY_FABRICATION
+  - INVENTED_ARCHIVE_TEXT
+  - MEMORY_CERTAINTY
+  - SUPERNATURAL_CERTAINTY
+  - SC073_ACTION
+  - SC074_WOUNDS_EARLY
+  - IMAGE_GENERATION
+  - VIDEO_RENDER
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+next: SC073
