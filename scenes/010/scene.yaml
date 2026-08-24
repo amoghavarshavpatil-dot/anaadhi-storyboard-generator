@@ -1,0 +1,119 @@
+scene_id: SC010
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+source_scene_number: 10
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: INT. PARAANE FOUNDERS’ COUNCIL CHAMBER – NIGHT
+source_previous: SC009
+source_next: SC011
+editorial_previous: SC009
+editorial_next: SC011
+source_boundary:
+  previous_endpoint: Their protest banner falls into mud.
+  start: The institution has transformed.
+  end: CUT TO BLACK.
+env6:
+  control: NO_SB_PHYSICAL_SCREENPLAY_CHRONOLOGY_ONLY
+  tp: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  sb: NONE_NO_SB
+  gf: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  represented_layer: false
+environment:
+  id: ENV-PAR-009
+  name: Paraane Founders' Council Chamber
+  root_loc: LOC-003
+  subspace: SUB-003-05
+  wc: WC006
+  wc_signature: TD7/WX0/EX0/LS1/OC4/OP1/T
+  pv: PV042
+  paraane_phase: P1
+  pv_operation: ADD
+  design_refs:
+  - AR016
+  - INV016
+  - MS016
+  - KC016
+  - TG016
+  asset_lock: ENV6L-SUB-003-05-REF-v001
+  time: NIGHT
+  weather: NO_WEATHER_STATED
+  condition: ENCLOSED_DRY_FORMALLY_MAINTAINED
+  rule: Founders' Council Chamber remains distinct from Kendhalaa council hall; doors close only as screenplay action, not a new lock system.
+characters:
+  ANARVAA:
+    continuity: INHERIT_LOCKED_SC009_NO_REDESIGN
+    role: CENTRALISING_AUTHORITY
+    position: HEAD_OF_GOVERNING_COUNCIL
+  PARVARAN:
+    continuity: INHERIT_LOCKED_SC009_NO_REDESIGN
+    role: CLINICAL_FOUNDER
+    state: WORKERS_DISTRICT_SIGNATURE_CONSEQUENCE_PRESENT
+  MARSYAA:
+    continuity: INHERIT_LOCKED_SC009_NO_REDESIGN
+    role: MENTOR_DISSENT
+    prop: OLD_TEACHING_NOTEBOOK
+  GOVERNING_COUNCIL:
+    state: UNNAMED_SOURCE_ROLE_ONLY
+  JANNE:
+    presence: MESSAGE_SENDER_ONLY_NOT_PHYSICAL
+  ANAADHI:
+    presence: ABSENT
+  ASANA:
+    presence: ABSENT
+evidence_records_interfaces:
+  workers_district_files: UNOPENED_BEFORE_PARVARAN_NO_INVENTED_NAMES_OR_TEXT
+  workers_district_report: SOURCE_AUTHORISED_DESCRIPTION_SUCCESSFUL_PREVENTIVE_CARE_ONLY
+  council_record: SOURCE_AUTHORISED_RECORD_CLOSE_NO_EXTRA_READABLE_TEXT
+  expanding_paraane_map: LITERAL_INSTITUTIONAL_DISPLAY_NO_SUPERNATURAL_MEANING
+  paraane_emblem: EXISTING_LOCKED_IDENTITY_NO_REDESIGN
+  janne_message: Doctor called. Come home early.
+  other_readable_text: FORBIDDEN
+shot_plan:
+  shot_count: 60
+  duration_seconds: 180
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  timing: PROVISIONAL_PENDING_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC010/SC010_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  sound_rule: Physical Founders' Council Chamber, literal record/display/door/phone sounds only; preserve existing master; no represented-layer
+    audio and no new BGM/SFX generation.
+hard_exclusions:
+- GUESSED_ENV6_TP_GF
+- PARALLEL_EARTH
+- REPRESENTED_LAYER
+- SC011_ACTION
+- SC011_MATERNITY_HOSPITAL
+- SC011_RAIN
+- CONTINUITY_REDESIGN
+- INVENTED_READABLE_INTERFACE_TEXT
+- INVENTED_REPORT_TEXT
+- INVENTED_DOCUMENT_TEXT
+- PARAANE_EMBLEM_REDESIGN
+- NEW_CHARACTER_HISTORY
+- NEW_COUNCIL_HALL
+- DAMAGE_OR_OUTAGE
+- NEW_LOCK_SYSTEM
+- IMAGE_GENERATION
+- VIDEO_RENDER
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+exact_end:
+  picture: CUT TO BLACK.
+  next: SC011
+  no_early_next_scene: true
