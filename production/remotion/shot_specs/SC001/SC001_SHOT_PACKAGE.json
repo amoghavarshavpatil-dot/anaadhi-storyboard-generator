@@ -3,8 +3,8 @@
   "project": "ANAADHI",
   "scene_id": "SC001",
   "revision_id": "R001",
-  "status": "SPEC_READY",
-  "lock_state": "APPROVED_SEQUENCE_PARTIAL",
+  "status": "LOCKED_PICTURE",
+  "lock_state": "LOCKED_PICTURE",
   "source_authority": "scenes/001/scene.yaml",
   "screenplay_source": {
     "heading": "EXT./INT. BHAIGAARA BUFFER FOREST — ANAADHI'S RAISED CABIN — PRE-DAWN",
@@ -42,14 +42,14 @@
     "no recompression",
     "no image regeneration",
     "no unapproved motion or reframing",
-    "no SC001_SH008 generation in this commit"
+    "no SC002_SH001 generation in this commit"
   ],
   "picture_progress": {
     "planned_scene_shots": 8,
     "planned_run_shots": 106,
-    "approved_count": 7,
-    "approved_through": "SC001_SH007",
-    "next_shot": "SC001_SH008",
+    "approved_count": 8,
+    "approved_through": "SC001_SH008",
+    "next_shot": "SC002_SH001",
     "render_started": false
   },
   "shots": [
@@ -160,10 +160,18 @@
     },
     {
       "shot_id": "SC001_SH008",
-      "status": "SPEC_READY",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
       "duration_seconds": 8,
       "purpose": "Return to present; fingers reach floor crack; operation closes around him",
-      "asset": null
+      "framing": "extreme close hand-to-floor crack, then subtle widening",
+      "screen_direction": "NEUTRAL",
+      "motion_mode": "STATIC",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "2bad99ecc98838070b2de90668add6158e5f1e22638060b63e6d9a92cc8de20d",
+      "git_path": "production/remotion/public/shots/SC001/SC001_SH008_V001.png",
+      "remotion_static_file": "shots/SC001/SC001_SH008_V001.png",
+      "original_title": "Fingers Reach the Split Floorboard.png"
     }
   ]
 }

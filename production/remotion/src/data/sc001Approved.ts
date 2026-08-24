@@ -3,7 +3,7 @@ import type {SceneSpec} from '../types';
 export const sc001ApprovedScene: SceneSpec = {
   sceneId: 'SC001',
   revisionId: 'V001',
-  status: 'SPEC_READY',
+  status: 'LOCKED_PICTURE',
   shots: [
     {
       sceneId: 'SC001',
@@ -65,6 +65,15 @@ export const sc001ApprovedScene: SceneSpec = {
       revisionId: 'V001',
       imagePath: 'shots/SC001/SC001_SH007_V001.png',
       durationSeconds: 10,
+      motionMode: 'STATIC',
+      screenDirection: 'NEUTRAL',
+    },
+    {
+      sceneId: 'SC001',
+      shotId: 'SC001_SH008',
+      revisionId: 'V001',
+      imagePath: 'shots/SC001/SC001_SH008_V001.png',
+      durationSeconds: 8,
       motionMode: 'STATIC',
       screenDirection: 'NEUTRAL',
     },

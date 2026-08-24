@@ -1,6 +1,6 @@
 scene_id: "001"
-status: SPEC_READY
-picture_status: PARTIAL_APPROVED
+status: LOCKED_PICTURE
+picture_status: LOCKED_PICTURE
 screenplay_revision: "Approved Latest Indian English screenplay baseline; editable"
 
 source:
@@ -204,7 +204,15 @@ shots:
     regenerate: false
 
   - shot_id: "SC001_SH008"
-    status: SPEC_READY
+    revision_id: "V001"
+    status: APPROVED_SHOT
+    approved_asset:
+      git_path: "production/remotion/public/shots/SC001/SC001_SH008_V001.png"
+      remotion_static_file: "shots/SC001/SC001_SH008_V001.png"
+      sha256: "2bad99ecc98838070b2de90668add6158e5f1e22638060b63e6d9a92cc8de20d"
+      width: 1942
+      height: 809
+      aspect_ratio: "2.40:1"
     duration_seconds: 8.0
     purpose: "Return to present; fingers reach floor crack; operation closes around him"
     framing: "extreme close hand-to-floor crack, then subtle widening"
@@ -217,15 +225,15 @@ shots:
     dialogue_clip: null
     bgm_cue: "leave space for Anaadhi V.O."
     sfx_cues: ["finger on cracked wood", "breathing", "distant boots tightening perimeter", "rain"]
-    regenerate: true
+    regenerate: false
 
 remotion:
   shot_package: "production/remotion/shot_specs/SC001/SC001_SHOT_PACKAGE.json"
   picture_approval_cursor: "production/remotion/PICTURE_APPROVAL_CURSOR.json"
   scene_data: "production/remotion/src/data/sc001Approved.ts"
-  approved_count: 7
-  approved_through: "SC001_SH007"
-  next_shot: "SC001_SH008"
+  approved_count: 8
+  approved_through: "SC001_SH008"
+  next_shot: "SC002_SH001"
   render_started: false
 
 scene_audio:

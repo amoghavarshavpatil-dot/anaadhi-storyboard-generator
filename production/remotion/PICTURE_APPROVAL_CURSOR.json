@@ -8,9 +8,9 @@
     "planned_shots": 106
   },
   "progress": {
-    "approved_count": 7,
-    "last_approved_shot": "SC001_SH007",
-    "next_shot": "SC001_SH008",
+    "approved_count": 8,
+    "last_approved_shot": "SC001_SH008",
+    "next_shot": "SC002_SH001",
     "last_approved_revision": "V001"
   },
   "asset_ledger": "production/remotion/shot_specs/SC001/SC001_SHOT_PACKAGE.json",
