@@ -1,34 +1,218 @@
-version: 30
+version: 31
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
 coverage:
-  SC001: {state: LEGACY_SCENE_PLAN_PRESENT, source: scenes/001/scene.yaml, shot_count: 8, migration_to_new_schema: PENDING}
-  SC002: {state: SPEC_READY, source: scenes/002/scene.yaml, shot_package: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json, shot_count: 18, duration_seconds: 54, stills_per_minute: 20}
-  SC003: {state: SPEC_READY, source: scenes/003/scene.yaml, shot_package: production/remotion/shot_specs/SC003/SC003_SHOT_PACKAGE.json, shot_count: 20, duration_seconds: 60, stills_per_minute: 20}
-  SC004: {state: SPEC_READY, source: scenes/004/scene.yaml, shot_package: production/remotion/shot_specs/SC004/SC004_SHOT_PACKAGE.json, shot_count: 36, duration_seconds: 90, stills_per_minute: 24}
-  SC005: {state: SPEC_READY, source: scenes/005/scene.yaml, shot_package: production/remotion/shot_specs/SC005/SC005_SHOT_PACKAGE.json, shot_count: 24, duration_seconds: 72, stills_per_minute: 20, final_editorial_next: SC099B}
-  SC099B: {state: SPEC_READY, source: scenes/099/segments/SC099B/scene.yaml, shot_package: production/remotion/shot_specs/SC099B/SC099B_SHOT_PACKAGE.json, shot_count: 16, duration_seconds: 48, stills_per_minute: 20, final_editorial_next: SC100}
-  SC100: {state: SPEC_READY, source: scenes/100/scene.yaml, shot_package: production/remotion/shot_specs/SC100/SC100_SHOT_PACKAGE.json, shot_count: 36, duration_seconds: 108, stills_per_minute: 20, final_editorial_next: SC094B}
-  SC094B: {state: SPEC_READY, source: scenes/094/segments/SC094B/scene.yaml, shot_package: production/remotion/shot_specs/SC094B/SC094B_SHOT_PACKAGE.json, shot_count: 12, duration_seconds: 36, stills_per_minute: 20, final_editorial_next: SC095}
-  SC095: {state: SPEC_READY, source: scenes/095/scene.yaml, shot_package: production/remotion/shot_specs/SC095/SC095_SHOT_PACKAGE.json, shot_count: 42, duration_seconds: 126, stills_per_minute: 20, final_editorial_next: SC060}
-  SC060: {state: SPEC_READY, source: scenes/060/scene.yaml, shot_package: production/remotion/shot_specs/SC060/SC060_SHOT_PACKAGE.json, shot_count: 24, duration_seconds: 72, stills_per_minute: 20, final_editorial_next: SC061}
-  SC061: {state: SPEC_READY, source: scenes/061/scene.yaml, shot_package: production/remotion/shot_specs/SC061/SC061_SHOT_PACKAGE.json, shot_count: 30, duration_seconds: 90, stills_per_minute: 20, final_editorial_next: SC062}
-  SC062: {state: SPEC_READY, source: scenes/062/scene.yaml, shot_package: production/remotion/shot_specs/SC062/SC062_SHOT_PACKAGE.json, shot_count: 39, duration_seconds: 117, stills_per_minute: 20, final_editorial_next: SC063}
-  SC063: {state: SPEC_READY, source: scenes/063/scene.yaml, shot_package: production/remotion/shot_specs/SC063/SC063_SHOT_PACKAGE.json, shot_count: 48, duration_seconds: 144, stills_per_minute: 20, final_editorial_next: SC064}
-  SC064: {state: SPEC_READY, source: scenes/064/scene.yaml, shot_package: production/remotion/shot_specs/SC064/SC064_SHOT_PACKAGE.json, shot_count: 64, duration_seconds: 192, stills_per_minute: 20, final_editorial_next: SC065}
-  SC065: {state: SPEC_READY, source: scenes/065/scene.yaml, shot_package: production/remotion/shot_specs/SC065/SC065_SHOT_PACKAGE.json, shot_count: 74, duration_seconds: 222, stills_per_minute: 20, final_editorial_next: SC066}
-  SC066: {state: SPEC_READY, source: scenes/066/scene.yaml, shot_package: production/remotion/shot_specs/SC066/SC066_SHOT_PACKAGE.json, shot_count: 90, duration_seconds: 270, stills_per_minute: 20, final_editorial_next: SC067}
-  SC067: {state: SPEC_READY, source: scenes/067/scene.yaml, shot_package: production/remotion/shot_specs/SC067/SC067_SHOT_PACKAGE.json, shot_count: 80, duration_seconds: 240, stills_per_minute: 20, final_editorial_next: SC068}
-  SC068: {state: SPEC_READY, source: scenes/068/scene.yaml, shot_package: production/remotion/shot_specs/SC068/SC068_SHOT_PACKAGE.json, shot_count: 50, duration_seconds: 150, stills_per_minute: 20, final_editorial_next: SC069}
-  SC069: {state: SPEC_READY, source: scenes/069/scene.yaml, shot_package: production/remotion/shot_specs/SC069/SC069_SHOT_PACKAGE.json, shot_count: 69, duration_seconds: 207, stills_per_minute: 20, final_editorial_next: SC070}
-  SC070: {state: SPEC_READY, source: scenes/070/scene.yaml, shot_package: production/remotion/shot_specs/SC070/SC070_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC071}
-  SC071: {state: SPEC_READY, source: scenes/071/scene.yaml, shot_package: production/remotion/shot_specs/SC071/SC071_SHOT_PACKAGE.json, shot_count: 55, duration_seconds: 165, stills_per_minute: 20, final_editorial_next: SC072}
-  SC072: {state: SPEC_READY, finalized: true, lock_state: LOCKED, revision: R002, package_schema: ANAADHI_REMOTION_SHOT_PACKAGE_EXPANDED_V2, source: scenes/072/scene.yaml, shot_package: production/remotion/shot_specs/SC072/SC072_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC073, image_generation_started: false, render_started: false}
-  SC073: {state: SPEC_READY, source: scenes/073/scene.yaml, shot_package: production/remotion/shot_specs/SC073/SC073_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC074A}
-  SC074A: {state: SPEC_READY, source_scene_id: SC074, editorial_segment_id: SC074A, source: scenes/074/segments/SC074A/scene.yaml, shot_package: production/remotion/shot_specs/SC074A/SC074A_SHOT_PACKAGE.json, shot_count: 55, duration_seconds: 165, stills_per_minute: 20, final_editorial_next: SC006}
-  SC006: {state: SPEC_READY, source: scenes/006/scene.yaml, shot_package: production/remotion/shot_specs/SC006/SC006_SHOT_PACKAGE.json, shot_count: 40, duration_seconds: 120, stills_per_minute: 20, final_editorial_next: SC007}
-  SC007: {state: SPEC_READY, source: scenes/007/scene.yaml, shot_package: production/remotion/shot_specs/SC007/SC007_SHOT_PACKAGE.json, shot_count: 50, duration_seconds: 150, stills_per_minute: 20, final_editorial_next: SC008}
+  SC001:
+    state: LEGACY_SCENE_PLAN_PRESENT
+    source: scenes/001/scene.yaml
+    shot_count: 8
+    migration_to_new_schema: PENDING
+  SC002:
+    state: SPEC_READY
+    source: scenes/002/scene.yaml
+    shot_package: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json
+    shot_count: 18
+    duration_seconds: 54
+    stills_per_minute: 20
+  SC003:
+    state: SPEC_READY
+    source: scenes/003/scene.yaml
+    shot_package: production/remotion/shot_specs/SC003/SC003_SHOT_PACKAGE.json
+    shot_count: 20
+    duration_seconds: 60
+    stills_per_minute: 20
+  SC004:
+    state: SPEC_READY
+    source: scenes/004/scene.yaml
+    shot_package: production/remotion/shot_specs/SC004/SC004_SHOT_PACKAGE.json
+    shot_count: 36
+    duration_seconds: 90
+    stills_per_minute: 24
+  SC005:
+    state: SPEC_READY
+    source: scenes/005/scene.yaml
+    shot_package: production/remotion/shot_specs/SC005/SC005_SHOT_PACKAGE.json
+    shot_count: 24
+    duration_seconds: 72
+    stills_per_minute: 20
+    final_editorial_next: SC099B
+  SC099B:
+    state: SPEC_READY
+    source: scenes/099/segments/SC099B/scene.yaml
+    shot_package: production/remotion/shot_specs/SC099B/SC099B_SHOT_PACKAGE.json
+    shot_count: 16
+    duration_seconds: 48
+    stills_per_minute: 20
+    final_editorial_next: SC100
+  SC100:
+    state: SPEC_READY
+    source: scenes/100/scene.yaml
+    shot_package: production/remotion/shot_specs/SC100/SC100_SHOT_PACKAGE.json
+    shot_count: 36
+    duration_seconds: 108
+    stills_per_minute: 20
+    final_editorial_next: SC094B
+  SC094B:
+    state: SPEC_READY
+    source: scenes/094/segments/SC094B/scene.yaml
+    shot_package: production/remotion/shot_specs/SC094B/SC094B_SHOT_PACKAGE.json
+    shot_count: 12
+    duration_seconds: 36
+    stills_per_minute: 20
+    final_editorial_next: SC095
+  SC095:
+    state: SPEC_READY
+    source: scenes/095/scene.yaml
+    shot_package: production/remotion/shot_specs/SC095/SC095_SHOT_PACKAGE.json
+    shot_count: 42
+    duration_seconds: 126
+    stills_per_minute: 20
+    final_editorial_next: SC060
+  SC060:
+    state: SPEC_READY
+    source: scenes/060/scene.yaml
+    shot_package: production/remotion/shot_specs/SC060/SC060_SHOT_PACKAGE.json
+    shot_count: 24
+    duration_seconds: 72
+    stills_per_minute: 20
+    final_editorial_next: SC061
+  SC061:
+    state: SPEC_READY
+    source: scenes/061/scene.yaml
+    shot_package: production/remotion/shot_specs/SC061/SC061_SHOT_PACKAGE.json
+    shot_count: 30
+    duration_seconds: 90
+    stills_per_minute: 20
+    final_editorial_next: SC062
+  SC062:
+    state: SPEC_READY
+    source: scenes/062/scene.yaml
+    shot_package: production/remotion/shot_specs/SC062/SC062_SHOT_PACKAGE.json
+    shot_count: 39
+    duration_seconds: 117
+    stills_per_minute: 20
+    final_editorial_next: SC063
+  SC063:
+    state: SPEC_READY
+    source: scenes/063/scene.yaml
+    shot_package: production/remotion/shot_specs/SC063/SC063_SHOT_PACKAGE.json
+    shot_count: 48
+    duration_seconds: 144
+    stills_per_minute: 20
+    final_editorial_next: SC064
+  SC064:
+    state: SPEC_READY
+    source: scenes/064/scene.yaml
+    shot_package: production/remotion/shot_specs/SC064/SC064_SHOT_PACKAGE.json
+    shot_count: 64
+    duration_seconds: 192
+    stills_per_minute: 20
+    final_editorial_next: SC065
+  SC065:
+    state: SPEC_READY
+    source: scenes/065/scene.yaml
+    shot_package: production/remotion/shot_specs/SC065/SC065_SHOT_PACKAGE.json
+    shot_count: 74
+    duration_seconds: 222
+    stills_per_minute: 20
+    final_editorial_next: SC066
+  SC066:
+    state: SPEC_READY
+    source: scenes/066/scene.yaml
+    shot_package: production/remotion/shot_specs/SC066/SC066_SHOT_PACKAGE.json
+    shot_count: 90
+    duration_seconds: 270
+    stills_per_minute: 20
+    final_editorial_next: SC067
+  SC067:
+    state: SPEC_READY
+    source: scenes/067/scene.yaml
+    shot_package: production/remotion/shot_specs/SC067/SC067_SHOT_PACKAGE.json
+    shot_count: 80
+    duration_seconds: 240
+    stills_per_minute: 20
+    final_editorial_next: SC068
+  SC068:
+    state: SPEC_READY
+    source: scenes/068/scene.yaml
+    shot_package: production/remotion/shot_specs/SC068/SC068_SHOT_PACKAGE.json
+    shot_count: 50
+    duration_seconds: 150
+    stills_per_minute: 20
+    final_editorial_next: SC069
+  SC069:
+    state: SPEC_READY
+    source: scenes/069/scene.yaml
+    shot_package: production/remotion/shot_specs/SC069/SC069_SHOT_PACKAGE.json
+    shot_count: 69
+    duration_seconds: 207
+    stills_per_minute: 20
+    final_editorial_next: SC070
+  SC070:
+    state: SPEC_READY
+    source: scenes/070/scene.yaml
+    shot_package: production/remotion/shot_specs/SC070/SC070_SHOT_PACKAGE.json
+    shot_count: 60
+    duration_seconds: 180
+    stills_per_minute: 20
+    final_editorial_next: SC071
+  SC071:
+    state: SPEC_READY
+    source: scenes/071/scene.yaml
+    shot_package: production/remotion/shot_specs/SC071/SC071_SHOT_PACKAGE.json
+    shot_count: 55
+    duration_seconds: 165
+    stills_per_minute: 20
+    final_editorial_next: SC072
+  SC072:
+    state: SPEC_READY
+    finalized: true
+    lock_state: LOCKED
+    revision: R002
+    package_schema: ANAADHI_REMOTION_SHOT_PACKAGE_EXPANDED_V2
+    source: scenes/072/scene.yaml
+    shot_package: production/remotion/shot_specs/SC072/SC072_SHOT_PACKAGE.json
+    shot_count: 60
+    duration_seconds: 180
+    stills_per_minute: 20
+    final_editorial_next: SC073
+    image_generation_started: false
+    render_started: false
+  SC073:
+    state: SPEC_READY
+    source: scenes/073/scene.yaml
+    shot_package: production/remotion/shot_specs/SC073/SC073_SHOT_PACKAGE.json
+    shot_count: 60
+    duration_seconds: 180
+    stills_per_minute: 20
+    final_editorial_next: SC074A
+  SC074A:
+    state: SPEC_READY
+    source_scene_id: SC074
+    editorial_segment_id: SC074A
+    source: scenes/074/segments/SC074A/scene.yaml
+    shot_package: production/remotion/shot_specs/SC074A/SC074A_SHOT_PACKAGE.json
+    shot_count: 55
+    duration_seconds: 165
+    stills_per_minute: 20
+    final_editorial_next: SC006
+  SC006:
+    state: SPEC_READY
+    source: scenes/006/scene.yaml
+    shot_package: production/remotion/shot_specs/SC006/SC006_SHOT_PACKAGE.json
+    shot_count: 40
+    duration_seconds: 120
+    stills_per_minute: 20
+    final_editorial_next: SC007
+  SC007:
+    state: SPEC_READY
+    source: scenes/007/scene.yaml
+    shot_package: production/remotion/shot_specs/SC007/SC007_SHOT_PACKAGE.json
+    shot_count: 50
+    duration_seconds: 150
+    stills_per_minute: 20
+    final_editorial_next: SC008
   SC008:
     state: SPEC_READY
     source: scenes/008/scene.yaml
@@ -59,7 +243,8 @@ coverage:
     wc: WC005
     paraane_state: PV037 / P1 / ADD
     env6_control: NO_SB; real protest/intercut and literal harmful classification only; no represented layer
-    character_control: Anarvaa/Parvaran/Marsyaa inherit locked SC008 continuity into P1; worker/crowd/commander/operator remain source-role only; Anaadhi and Asana absent
+    character_control: Anarvaa/Parvaran/Marsyaa inherit locked SC008 continuity into P1; worker/crowd/commander/operator remain source-role only; Anaadhi and Asana
+      absent
     final_editorial_next: SC010
     image_generation_started: false
     render_started: false
@@ -84,26 +269,58 @@ coverage:
     final_editorial_next: SC011
     image_generation_started: false
     render_started: false
-unmaterialized: {state: NOT_YET_MATERIALIZED_EXCEPT_LISTED}
+  SC011:
+    state: SPEC_READY
+    finalized: true
+    lock_state: LOCKED
+    revision: R001
+    package_schema: ANAADHI_REMOTION_SC011_V9_RESOLVABLE
+    source: scenes/011/scene.yaml
+    shot_package: production/remotion/shot_specs/SC011/SC011_SHOT_PACKAGE.json
+    shot_count: 61
+    duration_seconds: 183
+    stills_per_minute: 20
+    environment: ENV-PLP-001 Parlipatna Multi-Speciality Maternity Hospital — maternity clinical floor/delivery environment
+    loc: LOC-005
+    wc: WC007
+    pv: N/A_NON_PARAANE_ANCHOR
+    env6_control: TP006/SB006/GF01 + TP007/SB007/GF05; OBS04; ANCH03/INV6-03; RST01; newborn Anaadhi + audience receive; Parvaran/Janne excluded from full-layer access
+    character_control: Parvaran direct SC010 coat/Paraane-ID continuity; Janne source-only physical facts; newborn Anaadhi physical + represented receiver; Adult
+      Anaadhi represented only at 193 cm
+    exact_end: At this moment, he believes it.
+    final_editorial_next: SC012
+    image_generation_started: false
+    render_started: false
+unmaterialized:
+  state: NOT_YET_MATERIALIZED_EXCEPT_LISTED
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
-  split_packages_materialized: [SC074A, SC094B, SC099B]
+  split_packages_required:
+  - SC074A
+  - SC074B
+  - SC094A
+  - SC094B
+  - SC099A
+  - SC099B
+  split_packages_materialized:
+  - SC074A
+  - SC094B
+  - SC099B
   remaining_materialization_order:
-    - SC011-SC059
-    - SC074B
-    - SC075-SC093
-    - SC094A
-    - SC096-SC098
-    - SC099A
-    - END
+  - SC012-SC059
+  - SC074B
+  - SC075-SC093
+  - SC094A
+  - SC096-SC098
+  - SC099A
+  - END
 cursor:
-  last_materialized_source_scene: SC010
-  last_materialized_editorial_segment: SC010
-  next_scene: SC011
-  next_editorial_segment: SC011
-  after_SC010: SC011
+  last_materialized_source_scene: SC011
+  last_materialized_editorial_segment: SC011
+  next_scene: SC012
+  next_editorial_segment: SC012
+  after_SC011: SC012
   source_continuation_pending: SC074B
   image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY

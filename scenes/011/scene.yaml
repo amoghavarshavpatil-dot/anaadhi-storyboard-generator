@@ -1,0 +1,162 @@
+scene_id: SC011
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+source:
+  screenplay: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay
+  previous_scene: SC010
+  previous_endpoint: CUT TO BLACK after Parvaran receives Janne message and Paraane emblem expands across another district
+  slugline: INT. PARLIPATNA MULTI-SPECIALITY MATERNITY HOSPITAL – NIGHT
+  exact_end: At this moment, he believes it.
+  next_scene: SC012
+story_period: C1
+environment:
+  loc: LOC-005
+  env: ENV-PLP-001
+  canonical_name: Parlipatna Multi-Speciality Maternity Hospital — maternity clinical floor/delivery environment
+  class: ROOT/H/HF-02
+  state: ST00
+  base_closure:
+  - AR002/INV002
+  - MS002
+  - KC002
+  - TG002
+  wc: WC007
+  wc_signature: TD7/WX1/EX1/LS4/OC3/OP0/T
+  pv: null
+  time: NIGHT
+  weather: RAIN_SOAKED_HOSPITAL_OUTSKIRTS
+  physical_identity:
+  - fort-derived black-stone maternity hospital
+  - copper rain systems
+  - solar roofing
+  - sandalwood doors with biometric recognition
+  - functional/contextual Kannada hospital signage only where source/institution supports it
+  - advanced hospital technology only as source/locked
+  spatial_lock:
+  - P01 south vertical-arrival core PS01 to Z01
+  - P02 north service edge PS02 to Z01
+  - P03 family buffer PS03 to Z04
+  - two CLN/EMG stretcher lines remain clear
+  - FAM held outside sealed clinical core until authorised
+  - AX01 corridor to surgical glass
+  - no invented room, wing, route, portal or direct SC012 suite access
+env6:
+  scene_has_special_beats: true
+  physical_anchor: ENV-PLP-001 / WC007
+  pv: N/A_NON_PARAANE_ANCHOR
+  beats:
+  - tp: TP006
+    sb: SB006
+    gf: GF01
+    ep: EP0+EP1+EP-U
+    obs: OBS04
+    anchor: ANCH03
+    inverse: INV6-03
+    restore: RST01
+    boundary_start: 'PARALLEL-EARTH FRACTURES:'
+    boundary_end: BACK TO PRESENT.
+    receiver: NEWBORN_ANAADHI_AND_AUDIENCE_ONLY
+    excluded_full_layer:
+    - PARVARAN
+    - JANNE
+    epistemic_lock: representation only; no literal multiverse, prophecy, supernatural or causal certainty
+    persistence: ZERO_REPRESENTED_RESIDUE_AFTER_RST01
+  - tp: TP007
+    sb: SB007
+    gf: GF05
+    ep: EP0+EP4+EP5+EP-U
+    obs: OBS04
+    anchor: ANCH03
+    inverse: INV6-03
+    restore: RST01
+    boundary_start: His unfocused eyes move toward the empty corner occupied, for one impossible instant, by ADULT ANAADHI.
+    boundary_end: The image disappears.
+    receiver: NEWBORN_ANAADHI_AND_AUDIENCE_ONLY
+    excluded_full_layer:
+    - PARVARAN
+    - JANNE
+    adult_anaadhi: REPRESENTED_ONLY_193CM_6FT4IN
+    epistemic_lock: parallel double/echo is not physical event fact
+    persistence: ZERO_REPRESENTED_RESIDUE_AFTER_RST01
+characters:
+  parvaran:
+    continuity: DIRECT_FROM_SC010_NO_REDESIGN
+    costume: SC010 continuity; Paraane identification remains clipped to coat
+    role: FATHER_AND_PARAANE_FOUNDER_IN_BIRTH_CORRIDOR
+    full_represented_access: false
+  janne:
+    presence: PHYSICAL_SC011
+    source_facts_only:
+    - nurse states Janne is stable
+    - later lies exhausted beneath warm surgical lights
+    - fingers touch newborn forehead
+    full_represented_access: false
+  newborn_anaadhi:
+    presence: PHYSICAL_NEWBORN_SC011
+    represented_receiver: true
+    medical_testing_diagnosis: FORBIDDEN_UNTIL_SC012_OR_LATER
+  adult_anaadhi:
+    presence: REPRESENTED_ONLY_IN_TP006_TP007
+    height_cm: 193
+    physical_SC011_presence: false
+  maternity_nurse: SOURCE_ROLE_ONLY
+  obstetrician: SOURCE_ROLE_ONLY
+source_readable_text_allowlist:
+- MARSYAA ACCESS TERMINATED
+- FOUNDERS’ COUNCIL ORDER SEALED
+- DELIVERY PHASE COMPLETE
+screenplay_beats:
+- hospital exterior / locked architectural identity
+- Parvaran rushes through corridor directly from SC010
+- Maternity Nurse intercepts him and states operation started / Janne stable / baby status unknown
+- sealed-door wait; controlled hands then tremble; frosted glass and breathing monitor
+- Ten years... / Stay safe for one more minute
+- Paraane wrist-device administrative alert; dismissed
+- hospital DELIVERY PHASE COMPLETE alert
+- newborn cry; Obstetrician congratulations / baby boy
+- Janne / newborn / Parvaran physical handoff
+- TP006/SB006 represented fractures and RST01 return
+- TP007/SB007 Adult Anaadhi echo and RST01 return
+- Janne/Parvaran dialogue ending with Is he safe? / Yes.
+- 'exact endpoint: At this moment, he believes it.'
+hard_exclusions:
+- NO_SC012_ACTION_EARLY
+- NO_NEONATAL_DIAGNOSTIC_SUITE_EARLY
+- NO_NEWBORN_TESTING_DIAGNOSIS_RESULTS
+- NO_INVENTED_JANNE_MEDICAL_FACTS
+- NO_INVENTED_BABY_CONDITION
+- NO_INVENTED_MEDICAL_PROCEDURE
+- NO_ADDITIONAL_HOSPITAL_ROOMS_WINGS_ROUTES
+- NO_PARVARAN_OR_PARAANE_ID_REDESIGN
+- NO_INVENTED_READABLE_SIGNAGE_OR_INTERFACE_TEXT
+- NO_SC010_COUNCIL_PHYSICAL_LEAK
+- NO_REPRESENTED_VARIANT_AS_EVENT_FACT
+- NO_PHYSICAL_RESIDUE_AFTER_RST01
+- NO_IMAGE_GENERATION
+- NO_VIDEO_RENDER
+picture:
+  shot_count: 61
+  provisional_duration_seconds: 183
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect_ratio: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  timing: PROVISIONAL_PENDING_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC011/SC011_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  exact_audio_timecode_alignment: PENDING_EXTRACTION
+  new_bgm_sfx_generation: false
+media_execution:
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
