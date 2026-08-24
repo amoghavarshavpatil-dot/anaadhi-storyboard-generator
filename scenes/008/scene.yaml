@@ -1,0 +1,74 @@
+scene_id: SC008
+status: SPEC_READY
+source_scene_number: 8
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: INT. PARAANE EMERGENCY COORDINATION CHAMBER – NIGHT
+source_previous: SC007
+source_next: SC009
+editorial_previous: SC007
+editorial_next: SC009
+source_boundary:
+  start: Years later. Monsoon floods have cut through Kendhalaa.
+  end: He does not look away when the crisis counter reaches zero.
+env6:
+  exact_packet: CONTROLLED_UNRESOLVED_NOT_RETRIEVED_DO_NOT_INVENT
+  rule: Physical emergency-command chronology only; do not invent represented/Parallel-Earth treatment without the exact packet row.
+environment:
+  id: ENV-PAR-007
+  name: Paraane Emergency Coordination Chamber
+  root_loc: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  pv: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  wc: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  time: NIGHT
+  weather_context: MONSOON_FLOODS_OUTSIDE_KENDHALAA
+  state: P0_FOUNDING_PHYSICAL_GEOGRAPHY_WITH_EMERGENCY_INTEGRATION_TRANSITION_MARKERS
+physical_state_rule: Buildings remain separate; data, records, routes and emergency command are temporarily linked.
+characters:
+  ANARVAA: {role: command lead, state: watches expanding single-command authority}
+  PARVARAN: {role: hospital coordination, state: signs temporary emergency integration with stated 72-hour review}
+  MARSYAA: {role: mentor/observer, state: insists temporary link and written sunset clause}
+  ASANA: {state: young Asana, role: directs Sarjanya rescue vehicles}
+  DISPATCHER: {role: rescue-logistics operator}
+  ANAADHI: {presence: ABSENT}
+technology:
+  holographic_maps: literal flood/emergency operations maps
+  rescue_drone_seven: misroutes by following buffalo heat source
+  casualty_counter: literal crisis count
+  emergency_integration:
+    - hospital records open to police
+    - police deployment opens to Paraane
+    - Sarjanya routes appear inside government command
+    physical_building_merge: false
+shot_plan:
+  shot_count: 45
+  duration_seconds: 135
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  shot_package: production/remotion/shot_specs/SC008/SC008_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  ambience: PHYSICAL_EMERGENCY_COORDINATION_CHAMBER_ONLY
+hard_exclusions:
+  - GUESSED_TP_SB_GF_WC_PV_ROOT
+  - PARALLEL_EARTH
+  - PHYSICAL_DEPARTMENT_FUSION
+  - MONOLITHIC_PARAANE_BUILDING_MERGE
+  - FABRICATED_UI_TEXT
+  - ANAADHI_PRESENCE
+  - SC009_ACTION
+  - IMAGE_GENERATION
+  - VIDEO_RENDER
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+next: SC009

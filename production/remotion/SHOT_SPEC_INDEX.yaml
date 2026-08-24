@@ -1,4 +1,4 @@
-version: 26
+version: 27
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
@@ -28,29 +28,29 @@ coverage:
   SC073: {state: SPEC_READY, source: scenes/073/scene.yaml, shot_package: production/remotion/shot_specs/SC073/SC073_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC074A}
   SC074A: {state: SPEC_READY, source_scene_id: SC074, editorial_segment_id: SC074A, source: scenes/074/segments/SC074A/scene.yaml, shot_package: production/remotion/shot_specs/SC074A/SC074A_SHOT_PACKAGE.json, shot_count: 55, duration_seconds: 165, stills_per_minute: 20, final_editorial_next: SC006}
   SC006: {state: SPEC_READY, source: scenes/006/scene.yaml, shot_package: production/remotion/shot_specs/SC006/SC006_SHOT_PACKAGE.json, shot_count: 40, duration_seconds: 120, stills_per_minute: 20, final_editorial_next: SC007}
-  SC007:
+  SC007: {state: SPEC_READY, source: scenes/007/scene.yaml, shot_package: production/remotion/shot_specs/SC007/SC007_SHOT_PACKAGE.json, shot_count: 50, duration_seconds: 150, stills_per_minute: 20, final_editorial_next: SC008}
+  SC008:
     state: SPEC_READY
-    source: scenes/007/scene.yaml
-    shot_package: production/remotion/shot_specs/SC007/SC007_SHOT_PACKAGE.json
-    shot_count: 50
-    duration_seconds: 150
+    source: scenes/008/scene.yaml
+    shot_package: production/remotion/shot_specs/SC008/SC008_SHOT_PACKAGE.json
+    shot_count: 45
+    duration_seconds: 135
     stills_per_minute: 20
-    paraane_state: P0_FOUNDING
-    environments: ENV-PAR-001+002+003+004+005+006
-    env6_control: screenplay has special-beat material but exact packet row not retrieved; physical chronology only, no invented represented layer
-    character_control: Parvaran PAR-C02 + PAR-ID02; Anarvaa/Marsyaa exact age/costume unresolved where not retrieved
-    final_editorial_next: SC008
+    environment: ENV-PAR-007 Paraane Emergency Coordination Chamber
+    state_control: P0 founding physical geography with emergency-integration transition markers; buildings remain separate while data/command temporarily link
+    env6_control: exact packet not retrieved; physical screenplay chronology only; no represented layer invented
+    characters: Anarvaa command; Parvaran hospital coordination; Marsyaa sunset-clause challenge; young Asana rescue logistics; Anaadhi absent
+    final_editorial_next: SC009
     image_generation_started: false
     render_started: false
-unmaterialized:
-  state: NOT_YET_MATERIALIZED_EXCEPT_LISTED
+unmaterialized: {state: NOT_YET_MATERIALIZED_EXCEPT_LISTED}
 editorial:
   locked: true
   manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
   split_packages_materialized: [SC074A, SC094B, SC099B]
   remaining_materialization_order:
-    - SC008-SC059
+    - SC009-SC059
     - SC074B
     - SC075-SC093
     - SC094A
@@ -58,11 +58,11 @@ editorial:
     - SC099A
     - END
 cursor:
-  last_materialized_source_scene: SC007
-  last_materialized_editorial_segment: SC007
-  next_scene: SC008
-  next_editorial_segment: SC008
-  after_SC007: SC008
+  last_materialized_source_scene: SC008
+  last_materialized_editorial_segment: SC008
+  next_scene: SC009
+  next_editorial_segment: SC009
+  after_SC008: SC009
   source_continuation_pending: SC074B
   image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY

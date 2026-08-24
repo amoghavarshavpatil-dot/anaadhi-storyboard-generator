@@ -1,4 +1,4 @@
-version: 27
+version: 28
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
 as_of_local: '2026-08-24T05:41:00+05:30'
@@ -11,54 +11,56 @@ backend:
   openai_work_page_generation_enabled: false
   paid_media_api_execution_enabled: false
 visual_preproduction:
-  latest_new_schema_materialized: SC007
-  latest_source_scene_materialized: SC007
-  next_scene_to_materialize: SC008
-  next_editorial_segment: SC008
+  latest_new_schema_materialized: SC008
+  latest_source_scene_materialized: SC008
+  next_scene_to_materialize: SC009
+  next_editorial_segment: SC009
   source_continuation_pending: SC074B
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC007 P0 founding Paraane SPEC_READY. Continue SC008. Exact Scene-007 ENV-6 packet remains controlled-unresolved where not retrieved; no represented layer invented.
+  note: SC008 Emergency Coordination Chamber SPEC_READY. Continue SC009. Exact Scene-008 ENV-6 packet remains controlled-unresolved; no represented layer invented.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
   mastered_prefix_end_seconds: 134.293333
-  SC006: {dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY, picture_planning_duration_seconds: 120, exact_audio_timecode_alignment: PENDING_EXTRACTION}
-  SC007:
+  SC007: {dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY, picture_planning_duration_seconds: 150, exact_audio_timecode_alignment: PENDING_EXTRACTION}
+  SC008:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 150
+    picture_planning_duration_seconds: 135
     exact_audio_timecode_alignment: PENDING_EXTRACTION
-    transition_in: CUT FROM SC006.
-    transition_out: CUT TO SC008.
-    sound_rule: Physical P0 inauguration/registration/courtyard ambience only; no invented represented-layer audio.
+    transition_in: CUT FROM SC007.
+    transition_out: CUT TO SC009.
+    sound_rule: Physical emergency coordination ambience, alert and literal command-system sounds only.
 picture_master: {width: 3840, height: 1600, aspect_ratio: '2.40:1', fps: 30, baked_letterbox: false}
 shot_density:
   target_minimum_stills_per_minute: 20
-  SC006: {duration_seconds: 120, shot_count: 40, stills_per_minute: 20}
   SC007: {duration_seconds: 150, shot_count: 50, stills_per_minute: 20}
+  SC008: {duration_seconds: 135, shot_count: 45, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC007
-  source_scene: SC007
-  paraane_state: P0_FOUNDING
-  special_beat_intersects_scene: SOURCE_SPECIAL_BEAT_PRESENT_PACKET_UNRETRIEVED
+  latest_materialized_segment: SC008
+  source_scene: SC008
+  special_beat_intersects_scene: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
   source_ruling: PHYSICAL_SCREENPLAY_CHRONOLOGY_ONLY_UNTIL_PACKET_RETRIEVED
-  environments: [ENV-PAR-001, ENV-PAR-002, ENV-PAR-003, ENV-PAR-004, ENV-PAR-005, ENV-PAR-006]
-  wc_pv_root_batch: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
-  p0_rules: [SEPARATE_BUILDINGS, VISIBLE_BOUNDARIES, OPEN_COURTYARDS, TIMBER_DAYLIGHT, MODEST_EMBLEM]
+  environment: ENV-PAR-007 Paraane Emergency Coordination Chamber
+  state: P0_FOUNDING_PHYSICAL_GEOGRAPHY_WITH_EMERGENCY_INTEGRATION_TRANSITION_MARKERS
+  root_pv_wc: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  physical_rule: buildings/services remain physically separate; data/records/routes/command temporarily link
   pending_source_state:
     SC074B: {tp: TP080, sb: SB080, status: SOURCE_ACTIVE_SUSPENDED_BY_EDITORIAL_SPLIT, restore: RST02_AT_SOURCE_END_IN_SC074B, contamination_to_CURRENT_BLOCK: FORBIDDEN}
 character_cursor:
-  SC007:
-    parvaran: {state: PAR-C02_PARAANE_INAUGURATION_FOUNDER, credential: PAR-ID02}
-    anarvaa: {state: FOUNDING_ERA_AMBITIOUS_FORWARD_LOOKING, exact_age_costume: CONTROLLED_UNRESOLVED}
-    marsyaa: {role: MENTOR, exact_costume: CONTROLLED_UNRESOLVED}
+  SC008:
+    anarvaa: {role: COMMAND_LEAD, state: WATCHES_SINGLE_COMMAND_POWER}
+    parvaran: {role: HOSPITAL_COORDINATION, action: SIGNS_TEMPORARY_INTEGRATION}
+    marsyaa: {role: MENTOR_OBSERVER, action: REQUIRES_SUNSET_CLAUSE}
+    asana: {state: YOUNG, role: SARJANYA_RESCUE_LOGISTICS}
+    anaadhi: {presence: ABSENT}
 editorial_lock:
   enabled: true
   split_scene_ids: [SC074, SC094, SC099]
   split_segment_completed: [SC074A, SC094B, SC099B]
-  current_completed_segment: SC007
-  next_editorial_segment: SC008
+  current_completed_segment: SC008
+  next_editorial_segment: SC009
   remaining_materialization_order:
-    - SC008-SC059
+    - SC009-SC059
     - SC074B
     - SC075-SC093
     - SC094A
