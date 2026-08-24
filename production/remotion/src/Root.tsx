@@ -18,7 +18,7 @@ export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition
-        id="ANAADHI_STORYBOARD_AUDIOBOOK_4K_SCOPE"
+        id="ANAADHI-STORYBOARD-AUDIOBOOK-4K-SCOPE"
         component={FullFeature}
         width={3840}
         height={1600}
@@ -27,7 +27,7 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_SC001_APPROVED_V001"
+        id="ANAADHI-SC001-APPROVED-V001"
         component={Scene001Approved}
         width={3840}
         height={1600}
@@ -36,7 +36,7 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_SOURCE_REVIEW_01"
+        id="ANAADHI-SOURCE-REVIEW-01"
         component={SourceReview01}
         width={3840}
         height={1600}
@@ -45,7 +45,7 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_SOURCE_REVIEW_02"
+        id="ANAADHI-SOURCE-REVIEW-02"
         component={SourceReview02}
         width={3840}
         height={1600}
@@ -54,7 +54,7 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_SOURCE_REVIEW_03"
+        id="ANAADHI-SOURCE-REVIEW-03"
         component={SourceReview03}
         width={3840}
         height={1600}
@@ -63,7 +63,7 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_SOURCE_REVIEW_04"
+        id="ANAADHI-SOURCE-REVIEW-04"
         component={SourceReview04}
         width={3840}
         height={1600}
@@ -72,7 +72,7 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="ANAADHI_SOURCE_REVIEW_05"
+        id="ANAADHI-SOURCE-REVIEW-05"
         component={SourceReview05}
         width={3840}
         height={1600}

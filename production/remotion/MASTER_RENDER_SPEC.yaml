@@ -9,16 +9,16 @@ master:
   fps: 30
   pixel_aspect_ratio: "1:1"
   baked_letterbox: false
-  composition_id: ANAADHI_STORYBOARD_AUDIOBOOK_4K_SCOPE
+  composition_id: ANAADHI-STORYBOARD-AUDIOBOOK-4K-SCOPE
   final_timeline_mode: EDITORIAL_LOCKED
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   final_reel_boundaries: DEFER_UNTIL_DURATIONS_LOCKED
   source_review_compositions:
-    - {id: ANAADHI_SOURCE_REVIEW_01, scenes: "SC001-SC020"}
-    - {id: ANAADHI_SOURCE_REVIEW_02, scenes: "SC021-SC040"}
-    - {id: ANAADHI_SOURCE_REVIEW_03, scenes: "SC041-SC060"}
-    - {id: ANAADHI_SOURCE_REVIEW_04, scenes: "SC061-SC080"}
-    - {id: ANAADHI_SOURCE_REVIEW_05, scenes: "SC081-SC100"}
+    - {id: ANAADHI-SOURCE-REVIEW-01, scenes: "SC001-SC020"}
+    - {id: ANAADHI-SOURCE-REVIEW-02, scenes: "SC021-SC040"}
+    - {id: ANAADHI-SOURCE-REVIEW-03, scenes: "SC041-SC060"}
+    - {id: ANAADHI-SOURCE-REVIEW-04, scenes: "SC061-SC080"}
+    - {id: ANAADHI-SOURCE-REVIEW-05, scenes: "SC081-SC100"}
 
 picture:
   still_fit_default: cover

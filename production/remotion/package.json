@@ -8,13 +8,13 @@
     "compositions": "remotion compositions src/index.ts",
     "verify:approved-shots": "node scripts/verify-approved-shots.mjs",
     "validate": "npm run verify:approved-shots && npm run typecheck && npm run compositions",
-    "render": "remotion render ANAADHI_STORYBOARD_AUDIOBOOK_4K_SCOPE",
-    "render:sc001-approved": "remotion render ANAADHI_SC001_APPROVED_V001",
-    "render:reel1": "remotion render ANAADHI_REEL_01",
-    "render:reel2": "remotion render ANAADHI_REEL_02",
-    "render:reel3": "remotion render ANAADHI_REEL_03",
-    "render:reel4": "remotion render ANAADHI_REEL_04",
-    "render:reel5": "remotion render ANAADHI_REEL_05"
+    "render": "remotion render ANAADHI-STORYBOARD-AUDIOBOOK-4K-SCOPE",
+    "render:sc001-approved": "remotion render ANAADHI-SC001-APPROVED-V001",
+    "render:reel1": "remotion render ANAADHI-SOURCE-REVIEW-01",
+    "render:reel2": "remotion render ANAADHI-SOURCE-REVIEW-02",
+    "render:reel3": "remotion render ANAADHI-SOURCE-REVIEW-03",
+    "render:reel4": "remotion render ANAADHI-SOURCE-REVIEW-04",
+    "render:reel5": "remotion render ANAADHI-SOURCE-REVIEW-05"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.506",

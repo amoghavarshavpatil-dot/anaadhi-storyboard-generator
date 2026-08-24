@@ -27,7 +27,7 @@
     "master_height": 1600,
     "aspect_ratio": "2.40:1",
     "fps": 30,
-    "composition_id": "ANAADHI_SC001_APPROVED_V001",
+    "composition_id": "ANAADHI-SC001-APPROVED-V001",
     "scene_data": "src/data/sc001Approved.ts",
     "crop_policy": "NO_UNAPPROVED_AUTO_REFRAME",
     "motion_policy": "Only the already specified SH001 slow push is active; all other approved stills remain static until an explicit motion lock."
