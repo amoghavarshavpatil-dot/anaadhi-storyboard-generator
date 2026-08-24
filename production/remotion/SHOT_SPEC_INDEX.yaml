@@ -1,5 +1,5 @@
 {
-  "version": 39,
+  "version": 40,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -399,6 +399,35 @@
       "exact_end": "An approaching engine grows louder.",
       "image_generation_started": false,
       "render_started": false
+    },
+    "SC015": {
+      "state": "SPEC_READY",
+      "source": "scenes/015/scene.yaml",
+      "shot_package": "production/remotion/shot_specs/SC015/SC015_SHOT_PACKAGE.json",
+      "shot_count": 84,
+      "duration_seconds": 252,
+      "stills_per_minute": 20,
+      "final_editorial_next": "SC016",
+      "finalized": true,
+      "lock_state": "LOCKED",
+      "revision": "R001",
+      "package_schema": "ANAADHI_REMOTION_SC015_V15_COMPACT_RESOLVABLE_R2",
+      "environment": "ENV-PLP-006 Parlipatna Outer Patrol Road",
+      "junction_continuity_reference": "LOC-006 / ENV-PLP-005 / J-01; established spatial interface only; no environment merge",
+      "sarjanya_jeep": "LOC-008 MOBILE_ASSET / approved ENV-6L mobile-reference reuse; VEH-SARJANYA-JEEP remains MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED",
+      "mobile_environment": "ENV-MOB-001 Parvaran's Car — Interior; stationary at ENV-PLP-005:Z03 annotation only; never enters ENV-PLP-006",
+      "parent_environment": null,
+      "loc": "LOC-007",
+      "subspace": null,
+      "wc": "WC011",
+      "pv": "N/A_NON_PARAANE_ANCHOR",
+      "env5_closure": "AR007 / INV007 / MS007 / KC007 / TG007",
+      "env6_control": "TP014/SB014/GF01/recurrence 4/18/Band B/EP0+EP1+EP2+EP-U/OBS01/ANCH08/INV6-08/VAR6-01+VAR6-02/RST01; Young Semmaa + audience receive; exact boundary only; zero residue",
+      "record_truth_control": "newborn physically healthy and alive; legally dead only in Parvaran's false SC013 record; Semmaa's cold observation is not a diagnosis",
+      "exact_start": "An open SARJANYA JEEP moves through the rain.",
+      "exact_end": "He does not follow.",
+      "image_generation_started": false,
+      "render_started": false
     }
   },
   "unmaterialized": {
@@ -421,7 +450,7 @@
       "SC099B"
     ],
     "remaining_materialization_order": [
-      "SC015-SC059",
+      "SC016-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
@@ -431,11 +460,11 @@
     ]
   },
   "cursor": {
-    "last_materialized_source_scene": "SC014",
-    "last_materialized_editorial_segment": "SC014",
-    "next_scene": "SC015",
-    "next_editorial_segment": "SC015",
-    "after_SC014": "SC015",
+    "last_materialized_source_scene": "SC015",
+    "last_materialized_editorial_segment": "SC015",
+    "next_scene": "SC016",
+    "next_editorial_segment": "SC016",
+    "after_SC015": "SC016",
     "source_continuation_pending": "SC074B",
     "image_generation_gate": "EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN",
     "audio_generation_gate": "RESUME_AFTER_00_02_14_293333_ONLY"

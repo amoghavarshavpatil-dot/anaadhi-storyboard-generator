@@ -1,0 +1,416 @@
+scene_id: SC015
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+package_schema: ANAADHI_REMOTION_SC015_V15_COMPACT_RESOLVABLE_R2
+source_scene_number: 15
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+headings:
+- EXT. PARLIPATNA OUTER PATROL ROAD – CONTINUOUS
+source_previous: SC014
+source_next: SC016
+editorial_previous: SC014
+editorial_next: SC016
+source_boundary:
+  previous_exact_end: An approaching engine grows louder.
+  start: An open SARJANYA JEEP moves through the rain.
+  end: He does not follow.
+  next_heading_excluded: EXT. PARAANE REHABILITATION CENTRE – SECURITY GATE – NIGHT
+environment:
+  loc: LOC-007
+  env: ENV-PLP-006
+  name: Parlipatna Outer Patrol Road
+  sub: null
+  parent_env: null
+  hierarchy: ROOT/P/HF-03
+  class: MODULAR-REUSE
+  state: ST00
+  kit: KIT-03
+  closures:
+  - AR007
+  - INV007
+  - MS007
+  - KC007
+  - TG007
+  wc: WC011
+  wc_signature: TD8/WX3/EX3/LS2/OC2/OP5/T
+  story_period: C1
+  time: NIGHT_CONTINUOUS_FROM_SC014
+  weather: ACTIVE_PHYSICAL_MONSOON_RAIN_SAME_NEWBORN_NIGHT
+  pv: N/A_NON_PARAANE_ANCHOR
+  signage_owner: NONE
+  root_asset_control:
+    loc007_st00: APPROVED_REFERENCE_REUSE_LOCKED_SKIP_REGENERATION
+    identity: UNIQUE_ROAD_TOPOLOGY_AND_MONSOON_EXPOSURE
+    remaining_location_work: []
+  non_alias_rule: ENV-PLP-006_ADJOINS_BUT_NEVER_MERGES_WITH_ENV-PLP-005
+junction_continuity:
+  loc: LOC-006
+  env: ENV-PLP-005
+  junction_id: J-01
+  role: ESTABLISHED_SPATIAL_INTERFACE_REFERENCE_ONLY
+  physical_road_count: 4
+  inherited_elements:
+  - SAME_SHRINE_STONE
+  - SAME_LOW_PLATFORM
+  - SAME_WEAK_SOLAR_STREETLIGHT
+  - SAME_ACTIVE_RAIN
+  compass_assignments: UNRESOLVED
+  visible_signage: NONE_AUTHORISED
+  merge_with_primary_environment: false
+  second_junction_or_shrine: false
+sarjanya_jeep:
+  loc: LOC-008
+  name: Sarjanya Jeep
+  class: MOBILE_ASSET
+  source_description: OPEN_SARJANYA_PATROL_JEEP
+  env6l_reference: APPROVED_REFERENCE_REUSE_LOCKED_SKIP_REGENERATION
+  vehicle_registry: VEH-SARJANYA-JEEP
+  vehicle_design_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+  invented_env_mob_id: false
+  prohibited_inventions:
+  - MAKE
+  - MODEL
+  - COLOUR
+  - REGISTRATION_PLATE
+  - DASHBOARD
+  - INTERFACE
+  - WEAPONS
+  - BRANDING
+  - SEAT_LAYOUT
+  - DRIVETRAIN
+  - ROUTE_SYSTEM
+  - CREDENTIAL
+  - CHILD_RESTRAINT_MECHANICS
+  - HIDDEN_EQUIPMENT
+parvaran_mobile_environment:
+  env: ENV-MOB-001
+  name: Parvaran’s Car — Interior
+  class: MOB
+  hierarchy: HF-03
+  closures:
+  - ENV-4D
+  - KC142
+  - TG142
+  site: ENV-PLP-005:Z03
+  continuity: SAME_HIDDEN_STATIONARY_CAR_FROM_SC014
+  enters_env_plp_006: false
+  is_sarjanya_jeep: false
+  design_status: CONTROLLED_UNRESOLVED
+  prohibited_inventions:
+  - MOVEMENT_ON_PATROL_ROAD
+  - PURSUIT
+  - FOLLOW_ACTION
+  - HIDING_MECHANISM
+  - MAKE
+  - MODEL
+  - COLOUR
+  - REGISTRATION_PLATE
+  - DASHBOARD_INTERFACE
+  - ROUTE_SYSTEM
+  - CREDENTIAL
+  - HIDDEN_FEATURE
+characters:
+  YOUNG_SEMMAA:
+    identity: CHR-SEMMAA
+    state: SAME_CANONICAL_BIOLOGICAL_IDENTITY_EXPLICITLY_YOUNGER
+    visual_state: CONTROLLED_UNRESOLVED
+    source_quality: ALREADY_CARRIES_STILLNESS_OF_MAN_OTHERS_OBEY
+    numeric_age: UNRESOLVED_DO_NOT_INVENT
+    rank_or_title: UNRESOLVED_DO_NOT_INVENT
+    present_day_costume_imported: false
+    tp014_full_layer_access: true
+  KENCHAA:
+    identity: SOURCE_NAMED_ROLE_KENCHAA
+    biography: UNRESOLVED_DO_NOT_INVENT
+    prop: BROKEN_ROUTE_PROJECTOR
+    tp014_full_layer_access: false
+  DRIVER:
+    identity: UNNAMED_SOURCE_ROLE_DRIVER
+    biography: UNRESOLVED_DO_NOT_INVENT
+    tp014_full_layer_access: false
+  FOOD_CONTAINER_MEMBER:
+    identity: UNNAMED_SOURCE_ROLE_CONTEXTUAL_BINDING_ONLY
+    role: FOOD_CONTAINER_CARRIER
+    dialogue_label: SARJANYA MEMBER
+    identity_relation_to_shawl_provider: UNRESOLVED_DO_NOT_UNIFY_OR_SEPARATE
+    biography: UNRESOLVED_DO_NOT_INVENT
+    tp014_full_layer_access: false
+  SHAWL_PROVIDER_MEMBER:
+    identity: UNNAMED_SOURCE_ROLE_CONTEXTUAL_BINDING_ONLY
+    role: MEMBER_WHO_REMOVES_HIS_OWN_SHAWL
+    identity_relation_to_food_container_member: UNRESOLVED_DO_NOT_UNIFY_OR_SEPARATE
+    biography: UNRESOLVED_DO_NOT_INVENT
+    tp014_full_layer_access: false
+  YOUNG_SARJANYA_MEMBERS:
+    identity: SOURCE_ENSEMBLE_ONLY
+    state: RETURNING_FROM_OVERNIGHT_COMMUNITY_PATROL
+    exact_count: UNRESOLVED_DO_NOT_INVENT
+    tp014_full_layer_access: false
+  NEWBORN_ANAADHI:
+    identity: CHR-ANAADHI
+    age_body: AGE-ANAADHI-NEWBORN
+    physical_status: HEALTHY_ALIVE_AND_LEGALLY_DEAD_ONLY_IN_PARVARANS_FALSE_RECORD
+    initial_costume: DARK_WOOL_BLANKET
+    added_costume: MEMBER_OWN_SHAWL_ONLY_AFTER_SOURCE_REQUEST
+    initial_location: SAME_SHRINE_STONE
+    source_audio: CRYING
+    readable_identifier: NONE
+    tp014_full_layer_access: false
+  PARVARAN:
+    identity: CHR-PARVARAN
+    continuity: DIRECT_FROM_SC014_SAME_BIRTH_NIGHT_PHYSICAL_IDENTITY_AND_AGE
+    role: FATHER_AND_PARAANE_FOUNDER
+    costume: SC013_SC014_COAT_REMOVED_CONTINUITY_NO_REDONNING
+    deception: HEALTHY_CHILD_LEGALLY_DEAD_ONLY_IN_FALSE_RECORD
+    location: HIDDEN_ENV-MOB-001_AT_ENV-PLP-005:Z03
+    dialogue: NONE
+    action: WATCHES_RELIEF_THEN_SHAME_REMAINS_AND_DOES_NOT_FOLLOW
+    tp014_full_layer_access: false
+  REPRESENTED_SEMMAA:
+    identity: CHR-SEMMAA
+    state: TP014_REPRESENTED_ONLY_SAME_CANONICAL_YOUNG_IDENTITY
+    physical_duplicate: false
+    persistence: ZERO_RESIDUE_AT_RST01
+  REPRESENTED_NEWBORN:
+    identity: CHR-ANAADHI
+    age_body: AGE-ANAADHI-NEWBORN
+    state: TP014_REPRESENTED_ONLY_SAME_CHILD
+    physical_duplicate: false
+    persistence: ZERO_RESIDUE_AT_RST01
+  ADULT_ANAADHI:
+    identity: CHR-ANAADHI
+    height_cm: 193
+    proportions: CANONICAL_ADULT_IDENTITY_AND_SCALE
+    state: TP014_REPRESENTED_ONLY_WATCHING_FROM_ROAD
+    dialogue_or_vo: NONE
+    physical_presence: false
+    literal_future_communication: false
+truth_control:
+  physical_newborn_health: HEALTHY_ALIVE
+  legal_record_state: LEGALLY_DEAD_ONLY_WITHIN_PARVARANS_FALSE_SC013_RECORD
+  actual_cardiorespiratory_failure: false
+  actual_medical_complication: false
+  actual_newborn_death: false
+  semmaa_cold_statement: IMMEDIATE_OBSERVATION_AND_CONCERN_NOT_DIAGNOSIS_OR_DAMAGE
+  injury_check: SOURCE_ACTION_WITH_NO_AUTHORISED_FINDING_TEST_DIAGNOSIS_OR_PROCEDURE
+  proposed_destinations: DIALOGUE_ONLY_NOT_SHOWN_OR_ESTABLISHED_AS_OUTCOME
+physical_chronology:
+- The open Sarjanya jeep moves through active rain along ENV-PLP-006, revealing the source of SC014's approaching engine without modifying SC014.
+- Young Sarjanya members crowd the rear while returning from an overnight community patrol.
+- Young Semmaa sits beside the unnamed Driver and already carries the stillness of a man others obey.
+- Kenchaa holds the broken route projector upside down.
+- Kenchaa states the map says they are on the right road; Driver states the map is upside down.
+- Kenchaa rotates the device; its non-text arrow still points backward; Kenchaa repeats the right-road claim; Semmaa gives the exact restrained response.
+- Another unnamed member opens the food container; the exact last-holige and brake exchange occurs without expanded comedy.
+- A faint physical newborn cry enters beneath the engine noise; Semmaa raises one hand; everyone falls silent; the cry returns.
+- The exact stop-jeep and cat exchange occurs.
+- The jeep stops beside the same J-01 four-road junction.
+- Semmaa steps into the rain; the others follow; they find the same healthy living newborn beside the same shrine stone; the humour vanishes.
+- Semmaa kneels and asks who left the newborn there.
+- The newborn's hand closes around Semmaa's wet finger.
+- TP014 / SB014 occurs only within its exact PARALLEL-EARTH FLASH to BACK TO PRESENT boundary.
+- RST01 restores the unchanged pre-pickup physical configuration with zero represented residue.
+- Only after complete RST01 does Kenchaa check the physical darkness and the exact trap, workshop and refund exchange occurs.
+- Semmaa lifts the physical newborn carefully and checks for injuries without establishing a finding.
+- Semmaa states the newborn's body is becoming cold and asks for another blanket.
+- Only then does an unnamed member remove his own shawl; it supplements rather than replaces the dark wool blanket.
+- Driver proposes the police station; Kenchaa proposes a government children's home.
+- Semmaa looks toward the distant Paraane complex without revealing SC016 architecture or gate action and names Paraane Rehabilitation's emergency wing.
+- Driver asks whether Asana will open the gate; Semmaa gives the exact source response.
+- Semmaa climbs into the Sarjanya jeep with the child protected against his chest and says Move.
+- The Sarjanya jeep accelerates toward Paraane but does not arrive within SC015.
+- From the separate hidden ENV-MOB-001 car, Parvaran watches; relief passes across his face, followed by shame.
+- Parvaran remains until the Sarjanya jeep disappears. He does not follow.
+dialogue:
+- speaker: KENCHAA
+  text: According to the map, we are on the right road.
+- speaker: DRIVER
+  text: The map is upside down.
+- speaker: KENCHAA
+  text: It is still showing that we are on the right road.
+- speaker: SEMMAA
+  text: You are more dangerous than the device.
+- speaker: SARJANYA MEMBER
+  text: Whose is the last holige?
+- speaker: DRIVER
+  text: The driver's.
+- speaker: SARJANYA MEMBER
+  text: Where is that rule written?
+- speaker: DRIVER
+  text: The brake is under my foot. That is the rule.
+- speaker: SEMMAA
+  text: Stop the jeep.
+- speaker: KENCHAA
+  text: It may be a cat.
+- speaker: SEMMAA
+  text: A cat does not cry like that.
+- speaker: SEMMAA
+  text: Who left you here, little one?
+- speaker: KENCHAA
+  text: Could it be a trap?
+- speaker: SEMMAA
+  text: If a baby is a trap, what training did you attend?
+- speaker: KENCHAA
+  text: The Sarjanya urban threat workshop.
+- speaker: SEMMAA
+  text: Ask for a refund.
+- speaker: SEMMAA
+  text: His body is becoming cold. Give me another blanket.
+- speaker: DRIVER
+  text: The police station?
+- speaker: KENCHAA
+  text: A government children's home?
+- speaker: SEMMAA
+  text: Paraane Rehabilitation's emergency wing.
+- speaker: DRIVER
+  text: Will Asana open the gate?
+- speaker: SEMMAA
+  text: If he does not, I will hand the baby to the gate.
+- speaker: SEMMAA
+  text: Move.
+readable_text_allowlist: []
+props_and_technology:
+  BROKEN_ROUTE_PROJECTOR:
+    state: PHYSICAL_BROKEN_HELD_UPSIDE_DOWN_THEN_ROTATED
+    authorised_graphic: NON_TEXT_ARROW_STILL_POINTS_BACKWARD
+    readable_text: NONE
+    prohibited: [LABELS, ROAD_NAMES, DESTINATIONS, COORDINATES, COMPASS_POINTS, BEARINGS, DISTANCES, ROUTE_NUMBERS, WARNINGS, DIAGNOSTICS, BEEPS, VOICE, HOLOGRAPHIC_ROUTE, RECALCULATION, SUPERNATURAL_NAVIGATION]
+  FOOD_CONTAINER:
+    state: PHYSICAL_OPENED_BY_UNNAMED_MEMBER
+    content: LAST_HOLIGE
+    readable_text: NONE
+    prohibited: [BRAND, LABEL, RECIPE_DISPLAY, ADDITIONAL_FOOD_INVENTORY]
+  DARK_WOOL_BLANKET:
+    state: INITIAL_AND_PERSISTING_BASE_WRAP
+    redesign: false
+  MEMBER_OWN_SHAWL:
+    state: ADDED_ONLY_AFTER_SEMMAA_REQUESTS_ANOTHER_BLANKET
+    replaces_dark_wool_blanket: false
+  SHRINE_STONE:
+    registry: PRP-FOUR-ROAD-SHRINE
+    state: SAME_WEATHER_SMOOTHED_STONE_AND_LOW_PLATFORM_FROM_SC014
+    standalone_asset_status: CONTROLLED_UNRESOLVED_NO_PROMOTION
+    prohibited: [TEMPLE, DEITY, PRIEST, RITUAL, OFFERING, BELL, INSCRIPTION, PORTAL, ORNATE_STRUCTURE]
+env6:
+  source_ruling: PHYSICAL_SCENE_WITH_ONE_AUTHORITATIVE_BOUNDED_REPRESENTED_BEAT
+  TP014:
+    sb: SB014
+    gf: GF01
+    grammar_name: Counterfactual Flash / Fracture
+    recurrence: 4/18
+    band: Band B — Origin and Paraane childhood
+    ep: EP0+EP1+EP2+EP-U
+    obs: OBS01
+    anchor: ANCH08
+    inverse: INV6-08
+    variants:
+    - VAR6-01
+    - VAR6-02
+    restore: RST01
+    environment: ENV-PLP-006
+    boundary: 'PARALLEL-EARTH FLASH: -> BACK TO PRESENT.'
+    receivers:
+    - YOUNG_SEMMAA
+    - AUDIENCE
+    excluded_full_layer:
+    - NEWBORN_ANAADHI
+    - KENCHAA
+    - DRIVER
+    - OTHER_SARJANYA_MEMBERS
+    - PARVARAN
+    content:
+    - Represented Semmaa carries the same child through this rain.
+    - Adult Anaadhi watches from the road at canonical 1.93 m scale.
+    - Represented Semmaa turns toward Adult Anaadhi as if sensing someone without direct recognition or communication.
+    - The road is empty.
+    - BACK TO PRESENT.
+    physical_anchor_live_beneath_flash: true
+    reusable_visual_filter_authorised: false
+    epistemic_rule: REPRESENTATION_ONLY_NOT_LITERAL_MULTIVERSE_MEMORY_PROPHECY_SUPERNATURAL_FACT_DIAGNOSIS_OR_UNIVERSAL_ADK7_CAUSATION
+    persistence: ZERO_REPRESENTED_PERSON_OBJECT_ROAD_WEATHER_VEHICLE_SOUND_OR_DRESSING_RESIDUE_AT_RST01
+  rst01_result: SAME_PRE_PICKUP_SEMMAA_NEWBORN_SARJANYA_GROUP_JEEP_J01_SHRINE_LIGHT_HIDDEN_CAR_AND_RAIN_ZERO_RESIDUE
+shot_plan:
+  shot_count: 84
+  duration_seconds: 252
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  duration_per_shot_seconds: 3
+  total_frames: 7560
+  crop: NONE
+  baked_letterbox: false
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC015/SC015_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  bgm: NONE
+  allowed_physical_audio:
+  - ACTIVE_MONSOON_RAIN
+  - SARJANYA_JEEP_ENGINE_AND_ROAD_MOVEMENT
+  - FAINT_NEWBORN_CRY_BENEATH_ENGINE
+  - SOURCE_AUTHORISED_GROUP_SILENCE
+  - NEWBORN_CRY_RETURN
+  - JEEP_STOP
+  - JEEP_ACCELERATION
+  - RESTRAINED_LITERAL_EXTERIOR_PATROL_MOVEMENT_AMBIENCE
+  represented_audio_generation: false
+  adult_anaadhi_voice: NONE
+  new_generation: false
+  prohibited_audio:
+  - BGM_OR_MUSICAL_TRANSITION
+  - FRACTURE_OR_FLASH_SOUND
+  - PROJECTOR_BEEP_OR_VOICE
+  - COMEDY_STING
+  - SUPERNATURAL_TEXTURE
+  - ADULT_ANAADHI_VO
+  - DECORATIVE_CHIME
+  - UNSUPPORTED_VEHICLE_SOUND
+hard_exclusions:
+- NO_SC016_GATE_ARRIVAL_ARCHITECTURE_SECURITY_STATION_VEHICLE_RECOGNITION_OVERRIDE_OR_OPENING
+- NO_PHYSICAL_ASANA_OR_READABLE_NIGHT_ACCESS_RESTRICTED_OR_STATE_PURPOSE
+- NO_SC016_EMERGENCY_INTAKE_CATEGORY_POLICE_NOTIFICATION_MANIMANTHARAA_INNER_WARD_MEDICAL_WORKER_THERMAL_CRADLE_SURRENDER_OR_NAMING
+- NO_SC017_ACTION
+- NO_PHYSICAL_POLICE_STATION_GOVERNMENT_CHILDRENS_HOME_DESTINATION_MONTAGE_OR_ALTERNATE_ROUTE
+- NO_SC014_MODIFICATION_ABANDONMENT_REPLAY_HOSPITAL_EXIT_NEWBORN_REMOVAL_OR_HOSPITAL_TO_JUNCTION_ROUTE
+- NO_SECOND_JUNCTION_SHRINE_PLATFORM_STREETLIGHT_OR_ENVIRONMENT_MERGE
+- NO_FIFTH_ROAD_LABEL_COMPASS_BEARING_DISTANCE_ROAD_NUMBER_OR_DESTINY_SYMBOLISM
+- NO_INVENTED_SARJANYA_JEEP_DESIGN_ENV_MOB002_OR_ASSET_STATUS_PROMOTION
+- NO_ENV_MOB001_MOVEMENT_ON_ENV_PLP006_PURSUIT_INTERVENTION_FOLLOW_ACTION_DESIGN_ROUTE_OR_HIDING_MECHANISM
+- NO_INVENTED_KENCHAA_DRIVER_MEMBER_IDENTITY_BIOGRAPHY_RANK_ROSTER_COUNT_OR_TESTIMONY
+- NO_INVENTED_YOUNG_SEMMAA_NUMERIC_AGE_RANK_TITLE_OR_PRESENT_DAY_COSTUME
+- NO_EXPANDED_COMEDY_REACTION_BUSINESS_OR_MUSICAL_STING
+- NO_PROJECTOR_TEXT_COORDINATES_DESTINATION_COMPASS_DATA_BEEP_HOLOGRAM_OR_SUPERNATURAL_NAVIGATION
+- NO_ACTUAL_CARDIORESPIRATORY_FAILURE_NEWBORN_DEATH_MEDICAL_COMPLICATION_ILLNESS_OR_DIAGNOSIS
+- NO_HYPOTHERMIA_COLD_INJURY_THERMOMETER_TEMPERATURE_READING_CLINICAL_FINDING_INJURY_OR_MEDICAL_TEST
+- NO_BODY_MORGUE_CERTIFICATE_DEATH_PROCEDURE_DISPOSAL_BURIAL_OR_FUNERAL
+- NO_NEWBORN_NAME_IDENTIFIER_TAG_DEVICE_RECORD_FIELD_OR_READABLE_HOSPITAL_INTERFACE
+- NO_EARLY_EXTRA_SHAWL_DARK_WOOL_BLANKET_REPLACEMENT_RECOLOUR_OR_REDESIGN
+- NO_TEMPLE_DEITY_PRIEST_RITUAL_OFFERING_BELL_INSCRIPTION_PORTAL_OR_ORNATE_SHRINE
+- NO_PHYSICAL_ADULT_ANAADHI_DUPLICATE_SEMMAA_OR_DUPLICATE_NEWBORN
+- NO_ADULT_ANAADHI_VO_OR_ADDITIONAL_REPRESENTED_DIALOGUE
+- NO_TP012_TP013_CARRYOVER_OR_TP014_OUTSIDE_EXACT_BOUNDARY
+- NO_FULL_TP014_ACCESS_FOR_NEWBORN_KENCHAA_DRIVER_OTHER_MEMBERS_OR_PARVARAN
+- NO_LITERAL_MULTIVERSE_PROPHECY_RECOVERED_MEMORY_SUPERNATURAL_CERTAINTY_OR_FUTURE_COMMUNICATION
+- NO_REPRESENTED_LAYER_RESIDUE_AFTER_RST01_OR_PERSISTENT_FRACTURE_FILTER
+- NO_STROBE_DISTRESS_SPECTACLE_CONTINUITY_REDESIGN_OR_ADDITIONAL_READABLE_TEXT
+- NO_MODIFICATION_OF_FINALIZED_SC001_TO_SC014_OR_EXISTING_REMOTION_TYPESCRIPT_COMPOSITION_IDS_OR_TYPECHECK_FIXES
+- NO_IMAGE_GENERATION_VIDEO_RENDER_NEW_AUDIO_GENERATION_SUPERCOOL_HEYGEN_OR_PAID_MEDIA_API
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: PERMANENTLY_DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
+  audio_generation: DISABLED
+  execute_now: false
+next: SC016
