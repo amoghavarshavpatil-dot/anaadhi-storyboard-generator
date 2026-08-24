@@ -124,20 +124,28 @@ shots:
     regenerate: false
 
   - shot_id: "SC001_SH005"
-    status: DRAFT
+    status: APPROVED_SHOT
     duration_seconds: 3.0
     purpose: "Violent THUD shakes cabin and perimeter snaps to aim"
     framing: "medium-wide cabin exterior"
     camera_motion: "single impact jolt then hold"
     visual_prompt: "raised forest cabin shudders violently from an unseen internal impact, surrounding officers instantly aim, black rain scattering from roof edges, no shots fired"
     negative_prompt: "explosion, fireball, gunfire, daylight"
-    reference_assets: []
+    reference_assets:
+      - "production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED_3840x1600.png"
+      - "production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED_3840x1600.png"
+      - "production/remotion/public/shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED_3840x1600.png"
+    approved_asset:
+      version: V001
+      path: "production/remotion/public/shots/SC001/SC001_SH005/B01_SC001_SH005_V001_APPROVED_3840x1600.png"
+      sha256: "92b9b55ee8d100fac44f358f7ce2b16a3cf8151d7538691bf4e5dc74536cf8d3"
+      manifest: "production/remotion/public/shots/SC001/SC001_SH005/B01_SC001_SH005_V001_APPROVED.yaml"
     visible_speaker: null
     lip_sync_required: false
     dialogue_clip: null
     bgm_cue: "brief drop before impact"
     sfx_cues: ["massive interior THUD", "wood structure groan", "weapons raising", "rain"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH006"
     status: DRAFT

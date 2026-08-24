@@ -1,0 +1,72 @@
+version: 1
+project: ANAADHI
+canonical_shot_key: B01_SC001_SH005
+scene_id: SC001
+shot_id: SC001_SH005
+candidate_version: V001
+lifecycle_status: APPROVED_SHOT
+generated_at: 2026-08-24
+
+source:
+  authority: scenes/001/scene.yaml
+  purpose: "Violent THUD shakes cabin and perimeter snaps to aim."
+  framing: medium-wide cabin exterior
+  camera_motion: single impact jolt then hold
+  continuity_references:
+    - production/remotion/public/shots/SC001/SC001_SH002/B01_SC001_SH002_V001_APPROVED_3840x1600.png
+    - production/remotion/public/shots/SC001/SC001_SH003/B01_SC001_SH003_V001_APPROVED_3840x1600.png
+    - production/remotion/public/shots/SC001/SC001_SH004/B01_SC001_SH004_V001_APPROVED_3840x1600.png
+  generation_backend: CHATGPT_BUILT_IN_IMAGE_GENERATION
+  supercool_used: false
+  heygen_used: false
+  paid_media_api_used: false
+
+generation_prompt:
+  positive: >-
+    The same raised forest cabin in the locked pre-dawn Karnataka rainforest shudders
+    from one violent unseen impact inside. Black rainwater scatters naturally from both
+    roof edges while surrounding Indian perimeter officers instantly pivot and raise
+    practical rifles toward the intact cabin. Preserve the established wet timber-and-bamboo
+    architecture, stilt structure, wraparound balcony, dark jungle, muddy ground, cool
+    blue-black grade, restrained amber practicals, grounded live-action realism, natural
+    anatomy and a full-bleed 2.40:1 medium-wide cinematic composition. All personnel remain
+    outside; no source of the impact is visible and no shot is fired.
+  negative:
+    - explosion, fireball, flames or smoke blast
+    - muzzle flash, bullets, gunfire or shell casings
+    - cabin breach, broken wall, collapsed roof or open assault
+    - visible person or impact source inside the cabin
+    - daylight or bright sky
+    - generic western SWAT styling or unrelated insignia
+    - duplicated people, malformed anatomy or warped rifles
+    - text, captions, watermark or storyboard borders
+    - baked letterbox bars
+
+picture_master:
+  native_path: production/remotion/public/shots/SC001/SC001_SH005/B01_SC001_SH005_V001_APPROVED_NATIVE_1942x809.png
+  native_resolution: 1942x809
+  native_sha256: 9fcb6c1e3ad936a31ac7961bcc0c76553dee9a66000f709be8accf78a610dd8a
+  canonical_review_path: production/remotion/public/shots/SC001/SC001_SH005/B01_SC001_SH005_V001_APPROVED_3840x1600.png
+  canonical_review_resolution: 3840x1600
+  canonical_review_sha256: 92b9b55ee8d100fac44f358f7ce2b16a3cf8151d7538691bf4e5dc74536cf8d3
+  canonical_resample: LANCZOS_MECHANICAL_ONLY
+  baked_letterbox_bars: false
+
+qc:
+  approved_sh002_sh004_world_continuity_pass: true
+  medium_wide_cabin_exterior_pass: true
+  raised_cabin_intact_pre_breach_pass: true
+  internal_thud_shudder_readability_pass: true
+  perimeter_snap_to_aim_pass: true
+  black_rain_roof_scatter_pass: true
+  no_gunfire_explosion_or_daylight_pass: true
+  no_text_or_bars_pass: true
+  overall_result: APPROVED_BY_USER
+
+review_gate:
+  user_approval: APPROVED
+  approved_at: 2026-08-24
+  next_shot: SC001_SH006
+  next_shot_generation_blocked_until_decision: false
+  approved_shot_claimed: true
+  locked_picture_claimed: false

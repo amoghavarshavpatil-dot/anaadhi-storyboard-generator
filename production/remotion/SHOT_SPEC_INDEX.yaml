@@ -1,4 +1,4 @@
-version: 17
+version: 18
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; do not restart it.
@@ -10,10 +10,10 @@ coverage:
     migration_to_new_schema: PENDING
     regenerate_now: false
     image_generation_started: true
-    generated_shot_count: 4
-    approved_shot_count: 4
-    last_approved_shot: SC001_SH004
-    next_shot: SC001_SH005
+    generated_shot_count: 5
+    approved_shot_count: 5
+    last_approved_shot: SC001_SH005
+    next_shot: SC001_SH006
     approved_assets_index: production/remotion/public/shots/APPROVED_SHOT_INDEX.yaml
   SC002:
     state: SPEC_READY
