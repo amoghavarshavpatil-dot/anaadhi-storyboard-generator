@@ -1,4 +1,4 @@
-version: 23
+version: 24
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
 as_of_local: '2026-08-24T05:41:00+05:30'
@@ -19,61 +19,63 @@ visual_preproduction:
   next_phase: SHOT_SPEC_MATERIALIZATION
   source_scope: SC001-SC100
   legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC072
-  latest_source_scene_materialized: SC072
-  next_scene_to_materialize: SC073
-  next_editorial_segment: SC073
+  latest_new_schema_materialized: SC073
+  latest_source_scene_materialized: SC073
+  next_scene_to_materialize: SC074
+  next_editorial_segment: SC074A
   first_editorial_jump_reached: true
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: SC072 SPEC_READY through screens going dark while the question remains illuminated. Continue directly to SC073. SuperCool remains disabled; no paid media execution.
+  note: SC073 SPEC_READY through exact SB078 end 'The parallel victims move closer.' RST05 clears represented persistence at the next physical continuation. Continue directly to SC074A. SuperCool remains disabled; no paid media execution.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
   mastered_prefix_end_seconds: 134.293333
   resume_mix_after_seconds: 134.293333
   reopen_locked_prefix_only_on_explicit_user_redraft: true
-  SC070: {dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY, picture_planning_duration_seconds: 180, exact_audio_timecode_alignment: PENDING_EXTRACTION}
   SC071: {dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY, picture_planning_duration_seconds: 165, exact_audio_timecode_alignment: PENDING_EXTRACTION}
-  SC072:
+  SC072: {dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY, picture_planning_duration_seconds: 180, exact_audio_timecode_alignment: PENDING_EXTRACTION}
+  SC073:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
     picture_planning_duration_seconds: 180
     exact_audio_timecode_alignment: PENDING_EXTRACTION
-    transition_in: CUT FROM SC071 after residents remain as witnesses, not supporters.
-    transition_out: CUT TO SC073 only after the archive screens go dark while the question remains illuminated.
-    sound_rule: Physical WC065 Archive Core sound outside TP077/SB077; represented newborn-rain flash sound only inside SB077; RST05 restores unchanged archive sound.
-    evidence_rule: archive records remain evidence; no fabricated parental identity or unsourced record text.
+    transition_in: CUT FROM SC072 after archive screens go dark and the question remains illuminated.
+    transition_out: CUT TO SC074A from exact SB078 endpoint; apply RST05 zero persistence before physical SC074A continuation.
+    sound_rule: Physical WC068 resident-hall/recorder ambience before TP078; source-bounded represented consequence sound after salt-sack onset; no victim dialogue; RST05 clears represented sound at cut.
 picture_master: {width: 3840, height: 1600, aspect_ratio: '2.40:1', fps: 30, baked_letterbox: false}
 shot_density:
   target_minimum_stills_per_minute: 20
-  SC070: {duration_seconds: 180, shot_count: 60, stills_per_minute: 20}
   SC071: {duration_seconds: 165, shot_count: 55, stills_per_minute: 20}
   SC072: {duration_seconds: 180, shot_count: 60, stills_per_minute: 20}
+  SC073: {duration_seconds: 180, shot_count: 60, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC072
-  source_scene: SC072
-  scene_condition: WC065
+  latest_materialized_segment: SC073
+  source_scene: SC073
+  scene_condition: WC068
   special_beat_intersects_scene: true
-  source_ruling: TP077_SB077_GF06_SOURCE_BOUNDED_WITH_RST05
+  source_ruling: TP078_SB078_GF08_FINAL_RECURRENCE_WITH_RST05_AT_BOUNDARY
   batch: {canonical: B26, scenes: [69,70,71,72,73,74]}
   root: LOC-003
-  SC072_current:
-    tp: TP077
-    sb: SB077
-    grammar: GF06
-    ep: EP0+EP2+EP3+EP-U
+  SC073_current:
+    tp: TP078
+    sb: SB078
+    grammar: GF08
+    recurrence: 4/4_FINAL_REGISTERED_RECURRENCE
+    band: E_RETURN_SURGERY_AND_REENTRY
+    ep: EP0+EP2+EP3+EP4+EP5+EP-U
     observers: OBS01
-    anchor: ANCH57
-    inverse: INV6-57
-    environment: ENV-PAR-032/PV159
+    anchor: ANCH58
+    inverse: INV6-58
+    environment: ENV-PAR-031/PV154
+    variations: [VAR6-02, VAR6-03, VAR6-04, VAR6-05]
     restore: RST05
-    start: 'A flash: Semmaa carrying the newborn in rain'
-    end: 'A record, a story and a visual may have mixed together.'
-    access: Adult Anaadhi full represented layer; Aarathi/Manire/Asana no full-layer access
-    zero_residue: true
-    exact_end: archive screens go dark while the question remains illuminated
+    start: A salt sack appears in a parallel version of the hall.
+    end: The parallel victims move closer.
+    access: Adult Anaadhi full represented layer; Aarathi/residents no full-layer access
+    exact_victim_count: 17
+    zero_residue_on_next_physical_continuation: true
 character_cursor:
   anaadhi:
-    source_scene: SC072
+    source_scene: SC073
     identity: CHR-ANAADHI
     age: 27
     height_cm: 193
@@ -83,27 +85,27 @@ character_cursor:
     costume: WET_POST_OPERATION_CLOTHING
     injury: CHEMICAL_AFTERMATH_EXHAUSTION_ONLY
     SC074_wounds: NOT_YET_PRESENT
+    accountability_statement: VOLUNTARY_AND_RECORDED
   aarathi:
     identity: CHR-AARATHI
     state: B26_CONTINUITY
     evidence_custody: RUKEY_seventeen_name_display
-    archive_role: EVIDENCE_PRESERVATION
-  manire:
-    identity: SOURCE_CHARACTER_ID_CONTROLLED_UNRESOLVED
+    recorder: CENTRAL_TABLE_ACTIVE
     represented_access: NONE
-  asana:
-    identity: CHR-ASANA
+  residents:
+    role: PHYSICAL_WITNESSES_NOT_SUPPORTERS
     represented_access: NONE
+  manire: {presence: ABSENT_SC073}
+  asana: {presence: ABSENT_SC073}
 editorial_lock:
   enabled: true
   split_scene_ids: [SC074, SC094, SC099]
   split_segment_completed: [SC094B, SC099B]
   source_scene_order_is_not_render_order: true
   remotion_final_feature_uses_locked_sequence: true
-  current_completed_segment: SC072
-  next_editorial_segment: SC073
+  current_completed_segment: SC073
+  next_editorial_segment: SC074A
   remaining_materialization_order:
-    - SC073
     - SC074A
     - SC006-SC059
     - SC074B

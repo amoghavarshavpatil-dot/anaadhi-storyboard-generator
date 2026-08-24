@@ -1,0 +1,149 @@
+scene_id: SC073
+status: SPEC_READY
+source_scene_number: 73
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: INT. PARAANE CENTRAL RESIDENT HALL – LATE AFTERNOON
+editorial_previous: SC072
+editorial_next: SC074A
+source_boundary:
+  start: Aarathi’s recorder is on the central table; Anaadhi stands before the residents holding the victim list.
+  end: The parallel victims move closer.
+batch: {canonical: B26}
+env6:
+  condition: WC068
+  signature: TD5/WX4/EX3/LS1/OC3/OP2/T
+  transition_point: TP078
+  special_beat: SB078
+  grammar_family: GF08
+  grammar_name: Victim / Consequence Presence
+  recurrence: 4/4_FINAL_REGISTERED_RECURRENCE
+  band: E_RETURN_SURGERY_AND_REENTRY
+  ep: EP0+EP2+EP3+EP4+EP5+EP-U
+  observers: OBS01
+  observer_access: Adult Anaadhi receives the full represented layer; Aarathi and residents do not; audience receives representation.
+  anchor: ANCH58
+  inverse: INV6-58
+  environment: ENV-PAR-031
+  pv: PV154
+  variations: [VAR6-02, VAR6-03, VAR6-04, VAR6-05]
+  restore: RST05
+  start: A salt sack appears in a parallel version of the hall.
+  end: The parallel victims move closer.
+  restore_rule: At the scene boundary/next physical continuation the same physical anchor/WC/PV remains authoritative; no represented object, person, weather or damage survives.
+environment:
+  root: LOC-003
+  id: ENV-PAR-031
+  pv: PV154
+  name: Paraane Central Resident Hall
+  time: LATE_AFTERNOON
+characters:
+  ANAADHI:
+    state: AGE_27_PARAANE_RETURN
+    age: 27
+    height_cm: 193
+    continuity: wet post-operation/capture body; capture hair; chemical aftermath/exhaustion
+    SC074_wounds: NOT_YET_PRESENT
+  AARATHI:
+    state: B26_CONTINUITY
+    role: records voluntary statement
+    represented_access: none
+    evidence_custody: RUKEY_seventeen_name_display secured separately
+  RESIDENTS:
+    role: physical witnesses, not supporters
+    represented_access: none
+  MANIRE:
+    presence: ABSENT
+  ASANA:
+    presence: ABSENT
+  PARALLEL_VICTIMS:
+    represented_only: true
+    count: 17
+    dialogue: none
+    physical_persistence: false
+victim_names:
+  - Mallayya
+  - Nanjappa
+  - Sarvaraaj
+  - Gundappa
+  - Chandru
+  - Basavaraj
+  - Devarajayya
+  - Jabbar
+  - Thimmegowda
+  - Ramesha
+  - Krishnappa
+  - Hanumantha
+  - Shivappa
+  - Linga
+  - Raghavendra
+  - Chikkanna
+  - Madhava
+represented_content:
+  onset_after: 'ANAADHI: Mallayya.'
+  beats:
+    - A salt sack appears in a parallel version of the hall.
+    - After Nanjappa, cloth fills another corridor/layer.
+    - After Sarvaraaj, water runs beneath the residents’ chairs.
+    - Seventeen parallel victims stand among the living residents. Anaadhi alone sees them.
+    - The parallel victims move closer.
+  rules:
+    - no horror-apparition proof
+    - no extra dialogue
+    - no physical victim duplication
+    - no supernatural certainty
+    - no persistence after RST05
+dialogue:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  exact_statement_order: true
+  accountability_lock:
+    - 'ANAADHI: I am.'
+    - 'ANAADHI: It wounded something inside me.'
+    - 'ANAADHI: I made the decision to kill them.'
+    - 'ANAADHI: It was my own voice.'
+    - 'ANAADHI: In some moments, it felt as though I did not.'
+    - 'ANAADHI: But I walked away. Then I returned.'
+    - 'AARATHI: Then there was a choice.'
+    - 'ANAADHI: Yes.'
+    - 'ANAADHI: I was a victim.'
+    - 'ANAADHI: They became my victims.'
+  final_vo:
+    - 'ANAADHI (V.O.): When I spoke seventeen names, the room did not become lighter.'
+    - 'ANAADHI (V.O.): For the first time, their weight received names. That was all.'
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  physical_sound: resident-hall/recorder ambience
+  represented_sound: source-bounded SB078 only; no victim voices
+  restore: RST05 clears represented layer at cut
+shot_plan:
+  shot_count: 60
+  duration_seconds: 180
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  shot_package: production/remotion/shot_specs/SC073/SC073_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+hard_exclusions:
+  - SB078_BEFORE_MALLAYYA
+  - AARATHI_OR_RESIDENT_FULL_LAYER_ACCESS
+  - MANIRE_PRESENCE
+  - ASANA_PRESENCE
+  - HORROR_APPARITION
+  - GORE
+  - EXTRA_VICTIMS
+  - FABRICATED_NAMES
+  - PHYSICAL_REPRESENTED_PERSISTENCE
+  - SUPERNATURAL_CERTAINTY
+  - SC074_WOUNDS_EARLY
+  - IMAGE_GENERATION
+  - VIDEO_RENDER
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+next: SC074A

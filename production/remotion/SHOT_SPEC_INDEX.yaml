@@ -1,4 +1,4 @@
-version: 22
+version: 23
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
@@ -70,6 +70,21 @@ coverage:
     image_generation_started: false
     render_started: false
     final_editorial_next: SC073
+  SC073:
+    state: SPEC_READY
+    source: scenes/073/scene.yaml
+    shot_package: production/remotion/shot_specs/SC073/SC073_SHOT_PACKAGE.json
+    shot_count: 60
+    duration_seconds: 180
+    stills_per_minute: 20
+    parallel_earth: TP078 / SB078 / GF08 4/4 / Band E / EP0+EP2+EP3+EP4+EP5+EP-U / OBS01 / ANCH58 / INV6-58 / WC068 / VAR6-02+03+04+05 / RST05
+    environment: LOC-003 / ENV-PAR-031 / PV154 Paraane Central Resident Hall / late afternoon
+    evidence_control: exact source victim list of 17 names; recorder on central table; RUKEY display remains separate and secured; no fabricated names
+    observer_control: Adult Anaadhi alone receives full represented layer; Aarathi and residents remain physical witnesses; Manire/Asana absent
+    boundary_note: SB078 begins immediately after Mallayya with salt sack represented beat and ends when the parallel victims move closer; RST05 clears all represented persistence at next physical continuation
+    image_generation_started: false
+    render_started: false
+    final_editorial_next: SC074A
 unmaterialized:
   state: NOT_YET_MATERIALIZED_EXCEPT_LISTED
   note: Final render order follows production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml.
@@ -80,7 +95,6 @@ editorial:
   split_packages_required: [SC074A, SC074B, SC094A, SC094B, SC099A, SC099B]
   split_packages_materialized: [SC094B, SC099B]
   remaining_materialization_order:
-    - SC073
     - SC074A
     - SC006-SC059
     - SC074B
@@ -90,11 +104,11 @@ editorial:
     - SC099A
     - END
 cursor:
-  last_materialized_source_scene: SC072
-  last_materialized_editorial_segment: SC072
-  next_scene: SC073
-  next_editorial_segment: SC073
-  after_SC072: SC073
+  last_materialized_source_scene: SC073
+  last_materialized_editorial_segment: SC073
+  next_scene: SC074
+  next_editorial_segment: SC074A
+  after_SC073: SC074A
   image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
 backend:
