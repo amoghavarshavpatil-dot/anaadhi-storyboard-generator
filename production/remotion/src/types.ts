@@ -48,3 +48,15 @@ export type MasterTimeline = {
   lockedAudioPrefixSeconds: number;
   scenes: SceneSpec[];
 };
+
+export type AssemblyShot = {
+  shotId: string;
+  source: string;
+  durationInFrames: number;
+  trimBefore?: number;
+  volume?: number;
+};
+
+export type AnaadhiAssemblyProps = {
+  shots: AssemblyShot[];
+};
