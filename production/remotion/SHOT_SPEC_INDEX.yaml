@@ -1,5 +1,5 @@
 {
-  "version": 36,
+  "version": 37,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -11,11 +11,11 @@
       "picture_approval_cursor": "production/remotion/PICTURE_APPROVAL_CURSOR.json",
       "remotion_scene_data": "production/remotion/src/data/sc001Approved.ts",
       "shot_count": 8,
-      "approved_shot_count": 6,
+      "approved_shot_count": 7,
       "duration_seconds": 53,
-      "approved_duration_seconds": 35,
-      "approved_through": "SC001_SH006",
-      "next_shot": "SC001_SH007",
+      "approved_duration_seconds": 45,
+      "approved_through": "SC001_SH007",
+      "next_shot": "SC001_SH008",
       "migration_to_new_schema": "COMPLETED_R001",
       "image_generation_started": true,
       "render_started": false
@@ -435,9 +435,9 @@
   "picture_approval": {
     "scope": "SC001_SH001_TO_SC005_SH024",
     "planned_shots": 106,
-    "approved_count": 6,
-    "last_approved_shot": "SC001_SH006",
-    "next_shot": "SC001_SH007",
+    "approved_count": 7,
+    "last_approved_shot": "SC001_SH007",
+    "next_shot": "SC001_SH008",
     "cursor": "production/remotion/PICTURE_APPROVAL_CURSOR.json"
   }
 }

@@ -59,5 +59,14 @@ export const sc001ApprovedScene: SceneSpec = {
       motionMode: 'STATIC',
       screenDirection: 'NEUTRAL',
     },
+    {
+      sceneId: 'SC001',
+      shotId: 'SC001_SH007',
+      revisionId: 'V001',
+      imagePath: 'shots/SC001/SC001_SH007_V001.png',
+      durationSeconds: 10,
+      motionMode: 'STATIC',
+      screenDirection: 'NEUTRAL',
+    },
   ],
 };

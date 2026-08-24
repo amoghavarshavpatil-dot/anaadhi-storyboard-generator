@@ -180,7 +180,15 @@ shots:
     regenerate: false
 
   - shot_id: "SC001_SH007"
-    status: SPEC_READY
+    revision_id: "V001"
+    status: APPROVED_SHOT
+    approved_asset:
+      git_path: "production/remotion/public/shots/SC001/SC001_SH007_V001.png"
+      remotion_static_file: "shots/SC001/SC001_SH007_V001.png"
+      sha256: "6dce81dbb21a692442bf0101812dc50d73b247ea4e96d2ddabc94b0cedc25fb8"
+      width: 1942
+      height: 809
+      aspect_ratio: "2.40:1"
     duration_seconds: 10.0
     purpose: "Five Parallel Earth fracture montage"
     framing: "subject-anchored reality shards"
@@ -193,7 +201,7 @@ shots:
     dialogue_clip: null
     bgm_cue: "parallel-earth harmonic fracture"
     sfx_cues: ["reality shear", "reversed snow texture", "distant glass resonance", "low neural flutter"]
-    regenerate: true
+    regenerate: false
 
   - shot_id: "SC001_SH008"
     status: SPEC_READY
@@ -215,9 +223,9 @@ remotion:
   shot_package: "production/remotion/shot_specs/SC001/SC001_SHOT_PACKAGE.json"
   picture_approval_cursor: "production/remotion/PICTURE_APPROVAL_CURSOR.json"
   scene_data: "production/remotion/src/data/sc001Approved.ts"
-  approved_count: 6
-  approved_through: "SC001_SH006"
-  next_shot: "SC001_SH007"
+  approved_count: 7
+  approved_through: "SC001_SH007"
+  next_shot: "SC001_SH008"
   render_started: false
 
 scene_audio:

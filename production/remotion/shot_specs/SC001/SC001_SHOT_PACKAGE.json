@@ -42,14 +42,14 @@
     "no recompression",
     "no image regeneration",
     "no unapproved motion or reframing",
-    "no SC001_SH007 generation in this commit"
+    "no SC001_SH008 generation in this commit"
   ],
   "picture_progress": {
     "planned_scene_shots": 8,
     "planned_run_shots": 106,
-    "approved_count": 6,
-    "approved_through": "SC001_SH006",
-    "next_shot": "SC001_SH007",
+    "approved_count": 7,
+    "approved_through": "SC001_SH007",
+    "next_shot": "SC001_SH008",
     "render_started": false
   },
   "shots": [
@@ -145,10 +145,18 @@
     },
     {
       "shot_id": "SC001_SH007",
-      "status": "SPEC_READY",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
       "duration_seconds": 10,
       "purpose": "Five Parallel Earth fracture montage",
-      "asset": null
+      "framing": "subject-anchored reality shards",
+      "screen_direction": "NEUTRAL",
+      "motion_mode": "STATIC",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "6dce81dbb21a692442bf0101812dc50d73b247ea4e96d2ddabc94b0cedc25fb8",
+      "git_path": "production/remotion/public/shots/SC001/SC001_SH007_V001.png",
+      "remotion_static_file": "shots/SC001/SC001_SH007_V001.png",
+      "original_title": "Five Parallel Earth Fracture Montage.png"
     },
     {
       "shot_id": "SC001_SH008",
