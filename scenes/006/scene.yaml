@@ -1,0 +1,82 @@
+scene_id: SC006
+status: SPEC_READY
+source_scene_number: 6
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: INT. ADRAKA MEDICAL UNIVERSITY – SYSTEMS LAB – DAY – YEARS EARLIER
+source_previous: SC005
+source_next: SC007
+editorial_previous: SC074A
+editorial_next: SC007
+source_boundary:
+  start: A futuristic medical laboratory built within an old red-stone university.
+  end: 'MARSYAA (CONT’D): Not shared power.'
+env6:
+  disposition: NO_SB_REAL_EARLIER_UNIVERSITY_CHRONOLOGY
+  wc: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  rule: The holographic patient/system model is literal teaching technology, not a simulated alternate event, transformed site or represented layer.
+environment:
+  id: ENV-ADK-001
+  name: Adraka Medical University — Systems Lab
+  root: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  pv: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  batch: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+  time: DAY
+  chronology: YEARS_EARLIER
+characters:
+  MARSYAA:
+    age: fifties
+    role: mentor/teacher
+    exact_costume: CONTROLLED_UNRESOLVED
+  ANARVAA:
+    role: student
+    state: composed, ambitious, immaculately organised
+    exact_age_costume: CONTROLLED_UNRESOLVED
+  PARVARAN:
+    role: student
+    state: thoughtful, curious, visibly idealistic
+    exact_age_costume: CONTROLLED_UNRESOLVED
+  LAB_ASSISTANT:
+    state: nervous
+    identity_costume: CONTROLLED_UNRESOLVED
+  ANAADHI:
+    presence: ABSENT
+technology:
+  suspended_holographic_neural_maps: literal teaching display
+  patient_system_model:
+    departments: [Hospital, Police, Court, Shelter]
+    behavior: patient repeatedly falls through gaps
+    state_change: Anarvaa merges four systems into one circle; later model freezes due technology failure; Marsyaa separates systems again
+    represented_layer: false
+shot_plan:
+  shot_count: 40
+  duration_seconds: 120
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  shot_package: production/remotion/shot_specs/SC006/SC006_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  ambience: PHYSICAL_SYSTEMS_LAB_ONLY
+hard_exclusions:
+  - PARALLEL_EARTH
+  - SIMULATED_WORLD
+  - TRANSFORMED_SITE
+  - ANAADHI_PRESENCE
+  - GUESSED_WC_PV_ROOT_BATCH
+  - FABRICATED_CHARACTER_AGE_OR_COSTUME
+  - SC007_ACTION
+  - IMAGE_GENERATION
+  - VIDEO_RENDER
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+next: SC007
