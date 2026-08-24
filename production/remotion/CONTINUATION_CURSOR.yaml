@@ -1,4 +1,4 @@
-version: 26
+version: 27
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
 as_of_local: '2026-08-24T05:41:00+05:30'
@@ -10,77 +10,55 @@ backend:
   heygen_generation_enabled: false
   openai_work_page_generation_enabled: false
   paid_media_api_execution_enabled: false
-  secrets_allowed_in_repository: false
 visual_preproduction:
-  restart_from_scene_001: false
-  inherit_existing_locked_work: true
-  last_locked_environment_stage: ENV-6C
-  storyboard_frame_generation_started: false
-  next_phase: SHOT_SPEC_MATERIALIZATION
-  source_scope: SC001-SC100
-  legacy_scene_plan_present: SC001
-  latest_new_schema_materialized: SC006
-  latest_source_scene_materialized: SC006
-  next_scene_to_materialize: SC007
-  next_editorial_segment: SC007
+  latest_new_schema_materialized: SC007
+  latest_source_scene_materialized: SC007
+  next_scene_to_materialize: SC008
+  next_editorial_segment: SC008
   source_continuation_pending: SC074B
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
-  note: Final editorial order has jumped from SC074A to SC006. SC006 is SPEC_READY and is a NO-SB literal university teaching scene. Continue SC007. SC074B remains pending after SC059.
+  note: SC007 P0 founding Paraane SPEC_READY. Continue SC008. Exact Scene-007 ENV-6 packet remains controlled-unresolved where not retrieved; no represented layer invented.
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
   mastered_prefix_end_seconds: 134.293333
-  resume_mix_after_seconds: 134.293333
-  SC074A:
+  SC006: {dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY, picture_planning_duration_seconds: 120, exact_audio_timecode_alignment: PENDING_EXTRACTION}
+  SC007:
     dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 165
+    picture_planning_duration_seconds: 150
     exact_audio_timecode_alignment: PENDING_EXTRACTION
-    transition_out: EDITORIAL CUT TO SC006 at 'No triumph—only immediate terror.'; not TP080/RST02 source reset.
-  SC006:
-    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
-    picture_planning_duration_seconds: 120
-    exact_audio_timecode_alignment: PENDING_EXTRACTION
-    transition_in: EDITORIAL CUT FROM SC074A; source chronology previous is SC005.
-    transition_out: CUT TO SC007.
-    sound_rule: Physical Adraka Systems Lab only; literal hologram/console source sounds; no represented-layer audio.
+    transition_in: CUT FROM SC006.
+    transition_out: CUT TO SC008.
+    sound_rule: Physical P0 inauguration/registration/courtyard ambience only; no invented represented-layer audio.
 picture_master: {width: 3840, height: 1600, aspect_ratio: '2.40:1', fps: 30, baked_letterbox: false}
 shot_density:
   target_minimum_stills_per_minute: 20
-  SC074A: {duration_seconds: 165, shot_count: 55, stills_per_minute: 20}
   SC006: {duration_seconds: 120, shot_count: 40, stills_per_minute: 20}
+  SC007: {duration_seconds: 150, shot_count: 50, stills_per_minute: 20}
 env6_cursor:
-  latest_materialized_segment: SC006
-  source_scene: SC006
-  scene_condition: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
-  special_beat_intersects_scene: false
-  source_ruling: NO_SB_REAL_EARLIER_UNIVERSITY_CHRONOLOGY
-  environment: ENV-ADK-001 Adraka Medical University — Systems Lab
+  latest_materialized_segment: SC007
+  source_scene: SC007
+  paraane_state: P0_FOUNDING
+  special_beat_intersects_scene: SOURCE_SPECIAL_BEAT_PRESENT_PACKET_UNRETRIEVED
+  source_ruling: PHYSICAL_SCREENPLAY_CHRONOLOGY_ONLY_UNTIL_PACKET_RETRIEVED
+  environments: [ENV-PAR-001, ENV-PAR-002, ENV-PAR-003, ENV-PAR-004, ENV-PAR-005, ENV-PAR-006]
   wc_pv_root_batch: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
-  hologram_rule: literal teaching technology; not a simulated alternate event or transformed site
+  p0_rules: [SEPARATE_BUILDINGS, VISIBLE_BOUNDARIES, OPEN_COURTYARDS, TIMBER_DAYLIGHT, MODEST_EMBLEM]
   pending_source_state:
-    SC074B:
-      tp: TP080
-      sb: SB080
-      status: SOURCE_ACTIVE_SUSPENDED_BY_EDITORIAL_SPLIT
-      restore: RST02_AT_SOURCE_END_IN_SC074B
-      contamination_to_SC006: FORBIDDEN
+    SC074B: {tp: TP080, sb: SB080, status: SOURCE_ACTIVE_SUSPENDED_BY_EDITORIAL_SPLIT, restore: RST02_AT_SOURCE_END_IN_SC074B, contamination_to_CURRENT_BLOCK: FORBIDDEN}
 character_cursor:
-  SC006:
-    marsyaa: {role: MENTOR_TEACHER, age: FIFTIES}
-    anarvaa: {role: STUDENT, state: COMPOSED_AMBITIOUS_IMMACULATELY_ORGANISED}
-    parvaran: {role: STUDENT, state: THOUGHTFUL_CURIOUS_VISIBLY_IDEALISTIC}
-    lab_assistant: {state: NERVOUS}
-    anaadhi: {presence: ABSENT}
+  SC007:
+    parvaran: {state: PAR-C02_PARAANE_INAUGURATION_FOUNDER, credential: PAR-ID02}
+    anarvaa: {state: FOUNDING_ERA_AMBITIOUS_FORWARD_LOOKING, exact_age_costume: CONTROLLED_UNRESOLVED}
+    marsyaa: {role: MENTOR, exact_costume: CONTROLLED_UNRESOLVED}
 editorial_lock:
   enabled: true
   split_scene_ids: [SC074, SC094, SC099]
   split_segment_completed: [SC074A, SC094B, SC099B]
-  source_scene_order_is_not_render_order: true
-  remotion_final_feature_uses_locked_sequence: true
-  current_completed_segment: SC006
-  next_editorial_segment: SC007
+  current_completed_segment: SC007
+  next_editorial_segment: SC008
   remaining_materialization_order:
-    - SC007-SC059
+    - SC008-SC059
     - SC074B
     - SC075-SC093
     - SC094A

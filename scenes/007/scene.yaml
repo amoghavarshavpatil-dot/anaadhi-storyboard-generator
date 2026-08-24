@@ -1,0 +1,92 @@
+scene_id: SC007
+status: SPEC_READY
+source_scene_number: 7
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+heading: EXT. KENDHALAA – PARAANE INAUGURATION – MORNING / INT. PARAANE REGISTRATION HALL – DAY / EXT. PARAANE COURTYARD – SUNSET
+source_previous: SC006
+source_next: SC008
+editorial_previous: SC006
+editorial_next: SC008
+source_boundary:
+  start: Mist rolls across green hills and red-earth roads.
+  end: 'ANARVAA: As much as required.'
+paraane_state: P0_FOUNDING
+env6:
+  source_special_beat_present: true
+  exact_packet: CONTROLLED_UNRESOLVED_NOT_RETRIEVED_DO_NOT_INVENT
+  rule: Preserve the screenplay physically. Do not create a Parallel-Earth/represented treatment for the rubber-stamp or authority lines without the exact ENV-6 packet row.
+environments:
+  - {id: ENV-PAR-001, name: Paraane Campus / Central Institutional Frontage}
+  - {id: ENV-PAR-002, name: Paraane Mental/Clinical Hospital — exterior and parent clinical wing}
+  - {id: ENV-PAR-003, name: Paraane Rehabilitation Complex — exterior and parent rehab wing}
+  - {id: ENV-PAR-004, name: Paraane P0 Public-Coordination / First-Years Service Montage Zone}
+  - {id: ENV-PAR-005, name: Paraane Registration Hall}
+  - {id: ENV-PAR-006, name: Paraane Central Courtyard / Inauguration Courtyard}
+root_location: SHARED_PARAANE_CAMPUS_GEOGRAPHY__EXACT_LOC_ID_CONTROLLED_UNRESOLVED
+pv_cells: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+wc: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+batch: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
+p0_rules:
+  - separate buildings
+  - visible boundaries between medicine, police and community response
+  - open courtyards
+  - more timber and daylight
+  - modest Paraane emblem
+characters:
+  ANARVAA:
+    state: founding-era; ambitious and forward-looking
+    exact_age_costume: CONTROLLED_UNRESOLVED
+  PARVARAN:
+    state: PAR-C02 Paraane Inauguration Founder
+    costume: pale grey structured band-collar shirt; lightweight dark slate founder coat; charcoal tailored trousers; understated polished dark leather shoes
+    credential: PAR-ID02 founding-team credential
+  MARSYAA:
+    role: mentor
+    exact_costume: CONTROLLED_UNRESOLVED
+  CLERK:
+    role: registration clerk
+    identity_costume: CONTROLLED_UNRESOLVED
+  PUBLIC:
+    role: civilian inauguration attendance and first-years service recipients
+technology_and_props:
+  digital_signage: advanced; Kannada lettering alongside it
+  integrated_registration_system:
+    exact_screen_text:
+      - DIGITAL AUTHORISATION COMPLETE
+      - PHYSICAL STAMP REQUIRED
+  stamp:
+    type: old wooden/rubber administrative stamp
+    source_line_value: fifteen-rupee
+  emblem: modest P0 founding Paraane emblem
+shot_plan:
+  shot_count: 50
+  duration_seconds: 150
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  shot_package: production/remotion/shot_specs/SC007/SC007_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: '00:02:14.293333'
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  ambience: PHYSICAL_P0_PARAANE_ONLY
+hard_exclusions:
+  - GUESSED_TP_SB_GF_WC_PV
+  - PARALLEL_EARTH_WITHOUT_PACKET
+  - LATER_P1_P2_P3_ARCHITECTURE
+  - UNIFIED_MONOLITHIC_FOUNDING_BUILDING
+  - FABRICATED_SYSTEM_TEXT
+  - SC008_ACTION
+  - IMAGE_GENERATION
+  - VIDEO_RENDER
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  execute_now: false
+next: SC008
