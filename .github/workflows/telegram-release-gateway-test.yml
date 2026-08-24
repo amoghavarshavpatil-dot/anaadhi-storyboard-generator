@@ -1,0 +1,36 @@
+name: Telegram Release Gateway Tests
+
+on:
+  pull_request:
+    paths:
+      - "production/distribution/telegram-release-gateway/**"
+      - ".github/workflows/telegram-release-gateway-test.yml"
+  push:
+    branches:
+      - "feature/telegram-whole-movie-release-gateway"
+    paths:
+      - "production/distribution/telegram-release-gateway/**"
+      - ".github/workflows/telegram-release-gateway-test.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  tracking-core:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run tracking tests
+        working-directory: production/distribution/telegram-release-gateway
+        run: python -m unittest -v
+
+      - name: Compile-check tracking modules
+        working-directory: production/distribution/telegram-release-gateway
+        run: python -m py_compile tracker_core.py test_tracker_core.py
