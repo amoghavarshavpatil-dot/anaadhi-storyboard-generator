@@ -1,5 +1,8 @@
 scene_id: SC072
 status: SPEC_READY
+revision: R002
+finalized: true
+lock_state: LOCKED
 source_scene_number: 72
 source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
 heading: INT. PARAANE ARCHIVE CORE – DAY
@@ -8,6 +11,8 @@ editorial_next: SC073
 source_boundary:
   start: Aarathi, Anaadhi and Manire enter the oldest records chamber. Asana follows at a controlled distance.
   end: The screens go dark. The question remains illuminated.
+  previous_endpoint_lock: SC071 residents remain witnesses rather than supporters.
+  no_sc073_action_inside_scene: true
 batch: {canonical: B26}
 env6:
   condition: WC065
@@ -40,15 +45,18 @@ environment_authority:
   closure: [AR039/INV039, MS039, KC039, TG039]
   time: DAY
   weather: UNSTATED
+  no_additional_archive_chambers: true
+  no_records_room_redesign: true
+  no_hidden_portals: true
+  no_unsupported_interfaces: true
 characters:
   ANAADHI:
     state: AGE_27_PARAANE_RETURN
     age: 27
     height_cm: 193
-    continuity: wet post-operation/capture body; capture hair; chemical aftermath/exhaustion; no SC074 wounds
+    continuity: wet post-operation/capture body; capture hair preserved; residual chemical exhaustion; no SC074 chest/abdomen wounds
   AARATHI:
-    state: B26_CONTINUITY
-    role: evidence preservation
+    state: B26_INVESTIGATOR
     evidence_custody: RUKEY_seventeen_name_display secured
     represented_access: none
   MANIRE:
@@ -60,11 +68,10 @@ characters:
     represented_access: none
   SEMMAA_NEWBORN_FLASH:
     represented_only: true
-    persistence: none after RST05
+    persistence_after_RST05: none
   ANARVAA:
-    presence: remote archive-screen appearance only after physical restore
+    presence: remote archive-screen appearance only after RST05
 evidence_and_technology:
-  suspended_files: thousands inside black-stone vault
   childhood_identity:
     exact_fields:
       NAME: ANAADHI
@@ -78,13 +85,42 @@ evidence_and_technology:
     facility: PARLIPATNA MULTI-SPECIALITY MATERNITY HOSPITAL
     parental_fields: SEALED
     access_state: FOUNDER-LEVEL RESTRICTION
-  epistemic_rule: Do not fabricate parental identities, extra record text, or memory certainty.
+  lawful_access_sequence:
+    - Aarathi attempts lawful access.
+    - FOUNDER-LEVEL RESTRICTION blocks access.
+    - Aarathi requires Unnath's warrant.
+    - Anaadhi challenges whether procedure has ever been used correctly.
+    - Asana answers Rarely.
+  epistemic_rule: Do not fabricate parental identities, extra medical facts, extra readable archive text, or memory certainty.
+represented_interval:
+  only_shots: [SC072_SH009, SC072_SH010, SC072_SH011, SC072_SH012, SC072_SH013]
+  adult_anaadhi_full_image: true
+  aarathi_full_image: false
+  manire_full_image: false
+  asana_full_image: false
+  boundary_shot: SC072_SH014
+  boundary_rule: RST05 restores unchanged physical Archive Core with zero represented residue.
+physical_chronology_after_RST05:
+  - Parvaran repeated guardianship signatures.
+  - Neonatal transfer record.
+  - Lawful-access attempt.
+  - FOUNDER-LEVEL RESTRICTION.
+  - Aarathi requires Unnath's warrant.
+  - Anaadhi challenges correct procedure.
+  - Asana answers Rarely.
+  - Anarvaa appears across archive screens.
+  - Aarathi investigator authority is suspended.
+  - Kendhalaa administrative-head claim is disputed.
+  - Paraane caring claim is disputed against sealed parental identity.
+  - Anaadhi asks Who is Parvaran?
+  - Anarvaa answers Ask him.
+  - Screens go dark; the question remains illuminated.
 dialogue:
   policy: CREATOR_RECORDED_DIALOGUE_ONLY
   exact_source_order: true
 audio:
   mastered_prefix_end_timecode: '00:02:14.293333'
-  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
   physical_sound_outside_SB077: true
   represented_sound_only_inside_SB077: true
   restore_rule: RST05 returns unchanged Archive Core sound with zero residue.
@@ -97,6 +133,8 @@ shot_plan:
   aspect: 2.40:1
   fps: 30
   shot_package: production/remotion/shot_specs/SC072/SC072_SHOT_PACKAGE.json
+  package_schema: ANAADHI_REMOTION_SHOT_PACKAGE_EXPANDED_V2
+  per_shot_fields_expanded: true
   image_generation_started: false
   render_started: false
 hard_exclusions:
@@ -106,6 +144,7 @@ hard_exclusions:
   - INVENTED_ARCHIVE_TEXT
   - MEMORY_CERTAINTY
   - SUPERNATURAL_CERTAINTY
+  - PERSISTENT_NEWBORN_RAIN_AFTER_RST05
   - SC073_ACTION
   - SC074_WOUNDS_EARLY
   - IMAGE_GENERATION

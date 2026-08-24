@@ -1,7 +1,7 @@
-version: 28
+version: 29
 project: ANAADHI
 control: REMOTION_CONTINUATION_CURSOR
-as_of_local: '2026-08-24T05:41:00+05:30'
+as_of_local: '2026-08-24T08:41:00+05:30'
 backend:
   github_canonical_control: true
   chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE
@@ -18,6 +18,15 @@ visual_preproduction:
   source_continuation_pending: SC074B
   editorial_sequence_manifest: production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml
   note: SC008 Emergency Coordination Chamber SPEC_READY. Continue SC009. Exact Scene-008 ENV-6 packet remains controlled-unresolved; no represented layer invented.
+  retrospective_SC072_finalization:
+    finalized: true
+    revision: R002
+    lock_state: LOCKED
+    package_schema: ANAADHI_REMOTION_SHOT_PACKAGE_EXPANDED_V2
+    exact_end: The screens go dark. The question remains illuminated.
+    successor_at_endpoint: SC073
+    successor_already_materialized: true
+    operational_cursor_rewind: false
 audio:
   mastered_prefix_locked: true
   mastered_prefix_end_timecode: '00:02:14.293333'
@@ -30,11 +39,19 @@ audio:
     transition_in: CUT FROM SC007.
     transition_out: CUT TO SC009.
     sound_rule: Physical emergency coordination ambience, alert and literal command-system sounds only.
+  SC072_finalized:
+    dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+    picture_planning_duration_seconds: 180
+    exact_audio_timecode_alignment: PENDING_EXTRACTION
+    mastered_prefix_end_timecode: '00:02:14.293333'
+    represented_audio_rule: SB077 represented rain/newborn interval only in SH009-SH013.
+    restore_rule: RST05 at SH014 restores unchanged Archive Core sound with zero residue.
 picture_master: {width: 3840, height: 1600, aspect_ratio: '2.40:1', fps: 30, baked_letterbox: false}
 shot_density:
   target_minimum_stills_per_minute: 20
   SC007: {duration_seconds: 150, shot_count: 50, stills_per_minute: 20}
   SC008: {duration_seconds: 135, shot_count: 45, stills_per_minute: 20}
+  SC072_finalized: {duration_seconds: 180, shot_count: 60, stills_per_minute: 20}
 env6_cursor:
   latest_materialized_segment: SC008
   source_scene: SC008
@@ -44,6 +61,20 @@ env6_cursor:
   state: P0_FOUNDING_PHYSICAL_GEOGRAPHY_WITH_EMERGENCY_INTEGRATION_TRANSITION_MARKERS
   root_pv_wc: CONTROLLED_UNRESOLVED_NOT_RETRIEVED
   physical_rule: buildings/services remain physically separate; data/records/routes/command temporarily link
+  finalized_scene_lock_SC072:
+    wc: WC065
+    tp: TP077
+    sb: SB077
+    gf: GF06
+    ep: EP0+EP2+EP3+EP-U
+    observers: OBS01
+    anchor: ANCH57
+    inverse: INV6-57
+    environment: ENV-PAR-032
+    pv: PV159
+    restore: RST05
+    represented_interval: SC072_SH009-SC072_SH013
+    zero_residue_from: SC072_SH014
   pending_source_state:
     SC074B: {tp: TP080, sb: SB080, status: SOURCE_ACTIVE_SUSPENDED_BY_EDITORIAL_SPLIT, restore: RST02_AT_SOURCE_END_IN_SC074B, contamination_to_CURRENT_BLOCK: FORBIDDEN}
 character_cursor:
@@ -53,6 +84,12 @@ character_cursor:
     marsyaa: {role: MENTOR_OBSERVER, action: REQUIRES_SUNSET_CLAUSE}
     asana: {state: YOUNG, role: SARJANYA_RESCUE_LOGISTICS}
     anaadhi: {presence: ABSENT}
+  SC072_finalized:
+    anaadhi: {state: AGE_27_PARAANE_RETURN, age: 27, height_cm: 193, body: WET_POST_OPERATION_CAPTURE_CHEMICAL_EXHAUSTION, hair: CAPTURE_HAIR, sc074_wounds: false}
+    aarathi: {state: B26_INVESTIGATOR, rukey_seventeen_name_display: SECURED, full_represented_access: false}
+    manire: {state: B26_OLDER_GREY_HAIR, full_represented_access: false}
+    asana: {state: CHR-ASANA, full_represented_access: false}
+    anarvaa: {presence: REMOTE_ARCHIVE_SCREENS_ONLY_AFTER_RST05}
 editorial_lock:
   enabled: true
   split_scene_ids: [SC074, SC094, SC099]

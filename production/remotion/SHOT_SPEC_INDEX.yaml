@@ -1,4 +1,4 @@
-version: 27
+version: 28
 project: ANAADHI
 control: REMOTION_SHOT_SPEC_INDEX
 master_rule: Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.
@@ -24,7 +24,7 @@ coverage:
   SC069: {state: SPEC_READY, source: scenes/069/scene.yaml, shot_package: production/remotion/shot_specs/SC069/SC069_SHOT_PACKAGE.json, shot_count: 69, duration_seconds: 207, stills_per_minute: 20, final_editorial_next: SC070}
   SC070: {state: SPEC_READY, source: scenes/070/scene.yaml, shot_package: production/remotion/shot_specs/SC070/SC070_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC071}
   SC071: {state: SPEC_READY, source: scenes/071/scene.yaml, shot_package: production/remotion/shot_specs/SC071/SC071_SHOT_PACKAGE.json, shot_count: 55, duration_seconds: 165, stills_per_minute: 20, final_editorial_next: SC072}
-  SC072: {state: SPEC_READY, source: scenes/072/scene.yaml, shot_package: production/remotion/shot_specs/SC072/SC072_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC073}
+  SC072: {state: SPEC_READY, finalized: true, lock_state: LOCKED, revision: R002, package_schema: ANAADHI_REMOTION_SHOT_PACKAGE_EXPANDED_V2, source: scenes/072/scene.yaml, shot_package: production/remotion/shot_specs/SC072/SC072_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC073, image_generation_started: false, render_started: false}
   SC073: {state: SPEC_READY, source: scenes/073/scene.yaml, shot_package: production/remotion/shot_specs/SC073/SC073_SHOT_PACKAGE.json, shot_count: 60, duration_seconds: 180, stills_per_minute: 20, final_editorial_next: SC074A}
   SC074A: {state: SPEC_READY, source_scene_id: SC074, editorial_segment_id: SC074A, source: scenes/074/segments/SC074A/scene.yaml, shot_package: production/remotion/shot_specs/SC074A/SC074A_SHOT_PACKAGE.json, shot_count: 55, duration_seconds: 165, stills_per_minute: 20, final_editorial_next: SC006}
   SC006: {state: SPEC_READY, source: scenes/006/scene.yaml, shot_package: production/remotion/shot_specs/SC006/SC006_SHOT_PACKAGE.json, shot_count: 40, duration_seconds: 120, stills_per_minute: 20, final_editorial_next: SC007}
@@ -66,6 +66,13 @@ cursor:
   source_continuation_pending: SC074B
   image_generation_gate: EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN
   audio_generation_gate: RESUME_AFTER_00_02_14_293333_ONLY
+retrospective_finalization:
+  SC072:
+    finalized_at_local: '2026-08-24T08:41:00+05:30'
+    successor_at_exact_endpoint: SC073
+    successor_already_materialized: true
+    operational_cursor_preserved: SC009
+    reason: SC072 package expanded and locked without rewinding later completed materialization.
 backend:
   github: CANONICAL
   chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE
