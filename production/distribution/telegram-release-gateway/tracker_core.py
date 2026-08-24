@@ -68,11 +68,15 @@ class ReferralCodec:
         return token
 
     def verify(self, token: str) -> str:
-        try:
-            version, referral_id, supplied_signature = token.split("_", 2)
-        except ValueError as exc:
-            raise TokenError("Malformed referral token") from exc
-        if version != "1" or not _REFERRAL_ID_RE.fullmatch(referral_id):
+        # The signature is always 12 base64url characters (9 bytes). Parse from
+        # the fixed tail so referral IDs may safely contain '_' or '-'.
+        if not token.startswith("1_") or len(token) < 2 + 6 + 1 + 12:
+            raise TokenError("Malformed referral token")
+        if token[-13] != "_":
+            raise TokenError("Malformed referral token")
+        referral_id = token[2:-13]
+        supplied_signature = token[-12:]
+        if not _REFERRAL_ID_RE.fullmatch(referral_id):
             raise TokenError("Unsupported or malformed referral token")
         unsigned = f"1.{referral_id}".encode("ascii")
         expected = _b64url_encode(
