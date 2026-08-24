@@ -1,0 +1,110 @@
+schema_version: "0.1.0"
+contract_id: "ANAADHI-TELEGRAM-WHOLE-MOVIE-RELEASE-GATEWAY"
+status: "FOUNDATION_BUILT_NOT_DEPLOYED"
+owner: "Amoghavarsha V Patil"
+project: "ANAADHI — THE EPIC"
+canonical_repository: "amoghavarshavpatil-dot/anaadhi-storyboard-generator"
+
+objective:
+  distribution_origin: "Telegram"
+  release_scope: "authorized whole movie"
+  creator_bank_settlement_required: true
+  referral_attribution_required: true
+  verified_download_accounting_required: true
+
+release_asset:
+  public_telegram_raw_file: false
+  storage_visibility: "private"
+  delivery_method: "range-aware authenticated web gateway"
+  github_storage_allowed: false
+  rights_clearance_required: true
+
+telegram:
+  official_channel_username: null
+  bot_username: null
+  bot_token_storage: "deployment secret only"
+  referral_deep_link_pattern: "https://t.me/<bot_username>?start=r_<signed_referral_token>"
+  direct_movie_file_posting: "blocked for the bank-revenue model"
+  role:
+    - "discovery"
+    - "referral attribution"
+    - "official sharing"
+    - "release notifications"
+
+monetization:
+  primary_mode: "external_inr_paid_access"
+  currency: "INR"
+  price_paise: null
+  payment_gateway_adapter: null
+  payment_source_of_truth: "cryptographically verified provider webhook"
+  bank_settlement: "payment-provider merchant settlement account"
+  telegram_stars_mode: "OPTIONAL_DISABLED"
+  sponsor_funded_free_mode: "OPTIONAL_REQUIRES_WRITTEN_SPONSOR_CONTRACT"
+  tracking_alone_generates_revenue: false
+
+attribution:
+  signed_referral_tokens: true
+  telegram_start_parameter_prefix: "r_"
+  plain_direct_file_forward_attributable: false
+  canonical_share_button_required_for_persistent_attribution: true
+  conversion_chain:
+    - "referral.created"
+    - "referral.visit"
+    - "checkout.created"
+    - "payment.verified"
+    - "download.started"
+    - "download.verified_complete"
+    - "settlement.reconciled"
+
+verified_download:
+  byte_range_model: "half-open [start_byte, end_byte)"
+  unique_byte_threshold: 0.95
+  overlapping_ranges_deduplicated: true
+  resume_ranges_supported: true
+  one_completion_per_entitlement: true
+  paid_non_refunded_entitlement_required: true
+  raw_click_is_download: false
+  telegram_post_view_is_download: false
+
+privacy:
+  telegram_user_id_storage: "keyed one-way hash"
+  raw_bank_details_in_application_database: false
+  data_minimization_required: true
+
+security:
+  secrets_in_github: false
+  payment_webhook_signature_verification: true
+  webhook_idempotency: true
+  short_lived_download_tokens: true
+  download_token_max_ttl_seconds: 604800
+  refund_revokes_download: true
+  dummy_file_pilot_required: true
+
+launch_gates:
+  - id: "TG-01"
+    requirement: "Create official Telegram channel and BotFather bot"
+    status: "BLOCKED_MISSING_USER_ACCOUNT_ACTION"
+  - id: "TG-02"
+    requirement: "Add bot token and webhook secret to deployment secrets"
+    status: "BLOCKED_MISSING_SECRET"
+  - id: "WEB-01"
+    requirement: "Connect independent public release domain"
+    status: "BLOCKED_MISSING_DOMAIN"
+  - id: "PAY-01"
+    requirement: "Select Indian payment gateway and complete merchant KYC"
+    status: "BLOCKED_MISSING_PROVIDER"
+  - id: "PAY-02"
+    requirement: "Verify settlement bank account inside provider dashboard"
+    status: "BLOCKED_MISSING_PROVIDER_SETUP"
+  - id: "STO-01"
+    requirement: "Connect private object storage and upload authorized master"
+    status: "BLOCKED_MISSING_STORAGE"
+  - id: "PRICE-01"
+    requirement: "Lock whole-movie INR price"
+    status: "BLOCKED_MISSING_DECISION"
+  - id: "RIGHTS-01"
+    requirement: "Clear direct-sale rights and OTT/distributor release windows"
+    status: "BLOCKED_MISSING_RIGHTS_CONFIRMATION"
+  - id: "QA-01"
+    requirement: "Pass payment, refund, resume, expiry and 95-percent completion tests with dummy media"
+    status: "NOT_STARTED"
