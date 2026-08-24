@@ -1,8 +1,8 @@
 {
-  "version": 35,
+  "version": 36,
   "project": "ANAADHI",
   "control": "REMOTION_CONTINUATION_CURSOR",
-  "as_of_local": "2026-08-24T21:05:00+05:30",
+  "as_of_local": "2026-08-24T21:12:27+05:30",
   "backend": {
     "github_canonical_control": true,
     "remotion_assembly": true,
@@ -18,7 +18,9 @@
     "next_editorial_segment": "SC014",
     "source_continuation_pending": "SC074B",
     "editorial_sequence_manifest": "production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml",
-    "note": "SC013 LOCKED: LOC-005 / WC009 / ENV-PLP-003 + ENV-PLP-004; TP010 and TP011 bounded by RST01 with zero residue; do not begin SC014 early."
+    "note": "SC013 R002 LOCKED: LOC-005 / WC009 / ENV-PLP-003 + ENV-PLP-004; exact Clerk chronology restored; TP010 and TP011 bounded by RST01 with zero residue; continue SC014 without importing Four-Road Junction action early.",
+    "materialization_revision": "R002",
+    "package_schema": "ANAADHI_REMOTION_SC013_V13_COMPACT_RESOLVABLE_R2"
   },
   "audio": {
     "mastered_prefix_locked": true,
@@ -93,7 +95,9 @@
       "excluded": [
         "RECORDS_CLERK"
       ],
-      "persistence": "ZERO_RESIDUE_CONFIRM_UNPRESSED"
+      "persistence": "ZERO_RESIDUE_CONFIRM_UNPRESSED",
+      "represented_shot_range": "SC013_SH018-SC013_SH021",
+      "rst_boundary_shot": "SC013_SH022"
     },
     "TP011": {
       "sb": "SB011",
@@ -110,7 +114,9 @@
       "excluded": [
         "PARVARAN"
       ],
-      "persistence": "ZERO_RESIDUE_EMPTY_CRADLE"
+      "persistence": "ZERO_RESIDUE_EMPTY_CRADLE",
+      "represented_shot_range": "SC013_SH084-SC013_SH088",
+      "rst_boundary_shot": "SC013_SH089"
     },
     "record_truth": "FALSE_CARDIORESPIRATORY_ENTRY_ONLY; CHILD_PHYSICALLY_HEALTHY; LEGALLY_DEAD_IN_RECORD_AFTER_CONFIRM; NO_POST_CONFIRM_TEXT",
     "SC072_lock": {
@@ -134,7 +140,8 @@
       "parvaran": "DIRECT_SC012; RECORDS_COAT_ID_WRIST; RECOVERY_COAT_REMOVED; TP010_FULL; TP011_EXCLUDED",
       "records_clerk": "UNNAMED; TEA; AFTER_TP010_RST01; TP010_EXCLUDED",
       "janne": "PHYSICAL_RECOVERY; TP011_FULL",
-      "newborn": "PHYSICALLY_HEALTHY; ABSENT_FROM_BOTH_ROOMS; LEGALLY_MARKED_DEAD_AFTER_CONFIRM; ACTUAL_DEATH_FALSE"
+      "newborn": "PHYSICALLY_HEALTHY; ABSENT_FROM_BOTH_ROOMS; LEGALLY_MARKED_DEAD_AFTER_CONFIRM; ACTUAL_DEATH_FALSE",
+      "represented_janne": "TP010_DESTINATION_ONLY_AND_TP011_REPRESENTED_ONLY; NEVER_PHYSICAL_IN_RECORDS_ROOM; ZERO_RESIDUE"
     }
   },
   "editorial_lock": {

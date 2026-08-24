@@ -2,8 +2,8 @@ scene_id: SC013
 status: SPEC_READY
 finalized: true
 lock_state: LOCKED
-revision: R001
-package_schema: ANAADHI_REMOTION_SC013_V13_COMPACT_RESOLVABLE
+revision: R002
+package_schema: ANAADHI_REMOTION_SC013_V13_COMPACT_RESOLVABLE_R2
 source_scene_number: 13
 source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
 headings:

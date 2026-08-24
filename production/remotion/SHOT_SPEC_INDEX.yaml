@@ -1,5 +1,5 @@
 {
-  "version": 34,
+  "version": 35,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -359,8 +359,8 @@
       "final_editorial_next": "SC014",
       "finalized": true,
       "lock_state": "LOCKED",
-      "revision": "R001",
-      "package_schema": "ANAADHI_REMOTION_SC013_V13_COMPACT_RESOLVABLE",
+      "revision": "R002",
+      "package_schema": "ANAADHI_REMOTION_SC013_V13_COMPACT_RESOLVABLE_R2",
       "environments": "ENV-PLP-003 Records Control Room + ENV-PLP-004 Maternity Recovery Room",
       "parent_environment": "ENV-PLP-001",
       "loc": "LOC-005",
