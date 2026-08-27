@@ -1,0 +1,281 @@
+scene_id: SC017
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+package_schema: ANAADHI_REMOTION_SC017_V17_COMPACT_RESOLVABLE_R2
+source_scene_number: 17
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+batch: B06
+headings:
+- "INT. PARAANE REHABILITATION CENTRE – EMERGENCY INTAKE – EARLY MORNING"
+source_previous: SC016
+source_next: SC018
+editorial_previous: SC016
+editorial_next: SC018
+source_boundary:
+  previous_exact_end: "The Paraane emblem closes above him."
+  start: "The storm has weakened."
+  end: "Parvaran steps backward into shadow."
+  next_heading_excluded: "INT. PARAANE REHAB – PARVARAN’S OFFICE – FOUR DAYS LATER"
+  next_start_excluded: "Parvaran’s office overlooks the child wing."
+transition:
+  continuity: SAME_NEWBORN_BIRTH_NIGHT_CHAIN_TO_EARLY_MORNING
+  weather_change: ACTIVE_RAIN_TO_WEAKENED_STORM_OUTSIDE
+  interior: DRY_EMERGENCY_INTAKE
+  time: EARLY_MORNING_NORMAL_LIGHT
+  music_bridge: NONE
+environment:
+  loc: LOC-003
+  name: Paraane Campus / Central Complex
+  class: HERO-UNIQUE
+  state: ST02
+  state_inheritance: INHERIT_ST01_PLUS_OV-003
+  story_period: C1
+  paraane_phase: P2
+  wc: WC013
+  wc_signature: TD2/WX1/EX0/LS1/OC3/OP0/T
+  time: EARLY_MORNING
+  weather: WEAKENED_STORM_OUTSIDE_DRY_INTERIOR
+  light: NORMAL_MORNING_LIGHT_THROUGH_TRANSLUCENT_STONE_PANELS
+  kits: [KIT-10, KIT-11, KIT-12]
+  signage_owner: PARAANE
+  subspace:
+    id: SUB-003-07
+    name: Emergency Intake
+    parent_loc: LOC-003
+    class: DRESSING-VARIANT
+    state: INHERIT_PARENT
+    kits: [KIT-10, KIT-11, KIT-12]
+  nested_packets:
+  - env: ENV-PAR-011
+    name: Paraane Rehabilitation Centre — Emergency Intake
+    hierarchy: NEST/P/HF-04
+    canonical_parent_env: ENV-PAR-001
+    closures: [AR018, INV018, MS018, KC018, TG018]
+    wc: WC013
+    pv: PV053
+    phase: P2
+    operation: ADD
+  packet_count: {ROOT: 0, NEST: 1, MOB: 0, REF: 0, XFORM: 0}
+  sole_environment_rule: ENV-PAR-011_ONLY
+  local_zones: [PRIVATE_SCANNER_AND_KEYBOARD, EXAMINATION_ZONE, WINDOW_WALK, OBSERVATION_GLASS, DARK_CORRIDOR]
+  local_zone_rule: OBSERVATION_GLASS_AND_DARK_CORRIDOR_REMAIN_LOCAL_ENV-PAR-011_ZONES
+  prohibited_environment_bindings: [ENV-PAR-003, ENV-PAR-012, ENV-PAR-013, ENV-PAR-014]
+  visual_control:
+    root_st02_lock: ENV6L-LOC-003-ST02-v001
+    root_st02_status: METADATA_LOCKED_VISUAL_PENDING
+    intake_prompt: ENV6J-SUB-003-07-v001
+    intake_lock: ENV6L-SUB-003-07-REF-v001
+    intake_status: METADATA_LOCKED_VISUAL_PENDING
+    approved_root_master: PRESERVE_WITHOUT_EXTRAPOLATING_PIXELS_TO_ST02_OR_EMERGENCY_INTAKE
+  identity:
+  - COMPACT_CARE_LED_INTAKE_PAVILION
+  - ONE_UNINTERRUPTED_STRETCHER_AXIS
+  - PARALLEL_STAFF_SERVICE_CIRCULATION
+  - PROTECTED_THRESHOLD
+  - CONTROLLED_DAYLIGHT
+  - TRANSLUCENT_STONE_PANELS
+  prohibited_identity: NURSERY_SUITE_HIGH_OBSERVATION_DOOR_ADDITIONAL_TREATMENT_ROOM_PUBLIC_PATIENT_DISPLAY_GLOSSY_SCIENCE_FICTION_OR_EXPANDED_CAMPUS
+characters:
+  MANIRE:
+    identity: CHR-MANIRE
+    state: SOURCE_AUTHORISED_C1_STATE
+    role: HEAD_NURSE_CHILD_AND_VULNERABLE_RESIDENT_WING
+    source_quality: PRACTICAL_WARM_AND_IMPOSSIBLE_TO_INTIMIDATE_THROUGH_PAPERWORK
+    asset_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    numeric_age_biography_uniform_badge_specialty: UNRESOLVED_DO_NOT_INVENT
+    dialogue_count: 12
+  NEWBORN_ANAADHI:
+    identity: CHR-ANAADHI
+    age_body: AGE-ANAADHI-NEWBORN
+    exact_age: FOUR_HOURS_OLD
+    physical_status: HEALTHY_ALIVE
+    in_world_name: NONE
+    legal_state: LEGALLY_DEAD_ONLY_IN_PARVARANS_FALSE_SC013_RECORD
+    costume: DARK_WOOL_BLANKET_PLUS_SC015_ADDED_SHAWL
+    blanket_handling: REPOSITION_ONLY_AS_REQUIRED_FOR_SOURCE_EXAMINATION_AND_LIFTING
+    identifier_tag_bracelet_diagnosis_treatment_device: NONE
+  PARVARAN:
+    identity: CHR-PARVARAN
+    state: SAME_C1_FATHER_AND_DECEPTION_CONTINUITY
+    master_identity_status: APPROVED
+    birth_era_wardrobe_state: CONTROLLED_UNRESOLVED
+    wardrobe_continuity: COAT_REMOVED_UNLESS_AUTHORITATIVE_RECORD_REQUIRES_OTHERWISE
+    arrival: OFFSCREEN_BEFORE_STAFF_CHANGE_NO_JOURNEY_ROUTE_OR_VEHICLE
+    position: DARK_CORRIDOR_BEHIND_LOCAL_OBSERVATION_GLASS
+    visible_to_manire: false
+    dialogue: NONE
+  JUNIOR_INTAKE_CLERK:
+    canonical_id: null
+    role: SOURCE_ROLE_ONLY
+    count_identity_rank_uniform_later_role: UNRESOLVED_DO_NOT_INVENT
+    dialogue_count: 4
+  CHILD_WING_DOCTOR:
+    canonical_id: null
+    role: SOURCE_ROLE_ONLY
+    identity_rank_uniform_specialty_later_role: UNRESOLVED_DO_NOT_INVENT
+    dialogue_count: 3
+  NIGHT_TEAM:
+    canonical_id: null
+    role: SOURCE_ROLE_GROUP_ONLY
+    exact_count_identity_rank_uniform_dialogue: UNRESOLVED_DO_NOT_INVENT
+truth_control:
+  newborn_health: PHYSICALLY_HEALTHY_ALIVE
+  temperature_improved: SOURCE_OBSERVATION_NOT_RETROACTIVE_HYPOTHERMIA_COLD_INJURY_OR_NUMERIC_READING
+  examination: SOURCE_PHYSICAL_EXAMINATION_WITHOUT_INVENTED_DEVICE_TEST_PROCEDURE_OR_FINDING
+  no_injury_no_infection: SOURCE_AUTHORISED_CURRENT_OBSERVATIONS_ONLY
+  feed_preparation: ORDER_AND_PREPARATION_ONLY_NO_ACTUAL_FEEDING_CONTENT_VESSEL_AMOUNT_OR_METHOD
+  long_term_observation: PROPOSED_NOT_PERFORMED
+  abandonment_trauma: INTERRUPTED_PROPOSAL_NOT_DIAGNOSIS
+  sedative: PROPOSED_AND_REJECTED_NOT_ADMINISTERED
+  blankets: ORIGINAL_DARK_WOOL_BLANKET_AND_ADDED_SHAWL_PRESERVED
+  parvaran_arrival: DOES_NOT_REVERSE_SC015_HE_DOES_NOT_FOLLOW
+physical_chronology:
+- The storm has weakened outside the dry Emergency Intake envelope.
+- Normal morning light enters through translucent stone panels.
+- The compact care-led intake pavilion, uninterrupted stretcher axis, parallel circulation and protected threshold remain bounded to ENV-PAR-011.
+- Manire receives the same newborn from the night team.
+- "The private scanner shows only IDENTITY: UNKNOWN, FAMILY HISTORY: UNKNOWN and CLINICAL HISTORY: NONE."
+- The Junior Intake Clerk types and proposes Male Infant Four-Junction.
+- The exact rejected naming exchange occurs in source order.
+- Manire takes the keyboard and types NAME PENDING.
+- The system accepts only NAME PENDING without a tone or extra message.
+- Manire gives the exact machine-and-training line.
+- Manire examines the newborn with only necessary blanket repositioning.
+- Manire states that his temperature has improved and orders feed preparation.
+- The Child-Wing Doctor proposes long-term observation; Manire prioritizes milk.
+- The Doctor begins the abandonment-trauma proposal and Manire interrupts it.
+- Manire looks at the records.
+- Manire states there is no injury, no sign of infection and no need for unnecessary medicine.
+- The Doctor proposes a sedative; Manire rejects it; the Doctor withdraws the suggestion.
+- Manire lifts the newborn; his physical crying settles against her shoulder.
+- Manire says Yes...
+- Manire walks slowly beside the window and delivers the two exact future-facing lines.
+- The child's eyes follow ordinary morning light.
+- Parvaran is revealed through the local observation glass in the local dark corridor.
+- He has arrived before the staff change without a materialized journey, route or vehicle.
+- Manire cannot see him.
+- Parvaran watches Manire hold his son.
+- The child turns toward the glass without recognition or supernatural meaning.
+- Parvaran steps backward into shadow.
+dialogue:
+- {speaker: JUNIOR_CLERK, text: "Temporary name: 'Male Infant Four-Junction.'"}
+- {speaker: MANIRE, text: "That is not a name. It is a police location."}
+- {speaker: JUNIOR_CLERK, text: "The system will not allow the field to remain empty, madam."}
+- {speaker: MANIRE, text: "Enter 'Baby.'"}
+- {speaker: JUNIOR_CLERK, text: "It needs a minimum of two words."}
+- {speaker: MANIRE, text: "'Baby Baby.'"}
+- {speaker: JUNIOR_CLERK, text: "It will not accept a repeated word."}
+- {speaker: MANIRE, text: "Even the machine has common sense. The people using it need training."}
+- {speaker: MANIRE, text: "His temperature has improved. Prepare the feed."}
+- {speaker: CHILD_WING_DOCTOR, text: "Shall we transfer him for long-term observation?"}
+- {speaker: MANIRE, text: "Let him drink milk first."}
+- {speaker: CHILD_WING_DOCTOR, text: "Abandonment trauma--"}
+- {speaker: MANIRE, text: "Do not lecture a four-hour-old baby about trauma, Doctor."}
+- {speaker: MANIRE, text: "There is no injury. There are no signs of infection. No unnecessary medicine."}
+- {speaker: CHILD_WING_DOCTOR, text: "Not even a sedative?"}
+- {speaker: MANIRE, text: "Why would a crying newborn need a sedative?"}
+- {speaker: MANIRE, text: "Yes..."}
+- {speaker: MANIRE, text: "Everyone here will write something about you."}
+- {speaker: MANIRE, text: "When you grow up, speak for yourself."}
+dialogue_policy:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  count: 19
+  speaker_counts: {MANIRE: 12, JUNIOR_CLERK: 4, CHILD_WING_DOCTOR: 3}
+  other_dialogue_or_vo: NONE
+readable_text_allowlist:
+- "IDENTITY: UNKNOWN"
+- "FAMILY HISTORY: UNKNOWN"
+- "CLINICAL HISTORY: NONE"
+- "Male Infant Four-Junction"
+- "Baby"
+- "Baby Baby"
+- "NAME PENDING"
+interface_and_records:
+  scanner_id: null
+  intake_interface_id: null
+  keyboard_id: null
+  records_id: null
+  feed_id: null
+  rule_packet: TG018
+  status: SOURCE_ROLE_ONLY_CONTROLLED_UNRESOLVED
+  initial_private_scanner_fields: ["IDENTITY: UNKNOWN", "FAMILY HISTORY: UNKNOWN", "CLINICAL HISTORY: NONE"]
+  transient_rejected_entries: ["Male Infant Four-Junction", "Baby", "Baby Baby"]
+  only_accepted_name_state: "NAME PENDING"
+  canonical_name_created: false
+  prohibited_extra_text: true
+medical_control:
+  thermal_cradle_examination_zone: ROOM_CAPACITY_ONLY
+  thermal_cradle_carried_from_SC016: false
+  thermal_cradle_placement: false
+  actual_feeding: false
+  long_term_transfer: false
+  sedative_administered: false
+  unnecessary_medicine_administered: false
+  diagnosis_created: false
+env6:
+  source_ruling: NO_SB_PHYSICAL_ONLY
+  TP: NONE
+  SB: NONE
+  GF: NONE
+  EP: NONE
+  OBS: NONE
+  ANCH: NONE
+  INV6: NONE
+  VAR6: NONE
+  RST: NONE
+  represented_layer: false
+  tp014_carryover: false
+shot_plan:
+  shot_count: 66
+  duration_seconds: 198
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  duration_per_shot_seconds: 3
+  total_frames: 5940
+  crop: NONE
+  baked_letterbox: false
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC017/SC017_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: "00:02:14.293333"
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  bgm: NONE
+  allowed_physical_audio: [WEAKENED_STORM_RAIN_OUTSIDE, RESTRAINED_INTAKE_ROOM_MOVEMENT, KEYBOARD_TYPING, NEWBORN_PHYSICAL_CRY_AND_SETTLING, QUIET_SOURCE_AUTHORISED_PHYSICAL_HANDLING]
+  new_generation: false
+  prohibited_audio: [BGM, TRANSITION_MUSIC, COMEDY_STING, ALARM, SCANNER_TONE, ACCEPTANCE_BEEP, INTERFACE_VOICE, MEDICAL_MONITOR, SEDATIVE_OR_TREATMENT_SOUND, POLICE_NOTIFICATION_SOUND, PARVARAN_DIALOGUE_OR_VO, ADULT_ANAADHI_VO, REPRESENTED_AUDIO, SC018_AUDIO]
+hard_exclusions:
+- NO_SC016_GATE_REPLAY_JEEP_SARJANYA_PATROL_SEMMAA_KENCHAA_ASANA_PARAANE_EMBLEM_OR_THERMAL_CRADLE_PLACEMENT
+- NO_SC018_FOUR_DAY_JUMP_PARVARAN_OFFICE_CHILD_WING_OVERLOOK_ANCIENT_KANNADA_DIAGRAM_QUANTUM_CONSCIOUSNESS_OR_SC018_TEXT
+- NO_ENV-PAR-003_ENV-PAR-012_ENV-PAR-013_ENV-PAR-014_OR_ADDITIONAL_ENVIRONMENT
+- NO_NURSERY_OBSERVATION_GALLERY_HIGH_OBSERVATION_ROOM_OR_PUBLIC_PATIENT_DISPLAY
+- NO_ACTUAL_LONG_TERM_TRANSFER_FEEDING_SEDATIVE_UNNECESSARY_MEDICINE_OR_ABANDONMENT_TRAUMA_DIAGNOSIS
+- NO_INVENTED_MEDICAL_PROCEDURE_DIAGNOSIS_MONITOR_READING_TAG_TREATMENT_RESULT_HYPOTHERMIA_COLD_INJURY_INFECTION_OR_INJURY
+- NO_THERMAL_CRADLE_CARRYOVER_OR_NEWBORN_PLACEMENT
+- NO_PARVARAN_JOURNEY_PURSUIT_VEHICLE_ROUTE_ARRIVAL_OR_ENV-MOB-001
+- NO_VISIBLE_FIELD_LABELS_TIMESTAMPS_DATES_CASE_NUMBERS_STAFF_NAMES_VALIDATION_MESSAGES_MEDICAL_READINGS_POLICE_NOTICES_OR_SARJANYA_RECORDS
+- NO_READABLE_TEXT_OUTSIDE_EXACT_SEVEN_STRING_ALLOWLIST
+- NO_ACCEPTED_NAME_EXCEPT_NAME_PENDING_AND_NO_CANONICAL_NEWBORN_NAME
+- NO_INVENTED_CHARACTER_COUNT_IDENTITY_RANK_UNIFORM_BADGE_CREDENTIAL_SPECIALTY_OR_LATER_ROLE
+- NO_PRESENT_DAY_OR_GREY_HAIRED_MANIRE_STATE_AND_NO_INVENTED_BIRTH_ERA_PARVARAN_WARDROBE
+- NO_PHYSICAL_ADULT_ANAADHI_TP014_REPRESENTED_LAYER_PARALLEL_EARTH_FRACTURE_FILTER_RST_OR_SUPERNATURAL_INTERPRETATION
+- NO_MODIFICATION_OF_FINALIZED_SC001_TO_SC016_EXISTING_REMOTION_TYPESCRIPT_COMPOSITION_IDS_OR_TYPECHECK_FIXES
+- NO_IMAGE_GENERATION_VIDEO_RENDER_NEW_AUDIO_GENERATION_SUPERCOOL_HEYGEN_OR_PAID_MEDIA_API
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: PERMANENTLY_DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
+  audio_generation: DISABLED
+  execute_now: false
+next: SC018

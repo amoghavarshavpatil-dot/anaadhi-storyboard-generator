@@ -1,5 +1,5 @@
 {
-  "version": 43,
+  "version": 44,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -467,6 +467,37 @@
       "exact_end": "The Paraane emblem closes above him.",
       "image_generation_started": false,
       "render_started": false
+    },
+    "SC017": {
+      "state": "SPEC_READY",
+      "source": "scenes/017/scene.yaml",
+      "shot_package": "production/remotion/shot_specs/SC017/SC017_SHOT_PACKAGE.json",
+      "shot_count": 66,
+      "duration_seconds": 198,
+      "stills_per_minute": 20,
+      "final_editorial_next": "SC018",
+      "finalized": true,
+      "lock_state": "LOCKED",
+      "revision": "R001",
+      "package_schema": "ANAADHI_REMOTION_SC017_V17_COMPACT_RESOLVABLE_R2",
+      "batch": "B06",
+      "environments": "ENV-PAR-011 Paraane Rehabilitation Centre — Emergency Intake; sole NEST environment row",
+      "canonical_parent_environment": "ENV-PAR-001",
+      "loc": "LOC-003",
+      "location_state": "ST02 / INHERIT_ST01_PLUS_OV-003",
+      "subspace": "SUB-003-07",
+      "wc": "WC013",
+      "pv": "PV053 / P2 / ADD",
+      "env5_closure": "AR018/INV018/MS018/KC018/TG018",
+      "env6_control": "NO_SB / physical-only; TP/SB/GF/EP/OBS/ANCH/INV6/VAR6/RST all NONE",
+      "visual_control": "ENV6L-LOC-003-ST02-v001 and ENV6J-SUB-003-07-v001 / ENV6L-SUB-003-07-REF-v001 metadata locked; final visual references pending; HERO-UNIQUE LOC-003 + DRESSING-VARIANT SUB-003-07; KIT-10/11/12; signage owner PARAANE; no asset promotion",
+      "readable_text_control": "exact seven-string allowlist; rejected names transient; NAME PENDING only accepted state",
+      "character_control": "CHR-MANIRE missing approved asset; CHR-ANAADHI/AGE-ANAADHI-NEWBORN healthy alive unnamed at four hours; CHR-PARVARAN master approved but birth-era state controlled-unresolved; clerk doctor night team null-ID source roles",
+      "record_truth_control": "no injury and no signs of infection are source observations; temperature improved is not retroactive hypothermia; no feeding transfer sedative diagnosis or unnecessary medicine",
+      "exact_start": "The storm has weakened.",
+      "exact_end": "Parvaran steps backward into shadow.",
+      "image_generation_started": false,
+      "render_started": false
     }
   },
   "unmaterialized": {
@@ -489,7 +520,7 @@
       "SC099B"
     ],
     "remaining_materialization_order": [
-      "SC017-SC059",
+      "SC018-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
@@ -499,14 +530,14 @@
     ]
   },
   "cursor": {
-    "last_materialized_source_scene": "SC016",
-    "last_materialized_editorial_segment": "SC016",
-    "next_scene": "SC017",
-    "next_editorial_segment": "SC017",
+    "last_materialized_source_scene": "SC017",
+    "last_materialized_editorial_segment": "SC017",
+    "next_scene": "SC018",
+    "next_editorial_segment": "SC018",
     "source_continuation_pending": "SC074B",
     "image_generation_gate": "EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN",
     "audio_generation_gate": "RESUME_AFTER_00_02_14_293333_ONLY",
-    "after_SC016": "SC017"
+    "after_SC017": "SC018"
   },
   "retrospective_finalization": {
     "SC072": {
