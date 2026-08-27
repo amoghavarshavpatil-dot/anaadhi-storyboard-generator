@@ -1,0 +1,335 @@
+scene_id: SC016
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+package_schema: ANAADHI_REMOTION_SC016_V16_COMPACT_RESOLVABLE_R2
+source_scene_number: 16
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+batch: B05
+headings:
+- "EXT. PARAANE REHABILITATION CENTRE – SECURITY GATE – NIGHT"
+source_previous: SC015
+source_next: SC017
+editorial_previous: SC015
+editorial_next: SC017
+source_boundary:
+  previous_exact_end: "He does not follow."
+  start: "Paraane rises between long sloping hills."
+  end: "The Paraane emblem closes above him."
+  next_heading_excluded: "INT. PARAANE REHABILITATION CENTRE – EMERGENCY INTAKE – EARLY MORNING"
+transition:
+  continuity: SAME_NEWBORN_BIRTH_NIGHT_RAIN_CHAIN
+  slug_continuous: false
+  arrival: OFFSCREEN_J01_TO_PARAANE_GATE_BY_SAME_SARJANYA_JEEP
+  route_materialized: false
+  duration_distance_bearing: UNRESOLVED_DO_NOT_INVENT
+environment:
+  loc: LOC-003
+  name: Paraane Campus / Central Complex
+  class: HERO-UNIQUE
+  state: ST02
+  state_inheritance: INHERIT_ST01_PLUS_OV-003
+  story_period: C1
+  paraane_phase: P2
+  wc: WC012
+  wc_signature: TD7/WX1/EX3/LS2/OC4/OP1/T
+  time: NIGHT
+  weather: ACTIVE_PHYSICAL_RAIN
+  kits: [KIT-10, KIT-11, KIT-12]
+  signage_owner: PARAANE
+  subspace:
+    id: SUB-003-06
+    name: Rehabilitation Security Gate
+    parent_loc: LOC-003
+    class: DRESSING-VARIANT
+    state: INHERIT_PARENT
+  nested_packets:
+  - env: ENV-PAR-003
+    name: Paraane Rehabilitation Complex
+    hierarchy: NEST/P/HF-04
+    canonical_parent_env: ENV-PAR-001
+    closures: [AR010, INV010, MS010, KC010, TG010]
+    pv: PV013
+    phase: P2
+    operation: ACTIVE
+  - env: ENV-PAR-010
+    name: Paraane Rehabilitation Centre — Security Gate
+    hierarchy: NEST/S/HF-04
+    canonical_parent_env: ENV-PAR-001
+    closures: [AR017, INV017, MS017, KC017, TG017]
+    pv: PV048
+    phase: P2
+    operation: ADD
+  packet_count: {ROOT: 0, NEST: 2, MOB: 0, REF: 0, XFORM: 0}
+  topology_rule: ENV-PAR-003_SUPPORTS_GATE_CIRCULATION_BUT_IS_NOT_PARENT_OF_ENV-PAR-010
+  security_station: ENV-PAR-010_LOCAL_ZONE_NOT_SEPARATE_ENVIRONMENT
+  visual_control:
+    root_st02_lock: ENV6L-LOC-003-ST02-v001
+    root_st02_status: METADATA_LOCKED_VISUAL_PENDING
+    gate_prompt: ENV6J-SUB-003-06-v001
+    gate_lock: ENV6L-SUB-003-06-REF-v001
+    gate_status: METADATA_LOCKED_VISUAL_PENDING
+    approved_root_master: PRESERVE_WITHOUT_EXTRAPOLATING_PIXELS_TO_ST02_OR_GATE
+  source_architecture:
+  - PARAANE_BETWEEN_LONG_SLOPING_HILLS
+  - BLACK_GRANITE
+  - LATERITE_WALLS
+  - CARVED_TIMBER
+  - ADVANCED_MEDICAL_GLASS
+  - RAINWATER_THROUGH_ILLUMINATED_COPPER_CHANNELS
+  prohibited_identity: FORTRESS_PRISON_MILITARY_INSTALLATION_BORDER_CHECKPOINT_GENERIC_CYBERPUNK_OR_NEON
+sarjanya_jeep:
+  loc: LOC-008
+  name: Sarjanya Jeep
+  class: MOBILE-ASSET
+  state: ST00
+  kit: KIT-12
+  env6j_master: ENV6J-LOC-008-MASTER-v001
+  env6j_state: ENV6J-LOC-008-ST00-v001
+  env6l_lock: ENV6L-LOC-008-ST00-v001
+  scale_rule: MOBILE_ASSET_PLAUSIBLE_NO_RESCALE
+  continuity: SAME_OPEN_SARJANYA_PATROL_JEEP_FROM_SC015
+  env6l_reference: APPROVED_MOBILE_REFERENCE_REUSE
+  vehicle_registry: VEH-SARJANYA-JEEP
+  vehicle_design_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+  scene_env_mob_row: NONE
+  enters_protected_campus: false
+  recognition: SOURCE_AUTHORISED_MECHANISM_UNRESOLVED
+  prohibited_inventions: [MAKE, MODEL, COLOUR, REGISTRATION_PLATE, DASHBOARD, CREDENTIAL, RFID, TRANSPONDER, BIOMETRIC_MATCH, SCAN_BEAM, INTERFACE, WEAPONS, BRANDING, SEATING, DRIVETRAIN, ACCESS_HARDWARE]
+portal:
+  environment: ENV-PAR-010
+  state_sequence:
+  - OUTER_CONTROL_RECOGNISES_VEHICLE_WITHOUT_VISIBLE_METHOD
+  - DISPLAY_SHOWS_NIGHT_ACCESS_RESTRICTED_AND_STATE_PURPOSE
+  - JEEP_STOPS_OUTSIDE
+  - GATE_REMAINS_CLOSED
+  - ASANA_PERFORMS_OFFICIAL_EMERGENCY_OVERRIDE
+  - HEAVY_GATES_OPEN
+  - MEDICAL_WORKERS_EMERGE
+  - NEWBORN_HANDOFF
+  - PARAANE_EMBLEM_CLOSES_ABOVE_NEWBORN
+  serial_outer_inner_control: true
+  geometry_change: false
+  damage: NONE
+  forced_entry: false
+  jeep_enters: false
+  protected_walk: SC016_GATE_CIRCULATION_ONLY
+  emergency_intake_environment_materialized: false
+characters:
+  YOUNG_SEMMAA:
+    identity: CHR-SEMMAA
+    state: SAME_BIOLOGICAL_IDENTITY_EXPLICITLY_YOUNGER_FROM_SC015
+    visual_state: CONTROLLED_UNRESOLVED
+    source_quality: ALREADY_CARRIES_THE_STILLNESS_OF_A_MAN_OTHERS_OBEY
+    continuity: RAIN_WET_SAME_BIRTH_NIGHT_WARDROBE_CARRYING_NEWBORN
+    initial_carrier: NEWBORN_PROTECTED_AGAINST_CHEST
+    later_carrier: SHIFTS_NEWBORN_TO_ONE_ARM_ONLY_AT_SOURCE_POSITION
+    numeric_age_rank_title: UNRESOLVED_DO_NOT_INVENT
+    dialogue_count: 13
+  YOUNG_ASANA:
+    identity: CHR-ASANA
+    asset_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    source_state: YOUNG_DISCIPLINED_MORE_COMFORTABLE_WITH_PROCEDURES_THAN_PEOPLE
+    origin: ENV-PAR-010_SECURITY_STATION_LOCAL_ZONE
+    action: OFFICIAL_EMERGENCY_OVERRIDE
+    numeric_age_rank_title_biography: UNRESOLVED_DO_NOT_INVENT
+    dialogue_count: 11
+  KENCHAA:
+    identity: SOURCE_NAMED_ROLE_KENCHAA
+    continuity: SAME_SC015_PATROL_CHARACTER
+    interface_operation: false
+    category_selection: false
+    newborn_handling: false
+    dialogue_count: 2
+  NEWBORN_ANAADHI:
+    identity: CHR-ANAADHI
+    age_body: AGE-ANAADHI-NEWBORN
+    physical_status: HEALTHY_ALIVE
+    legal_state: LEGALLY_DEAD_ONLY_IN_PARVARANS_FALSE_SC013_RECORD
+    in_world_name: NONE
+    costume: DARK_WOOL_BLANKET_PLUS_SC015_ADDED_SHAWL
+    cry_in_SC016: NONE
+    medical_diagnosis_or_finding: NONE
+  MEDICAL_WORKERS:
+    identity: UNNAMED_SOURCE_ROLE_GROUP
+    canonical_id: null
+    count_specialty_rank_biography: UNRESOLVED_DO_NOT_INVENT
+    dialogue: NONE
+    action: EMERGE_AFTER_OVERRIDE_WITH_THERMAL_CRADLE_RECEIVE_CHILD_AND_CARRY_INSIDE
+  DRIVER_AND_OTHER_MEMBERS:
+    identity: SOURCE_BACKGROUND_CONTINUITY_ONLY
+    authored_SC016_action_or_dialogue: NONE
+  PARVARAN:
+    presence: ABSENT_DOES_NOT_FOLLOW
+  ADULT_ANAADHI:
+    presence: ABSENT
+  MANIMANTHARAA_AND_POLICE:
+    presence: SPOKEN_REFERENCE_OR_CONSEQUENCE_ONLY_NO_APPEARANCE_OR_VOICE
+truth_control:
+  newborn_health: PHYSICALLY_HEALTHY_ALIVE
+  false_legal_death_record: OFFSCREEN_CONTEXT_ONLY
+  let_baby_breathe_line: CARE_PRIORITY_NOT_RESPIRATORY_DIAGNOSIS
+  emergency_category: MEDICAL_EMERGENCY_ONLY
+  thermal_cradle_implication: NO_HYPOTHERMIA_ILLNESS_INJURY_OR_FINDING
+  cradle_placement: NOT_STATED_DO_NOT_INVENT
+  patrol_report: DIALOGUE_ONLY_NO_VISIBLE_RECORD
+  police_notification: SPOKEN_AUTOMATIC_CONSEQUENCE_ONLY_NO_VISIBLE_TRANSMISSION
+  sarjanya_involvement_record: SPOKEN_CONSEQUENCE_ONLY_NO_VISIBLE_LOG
+  manimantharaa: SPOKEN_REFERENCE_ONLY
+physical_chronology:
+- Paraane rises between long sloping hills in active night rain.
+- Source-authorized black granite, laterite, carved timber, advanced medical glass and illuminated copper rain channels are established without expanding campus topology.
+- The outer gate recognises the Sarjanya vehicle without revealing a mechanism.
+- The display shows only NIGHT ACCESS RESTRICTED and STATE PURPOSE.
+- The Sarjanya jeep stops outside.
+- Young Asana approaches from the ENV-PAR-010 security-station zone.
+- The exact patrol-report exchange occurs.
+- Semmaa exits carrying the newborn protected against his chest.
+- The exact source and guardian exchange occurs.
+- Asana activates the gate-local emergency-intake interface.
+- The four authorized categories appear unselected.
+- The exact category dialogue occurs.
+- The automatic police-notification, Sarjanya-record and Manimantharaa dialogue occurs without cutaways or visible records.
+- Asana selects only MEDICAL EMERGENCY.
+- The gate remains closed.
+- INNER WARD AUTHORISATION REQUIRED and DUTY ADMINISTRATOR UNAVAILABLE appear.
+- Kenchaa stares at the message and the exact procedural-delay exchange occurs.
+- Semmaa looks through the bars and shifts the newborn into one arm.
+- The exact gate-and-lock dialogue occurs without a physical break-in.
+- Asana immediately performs the official override.
+- Only then do the heavy gates open.
+- The official/unofficial override exchange occurs.
+- Unnamed medical workers hurry out with a thermal cradle.
+- Semmaa looks once more at the newborn.
+- Semmaa delivers the first name line; a faint smile touches him; he delivers the second name line.
+- The workers receive the newborn without an invented cradle-placement action.
+- The newborn is carried inside through the gate circulation without revealing SC017.
+- The Paraane emblem closes above him.
+dialogue:
+- {speaker: ASANA, text: "Have you closed the patrol report?"}
+- {speaker: SEMMAA, text: "A new report has opened now."}
+- {speaker: ASANA, text: "Source?"}
+- {speaker: SEMMAA, text: "The four-road junction."}
+- {speaker: ASANA, text: "Guardian?"}
+- {speaker: SEMMAA, text: "The rain."}
+- {speaker: ASANA, text: "Semmaa, the form needs a proper answer."}
+- {speaker: SEMMAA, text: "Write 'nobody' properly."}
+- {speaker: ASANA, text: "We must select a category."}
+- {speaker: KENCHAA, text: "Let us select all four."}
+- {speaker: ASANA, text: "This is not a hotel menu."}
+- {speaker: SEMMAA, text: "Medical emergency."}
+- {speaker: ASANA, text: "The police notification will be automatic."}
+- {speaker: SEMMAA, text: "Let it be."}
+- {speaker: ASANA, text: "Sarjanya's involvement will be recorded."}
+- {speaker: SEMMAA, text: "Let it be."}
+- {speaker: ASANA, text: "Manimantharaa will question this."}
+- {speaker: SEMMAA, text: "Let the baby breathe first. The boss can question us later."}
+- {speaker: KENCHAA, text: "Do we have to wait for an emergency administrator to open the emergency gate?"}
+- {speaker: ASANA, text: "We did not design the system."}
+- {speaker: SEMMAA, text: "It does not matter who designed the gate."}
+- {speaker: SEMMAA, text: "Breaking the lock is our department."}
+- {speaker: ASANA, text: "I have officially overridden it."}
+- {speaker: SEMMAA, text: "You could have unofficially done it sooner."}
+- {speaker: SEMMAA, text: "If anyone here asks your name, do not answer."}
+- {speaker: SEMMAA, text: "Let them find one for you first."}
+readable_text_allowlist:
+- NIGHT ACCESS RESTRICTED
+- STATE PURPOSE
+- ABANDONED MINOR
+- MEDICAL EMERGENCY
+- UNIDENTIFIED RESIDENT
+- SECURITY EVIDENCE
+- INNER WARD AUTHORISATION REQUIRED
+- DUTY ADMINISTRATOR UNAVAILABLE
+interface_and_records:
+  interface_id: null
+  role: SOURCE_AUTHORISED_GATE_LOCAL_EMERGENCY_INTAKE_INTERFACE
+  allowed_actions: [SHOW_FOUR_CATEGORIES, SELECT_MEDICAL_EMERGENCY_ONLY, SHOW_TWO_AUTHORISATION_MESSAGES, SUPPORT_OFFICIAL_OVERRIDE]
+  nobody_visible: false
+  source_guardian_fields_visible: false
+  patrol_report_visible: false
+  police_notification_visible: false
+  sarjanya_record_visible: false
+  extra_codes_timestamps_maps_logs_credentials: false
+props_and_technology:
+  EMERGENCY_INTERFACE:
+    canonical_id: null
+    environment: ENV-PAR-010
+    rule_packet: TG017
+    status: SOURCE_ROLE_ONLY_CONTROLLED_UNRESOLVED
+  THERMAL_CRADLE:
+    canonical_id: null
+    status: SOURCE_ROLE_ONLY_CONTROLLED_UNRESOLVED
+    readings_monitor_restraints_oxygen_iv_sensors_brand: NONE
+  PARAANE_EMBLEM:
+    registry: PRP-PARAANE-EMBLEM
+    status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    identity: NON_TEXT_ARCHITECTURAL_IDENTITY
+    detailed_artwork_wordmark_seal_motto: UNRESOLVED_DO_NOT_INVENT
+env6:
+  source_ruling: NO_SB_PHYSICAL_ONLY
+  TP: NONE
+  SB: NONE
+  GF: NONE
+  EP: NONE
+  OBS: NONE
+  ANCH: NONE
+  INV6: NONE
+  VAR6: NONE
+  RST: NONE
+  represented_layer: false
+  tp014_carryover: false
+shot_plan:
+  shot_count: 75
+  duration_seconds: 225
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  duration_per_shot_seconds: 3
+  total_frames: 6750
+  crop: NONE
+  baked_letterbox: false
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC016/SC016_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: "00:02:14.293333"
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  bgm: NONE
+  allowed_physical_audio: [ACTIVE_MONSOON_RAIN, COPPER_CHANNEL_RUNOFF, SARJANYA_JEEP_APPROACH_STOP_AND_ENGINE_SETTLING, RESTRAINED_GATE_AREA_MOVEMENT, QUIET_LITERAL_INTERFACE_OPERATION, OFFICIAL_OVERRIDE_PHYSICAL_ACTION, HEAVY_GATE_MOVEMENT, MEDICAL_WORKER_AND_THERMAL_CRADLE_MOVEMENT, FINAL_PHYSICAL_GATE_EMBLEM_CLOSURE]
+  new_generation: false
+  newborn_cry: NONE
+  prohibited_audio: [BGM, TRANSITION_MUSIC, COMEDY_STING, ALARM, SIREN, POLICE_NOTIFICATION_CHIME, INTERFACE_BEEP_OR_VOICE, RECOGNITION_TONE, BIOMETRIC_SOUND, OVERRIDE_TONE, MILITARISED_GATE_SOUND, THERMAL_CRADLE_MONITOR, NEWBORN_DISTRESS_CRY, ADULT_ANAADHI_VO, REPRESENTED_AUDIO, SC017_AUDIO]
+hard_exclusions:
+- NO_SC017_ENV-PAR-011_SUB-003-07_EMERGENCY_INTAKE_INTERIOR_OR_EARLY_MORNING_ACTION
+- NO_MANIRE_NIGHT_TEAM_JUNIOR_INTAKE_CLERK_CHILD_WING_DOCTOR_SCANNER_REGISTRATION_EXAMINATION_FEEDING_OR_NAMING
+- NO_IDENTITY_UNKNOWN_FAMILY_HISTORY_UNKNOWN_CLINICAL_HISTORY_NONE_MALE_INFANT_FOUR-JUNCTION_BABY_BABY_BABY_OR_NAME_PENDING
+- NO_SC015_JUNCTION_REPLAY_ROUTE_MONTAGE_PARVARAN_ENV-MOB-001_OR_PARVARAN_CAR
+- NO_PHYSICAL_MANIMANTHARAA_POLICE_OR_DUTY_ADMINISTRATOR
+- NO_GATE_OPENING_BEFORE_OVERRIDE_FORCED_ENTRY_LOCK_BREAK_DAMAGE_HACK_UNOFFICIAL_BYPASS_ALARM_WEAPON_SECOND_GATE_OR_CHECKPOINT
+- NO_JEEP_ENTRY_INTO_PROTECTED_CAMPUS_OR_INVENTED_RECOGNITION_METHOD
+- NO_INVENTED_CAMPUS_TOPOLOGY_FORTRESS_BORDER_CHECKPOINT_CYBERPUNK_NEON_OR_UNAUTHORISED_SIGNAGE
+- NO_PENDING_ASSET_PROMOTION_OR_INVENTED_GATE_VEHICLE_EMBLEM_INTERFACE_CRADLE_UNIFORM_OR_CHARACTER_DESIGN
+- NO_READABLE_TEXT_OUTSIDE_EXACT_EIGHT_STRING_ALLOWLIST
+- NO_VISIBLE_NOBODY_PATROL_REPORT_POLICE_NOTIFICATION_SARJANYA_RECORD_OR_ALL_FOUR_CATEGORY_SELECTION
+- NO_NEWBORN_NAME_IDENTIFIER_TAG_DIAGNOSIS_HYPOTHERMIA_COLD_INJURY_ILLNESS_RESPIRATORY_CARDIAC_FAILURE_OR_DEATH
+- NO_TREATMENT_DISPLAY_MONITOR_READING_IV_OXYGEN_SENSOR_RESTRAINT_OR_INVENTED_CRY
+- NO_ADULT_ANAADHI_TP014_REPRESENTED_LAYER_PARALLEL_EARTH_FRACTURE_FILTER_RST_OR_SUPERNATURAL_INTERPRETATION
+- NO_MODIFICATION_OF_FINALIZED_SC001_TO_SC015_EXISTING_REMOTION_TYPESCRIPT_COMPOSITION_IDS_OR_TYPECHECK_FIXES
+- NO_IMAGE_GENERATION_VIDEO_RENDER_NEW_AUDIO_GENERATION_SUPERCOOL_HEYGEN_OR_PAID_MEDIA_API
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: PERMANENTLY_DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
+  audio_generation: DISABLED
+  execute_now: false
+next: SC017

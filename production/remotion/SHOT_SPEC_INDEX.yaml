@@ -1,5 +1,5 @@
 {
-  "version": 41,
+  "version": 42,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -436,6 +436,37 @@
       "exact_end": "He does not follow.",
       "image_generation_started": false,
       "render_started": false
+    },
+    "SC016": {
+      "state": "SPEC_READY",
+      "source": "scenes/016/scene.yaml",
+      "shot_package": "production/remotion/shot_specs/SC016/SC016_SHOT_PACKAGE.json",
+      "shot_count": 75,
+      "duration_seconds": 225,
+      "stills_per_minute": 20,
+      "final_editorial_next": "SC017",
+      "finalized": true,
+      "lock_state": "LOCKED",
+      "revision": "R001",
+      "package_schema": "ANAADHI_REMOTION_SC016_V16_COMPACT_RESOLVABLE_R2",
+      "batch": "B05",
+      "environments": "ENV-PAR-003 Paraane Rehabilitation Complex + ENV-PAR-010 Paraane Rehabilitation Centre — Security Gate",
+      "canonical_parent_environment": "ENV-PAR-001 for both nested packets",
+      "loc": "LOC-003",
+      "location_state": "ST02 / INHERIT_ST01_PLUS_OV-003",
+      "subspace": "SUB-003-06",
+      "wc": "WC012",
+      "pv": "PV013 / P2 / ACTIVE + PV048 / P2 / ADD",
+      "env5_closure": "AR010/INV010/MS010/KC010/TG010 + AR017/INV017/MS017/KC017/TG017",
+      "env6_control": "NO_SB / physical-only; TP/SB/GF/EP/OBS/ANCH/INV6/VAR6/RST all NONE",
+      "sarjanya_jeep": "LOC-008 MOBILE_ASSET / ENV6J-LOC-008-MASTER-v001 / ENV6J-LOC-008-ST00-v001 / ENV6L-LOC-008-ST00-v001 / MOBILE_ASSET_PLAUSIBLE_NO_RESCALE; VEH-SARJANYA-JEEP remains MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED; no ENV-MOB row",
+      "visual_control": "ENV6L-LOC-003-ST02-v001 and ENV6J-SUB-003-06-v001 / ENV6L-SUB-003-06-REF-v001 metadata locked; final visual references pending; HERO-UNIQUE LOC-003 + DRESSING-VARIANT SUB-003-06; KIT-10/11/12; signage owner PARAANE; no asset promotion",
+      "readable_text_control": "exact eight-string allowlist; MEDICAL EMERGENCY only selected",
+      "record_truth_control": "newborn physically healthy, alive and unnamed; legally dead only in Parvaran's false SC013 record; no diagnosis",
+      "exact_start": "Paraane rises between long sloping hills.",
+      "exact_end": "The Paraane emblem closes above him.",
+      "image_generation_started": false,
+      "render_started": false
     }
   },
   "unmaterialized": {
@@ -458,7 +489,7 @@
       "SC099B"
     ],
     "remaining_materialization_order": [
-      "SC016-SC059",
+      "SC017-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
@@ -468,14 +499,14 @@
     ]
   },
   "cursor": {
-    "last_materialized_source_scene": "SC015",
-    "last_materialized_editorial_segment": "SC015",
-    "next_scene": "SC016",
-    "next_editorial_segment": "SC016",
-    "after_SC015": "SC016",
+    "last_materialized_source_scene": "SC016",
+    "last_materialized_editorial_segment": "SC016",
+    "next_scene": "SC017",
+    "next_editorial_segment": "SC017",
     "source_continuation_pending": "SC074B",
     "image_generation_gate": "EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN",
-    "audio_generation_gate": "RESUME_AFTER_00_02_14_293333_ONLY"
+    "audio_generation_gate": "RESUME_AFTER_00_02_14_293333_ONLY",
+    "after_SC016": "SC017"
   },
   "retrospective_finalization": {
     "SC072": {

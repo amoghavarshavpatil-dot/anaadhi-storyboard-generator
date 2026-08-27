@@ -1,8 +1,8 @@
 {
-  "version": 42,
+  "version": 43,
   "project": "ANAADHI",
   "control": "REMOTION_CONTINUATION_CURSOR",
-  "as_of_local": "2026-08-27T11:40:00+05:30",
+  "as_of_local": "2026-08-27T15:29:02+05:30",
   "backend": {
     "github_canonical_control": true,
     "remotion_assembly": true,
@@ -12,24 +12,24 @@
     "paid_media_api_execution_enabled": false
   },
   "visual_preproduction": {
-    "latest_new_schema_materialized": "SC015",
-    "latest_source_scene_materialized": "SC015",
-    "next_scene_to_materialize": "SC016",
-    "next_editorial_segment": "SC016",
+    "latest_new_schema_materialized": "SC016",
+    "latest_source_scene_materialized": "SC016",
+    "next_scene_to_materialize": "SC017",
+    "next_editorial_segment": "SC017",
     "source_continuation_pending": "SC074B",
     "editorial_sequence_manifest": "production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml",
-    "note": "SC015 R001 LOCKED: LOC-007 / ENV-PLP-006 / WC011 with LOC-006 / ENV-PLP-005 / J-01 carried only as a non-merged spatial-interface reference; LOC-008 Sarjanya-jeep mobile-reference and separate stationary ENV-MOB-001 are controlled; TP014/RST01 is exact-bounded with zero residue; continue SC016 only after 'He does not follow.'",
+    "note": "SC016 R001 LOCKED: LOC-003 ST02 / SUB-003-06 with ENV-PAR-003 and ENV-PAR-010 both canonically parented to ENV-PAR-001; P2 physical-only NO_SB gate sequence; official override precedes opening and handoff; continue SC017 only after 'The Paraane emblem closes above him.'",
     "materialization_revision": "R001",
-    "package_schema": "ANAADHI_REMOTION_SC015_V15_COMPACT_RESOLVABLE_R2"
+    "package_schema": "ANAADHI_REMOTION_SC016_V16_COMPACT_RESOLVABLE_R2"
   },
   "audio": {
     "mastered_prefix_locked": true,
     "mastered_prefix_end_timecode": "00:02:14.293333",
-    "SC015": {
+    "SC016": {
       "dialogue_policy": "CREATOR_RECORDED_DIALOGUE_ONLY",
-      "picture_planning_duration_seconds": 252,
+      "picture_planning_duration_seconds": 225,
       "exact_audio_timecode_alignment": "PENDING_EXTRACTION",
-      "final_window": "BGM_NONE_PHYSICAL_RAIN_SARJANYA_JEEP_DEPARTURE_AND_RESTRAINED_LITERAL_EXTERIOR_AMBIENCE_ONLY",
+      "final_window": "BGM_NONE_ACTIVE_PHYSICAL_RAIN_GATE_EMBLEM_CLOSURE_AND_RESTRAINED_LITERAL_GATE_AMBIENCE_ONLY",
       "new_generation": false
     }
   },
@@ -42,38 +42,61 @@
   },
   "shot_density": {
     "target_minimum_stills_per_minute": 20,
-    "SC015": {
-      "duration_seconds": 252,
-      "shot_count": 84,
+    "SC016": {
+      "duration_seconds": 225,
+      "shot_count": 75,
       "stills_per_minute": 20
     }
   },
   "env6_cursor": {
-    "latest_materialized_segment": "SC015",
-    "source_scene": "SC015",
-    "wc": "WC011",
-    "wc_signature": "TD8/WX3/EX3/LS2/OC2/OP5/T",
-    "root_location": "LOC-007",
-    "environment": "ENV-PLP-006",
-    "parent_environment": null,
-    "subspace": null,
-    "hierarchy": "ROOT/P/HF-03",
-    "state": "ST00",
-    "paraane_pv": "N/A_NON_PARAANE_ANCHOR",
-    "env5_closure": [
-      "AR007",
-      "INV007",
-      "MS007",
-      "KC007",
-      "TG007"
-    ],
-    "junction_continuity": {
-      "loc": "LOC-006",
-      "env": "ENV-PLP-005",
-      "junction": "J-01",
-      "role": "ESTABLISHED_SPATIAL_INTERFACE_REFERENCE_ONLY",
-      "physical_road_count": 4,
-      "environment_merge": false
+    "latest_materialized_segment": "SC016",
+    "source_scene": "SC016",
+    "batch": "B05",
+    "wc": "WC012",
+    "wc_signature": "TD7/WX1/EX3/LS2/OC4/OP1/T",
+    "root_location": "LOC-003",
+    "location_state": "ST02",
+    "state_inheritance": "INHERIT_ST01_PLUS_OV-003",
+    "subspace": "SUB-003-06",
+    "parent_environment": "ENV-PAR-001",
+    "paraane_phase": "P2",
+    "nested_environments": {
+      "ENV-PAR-003": {
+        "name": "Paraane Rehabilitation Complex",
+        "canonical_parent_environment": "ENV-PAR-001",
+        "hierarchy": "NEST/P/HF-04",
+        "closure": [
+          "AR010",
+          "INV010",
+          "MS010",
+          "KC010",
+          "TG010"
+        ],
+        "pv": "PV013",
+        "phase": "P2",
+        "operation": "ACTIVE"
+      },
+      "ENV-PAR-010": {
+        "name": "Paraane Rehabilitation Centre — Security Gate",
+        "canonical_parent_environment": "ENV-PAR-001",
+        "hierarchy": "NEST/S/HF-04",
+        "closure": [
+          "AR017",
+          "INV017",
+          "MS017",
+          "KC017",
+          "TG017"
+        ],
+        "pv": "PV048",
+        "phase": "P2",
+        "operation": "ADD"
+      }
+    },
+    "topology_rule": "ENV-PAR-003 supports gate circulation but is not the canonical parent of ENV-PAR-010",
+    "asset_control": {
+      "loc003_st02": "ENV6L-LOC-003-ST02-v001 / METADATA_LOCKED_VISUAL_PENDING",
+      "sub00306": "ENV6J-SUB-003-06-v001 + ENV6L-SUB-003-06-REF-v001 / METADATA_LOCKED_VISUAL_PENDING",
+      "approved_root_master": "PRESERVE_WITHOUT_PIXEL_EXTRAPOLATION_TO_ST02_OR_GATE"
     },
     "sarjanya_jeep": {
       "loc": "LOC-008",
@@ -81,51 +104,40 @@
       "reference": "EXISTING_APPROVED_ENV-6L_MOBILE_REFERENCE_REUSE",
       "vehicle_registry": "VEH-SARJANYA-JEEP",
       "design_status": "MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED",
-      "invented_environment_id": null
+      "scene_env_mob_row": null,
+      "enters_protected_campus": false,
+      "recognition_mechanism": null,
+      "reference_assets": [
+        "ENV6J-LOC-008-MASTER-v001",
+        "ENV6J-LOC-008-ST00-v001",
+        "ENV6L-LOC-008-ST00-v001"
+      ],
+      "scale_rule": "MOBILE_ASSET_PLAUSIBLE_NO_RESCALE"
     },
-    "parvaran_mobile_environment": {
-      "env": "ENV-MOB-001",
-      "class": "MOB/HF-03",
-      "closure": [
-        "ENV-4D",
-        "KC142",
-        "TG142"
-      ],
-      "site": "ENV-PLP-005:Z03_ANNOTATION_ONLY",
-      "continuity": "HIDDEN_STATIONARY_FROM_SC014_NEVER_ENTERS_ENV-PLP-006",
-      "design_status": "CONTROLLED_UNRESOLVED"
+    "portal": {
+      "environment": "ENV-PAR-010",
+      "state_order": "RECOGNISES_VEHICLE_WITHOUT_VISIBLE_METHOD > DISPLAYS_NIGHT_ACCESS_RESTRICTED_AND_STATE_PURPOSE > JEEP_STOPS_OUTSIDE > GATE_REMAINS_CLOSED > OFFICIAL_OVERRIDE > HEAVY_GATES_OPEN > MEDICAL_HANDOFF > EMBLEM_CLOSES",
+      "security_station": "LOCAL_ZONE_NOT_SEPARATE_ENVIRONMENT",
+      "damage": null,
+      "forced_entry": false,
+      "jeep_entry": false,
+      "sc017_environment_materialized": false
     },
-    "TP014": {
-      "sb": "SB014",
-      "gf": "GF01",
-      "recurrence": "4/18",
-      "band": "Band B — Origin and Paraane childhood",
-      "ep": "EP0+EP1+EP2+EP-U",
-      "obs": "OBS01",
-      "anchor": "ANCH08",
-      "inverse": "INV6-08",
-      "variants": [
-        "VAR6-01",
-        "VAR6-02"
-      ],
-      "restore": "RST01",
-      "receivers": [
-        "YOUNG_SEMMAA",
-        "AUDIENCE"
-      ],
-      "excluded": [
-        "NEWBORN_ANAADHI",
-        "KENCHAA",
-        "DRIVER",
-        "OTHER_SARJANYA_MEMBERS",
-        "PARVARAN"
-      ],
-      "persistence": "ZERO_REPRESENTED_PERSON_OBJECT_ROAD_WEATHER_VEHICLE_SOUND_OR_DRESSING_RESIDUE",
-      "represented_shot_range": "SC015_SH040-SC015_SH045",
-      "rst_boundary_shot": "SC015_SH046",
-      "zero_residue_physical_hold": "SC015_SH047"
+    "special_beat": {
+      "ruling": "NO_SB_PHYSICAL_ONLY",
+      "TP": null,
+      "SB": null,
+      "GF": null,
+      "EP": null,
+      "OBS": null,
+      "ANCH": null,
+      "INV6": null,
+      "VAR6": null,
+      "RST": null,
+      "tp014_carryover": false
     },
-    "record_truth": "CHILD_PHYSICALLY_HEALTHY_AND_ALIVE; LEGALLY_DEAD_ONLY_IN_PARVARANS_FALSE_SC013_RECORD; SEMMAAS_COLD_OBSERVATION_IS_CONCERN_NOT_DIAGNOSIS; NO_ACTUAL_CARDIORESPIRATORY_FAILURE_COMPLICATION_OR_DEATH",
+    "readable_text": "EXACT_EIGHT_STRING_ALLOWLIST; MEDICAL_EMERGENCY_ONLY_SELECTED",
+    "record_truth": "CHILD_PHYSICALLY_HEALTHY_ALIVE_AND_UNNAMED; LEGALLY_DEAD_ONLY_IN_PARVARANS_FALSE_SC013_RECORD; NO_DIAGNOSIS_INJURY_HYPOTHERMIA_RESPIRATORY_FAILURE_OR_DEATH",
     "SC072_lock": {
       "tp": "TP077",
       "sb": "SB077",
@@ -143,21 +155,22 @@
     }
   },
   "character_cursor": {
-    "SC015": {
-      "young_semmaa": "CHR-SEMMAA; SAME_BIOLOGICAL_IDENTITY_EXPLICITLY_YOUNGER; VISUAL_STATE_CONTROLLED_UNRESOLVED; NO_NUMERIC_AGE_RANK_OR_PRESENT_DAY_COSTUME; TP014_FULL",
-      "newborn": "CHR-ANAADHI/AGE-ANAADHI-NEWBORN; PHYSICALLY_HEALTHY_ALIVE; ORIGINAL_DARK_WOOL_BLANKET_PLUS_LATER_MEMBER_SHAWL; TP014_EXCLUDED",
-      "kenchaa_driver_members": "SOURCE_ROLES_ONLY_WITHOUT_INVENTED_IDENTITIES_OR_ROSTER_COUNT; TP014_EXCLUDED",
-      "parvaran": "DIRECT_SC014_BIRTH_NIGHT; COAT_REMOVED_NO_REDONNING; HIDDEN_STATIC_ENV-MOB-001; SILENT; TP014_EXCLUDED; DOES_NOT_FOLLOW",
-      "represented_semmaa_and_newborn": "TP014_ONLY; NEVER_PHYSICAL_DUPLICATES; ZERO_RESIDUE_AT_RST01",
-      "adult_anaadhi": "TP014_REPRESENTED_AT_193CM_WITH_NO_DIALOGUE_OR_VO; NEVER_PHYSICAL; ZERO_RESIDUE_AT_RST01"
+    "SC016": {
+      "young_semmaa": "CHR-SEMMAA; SAME_BIOLOGICAL_IDENTITY_EXPLICITLY_YOUNGER; VISUAL_STATE_CONTROLLED_UNRESOLVED; RAIN_WET SC015 BIRTH-NIGHT CONTINUITY; NEWBORN AT CHEST THEN ONE-ARM SHIFT; NO NUMERIC AGE RANK TITLE OR PRESENT-DAY COSTUME",
+      "young_asana": "CHR-ASANA; MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED; YOUNG DISCIPLINED PROCEDURAL; OFFICIAL OVERRIDE; NO NUMERIC AGE RANK BIOGRAPHY UNIFORM CREDENTIAL OR HACK",
+      "newborn": "CHR-ANAADHI/AGE-ANAADHI-NEWBORN; PHYSICALLY HEALTHY ALIVE UNNAMED; DARK WOOL BLANKET PLUS SC015 ADDED SHAWL; NO CRY DIAGNOSIS IDENTIFIER OR INVENTED CRADLE PLACEMENT",
+      "kenchaa": "SOURCE_NAMED_ROLE_ONLY; EXACT TWO LINES; NO INTERFACE OPERATION CATEGORY SELECTION OR NEWBORN HANDLING",
+      "medical_workers": "UNNAMED SOURCE-ROLE GROUP; ARRIVE ONLY AFTER GATES OPEN WITH CONTROLLED-UNRESOLVED THERMAL CRADLE; NO COUNT IDENTITY DIALOGUE DIAGNOSIS OR PROCEDURE",
+      "absent": "PARVARAN/ENV-MOB-001/ADULT_ANAADHI/MANIRE/POLICE/MANIMANTHARAA_PHYSICAL_PRESENCE",
+      "represented_layer": "NONE"
     }
   },
   "editorial_lock": {
     "enabled": true,
-    "current_completed_segment": "SC015",
-    "next_editorial_segment": "SC016",
+    "current_completed_segment": "SC016",
+    "next_editorial_segment": "SC017",
     "remaining_materialization_order": [
-      "SC016-SC059",
+      "SC017-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
