@@ -1,5 +1,5 @@
 {
-  "version": 40,
+  "version": 41,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -21,12 +21,20 @@
       "render_started": false
     },
     "SC002": {
-      "state": "SPEC_READY",
+      "state": "PARTIAL_APPROVED",
       "source": "scenes/002/scene.yaml",
       "shot_package": "production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json",
+      "picture_approval_cursor": "production/remotion/PICTURE_APPROVAL_CURSOR.json",
+      "remotion_scene_data": "production/remotion/src/data/sc002Approved.ts",
       "shot_count": 18,
+      "approved_shot_count": 1,
       "duration_seconds": 54,
-      "stills_per_minute": 20
+      "approved_duration_seconds": 3,
+      "approved_through": "SC002_SH001",
+      "next_shot": "SC002_SH002",
+      "stills_per_minute": 20,
+      "image_generation_started": true,
+      "render_started": false
     },
     "SC003": {
       "state": "SPEC_READY",
@@ -490,9 +498,9 @@
   "picture_approval": {
     "scope": "SC001_SH001_TO_SC005_SH024",
     "planned_shots": 106,
-    "approved_count": 8,
-    "last_approved_shot": "SC001_SH008",
-    "next_shot": "SC002_SH001",
+    "approved_count": 9,
+    "last_approved_shot": "SC002_SH001",
+    "next_shot": "SC002_SH002",
     "cursor": "production/remotion/PICTURE_APPROVAL_CURSOR.json"
   }
 }

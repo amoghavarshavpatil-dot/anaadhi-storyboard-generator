@@ -1,5 +1,6 @@
 scene_id: '002'
 status: SPEC_READY
+picture_status: PARTIAL_APPROVED
 screenplay_revision: Approved Latest Indian English screenplay baseline; editable
 source:
   heading: INT. ANAADHI’S RAISED CABIN – FIRST FLOOR – PRE-DAWN
@@ -23,14 +24,32 @@ continuity:
     - no alternate-world physical residue
 remotion:
   shot_package: production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json
+  picture_approval_cursor: production/remotion/PICTURE_APPROVAL_CURSOR.json
+  scene_data: production/remotion/src/data/sc002Approved.ts
   master_raster: 3840x1600
   aspect: 2.40:1
   fps: 30
   audio_sync: ALIGN_TO_LOCKED_MASTER_PREFIX
   total_duration_seconds: 54
   stills_per_minute: 20
+  approved_count: 1
+  approved_through: SC002_SH001
+  next_shot: SC002_SH002
+  render_started: false
 shots:
-  - {shot_id: SC002_SH001, duration_seconds: 3, purpose: one real door breach, status: SPEC_READY}
+  - shot_id: SC002_SH001
+    revision_id: V001
+    status: APPROVED_SHOT
+    duration_seconds: 3
+    purpose: one real door breach
+    approved_asset:
+      git_path: production/remotion/public/shots/SC002/SC002_SH001_V001.png
+      remotion_static_file: shots/SC002/SC002_SH001_V001.png
+      sha256: 14ef0b20e68005fbfda1698c32317ca431e83bec7201adae39557757053d2b8e
+      width: 1942
+      height: 809
+      aspect_ratio: 2.40:1
+    regenerate: false
   - {shot_id: SC002_SH002, duration_seconds: 3, purpose: police shields enter first, status: SPEC_READY}
   - {shot_id: SC002_SH003, duration_seconds: 3, purpose: Paraane Sarjanya allied entry compresses staircase, status: SPEC_READY}
   - {shot_id: SC002_SH004, duration_seconds: 3, purpose: Anaadhi drug-haze POV circle of boots badges gloves weapons, status: SPEC_READY}
@@ -50,7 +69,7 @@ shots:
   - {shot_id: SC002_SH018, duration_seconds: 3, purpose: Anaadhi sees only the needle, status: SPEC_READY}
 notes:
   continue_from_existing_scene_001: true
-  image_generation_started: false
+  image_generation_started: true
   generation_backend: CHATGPT_CHAT_PAGE
   heygen_execution: false
   openai_work_page_generation: false

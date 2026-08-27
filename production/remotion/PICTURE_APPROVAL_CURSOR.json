@@ -8,13 +8,13 @@
     "planned_shots": 106
   },
   "progress": {
-    "approved_count": 8,
-    "last_approved_shot": "SC001_SH008",
-    "next_shot": "SC002_SH001",
+    "approved_count": 9,
+    "last_approved_shot": "SC002_SH001",
+    "next_shot": "SC002_SH002",
     "last_approved_revision": "V001"
   },
-  "asset_ledger": "production/remotion/shot_specs/SC001/SC001_SHOT_PACKAGE.json",
-  "remotion_scene_data": "production/remotion/src/data/sc001Approved.ts",
+  "asset_ledger": "production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json",
+  "remotion_scene_data": "production/remotion/src/data/sc002Approved.ts",
   "generation_gate": "USER_APPROVAL_REQUIRED_PER_SHOT",
   "render_started": false
 }

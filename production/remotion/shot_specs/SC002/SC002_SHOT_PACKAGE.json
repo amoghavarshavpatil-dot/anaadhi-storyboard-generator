@@ -1,7 +1,10 @@
 {
+  "schema_version": 1,
+  "project": "ANAADHI",
   "scene_id": "SC002",
   "revision_id": "R001",
   "status": "SPEC_READY",
+  "lock_state": "APPROVED_SEQUENCE_PARTIAL",
   "source_authority": "ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx",
   "continuation_note": "Continues from the existing SC001 plan; Scene 001 is not rebuilt.",
   "screenplay_source": {
@@ -86,6 +89,7 @@
     "negative_global": ["long-haired Anaadhi", "daylight", "storyboard borders", "subtitles", "second door breach", "Scene-004 injection", "parallel-world physical residue"]
   },
   "remotion_defaults": {
+    "scene_data": "src/data/sc002Approved.ts",
     "fps": 30,
     "transition_in": "CUT",
     "transition_out": "CUT",
@@ -98,8 +102,32 @@
     "locked_master_prefix_end_seconds": 134.293333,
     "bgm_sfx": "inherit locked opening master; refine timing only without rebuilding manufactured elements"
   },
+  "picture_progress": {
+    "planned_scene_shots": 18,
+    "planned_run_shots": 106,
+    "approved_count": 1,
+    "approved_through": "SC002_SH001",
+    "next_shot": "SC002_SH002",
+    "render_started": false
+  },
   "shots": [
-    {"shot_id":"SC002_SH001","duration_seconds":3,"purpose":"one real door breach","framing":"wide interior facing main door","screen_direction":"AXIS_LOCKED","motion":"STATIC","prompt":"Main door blows inward once; wet debris enters; police shields visible behind breach.","negative":"fireball; second breach; intact reset door"},
+    {
+      "shot_id": "SC002_SH001",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
+      "duration_seconds": 3,
+      "purpose": "one real door breach",
+      "framing": "wide interior facing main door",
+      "screen_direction": "AXIS_LOCKED",
+      "motion": "STATIC",
+      "prompt": "Main door blows inward once; wet debris enters; police shields visible behind breach.",
+      "negative": "fireball; second breach; intact reset door",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "14ef0b20e68005fbfda1698c32317ca431e83bec7201adae39557757053d2b8e",
+      "git_path": "production/remotion/public/shots/SC002/SC002_SH001_V001.png",
+      "remotion_static_file": "shots/SC002/SC002_SH001_V001.png",
+      "original_title": "SC002_SH001_V001_REVIEW.png"
+    },
     {"shot_id":"SC002_SH002","duration_seconds":3,"purpose":"police shields enter first","framing":"low wide floor level","screen_direction":"LEFT_TO_RIGHT","motion":"SLOW_PUSH_IN","prompt":"Police shields cross breached threshold first; wet tracked floor; Anaadhi blurred foreground edge.","negative":"gunfire; pristine dry floor"},
     {"shot_id":"SC002_SH003","duration_seconds":3,"purpose":"Paraane Sarjanya allied entry compresses staircase","framing":"wide depth tableau","screen_direction":"LEFT_TO_RIGHT","motion":"STATIC","prompt":"Paraane medical personnel follow shields; Sarjanya personnel fill staircase; Allied Gangsters force in behind official line.","negative":"generic SWAT-only team; empty staircase"},
     {"shot_id":"SC002_SH004","duration_seconds":3,"purpose":"Anaadhi drug-haze POV circle","framing":"POV insert montage","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Boots, badges, white medical gloves and weapons form one closing circle around sedated Anaadhi.","negative":"standing Anaadhi; long hair"},
