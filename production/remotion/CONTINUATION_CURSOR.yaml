@@ -1,8 +1,8 @@
 {
-  "version": 45,
+  "version": 46,
   "project": "ANAADHI",
   "control": "REMOTION_CONTINUATION_CURSOR",
-  "as_of_local": "2026-08-28T02:11:19+05:30",
+  "as_of_local": "2026-08-28T08:28:25+05:30",
   "backend": {
     "github_canonical_control": true,
     "remotion_assembly": true,
@@ -175,9 +175,9 @@
     "pipeline": "GITHUB_CHATGPT_ASSETS_REMOTION",
     "scope": "SC001_SH001_TO_SC005_SH024",
     "planned_shots": 106,
-    "approved_count": 10,
-    "approved_through": "SC002_SH002",
-    "next_shot": "SC002_SH003",
+    "approved_count": 11,
+    "approved_through": "SC002_SH003",
+    "next_shot": "SC002_SH004",
     "shot_package": "production/remotion/shot_specs/SC002/SC002_SHOT_PACKAGE.json",
     "cursor": "production/remotion/PICTURE_APPROVAL_CURSOR.json",
     "remotion_scene_data": "production/remotion/src/data/sc002Approved.ts",

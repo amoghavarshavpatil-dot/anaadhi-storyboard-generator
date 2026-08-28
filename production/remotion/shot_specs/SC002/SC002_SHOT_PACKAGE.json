@@ -105,9 +105,9 @@
   "picture_progress": {
     "planned_scene_shots": 18,
     "planned_run_shots": 106,
-    "approved_count": 2,
-    "approved_through": "SC002_SH002",
-    "next_shot": "SC002_SH003",
+    "approved_count": 3,
+    "approved_through": "SC002_SH003",
+    "next_shot": "SC002_SH004",
     "render_started": false
   },
   "shots": [
@@ -145,7 +145,23 @@
       "remotion_static_file": "shots/SC002/SC002_SH002_V001.png",
       "original_title": "SC002_SH002_V001_REVIEW.png"
     },
-    {"shot_id":"SC002_SH003","duration_seconds":3,"purpose":"Paraane Sarjanya allied entry compresses staircase","framing":"wide depth tableau","screen_direction":"LEFT_TO_RIGHT","motion":"STATIC","prompt":"Paraane medical personnel follow shields; Sarjanya personnel fill staircase; Allied Gangsters force in behind official line.","negative":"generic SWAT-only team; empty staircase"},
+    {
+      "shot_id": "SC002_SH003",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
+      "duration_seconds": 3,
+      "purpose": "Paraane Sarjanya allied entry compresses staircase",
+      "framing": "wide depth tableau",
+      "screen_direction": "LEFT_TO_RIGHT",
+      "motion": "STATIC",
+      "prompt": "Paraane medical personnel follow shields; Sarjanya personnel fill staircase; Allied Gangsters force in behind official line.",
+      "negative": "generic SWAT-only team; empty staircase",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "843a4de568088173124d4111122bcc339fd1a69285d3d3a34b0aa160108b73f4",
+      "git_path": "production/remotion/public/shots/SC002/SC002_SH003_V001.png",
+      "remotion_static_file": "shots/SC002/SC002_SH003_V001.png",
+      "original_title": "SC002_SH003_V001_REVIEW.png"
+    },
     {"shot_id":"SC002_SH004","duration_seconds":3,"purpose":"Anaadhi drug-haze POV circle","framing":"POV insert montage","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Boots, badges, white medical gloves and weapons form one closing circle around sedated Anaadhi.","negative":"standing Anaadhi; long hair"},
     {"shot_id":"SC002_SH005","duration_seconds":3,"purpose":"Police Commander approaches","framing":"medium low angle from floor","screen_direction":"RIGHT_TO_LEFT","motion":"SLOW_PUSH_IN","prompt":"Police Commander approaches face-down Anaadhi after shield entry; command posture; others hold line.","negative":"visible-mouth lip mismatch; attack pose"},
     {"shot_id":"SC002_SH006","duration_seconds":3,"purpose":"Anaadhi motor failure","framing":"tight body and arm detail","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Anaadhi attempts to lift head; one arm collapses from sedation; topless heavy-athletic body; shaved rough regrowth.","negative":"heroic standing pose; gore"},
