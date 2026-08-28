@@ -1,5 +1,5 @@
 {
-  "version": 46,
+  "version": 47,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -529,6 +529,40 @@
       "exact_end": "He looks through the window at the child he has separated from himself.",
       "image_generation_started": false,
       "render_started": false
+    },
+    "SC019": {
+      "state": "SPEC_READY",
+      "source": "scenes/019/scene.yaml",
+      "shot_package": "production/remotion/shot_specs/SC019/SC019_SHOT_PACKAGE.json",
+      "shot_count": 89,
+      "duration_seconds": 267,
+      "total_frames": 8010,
+      "stills_per_minute": 20,
+      "final_editorial_next": "SC020",
+      "finalized": true,
+      "lock_state": "LOCKED",
+      "revision": "R001",
+      "package_schema": "ANAADHI_REMOTION_SC019_V19_COMPACT_RESOLVABLE_R2",
+      "batch": "B07",
+      "environments": "ENV-PAR-013 Child Wing and ENV-PAR-014 Observation Gallery; exactly two NEST environment rows",
+      "canonical_parent_environment": "ENV-PAR-001 for both environment packets",
+      "loc": "LOC-003",
+      "location_state": "ST02 / INHERIT_ST01_PLUS_OV-003",
+      "subspaces": "SUB-003-09 Child Wing / SUB-003-10 Observation Gallery",
+      "wc": "WC015",
+      "pv": "ENV-PAR-013 PV063 / P2 / ADD; ENV-PAR-014 PV068 / P2 / ADD",
+      "env5_closure": "ENV-PAR-013 AR020/INV020/MS020/KC020/TG020; ENV-PAR-014 AR021/INV021/MS021/KC021/TG021",
+      "env6_control": "TP016/SB016/GF01/5/18/EP0+EP1+EP3+EP-U/OBS01/ANCH10/INV6-10/VAR6-01+VAR6-03/RST01 at SH031-SH040; TP017/SB017/GF05/4/20/EP0+EP4+EP5+EP-U/OBS04/ANCH11/INV6-11/VAR6-04+VAR6-05/RST01 solely SH073 with represented frames 30-59, formal reset SH074 and zero hold SH075",
+      "visual_control": "ENV6J/ENV6L LOC-003 ST02, SUB-003-09 and SUB-003-10 metadata locked with final visuals pending; preserve approved root without pixel extrapolation or asset promotion",
+      "readable_text_control": "exact eight-string allowlist; FIVE YEARS LATER super at SH001; exact five private monitoring strings at SH049-SH050; exact two-line private alert at SH079; all other per-shot text empty",
+      "character_control": "CHR-ANAADHI AGE-ANAADHI-05 approved for age-body geometry only with controlled-unresolved hair and institutional costume; CHR-MANIRE missing approved asset; CHR-PARVARAN and CHR-ANARVAA exact C2 age hair wardrobe states controlled-unresolved; other occupants source-role null IDs",
+      "medicine_and_prop_control": "jaggery first at SH024-SH025 and voluntary half-cup fever medicine only afterward at SH026; unreadable label; four magnetic roads and tiny toy cradle; resident and Anaadhi blankets separate null-ID source roles",
+      "exact_start": "FIVE YEARS LATER / Paraane has grown larger.",
+      "internal_heading": "INT. PARAANE OBSERVATION GALLERY – SAME TIME",
+      "final_spoken_line": "It was his fear.",
+      "exact_end": "CUT TO BLACK.",
+      "image_generation_started": false,
+      "render_started": false
     }
   },
   "unmaterialized": {
@@ -551,7 +585,7 @@
       "SC099B"
     ],
     "remaining_materialization_order": [
-      "SC019-SC059",
+      "SC020-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
@@ -561,14 +595,14 @@
     ]
   },
   "cursor": {
-    "last_materialized_source_scene": "SC018",
-    "last_materialized_editorial_segment": "SC018",
-    "next_scene": "SC019",
-    "next_editorial_segment": "SC019",
+    "last_materialized_source_scene": "SC019",
+    "last_materialized_editorial_segment": "SC019",
+    "next_scene": "SC020",
+    "next_editorial_segment": "SC020",
     "source_continuation_pending": "SC074B",
     "image_generation_gate": "EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN",
     "audio_generation_gate": "RESUME_AFTER_00_02_14_293333_ONLY",
-    "after_SC018": "SC019"
+    "after_SC019": "SC020"
   },
   "retrospective_finalization": {
     "SC072": {

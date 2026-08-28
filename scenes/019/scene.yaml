@@ -1,0 +1,396 @@
+scene_id: SC019
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+package_schema: ANAADHI_REMOTION_SC019_V19_COMPACT_RESOLVABLE_R2
+source_scene_number: 19
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+batch: B07
+headings:
+- "INT. PARAANE REHAB – CHILD WING – DAY – FIVE YEARS LATER"
+- "INT. PARAANE OBSERVATION GALLERY – SAME TIME"
+source_previous: SC018
+source_next: SC020
+editorial_previous: SC018
+editorial_next: SC020
+source_boundary:
+  previous_exact_end: "He looks through the window at the child he has separated from himself."
+  start_heading: "INT. PARAANE REHAB – CHILD WING – DAY – FIVE YEARS LATER"
+  start_super: "FIVE YEARS LATER"
+  start_action: "Paraane has grown larger."
+  internal_heading: "INT. PARAANE OBSERVATION GALLERY – SAME TIME"
+  final_spoken_line: "It was his fear."
+  end: "CUT TO BLACK."
+  next_scene_excluded: SC020
+transition:
+  continuity: FIVE_YEARS_AFTER_SC018
+  time: DAY
+  weather: UNSTATED
+  exterior_conditions: UNRESOLVED_DO_NOT_INFER
+  interiors: DRY_POPULATED
+  child_wing_light: BRIGHT_CONTROLLED_DAY_INTERIOR_WITHOUT_INVENTED_DIRECTION
+  gallery_light: CONTROLLED_LOW_GLARE
+  music_bridge: NONE
+environment:
+  loc: LOC-003
+  name: Paraane Campus / Central Complex
+  class: HERO-UNIQUE
+  state: ST02
+  state_inheritance: INHERIT_ST01_PLUS_OV-003
+  state_delta: "Add childhood-era Paraane expansion and child/rehab infrastructure while retaining earlier fabric."
+  story_period: C2
+  paraane_phase: P2
+  wc: WC015
+  wc_signature: TD4/WX0/EX0/LS1/OC3/OP0/C+T
+  time: DAY_FIVE_YEARS_LATER
+  weather: UNSTATED
+  occupation: CARE_RESIDENTIAL_OBSERVATION
+  crowding_rule: OCCUPATION_STATE_NOT_ROOM_OR_CAMPUS_EXPANSION
+  kits: [KIT-10, KIT-11, KIT-12]
+  signage_owner: PARAANE
+  subspaces:
+  - id: SUB-003-09
+    name: Child Wing
+    parent_loc: LOC-003
+    class: RECURRING-UNIQUE
+    state: INHERIT_PARENT
+    kits: [KIT-10, KIT-11, KIT-12]
+    identity: CALM_HUMAN_SCALED_RESIDENTIAL_COMMON_HALL_SPINE_WITH_REPEATED_ROOM_BAYS_AND_SOCIAL_NICHES_NEVER_CHILD_SCALED
+  - id: SUB-003-10
+    name: Observation Gallery
+    parent_loc: LOC-003
+    class: DRESSING-VARIANT
+    state: INHERIT_PARENT
+    kits: [KIT-10, KIT-11, KIT-12]
+    identity: THIN_STAFF_ONLY_ONE_WAY_OBSERVATION_GALLERY_PARALLEL_TO_CHILD_HALL
+  nested_packets:
+  - env: ENV-PAR-013
+    name: Paraane Child Wing — General Residential Hall and Corridors
+    hierarchy: NEST/H/HF-05
+    canonical_parent_env: ENV-PAR-001
+    closures: [AR020, INV020, MS020, KC020, TG020]
+    wc: WC015
+    pv: PV063
+    phase: P2
+    operation: ADD
+    production_subspace: SUB-003-09
+  - env: ENV-PAR-014
+    name: Paraane Child Wing — Observation Gallery and One-Way-Glass Axis
+    hierarchy: NEST/H/HF-05
+    canonical_parent_env: ENV-PAR-001
+    closures: [AR021, INV021, MS021, KC021, TG021]
+    wc: WC015
+    pv: PV068
+    phase: P2
+    operation: ADD
+    production_subspace: SUB-003-10
+  packet_count: {ROOT: 0, NEST: 2, MOB: 0, REF: 0, XFORM: 0}
+  exact_environment_rule: ENV-PAR-013_AND_ENV-PAR-014_ONLY
+  canonical_parent_rule: BOTH_PACKETS_PARENT_TO_ENV-PAR-001_AND_NEITHER_PARENTS_TO_THE_OTHER
+  internal_cut_rule: SAME_TIME_EDITORIAL_CUT_WITHOUT_MATERIALIZED_ROUTE_OR_TRAVERSAL
+  topology:
+    child_wing: DISTINCT_RESIDENTIAL_CLINICAL_FAMILY_ESCAPE_STAFF_AND_SECURITY_ROUTES_WITHOUT_NEW_ROOM_OR_RESIDENT_ID_INVENTION
+    gallery: AX01_ONE_WAY_NON_TRAVERSABLE_GLASS_AXIS_WITH_FIXED_PALM_POINT_AND_NO_SECOND_ASSESSMENT_ENTRANCE
+    prohibited: BRIDGE_PORTAL_OBSERVER_DOOR_PUBLIC_ROUTE_TOUCH_THROUGH_GLASS_PASSAGE_OR_ENVIRONMENT_MERGE
+  visual_control:
+    root_st02_prompt: ENV6J-LOC-003-ST02-v001
+    root_st02_lock: ENV6L-LOC-003-ST02-v001
+    root_st02_status: METADATA_LOCKED_VISUAL_PENDING
+    child_wing_prompt: ENV6J-SUB-003-09-v001
+    child_wing_lock: ENV6L-SUB-003-09-REF-v001
+    child_wing_status: METADATA_LOCKED_VISUAL_PENDING
+    gallery_prompt: ENV6J-SUB-003-10-v001
+    gallery_lock: ENV6L-SUB-003-10-REF-v001
+    gallery_status: METADATA_LOCKED_VISUAL_PENDING
+    approved_root_master: PRESERVE_WITHOUT_REGENERATION_OR_PIXEL_EXTRAPOLATION_TO_ST02_CHILD_WING_GALLERY_OR_ONE_WAY_GLASS
+  growth_rule: P2_EVOLUTION_ONLY_NO_CONSTRUCTION_MONTAGE_CAMPUS_OVERVIEW_EXPANSION_PLAN_GEOGRAPHY_ADDITIONAL_WING_FLOOR_ROOM_TOWER_OR_ROUTE
+  prohibited_identity: CHILD_SCALED_ARCHITECTURE_ENDLESS_HOSPITAL_CORRIDOR_PRISON_FORTRESS_PUNITIVE_GLOSSY_SCI_FI_CYBERPUNK_UNIVERSAL_NEON_DECORATIVE_KANNADA_OR_LATER_P3_P4_STATE
+characters:
+  CHILD_ANAADHI:
+    identity: CHR-ANAADHI
+    age_body: AGE-ANAADHI-05
+    age_body_status: APPROVED_FOR_AGE_BODY_GEOMETRY_ONLY
+    age: 5
+    body: TALL_FOR_AGE_WITH_CHILD_PROPORTIONS
+    numerical_height: null
+    eyes: DEEP_BROWN
+    hair_id: HR-ANAADHI-05
+    hair_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    hair_source_fact: SHORT_UNEVEN_CROP_GROWN_AFTER_SHAVED_HEAD
+    costume_id: CST-ANAADHI-CHILD-INSTITUTIONAL
+    costume_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    costume_source_fact: CLEAN_PARAANE_CHILD_WING_CLOTHING
+    injury: NONE
+    continuity: SAME_CANONICAL_BIOLOGICAL_IDENTITY_NAMED_ANAADHI_PARAANE_LEGAL_GUARDIAN_CONSEQUENCE_RETAINS_FALSE_SC013_RECORD_UNEXPOSED_AND_UNCORRECTED
+    dialogue_count: 4
+  MANIRE:
+    identity: CHR-MANIRE
+    state: C2_FIVE_YEARS_LATER_HEAD_NURSE
+    source_quality: PRACTICAL_WARM_AND_IMPOSSIBLE_TO_INTIMIDATE_THROUGH_PAPERWORK
+    asset_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    numeric_age_hair_uniform_badge_specialty_later_grey_state: UNRESOLVED_DO_NOT_INVENT
+    physical_action: KNEELS_EXPLAINS_MEDICINE_NEGOTIATES_CONSENT_AND_OBSERVES_EMPATHY
+    dialogue_count: 7
+  PARVARAN:
+    identity: CHR-PARVARAN
+    state: C2_FATHER_PARAANE_FOUNDER_AND_SC013_DECEPTION_AUTHOR
+    master_identity_status: APPROVED
+    c2_age_hair_wardrobe_state: CONTROLLED_UNRESOLVED
+    present_day_state_import: FORBIDDEN
+    performance: OBSERVATIONALLY_SEPARATED_WITH_SMALLEST_SMILE_AND_INCOMPLETE_ALMOST_TOUCH
+    dialogue_count: 4
+  ANARVAA:
+    identity: CHR-ANARVAA
+    state: C2_CONTROLLED_UNRESOLVED
+    present_day_state_import: FORBIDDEN
+    father_question: DELIBERATELY_AMBIGUOUS_WITHOUT_TRUTH_DISCOVERY_CERTAINTY
+    dialogue_count: 7
+  SOURCE_ROLES:
+    canonical_ids: null
+    roles: [OTHER_CHILDREN, RECOVERING_ADULTS, ABANDONED_RESIDENTS, LEGALLY_TRANSFERRED_PEOPLE, ATTENDANT, DISTRESSED_RESIDENT]
+    control: NO_NAMES_EXACT_COUNTS_BIOGRAPHIES_DIAGNOSES_CRIMES_TRANSFER_REASONS_UNIFORMS_DIALOGUE_OR_LATER_ROLES
+  REPRESENTED_ANAADHI_STATES:
+    child: CHR-ANAADHI_AGE_05_REPRESENTED_ONLY_WHERE_APPLICABLE
+    adult: CHR-ANAADHI_CANONICAL_193CM_REPRESENTED_ONLY_WITHIN_TP016_OR_TP017
+    elderly: CHR-ANAADHI_REPRESENTED_ONLY_EXACT_AGE_HAIR_COSTUME_AND_APPEARANCE_UNRESOLVED
+  ADULT_ANAADHI_VO:
+    identity: CHR-ANAADHI
+    visual_presence: NONE_OUTSIDE_REPRESENTED_BEATS
+    dialogue_count: 4
+truth_control:
+  anaadhi: SAME_LIVING_CHILD_WITH_NO_INJURY_AND_FALSE_SC013_DEATH_RECORD_UNEXPOSED_UNCORRECTED
+  institution: PARAANE_IS_LEGAL_GUARDIAN_FROM_SC018_WITHOUT_INVENTED_ADOPTION_OR_RECORD_DISPLAY
+  medicine: FEVER_MEDICINE_BITTER_HALF_CUP_UNREADABLE_LABEL_JAGGERY_FIRST_VOLUNTARY_MEDICINE_AFTERWARD
+  medical_limits: NO_MEDICINE_NAME_BRAND_INGREDIENT_STRENGTH_FORMULATION_TEMPERATURE_SEVERITY_CAUSE_SCHEDULE_DIAGNOSIS_SCAN_ADVERSE_EFFECT_OR_RESULT
+  resident: PANIC_IS_IMMEDIATE_RESPONSE_NOT_DIAGNOSIS
+  blanket_care: ANAADHI_PLACES_HIS_SEPARATE_BLANKET_BESIDE_RESIDENT_WITHOUT_RESTRAINT_FORCED_COVERING_OR_TREATMENT
+props_and_technology:
+  magnetic_wooden_blocks:
+    canonical_id: null
+    role: SOURCE_AUTHORIZED_PROP
+    content: EXACTLY_FOUR_ROADS
+    prohibited: J01_RECONSTRUCTION_LABELS_DESTINATIONS_BEARINGS_ELECTRONICS_OR_DESTINY_SYMBOLISM
+  tiny_cradle:
+    canonical_id: null
+    role: TOY_MINIATURE_AT_BLOCK_ROAD_INTERSECTION
+    continuity: NOT_NEWBORN_CRADLE_NOT_SC016_THERMAL_CRADLE
+  medicine_cup:
+    canonical_id: PRP-MEDICINE-CUP
+    status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+  fever_medicine:
+    canonical_id: null
+    role: SOURCE_AUTHORIZED_BITTER_HALF_CUP
+    label: PHYSICALLY_PRESENT_BUT_UNREADABLE
+  jaggery:
+    canonical_id: null
+    role: SOURCE_AUTHORIZED_TINY_PIECE_GIVEN_BEFORE_MEDICINE
+  blankets:
+    distressed_resident_blanket_id: null
+    anaadhi_own_blanket_id: null
+    rule: TWO_SEPARATE_SC019_SOURCE_ROLE_PROPS_NO_COLOR_MATERIAL_TAG_OR_NEWBORN_WRAP_CONTINUITY
+  monitoring_tablet:
+    canonical_id: null
+    role: PRIVATE_CLINICAL_TABLET_MONITORING_DISPLAY_AND_ATTACHMENT_ALERT
+    rule_packet: TG021_PACKET_LOCAL_RULE_NOT_DEVICE_ID
+    operation: QUIET_LITERAL_SCREEN_CHANGE_WITHOUT_BEEP_CHIME_SCAN_AI_OR_NOTIFICATION_NETWORK
+  one_way_glass:
+    canonical_id: null
+    role: ENV-PAR-014_AX01_LOCAL_PHYSICAL_TECHNOLOGY
+    rule: NON_TRAVERSABLE_NO_TOUCH_THROUGH_NO_RECOGNITION_MECHANISM
+  paraane_emblem:
+    canonical_id: PRP-PARAANE-EMBLEM
+    status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    role: NON_TEXT_FINAL_PHYSICAL_REFLECTION_ONLY
+    prohibited: WORDMARK_LETTERING_ARTWORK_GLOW_SUPERNATURAL_OR_TRANSFORMATION_ASSET
+physical_chronology:
+- SH001 displays only the exact FIVE YEARS LATER editorial super.
+- SH002-SH004 establish authorized P2 growth and the bright technologically advanced but emotionally crowded Child Wing without campus expansion.
+- SH005-SH010 establish five-year-old Anaadhi, his approved age-body geometry, four magnetic-block roads, tiny cradle at their intersection, other children building houses and Anaadhi building exits.
+- SH011 establishes Manire kneeling with the controlled-unresolved medicine cup and unreadable medicine label.
+- SH012-SH023 preserve dialogue lines 01-11 exactly; SH020 is the explicit recording hold after Manire line 08.
+- SH024-SH027 preserve jaggery first and only then voluntary medicine, without force, restraint or invented medical result.
+- SH028-SH030 preserve the physical attempted blanket removal, resident panic and Anaadhi looking up.
+- SH031-SH038 contain only TP016; SH032-SH037 contain its six represented content beats in order.
+- SH039 applies RST01 and SH040 holds the fully restored physical Child Wing with zero residue.
+- SH041-SH046 preserve Anaadhi physically rising, carrying his own separate blanket, placing it beside the resident, returning to his roads and Manire observing that care followed before an adult response.
+- SH047 cuts within SC019 to the Observation Gallery at the same time without materializing a route.
+- SH048-SH051 preserve Parvaran observing through one-way glass, exact private monitoring text and the smallest smile.
+- Dialogue lines 12-22 occur exactly at SH052, SH054, SH055, SH057, SH059, SH061, SH062, SH063, SH065, SH066 and SH068.
+- SH053 turns off the monitoring display only after Anarvaa line 12; SH056-SH067 preserve the child rebuilding the junction and the deliberately ambiguous founder/father exchange.
+- SH069 preserves Anarvaa leaving for council review.
+- SH070-SH072 preserve the child looking directly toward Parvaran and holding the gaze without explaining a mechanism.
+- TP017 exists only within SH073: physical frames 0-29, represented Adult Anaadhi frames 30-59, image gone at local frame 60, physical frames 60-89.
+- SH074 applies RST01 and SH075 holds the fully restored physical gallery with zero residue.
+- SH076-SH081 preserve the child’s later physical palm at the glass, Parvaran’s incomplete almost-touch, exact two-line alert, hand lowering and Parvaran walking away while the child’s palm remains.
+- Adult Anaadhi V.O. lines 23-26 occur exactly at SH082, SH084, SH086 and SH088, all outside TP017.
+- SH083 is the source beat, SH085 preserves the child lowering his physical hand, and SH087 carries the unresolved non-text Paraane emblem reflection across the wall.
+- SH089 is CUT TO BLACK and the exact SC019 endpoint.
+dialogue:
+- {speaker: MANIRE, text: "Anaadhi."}
+- {speaker: MANIRE, text: "This is fever medicine."}
+- {speaker: MANIRE, text: "It will taste bitter. Only half a cup."}
+- {speaker: CHILD_ANAADHI, text: "What if I say no?"}
+- {speaker: MANIRE, text: "Tell me why you do not want it."}
+- {speaker: CHILD_ANAADHI, text: "It is bitter."}
+- {speaker: MANIRE, text: "Strong reason."}
+- {speaker: MANIRE, text: "After the medicine, you will get a piece of jaggery."}
+- {speaker: CHILD_ANAADHI, text: "Jaggery first."}
+- {speaker: MANIRE, text: "You have learnt negotiation."}
+- {speaker: CHILD_ANAADHI, text: "Jaggery first."}
+- {speaker: ANARVAA, text: "You watch that child often."}
+- {speaker: PARVARAN, text: "Child-wing review."}
+- {speaker: ANARVAA, text: "Repeated review of one child creates bias."}
+- {speaker: PARVARAN, text: "I was auditing the file."}
+- {speaker: ANARVAA, text: "Abandoned children develop attachment complications."}
+- {speaker: PARVARAN, text: "Some of them may."}
+- {speaker: ANARVAA, text: "Paraane is his guardian."}
+- {speaker: PARVARAN, text: "An institution cannot be a parent."}
+- {speaker: ANARVAA, text: "Are you saying that as a founder?"}
+- {speaker: ANARVAA, text: "Not as a father?"}
+- {speaker: ANARVAA, text: "Come for the council review."}
+- {speaker: ADULT_ANAADHI_VO, text: "He watched from a distance."}
+- {speaker: ADULT_ANAADHI_VO, text: "I waited from inside."}
+- {speaker: ADULT_ANAADHI_VO, text: "It was not only glass between us."}
+- {speaker: ADULT_ANAADHI_VO, text: "It was his fear."}
+dialogue_policy:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  count: 26
+  physical_dialogue_count: 22
+  voiceover_count: 4
+  speaker_counts: {MANIRE: 7, CHILD_ANAADHI: 4, ANARVAA: 7, PARVARAN: 4, ADULT_ANAADHI_VO: 4}
+  exact_shot_windows: [SH012, SH013, SH014, SH015, SH016, SH017, SH018, SH019, SH021, SH022, SH023, SH052, SH054, SH055, SH057, SH059, SH061, SH062, SH063, SH065, SH066, SH068, SH082, SH084, SH086, SH088]
+  other_dialogue_or_vo: NONE
+readable_text_allowlist:
+- "FIVE YEARS LATER"
+- "ANAADHI – AGE 5"
+- "N-4 MONITORING FILE"
+- "INCIDENT RISK: NONE"
+- "SOCIAL RESPONSE: EMPATHIC"
+- "MEDICAL NEED: ROUTINE"
+- "INDIVIDUAL CONTACT MAY CREATE"
+- "UNAUTHORISED GUARDIAN ATTACHMENT"
+text_control:
+  editorial_super: [FIVE YEARS LATER]
+  private_monitoring_display: ["ANAADHI – AGE 5", "N-4 MONITORING FILE", "INCIDENT RISK: NONE", "SOCIAL RESPONSE: EMPATHIC", "MEDICAL NEED: ROUTINE"]
+  private_alert: [INDIVIDUAL CONTACT MAY CREATE, UNAUTHORISED GUARDIAN ATTACHMENT]
+  medicine_label: UNREADABLE
+  prohibited_visible: [SUPER, PARALLEL_EARTH_FRACTURES, BACK_TO_PRESENT, CUT_TO_BLACK, BLOCK_LABELS, ROAD_NAMES, RESIDENT_NAMES, DIAGNOSES, DATES, TIMESTAMPS, CASE_NUMBERS, OPERATOR_NAMES, STAFF_NAMES, INTERFACE_FIELDS, ALERT_LOGS, POLICY_TEXT, EMBLEM_LETTERING]
+represented_beats:
+- tp: TP016
+  sb: SB016
+  gf: GF01_COUNTERFACTUAL_FLASH_FRACTURE
+  recurrence: 5/18
+  band: BAND_B_ORIGIN_AND_PARAANE_CHILDHOOD
+  ep: EP0+EP1+EP3+EP-U
+  obs: OBS01
+  anchor: ANCH10
+  inverse: INV6-10
+  variants: [VAR6-01, VAR6-03]
+  restore: RST01
+  environment_anchor: ENV-PAR-013
+  pv: PV063/P2/ADD
+  wc: WC015
+  exact_start: "The room’s sound alters. The child sees: PARALLEL-EARTH FRACTURES:"
+  exact_end: "BACK TO PRESENT."
+  shot_range: SC019_SH031-SC019_SH038
+  represented_shots: SC019_SH032-SC019_SH037
+  reset_shot: SC019_SH039
+  zero_residue_hold: SC019_SH040
+  receivers: [FIVE_YEAR_OLD_ANAADHI, AUDIENCE]
+  excluded_from_full_layer: [MANIRE, PHYSICAL_ATTENDANT, PHYSICAL_DISTRESSED_RESIDENT, OTHER_PHYSICAL_OCCUPANTS]
+  represented_content:
+  - The represented attendant returns the represented blanket calmly.
+  - The represented resident disappears behind a represented locked door.
+  - Represented Child Anaadhi attacks the represented attendant without physical-event consequence.
+  - Represented Child Anaadhi hides beneath a represented table.
+  - Represented Adult Anaadhi stands in the represented corridor covered in represented rain at canonical 1.93 m scale.
+  - Represented elderly Anaadhi walks past without looking; exact age, hair, costume and appearance remain unresolved.
+  reset: COMPLETE_ZERO_RESIDUE_TO_UNCHANGED_PHYSICAL_CHILD_WING_BEFORE_ANAADHI_RISES
+- tp: TP017
+  sb: SB017
+  gf: GF05_PARALLEL_DOUBLE_ECHO
+  recurrence: 4/20
+  band: BAND_B_ORIGIN_AND_PARAANE_CHILDHOOD
+  ep: EP0+EP4+EP5+EP-U
+  obs: OBS04
+  anchor: ANCH11
+  inverse: INV6-11
+  variants: [VAR6-04, VAR6-05]
+  restore: RST01
+  environment_anchor: ENV-PAR-014
+  pv: PV068/P2/ADD
+  wc: WC015
+  exact_start: "The reflection changes. For one second, FIVE-YEAR-OLD ANAADHI sees ADULT ANAADHI standing where Parvaran stands."
+  exact_end: "The image disappears."
+  sole_shot: SC019_SH073
+  local_frames: {physical_before: 0-29, represented_adult_visible: 30-59, image_gone_at: 60, physical_after: 60-89}
+  reset_shot: SC019_SH074
+  zero_residue_hold: SC019_SH075
+  receivers: [FIVE_YEAR_OLD_ANAADHI, AUDIENCE]
+  excluded_from_full_layer: [PARVARAN, ANARVAA]
+  represented_content:
+  - Represented Adult Anaadhi stands where physical Parvaran stands.
+  - Represented Adult Anaadhi raises one open palm against the represented glass relation.
+  - Five-year-old Anaadhi mirrors him.
+  - Palm to palm, different ages, different Earths; no physical contact or event fact.
+  reset: COMPLETE_ZERO_RESIDUE_TO_ONLY_PHYSICAL_PARVARAN_BEHIND_UNCHANGED_GLASS
+represented_control:
+  physical_anchor_live: true
+  epistemic_rule: CONTROLLED_REPRESENTATION_NOT_LITERAL_MULTIVERSE_PROPHECY_MEMORY_SUPERNATURAL_FACT_DIAGNOSIS_SCIENCE_QUANTUM_CERTAINTY_OR_ADK7_PROOF
+  effect_rule: NO_REUSABLE_FRACTURE_FILTER_CLONE_EFFECT_GLOW_STROBE_REFLECTION_TREATMENT_OR_TRANSFORMATION_ASSET
+  later_physical_actions: CHILD_PALM_AT_GLASS_AND_PARVARAN_INCOMPLETE_ALMOST_TOUCH_ARE_SEPARATE_PHYSICAL_ACTIONS_AFTER_RST01
+shot_plan:
+  shot_count: 89
+  duration_seconds: 267
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  duration_per_shot_seconds: 3
+  total_frames: 8010
+  crop: NONE
+  baked_letterbox: false
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC019/SC019_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: "00:02:14.293333"
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  bgm: NONE
+  allowed_physical_audio: [RESTRAINED_POPULATED_CHILD_WING_ROOM_TONE, MAGNETIC_BLOCK_HANDLING, MEDICINE_CUP_HANDLING, JAGGERY_HANDLING, BLANKET_HANDLING, RESTRAINED_RESIDENT_PANIC_MOVEMENT_AND_BREATH_WITHOUT_DIALOGUE, RESTRAINED_GALLERY_ROOM_TONE, ENTRANCE_FOOTSTEP_AND_TABLET_HANDLING, QUIET_LITERAL_TABLET_SCREEN_CHANGES_WITHOUT_TONES]
+  allowed_represented_audio: [SOURCE_AUTHORIZED_ROOM_SOUND_ALTERS_WITHIN_TP016_WITHOUT_GENERIC_FRACTURE_SOUND]
+  creator_recorded_windows: 26
+  new_generation: false
+  prohibited_audio: [BGM, TRANSITION_MUSIC, COMEDY_STING, ALARM, INTERFACE_BEEP, NOTIFICATION_TONE, AI_VOICE, CROWD_DIALOGUE, RESIDENT_DIALOGUE, MEDICAL_MONITOR, MEDICINE_GIMMICK, GLASS_CONTACT_SOUND, REPRESENTED_RAIN_OR_AMBIENCE, EXTENDED_VO_ECHO, SC018_ROOM_TONE_OR_SC020_AUDIO]
+hard_exclusions:
+- NO_SC018_REPLAY_NEWBORN_OFFICE_OR_NAMING_ACTION_AND_NO_SC020_TWO_YEAR_SUPER_SEVEN_YEAR_ANAADHI_OR_LATER_CHILD_WING_ACTION
+- NO_ENV-PAR-012_ENV-PAR-015_ENV-PAR-016_ENV-PAR-017_OR_ADDITIONAL_ENVIRONMENT
+- NO_CONSTRUCTION_MONTAGE_CAMPUS_OVERVIEW_TOPOLOGY_GEOGRAPHY_EXPANSION_PLAN_ROUTE_BRIDGE_PORTAL_OBSERVER_DOOR_OR_ENVIRONMENT_MERGE
+- NO_VISUAL_PENDING_ASSET_PROMOTION_CHILD_SCALED_PRISON_FORTRESS_PUNITIVE_GLOSSY_SCI_FI_CYBERPUNK_NEON_OR_DECORATIVE_KANNADA_REDESIGN
+- NO_EXACT_CROWD_RESIDENT_ATTENDANT_COUNT_IDENTITY_BIOGRAPHY_DIAGNOSIS_CRIME_TRANSFER_REASON_UNIFORM_DIALOGUE_OR_STIGMATIZING_SHORTHAND
+- NO_ADULT_BODY_SHRINK_193CM_CHILD_HEIGHT_OR_AGE_REFERENCE_HAIR_COSTUME_PIXEL_PROMOTION
+- NO_MEDICINE_BRAND_NAME_INGREDIENT_DOSE_BEYOND_HALF_CUP_DIAGNOSIS_TEMPERATURE_RESULT_FORCE_RESTRAINT_INJECTION_SEDATION_OR_LABEL_TEXT
+- NO_REORDERING_OF_JAGGERY_FIRST_THEN_VOLUNTARY_MEDICINE
+- NO_BLOCK_CRADLE_BLANKET_COLOR_DESIGN_TAG_TEXT_DESTINATION_BEARING_ELECTRONICS_DESTINY_SYMBOLISM_NEWBORN_WRAP_OR_THERMAL_CRADLE_CARRYOVER
+- NO_PHYSICAL_TP_VARIANT_ATTACK_INJURY_LOCKED_ROOM_EVENT_RAIN_WEATHER_IMPORT_REPRESENTED_RESIDUE_OR_REUSABLE_SPECIAL_EFFECT
+- NO_LITERAL_MULTIVERSE_PROPHECY_RECOVERED_MEMORY_SUPERNATURAL_SCIENTIFIC_QUANTUM_OR_ADK7_CERTAINTY
+- NO_EXPLAINED_CHILD_RECOGNITION_PHYSICAL_PALM_TO_PALM_CONTACT_TOUCH_THROUGH_GLASS_TELEPATHY_XRAY_VISION_PORTAL_OR_EVIDENCE
+- NO_ANARVAA_TRUTH_DISCOVERY_CERTAINTY_EXTRA_TABLET_FIELDS_RECORDS_ALERT_LOGS_CHIMES_SCANS_AI_OR_NOTIFICATION_NETWORK
+- NO_EMBLEM_WORDMARK_LETTERING_ARTWORK_GLOW_SUPERNATURAL_OR_TRANSFORMATION_DESIGN
+- NO_MODIFICATION_OF_FINALIZED_SC001_TO_SC018_REMOTION_TYPESCRIPT_COMPOSITION_IDS_TYPECHECK_FIXES_OR_PICTURE_APPROVAL_STATE
+- NO_IMAGE_GENERATION_VIDEO_RENDER_NEW_AUDIO_GENERATION_SUPERCOOL_HEYGEN_OR_PAID_MEDIA_API
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: PERMANENTLY_DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
+  audio_generation: DISABLED
+  execute_now: false
+next: SC020

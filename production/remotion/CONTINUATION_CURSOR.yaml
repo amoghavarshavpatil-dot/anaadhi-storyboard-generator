@@ -1,8 +1,8 @@
 {
-  "version": 47,
+  "version": 48,
   "project": "ANAADHI",
   "control": "REMOTION_CONTINUATION_CURSOR",
-  "as_of_local": "2026-08-28T08:49:07+05:30",
+  "as_of_local": "2026-08-28T09:58:17+05:30",
   "backend": {
     "github_canonical_control": true,
     "remotion_assembly": true,
@@ -12,24 +12,24 @@
     "paid_media_api_execution_enabled": false
   },
   "visual_preproduction": {
-    "latest_new_schema_materialized": "SC018",
-    "latest_source_scene_materialized": "SC018",
-    "next_scene_to_materialize": "SC019",
-    "next_editorial_segment": "SC019",
+    "latest_new_schema_materialized": "SC019",
+    "latest_source_scene_materialized": "SC019",
+    "next_scene_to_materialize": "SC020",
+    "next_editorial_segment": "SC020",
     "source_continuation_pending": "SC074B",
     "editorial_sequence_manifest": "production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml",
-    "note": "SC018 R001 LOCKED: LOC-003 ST02 / SUB-003-08 with sole NEST ENV-PAR-012 canonically parented to ENV-PAR-001; P2 TP015/SB015 naming scene; exact ten-string allowlist; continue SC019 only after 'He looks through the window at the child he has separated from himself.'",
+    "note": "SC019 R001 LOCKED: LOC-003 ST02 with SUB-003-09/ENV-PAR-013 and SUB-003-10/ENV-PAR-014, both NEST packets canonically parented to ENV-PAR-001; P2 TP016 and one-shot TP017; exact eight-string allowlist; continue SC020 only after CUT TO BLACK.",
     "materialization_revision": "R001",
-    "package_schema": "ANAADHI_REMOTION_SC018_V18_COMPACT_RESOLVABLE_R2"
+    "package_schema": "ANAADHI_REMOTION_SC019_V19_COMPACT_RESOLVABLE_R2"
   },
   "audio": {
     "mastered_prefix_locked": true,
     "mastered_prefix_end_timecode": "00:02:14.293333",
-    "SC018": {
+    "SC019": {
       "dialogue_policy": "CREATOR_RECORDED_DIALOGUE_ONLY",
-      "picture_planning_duration_seconds": 237,
+      "picture_planning_duration_seconds": 267,
       "exact_audio_timecode_alignment": "PENDING_EXTRACTION",
-      "final_window": "BGM_NONE_RESTRAINED_OFFICE_SINGLE_TP015_PARALLEL_ECHO_AND_FINAL_WINDOW_ENDPOINT_ONLY",
+      "final_window": "BGM_NONE_RESTRAINED_CHILD_WING_AND_GALLERY_TP016_ROOM_SOUND_ALTERATION_FOUR_ADULT_VO_LINES_AND_CUT_TO_BLACK_ONLY",
       "new_generation": false
     }
   },
@@ -42,88 +42,129 @@
   },
   "shot_density": {
     "target_minimum_stills_per_minute": 20,
-    "SC018": {
-      "duration_seconds": 237,
-      "shot_count": 79,
-      "stills_per_minute": 20
+    "SC019": {
+      "duration_seconds": 267,
+      "shot_count": 89,
+      "stills_per_minute": 20,
+      "total_frames": 8010
     }
   },
   "env6_cursor": {
-    "latest_materialized_segment": "SC018",
-    "source_scene": "SC018",
-    "batch": "B06",
-    "wc": "WC014",
-    "wc_signature": "TD0/WX0/EX0/LS1/OC1/OP0/C+T",
+    "latest_materialized_segment": "SC019",
+    "source_scene": "SC019",
+    "batch": "B07",
+    "wc": "WC015",
+    "wc_signature": "TD4/WX0/EX0/LS1/OC3/OP0/C+T",
     "root_location": "LOC-003",
     "location_state": "ST02",
     "state_inheritance": "INHERIT_ST01_PLUS_OV-003",
-    "subspace": "SUB-003-08",
+    "state_delta": "Add childhood-era Paraane expansion and child/rehab infrastructure while retaining earlier fabric.",
+    "subspaces": [
+      "SUB-003-09",
+      "SUB-003-10"
+    ],
     "parent_environment": "ENV-PAR-001",
     "paraane_phase": "P2",
     "nested_environments": {
-      "ENV-PAR-012": {
-        "name": "Parvaran’s Paraane Rehab Office",
+      "ENV-PAR-013": {
+        "name": "Paraane Child Wing — General Residential Hall and Corridors",
         "canonical_parent_environment": "ENV-PAR-001",
-        "hierarchy": "NEST/P/HF-04",
+        "hierarchy": "NEST/H/HF-05",
         "closure": [
-          "AR019",
-          "INV019",
-          "MS019",
-          "KC019",
-          "TG019"
+          "AR020",
+          "INV020",
+          "MS020",
+          "KC020",
+          "TG020"
         ],
-        "pv": "PV058",
+        "pv": "PV063",
         "phase": "P2",
-        "operation": "ADD"
+        "operation": "ADD",
+        "subspace": "SUB-003-09"
+      },
+      "ENV-PAR-014": {
+        "name": "Paraane Child Wing — Observation Gallery and One-Way-Glass Axis",
+        "canonical_parent_environment": "ENV-PAR-001",
+        "hierarchy": "NEST/H/HF-05",
+        "closure": [
+          "AR021",
+          "INV021",
+          "MS021",
+          "KC021",
+          "TG021"
+        ],
+        "pv": "PV068",
+        "phase": "P2",
+        "operation": "ADD",
+        "subspace": "SUB-003-10"
       }
     },
-    "topology_rule": "ENV-PAR-012 is the sole SC018 environment; AX01 is a view-only child-wing overlook with no traversable connection or ENV-PAR-013/014 reveal",
+    "topology_rule": "Exactly two NEST packets, both canonically parented to ENV-PAR-001; ENV-PAR-014 does not parent to ENV-PAR-013; AX01 one-way and non-traversable; same-time internal cut does not materialize a route, bridge, door, portal or merge",
     "asset_control": {
       "loc003_st02": "ENV6J-LOC-003-ST02-v001 + ENV6L-LOC-003-ST02-v001 / METADATA_LOCKED_VISUAL_PENDING",
-      "sub00308": "ENV6J-SUB-003-08-v001 + ENV6L-SUB-003-08-REF-v001 / METADATA_LOCKED_VISUAL_PENDING",
-      "approved_root_master": "PRESERVE_WITHOUT_PIXEL_EXTRAPOLATION_TO_ST02_OFFICE_OR_CHILD_WING"
+      "sub00309": "ENV6J-SUB-003-09-v001 + ENV6L-SUB-003-09-REF-v001 / METADATA_LOCKED_VISUAL_PENDING",
+      "sub00310": "ENV6J-SUB-003-10-v001 + ENV6L-SUB-003-10-REF-v001 / METADATA_LOCKED_VISUAL_PENDING",
+      "approved_root_master": "PRESERVE_WITHOUT_REGENERATION_OR_PIXEL_EXTRAPOLATION_TO_ST02_CHILD_WING_GALLERY_OR_ONE_WAY_GLASS"
     },
-    "office_identity": {
-      "class": "MODEST_ADMINISTRATIVE_RESEARCH_OFFICE",
-      "materials": "BREATHABLE_MINERAL_PLASTER_OXIDE_OR_TERRAZZO_MODEST_ACOUSTIC_INSERT_TIMBER_DESK_DOOR_PAINTED_METAL",
-      "palette": "AGED_CREAM_MUTED_OCHRE_LEAF_GREY",
-      "time": "UNRESOLVED",
-      "weather": "UNRESOLVED",
-      "light": "NORMAL_OFFICE_PRACTICALS"
+    "environment_identity": {
+      "child_wing": "HUMAN_SCALED_RESIDENTIAL_COMMON_HALL_SPINE_WITH_REPEATED_ROOM_BAYS_SOCIAL_NICHES_AND_OCCUPATION_CROWDING_NOT_EXPANSION",
+      "observation_gallery": "THIN_STAFF_ONLY_LOW_GLARE_PARALLEL_GALLERY_WITH_AX01_FIXED_PALM_POINT_NO_TRAVERSAL",
+      "time": "DAY_FIVE_YEARS_LATER",
+      "weather": "UNSTATED_DO_NOT_INFER"
     },
-    "records_and_interface": {
-      "canonical_ids": null,
-      "rule_packet": "TG019_NOT_A_DEVICE_ID",
-      "hidden_personal_records": "CLOSED_AND_UNREADABLE",
-      "research_screen": "EXACT_AUTHORISED_COPY_ONLY",
-      "naming_update": "EXACT_THREE_FIELDS_ONLY_AFTER_MANIRE_THIRD_DECLARATIVE_ANAADHI",
-      "legal_parent": "PARAANE_REHABILITATION_AUTHORITY_SOURCE_CONSEQUENCE_ONLY"
+    "props_and_technology": {
+      "ids": "PRP-MEDICINE-CUP_AND_PRP-PARAANE-EMBLEM_CONTROLLED_UNRESOLVED; ALL_OTHER_SC019_PROP_DEVICE_AND_SOURCE_ROLE_IDS_NULL",
+      "medicine": "BITTER_HALF_CUP_JAGGERY_FIRST_THEN_VOLUNTARY_MEDICINE_LABEL_UNREADABLE_NO_DIAGNOSIS_OR_RESULT",
+      "blocks": "EXACT_FOUR_ROADS_AND_TINY_TOY_CRADLE_NO_J01_OR_DESTINY_TEXT",
+      "blankets": "DISTRESSED_RESIDENT_BLANKET_AND_ANAADHI_OWN_BLANKET_SEPARATE_SOURCE_ROLES_NOT_NEWBORN_WRAP",
+      "tablet": "EXACT_FIVE_MONITORING_STRINGS_THEN_EXACT_TWO_ALERT_STRINGS_NO_EXTRA_FIELDS_AI_SCAN_BEEP_CHIME_OR_NETWORK",
+      "emblem": "NON_TEXT_FINAL_REFLECTION_ONLY_MISSING_APPROVED_ASSET"
     },
-    "special_beat": {
-      "ruling": "TP015_SB015_CONTROLLED_REPRESENTATION",
-      "TP": "TP015",
-      "SB": "SB015",
-      "GF": "GF02",
-      "recurrence": "3/11",
-      "band": "BAND_B_ORIGIN_AND_PARAANE_CHILDHOOD",
-      "EP": "EP0+EP1+EP4+EP5+EP-U",
-      "OBS": "OBS01",
-      "ANCH": "ANCH09",
-      "INV6": "INV6-09",
-      "VAR6": "VAR6-01+VAR6-04+VAR6-05",
-      "RST": "RST01",
-      "access": "PARVARAN_AND_AUDIENCE_ONLY_MANIRE_AND_PHYSICAL_NEWBORN_EXCLUDED",
-      "restore": "COMPLETE_ZERO_RESIDUE_BEFORE_PHYSICAL_DOCTOR_LINE"
+    "special_beats": {
+      "TP016": {
+        "ruling": "TP016_SB016_CONTROLLED_REPRESENTATION",
+        "TP": "TP016",
+        "SB": "SB016",
+        "GF": "GF01",
+        "recurrence": "5/18",
+        "band": "BAND_B_ORIGIN_AND_PARAANE_CHILDHOOD",
+        "EP": "EP0+EP1+EP3+EP-U",
+        "OBS": "OBS01",
+        "ANCH": "ANCH10",
+        "INV6": "INV6-10",
+        "VAR6": "VAR6-01+VAR6-03",
+        "RST": "RST01",
+        "range": "SC019_SH031-SC019_SH038",
+        "represented": "SC019_SH032-SC019_SH037",
+        "reset": "SC019_SH039",
+        "zero_residue_hold": "SC019_SH040",
+        "access": "FIVE_YEAR_ANAADHI_AND_AUDIENCE_ONLY_MANIRE_ATTENDANT_RESIDENT_AND_OTHER_OCCUPANTS_EXCLUDED",
+        "restore": "COMPLETE_ZERO_RESIDUE_BEFORE_PHYSICAL_ANAADHI_RISES"
+      },
+      "TP017": {
+        "ruling": "TP017_SB017_CONTROLLED_REPRESENTATION",
+        "TP": "TP017",
+        "SB": "SB017",
+        "GF": "GF05",
+        "recurrence": "4/20",
+        "band": "BAND_B_ORIGIN_AND_PARAANE_CHILDHOOD",
+        "EP": "EP0+EP4+EP5+EP-U",
+        "OBS": "OBS04",
+        "ANCH": "ANCH11",
+        "INV6": "INV6-11",
+        "VAR6": "VAR6-04+VAR6-05",
+        "RST": "RST01",
+        "sole_shot": "SC019_SH073",
+        "local_frames": "0-29 physical; 30-59 represented Adult Anaadhi; image gone at 60; 60-89 physical",
+        "reset": "SC019_SH074",
+        "zero_residue_hold": "SC019_SH075",
+        "access": "FIVE_YEAR_ANAADHI_AND_AUDIENCE_ONLY_PARVARAN_AND_ANARVAA_EXCLUDED",
+        "restore": "COMPLETE_ZERO_RESIDUE_BEFORE_LATER_PHYSICAL_PALM_ACTIONS"
+      }
     },
-    "readable_text": "EXACT_TEN_STRING_ALLOWLIST; FINAL_THREE_NAMING_FIELDS_AFTER_THIRD_DECLARATIVE_MANIRE_ANAADHI; FINAL_SCREEN_SINGLE_STRING",
-    "record_truth": "CHILD_PHYSICALLY_HEALTHY_ALIVE_UNNAMED_UNTIL_EXACT_BEAT; FALSE_SC013_DEATH_RECORD_UNCHANGED; HIDDEN_RECORDS_UNREADABLE; PARAANE_LEGAL_PARENT_CONSEQUENCE_WITHOUT_PROCESS",
-    "parvaran": {
-      "identity": "CHR-PARVARAN_MASTER_APPROVED",
-      "birth_era_state": "CONTROLLED_UNRESOLVED",
-      "wardrobe": "COAT_REMOVED_CONTINUITY_WITHOUT_DESIGN_INVENTION",
-      "no_line": "QUIETER_SECOND_LIE",
-      "endpoint": "LOOKS_THROUGH_VIEW_ONLY_WINDOW_AT_CHILD_HE_SEPARATED_FROM_HIMSELF"
-    },
+    "readable_text": "EXACT_EIGHT_STRING_ALLOWLIST; SUPER SH001; FIVE MONITORING STRINGS SH049-SH050; TWO ALERT STRINGS SH079; ALL_OTHER_SHOTS_EMPTY",
+    "character_truth": "CHR-ANAADHI AGE05 GEOMETRY ONLY WITH CONTROLLED_UNRESOLVED HAIR COSTUME; CHR-MANIRE MISSING APPROVED ASSET; CHR-PARVARAN AND CHR-ANARVAA C2 STATES CONTROLLED_UNRESOLVED; FALSE_SC013_RECORD_UNEXPOSED_UNCORRECTED",
+    "endpoint": "ADULT_ANAADHI_VO_IT_WAS_HIS_FEAR_AT_SH088_THEN_CUT_TO_BLACK_SH089",
     "SC072_lock": {
       "tp": "TP077",
       "sb": "SB077",
@@ -141,21 +182,23 @@
     }
   },
   "character_cursor": {
-    "SC018": {
-      "parvaran": "CHR-PARVARAN; C1 FATHER PARAANE FOUNDER AND SC013 DECEPTION AUTHOR; MASTER IDENTITY APPROVED; BIRTH-ERA STATE CONTROLLED_UNRESOLVED; COAT-REMOVED CONTINUITY WITHOUT COSTUME INVENTION; EXACT 10 LINES; NO IS QUIETER SECOND LIE",
-      "manire": "CHR-MANIRE; SAME C1 HEAD NURSE STATE; MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED; EXACT 15 LINES; NO NUMERIC AGE BIOGRAPHY UNIFORM BADGE SPECIALTY OR LATER GREY-HAIRED STATE",
-      "newborn": "CHR-ANAADHI/AGE-ANAADHI-NEWBORN; PHYSICALLY HEALTHY ALIVE UNNAMED UNTIL EXACT NAMING BEAT; DARK WOOL BLANKET PLUS SC015 ADDED SHAWL; NO IDENTIFIER DEVICE CRY OR DIAGNOSIS; FALSE SC013 RECORD UNCHANGED",
-      "represented": "TP015 ONLY: CHR-JANNE + CHR-SEMMAA + NULL-ID ALTERNATE BOY/OLDER BOY + CHR-ANAADHI ADULT 193CM; CONTROLLED UNRESOLVED AS APPLICABLE; NO PHYSICAL OFFICE OCCUPANCY OR RESIDUE",
-      "absent": "SC017_GATE_INTAKE_STORM_AND_SC019_FIVE_YEAR_CHILD_WING_ACTION; ENV_PAR013_ENV_PAR014; PHYSICAL_JANNE_SEMMAA_ADULT_ANAADHI",
-      "represented_layer": "TP015/SB015_PARVARAN_AND_AUDIENCE_RECEIVE_MANIRE_AND_PHYSICAL_NEWBORN_EXCLUDED_RST01_ZERO_RESIDUE"
+    "SC019": {
+      "anaadhi": "CHR-ANAADHI/AGE-ANAADHI-05; AGE-BODY GEOMETRY APPROVED ONLY; TALL FOR AGE WITH CHILD PROPORTIONS; DEEP BROWN EYES; HR-ANAADHI-05 AND CST-ANAADHI-CHILD-INSTITUTIONAL CONTROLLED_UNRESOLVED; EXACT 4 CHILD LINES; NO NUMERIC HEIGHT OR ADULT BODY SHRINK",
+      "manire": "CHR-MANIRE; C2 HEAD NURSE PRACTICAL WARM PAPERWORK-RESISTANT; MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED; EXACT 7 LINES; NO NUMERIC AGE HAIR UNIFORM BADGE SPECIALTY OR LATER GREY STATE",
+      "parvaran": "CHR-PARVARAN; C2 FATHER FOUNDER SC013 DECEPTION AUTHOR; MASTER IDENTITY APPROVED BUT EXACT AGE HAIR WARDROBE CONTROLLED_UNRESOLVED; EXACT 4 LINES; SMALLEST SMILE AND INCOMPLETE ALMOST TOUCH; NO PRESENT-DAY STATE IMPORT",
+      "anarvaa": "CHR-ANARVAA; C2 EXACT STATE CONTROLLED_UNRESOLVED; EXACT 7 LINES; FOUNDER/FATHER QUESTION DELIBERATELY AMBIGUOUS; NO TRUTH-DISCOVERY CERTAINTY OR PRESENT-DAY STATE IMPORT",
+      "source_roles": "OTHER CHILDREN RECOVERING ADULTS ABANDONED RESIDENTS LEGALLY TRANSFERRED PEOPLE ATTENDANT AND DISTRESSED RESIDENT; NULL IDS; NO EXACT COUNTS IDENTITIES DIAGNOSES UNIFORMS OR DIALOGUE",
+      "represented": "TP016: represented attendant resident Child Anaadhi Adult Anaadhi 193cm and elderly Anaadhi; TP017: represented Adult Anaadhi only SH073 frames 30-59; all controlled represented-only and zero residue",
+      "adult_vo": "CHR-ANAADHI; EXACT 4 CREATOR-RECORDED VO LINES AT SH082 SH084 SH086 SH088 OUTSIDE TP017; NO VISUAL ADULT PRESENCE OR EXTENDED ECHO",
+      "absent": "SC018 NEWBORN OFFICE NAMING ACTION; SC020 TWO YEAR SUPER SEVEN YEAR CHILD WING ACTION; ENV_PAR012_ENV_PAR015_PLUS"
     }
   },
   "editorial_lock": {
     "enabled": true,
-    "current_completed_segment": "SC018",
-    "next_editorial_segment": "SC019",
+    "current_completed_segment": "SC019",
+    "next_editorial_segment": "SC020",
     "remaining_materialization_order": [
-      "SC019-SC059",
+      "SC020-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
