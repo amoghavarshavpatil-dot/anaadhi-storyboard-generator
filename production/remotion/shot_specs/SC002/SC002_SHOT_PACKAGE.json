@@ -105,9 +105,9 @@
   "picture_progress": {
     "planned_scene_shots": 18,
     "planned_run_shots": 106,
-    "approved_count": 4,
-    "approved_through": "SC002_SH004",
-    "next_shot": "SC002_SH005",
+    "approved_count": 5,
+    "approved_through": "SC002_SH005",
+    "next_shot": "SC002_SH006",
     "render_started": false
   },
   "shots": [
@@ -179,7 +179,23 @@
       "remotion_static_file": "shots/SC002/SC002_SH004_V001.png",
       "original_title": "SC002_SH004_V001_REVIEW.png"
     },
-    {"shot_id":"SC002_SH005","duration_seconds":3,"purpose":"Police Commander approaches","framing":"medium low angle from floor","screen_direction":"RIGHT_TO_LEFT","motion":"SLOW_PUSH_IN","prompt":"Police Commander approaches face-down Anaadhi after shield entry; command posture; others hold line.","negative":"visible-mouth lip mismatch; attack pose"},
+    {
+      "shot_id": "SC002_SH005",
+      "asset_revision": "V001",
+      "status": "APPROVED_SHOT",
+      "duration_seconds": 3,
+      "purpose": "Police Commander approaches",
+      "framing": "medium low angle from floor",
+      "screen_direction": "RIGHT_TO_LEFT",
+      "motion": "SLOW_PUSH_IN",
+      "prompt": "Police Commander approaches face-down Anaadhi after shield entry; command posture; others hold line.",
+      "negative": "visible-mouth lip mismatch; attack pose",
+      "source_dimensions": {"width": 1942, "height": 809},
+      "sha256": "e996cf89278d29cc058048fcf863380c322c65f394572ee58d7aa4ffc2165a1e",
+      "git_path": "production/remotion/public/shots/SC002/SC002_SH005_V001.png",
+      "remotion_static_file": "shots/SC002/SC002_SH005_V001.png",
+      "original_title": "SC002_SH005_V001_REVIEW.png"
+    },
     {"shot_id":"SC002_SH006","duration_seconds":3,"purpose":"Anaadhi motor failure","framing":"tight body and arm detail","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Anaadhi attempts to lift head; one arm collapses from sedation; topless heavy-athletic body; shaved rough regrowth.","negative":"heroic standing pose; gore"},
     {"shot_id":"SC002_SH007","duration_seconds":3,"purpose":"Allied Gangster crosses official line","framing":"medium aisle shot","screen_direction":"LEFT_TO_RIGHT","motion":"PAN_RIGHT","prompt":"Allied Gangster steps through official line carrying iron hook, anger overriding procedure.","negative":"official insignia on gangster; firearm replacing hook"},
     {"shot_id":"SC002_SH008","duration_seconds":3,"purpose":"hook threat held before impact","framing":"low threatening insert","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Iron hook rises over sedated Anaadhi; threat held before impact; official line behind.","negative":"hook striking body; explicit gore"},
