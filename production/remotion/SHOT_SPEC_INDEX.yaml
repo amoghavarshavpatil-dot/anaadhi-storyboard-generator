@@ -1,5 +1,5 @@
 {
-  "version": 47,
+  "version": 48,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -563,6 +563,39 @@
       "exact_end": "CUT TO BLACK.",
       "image_generation_started": false,
       "render_started": false
+    },
+    "SC020": {
+      "state": "SPEC_READY",
+      "source": "scenes/020/scene.yaml",
+      "shot_package": "production/remotion/shot_specs/SC020/SC020_SHOT_PACKAGE.json",
+      "shot_count": 60,
+      "duration_seconds": 180,
+      "total_frames": 5400,
+      "stills_per_minute": 20,
+      "final_editorial_next": "SC021",
+      "finalized": true,
+      "lock_state": "LOCKED",
+      "revision": "R001",
+      "package_schema": "ANAADHI_REMOTION_SC020_V20_COMPACT_RESOLVABLE_R2",
+      "batch": "B08",
+      "environments": "ENV-PAR-013 Child Wing and ENV-PAR-015 Manire Consultation Room; exactly two NEST environment rows",
+      "canonical_parent_environment": "ENV-PAR-001 for both environment packets",
+      "loc": "LOC-003",
+      "location_state": "ST02 / INHERIT_ST01_PLUS_OV-003",
+      "subspaces": "SUB-003-09 Child Wing / SUB-003-11 Manire Consultation Room",
+      "wc": "WC016",
+      "pv": "ENV-PAR-013 PV063 / P2 / ADD; ENV-PAR-015 PV073 / P2 / ADD",
+      "env5_closure": "ENV-PAR-013 AR020/INV020/MS020/KC020/TG020; ENV-PAR-015 AR022/INV022/MS022/KC022/TG022",
+      "env6_control": "NO_SB_PHYSICAL_ONLY; TP/SB/GF/EP/OBS/ANCH/INV6/VAR6/RST all NONE in every binding",
+      "visual_control": "ENV6J/ENV6L LOC-003 ST02, SUB-003-09 and SUB-003-11 metadata locked with final visuals pending; preserve root without pixel extrapolation or asset promotion",
+      "readable_text_control": "exact three-string allowlist; TWO YEARS LATER SH001, CHILD WELLNESS WING SH005, OBSERVATION IS CARE SH006; all other text empty",
+      "character_control": "CHR-ANAADHI AGE-ANAADHI-07 age-body geometry only with HR-ANAADHI-07 and CST-ANAADHI-CHILD-INSTITUTIONAL MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED; CHR-MANIRE MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED; residents and exactly two attendants null-ID source roles",
+      "prop_control": "medicinal plant tray, plant fibre, torn sandal loose strap, exactly one fever tablet, one vitamin tablet, one sweet and open door all source-role null IDs; no ingestion",
+      "exact_start": "TWO YEARS LATER / Seven-year-old ANAADHI walks through a corridor built from black granite, medical glass and carved rosewood.",
+      "internal_heading": "INT. MANIRE’S CONSULTATION ROOM – CONTINUOUS",
+      "exact_end": "That uncertainty remains with him.",
+      "image_generation_started": false,
+      "render_started": false
     }
   },
   "unmaterialized": {
@@ -585,7 +618,7 @@
       "SC099B"
     ],
     "remaining_materialization_order": [
-      "SC020-SC059",
+      "SC021-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
@@ -595,14 +628,14 @@
     ]
   },
   "cursor": {
-    "last_materialized_source_scene": "SC019",
-    "last_materialized_editorial_segment": "SC019",
-    "next_scene": "SC020",
-    "next_editorial_segment": "SC020",
+    "last_materialized_source_scene": "SC020",
+    "last_materialized_editorial_segment": "SC020",
+    "next_scene": "SC021",
+    "next_editorial_segment": "SC021",
     "source_continuation_pending": "SC074B",
     "image_generation_gate": "EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN",
     "audio_generation_gate": "RESUME_AFTER_00_02_14_293333_ONLY",
-    "after_SC019": "SC020"
+    "after_SC020": "SC021"
   },
   "retrospective_finalization": {
     "SC072": {

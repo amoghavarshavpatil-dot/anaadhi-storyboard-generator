@@ -1,0 +1,244 @@
+scene_id: SC020
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+package_schema: ANAADHI_REMOTION_SC020_V20_COMPACT_RESOLVABLE_R2
+source_scene_number: 20
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+batch: B08
+headings:
+- "INT. PARAANE REHAB – CHILD WING – MORNING"
+- "INT. MANIRE’S CONSULTATION ROOM – CONTINUOUS"
+source_previous: SC019
+source_next: SC021
+editorial_previous: SC019
+editorial_next: SC021
+source_boundary:
+  previous_exact_end: "CUT TO BLACK."
+  start_heading: "INT. PARAANE REHAB – CHILD WING – MORNING"
+  start_super: "TWO YEARS LATER"
+  start_action: "Seven-year-old ANAADHI walks through a corridor built from black granite, medical glass and carved rosewood."
+  internal_heading: "INT. MANIRE’S CONSULTATION ROOM – CONTINUOUS"
+  end: "That uncertainty remains with him."
+  next_scene_excluded: SC021
+transition:
+  continuity: TWO_YEARS_AFTER_SC019
+  time: MORNING
+  weather: UNSTATED_DO_NOT_INFER
+  interiors: DRY_DAYLIT
+  occupation: ORDINARY_CHILD_CARE
+  music_bridge: NONE
+environment:
+  loc: LOC-003
+  name: Paraane Campus / Central Complex
+  class: HERO-UNIQUE
+  state: ST02
+  state_inheritance: INHERIT_ST01_PLUS_OV-003
+  story_period: C2
+  paraane_phase: P2
+  wc: WC016
+  wc_signature: TD3/WX0/EX0/LS1/OC3/OP0/C+T
+  time: MORNING_TWO_YEARS_AFTER_SC019
+  weather: UNSTATED
+  kits: [KIT-10, KIT-11, KIT-12]
+  signage_owner: PARAANE
+  architecture: BLACK_GRANITE_MEDICAL_GLASS_CARVED_ROSEWOOD_TRANSPARENT_RESIDENT_PARTITIONS
+  occupation_rule: HUMAN_SCALED_CARE_RESIDENTIAL_CHILD_WING_NOT_CHILD_SCALED_PUNITIVE_OR_CAMPUS_EXPANSION
+  subspaces:
+  - id: SUB-003-09
+    name: Child Wing
+    parent_loc: LOC-003
+    class: RECURRING-UNIQUE
+    state: INHERIT_PARENT
+    kits: [KIT-10, KIT-11, KIT-12]
+  - id: SUB-003-11
+    name: Manire’s Consultation Room
+    parent_loc: LOC-003
+    class: RECURRING-UNIQUE
+    state: INHERIT_PARENT
+    kits: [KIT-10, KIT-11, KIT-12]
+    identity: PHYSICALLY_OPEN_DOOR_AND_LOCAL_THRESHOLD_TO_CHILD_WING
+  nested_packets:
+  - env: ENV-PAR-013
+    name: Paraane Child Wing — General Residential Hall and Corridors
+    hierarchy: NEST/H/HF-05
+    canonical_parent_env: ENV-PAR-001
+    closures: [AR020, INV020, MS020, KC020, TG020]
+    wc: WC016
+    pv: PV063
+    phase: P2
+    operation: ADD
+    production_subspace: SUB-003-09
+  - env: ENV-PAR-015
+    name: Manire’s Consultation Room
+    hierarchy: NEST/H/HF-05
+    canonical_parent_env: ENV-PAR-001
+    closures: [AR022, INV022, MS022, KC022, TG022]
+    wc: WC016
+    pv: PV073
+    phase: P2
+    operation: ADD
+    production_subspace: SUB-003-11
+  packet_count: {ROOT: 0, NEST: 2, MOB: 0, REF: 0, XFORM: 0}
+  exact_environment_rule: ENV-PAR-013_AND_ENV-PAR-015_ONLY
+  canonical_parent_rule: BOTH_PACKETS_PARENT_TO_ENV-PAR-001_AND_NEITHER_PARENTS_TO_THE_OTHER
+  threshold_rule: OPEN_DOOR_CORRIDOR_VIEW_IS_LOCAL_CONTINUITY_NOT_A_THIRD_ENVIRONMENT_OR_ROUTE
+  visual_control:
+    root_st02_prompt: ENV6J-LOC-003-ST02-v001
+    root_st02_lock: ENV6L-LOC-003-ST02-v001
+    root_st02_status: METADATA_LOCKED_VISUAL_PENDING
+    child_wing_prompt: ENV6J-SUB-003-09-v001
+    child_wing_lock: ENV6L-SUB-003-09-REF-v001
+    child_wing_status: METADATA_LOCKED_VISUAL_PENDING
+    consultation_prompt: ENV6J-SUB-003-11-v001
+    consultation_lock: ENV6L-SUB-003-11-REF-v001
+    consultation_status: METADATA_LOCKED_VISUAL_PENDING
+    approved_root_master: PRESERVE_WITHOUT_REGENERATION_OR_PIXEL_EXTRAPOLATION_TO_ST02_CHILD_WING_OR_CONSULTATION_ROOM
+  adaptive_signage: EXACT_TWO_SOURCE_STRINGS_ONLY_WITHOUT_VISIBLE_MECHANISM_SENSOR_SCAN_ANIMATION_VOICE_TONE_OR_DECORATIVE_KANNADA
+characters:
+  CHILD_ANAADHI:
+    identity: CHR-ANAADHI
+    age_body: AGE-ANAADHI-07
+    age_body_status: APPROVED_FOR_AGE_BODY_GEOMETRY_ONLY
+    age: 7
+    body: TALL_CHILD_WITH_AGE_CORRECT_SHOULDERS_AND_PROPORTIONS
+    numerical_height: null
+    hair_id: HR-ANAADHI-07
+    hair_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    hair_source_fact: SHORT_UNEVEN_INSTITUTIONAL_HAIRCUT
+    costume_id: CST-ANAADHI-CHILD-INSTITUTIONAL
+    costume_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    costume_source_fact: CLEAN_CLOTHING_IDENTICAL_TO_OTHER_CHILDREN
+    injury: NONE
+    dialogue_count: 8
+  MANIRE:
+    identity: CHR-MANIRE
+    state: C2_HEAD_NURSE_PRACTICAL_AND_WARM
+    asset_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    numeric_age_hair_uniform_badge_specialty_biography_later_grey_state: UNRESOLVED_DO_NOT_INVENT
+    dialogue_count: 9
+  SOURCE_ROLES:
+    canonical_ids: null
+    roles: [ELDERLY_RESIDENT, DISTRESSED_RESIDENT, EXACTLY_TWO_UNNAMED_ATTENDANTS, ABANDONED_CHILDREN, RECOVERING_ADDICTS, ADULTS_IN_PSYCHIATRIC_CRISIS, PEOPLE_TRANSFERRED_FROM_PRISON, CITIZENS_WHOSE_FAMILIES_NO_LONGER_WANT_RESPONSIBILITY]
+    control: NO_NAMES_EXTRA_COUNTS_DIAGNOSES_CRIMES_BIOGRAPHIES_UNIFORMS_EXTRA_DIALOGUE_OR_LATER_ROLES
+truth_control:
+  anaadhi: SAME_CANONICAL_LIVING_CHILD_AGE_SEVEN_INJURY_NONE_FALSE_SC013_RECORD_UNEXPOSED_AND_UNCORRECTED
+  sandal: ONLY_LOOSE_STRAP_REPAIRED_WITH_FIBRE_FROM_ONE_TRAY_PLANT
+  plant: SOURCE_AUTHORIZED_PHYSICAL_PLANT_NOT_SPOILED_NO_SPECIES_MEDICINAL_POWER_OR_TREATMENT_INVENTION
+  tablets: EXACTLY_ONE_FEVER_TABLET_AND_ONE_VITAMIN_TABLET_PLUS_ONE_SWEET_ALL_UNTAKEN
+  explanation: SILENT_OR_INAUDIBLE_UNAUTHORED_PHYSICAL_BEAT_NO_INVENTED_MEDICAL_FACTS
+  drag: EXACTLY_TWO_ATTENDANTS_DRAG_SHOUTING_DISTRESSED_RESIDENT_WITHOUT_BEATING_INJURY_DEVICE_SEDATION_OR_DIAGNOSIS
+  sarjanya: SPOKEN_REFERENCE_ONLY_NO_PHYSICAL_APPEARANCE_FLASHBACK_JEEP_CUTAWAY_OR_MONTAGE
+props_and_technology:
+  canonical_ids: null
+  props: [MEDICINAL_PLANT_TRAY, PLANT_FIBRE, TORN_SANDAL, FEVER_TABLET, VITAMIN_TABLET, SWEET, PHYSICALLY_OPEN_DOOR]
+  design_status: SOURCE_AUTHORIZED_ROLES_CONTROLLED_UNRESOLVED_DO_NOT_INVENT
+  tablet_rule: NO_NAME_BRAND_STRENGTH_COLOUR_LABEL_DOSE_CAUSE_DIAGNOSIS_PRESCRIPTION_INGESTION_ADMINISTRATION_RESULT_OR_RECORD
+  signage_rule: TG020_AND_TG022_ARE_PACKET_LOCAL_RULES_NOT_DEVICE_IDS
+physical_chronology:
+- SH001 displays only TWO YEARS LATER.
+- SH002-SH008 establish the seven-year-old, exact corridor materials, adaptive-sign strings and restrained source-role population.
+- SH009-SH015 preserve tray, loose sandal strap and plant-fibre repair in exact order.
+- SH016-SH021 preserve the Elderly Resident exchange exactly.
+- SH022-SH035 preserve the resumed walk, Manire’s open-door observation, plant check, exact dialogue and continuous threshold crossing.
+- SH036 establishes Manire’s Consultation Room with the door physically open.
+- SH037-SH040 establish exactly one fever tablet, one vitamin tablet and one sweet.
+- SH041-SH046 preserve the medicine/compulsory exchange with no ingestion.
+- SH047-SH049 preserve silent or inaudible tablet explanation and listening only.
+- SH050-SH053 preserve exactly two attendants, the physical dragging and one creator-recorded warning with literal echo.
+- SH054-SH059 preserve the exact Sarjanya exchange and Manire watching the attendants disappear.
+- SH060 ends exactly on That uncertainty remains with him.
+dialogue:
+- {speaker: ELDERLY_RESIDENT, text: "Are you a doctor?"}
+- {speaker: CHILD_ANAADHI, text: "No."}
+- {speaker: ELDERLY_RESIDENT, text: "A nurse?"}
+- {speaker: CHILD_ANAADHI, text: "No."}
+- {speaker: ELDERLY_RESIDENT, text: "Then why did you help me?"}
+- {speaker: CHILD_ANAADHI, text: "The strap was loose."}
+- {speaker: MANIRE, text: "Anaadhi."}
+- {speaker: MANIRE, text: "That plant is for treatment, not for repairing footwear."}
+- {speaker: CHILD_ANAADHI, text: "Is it spoiled?"}
+- {speaker: MANIRE, text: "No."}
+- {speaker: MANIRE, text: "But ask me next time."}
+- {speaker: CHILD_ANAADHI, text: "He might have fallen before I could ask."}
+- {speaker: MANIRE, text: "Which one is medicine?"}
+- {speaker: MANIRE, text: "Which one is compulsory to take?"}
+- {speaker: CHILD_ANAADHI, text: "I will answer after I know why it is needed."}
+- {speaker: MANIRE, text: "Correct answer."}
+- {speaker: DISTRESSED_RESIDENT, text: "Sarjanya is coming! They will take everyone away!"}
+- {speaker: CHILD_ANAADHI, text: "Who is Sarjanya?"}
+- {speaker: MANIRE, text: "A group that began by helping people."}
+- {speaker: CHILD_ANAADHI, text: "And now?"}
+- {speaker: MANIRE, text: "Now there is no single answer."}
+dialogue_policy:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  count: 21
+  speaker_counts: {MANIRE: 9, CHILD_ANAADHI: 8, ELDERLY_RESIDENT: 3, DISTRESSED_RESIDENT: 1}
+  exact_shot_windows: [SH016, SH017, SH018, SH019, SH020, SH021, SH024, SH026, SH028, SH030, SH031, SH032, SH041, SH043, SH044, SH046, SH052, SH054, SH055, SH057, SH059]
+  warning_echo: ONE_PHYSICAL_CREATOR_RECORDED_LINE_WITH_LITERAL_ECHO_NO_DUPLICATE_DIALOGUE
+  other_dialogue_or_vo: NONE
+readable_text_allowlist:
+- "TWO YEARS LATER"
+- "CHILD WELLNESS WING"
+- "OBSERVATION IS CARE"
+text_control:
+  editorial_super: [TWO YEARS LATER]
+  adaptive_signage: [CHILD WELLNESS WING, OBSERVATION IS CARE]
+  prohibited_visible: [SUPER, KANNADA_GLYPHS, DRUG_LABELS, ROOM_LABELS, RESIDENT_RECORDS, INTERFACE_FIELDS, SC021_TEXT]
+env6:
+  source_ruling: NO_SB_PHYSICAL_ONLY
+  TP: NONE
+  SB: NONE
+  GF: NONE
+  EP: NONE
+  OBS: NONE
+  ANCH: NONE
+  INV6: NONE
+  VAR6: NONE
+  RST: NONE
+  represented_layer: false
+shot_plan:
+  shot_count: 60
+  duration_seconds: 180
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  duration_per_shot_seconds: 3
+  total_frames: 5400
+  crop: NONE
+  baked_letterbox: false
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC020/SC020_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: "00:02:14.293333"
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  bgm: NONE
+  allowed_physical_audio: [DRY_MORNING_CHILD_WING_ROOM_TONE, CONSULTATION_ROOM_TONE, RESTRAINED_FOOTSTEPS_AND_POPULATION_MOVEMENT, TRAY_PLANT_SANDAL_TABLET_SWEET_DOOR_HANDLING, ATTENDANT_AND_RESIDENT_MOVEMENT, EXACT_DISTRESSED_RESIDENT_WARNING_WITH_LITERAL_ECHO, CREATOR_RECORDED_DIALOGUE_ONLY]
+  creator_recorded_windows: 21
+  new_generation: false
+  prohibited_audio: [BGM, TRANSITION_MUSIC, CROWD_DIALOGUE, ATTENDANT_DIALOGUE, SYSTEM_OR_SIGNAGE_VOICE, ADAPTIVE_SIGNAGE_TONE, INTERFACE_BEEP, MEDICAL_MONITOR, MEDICINE_SOUND, REPRESENTED_AUDIO, SC021_AMBIENCE]
+hard_exclusions:
+- NO_SC019_REPLAY_OR_SC021_ASSESSMENT_CHAMBER_AGE_EIGHT_PULSE_BREATH_EYE_MAPPING_FACE_IMAGES_ONE_WAY_GLASS_TABLET_SYSTEM_VOICE_PARVARAN_ANARVAA_OR_ADULT_ANAADHI
+- NO_ENV_PAR014_ENV_PAR016_ROOT_MOB_REF_XFORM_OR_ADDITIONAL_ENVIRONMENT
+- NO_CAMPUS_EXPANSION_TOPOLOGY_ROUTE_VISUAL_ASSET_PROMOTION_CHILD_SCALED_PUNITIVE_PRISON_GLOSSY_SCI_FI_CYBERPUNK_NEON_OR_DECORATIVE_KANNADA_REDESIGN
+- NO_MEDICINE_INGESTION_ADMINISTRATION_TREATMENT_RESULT_DIAGNOSIS_BRAND_LABEL_READING_RECORD_OR_FORCED_MEDICATION
+- NO_REPRESENTED_LAYER_SPECIAL_BEAT_FLASHBACK_VO_EXTRA_DIALOGUE_READABLE_TEXT_OR_CONTINUITY_REDESIGN
+- NO_PRIOR_SCENE_REMOTION_TYPESCRIPT_COMPOSITION_OR_PICTURE_APPROVAL_MODIFICATION
+- NO_IMAGE_GENERATION_VIDEO_RENDER_AUDIO_GENERATION_SUPERCOOL_HEYGEN_OR_PAID_MEDIA_API
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: PERMANENTLY_DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
+  audio_generation: DISABLED
+  execute_now: false
+next: SC021
