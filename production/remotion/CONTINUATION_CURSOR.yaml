@@ -1,8 +1,8 @@
 {
-  "version": 46,
+  "version": 47,
   "project": "ANAADHI",
   "control": "REMOTION_CONTINUATION_CURSOR",
-  "as_of_local": "2026-08-28T08:28:25+05:30",
+  "as_of_local": "2026-08-28T08:49:07+05:30",
   "backend": {
     "github_canonical_control": true,
     "remotion_assembly": true,
@@ -12,24 +12,24 @@
     "paid_media_api_execution_enabled": false
   },
   "visual_preproduction": {
-    "latest_new_schema_materialized": "SC017",
-    "latest_source_scene_materialized": "SC017",
-    "next_scene_to_materialize": "SC018",
-    "next_editorial_segment": "SC018",
+    "latest_new_schema_materialized": "SC018",
+    "latest_source_scene_materialized": "SC018",
+    "next_scene_to_materialize": "SC019",
+    "next_editorial_segment": "SC019",
     "source_continuation_pending": "SC074B",
     "editorial_sequence_manifest": "production/remotion/EDITORIAL_SEQUENCE_LOCK.yaml",
-    "note": "SC017 R001 LOCKED: LOC-003 ST02 / SUB-003-07 with sole NEST ENV-PAR-011 canonically parented to ENV-PAR-001; P2 physical-only NO_SB Emergency Intake; exact seven-string allowlist with NAME PENDING only accepted; continue SC018 only after 'Parvaran steps backward into shadow.'",
+    "note": "SC018 R001 LOCKED: LOC-003 ST02 / SUB-003-08 with sole NEST ENV-PAR-012 canonically parented to ENV-PAR-001; P2 TP015/SB015 naming scene; exact ten-string allowlist; continue SC019 only after 'He looks through the window at the child he has separated from himself.'",
     "materialization_revision": "R001",
-    "package_schema": "ANAADHI_REMOTION_SC017_V17_COMPACT_RESOLVABLE_R2"
+    "package_schema": "ANAADHI_REMOTION_SC018_V18_COMPACT_RESOLVABLE_R2"
   },
   "audio": {
     "mastered_prefix_locked": true,
     "mastered_prefix_end_timecode": "00:02:14.293333",
-    "SC017": {
+    "SC018": {
       "dialogue_policy": "CREATOR_RECORDED_DIALOGUE_ONLY",
-      "picture_planning_duration_seconds": 198,
+      "picture_planning_duration_seconds": 237,
       "exact_audio_timecode_alignment": "PENDING_EXTRACTION",
-      "final_window": "BGM_NONE_WEAKENED_STORM_OUTSIDE_QUIET_PHYSICAL_INTAKE_AND_PARVARAN_SHADOW_ENDPOINT_ONLY",
+      "final_window": "BGM_NONE_RESTRAINED_OFFICE_SINGLE_TP015_PARALLEL_ECHO_AND_FINAL_WINDOW_ENDPOINT_ONLY",
       "new_generation": false
     }
   },
@@ -42,88 +42,87 @@
   },
   "shot_density": {
     "target_minimum_stills_per_minute": 20,
-    "SC017": {
-      "duration_seconds": 198,
-      "shot_count": 66,
+    "SC018": {
+      "duration_seconds": 237,
+      "shot_count": 79,
       "stills_per_minute": 20
     }
   },
   "env6_cursor": {
-    "latest_materialized_segment": "SC017",
-    "source_scene": "SC017",
+    "latest_materialized_segment": "SC018",
+    "source_scene": "SC018",
     "batch": "B06",
-    "wc": "WC013",
-    "wc_signature": "TD2/WX1/EX0/LS1/OC3/OP0/T",
+    "wc": "WC014",
+    "wc_signature": "TD0/WX0/EX0/LS1/OC1/OP0/C+T",
     "root_location": "LOC-003",
     "location_state": "ST02",
     "state_inheritance": "INHERIT_ST01_PLUS_OV-003",
-    "subspace": "SUB-003-07",
+    "subspace": "SUB-003-08",
     "parent_environment": "ENV-PAR-001",
     "paraane_phase": "P2",
     "nested_environments": {
-      "ENV-PAR-011": {
-        "name": "Paraane Rehabilitation Centre — Emergency Intake",
+      "ENV-PAR-012": {
+        "name": "Parvaran’s Paraane Rehab Office",
         "canonical_parent_environment": "ENV-PAR-001",
         "hierarchy": "NEST/P/HF-04",
         "closure": [
-          "AR018",
-          "INV018",
-          "MS018",
-          "KC018",
-          "TG018"
+          "AR019",
+          "INV019",
+          "MS019",
+          "KC019",
+          "TG019"
         ],
-        "pv": "PV053",
+        "pv": "PV058",
         "phase": "P2",
         "operation": "ADD"
       }
     },
-    "topology_rule": "ENV-PAR-011 is the sole SC017 environment; observation glass and dark corridor are local zones, not separate environments",
+    "topology_rule": "ENV-PAR-012 is the sole SC018 environment; AX01 is a view-only child-wing overlook with no traversable connection or ENV-PAR-013/014 reveal",
     "asset_control": {
-      "loc003_st02": "ENV6L-LOC-003-ST02-v001 / METADATA_LOCKED_VISUAL_PENDING",
-      "sub00307": "ENV6J-SUB-003-07-v001 + ENV6L-SUB-003-07-REF-v001 / METADATA_LOCKED_VISUAL_PENDING",
-      "approved_root_master": "PRESERVE_WITHOUT_PIXEL_EXTRAPOLATION_TO_ST02_OR_EMERGENCY_INTAKE"
+      "loc003_st02": "ENV6J-LOC-003-ST02-v001 + ENV6L-LOC-003-ST02-v001 / METADATA_LOCKED_VISUAL_PENDING",
+      "sub00308": "ENV6J-SUB-003-08-v001 + ENV6L-SUB-003-08-REF-v001 / METADATA_LOCKED_VISUAL_PENDING",
+      "approved_root_master": "PRESERVE_WITHOUT_PIXEL_EXTRAPOLATION_TO_ST02_OFFICE_OR_CHILD_WING"
     },
-    "intake_identity": {
-      "class": "COMPACT_CARE_LED_INTAKE_PAVILION",
-      "stretcher_axis": "ONE_UNINTERRUPTED",
-      "staff_service_circulation": "PARALLEL",
-      "threshold": "PROTECTED",
-      "daylight": "CONTROLLED_NORMAL_MORNING_LIGHT",
-      "panels": "TRANSLUCENT_STONE",
-      "dry_interior": true,
-      "storm_outside": "WEAKENED"
+    "office_identity": {
+      "class": "MODEST_ADMINISTRATIVE_RESEARCH_OFFICE",
+      "materials": "BREATHABLE_MINERAL_PLASTER_OXIDE_OR_TERRAZZO_MODEST_ACOUSTIC_INSERT_TIMBER_DESK_DOOR_PAINTED_METAL",
+      "palette": "AGED_CREAM_MUTED_OCHRE_LEAF_GREY",
+      "time": "UNRESOLVED",
+      "weather": "UNRESOLVED",
+      "light": "NORMAL_OFFICE_PRACTICALS"
     },
     "records_and_interface": {
       "canonical_ids": null,
-      "rule_packet": "TG018_NOT_A_DEVICE_ID",
-      "scanner_fields": "IDENTITY_UNKNOWN_FAMILY_HISTORY_UNKNOWN_CLINICAL_HISTORY_NONE_PRIVATE_ONLY",
-      "rejected_names": "MALE_INFANT_FOUR_JUNCTION_BABY_BABY_BABY_TRANSIENT_ONLY",
-      "accepted_state": "NAME_PENDING_ONLY",
-      "canonical_name_created": false
+      "rule_packet": "TG019_NOT_A_DEVICE_ID",
+      "hidden_personal_records": "CLOSED_AND_UNREADABLE",
+      "research_screen": "EXACT_AUTHORISED_COPY_ONLY",
+      "naming_update": "EXACT_THREE_FIELDS_ONLY_AFTER_MANIRE_THIRD_DECLARATIVE_ANAADHI",
+      "legal_parent": "PARAANE_REHABILITATION_AUTHORITY_SOURCE_CONSEQUENCE_ONLY"
     },
     "special_beat": {
-      "ruling": "NO_SB_PHYSICAL_ONLY",
-      "TP": null,
-      "SB": null,
-      "GF": null,
-      "EP": null,
-      "OBS": null,
-      "ANCH": null,
-      "INV6": null,
-      "VAR6": null,
-      "RST": null,
-      "tp014_carryover": false
+      "ruling": "TP015_SB015_CONTROLLED_REPRESENTATION",
+      "TP": "TP015",
+      "SB": "SB015",
+      "GF": "GF02",
+      "recurrence": "3/11",
+      "band": "BAND_B_ORIGIN_AND_PARAANE_CHILDHOOD",
+      "EP": "EP0+EP1+EP4+EP5+EP-U",
+      "OBS": "OBS01",
+      "ANCH": "ANCH09",
+      "INV6": "INV6-09",
+      "VAR6": "VAR6-01+VAR6-04+VAR6-05",
+      "RST": "RST01",
+      "access": "PARVARAN_AND_AUDIENCE_ONLY_MANIRE_AND_PHYSICAL_NEWBORN_EXCLUDED",
+      "restore": "COMPLETE_ZERO_RESIDUE_BEFORE_PHYSICAL_DOCTOR_LINE"
     },
-    "readable_text": "EXACT_SEVEN_STRING_ALLOWLIST; THREE_REJECTED_ENTRIES_TRANSIENT; NAME_PENDING_ONLY_ACCEPTED",
-    "record_truth": "CHILD_PHYSICALLY_HEALTHY_ALIVE_FOUR_HOURS_OLD_AND_UNNAMED; LEGALLY_DEAD_ONLY_IN_PARVARANS_FALSE_SC013_RECORD; TEMPERATURE_IMPROVED_NOT_RETROACTIVE_HYPOTHERMIA; NO_ACTUAL_FEEDING_TRANSFER_SEDATIVE_DIAGNOSIS_OR_UNNECESSARY_MEDICINE",
+    "readable_text": "EXACT_TEN_STRING_ALLOWLIST; FINAL_THREE_NAMING_FIELDS_AFTER_THIRD_DECLARATIVE_MANIRE_ANAADHI; FINAL_SCREEN_SINGLE_STRING",
+    "record_truth": "CHILD_PHYSICALLY_HEALTHY_ALIVE_UNNAMED_UNTIL_EXACT_BEAT; FALSE_SC013_DEATH_RECORD_UNCHANGED; HIDDEN_RECORDS_UNREADABLE; PARAANE_LEGAL_PARENT_CONSEQUENCE_WITHOUT_PROCESS",
     "parvaran": {
       "identity": "CHR-PARVARAN_MASTER_APPROVED",
       "birth_era_state": "CONTROLLED_UNRESOLVED",
-      "wardrobe": "COAT_REMOVED_CONTINUITY",
-      "arrival": "OFFSCREEN_BEFORE_STAFF_CHANGE_NO_ROUTE_VEHICLE_OR_PURSUIT",
-      "position": "LOCAL_ENV_PAR011_DARK_CORRIDOR_BEHIND_OBSERVATION_GLASS",
-      "dialogue": null,
-      "visible_to_manire": false
+      "wardrobe": "COAT_REMOVED_CONTINUITY_WITHOUT_DESIGN_INVENTION",
+      "no_line": "QUIETER_SECOND_LIE",
+      "endpoint": "LOOKS_THROUGH_VIEW_ONLY_WINDOW_AT_CHILD_HE_SEPARATED_FROM_HIMSELF"
     },
     "SC072_lock": {
       "tp": "TP077",
@@ -142,21 +141,21 @@
     }
   },
   "character_cursor": {
-    "SC017": {
-      "manire": "CHR-MANIRE; C1 HEAD NURSE OF THE CHILD AND VULNERABLE-RESIDENT WING; PRACTICAL WARM AND IMPOSSIBLE TO INTIMIDATE THROUGH PAPERWORK; MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED; EXACT 12 LINES; NO NUMERIC AGE BIOGRAPHY UNIFORM BADGE SPECIALTY OR LATER GREY-HAIRED STATE",
-      "newborn": "CHR-ANAADHI/AGE-ANAADHI-NEWBORN; FOUR HOURS OLD; PHYSICALLY HEALTHY ALIVE UNNAMED; DARK WOOL BLANKET PLUS SC015 ADDED SHAWL; PHYSICAL CRY SETTLES AT MANIRE SHOULDER; NO IDENTIFIER DIAGNOSIS OR TREATMENT DEVICE",
-      "parvaran": "CHR-PARVARAN; MASTER IDENTITY APPROVED; C1 BIRTH-ERA STATE CONTROLLED_UNRESOLVED; COAT-REMOVED CONTINUITY; SILENT BEHIND LOCAL OBSERVATION GLASS; ARRIVAL OFFSCREEN; NO ENV-MOB-001",
-      "source_roles": "JUNIOR INTAKE CLERK EXACT 4 LINES + CHILD-WING DOCTOR EXACT 3 LINES + NIGHT TEAM NO DIALOGUE; ALL NULL-ID; NO INVENTED COUNT IDENTITY RANK UNIFORM OR LATER ROLE",
-      "absent": "SEMMAA/KENCHAA/ASANA/SARJANYA_PATROL/PARVARAN_CAR/ADULT_ANAADHI/MANIRE_LATER_STATE/SC018_CHARACTERS",
-      "represented_layer": "NONE"
+    "SC018": {
+      "parvaran": "CHR-PARVARAN; C1 FATHER PARAANE FOUNDER AND SC013 DECEPTION AUTHOR; MASTER IDENTITY APPROVED; BIRTH-ERA STATE CONTROLLED_UNRESOLVED; COAT-REMOVED CONTINUITY WITHOUT COSTUME INVENTION; EXACT 10 LINES; NO IS QUIETER SECOND LIE",
+      "manire": "CHR-MANIRE; SAME C1 HEAD NURSE STATE; MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED; EXACT 15 LINES; NO NUMERIC AGE BIOGRAPHY UNIFORM BADGE SPECIALTY OR LATER GREY-HAIRED STATE",
+      "newborn": "CHR-ANAADHI/AGE-ANAADHI-NEWBORN; PHYSICALLY HEALTHY ALIVE UNNAMED UNTIL EXACT NAMING BEAT; DARK WOOL BLANKET PLUS SC015 ADDED SHAWL; NO IDENTIFIER DEVICE CRY OR DIAGNOSIS; FALSE SC013 RECORD UNCHANGED",
+      "represented": "TP015 ONLY: CHR-JANNE + CHR-SEMMAA + NULL-ID ALTERNATE BOY/OLDER BOY + CHR-ANAADHI ADULT 193CM; CONTROLLED UNRESOLVED AS APPLICABLE; NO PHYSICAL OFFICE OCCUPANCY OR RESIDUE",
+      "absent": "SC017_GATE_INTAKE_STORM_AND_SC019_FIVE_YEAR_CHILD_WING_ACTION; ENV_PAR013_ENV_PAR014; PHYSICAL_JANNE_SEMMAA_ADULT_ANAADHI",
+      "represented_layer": "TP015/SB015_PARVARAN_AND_AUDIENCE_RECEIVE_MANIRE_AND_PHYSICAL_NEWBORN_EXCLUDED_RST01_ZERO_RESIDUE"
     }
   },
   "editorial_lock": {
     "enabled": true,
-    "current_completed_segment": "SC017",
-    "next_editorial_segment": "SC018",
+    "current_completed_segment": "SC018",
+    "next_editorial_segment": "SC019",
     "remaining_materialization_order": [
-      "SC018-SC059",
+      "SC019-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",

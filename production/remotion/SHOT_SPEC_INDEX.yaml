@@ -1,5 +1,5 @@
 {
-  "version": 45,
+  "version": 46,
   "project": "ANAADHI",
   "control": "REMOTION_SHOT_SPEC_INDEX",
   "master_rule": "Existing approved preproduction is inherited; scene/package files are canonical detail; this index is routing/status only.",
@@ -498,6 +498,37 @@
       "exact_end": "Parvaran steps backward into shadow.",
       "image_generation_started": false,
       "render_started": false
+    },
+    "SC018": {
+      "state": "SPEC_READY",
+      "source": "scenes/018/scene.yaml",
+      "shot_package": "production/remotion/shot_specs/SC018/SC018_SHOT_PACKAGE.json",
+      "shot_count": 79,
+      "duration_seconds": 237,
+      "stills_per_minute": 20,
+      "final_editorial_next": "SC019",
+      "finalized": true,
+      "lock_state": "LOCKED",
+      "revision": "R001",
+      "package_schema": "ANAADHI_REMOTION_SC018_V18_COMPACT_RESOLVABLE_R2",
+      "batch": "B06",
+      "environments": "ENV-PAR-012 Parvaran’s Paraane Rehab Office; sole NEST environment row",
+      "canonical_parent_environment": "ENV-PAR-001",
+      "loc": "LOC-003",
+      "location_state": "ST02 / INHERIT_ST01_PLUS_OV-003",
+      "subspace": "SUB-003-08",
+      "wc": "WC014",
+      "pv": "PV058 / P2 / ADD",
+      "env5_closure": "AR019/INV019/MS019/KC019/TG019",
+      "env6_control": "TP015/SB015/GF02/recurrence 3/11/Band B/EP0+EP1+EP4+EP5+EP-U/OBS01/ANCH09/INV6-09/VAR6-01+VAR6-04+VAR6-05/RST01; Parvaran + audience receive; Manire + physical newborn excluded; zero residue",
+      "visual_control": "ENV6J-LOC-003-ST02-v001 / ENV6L-LOC-003-ST02-v001 and ENV6J-SUB-003-08-v001 / ENV6L-SUB-003-08-REF-v001 metadata locked; final visual references pending; HERO-UNIQUE LOC-003 + DRESSING-VARIANT SUB-003-08; KIT-10/11/12; signage owner PARAANE; no asset promotion",
+      "readable_text_control": "exact ten-string allowlist; final three naming fields only after Manire third declarative Anaadhi; final screen single authorised sentence",
+      "character_control": "CHR-PARVARAN master approved but birth-era state controlled-unresolved; CHR-MANIRE missing approved asset; CHR-ANAADHI/AGE-ANAADHI-NEWBORN healthy alive unnamed until exact beat; Janne Semmaa boy older boy and Adult Anaadhi represented only",
+      "record_truth_control": "hidden personal records unreadable; quieter second lie; Paraane Rehabilitation Authority legal-parent consequence without invented process or correction of false SC013 record",
+      "exact_start": "Parvaran’s office overlooks the child wing.",
+      "exact_end": "He looks through the window at the child he has separated from himself.",
+      "image_generation_started": false,
+      "render_started": false
     }
   },
   "unmaterialized": {
@@ -520,7 +551,7 @@
       "SC099B"
     ],
     "remaining_materialization_order": [
-      "SC018-SC059",
+      "SC019-SC059",
       "SC074B",
       "SC075-SC093",
       "SC094A",
@@ -530,14 +561,14 @@
     ]
   },
   "cursor": {
-    "last_materialized_source_scene": "SC017",
-    "last_materialized_editorial_segment": "SC017",
-    "next_scene": "SC018",
-    "next_editorial_segment": "SC018",
+    "last_materialized_source_scene": "SC018",
+    "last_materialized_editorial_segment": "SC018",
+    "next_scene": "SC019",
+    "next_editorial_segment": "SC019",
     "source_continuation_pending": "SC074B",
     "image_generation_gate": "EXTERNAL_OTHER_WORK_PAGE_ONLY_WHEN_SEPARATELY_RUN",
     "audio_generation_gate": "RESUME_AFTER_00_02_14_293333_ONLY",
-    "after_SC017": "SC018"
+    "after_SC018": "SC019"
   },
   "retrospective_finalization": {
     "SC072": {

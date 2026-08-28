@@ -1,0 +1,307 @@
+scene_id: SC018
+status: SPEC_READY
+finalized: true
+lock_state: LOCKED
+revision: R001
+package_schema: ANAADHI_REMOTION_SC018_V18_COMPACT_RESOLVABLE_R2
+source_scene_number: 18
+source_authority: ANAADHI_Scenes_001-100_Approved_Latest_Indian_English_Screenplay.docx
+batch: B06
+headings:
+- "INT. PARAANE REHAB – PARVARAN’S OFFICE – FOUR DAYS LATER"
+source_previous: SC017
+source_next: SC019
+editorial_previous: SC017
+editorial_next: SC019
+source_boundary:
+  previous_exact_end: "Parvaran steps backward into shadow."
+  start: "Parvaran’s office overlooks the child wing."
+  end: "He looks through the window at the child he has separated from himself."
+  next_scene_excluded: SC019
+transition:
+  continuity: FOUR_DAYS_AFTER_SC017_WITHOUT_VISIBLE_TIME_CARD
+  time_of_day: UNRESOLVED
+  weather: UNRESOLVED
+  sc017_storm_carryover: false
+  interior: ENCLOSED_ORDINARILY_MAINTAINED_OFFICE
+  light: NORMAL_OFFICE_PRACTICALS
+  music_bridge: NONE
+environment:
+  loc: LOC-003
+  name: Paraane Campus / Central Complex
+  class: HERO-UNIQUE
+  state: ST02
+  state_inheritance: INHERIT_ST01_PLUS_OV-003
+  story_period: C1
+  paraane_phase: P2
+  wc: WC014
+  wc_signature: TD0/WX0/EX0/LS1/OC1/OP0/C+T
+  time: UNRESOLVED
+  weather: UNRESOLVED
+  light: NORMAL_OFFICE_PRACTICALS
+  kits: [KIT-10, KIT-11, KIT-12]
+  signage_owner: PARAANE
+  subspace:
+    id: SUB-003-08
+    name: Parvaran’s Office
+    parent_loc: LOC-003
+    class: DRESSING-VARIANT
+    state: INHERIT_PARENT
+    kits: [KIT-10, KIT-11, KIT-12]
+  nested_packets:
+  - env: ENV-PAR-012
+    name: Parvaran’s Paraane Rehab Office
+    hierarchy: NEST/P/HF-04
+    canonical_parent_env: ENV-PAR-001
+    closures: [AR019, INV019, MS019, KC019, TG019]
+    wc: WC014
+    pv: PV058
+    phase: P2
+    operation: ADD
+  packet_count: {ROOT: 0, NEST: 1, MOB: 0, REF: 0, XFORM: 0}
+  sole_environment_rule: ENV-PAR-012_ONLY
+  local_zones: [OFFICE_LANDING_THRESHOLD_TO_WORK_ROUTE, AX01_VIEW_ONLY_CHILD_WING_OVERLOOK]
+  overlook_rule: AX01_IS_VIEW_ONLY_WITH_NO_BRIDGE_DOOR_TRAVERSABLE_CONNECTION_OR_PHYSICAL_MERGE
+  prohibited_environment_bindings: [ENV-PAR-003, ENV-PAR-011, ENV-PAR-013, ENV-PAR-014]
+  visual_control:
+    root_st02_prompt: ENV6J-LOC-003-ST02-v001
+    root_st02_lock: ENV6L-LOC-003-ST02-v001
+    root_st02_status: METADATA_LOCKED_VISUAL_PENDING
+    office_prompt: ENV6J-SUB-003-08-v001
+    office_lock: ENV6L-SUB-003-08-REF-v001
+    office_status: METADATA_LOCKED_VISUAL_PENDING
+    approved_root_master: PRESERVE_WITHOUT_EXTRAPOLATING_PIXELS_TO_ST02_OFFICE_OR_CHILD_WING
+  identity:
+  - MODEST_ADMINISTRATIVE_RESEARCH_OFFICE_TIED_TO_CHILD_WING_OVERSIGHT
+  - BREATHABLE_MINERAL_PLASTER
+  - OXIDE_OR_TERRAZZO_FLOOR
+  - MODEST_ACOUSTIC_INSERT
+  - LAWFUL_TIMBER_DESK_AND_DOOR_CONTACT
+  - PAINTED_METAL_SERVICE_CONTACT
+  - AGED_CREAM_MUTED_OCHRE_AND_LEAF_GREY
+  prohibited_identity: HIDDEN_SUITE_LUXURY_OFFICE_LATER_AUTHORITY_SUITE_FOUNDER_CULT_EXPANDED_CAMPUS_OR_ANARVAA_OFFICE
+characters:
+  PARVARAN:
+    identity: CHR-PARVARAN
+    state: SAME_C1_FATHER_PARAANE_FOUNDER_AND_SC013_DECEPTION_AUTHOR
+    master_identity_status: APPROVED
+    birth_era_wardrobe_state: CONTROLLED_UNRESOLVED
+    wardrobe_continuity: COAT_REMOVED_WITHOUT_INVENTED_LAB_COAT_UNIFORM_BADGE_CEREMONIAL_OR_PRESENT_DAY_COSTUME
+    performance: PROFESSIONALLY_DISTANT_UNTIL_SOURCE_REVEALS_EMOTION
+    no_line_truth: QUIETER_SECOND_LIE_NOT_ACTUAL_IGNORANCE
+    dialogue_count: 10
+  MANIRE:
+    identity: CHR-MANIRE
+    state: SAME_C1_HEAD_NURSE_STATE
+    source_quality: PRACTICAL_WARM_AND_IMPOSSIBLE_TO_INTIMIDATE_THROUGH_PAPERWORK
+    asset_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+    numeric_age_biography_uniform_badge_specialty_later_state: UNRESOLVED_DO_NOT_INVENT
+    dialogue_count: 15
+  NEWBORN_ANAADHI:
+    identity: CHR-ANAADHI
+    age_body: AGE-ANAADHI-NEWBORN
+    exact_age: UNRESOLVED_FOUR_DAYS_AFTER_SC017
+    physical_status: HEALTHY_ALIVE
+    in_world_name_initial: NONE
+    name_created_only_at_exact_source_beat: ANAADHI
+    costume: DARK_WOOL_BLANKET_PLUS_SC015_ADDED_SHAWL_CONTINUITY
+    identifier_bracelet_diagnosis_device_crying_treatment: NONE
+    false_record_rule: SC013_DEATH_RECORD_REMAINS_UNCORRECTED_AND_UNEXPOSED
+  REPRESENTED_JANNE:
+    identity: CHR-JANNE
+    state: TP015_REPRESENTED_ONLY_C1_CONTROLLED_UNRESOLVED
+    asset_status: MISSING_APPROVED_ASSET_CONTROLLED_UNRESOLVED
+  REPRESENTED_SEMMAA:
+    identity: CHR-SEMMAA
+    state: TP015_REPRESENTED_ONLY_C1_AGE_COSTUME_HAIR_CONTROLLED_UNRESOLVED
+  REPRESENTED_BOY:
+    canonical_id: null
+    role: TP015_REPRESENTED_ALTERNATE_BOY_TO_OLDER_BOY_SOURCE_ROLE
+    numerical_age_costume_hair_surname_parents_names: UNRESOLVED_OR_UNREADABLE_DO_NOT_INVENT
+  ADULT_ANAADHI:
+    identity: CHR-ANAADHI
+    state: TP015_REPRESENTED_ADULT_ONLY
+    height_cm: 193
+    dialogue_count: 1
+truth_control:
+  child: PHYSICALLY_HEALTHY_ALIVE_AND_UNNAMED_UNTIL_EXACT_NAMING_BEAT
+  legal_parent_consequence: PARAANE_REHABILITATION_AUTHORITY_BECOMES_LEGAL_PARENT_ONLY_AFTER_THIRD_DECLARATIVE_MANIRE_ANAADHI
+  legal_process: SOURCE_CONSEQUENCE_ONLY_NO_ADOPTION_HEARING_SIGNATURE_CERTIFICATE_POLICY_OR_CORRECTION_OF_FALSE_SC013_RECORD
+  hidden_records: PERSONAL_RECORDS_CLOSED_AFTER_MANIRE_FIRST_LINE_AND_ALWAYS_UNREADABLE
+  parvaran_no: QUIETER_SECOND_LIE
+physical_chronology:
+- Parvaran’s office overlooks the child wing through the view-only AX01 window.
+- The modest office and threshold-to-work route are established without materializing the Child Wing.
+- The research screen shows the authorized philosophical diagram and quantum-consciousness model using only allowed text.
+- Parvaran reads the proposition silently.
+- A physical knock occurs.
+- Manire enters carrying the same healthy living newborn.
+- Manire states the administrative problem.
+- Only then Parvaran closes unreadable personal records hidden beneath his research.
+- The exact committee, legal-authority and temporary-care-name exchange occurs.
+- Parvaran’s eyes finally move to the newborn and the newborn looks back.
+- TP015 begins and ends only at its exact boundary.
+- RST01 restores the unchanged physical office, Manire carrying the newborn and Parvaran staring at him with zero represented residue.
+- Manire sees only Parvaran staring and says Doctor?
+- Parvaran looks at the non-duality diagram; Beginning, End and no fixed first point remain silent thought and action.
+- Parvaran says Anaadhi and the exact explanation and skeptical exchange follow.
+- Parvaran waits half a second too long before the quieter second lie, No.
+- Manire says Anaadhi three times in the exact source positions, with the latter two repetitions near the infant’s ear.
+- Only after Manire’s third declarative Anaadhi does the naming system show the three authorized final fields.
+- Paraane Rehabilitation Authority legally becomes the child’s parent without an invented process.
+- Manire carries Anaadhi toward the door and the unnecessary-medication exchange occurs exactly.
+- Manire leaves and Parvaran remains alone.
+- The screen shows only SELF AND OTHER ARE NOT TWO.
+- Parvaran looks through the view-only window at the child he has separated from himself.
+dialogue:
+- {speaker: MANIRE, text: "Doctor, there is an administrative problem."}
+- {speaker: PARVARAN, text: "What is it?"}
+- {speaker: MANIRE, text: "The baby still has no name."}
+- {speaker: PARVARAN, text: "Let the intake committee decide."}
+- {speaker: MANIRE, text: "The committee meets next week."}
+- {speaker: MANIRE, text: "Should he remain 'Name Pending' until then?"}
+- {speaker: PARVARAN, text: "We do not have legal naming authority."}
+- {speaker: MANIRE, text: "We can give him a temporary care name."}
+- {speaker: PARVARAN, text: "You may give him one."}
+- {speaker: MANIRE, text: "I call every baby 'little one.'"}
+- {speaker: MANIRE, text: "There are already six 'little ones' here. Whenever I call one, seven people look at me."}
+- {speaker: ADULT_ANAADHI_PARALLEL_ECHO, text: "The one who gives a name does not necessarily give a life."}
+- {speaker: MANIRE, text: "Doctor?"}
+- {speaker: PARVARAN, text: "Anaadhi."}
+- {speaker: MANIRE, text: "Anaadhi?"}
+- {speaker: PARVARAN, text: "That which existed before the beginning and remains after the end."}
+- {speaker: MANIRE, text: "I asked for a simple name for the baby."}
+- {speaker: PARVARAN, text: "It is simple."}
+- {speaker: MANIRE, text: "Do you know him?"}
+- {speaker: PARVARAN, text: "No."}
+- {speaker: MANIRE, text: "Anaadhi."}
+- {speaker: MANIRE, text: "Anaadhi."}
+- {speaker: MANIRE, text: "Anaadhi."}
+- {speaker: PARVARAN, text: "Manire."}
+- {speaker: PARVARAN, text: "Do not give him unnecessary medication."}
+- {speaker: MANIRE, text: "It should not be given to anyone."}
+dialogue_policy:
+  policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  count: 26
+  physical_count: 25
+  represented_count: 1
+  speaker_counts: {MANIRE: 15, PARVARAN: 10, ADULT_ANAADHI: 1}
+  other_dialogue_or_vo: NONE
+represented_beat:
+  tp: TP015
+  sb: SB015
+  gf: GF02_MULTIPLICITY_CO_LOCATION
+  recurrence: 3/11
+  band: BAND_B_ORIGIN_AND_PARAANE_CHILDHOOD
+  ep: EP0+EP1+EP4+EP5+EP-U
+  obs: OBS01
+  anchor: ANCH09
+  inverse: INV6-09
+  variants: [VAR6-01, VAR6-04, VAR6-05]
+  restore: RST01
+  environment_anchor: ENV-PAR-012
+  pv: PV058/P2
+  exact_start: "The room changes around them. PARALLEL-EARTH FRACTURES:"
+  exact_end: "The vision collapses."
+  receivers: [PARVARAN, AUDIENCE]
+  excluded_from_full_layer: [MANIRE, PHYSICAL_NEWBORN]
+  represented_content:
+  - Parvaran holds the represented child beside Janne.
+  - The represented boy carries Parvaran’s surname without readable surname.
+  - The represented boy has no institutional file.
+  - The represented boy is named by Semmaa.
+  - The represented boy grows old without learning his parents’ names.
+  - A blank identity field extends across an infinite represented wall of unreadable records.
+  - Adult Anaadhi stands beside a represented cradle at canonical 1.93 m scale.
+  - Adult Anaadhi delivers the one exact PARALLEL ECHO line.
+  epistemic_rule: CONTROLLED_REPRESENTATION_NOT_EVENT_FACT_LITERAL_MULTIVERSE_PROPHECY_MEMORY_SCIENCE_OR_ADK7_PROOF
+  physical_anchor_live: true
+  reset: RST01_COMPLETE_ZERO_RESIDUE
+readable_text_allowlist:
+- "ADVAITA"
+- "NON-DUALITY"
+- "SELF / OTHER"
+- "BEGINNING / END"
+- "THAT WHICH HAS NO FIRST POINT"
+- "CANNOT BE CONFINED BY A FINAL POINT"
+- "NAME: ANAADHI"
+- "FAMILY: UNKNOWN"
+- "GUARDIAN: PARAANE REHABILITATION AUTHORITY"
+- "SELF AND OTHER ARE NOT TWO."
+text_control:
+  research_screen_initial: [ADVAITA, NON-DUALITY, "SELF / OTHER", "BEGINNING / END", "THAT WHICH HAS NO FIRST POINT", "CANNOT BE CONFINED BY A FINAL POINT"]
+  naming_system_final: ["NAME: ANAADHI", "FAMILY: UNKNOWN", "GUARDIAN: PARAANE REHABILITATION AUTHORITY"]
+  final_screen: "SELF AND OTHER ARE NOT TWO."
+  prohibited_visible: [NAME_PENDING, LITTLE_ONE, SURNAME, PARENTS_NAMES, HIDDEN_RECORDS, REPRESENTED_RECORD_WALL_COPY, KANNADA_GLYPHS, EQUATIONS, LABELS, CASE_DATA]
+technology_and_records:
+  research_screen_id: null
+  quantum_consciousness_model_id: null
+  hidden_personal_records_id: null
+  naming_system_id: null
+  rule_packet: TG019
+  status: SOURCE_ROLE_ONLY_CONTROLLED_UNRESOLVED
+  proprietary_hardware_ai_biometrics_voice_activation_animation_hologram_diagnostics: NONE
+env6:
+  source_ruling: TP015_SB015_CONTROLLED_REPRESENTED_BEAT_WITH_PHYSICAL_ANCHOR_LIVE
+  TP: TP015
+  SB: SB015
+  GF: GF02
+  recurrence: 3/11
+  EP: EP0+EP1+EP4+EP5+EP-U
+  OBS: OBS01
+  ANCH: ANCH09
+  INV6: INV6-09
+  VAR6: VAR6-01+VAR6-04+VAR6-05
+  RST: RST01
+  represented_layer_access: PARVARAN_AND_AUDIENCE_ONLY
+  reset_rule: COMPLETE_ZERO_RESIDUE_BEFORE_PHYSICAL_DOCTOR_LINE
+shot_plan:
+  shot_count: 79
+  duration_seconds: 237
+  stills_per_minute: 20
+  width: 3840
+  height: 1600
+  aspect: 2.40:1
+  fps: 30
+  frames_per_shot: 90
+  duration_per_shot_seconds: 3
+  total_frames: 7110
+  crop: NONE
+  baked_letterbox: false
+  timing: PROVISIONAL_PENDING_EXACT_CREATOR_RECORDED_DIALOGUE_ALIGNMENT
+  shot_package: production/remotion/shot_specs/SC018/SC018_SHOT_PACKAGE.json
+  image_generation_started: false
+  render_started: false
+audio:
+  mastered_prefix_end_timecode: "00:02:14.293333"
+  dialogue_policy: CREATOR_RECORDED_DIALOGUE_ONLY
+  timing: PROVISIONAL_RELATIVE_WINDOWS_ONLY
+  bgm: NONE
+  allowed_physical_audio: [RESTRAINED_ENCLOSED_OFFICE_ROOM_TONE, PHYSICAL_KNOCK, QUIET_DOOR_FOOTSTEP_AND_CHILD_HANDLING, QUIET_LITERAL_SCREEN_AND_SYSTEM_OPERATION_WITHOUT_TONES]
+  allowed_represented_audio: [ADULT_ANAADHI_SINGLE_CREATOR_RECORDED_PARALLEL_ECHO_ONLY_WITHIN_TP015]
+  new_generation: false
+  prohibited_audio: [BGM, TRANSITION_MUSIC, NEWBORN_CRY, INTERFACE_BEEP, ACCEPTANCE_TONE, SCREEN_VOICE, FRACTURE_SOUND, EXTENDED_ECHO, REPRESENTED_AMBIENCE, ALARM, MEDICAL_SOUND, SC017_STORM_AMBIENCE, SC019_AUDIO]
+hard_exclusions:
+- NO_SC017_REPLAY_OR_SC019_FIVE_YEAR_CHILD_WING_ACTION
+- NO_ENV-PAR-003_ENV-PAR-011_ENV-PAR-013_ENV-PAR-014_OR_ADDITIONAL_ENVIRONMENT
+- NO_PHYSICAL_JANNE_SEMMAA_ALTERNATE_BOY_OLDER_BOY_OR_ADULT_ANAADHI
+- NO_ADDITIONAL_OFFICE_CHILD_WING_ROOM_BRIDGE_DOOR_OR_TRAVERSABLE_CONNECTION
+- NO_TIME_OF_DAY_WEATHER_STORM_RAIN_DAYLIGHT_DIRECTION_OR_VISIBLE_FOUR_DAY_CARD_INVENTION
+- NO_READABLE_TEXT_OUTSIDE_EXACT_TEN_STRING_ALLOWLIST
+- NO_VISIBLE_NAME_PENDING_LITTLE_ONE_SURNAME_PARENTS_NAMES_HIDDEN_RECORDS_RECORD_WALL_COPY_KANNADA_GLYPHS_EQUATIONS_OR_EXTRA_INTERFACE_TEXT
+- NO_LEGAL_PROCEDURE_COMMITTEE_MEETING_ADOPTION_DOCUMENT_MEDICAL_ACTION_DIAGNOSIS_MEDICATION_ADMINISTRATION_OR_NEWBORN_CRY
+- NO_LITERAL_MULTIVERSE_PROPHECY_RECOVERED_MEMORY_QUANTUM_PROOF_ADK7_CAUSATION_OR_SCIENTIFIC_TRUTH
+- NO_REPRESENTED_RESIDUE_REUSABLE_GF02_FILTER_CLONE_SWARM_GLOW_STROBE_FRACTURE_EFFECT_OR_PERSISTENT_TREATMENT
+- NO_VISUAL_PENDING_ASSET_PROMOTION_OR_INVENTED_OFFICE_CHILD_WING_CHARACTER_WARDROBE_SCREEN_MODEL_RECORD_OR_NAMING_SYSTEM_DESIGN
+- NO_MODIFICATION_OF_FINALIZED_SC001_TO_SC017_EXISTING_REMOTION_TYPESCRIPT_COMPOSITION_IDS_TYPECHECK_FIXES_OR_PICTURE_APPROVAL_STATE
+- NO_IMAGE_GENERATION_VIDEO_RENDER_NEW_AUDIO_GENERATION_SUPERCOOL_HEYGEN_OR_PAID_MEDIA_API
+generation:
+  chat_storyboard_generation: EXTERNAL_OTHER_WORK_PAGE_ONLY
+  supercool: PERMANENTLY_DISABLED
+  heygen: DISABLED
+  paid_media_apis: DISABLED
+  image_generation: DISABLED
+  video_render: DISABLED
+  audio_generation: DISABLED
+  execute_now: false
+next: SC019
