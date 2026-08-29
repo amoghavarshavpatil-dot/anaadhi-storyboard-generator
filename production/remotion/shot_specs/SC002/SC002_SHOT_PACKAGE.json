@@ -105,9 +105,9 @@
   "picture_progress": {
     "planned_scene_shots": 18,
     "planned_run_shots": 106,
-    "approved_count": 5,
-    "approved_through": "SC002_SH005",
-    "next_shot": "SC002_SH006",
+    "approved_count": 6,
+    "approved_through": "SC002_SH006",
+    "next_shot": "SC002_SH007",
     "render_started": false
   },
   "shots": [
@@ -196,7 +196,23 @@
       "remotion_static_file": "shots/SC002/SC002_SH005_V001.png",
       "original_title": "SC002_SH005_V001_REVIEW.png"
     },
-    {"shot_id":"SC002_SH006","duration_seconds":3,"purpose":"Anaadhi motor failure","framing":"tight body and arm detail","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Anaadhi attempts to lift head; one arm collapses from sedation; topless heavy-athletic body; shaved rough regrowth.","negative":"heroic standing pose; gore"},
+    {
+    "shot_id": "SC002_SH006",
+    "asset_revision": "V001",
+    "status": "APPROVED_SHOT",
+    "duration_seconds": 3,
+    "purpose": "Anaadhi motor failure",
+    "framing": "tight body and arm detail",
+    "screen_direction": "NEUTRAL",
+    "motion": "STATIC",
+    "prompt": "Anaadhi attempts to lift head; one arm collapses from sedation; topless heavy-athletic body; shaved rough regrowth.",
+    "negative": "heroic standing pose; gore",
+    "source_dimensions": {"width": 3840, "height": 1600},
+    "sha256": "62d0b1ba3cd4fbe61afebb3197aa272fb93fa18900fd69c16b411fb33f2bdd5a",
+    "git_path": "production/remotion/public/shots/SC002/SC002_SH006_V001.png",
+    "remotion_static_file": "shots/SC002/SC002_SH006_V001.png",
+    "original_title": "SC002_SH006_V001_REVIEW.png"
+  },
     {"shot_id":"SC002_SH007","duration_seconds":3,"purpose":"Allied Gangster crosses official line","framing":"medium aisle shot","screen_direction":"LEFT_TO_RIGHT","motion":"PAN_RIGHT","prompt":"Allied Gangster steps through official line carrying iron hook, anger overriding procedure.","negative":"official insignia on gangster; firearm replacing hook"},
     {"shot_id":"SC002_SH008","duration_seconds":3,"purpose":"hook threat held before impact","framing":"low threatening insert","screen_direction":"NEUTRAL","motion":"STATIC","prompt":"Iron hook rises over sedated Anaadhi; threat held before impact; official line behind.","negative":"hook striking body; explicit gore"},
     {"shot_id":"SC002_SH009","duration_seconds":3,"purpose":"Semmaa catches wrist","framing":"tight two-person action","screen_direction":"RIGHT_TO_LEFT","motion":"STATIC","prompt":"Semmaa catches the Gangster's hook wrist mid-air with controlled force.","negative":"Semmaa raging; hook already hitting Anaadhi"},
